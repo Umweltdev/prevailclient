@@ -1,0 +1,14 @@
+:root {
+  --main-bg-color: #a242b1;  /* Main background color */
+  --primary-color: #80ffdb;  /* Primary color */
+  --secondary-color: #aaaaaa;  /* Secondary color */
+  --white-color: #ffffff;  /* white color */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+

@@ -1,0 +1,150 @@
+.sOneContainer {
+  background-image: url(../../../assets/pattern.jpg);
+  /* position: fixed; */
+  background-repeat: no-repeat;
+  height: 50vh; /* You must set a specified height */
+  background-position: center fixed; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-attachment: fixed;
+  background-size: cover; /* Resize the background image to cover the entire container */
+  /* background: linear-gradient(
+    140deg,
+    rgb(40, 221, 167) 0%,
+    #d04d9d 10%,
+    #7d44be 50%,
+    #293680 75%,
+    #0b001d 100%
+  ); */
+  /* opacity: 0.5; */
+}
+
+/* SECTION TWO */
+.sTwoAboutContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sTwoAboutHero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 7vh 0;
+}
+
+.sTwoAboutHeroHeader {
+  color: var(--main-bg-color);
+  cursor: pointer; /* Add this to indicate that the header is clickable */
+}
+
+.sTwoAboutHeroLine {
+  width: 30vw;
+  border: 2px solid var(--main-bg-color);
+  border-radius: 5px;
+  margin: 4vh 0;
+}
+
+.sTwoAboutDropDown {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3vh;
+}
+
+.sTwoAbouDropHeader {
+  font-size: 1.6vw;
+  background-color: var(--main-bg-color);
+  color: white;
+  width: 70vw;
+  text-align: center;
+  padding: 1vh 0;
+  border-radius: 5px 5px 0 0;
+}
+
+.sTwoAboutDropContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.7s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sTwoAboutDropContent.visible {
+  max-height: 20vh;
+  width: 68vw;
+  background-color: #f0e5f1;
+  padding: 1vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  text-align: justify;
+  line-height: 5vh;
+}
+
+/* SECTION THREE */
+.sThreeAboutContainer {
+  margin: 6vh 0 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4vw;
+  background-color: rgb(240, 230, 248);
+}
+
+.sThreeAbouHero {
+  color: var(--main-bg-color);
+  margin: 4vh 0;
+}
+
+.sThreeHeroFAQS {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2vw;
+  justify-content: center;
+  align-items: center;
+}
+
+.sThreeAboutLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.sThreeAbouHeader {
+  background-color: rgb(59, 32, 82);
+  color: white;
+  font-size: 1vw;
+  width: 40vw;
+  padding: 1.4vh;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px 5px 0 0;
+  box-shadow: -5px -4px 13px -7px rgba(0,0,0,0.45);
+}
+
+.sThreeAboutText {
+  width: 37vw;
+  padding: 2vw;
+  font-size: 1vw;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 1px 3px 19px -1px rgba(0, 0, 0, 0.45);
+  -webkit-box-shadow: 1px 3px 19px -1px rgba(0, 0, 0, 0.45);
+  -moz-box-shadow: 1px 3px 19px -1px rgba(0, 0, 0, 0.45);
+  max-height: 0;
+  overflow: hidden;
+  transition: height 0.3s ease;
+  max-height: 40vh;
+}
+
+.sThreeAboutText.visible {
+  max-height: 40vh;
+}
