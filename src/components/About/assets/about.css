@@ -72,6 +72,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: justify;
 }
 
 .sTwoAboutDropContent.visible {
@@ -83,12 +84,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: justify;
 }
 
-p {
+/* p {
   text-align: justify;
   line-height: 5vh;
-}
+} */
 
 /* SECTION THREE */
 .sThreeAboutContainer {
@@ -128,7 +130,7 @@ p {
   display: flex;
   justify-content: space-between;
   border-radius: 5px 5px 0 0;
-  box-shadow: -5px -4px 13px -7px rgba(0,0,0,0.45);
+  box-shadow: -5px -4px 13px -7px rgba(0, 0, 0, 0.45);
 }
 
 .sThreeAboutText {

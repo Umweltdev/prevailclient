@@ -1,0 +1,125 @@
+.sOnePortContainer {
+  background-image: url(../../../assets/pattern.jpg);
+
+  /* position: fixed; */
+  background-repeat: no-repeat;
+  height: 14vh; /* You must set a specified height */
+  background-position: center fixed; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-attachment: fixed;
+  background-size: cover; /* Resize the background image to cover the entire container */
+  /* background: linear-gradient(
+    140deg,
+    rgb(40, 221, 167) 0%,
+    #d04d9d 10%,
+    #7d44be 50%,
+    #293680 75%,
+    #0b001d 100%
+  ); */
+  /* opacity: 0.5; */
+}
+
+
+
+/* Section One */
+.sOnePort {
+  padding-top: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sOnePortHeroText {
+  color: var(--dark-bg-color);
+}
+
+.sOnePortImage {
+  width: 35vw;
+  border-radius: 10px;
+  box-shadow: -2px 4px 23px -2px rgba(0, 0, 0, 0.58);
+  /* position: relative; */
+  margin-right: 30vw;
+  background: rgba(0, 0, 0, 1);
+}
+
+.sOnePortSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5vh 0;
+}
+
+.sOnePortText {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  z-index: 1;
+  position: absolute;
+  margin-left: 40vw;
+  color: var(--veryDark-bg-color);;
+}
+
+/* SECTION TWO */
+.sTwoPortContainer {
+  margin-top: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--light-bg-color);
+  padding: 6vh;
+}
+
+.sTwoPortHero {
+  color: var(--dark-bg-color);
+  margin: 4vh 0;
+}
+
+.sTwoCardCont {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2vw;
+  justify-content: center;
+  align-items: center;
+}
+
+.sTwoPortCard {
+  background-color: var(--dark-bg-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.4vw;
+  margin: 4vh 0;
+  border-radius: 5px;
+  gap: 4vh;
+  transition: 0.5s all ease-in-out;
+  box-shadow: -2px 4px 23px -2px rgba(0, 0, 0, 0.58);
+}
+
+.sTwoPortCard:hover {
+  box-shadow: -2px 4px 23px 12px rgba(0, 0, 0, 0.58);
+  background-color: var(--veryDark-bg-color);
+}
+
+.sTwoPortCardIcons {
+  background-color: white;
+  padding: 0.4vw;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3vh;
+}
+
+.sTwoPortText {
+  color: white;
+  font-size: 1vw;
+  height: 13vh !important;
+  width: 18vw;
+  text-align: center;
+}
