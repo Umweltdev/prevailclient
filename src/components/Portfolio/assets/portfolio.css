@@ -19,8 +19,6 @@
   /* opacity: 0.5; */
 }
 
-
-
 /* Section One */
 .sOnePort {
   padding-top: 20vh;
@@ -57,7 +55,7 @@
   z-index: 1;
   position: absolute;
   margin-left: 40vw;
-  color: var(--veryDark-bg-color);;
+  color: var(--veryDark-bg-color);
 }
 
 /* SECTION TWO */
@@ -122,4 +120,42 @@
   height: 13vh !important;
   width: 18vw;
   text-align: center;
+}
+
+/* SECTION THREE */
+.sThreePortContainer {
+  margin: 6vh 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sThreePortHero {
+  color: var(--veryDark-bg-color);
+  font-size: var(--big-header);
+}
+
+.sThreePortText {
+  margin-top: 4vh;
+  color: var(--veryDark-bg-color);
+  font-size: var(--normal-header);
+}
+
+.sThreePortText2 {
+  margin-top: 4vh;
+  background-color: var(--light-bg-color);
+  color: var(--veryDark-bg-color);
+  font-size: var(--normal-header);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4vw;
+  width: 100%;
+}
+
+.sThreePortTextSmall {
+  text-align: center;
+  width: 50vw;
 }

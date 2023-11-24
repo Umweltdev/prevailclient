@@ -1,11 +1,15 @@
 :root {
-  --veryDark-bg-color: #220127;
-  --dark-bg-color: #4d0a57;
+  --veryDark-bg-color: #220127; /* Very Dark color*/
+  --dark-bg-color: #4d0a57; /* Dark color*/
   --main-bg-color: #a242b1; /* Main background color */
   --light-bg-color: #ebaef5;
   --primary-color: #80ffdb; /* Primary color */
   --secondary-color: #aaaaaa; /* Secondary color */
   --white-color: #ffffff; /* white color */
+  --big-header: 2.5vw;
+  --sub-header: 1.7vw;
+  --normal-text: 1.2vw;
+  --small-text: 0.7vw;
 }
 
 * {

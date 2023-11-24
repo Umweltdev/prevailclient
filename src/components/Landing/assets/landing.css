@@ -342,8 +342,8 @@
 }
 
 .sFourRightImg {
-  width: 30vw;
-  height: 60vh;
+  width: 40vw;
+  height: 70vh;
   object-fit: cover;
   background: linear-gradient(
     to left,
@@ -381,6 +381,24 @@
   width: 30vw;
   border: none;
   border-radius: 5px;
+}
+
+.sFourInputText {
+ padding: 2vh;
+  width: 30vw;
+  height: 20vh;
+  border: none;
+  border-radius: 5px;
+}
+
+.sFourInputBtn {
+  padding: 2vh;
+  width: 32vw;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: var(--normal-text);
+  background-color: var(--dark-bg-color);
 }
 
 /* SECTION FIVE */
