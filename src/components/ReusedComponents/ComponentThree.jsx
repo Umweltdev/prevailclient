@@ -10,7 +10,7 @@ import {
 } from "@mui/icons-material";
 import { useState } from "react";
 
-const Footer = () => {
+const ComponentThree = () => {
   const [isDropDownVisible, setDropDownVisible] = useState(true);
 
   const toggleDropDown = () => {
@@ -87,4 +87,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default ComponentThree;

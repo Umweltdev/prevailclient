@@ -35,13 +35,13 @@
 }
 
 .sTwoAboutHeroHeader {
-  color: var(--main-bg-color);
+  color: var(--main-color);
   cursor: pointer; /* Add this to indicate that the header is clickable */
 }
 
 .sTwoAboutHeroLine {
   width: 30vw;
-  border: 2px solid var(--main-bg-color);
+  border: 2px solid var(--main-color);
   border-radius: 5px;
   margin: 4vh 0;
 }
@@ -56,7 +56,7 @@
 
 .sTwoAbouDropHeader {
   font-size: 1.6vw;
-  background-color: var(--main-bg-color);
+  background-color: var(--main-color);
   color: white;
   width: 70vw;
   text-align: center;
@@ -104,7 +104,7 @@
 }
 
 .sThreeAbouHero {
-  color: var(--main-bg-color);
+  color: var(--main-color);
   margin: 4vh 0;
 }
 

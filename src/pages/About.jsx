@@ -2,7 +2,7 @@
 import SectionOne from "../components/About/SectionOne";
 import SectionThree from "../components/About/SectionThree";
 import SectionTwo from "../components/About/SectionTwo";
-import Footer from "../components/Landing/Footer";
+
 
 
 const About = () => {
@@ -11,7 +11,7 @@ const About = () => {
       <SectionOne/>
       <SectionTwo/>
       <SectionThree/>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 };

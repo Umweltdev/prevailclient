@@ -1,4 +1,4 @@
-import Footer from "../components/Landing/Footer";
+
 import Hero from "../components/Landing/Hero";
 import SectionFive from "../components/Landing/SectionFive";
 import SectionFour from "../components/Landing/SectionFour";
@@ -16,7 +16,7 @@ const Landing = () => {
       <SectionThree />
       <SectionFour />
       <SectionSix />
-      <Footer />
+      {/* <Footer /> */}
       {/* <Follower /> */}
     </div>
   );

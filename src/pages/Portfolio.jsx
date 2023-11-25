@@ -1,4 +1,3 @@
-import Footer from "../components/Landing/Footer";
 import SectionOne from "../components/Portfolio/SectionOne";
 import SectionTwo from "../components/Portfolio/SectionTwo";
 import SectionThree from "../components/Portfolio/SectionThree";
@@ -13,7 +12,7 @@ const Portfolio = () => {
       <SectionThree />
       <SectionFour />
       <SectionFive />
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 };
