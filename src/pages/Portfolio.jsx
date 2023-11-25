@@ -3,6 +3,7 @@ import SectionTwo from "../components/Portfolio/SectionTwo";
 import SectionThree from "../components/Portfolio/SectionThree";
 import SectionFour from "../components/Portfolio/SectionFour";
 import SectionFive from "../components/Portfolio/SectionFive";
+import Footer from "../components/Footer/Footer"
 
 const Portfolio = () => {
   return (
@@ -12,7 +13,7 @@ const Portfolio = () => {
       <SectionThree />
       <SectionFour />
       <SectionFive />
-      {/* <Footer/> */}
+      <Footer/>
     </div>
   );
 };

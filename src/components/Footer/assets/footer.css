@@ -1,0 +1,57 @@
+.footer {
+  display: flex;
+  background-color: var(--dark-color);
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  padding: 4vh 0;
+}
+
+.footerMission {
+  width: 30vw;
+  text-align: left;
+  font-size: var(--normal-text);
+  line-height: 5vh;
+  font-weight: bolder;
+}
+
+.footerLogo {
+  color: white;
+  text-decoration: none;
+  font-size: 2vw;
+  font-weight: bolder;
+  letter-spacing: 1.4vw;
+  border: 1px solid var(--light-color);
+  padding: 1vw;
+}
+
+.footerServices {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  text-align: right;
+  gap: 2vh;
+  font-weight: bold;
+  color: var(--vlight-color);
+  transition: 1s ease-in-out;
+}
+
+.footerServicesLine {
+  border: 1px solid var(--light-color);
+  width: 25vw;
+}
+
+.servicesItems:hover {
+  padding-right: 2vw;
+  transition: 0.5s all ease-in-out;
+}
+
+.footerCopyRight {
+    color: white;
+    padding: 3vh 0;
+    background-color: var(--veryDark-color);
+}
+
+.footerCopyRightItem {
+    text-align: center;
+}

@@ -1,3 +1,4 @@
+import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import "./assets/blog.css";
 import { BlogCategory, blogBlurbs } from "./assets/blogData";
@@ -11,19 +12,16 @@ const SectionOne = () => {
         <div className="sOneBlogBlurbs">
           {blogBlurbs.map((data, index) => (
             <div key={index} className="sOneBlogCard">
-              <img
-                className="sOneBlogCardImg"
-                src={data.img}
-                alt=""
-              />
+              <img className="sOneBlogCardImg" src={data.img} alt="" />
               <span className="sOneBlogCardHeader">{data.category}</span>
-              <h1 className="sOneBlogCardText">
-                {data.header}
-              </h1>
+              <h1 className="sOneBlogCardText">{data.header}</h1>
               <div className="sOneBlogCardSub">
                 <p className="sOneBlogCardDate">{data.date}</p>
                 <p className="sOneBlogCardAuthor">
-                  by <span className="sOneBlogCardAuthorSpan">{data.authorFirstName}</span>
+                  by{" "}
+                  <span className="sOneBlogCardAuthorSpan">
+                    {data.authorFirstName}
+                  </span>
                 </p>
                 <button className="sOneBlogCardBtn">Read More</button>
               </div>
@@ -49,6 +47,7 @@ const SectionOne = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

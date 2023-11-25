@@ -1,4 +1,4 @@
-
+import Footer from "../components/Footer/Footer.jsx"
 import SectionOne from "../components/About/SectionOne";
 import SectionThree from "../components/About/SectionThree";
 import SectionTwo from "../components/About/SectionTwo";
@@ -11,7 +11,7 @@ const About = () => {
       <SectionOne/>
       <SectionTwo/>
       <SectionThree/>
-      {/* <Footer/> */}
+      <Footer/>
     </div>
   );
 };

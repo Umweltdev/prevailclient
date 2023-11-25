@@ -550,8 +550,8 @@
   width: 40vw;
   font-weight: bolder;
 }
-
-/* FOOTER */
+/* 
+FOOTER
 .footerSideNavs {
   display: flex;
   flex-direction: row;
@@ -592,9 +592,9 @@
   display: flex;
   flex-direction: row;
   /* padding: 5vh 4vw; */
-  gap: 8vw;
-}
-
+  /* gap: 8vw;
+} */
+/* 
 .footerNavItemsLine {
   border: 1px solid #7e7a7a;
   width: 60vw;
@@ -615,4 +615,4 @@
   color: #333;
   gap: 1vw;
   font-size: 1.6vw;
-}
+}  */
