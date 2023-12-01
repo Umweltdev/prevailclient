@@ -1,0 +1,200 @@
+.container {
+  /* background: linear-gradient(
+    140deg,
+    rgb(40, 221, 167) 0%,
+    #d04d9d 10%,
+    #7d44be 50%,
+    #293680 75%,
+    #0b001d 100%
+  ); */
+  background-image: url(../../../assets/pattern.jpg);
+  background-size: cover;
+  height: 100vh;
+  clip-path: polygon(0px 0px, 100% 0px, 100% 70%, 0px 100%);
+  color: white;
+
+  /* margin: auto; */
+}
+
+.hero {
+  margin-left: 14vw;
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+.hero-one {
+  padding-top: 35vh;
+  font-size: 1.5vw;
+  font-weight: 100;
+}
+
+.hero-two {
+  font-size: 4vw;
+  width: 60vw;
+}
+
+.hero-three {
+  font-size: 1vw;
+}
+
+/* SECTION2 */
+.sTwoContactContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sTwoContact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 4vw;
+  width: 60vw;
+  text-align: center;
+}
+
+.sTwoContactHeader {
+  text-align: center;
+  color: var(--dark-color);
+}
+
+.sTwoContactParagraph {
+  line-height: 4vh;
+  color: var(--veryDark-color);
+  margin-top: 4vh;
+}
+/* SECTION THREE */
+
+.sThreeContactContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4vh 0;
+  /* width: 70vw; */
+}
+
+.sThreeContactTopInputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2vh 1vw;
+  width: 70vw;
+  justify-content: center;
+  align-items: center;
+}
+
+.sThreeContactTopInput {
+  width: 25vw;
+  height: 4vh;
+  border: 1px solid var(--dark-color);
+  padding: 1vw;
+  border-radius: 5px;
+}
+
+input::placeholder {
+  color: var(--dark-color);
+}
+
+input:focus {
+  border-color: transparent; /* or any other desired color or 'transparent' */
+}
+
+.sThreeContactMidInputs {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2vh 0;
+  width: 70vw;
+  justify-content: center;
+  align-items: center;
+}
+
+.sThreeContactMidInput {
+  width: 52.99vw;
+  height: 4vh;
+  border: 1px solid var(--dark-color);
+  padding: 1vw;
+  border-radius: 5px;
+}
+
+.sThreeContactSelectInput {
+  display: flex;
+  gap: 2vw;
+}
+
+.custom-select {
+  /* position: relative; */
+  top: 0;
+  width: 200px;
+  /* background-color: #f2f2f2;  */
+}
+
+.custom-select select {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  /* appearance: none; */
+  background-color: inherit;
+}
+
+.custom-select select:focus {
+  outline: none;
+  border-color: #007bff;
+} 
+
+.custom-select::after {
+  content: "\25BC";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.custom-select select option {
+  padding: 8px;
+}
+
+.sThreeContactSelectors {
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  gap: 2vw;
+}
+
+.each-input {
+  display: flex;
+  flex-direction: row;
+  gap: 1vw;
+}
+
+.sThreeContactMultiSelectors {
+  display: flex;
+  flex-direction: column;
+}
+
+.sThreeContactMultiSelect {
+  display: flex;
+  flex-direction: column;
+}
+
+.sThreeContactSubmit {
+  margin-top: 4vh;
+  color: var(--light-color);
+  background-color: var(--veryDark-color);
+  padding: 2vh 4vw;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2vw;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.sThreeContactMultiSelectors p {
+  margin-bottom: 2vh;
+  font-weight: bold;
+  color: var(--dark-color);
+}

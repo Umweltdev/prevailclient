@@ -8,8 +8,8 @@
     #0b001d 100%
   ); */
   background-image: url(../../../assets/pattern.jpg);
-   background-size: cover;
-  height: 100vh;
+  background-size: cover;
+  height: 50vh;
   clip-path: polygon(0px 0px, 100% 0px, 100% 70%, 0px 100%);
   color: white;
 
@@ -36,6 +36,32 @@
 
 .hero-three {
   font-size: 1vw;
+}
+
+/* Mobile breakpoint */
+@media only screen and (max-width: 700px) {
+  .container {
+    height: 50vh; /* Adjust height for mobile screens */
+    clip-path: none; /* Remove clip-path on smaller screens if necessary */
+  }
+
+  .hero {
+    margin-left: 0; /* Reset margin for smaller screens */
+  }
+
+  .hero-one {
+    padding-top: 15vh; /* Adjust padding for mobile screens */
+    font-size: 3vw; /* Adjust font size for mobile screens */
+  }
+
+  .hero-two {
+    font-size: 6vw; /* Adjust font size for mobile screens */
+    width: 100%; /* Make the width 100% for mobile screens */
+  }
+
+  .hero-three {
+    font-size: 2vw; /* Adjust font size for mobile screens */
+  }
 }
 
 /* SECTION TWO */
@@ -384,7 +410,7 @@
 }
 
 .sFourInputText {
- padding: 2vh;
+  padding: 2vh;
   width: 30vw;
   height: 20vh;
   border: none;
@@ -592,7 +618,7 @@ FOOTER
   display: flex;
   flex-direction: row;
   /* padding: 5vh 4vw; */
-  /* gap: 8vw;
+/* gap: 8vw;
 } */
 /* 
 .footerNavItemsLine {
