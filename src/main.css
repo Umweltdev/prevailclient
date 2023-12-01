@@ -3,12 +3,14 @@
   --dark-color: #4d0a57; /* Dark color*/
   --main-color: #a242b1; /* Main background color */
   --light-color: #ebaef5;
-   --vlight-color: #fdeeff;
+  --vlight-color: #fdeeff;
   --primary-color: #80ffdb; /* Primary color */
   --secondary-color: #aaaaaa; /* Secondary color */
   --white-color: #ffffff; /* white color */
   --big-header: 2.5vw;
+  --header: 2vw;
   --sub-header: 1.7vw;
+  --normal-header: 1.5vw;
   --normal-text: 1.2vw;
   --small-text: 0.9vw;
 }
