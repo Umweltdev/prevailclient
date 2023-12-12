@@ -41,8 +41,8 @@ const header = {
     y: 0,
     opacity: 1,
     transition: {
-      delay: 0.8,
-      duration: 0.6,
+      delay: 1.8,
+      duration: 1.6,
       ease: easing,
     },
   },
@@ -53,13 +53,14 @@ const letter = {
   initial: {
     opacity: 0,
     x: -400,
+    transition: { duration: 0.55, ease: easing },
   },
   animate: {
     opacity: 1,
     x: 0,
     transition: {
       delay: 1,
-      duration: 0.6,
+      duration: 2.6,
       ease: easing,
     },
   },
@@ -75,8 +76,8 @@ const letter2 = {
     opacity: 1,
     x: 0,
     transition: {
-      delay: 1.5,
-      duration: 1,
+      delay: 2.5,
+      duration: 2,
       ease: easing,
     },
   },

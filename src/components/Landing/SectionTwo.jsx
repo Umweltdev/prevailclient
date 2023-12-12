@@ -11,7 +11,7 @@ const SectionTwo = () => {
         <h1 className="sTwoHeroText2">Is Complicated.</h1>
         <h1 className="sTwoHeroText2">That's Why</h1>
         <h1 className="sTwoHeroText1">We're Here</h1>
-        <div>
+        <div className="sTwoBottomText">
           <p className="sTwoHero1">
             A Dedicated Marketing Team built for{" "}
             <span className="sTwoHero1span">Bussiness-Growth</span>
@@ -29,6 +29,8 @@ const SectionTwo = () => {
           </div>
         </div>
       </div>
+
+
       <div className="sTwoInfographs">
         <div className="sTwoInfographs1">
           <button className="sTwoRightBtn1">Marketing1</button>

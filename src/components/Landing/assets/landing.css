@@ -7,7 +7,7 @@
     #293680 75%,
     #0b001d 100%
   ); */
-  background-image: url(../../../assets/pattern.jpg);
+  background-image: url(assets/pattern.jpg);
   background-size: cover;
   height: 50vh;
   clip-path: polygon(0px 0px, 100% 0px, 100% 70%, 0px 100%);
@@ -41,26 +41,32 @@
 /* Mobile breakpoint */
 @media only screen and (max-width: 700px) {
   .container {
-    height: 50vh; /* Adjust height for mobile screens */
-    clip-path: none; /* Remove clip-path on smaller screens if necessary */
+    background-image: url(/assets/patternMobile.png);
+    background-size: cover;
+    height: 50%;
+    clip-path: polygon(0px 0px, 100% 0px, 100% 70%, 0px 100%);
+    color: white;
+    /* display: none; */
   }
 
   .hero {
-    margin-left: 0; /* Reset margin for smaller screens */
+    margin-left: 0;
+    font-size: 20vw;
+    /* margin-top: 20vh;  */
   }
 
   .hero-one {
-    padding-top: 45vh; /* Adjust padding for mobile screens */
-    font-size: 3vw; /* Adjust font size for mobile screens */
+    padding-top: 45vh;
+    font-size: 3vw;
   }
 
   .hero-two {
-    font-size: 6vw; /* Adjust font size for mobile screens */
-    width: 100%; /* Make the width 100% for mobile screens */
+    font-size: 6vw;
+    width: 100%;
   }
 
   .hero-three {
-    font-size: 2vw; /* Adjust font size for mobile screens */
+    font-size: 2vw;
   }
 }
 
@@ -300,8 +306,108 @@
   transition: 1s ease-in-out;
 }
 
-/* SECTION 3 */
+/* SECTION TWO MOBILE */
+@media only screen and (max-width: 700px) {
+  .sTwoContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 1vw;
+    justify-content: center;
+    gap: 1vw;
+    margin-top: 5vh;
+    overflow-x: hidden;
+  }
 
+  .sTwoHero {
+    width: 95vw;
+    margin-left: unset;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sTwoHeroText1 {
+    font-size: 6vw;
+    color: var(--main-color);
+  }
+
+  .sTwoHeroText2 {
+    font-size: 3vw;
+    color: var(--secondary-color);
+  }
+
+  .sTwoHero1 {
+    font-size: 4vw;
+    color: var(--secondary-color);
+    width: 95vw;
+    margin-bottom: 2vh;
+    line-height: unset;
+    text-align: center;
+  }
+
+  .sTwoHero1span {
+    color: var(--main-color);
+    background: var(--primary-color);
+    padding: 0.5vw;
+    border-radius: 15px;
+  }
+
+  .sTwoHero2 {
+    width: 95vw;
+    line-height: 3vh;
+    text-align: center;
+    margin-bottom: 1vh;
+    margin-right: unset;
+  }
+
+  .sTwoRightBtn {
+    display: flex;
+    gap: 1vw;
+    justify-content: center;
+    align-items: center;
+    margin: 4vh 0;
+  }
+
+  .sTwoLeftBtn1 {
+    color: white;
+    background: linear-gradient(
+      to right,
+      #000000 0%,
+      #0b001d 20%,
+      #1b073b 40%,
+      #6930c3 100%
+    );
+    padding: 3vw 4vw;
+    border: none;
+    border-radius: 25vw;
+    width: 40vw;
+  }
+
+  .sTwoLeftBtn2 {
+    color: white;
+    background: linear-gradient(
+      to right,
+      #6930c3 0%,
+      #310874 20%,
+      #1b073b 40%,
+      #0b001d 80%,
+      #000000 100%
+    );
+    padding: 3vw 4vw;
+    border: none;
+    border-radius: 25vw;
+    width: 40vw;
+  }
+
+  /* ****** */
+
+  .sTwoInfographs {
+    display: none;
+  }
+}
+
+/* SECTION 3 */
 .sThreeContainer {
   background: linear-gradient(to left, var(--primary-color) 40%, #6930c3 100%);
   padding: 3vw 0;
@@ -538,6 +644,123 @@
 .sFiveCard:hover .sFiveBtn {
   transform: translateY(0px);
   opacity: 1;
+}
+
+
+@media only screen and (max-width: 700px) {
+  .sFiveContainer {
+    background-color: var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4vh 4vw;
+    margin: auto;
+  }
+
+  .sFiveHero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sFiveHeroHr {
+    width: 20vw;
+    border: 2px solid #210155;
+    text-align: center;
+    margin: 6vh 0;
+  }
+
+  .sFiveHeroText {
+    color: var(--white-color);
+    font-size: 1.8vw;
+    margin-top: 4vh;
+  }
+
+  .sFiveHeroTextSpan {
+    color: #210155;
+  }
+
+  .sFiveCard {
+    background-color: var(--white-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: cente;
+    align-items: center;
+    padding: 2vw;
+    border-radius: 15px;
+    height: 33vh;
+    width: 90vw;
+    transition: 0.5s ease-in-out;
+    box-shadow: 0 7px 15px 0 rgba(0, 0, 0, 0.13),
+      0 1px 4px 0 rgba(0, 0, 0, 0.11);
+  }
+  .sFiveCard:hover {
+    box-shadow: 0 26px 58px 0 rgba(0, 0, 0, 0.22),
+      0 5px 14px 0 rgba(0, 0, 0, 0.18);
+  }
+
+  .sFiveIcon {
+    width: 15.3vw;
+    object-fit: cover;
+  }
+
+  .sFiveCardContainer {
+    margin: 4vh 0;
+    display: flex;
+    flex-wrap: unset;
+    flex-direction: column;
+    gap: 2vw;
+    /* margin: auto; */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sFiveCardHero {
+    font-size: 4.3vw;
+    color: #210155;
+    margin-top: 2vh;
+  }
+
+  .sFiveText {
+    margin-top: 2vh;
+    width: 80vw;
+    text-align: center;
+    color: #333;
+    font-size: 4vw;
+  }
+
+  .sFiveBtn {
+    list-style: none;
+    margin: 0 10px;
+    transform: translateY(40px);
+    opacity: 0;
+    padding: 0.7vw;
+    color: white;
+    background-color: var(--main-color);
+    transition: 0.8s ease-in-out;
+    border: none;
+    border-radius: 5px;
+    margin-top: 2vh;
+  }
+
+  .sFiveBtn :hover {
+    background: linear-gradient(
+      to right,
+      #6930c3 0%,
+      #310874 20%,
+      #1b073b 40%,
+      #0b001d 80%,
+      #000000 100%
+    );
+    transition: 1s ease-in-out;
+  }
+
+  .sFiveCard:hover .sFiveBtn {
+    transform: translateY(0px);
+    opacity: 1;
+  }
 }
 
 /* SECTION FIVE */
