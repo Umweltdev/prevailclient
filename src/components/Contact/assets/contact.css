@@ -57,12 +57,12 @@
 
 .sTwoContactHeader {
   text-align: center;
-  color: var(--dark-color);
+  color: var(--first-color);
 }
 
 .sTwoContactParagraph {
   line-height: 4vh;
-  color: var(--veryDark-color);
+  color: var(--third-color);
   margin-top: 4vh;
 }
 /* SECTION THREE */
@@ -88,13 +88,13 @@
 .sThreeContactTopInput {
   width: 25vw;
   height: 4vh;
-  border: 1px solid var(--dark-color);
+  border: 1px solid var(--first-color);
   padding: 1vw;
   border-radius: 5px;
 }
 
 input::placeholder {
-  color: var(--dark-color);
+  color: var(--first-color);
 }
 
 input:focus {
@@ -113,7 +113,7 @@ input:focus {
 .sThreeContactMidInput {
   width: 52.99vw;
   height: 4vh;
-  border: 1px solid var(--dark-color);
+  border: 1px solid var(--first-color);
   padding: 1vw;
   border-radius: 5px;
 }
@@ -184,17 +184,18 @@ input:focus {
 
 .sThreeContactSubmit {
   margin-top: 4vh;
-  color: var(--light-color);
-  background-color: var(--veryDark-color);
+  color: white;
+  background-color: var(--first-color);
   padding: 2vh 4vw;
   border: none;
   border-radius: 5px;
   font-size: 1.2vw;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
 }
 
 .sThreeContactMultiSelectors p {
   margin-bottom: 2vh;
   font-weight: bold;
-  color: var(--dark-color);
+  color: var(--first-color);
 }

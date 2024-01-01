@@ -12,7 +12,7 @@ export const ServiceItem = [
     icone: (
       <DisplaySettings
         sx={{
-          color: "#a242b1",
+          color: "#0076ff",
           fontSize: "3vw",
         }}
       />
@@ -23,7 +23,7 @@ export const ServiceItem = [
     icone: (
       <Devices
         sx={{
-          color: "#a242b1",
+          color: "#0076ff",
           fontSize: "3vw",
         }}
       />
@@ -34,7 +34,7 @@ export const ServiceItem = [
     icone: (
       <SettingsBrightness
         sx={{
-          color: "#a242b1",
+          color: "#0076ff",
           fontSize: "3vw",
         }}
       />
@@ -45,7 +45,7 @@ export const ServiceItem = [
     icone: (
       <ImportantDevices
         sx={{
-          color: "#a242b1",
+          color: "#0076ff",
           fontSize: "3vw",
         }}
       />

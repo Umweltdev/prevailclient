@@ -37,7 +37,7 @@
 }
 
 .footerServicesLine {
-  border: 1px solid var(--light-color);
+  border: 1px solid white;
   width: 25vw;
 }
 
@@ -49,7 +49,7 @@
 .footerCopyRight {
     color: white;
     padding: 3vh 0;
-    background-color: var(--second-color);
+    background-color: var(--fourth-color);
 }
 
 .footerCopyRightItem {
