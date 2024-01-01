@@ -50,8 +50,7 @@ const SectionFive = () => {
     <div className="sFiveContainer">
       <div className="sFiveHero">
         <h1 className="sFiveHeroText">
-          We Offer A Blend Of{" "}
-          <span className="sFiveHeroTextSpan">Creative Solutions</span>
+          We Offer A Blend Of Creative Solutions
         </h1>
         <div className="sFiveHeroHr"></div>
       </div>

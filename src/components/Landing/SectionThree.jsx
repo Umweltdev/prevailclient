@@ -1,7 +1,16 @@
 import React, { useState } from "react";
-import { Add, BlurCircular, Remove, AddTask, GroupWork, GroupWorkOutlined, Groups, Gavel, Insights} from "@mui/icons-material";
+import {
+  Add,
+  BlurCircular,
+  Remove,
+  AddTask,
+  GroupWork,
+  GroupWorkOutlined,
+  Groups,
+  Gavel,
+  Insights,
+} from "@mui/icons-material";
 import "./assets/landing.css";
-
 
 const goalsObj = [
   {
@@ -29,7 +38,7 @@ const goalsObj = [
               adipisci minus officia impedit? Odit, adipisci dolores.`,
   },
   {
-    icon: <Insights/>,
+    icon: <Insights />,
     mainText: "Performance",
     subText: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum,
               consequatur voluptates possimus quo voluptate, exercitationem aut,
@@ -56,12 +65,14 @@ const SectionThree = () => {
         {goalsObj.map((data, index) => (
           <div key={index} className="sThreeDropContainer">
             <div className="sThreeDropDown">
-              <h1 className="sThreeDropMainText">{data.icon} {data.mainText}</h1>
+              <h1 className="sThreeDropMainText">
+                {data.icon} {data.mainText}
+              </h1>
               <button onClick={() => handleAddButtonClick(index)}>
                 {isDescriptionVisible[index] ? (
-                  <Remove style={{ color: "#1b073b", border: "none" }} />
+                  <Remove sx={{ fontSize: 24, color: "red" }} />
                 ) : (
-                  <Add />
+                  <Add style={{ fontSize: 24, color: "#333", border: "none" }} />
                 )}
               </button>
             </div>

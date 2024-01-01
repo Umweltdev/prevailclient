@@ -16,20 +16,10 @@ const SectionOne = () => {
           />
 
           <div className="sOnePortText">
-            <h1>
-              <span style={{ color: "white" }}>Cu</span>stomer-Centric Approach
-            </h1>
-            <h1>
-              <span style={{ color: "white" }}>Inn</span>ovation and Creativity
-            </h1>
-            <h1>
-              <span style={{ color: "white" }}>Bu</span>ilding Brand Authority
-            </h1>
-            <h1>
-              {" "}
-              <span style={{ color: "white" }}>So</span>cial Impact through
-              Digital <span style={{ color: "white" }}>Ou</span>treach
-            </h1>
+            <h1>Customer-Centric Approach</h1>
+            <h1>Innovation and Creativity</h1>
+            <h1>Building Brand Authority</h1>
+            <h1> Social Impact through Digital Outreach</h1>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import "./assets/footer.css";
+import logoImg from "../../assets/pmmlogocol.png";
 
 const Footer = () => {
   return (
@@ -12,7 +13,7 @@ const Footer = () => {
           adipisicing elit. Rerum, autem.
         </p>
 
-        <h1 className="footerLogo">PREVAIL</h1>
+        <img src={logoImg} alt="Our Logo" />
 
         <div className="footerServices">
           <h1>Our Services</h1>

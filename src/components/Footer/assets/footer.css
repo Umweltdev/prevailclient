@@ -1,6 +1,6 @@
 .footer {
   display: flex;
-  background-color: var(--dark-color);
+  background-color: var(--first-color);
   justify-content: space-around;
   align-items: center;
   color: white;
@@ -49,7 +49,7 @@
 .footerCopyRight {
     color: white;
     padding: 3vh 0;
-    background-color: var(--veryDark-color);
+    background-color: var(--second-color);
 }
 
 .footerCopyRightItem {

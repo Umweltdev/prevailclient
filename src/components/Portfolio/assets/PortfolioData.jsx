@@ -3,6 +3,7 @@ import {
   DisplaySettings,
   ImportantDevices,
   Phonelink,
+  SettingsBrightness,
 } from "@mui/icons-material";
 
 export const ServiceItem = [
@@ -31,7 +32,7 @@ export const ServiceItem = [
   {
     header: "Website Maintenance",
     icone: (
-      <Phonelink
+      <SettingsBrightness
         sx={{
           color: "#a242b1",
           fontSize: "3vw",

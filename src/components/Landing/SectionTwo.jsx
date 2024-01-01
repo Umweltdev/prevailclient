@@ -9,8 +9,7 @@ const SectionTwo = () => {
       <div className="sTwoHero">
         <h1 className="sTwoHeroText1">Online Growth</h1>
         <h1 className="sTwoHeroText2">Is Complicated.</h1>
-        <h1 className="sTwoHeroText2">That's Why</h1>
-        <h1 className="sTwoHeroText1">We're Here</h1>
+        <h1 className="sTwoHeroText2">That's Why We're Here</h1>
         <div className="sTwoBottomText">
           <p className="sTwoHero1">
             A Dedicated Marketing Team built for{" "}
@@ -30,12 +29,11 @@ const SectionTwo = () => {
         </div>
       </div>
 
-
       <div className="sTwoInfographs">
         <div className="sTwoInfographs1">
           <button className="sTwoRightBtn1">Marketing1</button>
           <img className="sTwoInfographsImg1" src={oneImg} alt="" />
-          <button className="sTwoRightBtn2">Marketing1</button>
+          <button className="sTwoRightBtn2">Marketing2</button>
         </div>
         <div className="sTwoInfographs2">
           <div>

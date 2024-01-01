@@ -1,12 +1,20 @@
 :root {
-  --veryDark-color: #220127; /* Very Dark color*/
-  --dark-color: #4d0a57; /* Dark color*/
-  --main-color: #a242b1; /* Main background color */
-  --light-color: #ebaef5;
+  --veryDark-color: #31004a; /* Very Dark color*/
+  --dark-color: #33007b; /* Dark color*/
+  --main-color: #4c00a4; /* Main background color */
+  --jt-color: #8300c4;
+  --light-color: #ab00ff;
   --vlight-color: #fdeeff;
   --primary-color: #80ffdb; /* Primary color */
   --secondary-color: #aaaaaa; /* Secondary color */
   --white-color: #ffffff; /* white color */
+
+  --first-color: #0076ff;
+  --second-color: #ab63f3;
+  --third-color: #5e94d3;
+  --fourth-color: #1d78f4;
+  --sixth-color: #000;
+
   --big-header: 2.5vw;
   --header: 2vw;
   --sub-header: 1.7vw;

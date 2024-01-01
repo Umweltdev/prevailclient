@@ -4,6 +4,7 @@ import SectionThree from "../components/Portfolio/SectionThree";
 import SectionFour from "../components/Portfolio/SectionFour";
 import SectionFive from "../components/Portfolio/SectionFive";
 import Footer from "../components/Footer/Footer"
+// import SectionSix from "../components/Portfolio/SectionSix";
 
 const Portfolio = () => {
   return (
@@ -11,6 +12,7 @@ const Portfolio = () => {
       <SectionOne />
       <SectionTwo />
       <SectionThree />
+      {/* <SectionSix/> */}
       <SectionFour />
       <SectionFive />
       <Footer/>
