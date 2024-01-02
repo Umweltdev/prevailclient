@@ -4,6 +4,7 @@ import SectionThree from "../components/Services/SectionThree";
 import SectionTwo from "../components/Services/SectionTwo";
 import Footer from "../components/Footer/Footer";
 import SectionFive from "../components/Services/SectionFive";
+import SectionSix from "../components/Services/SectionSix";
 
 const Services = () => {
   return (
@@ -12,9 +13,9 @@ const Services = () => {
       <SectionTwo />
       <SectionThree />
       <SectionFour/>
-      <SectionFive/>
+      {/* <SectionFive/> */}
+      <SectionSix/>
       <Footer/>
-
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
-import logoImg from "../../assets/pmmlogocol.png"
+import logoImg from "../../assets/pmmlogo.png"
 
 const Navbar = () => {
   const [scrollPosition, setScrollPosition] = useState(0);

@@ -155,7 +155,7 @@
 }
 
 .sFourServiceCardBottomMain {
- padding: 3vh 0;
+  padding: 3vh 0;
   color: var(--vlight-color);
 }
 
@@ -227,7 +227,6 @@
   font-size: 1.5vw;
   padding: 2vh 0;
   color: var(--veryDark-color);
-
 }
 .slider::before {
   left: 0;
@@ -242,4 +241,28 @@
 .slider .slide {
   height: 100px;
   width: 250px;
+}
+
+/* SECTION SIX */
+.sSixServices {
+  padding: 2vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2vw;
+}
+
+.sSixCardContainer {
+  border: 1px solid var(--first-color);
+  height: 20vh;
+  width: 15vw;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sSixCardImg {
+  width: 9vw;
+  object-fit: cover;
 }
