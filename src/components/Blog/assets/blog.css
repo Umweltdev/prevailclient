@@ -54,7 +54,7 @@
 }
 
 .sOneBlogCard:hover {
-  box-shadow: -1px 0px 30px -14px rgba(28,27,100,0.75);
+  box-shadow: -1px 0px 30px -14px rgba(28, 27, 100, 0.75);
 }
 
 .sOneBlogCardImg {
@@ -74,7 +74,7 @@
   margin: 2vh;
   font-size: var(--normal-text);
   text-align: justify;
-  text-justify: distribute
+  text-justify: distribute;
 }
 
 .sOneBlogCardSub {
@@ -170,4 +170,67 @@
 
 .oneBlogCatItems:hover {
   padding-left: 3vw;
+}
+
+/* BLOG DETAILS */
+.sOneBlogDetailsContainer {
+  padding-top: 55vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sOneBlogDetailsHeader {
+  justify-content: center;
+  text-align: center;
+  width: 70vw;
+  font-size: 2vw;
+  margin-bottom: 2vh;
+  color: var(--fourth-color);
+}
+
+.sOneBlogDetailsImg {
+  width: 70vw;
+  height: 60vh;
+  object-fit: cover;
+}
+
+.sOneBlogDetailsInfo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 0.31vw;
+  
+}
+
+.sOneBlogDetailsLine {
+  border: 1px solid var(--fourth-color);
+  height: 4vh;
+  width: 1px;
+  background-color: var(--fourth-color);
+}
+
+.sOneBlogDetailsSpan {
+  font-size: 1.5vw;
+  font-weight: bold;
+  color: #333;
+}
+
+.sOneBlogDetailsSocils {
+  color: var(--fourth-color);
+  display: flex;
+  gap: 2vw;
+  padding: 3vh 0;
+}
+
+.sOneBlogDetailsDesc {
+  padding: 3vh 0;
+  /* display: flex;
+  justify-content: center; */
+  text-align: justify;
+  width: 70vw;
+  font-size: 1.3vw;
+  line-height: 4vh;
+
 }
