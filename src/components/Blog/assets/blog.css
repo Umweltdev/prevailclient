@@ -21,7 +21,7 @@
 .sOneBlogHero {
   padding-top: 45vh;
   font-size: var(--big-header);
-  color: var(--dark-color);
+  color: var(--fourth-color);
   margin-left: 6vw;
 }
 
@@ -65,15 +65,16 @@
 }
 
 .sOneBlogCardHeader {
-  color: var(--main-color);
+  color: var(--first-color);
   margin: 2vh;
 }
 
 .sOneBlogCardText {
-  color: var(--veryDark-color);
+  color: var(--fourth-color);
   margin: 2vh;
   font-size: var(--normal-text);
   text-align: justify;
+  text-justify: distribute
 }
 
 .sOneBlogCardSub {
@@ -91,13 +92,13 @@
 
 .sOneBlogCardAuthor {
   font-size: var(--normal-text);
-  color: var(--main-color);
+  color: var(--first-color);
   font-style: italic;
 }
 
 .sOneBlogCardBtn {
   color: white;
-  background-color: var(--dark-color);
+  background-color: var(--fourth-color);
   width: 8vw;
   border: none;
   padding: 0.5vw;
@@ -113,7 +114,7 @@
 }
 
 .oneBlogInputContainer {
-  background-color: var(--dark-color);
+  background-color: var(--fourth-color);
   height: 20vh;
   width: 27vw;
   border-radius: 10px;
@@ -133,7 +134,7 @@
 }
 
 .oneBlogCatContainer {
-  background-color: var(--dark-color);
+  background-color: var(--fourth-color);
   /* height: 20vh; */
   width: 27vw;
   border-radius: 10px;

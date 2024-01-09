@@ -12,10 +12,10 @@ const Services = () => {
       <SectionOne />
       <SectionTwo />
       <SectionThree />
-      <SectionFour/>
+      <SectionFour />
       {/* <SectionFive/> */}
-      <SectionSix/>
-      <Footer/>
+      <SectionSix />
+      <Footer />
     </div>
   );
 };
