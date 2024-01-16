@@ -1,19 +1,9 @@
 .container {
-  /* background: linear-gradient(
-    140deg,
-    rgb(40, 221, 167) 0%,
-    #d04d9d 10%,
-    #7d44be 50%,
-    #293680 75%,
-    #0b001d 100%
-  ); */
-  background-image: url(assets/pattern.jpg);
-  background-size: cover;
+  background: var(--first-color);
+  background-image: url(assets/bgblue.jpg);
   height: 50vh;
   clip-path: polygon(0px 0px, 100% 0px, 100% 70%, 0px 100%);
   color: white;
-
-  /* margin: auto; */
 }
 
 .hero {
@@ -41,7 +31,7 @@
 /* Mobile breakpoint */
 @media only screen and (max-width: 700px) {
   .container {
-    background-image: url(/assets/patternMobile.png);
+    background-image: url(assets/bgpmm.png);
     background-size: cover;
     height: 50%;
     clip-path: polygon(0px 0px, 100% 0px, 100% 70%, 0px 100%);

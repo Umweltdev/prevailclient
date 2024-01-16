@@ -201,7 +201,6 @@
   justify-content: space-around;
   align-items: center;
   gap: 0.31vw;
-  
 }
 
 .sOneBlogDetailsLine {
@@ -232,5 +231,9 @@
   width: 70vw;
   font-size: 1.3vw;
   line-height: 4vh;
+}
 
+.sOneBlogCardLink {
+  text-decoration: none;
+  
 }

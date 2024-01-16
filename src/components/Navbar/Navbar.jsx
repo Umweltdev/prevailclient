@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
-import logoImg from "../../assets/pmmlogo.png"
+import logoImg from "../../assets/pmmlogo.png";
+import { Menu } from "@mui/icons-material";
 
 const Navbar = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -20,7 +21,7 @@ const Navbar = () => {
 
   // You can adjust the fade-out starting point and end point here
   const fadeOutStart = 50;
-  const fadeOutEnd = 370;
+  const fadeOutEnd = 270;
 
   const calculateOpacity = () => {
     if (scrollPosition > fadeOutStart && scrollPosition < fadeOutEnd) {
@@ -41,7 +42,7 @@ const Navbar = () => {
 
   return (
     <div className="navContainer" style={navbarStyle}>
-      <Link to="/" className="navLogo">
+      <Link to="/">
         <img className="navLogo" src={logoImg} alt="" />
       </Link>
       <ul className="navPages">
@@ -61,6 +62,8 @@ const Navbar = () => {
           Contact
         </Link>
       </ul>
+      {/* Harmburger for mobile view */}
+      <Menu className="mobileMenu" sx={{ fontSize: "5vw" }} />
     </div>
   );
 };

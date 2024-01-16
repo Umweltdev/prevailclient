@@ -1,6 +1,7 @@
 import Navbar from "../Navbar/Navbar";
 import "./assets/landing.css";
 import { motion } from "framer-motion";
+import bgImg from "./assets/bgpmm.png";
 
 let easing = [0.6, -0.05, 0.01, 0.99];
 const transition = { duration: 1, ease: [0.6, 0.01, -0.05, 0.9] };
@@ -28,9 +29,6 @@ const fadeInUp = {
   },
 };
 
-
-
-
 const header = {
   initial: {
     y: -60,
@@ -48,7 +46,6 @@ const header = {
   },
 };
 
-
 const letter = {
   initial: {
     opacity: 0,
@@ -65,7 +62,6 @@ const letter = {
     },
   },
 };
-
 
 const letter2 = {
   initial: {

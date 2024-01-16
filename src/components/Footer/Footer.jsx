@@ -15,7 +15,7 @@ const Footer = () => {
 
         <img src={logoImg} alt="Our Logo" />
 
-        <div className="footerServices">
+        {/* <div className="footerServices">
           <h1>Our Services</h1>
           <div className="footerServicesLine"></div>
           <p className="servicesItems">Website services</p>
@@ -23,7 +23,7 @@ const Footer = () => {
           <p className="servicesItems">Content Writing </p>
           <p className="servicesItems">Creative designing </p>
           <p className="servicesItems">Business consulting </p>
-        </div>
+        </div> */}
       </div>
       <div className="footerCopyRight">
         <p className="footerCopyRightItem">
