@@ -14,21 +14,22 @@ const Navbar = () => {
 
     window.addEventListener("scroll", handleScroll);
 
-    return () => {
+    return;
+
+    () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  // You can adjust the fade-out starting point and end point here
-  const fadeOutStart = 50;
-  const fadeOutEnd = 270;
+  // Conditionally apply fade-out logic based on screen size
+  const applyFadeOut = !window.matchMedia("(max-width: 768px)").matches; // Adjust breakpoint as needed
 
   const calculateOpacity = () => {
-    if (scrollPosition > fadeOutStart && scrollPosition < fadeOutEnd) {
-      // Calculate opacity based on scroll position
-      return 1 - (scrollPosition - fadeOutStart) / (fadeOutEnd - fadeOutStart);
-    } else if (scrollPosition >= fadeOutEnd) {
-      // Completely faded out
+    if (scrollPosition > 50 && scrollPosition < 270) {
+      // Calculate opacity based on scroll position for larger screens
+      return 1 - (scrollPosition - 50) / (270 - 50);
+    } else if (scrollPosition >= 270) {
+      // Completely faded out for larger screens
       return 0;
     } else {
       // Fully visible
@@ -37,7 +38,7 @@ const Navbar = () => {
   };
 
   const navbarStyle = {
-    opacity: calculateOpacity(),
+    opacity: applyFadeOut ? calculateOpacity() : 1, // Always fully visible on mobile
   };
 
   return (

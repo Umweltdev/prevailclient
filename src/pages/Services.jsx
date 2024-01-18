@@ -5,10 +5,12 @@ import SectionTwo from "../components/Services/SectionTwo";
 import Footer from "../components/Footer/Footer";
 import SectionFive from "../components/Services/SectionFive";
 import SectionSix from "../components/Services/SectionSix";
+import Navbar from "../components/Navbar/Navbar";
 
 const Services = () => {
   return (
     <div>
+      <Navbar />
       <SectionOne />
       <SectionTwo />
       <SectionThree />

@@ -88,7 +88,6 @@ const Hero = () => {
       className="container"
     >
       <Navbar />
-
       <motion.div
         className="hero"
         initial="initial"
@@ -96,16 +95,16 @@ const Hero = () => {
         variants={stagger}
       >
         <motion.h1 variants={header} className="hero-one">
-          THE FULL-SERVICE
+          Prevail Marketing
         </motion.h1>
         <motion.h1 variants={letter} className="hero-two">
-          PREVAIL DIGITAL
+          HOW CAN WE BE
         </motion.h1>
         <motion.h1 variants={letter2} className="hero-two">
-          MARKETING AGENCY
+          YOUR PARTNER IN SUCCESS?
         </motion.h1>
         <motion.p variants={fadeInUp} className="hero-three">
-          FOR ULTRA-LUXURY BRANDS
+          <button className="heroBtn">Schedule a consultation</button>
         </motion.p>
       </motion.div>
     </motion.div>

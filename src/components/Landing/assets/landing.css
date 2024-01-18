@@ -1,9 +1,9 @@
 .container {
-  background: var(--first-color);
-  background-image: url(assets/bgblue.jpg);
+  background-image: url("https://images.unsplash.com/photo-1552152370-fb05b25ff17d?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") !important;
   height: 50vh;
-  clip-path: polygon(0px 0px, 100% 0px, 100% 70%, 0px 100%);
-  color: white;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .hero {
@@ -26,6 +26,21 @@
 
 .hero-three {
   font-size: 1vw;
+}
+
+.heroBtn {
+  padding: 2vh 3vw;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--first-color);
+  font-size: 1.2vw;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  transition: 1s all ease-in-out;
+}
+
+.heroBtn:hover {
+  background-color: var(--first-color);
 }
 
 /* Mobile breakpoint */

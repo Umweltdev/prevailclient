@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const SectionOne = () => {
   return (
     <div className="sOneBlogContainer">
-      <Navbar />
+      {/* <Navbar /> */}
       <h1 className="sOneBlogHero">Latest News</h1>
       <div className="sOneBlog">
         <div className="sOneBlogBlurbs">

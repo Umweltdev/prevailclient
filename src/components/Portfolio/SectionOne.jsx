@@ -3,7 +3,7 @@ import Navbar from "../Navbar/Navbar";
 const SectionOne = () => {
   return (
     <div className="sOnePortContainer">
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="sOnePort">
         <div className="sOnePortHero">
           <h1 className="sOnePortHeroText">Company Summary</h1>
