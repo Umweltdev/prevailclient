@@ -11,37 +11,24 @@ const cardInfo = [
     icon: branding,
     header: "Branding",
     description:
-      "Craft a unique and memorable image that resonates. Unleash the power of effective branding for lasting impressions and success.",
+      "Our “Brand Identity Package” service is the foundation for creating a lasting impression. We collaborate closely with you to define their unique brand identity, crafting eye-catching logos and compelling marketing collateral.",
   },
   {
     icon: website,
-    header: "Website Design",
-    description:
-      "Unlock the potential of email marketing. Deliver targeted messages that captivate and convert, building lasting relationships with your audience.",
+    header: "Website Development",
+    description: `Prevail's groundbreaking "Website Production & Management" service, is a strategic initiative designed to empower SMEs and local businesses with a robust online presence that not only captivates but also seamlessly engages with their target audience.`,
   },
   {
     icon: announcement,
-    header: "Creative Campaign",
+    header: "Search Engine Marketing",
     description:
-      "Unlock the potential of email marketing. Deliver targeted messages that captivate and convert, building lasting relationships with your audience.",
+      "Our “Search Engine Marketing (SEM)” service is the gateway to getting businesses in front of their ideal target audience. Our SEM service goes beyond the basics, providing a comprehensive approach around targeted advertising, SEO, performance metrics and continuous adjustment & reports.",
   },
   {
     icon: socialmedia,
-    header: "Social Media Management",
+    header: "Marketing Price Displacement API",
     description:
-      "Maximize your brand's impact on social platforms. Our management strategies ensure a strong online presence and meaningful connections with your audience.",
-  },
-  {
-    icon: email,
-    header: "Email Marketing",
-    description:
-      "Unlock the potential of email marketing. Deliver targeted messages that captivate and convert, building lasting relationships with your audience.",
-  },
-  {
-    icon: calls,
-    header: "Lead Generation",
-    description:
-      "Drive success with strategic lead generation. Our solutions connect you with high-quality leads, converting prospects into valuable customers.",
+      "The “Marketing Cost Displacement (MCD)” API is not just a tool; it is a strategic asset. By seamlessly integrating a blend of elastic pricing and yield management. SMEs and local businesses can gain the power of budget allocation in their marketing spend.",
   },
 ];
 
@@ -49,9 +36,7 @@ const SectionFive = () => {
   return (
     <div className="sFiveContainer">
       <div className="sFiveHero">
-        <h1 className="sFiveHeroText">
-          We Offer A Blend Of Creative Solutions
-        </h1>
+        <h1 className="sFiveHeroText">Your Tools for Success</h1>
         <div className="sFiveHeroHr"></div>
       </div>
       <div className="sFiveCardContainer">

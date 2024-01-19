@@ -16,11 +16,13 @@ const SectionTwo = () => {
             <span className="sTwoHero1span">Bussiness-Growth</span>
           </p>
           <p className="sTwoHero2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
-            neque rem reiciendis minima blanditiis exercitationem architecto
-            provident deleniti expedita dolor corporis nulla explicabo vero
-            corrupti totam repellat id voluptatum ipsa est enim, sit facere
-            pariatur libero error? Rem, ducimus ratione?
+            Prevail is a cutting-edge marketing agency specialising in
+            redefining the way businesses navigate the digital landscape. At
+            PMM, we recognise that the modern economy presents unique challenges
+            for local businesses and small-to-medium-sized enterprises (SMEs).
+            That is why “Our Mission” is to empower you with innovative
+            solutions that drive long-term success. PMM is not just a marketing
+            agency; it is a strategic partner for businesses in the digital age.
           </p>
           <div className="sTwoRightBtn">
             <button className="sTwoLeftBtn1">Schedule A Call</button>

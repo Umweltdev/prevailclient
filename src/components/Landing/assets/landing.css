@@ -608,8 +608,8 @@
   align-items: center;
   padding: 2vw;
   border-radius: 15px;
-  height: 37vh;
-  width: 20vw;
+  height: 40vh;
+  width: 30vw;
   transition: 0.5s ease-in-out;
   box-shadow: 0 7px 15px 0 rgba(0, 0, 0, 0.13), 0 1px 4px 0 rgba(0, 0, 0, 0.11);
 }
@@ -641,7 +641,7 @@
 
 .sFiveText {
   margin-top: 2vh;
-  width: 20vw;
+  width: 30vw;
   text-align: center;
   color: #333;
   font-size: 1vw;
