@@ -532,8 +532,11 @@
 
 .sFourText {
   width: 40vw;
-  line-height: 5vh;
-  margin-bottom: 4vh;
+  line-height: 3vh;
+  margin-bottom: 2vh;
+  font-size: 1vw;
+  text-align: justify;
+  text-justify: distribute;
 }
 
 .sFourInputContainer {
@@ -544,22 +547,23 @@
 
 .sFourInput {
   padding: 2vh;
-  width: 30vw;
+  width: 38vw;
   border: none;
   border-radius: 5px;
 }
 
 .sFourInputText {
   padding: 2vh;
-  width: 30vw;
+  width: 38vw;
   height: 20vh;
   border: none;
   border-radius: 5px;
+  color: var(--first-color);
 }
 
 .sFourInputBtn {
   padding: 2vh;
-  width: 32vw;
+  width: 40vw;
   border: none;
   border-radius: 5px;
   color: white;
