@@ -482,8 +482,10 @@
 .sThreeDropText {
   width: 37vw;
   text-align: justify;
+  text-justify: distribute;
   font-size: 1vw;
-  padding: 1vw;
+  /* padding: 1vw; */
+  padding-left: 1vw;
   line-height: 4vh;
   color: var(--first-color);
 }
