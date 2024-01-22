@@ -14,8 +14,8 @@ const Landing = () => {
       <Navbar />
       <Hero />
       <SectionTwo />
-      <SectionFive />
       <SectionThree />
+      <SectionFive />
       <SectionFour />
       <SectionSix />
       <Footer />
