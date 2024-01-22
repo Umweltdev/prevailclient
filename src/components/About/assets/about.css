@@ -21,80 +21,92 @@
 /* SECTION TWO */
 .sTwoAboutContainer {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: top;
+  padding: 20vh 10vw;
+  align-items: flex-start;
+  background-color: var(--third-color);
+  height: 100vh;
+  gap: 1vw;
 }
 
-.sTwoAboutHero {
+.sTwoAboutSideBar {
+  width: 45vw;
+  position: fixed;
+  left: 10vw;
+  top: 20vh;
+}
+
+.sTwoAboutSideList {
+  list-style: none;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 7vh 0;
+  gap: 3vh;
+  padding-top: 10vh;
 }
 
-.sTwoAboutHeroHeader {
-  color: var(--main-color);
-  cursor: pointer; /* Add this to indicate that the header is clickable */
-}
-
-.sTwoAboutHeroLine {
-  width: 30vw;
-  border: 2px solid var(--main-color);
-  border-radius: 5px;
-  margin: 4vh 0;
-}
-
-.sTwoAboutDropDown {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 3vh;
-}
-
-.sTwoAbouDropHeader {
-  font-size: 1.6vw;
-  background-color: var(--main-color);
+.sTwoAboutList {
+  font-size: 2vw;
   color: white;
-  width: 70vw;
-  text-align: center;
-  padding: 1vh 0;
-  border-radius: 5px 5px 0 0;
+  cursor: pointer;
 }
 
-.sTwoAboutDropContent {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.7s ease;
+.sTwoAboutList.active {
+  color: var(--fourth-color); /* Change the background color to your needs */
+}
+
+.sTwoAboutDetail {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: justify;
+  margin-left: 30vw;
 }
 
-.sTwoAboutDropContent.visible {
-  max-height: 20vh;
-  width: 68vw;
-  background-color: #f0e5f1;
-  padding: 1vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: justify;
+.sTwoAboutDetail.active {
+  display: flex !important; /* Show the active section */
 }
 
-/* p {
+.sTwoAboutDetail:not(.active) {
+  display: flex !important; /* Hide inactive sections */
+}
+
+.sTwoAboutHeader {
+  font-size: 4vw;
+  color: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.sTwoAboutText {
+  font-size: 1.3vw;
   text-align: justify;
-  line-height: 5vh;
+  text-justify: distribute;
+  line-height: 4vh;
+  margin-top: 2vh;
+  color: rgb(239, 235, 235);
+}
+
+.sTwoAboutBtn {
+  padding: 1vh 2vw;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--first-color);
+  font-size: 1.2vw;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  transition: 1s all ease-in-out;
+  width: 10vw;
+}
+
+.sTwoAboutBtn:hover {
+  background-color: var(--first-color);
+}
+
+/* .sTwoAboutDetail {
+  height: 100vh
 } */
 
 /* SECTION THREE */
 .sThreeAboutContainer {
-  margin: 6vh 0 0 0;
+  padding: 6vh 0 0 0;
   display: flex;
   flex-direction: column;
   align-items: center;
