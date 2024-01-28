@@ -79,14 +79,6 @@ const Timeline = () => (
         description="Once the initial payment is made, the prospect officially becomes Prevail's client, and the marketing work begins. "
       />
     </ul>
-    <div className="credits">
-      <a
-        target="_blank"
-        href="https://www.freepik.com/free-vector/infographic-template-with-yearly-info_1252895.htm"
-      >
-        inspired by
-      </a>
-    </div>
   </div>
 );
 

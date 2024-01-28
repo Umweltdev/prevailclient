@@ -53,59 +53,58 @@ export const OurWhy = [
 
 export const FAQS = [
   {
-    question: "What services does your digital marketing company offer?",
+    question: "Why would you choose Prevail’s over competitors?",
     answer:
-      "Our digital marketing company offers a comprehensive range of services to enhance your online presence. This includes but is not limited to search engine optimization (SEO), social media marketing, content creation, email marketing, pay-per-click (PPC) advertising, and website development. We tailor our services to meet the unique needs of each client, ensuring a customized and effective digital marketing strategy.",
+      "Prevail’s services are specially designed to empower local businesses / SMEs to effectively compete in the digital landscape. Prevail specialises in developing customised marketing strategies that are aligned with the unique needs and goals of each client. Those strategies are not just about marketing, but also about fostering long-term growth and overcoming economic challenges. Depending on the client, we work closely with them to utterly understand their business model and build strong relationships to develop solutions that maximise both short-term and long-term growth.",
+  },
+  {
+    question: "What is Prevail’s mission and uniqueness?",
+    answer:
+      "Prevail Marketing and Management (PMM)'s mission for SMEs and local businesses is to empower them in the digital marketing landscape. PMM stands out with its comprehensive and tailored approach to providing innovative and effective marketing strategies while focusing on leveraging the latest technologies and strategies. Additionally, PMM provides SEO mastery, continuous optimisation of SEM campaigns, comprehensive analytics through tools like Google Analytics and Microsoft Advertising, competitive analysis, backlink monitoring, and local marketing strategies for businesses with a local focus. Integrated API solutions, such as MARKETING COST DISPLACEMENT, enhance PMM's service offerings, making them robust, and tailored to specific client needs.  ",
   },
   {
     question: "How can digital marketing benefit my business?",
     answer:
-      "Digital marketing offers a myriad of benefits for businesses. It increases brand visibility, drives targeted traffic to your website, generates leads, and enhances overall customer engagement. Through various channels such as social media, search engines, and email, digital marketing allows you to connect with your audience in a more personalized and cost-effective way. It also provides valuable insights and analytics to measure and optimize your marketing efforts for better ROI.",
+      "Digital marketing offers a myriad of benefits for businesses. It can increase brand visibility, online visibility, audience targeting, generate leads, drive targeted traffic to your website, and enhance overall customer engagement. It offers cost-effective methods for market reach and customer engagement. Utilising data analytics provides insightful feedback for informed decision-making. This approach fosters a robust online presence, crucial for brand development and adaptability in the evolving digital landscape.",
   },
   {
-    question: "How do you measure the success of digital marketing campaigns?",
+    question:
+      "How does Prevail's approach differ for large enterprises and local businesses / SMEs?",
     answer:
-      "We use a combination of key performance indicators (KPIs) and analytics tools to measure the success of digital marketing campaigns. KPIs may include website traffic, conversion rates, click-through rates, social media engagement, and more. Our team employs advanced analytics tools to track and analyze data, providing valuable insights into campaign performance. Regular reporting and transparent communication ensure that you are informed about the impact and ROI of your digital marketing initiatives.",
+      "Prevail tailors its approach to the specific needs and scale of its clients. For large enterprises, Prevail focuses on leveraging their existing market presence and resources to optimise and scale their digital marketing strategies. This involves sophisticated data analytics, comprehensive market research, and integration of advanced technologies. On the other hand, for local businesses, Prevail prioritises building brand identity and digital presence from the ground up, emphasising local SEO, targeted digital campaigns, and personalised marketing strategies to connect with local communities and build customer loyalty.",
+  },
+  {
+    question:
+      "How does Prevail address the challenges faced by local businesses / SMEs in current economic trends and consumer behaviour trends?",
+    answer:
+      "This involves leveraging digital marketing tools and strategies that are specifically designed to enhance online visibility and engagement. Prevail focuses on understanding the unique market position and needs of each SME, crafting tailored solutions that are both cost-effective and impactful. With precision targeting for relevant audience visibility, local marketing strategies, brand identity differentiation, ongoing optimisation, and extensive analytics that leads to customer engagement and business growth.",
   },
   {
     question:
       "How long does it take to see results from digital marketing efforts?",
     answer:
-      "The timeline for seeing results from digital marketing efforts can vary based on several factors, including the specific goals of your campaign, the competitiveness of your industry, and the channels used. While some results, such as increased website traffic, may be noticeable in the short term, achieving significant and sustained results often takes time. We work with clients to set realistic expectations and provide ongoing optimization to ensure long-term success.",
+      "The timeline for seeing results from digital marketing efforts can vary based on several factors, including the specific goals of your campaign, the competitiveness of your industry, and the channels used. While some results, such as increased website traffic, may be noticeable in the short term, achieving significant and sustained results often takes time. We work with clients to set realistic expectations and provide ongoing optimisation to ensure long-term success.",
   },
   {
-    question: "What sets your digital marketing company apart from others?",
+    question: "How do you measure the success of digital marketing campaigns?",
     answer:
-      "Our digital marketing company distinguishes itself through a combination of expertise, innovation, and client-centric focus. We have a team of experienced professionals with a deep understanding of the latest trends and technologies in the digital marketing landscape. Our innovative approach ensures that we stay ahead of the curve, offering creative and effective solutions tailored to your unique needs. Additionally, our commitment to transparent communication and client satisfaction sets us apart, fostering strong and lasting partnerships.",
+      "We use a combination of key performance indicators (KPIs) and analytics tools to measure the success of digital marketing campaigns. KPIs may include website traffic, conversion rates, click-through rates, social media engagement, and more. Our team employs advanced analytics tools to track and analyse data, providing valuable insights into campaign performance. Regular reporting and transparent communication ensure that you are informed about the impact and ROI (return on investment) of your digital marketing initiatives.",
   },
   {
     question:
-      "How do you determine the right digital marketing strategy for my business?",
+      "How do you determine the right digital marketing strategy for your company?",
     answer:
-      "We begin by conducting a thorough assessment of your business goals, target audience, and industry landscape. Our team analyzes your current online presence, identifies opportunities and challenges, and collaborates with you to understand your preferences. Based on this information, we develop a customized digital marketing strategy that aligns with your objectives. Throughout the process, we prioritize flexibility and adaptability to ensure that the strategy evolves with the changing dynamics of your business and the digital landscape.",
-  },
-  {
-    question: "What role does content play in digital marketing?",
-    answer:
-      "Content is a cornerstone of effective digital marketing. It serves as the bridge between your brand and your audience, conveying your message and values. High-quality and relevant content is crucial for search engine optimization (SEO), social media engagement, and overall brand authority. Our digital marketing services include content creation and optimization to ensure that your brand's story is not only heard but resonates with your target audience across various online channels.",
+      "Absolutely. Improving search engine ranking is a key focus of our digital marketing services. We implement a comprehensive SEO strategy that includes on-page optimisation, keyword research competitive analysis, link-building techniques, backlink monitoring, ongoing optimisation, and integrates with Prevail’s unique Marketing Cost Displacement APIs for cost-effective strategies. By adhering to best practices and staying updated with search engine algorithms, we aim to enhance your website's visibility and ranking, driving organic traffic and ensuring a strong online presence in search results.",
   },
   {
     question:
       "Can you help with improving our website's search engine ranking?",
     answer:
-      "Absolutely. Improving search engine ranking is a key focus of our digital marketing services. We implement a comprehensive SEO strategy that includes on-page optimization, keyword research, content creation, and link-building techniques. By adhering to best practices and staying updated with search engine algorithms, we aim to enhance your website's visibility and ranking, driving organic traffic and ensuring a strong online presence in search results.",
-  },
-  {
-    question:
-      "How do you stay updated with the latest trends in digital marketing?",
-    answer:
       "Staying ahead in the dynamic field of digital marketing requires continuous learning and adaptation. Our team is dedicated to ongoing professional development, attending industry conferences, participating in training programs, and actively engaging with digital marketing communities. Additionally, we closely monitor industry publications, case studies, and emerging technologies to ensure that our strategies are not only current but also at the forefront of innovation.",
   },
   {
-    question:
-      "What level of involvement do you expect from clients in the digital marketing process?",
+    question: "What are Prevail’s payment methods?",
     answer:
-      "We believe in fostering collaborative partnerships with our clients. While we handle the technical aspects of digital marketing, we value your input and insights into your business. We encourage open communication, and your feedback is integral to refining our strategies. Depending on your preferences, we can provide regular updates, reports, and consultations to ensure that you are well-informed and actively involved in the decision-making process throughout the digital marketing journey.",
+      "Prevail offers two professional and straightforward payment methods. The first is a once-off payment, ideal for clients who prefer a single, comprehensive transaction. The second option is divided into three instalments, designed for flexibility. The initial payment commences the project, the second aligns with the presentation of the website draft, and the final instalment is due upon completion but before the website launch. This structured approach ensures clarity and ease for our clients, aligning with our commitment to transparent and client-friendly practices.",
   },
 ];
-
