@@ -1,3 +1,15 @@
+.sOneContainer {
+  background-image: url("https://images.unsplash.com/photo-1552152370-fb05b25ff17d?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+
+  /* position: fixed; */
+  background-repeat: no-repeat;
+  height: 54vh; /* You must set a specified height */
+  background-position: center fixed; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-attachment: fixed;
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+
 .sTwoServicesContainer {
   display: flex;
   flex-direction: column;
@@ -52,7 +64,7 @@
 
 /* SECTION fOUR */
 .sFourServiceContainer {
-  background-color: var(--veryDark-color);
+  background-color: var(--fourth-color);
   color: white;
   display: flex;
   flex-direction: column;
@@ -69,9 +81,11 @@
 
 .sFourServiceCards {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 2vw;
+  flex-wrap: wrap;
 }
 
 .sFourServiceCard {
@@ -79,9 +93,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--main-color);
+  background-color: var(--third-color);
   color: white;
-  width: 25vw;
+  width: 75vw;
   padding: 2vw;
   border-radius: 10px;
 }
@@ -93,11 +107,24 @@
   justify-content: center;
   align-items: center;
   background-color: var(--vlight-color);
-  color: var(--veryDark-color);
-  width: 25vw;
+  color: var(--fourth-color);
+  width: 75vw;
   padding: 4vw 1vh;
   border-radius: 10px;
 }
+
+ .exec {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--third-color);
+  color: white;
+  width: 75vw;
+  padding: 4vw 1vh;
+  border-radius: 10px;
+}
+
 
 .sFourServiceCardOne {
   background-color: var(--vlight-color);
@@ -121,7 +148,9 @@
 }
 
 .sFourServiceCardTwo1 {
-  font-size: var(--header);
+  font-size: 1.3vw;
+  text-align: center;
+  
 }
 
 .sFourServiceCardSpanText {
@@ -129,6 +158,7 @@
   font-style: italic;
   font-size: var(--small-text);
   margin-bottom: 3vh;
+
 }
 
 .sFourServiceCardTwo2 {
@@ -139,13 +169,14 @@
 
 .sFourServiceCardList {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 1vh;
   list-style: none;
-  font-size: var(--normal-text);
-  font-weight: 900;
+  font-size: 1vw;
+  font-weight: 600;
   margin-top: 2vh;
 }
 
@@ -161,7 +192,7 @@
 
 .sFourServiceCardBtn {
   color: white;
-  background-color: var(--veryDark-color);
+  background-color: var(--first-color);
   font-size: var(--normal-header);
   border: none;
   padding: 2vh 4vw;
