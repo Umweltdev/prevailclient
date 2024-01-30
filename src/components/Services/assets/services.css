@@ -81,7 +81,7 @@
 
 .sFourServiceCards {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 2vw;
@@ -95,7 +95,7 @@
   align-items: center;
   background-color: var(--third-color);
   color: white;
-  width: 75vw;
+  width: 25vw;
   padding: 2vw;
   border-radius: 10px;
 }
@@ -108,23 +108,22 @@
   align-items: center;
   background-color: var(--vlight-color);
   color: var(--fourth-color);
-  width: 75vw;
+  width: 25vw;
   padding: 4vw 1vh;
   border-radius: 10px;
 }
 
- .exec {
+.exec {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: var(--third-color);
   color: white;
-  width: 75vw;
+  width: 25vw;
   padding: 4vw 1vh;
   border-radius: 10px;
 }
-
 
 .sFourServiceCardOne {
   background-color: var(--vlight-color);
@@ -150,7 +149,6 @@
 .sFourServiceCardTwo1 {
   font-size: 1.3vw;
   text-align: center;
-  
 }
 
 .sFourServiceCardSpanText {
@@ -158,7 +156,6 @@
   font-style: italic;
   font-size: var(--small-text);
   margin-bottom: 3vh;
-
 }
 
 .sFourServiceCardTwo2 {
@@ -169,15 +166,19 @@
 
 .sFourServiceCardList {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 1vh;
   list-style: none;
-  font-size: 1vw;
+  font-size: 0.9vw;
   font-weight: 600;
   margin-top: 2vh;
+}
+
+.sFourServiceCardList li {
+  text-align: center;
 }
 
 .sFourServiceCardBottom {
@@ -204,6 +205,17 @@
 .sFourServiceCardBtn:hover {
   transition: 0.5s ease-in-out;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.sFourServiceLoadMore {
+  text-align: center;
+  display: flex;
+  color: var(--first-color);
+  font-weight: 900;
+  margin: 1vh 0;
+  border: 1px solid var(--first-color);
+  padding: 3px;
+  border-radius: 3px;
 }
 
 /* SECTION FIVE */
