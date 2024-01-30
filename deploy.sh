@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "Deploy changes"
+git commit -m "netlify error page fail"
 
 git push
 
