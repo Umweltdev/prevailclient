@@ -51,7 +51,7 @@
 
 .sTwoServicesCardHeader {
   color: var(--dark-color);
-  font-size: var(--sub-header);
+  font-size: 1.2vw;
 }
 
 .sTwoServicesCardText {
@@ -59,7 +59,7 @@
   margin-top: 4vh;
   line-height: 4vh;
   color: var(--main-color);
-  font-size: var(--normal-text);
+  font-size: 1vw;
 }
 
 /* SECTION fOUR */
@@ -216,6 +216,10 @@
   border: 1px solid var(--first-color);
   padding: 3px;
   border-radius: 3px;
+}
+
+.sTwoPortText {
+  font-size: 0.8vw;
 }
 
 /* SECTION FIVE */

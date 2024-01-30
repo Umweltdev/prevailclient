@@ -1,5 +1,6 @@
 import "./assets/services.css";
 import { serviceCard } from "./assets/ServicesData";
+import "./assets/services.css";
 
 const SectionTwo = () => {
   return (
