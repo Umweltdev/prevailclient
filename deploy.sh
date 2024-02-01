@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "landing, contact hero bg added"
+git commit -m "services card fixed"
 
 git push
 
