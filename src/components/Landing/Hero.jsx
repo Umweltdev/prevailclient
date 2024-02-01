@@ -85,9 +85,9 @@ const Hero = () => {
       initial={{ opacity: 0, height: 0 }}
       animate={{ opacity: 1, height: "100vh" }}
       transition={{ duration: 1, ease: easing }}
-      className="container"
+      className="hero-container"
     >
-      <Navbar />
+      {/* <Navbar /> */}
       <motion.div
         className="hero"
         initial="initial"

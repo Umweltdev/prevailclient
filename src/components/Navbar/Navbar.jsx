@@ -64,7 +64,7 @@ const Navbar = () => {
         </Link>
       </ul>
       {/* Harmburger for mobile view */}
-      <Menu className="mobileMenu" sx={{ fontSize: "5vw" }} />
+      {/* <Menu className="mobileMenu" sx={{ fontSize: "5vw" }} /> */}
     </div>
   );
 };
