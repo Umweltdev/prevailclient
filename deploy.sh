@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "netlify error page fail"
+git commit -m "landing, contact hero bg added"
 
 git push
 

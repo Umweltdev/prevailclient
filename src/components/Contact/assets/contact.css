@@ -1,19 +1,9 @@
-.container {
-  /* background: linear-gradient(
-    140deg,
-    rgb(40, 221, 167) 0%,
-    #d04d9d 10%,
-    #7d44be 50%,
-    #293680 75%,
-    #0b001d 100%
-  ); */
+.hero-container {
   background-image: url(../../../assets/pattern.jpg);
   background-size: cover;
   height: 100vh;
-  clip-path: polygon(0px 0px, 100% 0px, 100% 70%, 0px 100%);
+  /* clip-path: polygon(0px 0px, 100% 0px, 100% 70%, 0px 100%); */
   color: white;
-
-  /* margin: auto; */
 }
 
 .hero {
