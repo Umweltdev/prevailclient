@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "section 2 || Image"
+git commit -m "your tools section"
 
 git push
 

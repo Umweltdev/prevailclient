@@ -914,3 +914,115 @@ FOOTER
   gap: 1vw;
   font-size: 1.6vw;
 }  */
+
+
+
+
+
+
+/*  */
+/*  */
+
+/* Section Two */
+.sTwoServicesContainer1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4vh 2vw;
+}
+
+.sTwoServicesHeader1 {
+  font-size: var(--big-header);
+  color: var(--fourth-color);
+}
+
+.sTwoServicesCards1 {
+  margin: 6vh 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5vh;
+}
+
+.sTwoServicesCard1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2vw;
+  width: 27vw;
+  height: 65vh;
+  border-radius: 10px;
+  transition: 0.5s all ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.sTwoServicesCard1:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.sTwoServicesCardHeader1 {
+  color: var(--fourth-color);
+  font-size: 1.2vw;
+  margin-top: 4vh;
+  text-align: center;
+}
+
+.lineSpanServices {
+  border: 3px solid var(--fourth-color);
+  margin-top: 2vh;
+  width: 15vw;
+  background: rgb(171, 99, 243);
+  background: linear-gradient(
+    90deg,
+    rgba(171, 99, 243, 1) 0%,
+    rgba(0, 118, 255, 1) 5%,
+    rgba(94, 148, 211, 1) 95%,
+    rgba(94, 148, 211, 1) 100%
+  );
+}
+
+.sTwoServicesCardText1 {
+  text-align: center;
+  margin-top: 2vh;
+  line-height: 4vh;
+  color: var(--fourth-color);
+  font-size: 1vw;
+  width: 20vw;
+  
+}
+
+.btnService1 {
+  border: 1px solid var(--fourth-color);
+  margin-top: 2vh;
+  color: white;
+  background-color: var(--fourth-color);
+  padding: 1vh 1vw;
+  border: none;
+  border-radius: 3px;
+  font-weight: bold;
+  background: rgb(171, 99, 243);
+  background: linear-gradient(
+    90deg,
+    rgba(171, 99, 243, 1) 0%,
+    rgba(0, 118, 255, 1) 5%,
+    rgba(94, 148, 211, 1) 95%,
+    rgba(94, 148, 211, 1) 100%
+  );
+}
+
+.lineSpanServices1 {
+  border: 3px solid var(--fourth-color);
+  margin-top: 2vh;
+  width: 15vw;
+  background: rgb(171, 99, 243);
+  background: linear-gradient(
+    90deg,
+    rgba(171, 99, 243, 1) 0%,
+    rgba(0, 118, 255, 1) 5%,
+    rgba(94, 148, 211, 1) 95%,
+    rgba(94, 148, 211, 1) 100%
+  );
+}
