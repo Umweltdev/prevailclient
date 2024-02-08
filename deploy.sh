@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "footer and landing page"
+git commit -m "section 2 || Image"
 
 git push
 

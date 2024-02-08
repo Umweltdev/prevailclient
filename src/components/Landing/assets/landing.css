@@ -83,9 +83,11 @@
   display: flex;
   padding: 4vw;
   justify-content: center;
+  align-items: center;
   gap: 1vw;
-  margin-top: 5vh;
+  margin-top: 10vh;
   overflow-x: hidden;
+  height: 70vh;
 }
 
 .sTwoHero {
@@ -323,6 +325,12 @@
 .sTwoRightBtn5:hover {
   box-shadow: none;
   transition: 0.5s ease-in-out;
+}
+
+.sTwoImageClass {
+  width: 50vw;
+  height: 70vh;
+  object-fit: cover;
 }
 
 /* SECTION TWO MOBILE */

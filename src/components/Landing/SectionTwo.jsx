@@ -1,7 +1,8 @@
 import "./assets/landing.css";
-import oneImg from "../../assets/1.png"
+import oneImg from "../../assets/1.png";
 import twoImg from "../../assets/2.png";
 import threeImg from "../../assets/31.png";
+import land2 from "./assets/land2.png";
 
 const SectionTwo = () => {
   return (
@@ -31,7 +32,9 @@ const SectionTwo = () => {
         </div>
       </div>
 
-      <div className="sTwoInfographs">
+      <img className="sTwoImageClass" src={land2} alt="" />
+
+      {/* <div className="sTwoInfographs">
         <div className="sTwoInfographs1">
           <button className="sTwoRightBtn1">Marketing1</button>
           <img className="sTwoInfographsImg1" src={oneImg} alt="" />
@@ -48,7 +51,7 @@ const SectionTwo = () => {
             <img className="sTwoInfographsImg3" src={threeImg} alt="" />
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
