@@ -6,14 +6,14 @@ const Footer = () => {
   return (
     <>
       <div className="footer">
-        <p className="footerMission">
+        {/* <p className="footerMission">
           We offer services in professional website development, Digital
           Marketing, content writing, creative designing and Business
           Administration consulting. Lorem ipsum dolor sit amet consectetur
           adipisicing elit. Rerum, autem.
         </p>
 
-        <img src={logoImg} alt="Our Logo" />
+        <img src={logoImg} alt="Our Logo" /> */}
 
         {/* <div className="footerServices">
           <h1>Our Services</h1>
@@ -25,11 +25,7 @@ const Footer = () => {
           <p className="servicesItems">Business consulting </p>
         </div> */}
       </div>
-      <div className="footerCopyRight">
-        <p className="footerCopyRightItem">
-          Copyright © 2024 Prevail Digital Marketing Agency
-        </p>
-      </div>
+     
     </>
   );
 };

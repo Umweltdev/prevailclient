@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "services card fixed"
+git commit -m "footer and landing page"
 
 git push
 

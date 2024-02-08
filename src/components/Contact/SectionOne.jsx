@@ -88,21 +88,21 @@ const Hero = () => {
       {/* <Navbar /> */}
 
       <motion.div
-        className="hero"
+        className="contact-hero"
         initial="initial"
         animate="animate"
         variants={stagger}
       >
-        <motion.h1 variants={header} className="hero-one">
+        <motion.h1 variants={header} className="contact-hero-one">
           Prevail Digital Marketing
         </motion.h1>
-        <motion.h1 variants={letter} className="hero-two">
+        <motion.h1 variants={letter} className="contact-hero-two">
           How Can We Be
         </motion.h1>
-        <motion.h1 variants={letter2} className="hero-two">
+        <motion.h1 variants={letter2} className="contact-hero-two">
           Your Partner in Success
         </motion.h1>
-        <motion.p variants={fadeInUp} className="hero-three">
+        <motion.p variants={fadeInUp} className="contact-hero-three">
           FOR ULTRA-LUXURY BRANDS
         </motion.p>
       </motion.div>

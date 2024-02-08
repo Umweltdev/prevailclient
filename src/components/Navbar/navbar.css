@@ -21,7 +21,7 @@
 .navLogo {
   /* background-color: white; */
   padding: 1vh;
-  width: 4vw;
+  width: 5vw;
   border-radius: 2px;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .navLinks {
-  font-size: 1.2vw;
+  font-size: 1.3vw;
   font-weight: bold;
   color: white;
   text-decoration: none;

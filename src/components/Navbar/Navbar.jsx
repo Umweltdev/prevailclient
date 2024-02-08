@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
-import logoImg from "../../assets/pmmlogo.png";
+import logoImg from "./wlogo.png";
 import { Menu } from "@mui/icons-material";
 
 const Navbar = () => {

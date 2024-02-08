@@ -1,10 +1,9 @@
 .footer {
-  display: flex;
-  background-color: var(--first-color);
-  justify-content: space-around;
-  align-items: center;
-  color: white;
-  padding: 4vh 0;
+  background-image: url(../assets/Footer.svg) !important;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .footerMission {
@@ -47,11 +46,11 @@
 }
 
 .footerCopyRight {
-    color: white;
-    padding: 3vh 0;
-    background-color: var(--fourth-color);
+  color: white;
+  padding: 3vh 0;
+  background-color: var(--fourth-color);
 }
 
 .footerCopyRightItem {
-    text-align: center;
+  text-align: center;
 }
