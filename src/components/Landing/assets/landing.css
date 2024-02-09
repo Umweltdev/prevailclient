@@ -80,24 +80,24 @@
 
 /* SECTION TWO */
 .sTwoContainer {
-  display: flex;
-  padding: 4vw;
-  justify-content: center;
-  align-items: center;
-  gap: 1vw;
-  margin-top: 10vh;
-  overflow-x: hidden;
-  height: 70vh;
+  background-image: url(../assets/land2.svg) !important;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 5vh;
 }
 
 .sTwoHero {
   width: 63vw;
   margin-left: 6vw;
+  
 }
 
 .sTwoHeroText1 {
   font-size: 3vw;
   color: var(--first-color);
+  padding-top: 15vh;
 }
 
 .sTwoHeroText2 {
@@ -328,7 +328,7 @@
 }
 
 .sTwoImageClass {
-  width: 50vw;
+  width: 100vw;
   height: 70vh;
   object-fit: cover;
 }

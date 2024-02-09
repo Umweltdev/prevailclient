@@ -32,7 +32,7 @@ const SectionTwo = () => {
         </div>
       </div>
 
-      <img className="sTwoImageClass" src={land2} alt="" />
+      {/* <img className="sTwoImageClass" src={land2} alt="" /> */}
 
       {/* <div className="sTwoInfographs">
         <div className="sTwoInfographs1">
