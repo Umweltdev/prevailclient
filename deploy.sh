@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "your tools section"
+git commit -m "svg fixed for landing page"
 
 git push
 
