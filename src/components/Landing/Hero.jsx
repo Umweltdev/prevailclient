@@ -104,7 +104,7 @@ const Hero = () => {
           YOUR PARTNER IN SUCCESS?
         </motion.h1>
         <motion.p variants={fadeInUp} className="hero-three">
-          <button className="heroBtn">Schedule a consultation</button>
+          <button className="heroBtn">Schedule a consultation.</button>
         </motion.p>
       </motion.div>
     </motion.div>
