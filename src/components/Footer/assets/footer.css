@@ -1,9 +1,10 @@
 .footer {
   background-image: url(../assets/Footer.svg) !important;
-  height: 100vh;
+  height: 120vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  
 }
 
 .footerMission {

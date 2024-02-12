@@ -1,5 +1,5 @@
 import "./assets/landing.css";
-import branding from "./assets/branding.png";
+import branding from "./assets/brand.png";
 import website from "./assets/web.png";
 import announcement from "./assets/seo.png";
 import socialmedia from "./assets/dm.png";

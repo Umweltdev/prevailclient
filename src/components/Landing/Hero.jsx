@@ -103,9 +103,16 @@ const Hero = () => {
         <motion.h1 variants={letter2} className="hero-two">
           YOUR PARTNER IN SUCCESS?
         </motion.h1>
-        <motion.p variants={fadeInUp} className="hero-three">
-          <button className="heroBtn">Schedule a consultation.</button>
-        </motion.p>
+      </motion.div>
+      <motion.div
+        className="hero"
+        initial="initial"
+        animate="animate"
+        variants={stagger}
+      >
+        <div className="hero-four">
+          <div className="heroBtn">Schedule a consultation</div>
+        </div>
       </motion.div>
     </motion.div>
   );
