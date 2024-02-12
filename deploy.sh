@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "section 3|our core values"
+git commit -m "reduce contact text"
 
 git push
 
