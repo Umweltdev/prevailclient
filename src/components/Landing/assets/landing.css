@@ -91,7 +91,6 @@
 .sTwoHero {
   width: 63vw;
   margin-left: 6vw;
-  
 }
 
 .sTwoHeroText1 {
@@ -436,19 +435,23 @@
 
 /* SECTION 3 */
 .sThreeContainer {
-  background: url("https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
-  /* background: linear-gradient(
+  background: rgb(128, 100, 213);
+  background: linear-gradient(
     90deg,
-    rgba(0, 118, 255, 1) 0%,
-    rgba(29, 120, 244, 1) 27%,
-    rgba(94, 148, 211, 1) 61%,
-    rgba(244, 244, 244, 1) 100%
-  ); */
-  padding: 3vw 0;
+    rgba(128, 100, 213, 1) 0%,
+    rgba(104, 125, 208, 1) 13%,
+    rgba(92, 142, 208, 1) 79%,
+    rgba(94, 77, 162, 1) 100%
+  );
+  height: 80vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  gap: 3vw;
+  width: 100vw;
 }
 
 .sThreeHero {
@@ -459,11 +462,14 @@
   display: flex;
   flex-direction: column;
   gap: 3vh;
+  background-color: white;
+  padding: 3vh 3vw;
+  border-radius: 20px;
 }
 
 .sThreeDropContainer {
   color: var(--second-color);
-  background-color: white;
+  /* background-color: white; */
   border-radius: 1vw;
   display: flex;
   flex-direction: column;
@@ -473,7 +479,7 @@
 .sThreeDropDown {
   display: flex;
   justify-content: space-between;
-  width: 37vw;
+  width: 40vw;
 }
 
 .sThreeDropDown {
@@ -483,35 +489,37 @@
 }
 
 .sThreeDropMainText {
-  font-size: 1.2vw;
+  font-size: 1.5vw;
   display: flex;
   justify-content: center;
-  gap: 1vw;
-  color: var(--first-color);
+  gap: 4vw;
+  color: #333;
+  font-weight: 500;
+  align-items: center;
 }
 
 .sThreeDropText {
-  width: 37vw;
+  width: 40vw;
   text-align: justify;
   text-justify: distribute;
   font-size: 1vw;
   /* padding: 1vw; */
   padding-left: 1vw;
   line-height: 4vh;
-  color: var(--first-color);
+  color: #333;
 }
 
 /* SECTION 4 */
 .sFourContainer {
   display: flex;
   flex-direction: row;
-  background: rgb(0, 118, 255);
+   background: rgb(128, 100, 213);
   background: linear-gradient(
     90deg,
-    rgba(0, 118, 255, 1) 0%,
-    rgba(29, 120, 244, 1) 27%,
-    rgba(94, 148, 211, 1) 61%,
-    rgba(244, 244, 244, 1) 100%
+    rgba(128, 100, 213, 1) 0%,
+    rgba(104, 125, 208, 1) 13%,
+    rgba(92, 142, 208, 1) 79%,
+    rgba(94, 77, 162, 1) 100%
   );
   justify-content: space-between;
   align-items: center;

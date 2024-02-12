@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "section 2|svg added"
+git commit -m "section 3|our core values"
 
 git push
 

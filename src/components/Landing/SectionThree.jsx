@@ -11,25 +11,31 @@ import {
   Insights,
 } from "@mui/icons-material";
 import "./assets/landing.css";
+import connect from "./assets/connect.png";
+import data from "./assets/data.png";
+import bulb from "./assets/bulb.png";
+import badge from "./assets/badge.png";
+import add from "./assets/add.png";
+import remove from "./assets/remove.png";
 
 const goalsObj = [
   {
-    icon: <AddTask />,
+    icon: connect,
     mainText: "Empowering Local Businesses",
     subText: `Recognise the struggle of local SMEs in the current economic climate. Prevail is committed to empowering these businesses, providing them with the tools and resources to compete effectively against larger enterprises.`,
   },
   {
-    icon: <Groups />,
+    icon: data,
     mainText: "Innovative and Accessible Technology",
     subText: `Address the gap in technology accessibility between large corporations and “small-to-medium-sized" enterprises (SMEs). Prevail will focus on bringing innovative, affordable tech solutions to local businesses, allowing them to harness automation and other advancements without the need for full-time programmers.`,
   },
   {
-    icon: <Gavel />,
+    icon: bulb,
     mainText: "Adaptive Business Strategies",
     subText: `Understand the volatility in consumer demands and behaviours. Prevail offers insights and tools to help local businesses quickly adapt to changing market conditions, ensuring they remain competitive and responsive to consumer needs.`,
   },
   {
-    icon: <Insights />,
+    icon: badge,
     mainText: "Market Equity and Fair Competition",
     subText: `Address the challenge of market share decline for local businesses. Prevail stands for creating a more equitable market where local businesses can compete fairly with larger enterprises, ensuring diversity and choice in the market.`,
   },
@@ -54,29 +60,32 @@ const SectionThree = () => {
           <div key={index} className="sThreeDropContainer">
             <div className="sThreeDropDown">
               <h1 className="sThreeDropMainText">
-                {data.icon} {data.mainText}
+                <img
+                  src={data.icon}
+                  alt={data.mainText}
+                  style={{ width: "3.5vw" }}
+                />{" "}
+                {data.mainText}
               </h1>
-              <button onClick={() => handleAddButtonClick(index)}>
+              <div onClick={() => handleAddButtonClick(index)}>
                 {isDescriptionVisible[index] ? (
-                  <Remove
+                  <img
+                    src={remove}
+                    alt=""
                     style={{
-                      fontSize: 24,
-                      color: "red",
-                      border: "none",
-                      background: "white",
+                      width: "2.5vw",
                     }}
                   />
                 ) : (
-                  <Add
+                  <img
+                    src={add}
+                    alt=""
                     style={{
-                      fontSize: 24,
-                      color: "#333",
-                      border: "none",
-                      background: "white",
+                      width: "2.5vw",
                     }}
                   />
                 )}
-              </button>
+              </div>
             </div>
 
             {isDescriptionVisible[index] && (
