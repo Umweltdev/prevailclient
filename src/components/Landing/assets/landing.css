@@ -127,7 +127,7 @@
   margin-bottom: 4vh;
   margin-right: 4vw;
   font-size: 1.7vw;
-  padding-top: 23vh ;
+  padding-top: 23vh;
   text-justify: distribute;
 }
 
@@ -706,6 +706,15 @@
   transition: 1s ease-in-out;
 }
 
+/*  background: rgb(128, 100, 213);
+  background: linear-gradient(
+    90deg,
+    rgba(128, 100, 213, 1) 0%,
+    rgba(104, 125, 208, 1) 13%,
+    rgba(92, 142, 208, 1) 79%,
+    rgba(94, 77, 162, 1) 100%
+  ); */
+
 .sFiveCard:hover .sFiveBtn {
   transform: translateY(0px);
   opacity: 1;
@@ -945,7 +954,15 @@ FOOTER
 
 .sTwoServicesHeader1 {
   font-size: var(--big-header);
-  color: var(--fourth-color);
+  background: linear-gradient(
+    to right,
+    rgba(128, 100, 213, 1) 0%,
+    rgba(104, 125, 208, 1) 13%,
+    rgba(92, 142, 208, 1) 79%,
+    rgba(94, 77, 162, 1) 100%
+  );
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
 }
 
 .sTwoServicesCards1 {
@@ -975,24 +992,33 @@ FOOTER
 }
 
 .sTwoServicesCardHeader1 {
-  color: var(--fourth-color);
-  font-size: 1.2vw;
+  background: linear-gradient(
+    to right,
+    rgba(128, 100, 213, 1) 0%,
+    rgba(104, 125, 208, 1) 13%,
+    rgba(92, 142, 208, 1) 79%,
+    rgba(94, 77, 162, 1) 100%
+  );
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  font-size: 1.3vw;
   margin-top: 4vh;
   text-align: center;
 }
 
-.lineSpanServices {
+.lineSpanServices1 {
   border: 3px solid var(--fourth-color);
   margin-top: 2vh;
   width: 15vw;
   background: linear-gradient(
     to right,
-    #6930c3 0%,
-    #310874 20%,
-    #1b073b 40%,
-    #0b001d 80%,
-    #000000 100%
+    rgba(128, 100, 213, 1) 0%,
+    rgba(104, 125, 208, 1) 13%,
+    rgba(92, 142, 208, 1) 79%,
+    rgba(94, 77, 162, 1) 100%
   );
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
 }
 
 .sTwoServicesCardText1 {
@@ -1009,17 +1035,17 @@ FOOTER
   margin-top: 2vh;
   color: white;
   background-color: var(--fourth-color);
-  padding: 1vh 1vw;
+  padding: 2vh 2vw;
   border: none;
   border-radius: 3px;
   font-weight: bold;
-  background: rgb(171, 99, 243);
+  background: rgb(128, 100, 213);
   background: linear-gradient(
     90deg,
-    rgba(171, 99, 243, 1) 0%,
-    rgba(0, 118, 255, 1) 5%,
-    rgba(94, 148, 211, 1) 95%,
-    rgba(94, 148, 211, 1) 100%
+    rgba(128, 100, 213, 1) 0%,
+    rgba(104, 125, 208, 1) 13%,
+    rgba(92, 142, 208, 1) 79%,
+    rgba(94, 77, 162, 1) 100%
   );
 }
 
@@ -1027,12 +1053,12 @@ FOOTER
   border: 3px solid var(--fourth-color);
   margin-top: 2vh;
   width: 15vw;
-  background: rgb(171, 99, 243);
+  background: rgb(128, 100, 213);
   background: linear-gradient(
     90deg,
-    rgba(171, 99, 243, 1) 0%,
-    rgba(0, 118, 255, 1) 5%,
-    rgba(94, 148, 211, 1) 95%,
-    rgba(94, 148, 211, 1) 100%
+    rgba(128, 100, 213, 1) 0%,
+    rgba(104, 125, 208, 1) 13%,
+    rgba(92, 142, 208, 1) 79%,
+    rgba(94, 77, 162, 1) 100%
   );
 }
