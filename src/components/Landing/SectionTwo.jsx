@@ -8,14 +8,14 @@ const SectionTwo = () => {
   return (
     <div className="sTwoContainer">
       <div className="sTwoHero">
-        <h1 className="sTwoHeroText1">Online Growth</h1>
+        {/* <h1 className="sTwoHeroText1">Online Growth</h1>
         <h1 className="sTwoHeroText2">Is Complicated.</h1>
-        <h1 className="sTwoHeroText2">That's Why We're Here</h1>
+        <h1 className="sTwoHeroText2">That's Why We're Here</h1> */}
         <div className="sTwoBottomText">
-          <p className="sTwoHero1">
+          {/* <p className="sTwoHero1">
             A Dedicated Marketing Team built for{" "}
             <span className="sTwoHero1span">Bussiness-Growth</span>
-          </p>
+          </p> */}
           <p className="sTwoHero2">
             Prevail is a cutting-edge marketing agency specialising in
             redefining the way businesses navigate the digital landscape. At
@@ -25,10 +25,10 @@ const SectionTwo = () => {
             solutions that drive long-term success. PMM is not just a marketing
             agency; it is a strategic partner for businesses in the digital age.
           </p>
-          <div className="sTwoRightBtn">
+          {/* <div className="sTwoRightBtn">
             <button className="sTwoLeftBtn1">Schedule A Call</button>
             <button className="sTwoLeftBtn2">Contact Us</button>
-          </div>
+          </div> */}
         </div>
       </div>
 

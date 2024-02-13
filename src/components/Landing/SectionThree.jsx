@@ -63,7 +63,7 @@ const SectionThree = () => {
                 <img
                   src={data.icon}
                   alt={data.mainText}
-                  style={{ width: "3.5vw" }}
+                  style={{ width: "3vw" }}
                 />{" "}
                 {data.mainText}
               </h1>
@@ -74,6 +74,7 @@ const SectionThree = () => {
                     alt=""
                     style={{
                       width: "2.5vw",
+                      cursor: "pointer",
                     }}
                   />
                 ) : (
@@ -82,14 +83,25 @@ const SectionThree = () => {
                     alt=""
                     style={{
                       width: "2.5vw",
+                      cursor: "pointer",
                     }}
                   />
                 )}
               </div>
             </div>
 
+            {/* <hr style={{ width: "40vw" }} /> */}
+
             {isDescriptionVisible[index] && (
-              <p className="sThreeDropText">{data.subText}</p>
+              <p
+                className="sThreeDropText"
+                style={{
+                  maxHeight: isDescriptionVisible[index] ? "200px" : 0, // Set max height for smooth transition
+                  transition: "max-height 1s ease-in-out", // Apply transition effect
+                }}
+              >
+                {data.subText}
+              </p>
             )}
           </div>
         ))}
