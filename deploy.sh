@@ -6,4 +6,4 @@ git commit -m "section2 | cutdown elements"
 
 git push
 
-npm run build
+# npm run build

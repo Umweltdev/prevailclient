@@ -1,6 +1,6 @@
-import '../Landing/assets/landing.css'
+import "../Landing/assets/landing.css";
 
-const ComponentContact = ({header, text, img}) => {
+const ComponentContact = ({ header, text, img }) => {
   return (
     <div className="sFourContainer">
       <div className="sFourLeft">
@@ -14,7 +14,9 @@ const ComponentContact = ({header, text, img}) => {
             className="sFourInputText"
             placeholder="How can we be of help?"
           />
-          <button className="sFourInputBtn">Submit</button>
+          <a href="#" className="butn butn__new">
+            <span>Submit</span>
+          </a>
         </div>
       </div>
       <div className="sFourRight">
