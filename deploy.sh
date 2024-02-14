@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "contact submit button"
+git commit -m "about | Consultation"
 
 git push
 

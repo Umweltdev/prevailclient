@@ -4,6 +4,7 @@ import SectionThree from "../components/About/SectionThree";
 import SectionTwo from "../components/About/SectionTwo";
 import Navbar from "../components/Navbar/Navbar.jsx";
 import SectionFour from "../components/About/SectionFour.jsx"
+import SectionConsultation from "../components/About/SectionConsultation.jsx";
 
 const About = () => {
   return (
@@ -11,7 +12,8 @@ const About = () => {
       <Navbar />
       {/* <SectionOne /> */}
       <SectionTwo />
-      <SectionFour/>
+      <SectionConsultation/>
+      {/* <SectionFour/> */}
       <SectionThree />
       <Footer />
     </div>

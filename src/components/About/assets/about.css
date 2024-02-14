@@ -347,3 +347,14 @@
 .credits a {
   color: var(--color);
 }
+
+
+/* CONSULTATION */
+
+.consultation {
+  background-color: white;
+}
+
+.img-consult {
+  width: 100vw;
+}
