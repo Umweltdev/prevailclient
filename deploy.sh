@@ -2,8 +2,8 @@
 
 git add .
 
-git commit -m "section2 | cutdown elements"
+git commit -m "contact submit button"
 
 git push
 
-# npm run build
+npm run build
