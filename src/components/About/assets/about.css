@@ -32,7 +32,7 @@
 
 .sTwoAboutSideBar {
   width: 45vw;
-  position: fixed;
+  /* position: fixed; */
   left: 10vw;
   top: 20vh;
 }
@@ -49,6 +49,7 @@
   font-size: 2vw;
   color: white;
   cursor: pointer;
+  width: 20vw;
 }
 
 .sTwoAboutList.active {
@@ -58,7 +59,7 @@
 .sTwoAboutDetail {
   display: flex;
   flex-direction: column;
-  margin-left: 30vw;
+  margin-left: 10vw;
   height: auto;
   overflow: visible;
   transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out;

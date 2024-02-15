@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "about | FAQ"
+git commit -m "about | Our why"
 
 git push
 

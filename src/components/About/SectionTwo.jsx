@@ -22,34 +22,34 @@ const SectionTwo = () => {
     }));
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentPosition = window.scrollY;
+    // useEffect(() => {
+    //   const handleScroll = () => {
+    //     const currentPosition = window.scrollY;
 
-      if (currentPosition > scrollPosition) {
-        // Scrolling down, hide the sidebar
-        setScrollPosition(currentPosition);
-        setSidebarVisible(false);
-      } else {
-        // Scrolling up, show the sidebar
-        setScrollPosition(currentPosition);
-        setSidebarVisible(true);
-      }
-    };
+    //     if (currentPosition === 0 || currentPosition < scrollPosition) {
+    //       // Scrolling up to the very top or scrolling up, show the sidebar
+    //       setSidebarVisible(true);
+    //     } else {
+    //       // Scrolling down, hide the sidebar
+    //       setSidebarVisible(false);
+    //     }
 
-    window.addEventListener("scroll", handleScroll);
+    //     setScrollPosition(currentPosition);
+    //   };
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [scrollPosition]);
+    //   window.addEventListener("scroll", handleScroll);
+
+    //   return () => {
+    //     window.removeEventListener("scroll", handleScroll);
+    //   };
+    // }, [scrollPosition]);
 
   return (
     <div className="sTwoAboutContainer">
       <div
         className="sTwoAboutSideBar"
         // style={{ top: sidebarVisible >= 600 ? "-100vh" : "0" }}
-        style={{ top: sidebarVisible ? "" : "-300vh" }}
+        // style={{ top: sidebarVisible ? "" : "-100vh" }}
       >
         <ul className="sTwoAboutSideList">
           <li
@@ -111,22 +111,7 @@ const SectionTwo = () => {
             </button>
           </>
         )}
-        {/* {selectedSection === "Consultation Journey" && (
-          <>
-            <h1 className="sTwoAboutHeader">Consultation Journey</h1>
-            <p className="sTwoAboutText">
-              {expandedSections["Consultation Journey"]
-                ? "Lorem ipsum dolor sit amet consectetur adipisicing elit..."
-                : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae dicta ducimus excepturi est necessitatibus saepe ex quaerat inventore. Qui, sint culpa? Cumque, odit cupiditate distinctio eaque blanditiis quis enim molestiae? Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae dicta ducimus excepturi est necessitatibus saepe ex quaerat inventore. Qui, sint culpa? Cumque, odit cupiditate distinctio eaque blanditiis quis enim molestiae."}
-            </p>
-            <button
-              className="sTwoAboutBtn"
-              onClick={() => handleExpandClick("Consultation Journey")}
-            >
-              {expandedSections["Consultation Journey"] ? "Collapse" : "Expand"}
-            </button>
-          </>
-        )} */}
+        
       </div>
     </div>
   );
