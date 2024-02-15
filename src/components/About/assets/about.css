@@ -124,6 +124,14 @@
 .sThreeAbouHero {
   color: var(--main-color);
   margin: 4vh 0;
+  background: -webkit-linear-gradient(
+    rgba(128, 100, 213, 1) 0%,
+    rgba(104, 125, 208, 1) 13%,
+    rgba(92, 142, 208, 1) 79%,
+    rgba(94, 77, 162, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .sThreeHeroFAQS {
@@ -140,7 +148,14 @@
 }
 
 .sThreeAbouHeader {
-  background-color: rgb(59, 32, 82);
+  background: rgb(128, 100, 213);
+  background: linear-gradient(
+    90deg,
+    rgba(128, 100, 213, 1) 0%,
+    rgba(104, 125, 208, 1) 13%,
+    rgba(92, 142, 208, 1) 79%,
+    rgba(94, 77, 162, 1) 100%
+  );
   color: white;
   font-size: 1vw;
   width: 40vw;
@@ -152,8 +167,8 @@
 }
 
 .sThreeAboutText {
-  width: 37vw;
-  padding: 2vw;
+  width: 40vw;
+  padding: 2.2vw;
   font-size: 1vw;
   border-radius: 0 0 10px 10px;
   box-shadow: 1px 3px 19px -1px rgba(0, 0, 0, 0.45);
@@ -162,7 +177,11 @@
   max-height: 0;
   overflow: hidden;
   transition: height 0.3s ease;
-  max-height: 40vh;
+  max-height: 42vh;
+  text-align: justify;
+  text-justify: distribute;
+  width: 37vw;
+  line-height: 4vh;
 }
 
 .sThreeAboutText.visible {
@@ -171,7 +190,6 @@
 
 /* THE TIMELINE */
 /* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"); */
-
 
 .timeline-header {
   text-align: center;
@@ -348,7 +366,6 @@
   color: var(--color);
 }
 
-
 /* CONSULTATION */
 
 .consultation {
@@ -358,7 +375,3 @@
 .img-consult {
   width: 100vw;
 }
-
-
-/* SECTION SIX */
-

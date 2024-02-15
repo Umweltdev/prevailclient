@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "landing | revolutionize section"
+git commit -m "about | FAQ"
 
 git push
 
