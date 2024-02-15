@@ -2,6 +2,7 @@ import Footer from "../components/Footer/Footer";
 import Hero from "../components/Landing/Hero";
 import SectionFive from "../components/Landing/SectionFive";
 import SectionFour from "../components/Landing/SectionFour";
+import SectionSeven from "../components/Landing/SectionSeven";
 import SectionSix from "../components/Landing/SectionSix";
 import SectionThree from "../components/Landing/SectionThree";
 import SectionTwo from "../components/Landing/SectionTwo";
@@ -18,6 +19,7 @@ const Landing = () => {
       <SectionFive />
       <SectionFour />
       <SectionSix />
+      <SectionSeven/>
       <Footer />
     </div>
   );

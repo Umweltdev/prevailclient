@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "about | Consultation"
+git commit -m "landing | revolutionize section"
 
 git push
 

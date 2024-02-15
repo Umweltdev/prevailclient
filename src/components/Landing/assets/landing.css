@@ -1136,3 +1136,64 @@ FOOTER
 .butn span {
   z-index: 20;
 }
+
+/* SECTION SEVEN */
+.sectionSeven {
+  background-image: url(../assets/rev.svg) !important;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  gap: 2vw;
+  padding-top: 5vh;
+}
+
+.sSevenText {
+  width: 40vw;
+  text-justify: right;
+  text-align: right;
+  font-size: 1.5vw;
+  text-align: justify;
+  text-justify: distribute;
+  text-indent: 10vw;
+  line-height: 5vh;
+  padding-top: 15vh;
+}
+
+.span {
+  font-weight: bold;
+  color: var(--first-color);
+}
+
+.sSevenOneHeader {
+  color: var(--third-color);
+  font-size: 1.3vw;
+}
+
+.sSevenOneText {
+  color: #333;
+  font-size: 0.9vw;
+  width: 18vw;
+  text-align: justify;
+  text-justify: distribute;
+  margin-left: 2vw;
+}
+
+.sSevenRight {
+  display: flex;
+  flex-direction: column;
+  gap: 60vh;
+  top: 0;
+}
+
+.sSevenSecondry {
+  display: flex;
+  gap: 7vw;
+}
+
+.sSevenOne {
+  padding-top: 5vh;
+}
