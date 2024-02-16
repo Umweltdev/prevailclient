@@ -1025,7 +1025,7 @@ FOOTER
   text-align: center;
   margin-top: 2vh;
   line-height: 4vh;
-  color: var(--fourth-color);
+  color: #333;
   font-size: 1vw;
   width: 20vw;
 }
@@ -1095,7 +1095,7 @@ FOOTER
   position: absolute;
   top: -50px;
   transform: rotate(35deg);
-  width: 50px;
+  width: 33.8vw;
   transition: all 3000ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 .butn::after {
@@ -1107,7 +1107,7 @@ FOOTER
   top: -50px;
   transform: rotate(35deg);
   transition: all 3000ms cubic-bezier(0.19, 1, 0.22, 1);
-  width: 8rem;
+  width: 33.8vw;
 }
 .butn__new::before {
   left: -50%;
