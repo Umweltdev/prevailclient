@@ -119,7 +119,7 @@
   align-items: center;
   justify-content: center;
   padding: 4vw;
-  background-color: rgb(240, 230, 248);
+  background-color: white;
 }
 
 .sThreeAbouHero {
@@ -133,6 +133,7 @@
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-size: 3vw;
 }
 
 .sThreeHeroFAQS {
