@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "about | FAQ BAckground Change"
+git commit -m "about | btn control view"
 
 git push
 

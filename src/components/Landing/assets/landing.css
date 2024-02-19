@@ -1065,6 +1065,18 @@ FOOTER
 
 /* BUTTON CRAZINESS */
 
+
+.sFourInputBtn {
+  padding: 2vh;
+  width: 40vw;
+  border: 1px solid #333;
+  border-radius: 5px;
+  color: white;
+  font-size: var(--normal-text);
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+
 .butn:link,
 .butn:visited {
   display: inline-flex;
@@ -1073,11 +1085,11 @@ FOOTER
   font-size: 1.2vw;
   text-transform: uppercase;
   text-decoration: none;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0);
   border: 1px solid black;
-  padding: 1rem 2.5rem;
+  padding: 2vh;
   height: 2vh;
-  width: 33.8vw;
+  width: 38vw;
   margin-right: 13px;
   border-radius: 4px;
   /* border: none; */
@@ -1095,7 +1107,7 @@ FOOTER
   position: absolute;
   top: -50px;
   transform: rotate(35deg);
-  width: 33.8vw;
+  /* width: 33.8vw; */
   transition: all 3000ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 .butn::after {
@@ -1107,7 +1119,7 @@ FOOTER
   top: -50px;
   transform: rotate(35deg);
   transition: all 3000ms cubic-bezier(0.19, 1, 0.22, 1);
-  width: 33.8vw;
+  /* width: 33.8vw; */
 }
 .butn__new::before {
   left: -50%;
