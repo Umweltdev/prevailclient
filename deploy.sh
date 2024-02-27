@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "about | btn control view"
+git commit -m "landing | navbar & landing fix"
 
 git push
 

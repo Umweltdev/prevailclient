@@ -1,11 +1,17 @@
 .hero-container {
-  background-image: url(../assets/landing112.svg) !important;
+  /* background-image: url(../assets/landing112.svg) !important; */
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
   width: 100vw;
+  height: 100vh; /* Adjust the height as needed */
+  background: linear-gradient(
+    to top left,
+    transparent 42%,
+    #450fad 40%
+  ) !important;
 }
 
 .hero {
@@ -39,14 +45,19 @@
   color: white;
   font-weight: bold;
   transition: 1s all ease-in-out;
-  margin-top: 89vh;
+  margin-top: 80vh;
   right: 8vw;
   cursor: pointer;
+  background-color: #450fad;
+  padding: 3vh 3vw;
+  border-radius: 5vw;
 }
 
-/* .heroBtn:hover {
-  background-color: var(--first-color);
-} */
+.heroBtn:hover,
+.heroBtn:hover {
+  box-shadow: 0px 1px 5px 2px #450fad;
+  /* color: #000; */
+}
 
 /* Mobile breakpoint */
 /* @media only screen and (max-width: 700px) {

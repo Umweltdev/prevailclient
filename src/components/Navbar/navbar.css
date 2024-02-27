@@ -8,15 +8,15 @@
   justify-content: space-around;
   align-items: center;
   padding: 1vh 0;
-  background: rgba(3, 3, 32, 0.1);
-  backdrop-filter: blur(5px); /* Use backdrop-filter instead of filter */
-  box-shadow: rgba(0, 0, 0, 0.07) 0px 32px 64px;
-  transition: opacity 0.3s ease; /* Add transition for a smooth color change */
+  background: rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.navContainer.scrolled {
+/* .navContainer.scrolled {
   background: rgba(3, 3, 32, 0.9);
-}
+} */
 
 .navLogo {
   /* background-color: white; */
@@ -53,7 +53,7 @@
 }
 
 /* Mobile view */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .navPages {
     display: none;
   }
@@ -66,4 +66,4 @@
   .navLogo {
     width: 8vw;
   }
-}
+} */
