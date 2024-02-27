@@ -26,7 +26,7 @@ const SectionThree = () => {
             <h2
               className="sThreeAbouHeader"
               onClick={() => toggleDropDown(index)}
-            >sgkgkdgkgdgsd
+            >
               {data.question} <Add />
             </h2>
             {/* Show the <p> tag only if isDropDownVisible for this FAQ is true */}

@@ -22,27 +22,27 @@ const SectionTwo = () => {
     }));
   };
 
-    // useEffect(() => {
-    //   const handleScroll = () => {
-    //     const currentPosition = window.scrollY;
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const currentPosition = window.scrollY;
 
-    //     if (currentPosition === 0 || currentPosition < scrollPosition) {
-    //       // Scrolling up to the very top or scrolling up, show the sidebar
-    //       setSidebarVisible(true);
-    //     } else {
-    //       // Scrolling down, hide the sidebar
-    //       setSidebarVisible(false);
-    //     }
+  //     if (currentPosition === 0 || currentPosition < scrollPosition) {
+  //       // Scrolling up to the very top or scrolling up, show the sidebar
+  //       setSidebarVisible(true);
+  //     } else {
+  //       // Scrolling down, hide the sidebar
+  //       setSidebarVisible(false);
+  //     }
 
-    //     setScrollPosition(currentPosition);
-    //   };
+  //     setScrollPosition(currentPosition);
+  //   };
 
-    //   window.addEventListener("scroll", handleScroll);
+  //   window.addEventListener("scroll", handleScroll);
 
-    //   return () => {
-    //     window.removeEventListener("scroll", handleScroll);
-    //   };
-    // }, [scrollPosition]);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, [scrollPosition]);
 
   return (
     <div className="sTwoAboutContainer">
@@ -111,7 +111,6 @@ const SectionTwo = () => {
             </button>
           </>
         )}
-        
       </div>
     </div>
   );

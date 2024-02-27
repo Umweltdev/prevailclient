@@ -38,7 +38,7 @@ const SectionFive = () => {
             <img style={{ width: "5vw" }} src={data.img} alt="icons" />
             <h1 className="sTwoServicesCardHeader1">{data.header}</h1>
             <p className="sTwoServicesCardText1">{data.desc}</p>
-            <button className="btnService1">Learn More</button>
+            <button className="btnService">Learn More</button>
           </div>
         ))}
       </div>
