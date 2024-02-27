@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "landing | navbar & landing fix"
+git commit -m "landing | button fixed"
 
 git push
 

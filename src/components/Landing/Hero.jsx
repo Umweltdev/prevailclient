@@ -111,7 +111,7 @@ const Hero = () => {
         variants={stagger}
       >
         <div className="hero-four">
-          <div className="heroBtn">Schedule a consultation</div>
+          <div className="heroBtn heroBtn__new">Schedule a consultation</div>
         </div>
       </motion.div>
     </motion.div>
