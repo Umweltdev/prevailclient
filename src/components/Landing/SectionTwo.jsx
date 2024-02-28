@@ -3,7 +3,7 @@ import oneImg from "../../assets/1.png";
 import twoImg from "../../assets/2.png";
 import threeImg from "../../assets/31.png";
 import land2 from "./assets/land2.png";
-// import Spline from "@splinetool/react-spline";
+import Spline from "@splinetool/react-spline";
 
 const SectionTwo = () => {
   return (
@@ -19,11 +19,11 @@ const SectionTwo = () => {
           strategic partner for businesses in the digital age.
         </p>
 
-        {/* <Spline
+        <Spline
           style={{ height: "80vh", background: "white" }}
           className="sTwoSpline"
           scene="https://prod.spline.design/YwnKOA8cJ8yoNsFC/scene.splinecode"
-        /> */}
+        />
       </div>
     </div>
   );
