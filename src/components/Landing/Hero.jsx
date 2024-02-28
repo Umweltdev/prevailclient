@@ -87,7 +87,6 @@ const Hero = () => {
       transition={{ duration: 1, ease: easing }}
       className="hero-container"
     >
-      {/* <Navbar /> */}
       <motion.div
         className="hero"
         initial="initial"
