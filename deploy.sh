@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "landing | button fixed"
+git commit -m "landing | landing waterflow fixed"
 
 git push
 
