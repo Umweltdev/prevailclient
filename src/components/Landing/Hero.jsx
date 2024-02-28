@@ -82,10 +82,10 @@ const letter2 = {
 const Hero = () => {
   return (
     <div className="hero1">
-      {/* <spline-viewer
+      <spline-viewer
         className="spline-Layer"
         url="https://prod.spline.design/Nb2I5a6X-Kr8fdit/scene.splinecode"
-      ></spline-viewer> */}
+      ></spline-viewer>
       <motion.div
         initial={{ opacity: 0, height: 0 }}
         animate={{ opacity: 1, height: "100vh" }}

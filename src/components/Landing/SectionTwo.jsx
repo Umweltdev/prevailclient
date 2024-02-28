@@ -18,10 +18,10 @@ const SectionTwo = () => {
           strategic partner for businesses in the digital age.
         </p>
 
-        {/* <spline-viewer
+        <spline-viewer
           loading-anim-type="spinner-small-light"
           url="https://prod.spline.design/YwnKOA8cJ8yoNsFC/scene.splinecode"
-        ></spline-viewer> */}
+        ></spline-viewer>
       </div>
     </div>
   );
