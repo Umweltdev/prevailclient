@@ -19,11 +19,10 @@ const SectionTwo = () => {
           strategic partner for businesses in the digital age.
         </p>
 
-        <Spline
-          style={{ height: "80vh", background: "white" }}
-          className="sTwoSpline"
-          scene="https://prod.spline.design/YwnKOA8cJ8yoNsFC/scene.splinecode"
-        />
+        <spline-viewer
+          loading-anim-type="spinner-small-light"
+          url="https://prod.spline.design/YwnKOA8cJ8yoNsFC/scene.splinecode"
+        ></spline-viewer>
       </div>
     </div>
   );

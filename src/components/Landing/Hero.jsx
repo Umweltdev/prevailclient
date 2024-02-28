@@ -81,39 +81,45 @@ const letter2 = {
 
 const Hero = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0, height: 0 }}
-      animate={{ opacity: 1, height: "100vh" }}
-      transition={{ duration: 1, ease: easing }}
-      className="hero-container"
-    >
+    <div className="hero1">
+      <spline-viewer
+        className="spline-Layer"
+        url="https://prod.spline.design/Nb2I5a6X-Kr8fdit/scene.splinecode"
+      ></spline-viewer>
       <motion.div
-        className="hero"
-        initial="initial"
-        animate="animate"
-        variants={stagger}
+        initial={{ opacity: 0, height: 0 }}
+        animate={{ opacity: 1, height: "100vh" }}
+        transition={{ duration: 1, ease: easing }}
+        className="hero-container"
       >
-        <motion.h1 variants={header} className="hero-one">
-          Prevail Marketing
-        </motion.h1>
-        <motion.h1 variants={letter} className="hero-two">
-          HOW CAN WE BE
-        </motion.h1>
-        <motion.h1 variants={letter2} className="hero-two">
-          YOUR PARTNER IN SUCCESS?
-        </motion.h1>
+        <motion.div
+          className="hero"
+          initial="initial"
+          animate="animate"
+          variants={stagger}
+        >
+          <motion.h1 variants={header} className="hero-one">
+            Prevail Marketing
+          </motion.h1>
+          <motion.h1 variants={letter} className="hero-two">
+            HOW CAN WE BE
+          </motion.h1>
+          <motion.h1 variants={letter2} className="hero-two">
+            YOUR PARTNER IN SUCCESS?
+          </motion.h1>
+        </motion.div>
+        <motion.div
+          className="hero"
+          initial="initial"
+          animate="animate"
+          variants={stagger}
+        >
+          <div className="hero-four">
+            <div className="heroBtn heroBtn__new">Schedule a consultation</div>
+          </div>
+        </motion.div>
       </motion.div>
-      <motion.div
-        className="hero"
-        initial="initial"
-        animate="animate"
-        variants={stagger}
-      >
-        <div className="hero-four">
-          <div className="heroBtn heroBtn__new">Schedule a consultation</div>
-        </div>
-      </motion.div>
-    </motion.div>
+    </div>
   );
 };
 
