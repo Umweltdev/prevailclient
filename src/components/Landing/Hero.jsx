@@ -84,7 +84,7 @@ const Hero = () => {
     <div className="hero1">
       <spline-viewer
         className="spline-Layer"
-        url="#"
+        url="https://prod.spline.design/Nb2I5a6X-Kr8fdit/scene.splinecode"
       ></spline-viewer>
       <motion.div
         initial={{ opacity: 0, height: 0 }}
