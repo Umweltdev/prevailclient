@@ -5,12 +5,13 @@ import SectionFour from "../components/Portfolio/SectionFour";
 import SectionFive from "../components/Portfolio/SectionFive";
 import Footer from "../components/Footer/Footer"
 import Navbar from "../components/Navbar/Navbar";
+import DrawerAppBar from "../components/Navbar/Appbar";
 // import SectionSix from "../components/Portfolio/SectionSix";
 
 const Portfolio = () => {
   return (
     <div>
-      <Navbar />
+      <DrawerAppBar />
       <SectionOne />
       <SectionTwo />
       <SectionThree />

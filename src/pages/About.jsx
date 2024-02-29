@@ -3,16 +3,18 @@ import SectionOne from "../components/About/SectionOne";
 import SectionThree from "../components/About/SectionThree";
 import SectionTwo from "../components/About/SectionTwo";
 import Navbar from "../components/Navbar/Navbar.jsx";
-import SectionFour from "../components/About/SectionFour.jsx"
+import SectionFour from "../components/About/SectionFour.jsx";
 import SectionConsultation from "../components/About/SectionConsultation.jsx";
+import DrawerAppBar from "../components/Navbar/Appbar.jsx";
 
 const About = () => {
   return (
     <div>
-      <Navbar />
+      <DrawerAppBar />
+      {/* <Navbar /> */}
       {/* <SectionOne /> */}
       <SectionTwo />
-      <SectionConsultation/>
+      <SectionConsultation />
       {/* <SectionFour/> */}
       <SectionThree />
       <Footer />

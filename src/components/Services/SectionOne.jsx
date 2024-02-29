@@ -1,9 +1,11 @@
+import DrawerAppBar from "../Navbar/Appbar";
 import Navbar from "../Navbar/Navbar"
 
 const SectionOne = () => {
   return (
     <div className="sOneContainer">
-      <Navbar/>
+      {/* <Navbar/> */}
+      <DrawerAppBar/>
     </div>
   );
 }

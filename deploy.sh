@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "landing | landing waterflow fixed"
+git commit -m "navbar | changed to material ui"
 
 git push
 

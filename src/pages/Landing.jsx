@@ -6,13 +6,15 @@ import SectionSeven from "../components/Landing/SectionSeven";
 import SectionSix from "../components/Landing/SectionSix";
 import SectionThree from "../components/Landing/SectionThree";
 import SectionTwo from "../components/Landing/SectionTwo";
+import DrawerAppBar from "../components/Navbar/Appbar";
 import Navbar from "../components/Navbar/Navbar";
 // import Follower from "../components/MouseAnimation";
 
 const Landing = () => {
   return (
     <div>
-      <Navbar />
+      <DrawerAppBar />
+      {/* <Navbar /> */}
       <Hero />
       <SectionTwo />
       <SectionThree />
