@@ -9,7 +9,7 @@ function BasicButtons({ text, gradient }) {
         variant="contained"
         sx={{
           background:
-            gradient || "linear-gradient(45deg, #450fad 30%, #ab63f3 90%)",
+            gradient || "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
           padding: "2vh 2vw",
           borderRadius: "5vw",
           color: "white",

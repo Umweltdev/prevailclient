@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 import wLogo from "./wlogo.png";
 
 const drawerWidth = 240;
-const navItems = ["Home", "Portfolio", "About", "Blog", "Contact"];
+const navItems = ["About", "Portfolio", "Blog", "Contact"];
 
 function DrawerAppBar() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -49,7 +49,9 @@ function DrawerAppBar() {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        <img src={wLogo} alt="logo" />
+        <Link to={`/`} style={{ textDecoration: "none", color: "inherit" }}>
+          <img style={{ height: "10vh" }} src={wLogo} alt="logo" />
+        </Link>
       </Typography>
       <Divider />
       <List>
@@ -98,11 +100,22 @@ function DrawerAppBar() {
               component="div"
               sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
             >
-              <img style={{ height: "10vh" }} src={wLogo} alt="logo" />
+              <Link
+                to={`/`}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <img style={{ height: "10vh" }} src={wLogo} alt="logo" />
+              </Link>
             </Typography>
             <Box sx={{ display: { xs: "none", sm: "block" } }}>
               {navItems.map((item) => (
-                <Button key={item} sx={{ color: "#003988", fontWeight: "900" }}>
+                <Button
+                  key={item}
+                  sx={{
+                    color: "#884ed9",
+                    fontWeight: "900",
+                  }}
+                >
                   <Link
                     to={`/${item.toLowerCase()}`}
                     style={{ textDecoration: "none", color: "inherit" }}

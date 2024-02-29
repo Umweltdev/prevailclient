@@ -10,7 +10,7 @@ import BlogDetails from "./components/Blog/BlogDetails";
 function App() {
   return (
     <Routes>
-      <Route path="/home" element={<Landing />} />
+      <Route path="/" element={<Landing />} />
       <Route path="/About" element={<About />} />
       <Route path="/Portfolio" element={<Portfolio />} />
       <Route path="/Blog" element={<Blog />} />

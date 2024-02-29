@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "card materialUi | changed to material ui"
+git commit -m "landing 2 materialUi | changed to material ui"
 
 git push
 
