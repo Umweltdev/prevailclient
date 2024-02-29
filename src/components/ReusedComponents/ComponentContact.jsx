@@ -1,28 +1,67 @@
-import "../Landing/assets/landing.css";
+import React from "react";
+import { makeStyles } from "@mui/styles";
+import {
+  Grid,
+  Typography,
+  TextField,
+  Button,
+  TextareaAutosize,
+  Box,
+} from "@mui/material";
+import CustomizedButtons from "./ReusedButton";
+
+const useStyles = makeStyles((theme) => ({
+  container: {
+    padding: "2rem",
+    background: "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
+    color: "white",
+  },
+  leftContainer: {
+    paddingRight: "2rem",
+  },
+  input: {
+    marginBottom: "1rem",
+  },
+}));
 
 const ComponentContact = ({ header, text, img }) => {
+  const classes = useStyles();
+
   return (
-    <div className="sFourContainer">
-      <div className="sFourLeft">
-        <h1 className="sFourHero">{header}</h1>
-        <p className="sFourText">{text}</p>
-        <div className="sFourInputContainer">
-          <input className="sFourInput" placeholder="Full Name" type="text" />
-          <input className="sFourInput" placeholder="Email" type="text" />
-          <input className="sFourInput" placeholder="Phone" type="text" />
-          <textArea
-            className="sFourInputText"
+    <Grid container className={classes.container}>
+      <Grid item xs={12} md={6} className={classes.leftContainer}>
+        <Typography variant="h4" gutterBottom>
+          {header}
+        </Typography>
+        <Typography variant="body1" className={classes.input}>
+          {text}
+        </Typography>
+        <Box
+          component="form"
+          sx={{
+            "& > :not(style)": { m: 1, width: "50ch" },
+          }}
+          noValidate
+          autoComplete="off"
+        >
+          <TextField id="outlined-basic" label="Full Name" variant="outlined" />
+          <TextField id="outlined-basic" label="Email" variant="outlined" />
+          <TextField id="outlined-basic" label="Phone" variant="outlined" />
+
+          <TextareaAutosize
+            className={classes.input}
             placeholder="How can we be of help?"
+            rows={6} // Adjust the number of rows as needed
+            minRows={4} // Optional: minimum number of rows
+            maxRows={10}
           />
-          <a href="#" className="butn butn__new">
-            <span>Submit</span>
-          </a>
-        </div>
-      </div>
-      <div className="sFourRight">
-        <img className="sFourRightImg" src={img} alt="contact Image" />
-      </div>
-    </div>
+          <CustomizedButtons />
+        </Box>
+      </Grid>
+      <Grid item xs={12} md={6}>
+        <img src={img} alt="contact Image" style={{ width: "100%" }} />
+      </Grid>
+    </Grid>
   );
 };
 
