@@ -48,11 +48,11 @@ const ColorButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-export default function CustomizedButtons() {
+export default function CustomizedButtons({ text }) {
   return (
     <Stack spacing={2} direction="row">
       <BootstrapButton variant="contained" disableRipple fullWidth>
-        SUBMIT
+        {text}
       </BootstrapButton>
     </Stack>
   );
