@@ -3,8 +3,8 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import BasicButtons from "./Button";
 
 const bull = (
   <Box
@@ -15,27 +15,43 @@ const bull = (
   </Box>
 );
 
-export default function BasicCard() {
+export default function BasicCard({ headerText, text, icon }) {
   return (
-    <Card sx={{ minWidth: 275 }}>
+    <Card
+      sx={{
+        width: 405,
+        height: 450,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <CardContent>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Word of the Day
+        {icon}
+        {/* <img
+          style={{
+            width: "5vw",
+            display: "block",
+            margin: "auto",
+            padding: "3vh 0",
+          }}
+          src={icon}
+          alt=""
+        /> */}
+        <Typography
+          sx={{ fontSize: 20, textAlign: "center", padding: "2vh 0" }}
+          color="text.secondary"
+          gutterBottom
+        >
+          {headerText}
         </Typography>
-        <Typography variant="h5" component="div">
-          be{bull}nev{bull}o{bull}lent
-        </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          adjective
-        </Typography>
-        <Typography variant="body2">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
+        <Typography sx={{ fontSize: 14, textAlign: "center" }} variant="body2">
+          {text}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
+      <CardActions sx={{ padding: "2vh 0 5vh 0" }}>
+        <BasicButtons text="Learn More" />
       </CardActions>
     </Card>
   );
