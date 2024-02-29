@@ -5,13 +5,14 @@ import announcement from "./assets/seo.png";
 import socialmedia from "./assets/tag.png";
 import Cards from "../ReusedComponents/Cards";
 import { Campaign, Computer, QueryStats, Sell } from "@mui/icons-material";
+import { Typography } from "@mui/material";
 
 const cardInfo = [
   {
     img: (
       <Campaign
         sx={{
-          backgroundColor: "#5e94d3",
+          background: "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
           color: "white",
           fontSize: "5vw",
           padding: "0.7vw",
@@ -28,7 +29,7 @@ const cardInfo = [
     img: (
       <Computer
         sx={{
-          backgroundColor: "#5e94d3",
+          background: "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
           color: "white",
           fontSize: "5vw",
           padding: "0.7vw",
@@ -45,7 +46,7 @@ const cardInfo = [
     img: (
       <QueryStats
         sx={{
-          backgroundColor: "#5e94d3",
+          background: "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
           color: "white",
           fontSize: "5vw",
           padding: "0.7vw",
@@ -62,7 +63,7 @@ const cardInfo = [
     img: (
       <Sell
         sx={{
-          backgroundColor: "#5e94d3",
+          background: "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
           color: "white",
           fontSize: "5vw",
           padding: "0.7vw",
@@ -77,14 +78,24 @@ const cardInfo = [
   },
 ];
 
-const SectionFive = () => {
+const SectionFive = (gradient) => {
   return (
     <div className="sTwoServicesContainer1">
-      <h1 className="sTwoServicesHeader1">Your Tools For Success</h1>
+      <Typography
+        sx={{ fontSize: "3vw", fontWeight: "bold" }}
+        className="sTwoServicesHeader1"
+      >
+        Your Tools For Success
+      </Typography>
       <span className="lineSpanServices1"></span>
       <div className="sTwoServicesCards1">
         {cardInfo.map((data, index) => (
-          <Cards text={data.desc} headerText={data.header} icon={data.img} />
+          <Cards
+            key={index}
+            text={data.desc}
+            headerText={data.header}
+            icon={data.img}
+          />
         ))}
       </div>
     </div>

@@ -40,7 +40,12 @@ export default function BasicCard({ headerText, text, icon }) {
           alt=""
         /> */}
         <Typography
-          sx={{ fontSize: 20, textAlign: "center", padding: "2vh 0" }}
+          sx={{
+            fontSize: 20,
+            textAlign: "center",
+            fontWeight: "bold",
+            padding: "2vh 0",
+          }}
           color="text.secondary"
           gutterBottom
         >

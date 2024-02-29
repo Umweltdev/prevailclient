@@ -180,7 +180,7 @@
 
 /* SECTION TWO */
 .sTwoContainer {
-  background-color: #70A1E3 !important;
+  background-color: #70a1e3 !important;
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
@@ -1062,13 +1062,8 @@ FOOTER
 
 .sTwoServicesHeader1 {
   font-size: var(--big-header);
-  background: linear-gradient(
-    to right,
-    rgba(128, 100, 213, 1) 0%,
-    rgba(104, 125, 208, 1) 13%,
-    rgba(92, 142, 208, 1) 79%,
-    rgba(94, 77, 162, 1) 100%
-  );
+  background: linear-gradient(45deg, #a16ad9 30%, #70a1e3 90%);
+  font-size: 10vw;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
 }
