@@ -1,4 +1,5 @@
 import Navbar from "../Navbar/Navbar";
+import BasicButtons from "../ReusedComponents/Button";
 import "./assets/landing.css";
 import { motion } from "framer-motion";
 // import bgImg from "./assets/bgpmm.png";
@@ -115,7 +116,11 @@ const Hero = () => {
           variants={stagger}
         >
           <div className="hero-four">
-            <div className="heroBtn heroBtn__new">Schedule a consultation</div>
+            <BasicButtons
+              text="Schedule a consultation"
+              bgColor="#450fad"
+            />
+            {/* <div className="heroBtn heroBtn__new">Schedule a consultation</div> */}
           </div>
         </motion.div>
       </motion.div>
