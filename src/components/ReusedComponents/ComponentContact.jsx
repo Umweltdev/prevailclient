@@ -48,12 +48,12 @@ const ComponentContact = ({ header, text, img }) => {
           <TextField id="outlined-basic" label="Email" variant="outlined" />
           <TextField id="outlined-basic" label="Phone" variant="outlined" />
 
-          <TextareaAutosize
+          <TextField
             className={classes.input}
             placeholder="How can we be of help?"
-            rows={6} // Adjust the number of rows as needed
-            minRows={4} // Optional: minimum number of rows
-            maxRows={10}
+            label="How can we be of help"
+            variant="outlined"
+            minHeight="20vh"
           />
           <CustomizedButtons />
         </Box>

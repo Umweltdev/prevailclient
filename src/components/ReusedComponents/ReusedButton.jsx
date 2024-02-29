@@ -11,8 +11,8 @@ const BootstrapButton = styled(Button)({
   padding: "6px 12px",
   border: "1px solid",
   lineHeight: 1.5,
-  backgroundColor: "#0063cc",
-  borderColor: "#0063cc",
+  backgroundColor: "#003988",
+  borderColor: "#003988",
   fontFamily: [
     "-apple-system",
     "BlinkMacSystemFont",
@@ -51,7 +51,7 @@ const ColorButton = styled(Button)(({ theme }) => ({
 export default function CustomizedButtons() {
   return (
     <Stack spacing={2} direction="row">
-      <BootstrapButton variant="contained" disableRipple>
+      <BootstrapButton variant="contained" disableRipple fullWidth>
         SUBMIT
       </BootstrapButton>
     </Stack>
