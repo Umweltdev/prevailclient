@@ -1,6 +1,7 @@
 import { Add } from "@mui/icons-material";
 import { useState } from "react";
 import { FAQS } from "./assets/OurWhyObjects";
+import AccordionUsage from "../ReusedComponents/FaqAccordion";
 
 const SectionThree = () => {
   // State to manage the visibility of each FAQ item
@@ -22,18 +23,7 @@ const SectionThree = () => {
       </div>
       <div className="sThreeHeroFAQS">
         {FAQS.map((data, index) => (
-          <div key={index} className="sThreeAboutLeft">
-            <h2
-              className="sThreeAbouHeader"
-              onClick={() => toggleDropDown(index)}
-            >
-              {data.question} <Add />
-            </h2>
-            {/* Show the <p> tag only if isDropDownVisible for this FAQ is true */}
-            {isDropDownVisible[index] && (
-              <p className="sThreeAboutText">{data.answer}</p>
-            )}
-          </div>
+          <AccordionUsage header={data.question} headerText={data.answer} />
         ))}
       </div>
     </div>
