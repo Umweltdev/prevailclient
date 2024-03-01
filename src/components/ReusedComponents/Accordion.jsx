@@ -10,25 +10,26 @@ import data from "./assets/data.png";
 import bulb from "./assets/bulb.png";
 import badge from "./assets/badge.png";
 import { Box, Typography } from "@mui/material";
+import { Balance, Devices, Storefront, TipsAndUpdates, Workspaces } from "@mui/icons-material";
 
 const goalsObj = [
   {
-    icon: connect,
+    icon: <Storefront sx={{ color: "#884ED7" }} />,
     mainText: "Empowering Local Businesses",
     subText: `Recognise the struggle of local SMEs in the current economic climate. Prevail is committed to empowering these businesses, providing them with the tools and resources to compete effectively against larger enterprises.`,
   },
   {
-    icon: data,
+    icon: <Devices sx={{ color: "#884ED7" }} />,
     mainText: "Innovative and Accessible Technology",
     subText: `Address the gap in technology accessibility between large corporations and “small-to-medium-sized" enterprises (SMEs). Prevail will focus on bringing innovative, affordable tech solutions to local businesses, allowing them to harness automation and other advancements without the need for full-time programmers.`,
   },
   {
-    icon: bulb,
+    icon: <TipsAndUpdates sx={{ color: "#884ED7" }} />,
     mainText: "Adaptive Business Strategies",
     subText: `Understand the volatility in consumer demands and behaviours. Prevail offers insights and tools to help local businesses quickly adapt to changing market conditions, ensuring they remain competitive and responsive to consumer needs.`,
   },
   {
-    icon: badge,
+    icon: <Balance sx={{ color: "#884ED7" }} />,
     mainText: "Market Equity and Fair Competition",
     subText: `Address the challenge of market share decline for local businesses. Prevail stands for creating a more equitable market where local businesses can compete fairly with larger enterprises, ensuring diversity and choice in the market.`,
   },
@@ -56,11 +57,12 @@ export default function AccordionUsage() {
               alignItems: "center",
             }}
           >
-            <img
+            {data.icon}
+            {/* <img
               style={{ width: "2.7vw", marginRight: "1vw" }}
               src={data.icon}
               alt=""
-            />
+            /> */}
             <Typography sx={{ margin: "auto" }}>{data.mainText}</Typography>
           </AccordionSummary>
           <AccordionDetails

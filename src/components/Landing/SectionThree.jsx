@@ -13,18 +13,25 @@ import {
 import "./assets/landing.css";
 
 import AccordionUsage from "../ReusedComponents/Accordion";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
-const SectionThree = ({ gradient }) => {
+const gradient = "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)";
+
+const SectionThree = () => {
   return (
-    <Box
-      sx={{
-        background:
-          gradient || "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
-      }}
-      className="sThreeContainer"
-    >
-      <h1 className="sThreeHero">Our Core Values Stands For</h1>
+    <Box className="sThreeContainer">
+      <Typography
+        variant="h5"
+        sx={{
+          fontSize: 30,
+          fontWeight: 900,
+          backgroundImage: gradient,
+          WebkitBackgroundClip: "text",
+          color: "transparent",
+        }}
+      >
+        Our Core Values Stands For
+      </Typography>
       <AccordionUsage />
     </Box>
   );

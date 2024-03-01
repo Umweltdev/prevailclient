@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 import wLogo from "./wlogo.png";
 
 const drawerWidth = 240;
-const navItems = ["About", "Portfolio", "Blog", "Contact"];
+const navItems = ["About", "Services", "Portfolio", "Blog", "Contact"];
 
 function DrawerAppBar() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
