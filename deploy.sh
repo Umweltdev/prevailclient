@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "services & about | changed to material ui | page update"
+git commit -m "blog | blurbs page update"
 
 git push
 

@@ -1,9 +1,10 @@
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
+import BlogCard from "../ReusedComponents/BlogCard";
+import FreeSolo from "../ReusedComponents/SearchInput";
 import "./assets/blog.css";
 import { BlogCategory, blogBlurbs } from "./assets/blogData";
 import { Link } from "react-router-dom";
-
 
 const SectionOne = () => {
   return (
@@ -18,41 +19,18 @@ const SectionOne = () => {
               key={index}
               className="sOneBlogCardLink"
             >
-              <div key={index} className="sOneBlogCard">
-                <img className="sOneBlogCardImg" src={data.img} alt="" />
-                <span className="sOneBlogCardHeader">{data.category}</span>
-                <h1 className="sOneBlogCardText">{data.header}</h1>
-                <div className="sOneBlogCardSub">
-                  <p className="sOneBlogCardDate">{data.date}</p>
-                  <p className="sOneBlogCardAuthor">
-                    by{" "}
-                    <span className="sOneBlogCardAuthorSpan">
-                      {data.authorFirstName}
-                    </span>
-                  </p>
-                  <button className="sOneBlogCardBtn">Read More</button>
-                </div>
-              </div>
+              <BlogCard
+                authorFirstName={data.authorFirstName}
+                header={data.header}
+                date={data.date}
+                img={data.img}
+                category={data.category}
+              />
             </Link>
           ))}
         </div>
         <div className="sOneBlogFeature">
-          <div className="oneBlogInputContainer">
-            <input
-              className="sOneBlogInput"
-              type="text"
-              placeholder="Your Keyword..."
-            />
-          </div>
-          <div className="oneBlogCatContainer">
-            <h1 className="oneBlogCatTop">CATEGORIES</h1>
-            {BlogCategory.map((data, index) => (
-              <div key={index} className="oneBlogCatContainerItems">
-                <p className="oneBlogCatItems">{data.text}</p>
-                <div className="oneBlogCatLine"></div>
-              </div>
-            ))}
-          </div>
+          <FreeSolo />
         </div>
       </div>
       <Footer />

@@ -58,11 +58,7 @@ export default function AccordionUsage() {
             }}
           >
             {data.icon}
-            {/* <img
-              style={{ width: "2.7vw", marginRight: "1vw" }}
-              src={data.icon}
-              alt=""
-            /> */}
+           
             <Typography sx={{ margin: "auto" }}>{data.mainText}</Typography>
           </AccordionSummary>
           <AccordionDetails

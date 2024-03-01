@@ -4,6 +4,8 @@ import thirdImage from "./customerJou.jpg";
 import fourthImage from "./mpp.png";
 import fifthImage from "./practCollat.jpg";
 import sixthImage from "./designprop.jpg";
+import cors from "cors"
+cors()
 
 export const serviceCard = [
   {
