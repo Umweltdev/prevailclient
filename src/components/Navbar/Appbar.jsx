@@ -15,13 +15,25 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import wLogo from "./wlogo.png";
+import { Menu, MenuItem } from "@mui/material";
 
 const drawerWidth = 240;
 const navItems = ["About", "Services", "Portfolio", "Blog", "Contact"];
+const servicesSubItems = [
+  "Service 1",
+  "Service 2",
+  "Service 3",
+  "Service 4",
+  "Service 5",
+  "Service 6",
+];
 
 function DrawerAppBar() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [showNavbar, setShowNavbar] = React.useState(true);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  
+  
 
   React.useEffect(() => {
     let prevScrollPos = window.pageYOffset;
@@ -46,6 +58,19 @@ function DrawerAppBar() {
     setMobileOpen((prevState) => !prevState);
   };
 
+  const handleMouseOverServices = (event) => {
+    setAnchorEl(event.currentTarget);
+    
+  };
+
+  const handleMouseLeaveServices = (event) => {
+    setTimeout(() => {
+      setAnchorEl(null);
+    }, 9000); // Adjust the delay as needed (300 milliseconds in this case)
+    event.preventDefault()
+  };
+
+
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
@@ -57,14 +82,46 @@ function DrawerAppBar() {
       <List>
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
-            <Link
-              to={`/${item.toLowerCase()}`}
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              <ListItemButton sx={{ textAlign: "center" }}>
-                <ListItemText primary={item} />
-              </ListItemButton>
-            </Link>
+            {item === "Services" ? (
+              <React.Fragment>
+                <Button
+                  sx={{ color: "#884ed9", fontWeight: "900" }}
+                  onMouseOver={handleMouseOverServices}
+                >
+                  {item}
+                </Button>
+                <Menu
+                  id={`menu-${item}`}
+                  anchorEl={anchorEl}
+                  anchorOrigin={{
+                    vertical: "top",
+                    horizontal: "left",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "left",
+                  }}
+                  open={Boolean(anchorEl)}
+                  onClose={handleMouseLeaveServices}
+                >
+                  {servicesSubItems.map((subItem) => (
+                    <MenuItem key={subItem} onClick={handleMouseLeaveServices}>
+                      {subItem}
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </React.Fragment>
+            ) : (
+              <Link
+                to={`/${item.toLowerCase()}`}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <ListItemButton sx={{ textAlign: "center" }}>
+                  <ListItemText primary={item} />
+                </ListItemButton>
+              </Link>
+            )}
           </ListItem>
         ))}
       </List>
@@ -107,14 +164,15 @@ function DrawerAppBar() {
                 <img style={{ height: "10vh" }} src={wLogo} alt="logo" />
               </Link>
             </Typography>
-            <Box sx={{ display: { xs: "none", sm: "block" } }}>
+            <Box sx={{ display: { xs: "none", sm: "flex" } }}>
               {navItems.map((item) => (
                 <Button
                   key={item}
-                  sx={{
-                    color: "#884ed9",
-                    fontWeight: "900",
-                  }}
+                  sx={{ color: "#884ed9", fontWeight: "900" }}
+                  onMouseOver={
+                    item === "Services" ? handleMouseOverServices : null
+                  }
+                  onMouseLeave={handleMouseLeaveServices}
                 >
                   <Link
                     to={`/${item.toLowerCase()}`}

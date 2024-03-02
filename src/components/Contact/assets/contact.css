@@ -2,7 +2,6 @@
   background-image: url(../../../assets/pattern.jpg);
   background-size: cover;
   height: 100vh;
-  /* clip-path: polygon(0px 0px, 100% 0px, 100% 70%, 0px 100%); */
   color: white;
 }
 
@@ -33,6 +32,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 10vh;
 }
 
 .sTwoContact {
@@ -47,12 +47,12 @@
 
 .sTwoContactHeader {
   text-align: center;
-  color: var(--first-color);
+  color: #884ed9;
 }
 
 .sTwoContactParagraph {
   line-height: 4vh;
-  color: var(--third-color);
+  color:  #884ed9;
   margin-top: 4vh;
 }
 /* SECTION THREE */
@@ -134,7 +134,7 @@ input:focus {
 .custom-select select:focus {
   outline: none;
   border-color: #007bff;
-} 
+}
 
 .custom-select::after {
   content: "\25BC";

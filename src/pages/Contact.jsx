@@ -5,15 +5,17 @@ import SectionFive from "../components/Services/SectionFive";
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
 import DrawerAppBar from "../components/Navbar/Appbar";
+import ContactInput from "../components/Contact/ContactInput";
 
 
 const Contact = () => {
   return (
     <div>
       <DrawerAppBar />
-      <SectionOne />
+      {/* <SectionOne /> */}
       <SectionTwo />
-      <SectionThree />
+      <ContactInput/>
+      {/* <SectionThree /> */}
       <SectionFive />
       <Footer />
     </div>

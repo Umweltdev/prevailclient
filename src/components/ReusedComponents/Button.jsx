@@ -2,7 +2,7 @@ import * as React from "react";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 
-function BasicButtons({ text, gradient }) {
+function BasicButtons({ text, gradient, width }) {
   return (
     <Stack>
       <Button
