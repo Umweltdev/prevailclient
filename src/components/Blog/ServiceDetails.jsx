@@ -1,0 +1,31 @@
+import React from "react";
+import { useParams } from "react-router-dom";
+import Navbar from "../Navbar/Navbar";
+import { serviceCard } from "../Services/assets/ServicesData";
+import "./assets/blog.css";
+// import { Email, Facebook, Instagram, Twitter } from "@mui/icons-material";
+import Footer from "../Footer/Footer";
+import DrawerAppBar from "../Navbar/Appbar";
+
+const ServiceDetails = () => {
+  // Access the parameters from the URL
+  const { index } = useParams();
+
+  // Assuming `blogBlurbs` is available in the same scope
+  const service = serviceCard[parseInt(index, 8)];
+
+  if (!service) {
+    // Handle the case when the service with the specified index is not found
+    return <div>service not found</div>;
+  }
+
+  return (
+    <div style={{ paddingTop: "25vh" }} className="sOneBlogContainer">
+      <DrawerAppBar />
+      {service.header}
+      <Footer />
+    </div>
+  );
+};
+
+export default ServiceDetails;

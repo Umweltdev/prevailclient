@@ -20,20 +20,18 @@ import { Menu, MenuItem } from "@mui/material";
 const drawerWidth = 240;
 const navItems = ["About", "Services", "Portfolio", "Blog", "Contact"];
 const servicesSubItems = [
-  "Service 1",
-  "Service 2",
-  "Service 3",
-  "Service 4",
-  "Service 5",
-  "Service 6",
+  "Collaborative Process",
+  "Visual Harmony",
+  "Customer Journey Mapping",
+  "Multi-Platform Presence",
+  "Practical Collaterals",
+  "iverse Design Proposals",
 ];
 
 function DrawerAppBar() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [showNavbar, setShowNavbar] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
-  
-  
 
   React.useEffect(() => {
     let prevScrollPos = window.pageYOffset;
@@ -60,16 +58,14 @@ function DrawerAppBar() {
 
   const handleMouseOverServices = (event) => {
     setAnchorEl(event.currentTarget);
-    
   };
 
   const handleMouseLeaveServices = (event) => {
     setTimeout(() => {
       setAnchorEl(null);
     }, 9000); // Adjust the delay as needed (300 milliseconds in this case)
-    event.preventDefault()
+    event.preventDefault();
   };
-
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
@@ -105,9 +101,14 @@ function DrawerAppBar() {
                   open={Boolean(anchorEl)}
                   onClose={handleMouseLeaveServices}
                 >
-                  {servicesSubItems.map((subItem) => (
+                  {servicesSubItems.map((subItem, index) => (
                     <MenuItem key={subItem} onClick={handleMouseLeaveServices}>
-                      {subItem}
+                      <Link
+                        to={`/Services/${index}`}
+                        style={{ textDecoration: "none", color: "inherit" }}
+                      >
+                        {subItem}
+                      </Link>
                     </MenuItem>
                   ))}
                 </Menu>
