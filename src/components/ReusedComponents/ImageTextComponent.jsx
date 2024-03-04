@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
 
   textContainer: {
     width: "50vw",
+    textAlign: "right",
   },
   image: {
     width: 400,
@@ -31,11 +32,9 @@ const ImageTextComponent = ({ text, imageUrl }) => {
         margin: "0 auto",
       }}
     >
-      <Grid container className={classes.container}>
-        <Grid item xs={12} sm={6}>
-          <img src={imageUrl} alt="image" className={classes.image} />
-        </Grid>
-        <Grid item xs={12} sm={6} className={classes.textContainer}>
+      <Grid className={classes.container}>
+        <img src={imageUrl} alt="image" className={classes.image} />
+        <Grid className={classes.textContainer}>
           <Typography variant="body1">{text}</Typography>
         </Grid>
       </Grid>

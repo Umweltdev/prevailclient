@@ -32,14 +32,10 @@ const TextImageComponent = ({ text, imageUrl }) => {
       }}
     >
       <Grid container className={classes.container}>
-        <Grid item xs={12} sm={6} className={classes.textContainer}>
-          <Typography variant="body1">
-            {text}
-          </Typography>
+        <Grid className={classes.textContainer}>
+          <Typography variant="body1">{text}</Typography>
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <img src={imageUrl} alt="image" className={classes.image} />
-        </Grid>
+        <img src={imageUrl} alt="image" className={classes.image} />
       </Grid>
     </Grid>
   );
