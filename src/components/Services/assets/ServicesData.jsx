@@ -1,11 +1,10 @@
-import firstImage from "./collab.jpg";
-import secondImage from "./vh1.png";
-import thirdImage from "./customerJou.jpg";
-import fourthImage from "./mpp.png";
-import fifthImage from "./practCollat.jpg";
-import sixthImage from "./designprop.jpg";
-import cors from "cors";
-cors();
+import firstImage from "./collaboration.png";
+import secondImage from "./d2.png";
+import thirdImage from "./customerJ.png";
+import fourthImage from "./multiplat.png";
+import fifthImage from "./practCollat.png";
+import sixthImage from "./d1.png";
+
 
 export const serviceCard = [
   {

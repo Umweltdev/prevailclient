@@ -6,6 +6,7 @@ import "./assets/blog.css";
 // import { Email, Facebook, Instagram, Twitter } from "@mui/icons-material";
 import Footer from "../Footer/Footer";
 import DrawerAppBar from "../Navbar/Appbar";
+import { Box, Typography } from "@mui/material";
 
 const ServiceDetails = () => {
   // Access the parameters from the URL
@@ -20,9 +21,15 @@ const ServiceDetails = () => {
   }
 
   return (
-    <div style={{ paddingTop: "25vh" }} className="sOneBlogContainer">
+    <div style={{ paddingTop: "10vh" }}>
       <DrawerAppBar />
-      {service.header}
+      <Box
+        sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+      >
+        <Typography variant="h4">{service.header}</Typography>
+        <img src={service.img} alt="" />
+      </Box>
+
       <Footer />
     </div>
   );

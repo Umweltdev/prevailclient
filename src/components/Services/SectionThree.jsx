@@ -1,19 +1,59 @@
+import { Typography } from "@mui/material";
 import ComponentOne from "../ReusedComponents/ComponentOne";
+import TextImageComponent from "../ReusedComponents/TextImageComponent";
 import "./assets/services.css";
+import ImageTextComponent from "../ReusedComponents/ImageTextComponent";
+
+const gradient = "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)";
 
 const SectionThree = () => {
   return (
-    <>
-      <ComponentOne
-        headerText1="Why email marketing?"
-        normaltext1="We’ve seen many marketing channels and new tactics rise and fall in popularity over the years. But email marketing has stood the test of time, consistently driving remarkable results and ROI. It’s one of the most universal, flexible, and effective options available for brands."
-        headerText2="Stay ahead of your competitors with automations"
-        normaltext2="With e-mail automation, you have the opportunity to get ahead of the competition with messages that are automatically customized and sent out, depending on where the subscriber is in the buying journey. For example, it could be a welcome email to new subscribers. It can also be an information email about a product that a subscriber has looked at. Or it could be a gratitude email to a loyal customer. This will ensure repeat customers.
-"
-        img1="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=1476&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        img2="https://images.unsplash.com/photo-1533750516457-a7f992034fec?q=80&w=1506&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+      }}
+    >
+      <Typography
+        sx={{
+          textAlign: "center",
+          fontSize: "3vw",
+          fontWeight: "900",
+          color: "#884ed9",
+        }}
+      >
+        Services
+      </Typography>
+      <Typography
+        sx={{
+          textAlign: "center",
+          fontSize: "1.8vw",
+          width: "70vw",
+          margin: "0 auto",
+          color: "#884ed9",
+        }}
+      >
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum
+        voluptatem natus error a sequi cupiditate reprehenderit eos repellat
+        excepturi deserunt officiis incidunt perferendis tenetur, nihil est
+        illum minus dignissimos reiciendis! Amet doloremque atque natus
+        dignissimos hic maiores repellat? Illum, accusantium!
+      </Typography>
+      <TextImageComponent
+        text="Understand the volatility in consumer demands and behaviours. Prevail offers insights and tools to help local businesses quickly adapt to changing market conditions, ensuring they remain competitive and responsive to consumer needs. Address the gap in technology accessibility between large corporations and small-to-medium-sized enterprises (SMEs). Prevail will focus on bringing innovative, affordable tech solutions to local businesses, allowing them to harness automation and other advancements without the need for full-time programmers. reiciendis! Amet doloremque atque natus
+        dignissimos hic maiores repellat? Illum, accusantium! ensuring they remain competitive and responsive to consumer needs. Address the gap in technology accessibility between large corporations and small-to-medium-sized enterprises (SMEs)."
+        imageUrl="https://img.freepik.com/free-vector/mobile-marketing-isometric-style_23-2148896785.jpg?w=740&t=st=1709546732~exp=1709547332~hmac=7e5bc9c9c68482eeeaf27332ec134e630874d2ab6980986cbdd83e11bbea7eef"
       />
-    </>
+      <ImageTextComponent
+        text="Understand the volatility in consumer demands and behaviours. Prevail offers insights and tools to help local businesses quickly adapt to changing market conditions, ensuring they remain competitive and responsive to consumer needs. Address the gap in technology accessibility between large corporations and small-to-medium-sized enterprises (SMEs). Prevail will focus on bringing innovative, affordable tech solutions to local businesses, allowing them to harness automation and other advancements without the need for full-time programmers. ensuring they remain competitive and responsive to consumer needs"
+        imageUrl="https://img.freepik.com/free-vector/black-friday-concept-illustration_114360-3657.jpg?t=st=1709546732~exp=1709547332~hmac=319db392e478baf935b04c88bcf2cd707a52453857f78d5ebee1d798f1b047e1"
+      />
+      <TextImageComponent
+        text="Understand the volatility in consumer demands and behaviours. Prevail offers insights and tools to help local businesses quickly adapt to changing market conditions, ensuring they remain competitive and responsive to consumer needs. Address the gap in technology accessibility between large corporations and small-to-medium-sized enterprises (SMEs). Prevail will focus on bringing innovative, affordable tech solutions to local businesses, allowing them to harness automation and other advancements without the need for full-time programmers."
+        imageUrl="https://img.freepik.com/free-vector/remote-team-concept-illustration_114360-4867.jpg"
+      />
+    </div>
   );
 };
 

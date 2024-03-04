@@ -18,6 +18,7 @@ const SectionOne = () => {
               to={`/blog/${index}`}
               key={index}
               className="sOneBlogCardLink"
+              style={{ textDecoration: "none" }}
             >
               <BlogCard
                 authorFirstName={data.authorFirstName}

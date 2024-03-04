@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "blog | blurbs page update"
+git commit -m "service | second section"
 
 git push
 

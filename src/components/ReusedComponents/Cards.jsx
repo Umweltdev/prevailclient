@@ -25,6 +25,7 @@ export default function BasicCard({ headerText, text, icon }) {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        textDecoration: "none",
       }}
     >
       <CardContent>

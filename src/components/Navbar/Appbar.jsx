@@ -60,11 +60,12 @@ function DrawerAppBar() {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleMouseLeaveServices = (event) => {
-    setTimeout(() => {
-      setAnchorEl(null);
-    }, 9000); // Adjust the delay as needed (300 milliseconds in this case)
-    event.preventDefault();
+  const handleMouseLeaveServices = () => {
+    setAnchorEl(null);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
   };
 
   const drawer = (
@@ -99,13 +100,18 @@ function DrawerAppBar() {
                     horizontal: "left",
                   }}
                   open={Boolean(anchorEl)}
-                  onClose={handleMouseLeaveServices}
+                  onClose={handleMenuClose}
+                  onMouseLeave={handleMouseLeaveServices}
                 >
                   {servicesSubItems.map((subItem, index) => (
-                    <MenuItem key={subItem} onClick={handleMouseLeaveServices}>
+                    <MenuItem key={subItem}>
                       <Link
                         to={`/Services/${index}`}
                         style={{ textDecoration: "none", color: "inherit" }}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleMenuClose(); 
+                        }}
                       >
                         {subItem}
                       </Link>
