@@ -53,6 +53,10 @@ const SectionThree = () => {
         text="Understand the volatility in consumer demands and behaviours. Prevail offers insights and tools to help local businesses quickly adapt to changing market conditions, ensuring they remain competitive and responsive to consumer needs. Address the gap in technology accessibility between large corporations and small-to-medium-sized enterprises (SMEs). Prevail will focus on bringing innovative, affordable tech solutions to local businesses, allowing them to harness automation and other advancements without the need for full-time programmers."
         imageUrl="https://img.freepik.com/free-vector/remote-team-concept-illustration_114360-4867.jpg"
       />
+      <ImageTextComponent
+        text="Prevail offers insights and tools to help local businesses quickly adapt to changing market conditions, ensuring they remain competitive and responsive to consumer needs. Address the gap in technology accessibility between large corporations and small-to-medium-sized enterprises (SMEs). Prevail will focus on bringing innovative, affordable tech solutions to local businesses, allowing them to harness automation and other advancements without the need for full-time programmers. ensuring they remain competitive and responsive to consumer needs"
+        imageUrl="https://img.freepik.com/free-vector/sales-representative-abstract-concept_335657-3002.jpg?w=826&t=st=1709558703~exp=1709559303~hmac=38e332c3ddffe1914be70b960a5074eca6781a9ca11da9ebe7194df7cd19412a"
+      />
     </div>
   );
 };
