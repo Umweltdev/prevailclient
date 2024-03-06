@@ -4,6 +4,7 @@ import DrawerAppBarWhite from "../../Navbar/Appbar";
 import PainPoint from "./PainPoints";
 import Advantages from "./Advantages";
 import Benefits from "./Benefits";
+import Footer from "../../Footer/Footer";
 
 const WebsiteDevelopment = () => {
   return (
@@ -13,6 +14,7 @@ const WebsiteDevelopment = () => {
       <PainPoint />
       <Advantages />
       <Benefits />
+      <Footer/>
     </div>
   );
 };
