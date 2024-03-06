@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography, Grid, ThemeProvider, createTheme } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import landingImage1 from "../assets/web.png";
+import landingImage1 from "../assets/pos.png";
 
 const theme = createTheme();
 
@@ -12,13 +12,14 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#884ed9",
     color: "#FFF",
     padding: "15vh 10vw",
-    clipPath: "polygon(0 0, 100% 0, 100% 70%, 0 100%)",
+    // clipPath: "polygon(0 0, 100% 0, 100% 70%, 0 100%)",
   },
   heroContainer: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
+    // gap: "10vw",
     padding: "0 10vw",
   },
   textContainer: {
@@ -59,7 +60,7 @@ const HeroSection = ({ header, text, image }) => {
             <Typography
               sx={{ fontSize: "3vw", fontWeight: "900", color: "#fff" }}
             >
-              Website Development & Management
+              Marketing Price Displacement (MPD)
             </Typography>
             <Typography
               sx={{
@@ -70,12 +71,16 @@ const HeroSection = ({ header, text, image }) => {
                 color: "#fff",
               }}
             >
-              In today's fast-paced digital world, small to medium-sized
-              enterprises (SMEs) and local businesses face unique challenges.
-              The need for a robust and dynamic online presence is more critical
-              than ever. Understanding this, Prevail proudly introduces our
-              innovative "Website Production & Management" service, a
-              game-changer in digital solutions.
+              Welcome to the future of digital marketing with Prevail's
+              Marketing Price Displacement (MPD) API. We understand that small
+              and medium-sized enterprises (SMEs) and local businesses face
+              unique challenges in the ever-changing digital landscape. It can
+              be difficult to keep up with the resources of large-scale
+              marketing departments from major competitors. That's why our MPD
+              API is designed to be your strategic asset, bringing advanced
+              strategies of elastic pricing and yield management right to your
+              fingertips. With our API, you can strike the right balance between
+              visibility and affordability.
             </Typography>
           </Grid>
           <Grid className={classes.imageContainer}>

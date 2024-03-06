@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "service desc | web dev description"
+git commit -m "service desc | mpd description"
 
 git push
 
