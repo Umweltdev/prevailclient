@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const TextImageComponent = ({ text, imageUrl }) => {
+const TextImageComponent = ({ text, imageUrl,textHeader }) => {
   const classes = useStyles();
 
   return (
@@ -33,7 +33,8 @@ const TextImageComponent = ({ text, imageUrl }) => {
     >
       <Grid container className={classes.container}>
         <Grid className={classes.textContainer}>
-          <Typography variant="body1">{text}</Typography>
+          <Typography color="blue" variant="h4">{textHeader}</Typography>
+          <Typography variant="h5">{text}</Typography>
         </Grid>
         <img src={imageUrl} alt="image" className={classes.image} />
       </Grid>

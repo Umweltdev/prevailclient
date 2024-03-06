@@ -4,6 +4,7 @@ import "./assets/services.css";
 import MediaCard from "../ReusedComponents/CardPortfolio";
 import { Typography } from "@mui/material";
 import { Link } from "react-router-dom";
+import zIndex from "@mui/material/styles/zIndex";
 
 const gradient = "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)";
 
@@ -28,7 +29,7 @@ const SectionTwo = () => {
           <Link
             style={{ textDecoration: "none" }}
             key={index}
-            to={`/Services/${index}`}
+            to={`/Services/${data.link}`}
           >
             <MediaCard img={data.img} header={data.header} text={data.text} />
           </Link>

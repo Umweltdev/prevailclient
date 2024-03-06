@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "service | second section"
+git commit -m "service desc | brand identity description"
 
 git push
 

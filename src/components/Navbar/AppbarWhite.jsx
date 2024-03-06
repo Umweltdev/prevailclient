@@ -102,10 +102,10 @@ function DrawerAppBarWhite() {
             </Typography>
             <Box sx={{ display: { xs: "none", sm: "block" } }}>
               {navItems.map((item) => (
-                <Button key={item} sx={{ color: "#003988", fontWeight: "900" }}>
+                <Button key={item} sx={{ color: "white", fontWeight: "900" }}>
                   <Link
                     to={`/${item.toLowerCase()}`}
-                    style={{ textDecoration: "none", color: "inherit" }}
+                    style={{ textDecoration: "none", color: "white" }}
                   >
                     {item}
                   </Link>
@@ -121,7 +121,7 @@ function DrawerAppBarWhite() {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true, 
           }}
           sx={{
             display: { xs: "block", sm: "none" },

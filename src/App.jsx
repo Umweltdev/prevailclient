@@ -6,7 +6,12 @@ import Blog from "./pages/Blog";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import BlogDetails from "./components/Blog/BlogDetails";
-import ServiceDetails from "./components/Blog/ServiceDetails";
+import BrandIdentity from "./components/Services/BrandIdentity/BrandIdentity";
+import WebsiteDevelopment from "./components/Services/WebsiteDevelopement/WebsiteDevelopment";
+import WebManagement from "./components/Services/WebManagement/WebManagement";
+import Sem from "./components/Services/Sem/Sem";
+import Mpd from "./components/Services/Mpd/Mpd";
+import DigitalAccelerator from "./components/Services/DigitalAccelerator/DigitalAccelerator";
 
 function App() {
   return (
@@ -15,10 +20,18 @@ function App() {
       <Route path="/About" element={<About />} />
       <Route path="/Portfolio" element={<Portfolio />} />
       <Route path="/Blog" element={<Blog />} />
-      <Route path="/Services" element={<Services />} />
       <Route path="/Contact" element={<Contact />} />
       <Route path="/Blog/:index" element={<BlogDetails />} />
-      <Route path="/Services/:index" element={<ServiceDetails />} />
+      <Route path="/Services" element={<Services />} />
+      <Route path="/Services/brand" element={<BrandIdentity />} />
+      <Route path="/Services/website" element={<WebsiteDevelopment />} />
+      <Route path="/Services/webmanagement" element={<WebManagement />} />
+      <Route path="/Services/sem" element={<Sem />} />
+      <Route path="/Services/mpd" element={<Mpd />} />
+      <Route
+        path="/Services/digitalaccelerator"
+        element={<DigitalAccelerator />}
+      />
     </Routes>
   );
 }
