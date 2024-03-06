@@ -41,10 +41,10 @@ const Packages = () => {
           second="Logo design concept (up to 4 proposals)"
           third={"Business card concept (up to 2 proposals)"}
           fourth={"Letterhead design concept (up to 2 proposals)"}
-          fifth={"Letterhead design or invoice design"}
-          sixth={"Flyer design concept (up to 2 proposals)"}
-          seventh={"brochure design concept (up to 2 proposals)"}
-          eigth={"Package or envelope design"}
+          // fifth={"Letterhead design or invoice design"}
+          // sixth={"Flyer design concept (up to 2 proposals)"}
+          // seventh={"brochure design concept (up to 2 proposals)"}
+          // eigth={"Package or envelope design"}
         />
       </div>
     </div>

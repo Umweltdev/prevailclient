@@ -34,7 +34,7 @@ const TextImageComponent = ({ text, imageUrl,textHeader }) => {
       <Grid container className={classes.container}>
         <Grid className={classes.textContainer}>
           <Typography color="blue" variant="h4">{textHeader}</Typography>
-          <Typography variant="h5">{text}</Typography>
+          <Typography variant="h6">{text}</Typography>
         </Grid>
         <img src={imageUrl} alt="image" className={classes.image} />
       </Grid>

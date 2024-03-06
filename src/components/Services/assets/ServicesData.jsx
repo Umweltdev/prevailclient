@@ -21,13 +21,13 @@ export const serviceCard = [
   },
   {
     img: secondImage,
-    link: "website",
+    link: "webmanagement",
     header: "Website Development & Management​",
     text: `In today's fast-paced digital world, small to medium-sized enterprises (SMEs) and local businesses face unique challenges. The need for a robust and dynamic online presence is more critical than ever. Understanding this, Prevail proudly introduces our innovative "Website Production & Management" service, a game-changer in digital solutions.`,
   },
   {
     img: thirdImage,
-    link: "webmanagement",
+    link: "website",
     header: "Custom Website Development & Management​",
     text: `With Prevail’s “Custom Website Development & Management” service, you can embark on a digital transformation like never before. Our service offers two package options: the “Custom Website Executive Package” and the “Custom Website Elite Package”, both of which are tailored to your specific needs to create your dream website.`,
   },

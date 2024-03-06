@@ -7,20 +7,19 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-
     maxWidth: "90vw",
+    marginTop: "4vh",
   },
 
   textContainer: {
     width: "50vw",
-    textAlign: "right",
   },
   image: {
-    width: 400,
+    width: 200,
   },
 }));
 
-const ImageTextComponent = ({ text, imageUrl, textHeader }) => {
+const TextImageService = ({ text, imageUrl, textHeader }) => {
   const classes = useStyles();
 
   return (
@@ -30,19 +29,20 @@ const ImageTextComponent = ({ text, imageUrl, textHeader }) => {
         flexDirection: "column",
         justifyContent: "center",
         margin: "0 auto",
+        
       }}
     >
-      <Grid className={classes.container}>
-        <img src={imageUrl} alt="image" className={classes.image} />
+      <Grid container className={classes.container}>
         <Grid className={classes.textContainer}>
-          <Typography color="blue" variant="h4">
+          <Typography color="blue" variant="h6">
             {textHeader}
           </Typography>
-          <Typography variant="h6">{text}</Typography>
+          <Typography variant="2">{text}</Typography>
         </Grid>
+        <img src={imageUrl} alt="image" className={classes.image} />
       </Grid>
     </Grid>
   );
 };
 
-export default ImageTextComponent;
+export default TextImageService;

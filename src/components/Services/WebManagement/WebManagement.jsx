@@ -1,9 +1,18 @@
-import React from 'react'
+import React from "react";
+import HeroSection from "./HeroSection";
+import DrawerAppBarWhite from "../../Navbar/Appbar";
+import PainPoint from "./PainPoint";
+import Offering from "./Offering";
 
 const WebManagement = () => {
   return (
-    <div>WebManagement</div>
-  )
-}
+    <>
+      <DrawerAppBarWhite />
+      <HeroSection />
+      <PainPoint />
+      <Offering/>
+    </>
+  );
+};
 
-export default WebManagement
+export default WebManagement;

@@ -16,11 +16,11 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "right",
   },
   image: {
-    width: 400,
+    width: 200,
   },
 }));
 
-const ImageTextComponent = ({ text, imageUrl, textHeader }) => {
+const ImageTextService = ({ text, imageUrl, textHeader }) => {
   const classes = useStyles();
 
   return (
@@ -30,19 +30,20 @@ const ImageTextComponent = ({ text, imageUrl, textHeader }) => {
         flexDirection: "column",
         justifyContent: "center",
         margin: "0 auto",
+        
       }}
     >
       <Grid className={classes.container}>
         <img src={imageUrl} alt="image" className={classes.image} />
         <Grid className={classes.textContainer}>
-          <Typography color="blue" variant="h4">
+          <Typography color="blue" variant="h6">
             {textHeader}
           </Typography>
-          <Typography variant="h6">{text}</Typography>
+          <Typography variant="2">{text}</Typography>
         </Grid>
       </Grid>
     </Grid>
   );
 };
 
-export default ImageTextComponent;
+export default ImageTextService;
