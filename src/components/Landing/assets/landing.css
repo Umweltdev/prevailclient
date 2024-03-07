@@ -183,7 +183,7 @@
   background-color: #884ed9 !important;
   height: 100vh;
   background-position: center;
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
   background-size: cover;
   /* margin: 3vh 0 0 0; */
   padding: 0 5vw;
@@ -1074,7 +1074,7 @@ FOOTER
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 5vh;
+  gap: 6vw;
 }
 
 .sTwoServicesCard1 {
@@ -1275,11 +1275,12 @@ FOOTER
   text-indent: 10vw;
   line-height: 5vh;
   padding-top: 15vh;
+  color: #333;
 }
 
 .span {
   font-weight: bold;
-  color: var(--first-color);
+  color: #8843d9;
 }
 
 .sSevenOneHeader {
@@ -1308,6 +1309,6 @@ FOOTER
   gap: 7vw;
 }
 
-.sSevenOne {
+/* .sSevenOne {
   padding-top: 5vh;
-}
+} */

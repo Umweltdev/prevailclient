@@ -20,7 +20,7 @@ const SectionTwo = () => {
           color: "transparent",
         }}
       >
-        Services
+         Our Services
       </Typography>
       <span className="lineSpanServices"></span>
       <div className="sTwoServicesCards">

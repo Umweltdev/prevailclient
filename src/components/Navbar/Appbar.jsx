@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 import wLogo from "./wlogo.png";
 
 const drawerWidth = 240;
-const navItems = ["About", "Services", "Portfolio", "Blog", "Contact"];
+const navItems = ["About", "Services", "Blog", "Contact"];
 
 function DrawerAppBarWhite() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -49,7 +49,9 @@ function DrawerAppBarWhite() {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        <img src={wLogo} alt="logo" />
+        <Link to={`/`} style={{ textDecoration: "none", color: "inherit" }}>
+          <img src={wLogo} alt="logo" />
+        </Link>
       </Typography>
       <Divider />
       <List>
@@ -98,7 +100,12 @@ function DrawerAppBarWhite() {
               component="div"
               sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
             >
-              <img style={{ height: "10vh" }} src={wLogo} alt="logo" />
+              <Link
+                to={`/`}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <img style={{ height: "10vh" }} src={wLogo} alt="logo" />
+              </Link>
             </Typography>
             <Box sx={{ display: { xs: "none", sm: "block" } }}>
               {navItems.map((item) => (

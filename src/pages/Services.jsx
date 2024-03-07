@@ -14,9 +14,9 @@ const Services = () => {
       <SectionOne />
       <SectionTwo />
       <SectionThree />
-      <SectionFour />
+      {/* <SectionFour /> */}
       {/* <SectionFive/> */}
-      <SectionSix />
+      {/* <SectionSix /> */}
       <Footer />
     </div>
   );

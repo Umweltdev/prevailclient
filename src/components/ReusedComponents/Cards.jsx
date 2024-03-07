@@ -6,21 +6,14 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import BasicButtons from "./Button";
 
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-  >
-    •
-  </Box>
-);
+
 
 export default function BasicCard({ headerText, text, icon }) {
   return (
     <Card
       sx={{
-        width: 405,
-        height: 450,
+        width: 370,
+        height: 420,
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -56,7 +49,7 @@ export default function BasicCard({ headerText, text, icon }) {
           {text}
         </Typography>
       </CardContent>
-      <CardActions sx={{ padding: "2vh 0 5vh 0" }}>
+      <CardActions sx={{ padding: "6vh 0 2vh 0" }}>
         <BasicButtons text="Learn More" />
       </CardActions>
     </Card>

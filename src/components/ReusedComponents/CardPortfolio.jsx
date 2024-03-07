@@ -11,9 +11,9 @@ export default function MediaCard({ header, text, img, gradient }) {
     <Card
       sx={{
         maxWidth: 345,
-        height: 420,
+        height: 440,
         display: "flex",
-        // justifyContent: "top",
+
         flexDirection: "column",
       }}
     >
@@ -22,11 +22,27 @@ export default function MediaCard({ header, text, img, gradient }) {
         image={img}
         title="green iguana"
       />
-      <CardContent>
-        <Typography gutterBottom variant="h6" component="div">
+      <CardContent sx={{ padding: "2vh" }}>
+        <Typography
+          sx={{
+            textAlign: "justify",
+            textJustify: "distribute",
+            fontSize: "1.4vw",
+            color: "#333",
+            margin: "1vh 0",
+            fontWeight: "bold",
+          }}
+        >
           {header}
         </Typography>
-        <Typography height="200" variant="body2" color="text.secondary">
+        <Typography
+          sx={{
+            textAlign: "justify",
+            textJustify: "distribute",
+            fontSize: "0.9vw",
+            color: "#333",
+          }}
+        >
           {text}
         </Typography>
       </CardContent>
