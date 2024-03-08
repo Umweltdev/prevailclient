@@ -5,6 +5,7 @@ import PainPoint from "./PainPoints";
 import Advantages from "./Advantages";
 import Benefits from "./Benefits";
 import Footer from "../../Footer/Footer";
+import FooterNew from "../../Footer/FooterNew";
 
 const WebsiteDevelopment = () => {
   return (

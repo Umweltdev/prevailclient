@@ -13,6 +13,15 @@ const useStyles = makeStyles((theme) => ({
     // color: "#FFF",
     padding: "15vh 10vw",
     clipPath: "polygon(0 0, 100% 0, 100% 70%, 0 100%)",
+    "@media (max-width: 600px)": {
+      position: "unset",
+      overflow: "hidden",
+      backgroundColor: "white",
+      color: "#FFF",
+      paddingTop: "15vh",
+      padding: "unset",
+      clipPath: "unset",
+    },
   },
   heroContainer: {
     display: "flex",
@@ -21,9 +30,22 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     gap: "1vw",
     padding: "0 10vw",
+
+    "@media (max-width: 600px)": {
+      display: "unset",
+      flexDiection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      gap: "10vw",
+      padding: "unset",
+      margin: "0 auto",
+    },
   },
   textContainer: {
     width: "60vw",
+    "@media (max-width: 600px)": {
+      width: "100vw",
+    },
   },
   imageContainer: {
     display: "flex",
@@ -38,6 +60,9 @@ const useStyles = makeStyles((theme) => ({
   image: {
     height: "auto",
     animation: "$bounce 2s infinite alternate",
+    "@media (max-width: 600px)": {
+      width: "70vw",
+    },
   },
   "@keyframes bounce": {
     "0%": {
@@ -58,7 +83,16 @@ const HeroSection = ({ header, text, image }) => {
         <Grid className={classes.heroContainer}>
           <Grid className={classes.textContainer}>
             <Typography
-              sx={{ fontSize: "3vw", fontWeight: "900", color: "blue" }}
+              sx={{
+                fontSize: "3vw",
+                fontWeight: "900",
+                color: "blue",
+                "@media (max-width: 600px)": {
+                  fontSize: "5vw",
+                  fontWeight: "900",
+                  textAlign: "center",
+                },
+              }}
             >
               Custom Website Development & Management
             </Typography>
@@ -69,6 +103,15 @@ const HeroSection = ({ header, text, image }) => {
                 width: "40vw",
                 lineHeight: "4vh",
                 color: "#7097da",
+                "@media (max-width: 600px)": {
+                  fontSize: "3vw",
+                  fontWeight: "unset",
+                  width: "95vw",
+                  lineHeight: "unset",
+                  color: "#7097da",
+                  textAlign: "center",
+                  margin: "0 auto",
+                },
               }}
             >
               With Prevail’s “Custom Website Development & Management” service,

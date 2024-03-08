@@ -12,7 +12,16 @@ const PainPoint = ({ header, text, image }) => {
         alignItems: "center",
         padding: "5vh 0",
         background: "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
-        gap: "4vw"
+        gap: "4vw",
+        "@media (max-width: 600px)": {
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          padding: "2vh 0",
+          background: "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
+          gap: "1vw",
+        },
       }}
     >
       <Grid>
@@ -28,6 +37,13 @@ const PainPoint = ({ header, text, image }) => {
             textAlign: "justify",
             textJustify: "distribute",
             color: "white",
+            "@media (max-width: 600px)": {
+              fontSize: "4vw",
+              width: "95vw",
+              textAlign: "justify",
+              textJustify: "distribute",
+              color: "white",
+            },
           }}
         >
           In the vast digital landscape, technical challenges often overshadow

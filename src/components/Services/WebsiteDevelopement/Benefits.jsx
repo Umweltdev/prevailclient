@@ -13,7 +13,18 @@ const Benefits = () => {
         padding: "10vh 0",
       }}
     >
-      <Typography sx={{ fontSize: "4vw", fontWeight: "900", color: "#70a1e3" }}>
+      <Typography
+        sx={{
+          fontSize: "4vw",
+          fontWeight: "900",
+          color: "#70a1e3",
+          "@media (max-width: 600px)": {
+            fontSize: "7vw",
+            fontWeight: "900",
+            color: "#70a1e3",
+          },
+        }}
+      >
         Benefits
       </Typography>
 

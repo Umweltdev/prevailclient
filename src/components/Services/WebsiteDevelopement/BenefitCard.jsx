@@ -47,7 +47,18 @@ const card = (
     {benefits.map((data, index) => (
       <Card
         key={index}
-        sx={{ width: 350, height: 200, background: "#70a1e3", color: "white" }}
+        sx={{
+          width: 350,
+          height: 200,
+          background: "#70a1e3",
+          color: "white",
+          "@media (max-width: 600px)": {
+            width: 350,
+            height: 170,
+            background: "#70a1e3",
+            color: "white",
+          },
+        }}
       >
         <CardContent>
           <Typography
@@ -57,6 +68,12 @@ const card = (
             fontSize="1.5vw"
             mb="3vh"
             fontWeight="900"
+            sx={{
+              "@media (max-width: 600px)": {
+                fontSize: "4vw",
+                mb: "1vh",
+              },
+            }}
           >
             {data.header}
           </Typography>

@@ -58,7 +58,9 @@ const advantages = [
 
 export default function AccordionUsage() {
   return (
-    <Grid sx={{width: "40vw"}}>
+    <Grid
+      sx={{ width: "40vw", "@media (max-width: 600px)": { width: "95vw", margin: "2vh auto" } }}
+    >
       {advantages.map((data, index) => (
         <Accordion key={index}>
           <AccordionSummary
