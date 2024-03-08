@@ -1,6 +1,6 @@
 import React from "react";
 import PackagesLayout from "./PackagesLayout";
-import { Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 
 const Packages = () => {
   return (
@@ -11,6 +11,9 @@ const Packages = () => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        "@media (max-width: 600px)": {
+          margin: "1vh auto",
+        },
       }}
     >
       <Typography
@@ -19,11 +22,25 @@ const Packages = () => {
           fontWeight: "bold",
           color: "#884ed9",
           margin: "5vh 0",
+          "@media (max-width: 600px)": {
+            fontSize: "7vw",
+            fontWeight: "bold",
+            color: "#884ed9",
+            margin: "1vh 0",
+          },
         }}
       >
         Packages
       </Typography>
-      <div style={{ display: "flex", gap: "2vw" }}>
+      <Grid
+        sx={{
+          display: "flex",
+          gap: "2vw",
+          "@media (max-width: 600px)": {
+            display: "unset",
+          },
+        }}
+      >
         <PackagesLayout
           packages="Brand Identity Starter Package"
           amount="Original €700 once-off"
@@ -46,7 +63,7 @@ const Packages = () => {
           // seventh={"brochure design concept (up to 2 proposals)"}
           // eigth={"Package or envelope design"}
         />
-      </div>
+      </Grid>
     </div>
   );
 };

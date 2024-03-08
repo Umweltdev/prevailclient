@@ -4,8 +4,8 @@ import BrandIdentityCard from "./CardLayout";
 
 const ServiceDetails3 = () => {
   return (
-    <div
-      style={{
+    <Grid
+      sx={{
         display: "flex",
         flexDirection: "row",
         gap: "4vw",
@@ -14,6 +14,16 @@ const ServiceDetails3 = () => {
         margin: "0 auto",
         backgroundColor: "#7097da",
         padding: "10vh 5vw",
+        "@media (max-width: 600px)": {
+          display: "flex",
+          flexDirection: "column",
+          gap: "4vw",
+          justifyContent: "center",
+          alignItems: "top",
+          margin: "unset",
+          backgroundColor: "#7097da",
+          padding: "10vh 5vw",
+        },
       }}
     >
       <Grid sx={{ textAlign: "justify" }}>
@@ -23,6 +33,12 @@ const ServiceDetails3 = () => {
             textAlign: "justify",
             fontWeight: "bold",
             color: "white",
+            "@media (max-width: 600px)": {
+              fontSize: "7vw",
+              textAlign: "center",
+              fontWeight: "bold",
+              color: "white",
+            },
           }}
         >
           Offering
@@ -35,6 +51,13 @@ const ServiceDetails3 = () => {
             fontWeight: "bold",
             margin: "0 auto",
             color: "white",
+            "@media (max-width: 600px)": {
+              fontSize: "4vw",
+              textAlign: "center",
+              fontWeight: "bold",
+              color: "white",
+              width: "95vw",
+            },
           }}
         >
           Here's where our "Brand Identity Package" service comes into play,
@@ -49,7 +72,7 @@ const ServiceDetails3 = () => {
       <Grid>
         <BrandIdentityCard />
       </Grid>
-    </div>
+    </Grid>
   );
 };
 

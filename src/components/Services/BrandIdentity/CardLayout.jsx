@@ -7,9 +7,25 @@ import { Grid } from "@mui/material";
 
 export default function BrandIdentityCard() {
   return (
-    <Grid sx={{ display: "flex", flexWrap: "wrap", gap: "1vw" }}>
+    <Grid
+      sx={{
+        display: "flex",
+        flexWrap: "wrap",
+        gap: "1vw",
+        "@media (max-width: 600px)": {
+          gap: "1vh",
+          marginTop: "2vh",
+        },
+      }}
+    >
       {brandIdentityCard.map((data, index) => (
-        <Card sx={{ width: 300 }} key={index}>
+        <Card
+          sx={{
+            width: 300,
+            "@media (max-width: 600px)": { width: "95vw", marginTop: "2vh" },
+          }}
+          key={index}
+        >
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
               {data.header}

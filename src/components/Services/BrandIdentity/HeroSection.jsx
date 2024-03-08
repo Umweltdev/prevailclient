@@ -22,6 +22,19 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "#dccefa",
       transformOrigin: "top right",
       transform: "skewY(-45deg)",
+      margin: "0 auto",
+    },
+
+    "@media (max-width: 600px)": {
+      position: "unset",
+      overflow: "hidden",
+      backgroundColor: "#884ed9",
+      color: "#FFF",
+      paddingTop: "10vh",
+      width: "unset",
+      height: "unset",
+      left: "unset",
+      
     },
   },
   heroContainer: {
@@ -29,16 +42,31 @@ const useStyles = makeStyles((theme) => ({
     flexDiection: "row",
     justifyContent: "center",
     alignItems: "center",
-    gap: "10vw",
     padding: "0 10vw",
+
+    "@media (max-width: 600px)": {
+      display: "unset",
+      flexDiection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      gap: "10vw",
+      padding: "unset",
+      margin: "0 auto"
+    },
   },
   textContainer: {
     width: "70vw",
+    "@media (max-width: 600px)": {
+      width: "100vw",
+    },
   },
   imageContainer: {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    // "@media (max-width: 600px)": {
+    //   display: "none",
+    // },
   },
   textHeader: {
     fontSize: "4vw",
@@ -47,6 +75,9 @@ const useStyles = makeStyles((theme) => ({
   image: {
     height: "auto",
     animation: "$bounce 2s infinite alternate",
+    "@media (max-width: 600px)": {
+      width: "70vw",
+    },
   },
   "@keyframes bounce": {
     "0%": {
@@ -67,7 +98,16 @@ const HeroSection = ({ header, text, image }) => {
         <Grid className={classes.heroContainer}>
           <Grid className={classes.textContainer}>
             <Typography
-              sx={{ fontSize: "4vw", fontWeight: "900", color: "white" }}
+              sx={{
+                fontSize: "4vw",
+                fontWeight: "900",
+                color: "white",
+                "@media (max-width: 600px)": {
+                  fontSize: "7vw",
+                  fontWeight: "900",
+                  textAlign: "center",
+                },
+              }}
             >
               Brand Identity
             </Typography>
@@ -78,6 +118,14 @@ const HeroSection = ({ header, text, image }) => {
                 width: "40vw",
                 lineHeight: "4vh",
                 color: "white",
+                "@media (max-width: 600px)": {
+                  fontSize: "3vw",
+                  fontWeight: "unset",
+                  width: "95vw",
+                  lineHeight: "unset",
+                  color: "white",
+                  textAlign: "center",
+                },
               }}
             >
               Creating a cohesive brand identity is crucial in today's crowded

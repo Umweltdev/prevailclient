@@ -63,10 +63,39 @@ const FooterNew = () => {
           gap: "3vw",
           borderRadius: "0 0 5vw 5vw",
           background: "white",
+          "@media (max-width: 600px)": {
+            display: "flex",
+            flexDirection: "column",
+            padding: "3vh 0",
+            justifyContent: "center",
+            alignItems: "top",
+            gap: "3vw",
+            borderRadius: "0 0 5vw 5vw",
+            background: "white",
+          },
         }}
       >
-        <Grid sx={{ display: "flex", flexDirection: "column", gap: "2vw" }}>
-          <img style={{ width: "7vw" }} src={logo} alt="" />
+        <Grid
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "2vw",
+            "@media (max-width: 600px)": {
+              justifyContent: "center",
+              alignItems: "center",
+            },
+          }}
+        >
+          <img
+            style={{
+              width: "7vw",
+              "@media (max-width: 600px)": {
+                width: "24vw",
+              },
+            }}
+            src={logo}
+            alt=""
+          />
           <Typography
             sx={{
               display: "flex",
@@ -75,9 +104,23 @@ const FooterNew = () => {
               justifyContent: "left",
               alignItems: "center",
               gap: "1vw",
+              "@media (max-width: 600px)": {
+                justifyContent: "center",
+                alignItems: "center",
+                width: "90vw",
+                textAlign: "center",
+                fontSize: "3vw",
+              },
             }}
           >
-            <LocationOn sx={{ color: "#884ed9" }} />
+            <LocationOn
+              sx={{
+                color: "#884ed9",
+                "@media (max-width: 600px)": {
+                  fontSize: "4vw",
+                },
+              }}
+            />
             Glencullen House, Kylemore Rd, Dublin 10, D10 K729{" "}
           </Typography>
           <Typography
@@ -88,9 +131,23 @@ const FooterNew = () => {
               justifyContent: "left",
               alignItems: "center",
               gap: "1vw",
+              "@media (max-width: 600px)": {
+                justifyContent: "center",
+                alignItems: "center",
+                width: "90vw",
+                textAlign: "center",
+                fontSize: "3vw",
+              },
             }}
           >
-            <Email sx={{ color: "#884ed9" }} />
+            <Email
+              sx={{
+                color: "#884ed9",
+                "@media (max-width: 600px)": {
+                  fontSize: "4vw",
+                },
+              }}
+            />
             info@prevail.com
           </Typography>
           <Typography
@@ -101,14 +158,38 @@ const FooterNew = () => {
               justifyContent: "left",
               alignItems: "center",
               gap: "1vw",
+              "@media (max-width: 600px)": {
+                justifyContent: "center",
+                alignItems: "center",
+                width: "90vw",
+                textAlign: "center",
+                fontSize: "3vw",
+              },
             }}
           >
-            <Call sx={{ color: "#884ed9" }} />
+            <Call
+              sx={{
+                color: "#884ed9",
+                "@media (max-width: 600px)": {
+                  fontSize: "4vw",
+                },
+              }}
+            />
             info@prevail.com
           </Typography>
         </Grid>
         <Grid className="">
-          <Typography sx={{ fontSize: "1.6vw", fontWeight: "bold" }}>
+          <Typography
+            sx={{
+              fontSize: "1.6vw",
+              fontWeight: "bold",
+              "@media (max-width: 600px)": {
+                fontSize: "4vw",
+                textAlign: "center",
+                marginTop: "5vh",
+              },
+            }}
+          >
             Our Core Values
           </Typography>
           {accord.map((data, index) => (
@@ -118,7 +199,17 @@ const FooterNew = () => {
           ))}
         </Grid>
         <Grid className="">
-          <Typography sx={{ fontSize: "1.6vw", fontWeight: "bold" }}>
+          <Typography
+            sx={{
+              fontSize: "1.6vw",
+              fontWeight: "bold",
+              "@media (max-width: 600px)": {
+                fontSize: "5vw",
+                textAlign: "center",
+                marginTop: "4vh",
+              },
+            }}
+          >
             Services
           </Typography>
           {service.map((data, index) => (

@@ -22,7 +22,15 @@ const PackagesLayout = ({
   sixteen, seventeen
 }) => {
   return (
-    <Card sx={{ width: 300, height: 400 }}>
+    <Card
+      sx={{
+        width: 300,
+        height: 400,
+        "@media (max-width: 600px)": {
+          marginTop: "1vh"
+        },
+      }}
+    >
       <CardContent
         sx={{
           display: "flex",
@@ -32,7 +40,7 @@ const PackagesLayout = ({
           gap: "2vh",
         }}
       >
-        <Typography textAlign="center"  fontWeight="bold">
+        <Typography textAlign="center" fontWeight="bold">
           {packages}
         </Typography>
         <Typography variant="body1" gutterBottom>
