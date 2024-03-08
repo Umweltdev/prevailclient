@@ -13,6 +13,11 @@ const Solutions = () => {
             textAlign: "center",
             fontWeight: "bold",
             color: "#884ed9",
+            "@media (max-width: 600px)": {
+              fontSize: "7vw",
+              width: "90vw",
+              textAlign: "center",
+            },
           }}
         >
           Solutions
@@ -25,6 +30,14 @@ const Solutions = () => {
             fontWeight: "bold",
             margin: "0 auto",
             color: "#884ed9",
+            "@media (max-width: 600px)": {
+              width: "95vw",
+              fontSize: "4vw",
+              textAlign: "center",
+              fontWeight: "bold",
+              margin: "0 auto",
+              color: "#884ed9",
+            },
           }}
         >
           Imagine your business not just being seen but being noticed by the
@@ -100,7 +113,6 @@ const Solutions = () => {
             "https://img.freepik.com/free-vector/mobile-apps-concept-landing-page_52683-22745.jpg?t=st=1709724646~exp=1709728246~hmac=1e2fae413b4a803dcad2edbbdbb8db3c6f82a7c0a1a8b5a8bca787da3169ea89&w=1060"
           }
         />
-       
       </Grid>
     </div>
   );

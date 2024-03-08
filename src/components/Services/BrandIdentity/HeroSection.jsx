@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
       alignItems: "center",
       gap: "10vw",
       padding: "unset",
-      margin: "0 auto"
+      margin: "0 auto",
     },
   },
   textContainer: {

@@ -11,8 +11,15 @@ const PainPoint = ({ header, text, image }) => {
         justifyContent: "center",
         alignItems: "center",
         padding: "5vh 0",
-        // background: "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
         gap: "4vw",
+        "@media (max-width: 600px)": {
+          display: "flex",
+          flexDirection: "column",
+          backgroundColor: "white",
+          justifyContent: "center",
+          alignItems: "center",
+          padding: "2vh 0",
+        },
       }}
     >
       <Grid>
@@ -27,7 +34,12 @@ const PainPoint = ({ header, text, image }) => {
             width: "40vw",
             textAlign: "justify",
             textJustify: "distribute",
-            // color: "white",
+            "@media (max-width: 600px)": {
+              fontSize: "4vw",
+              width: "90vw",
+              textAlign: "justify",
+              textJustify: "distribute",
+            },
           }}
         >
           The digital marketing landscape can seem like a complex maze. It can
