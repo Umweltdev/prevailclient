@@ -84,12 +84,20 @@ export default function BlogCard({
           <Button
             variant="contained"
             sx={{
-              background:
-                gradient || "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
+              background:'blue',
               padding: "0.7vh 2vw",
               borderRadius: "5vw",
               color: "white",
               fontWeight: "bold",
+              "@media (max-width: 600px)": {
+                background:
+                  gradient ||
+                  "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
+                padding: "0.7vh 1vw",
+                borderRadius: "5vw",
+                color: "white",
+                fontWeight: "unset",
+              },
             }}
           >
             Read

@@ -15,7 +15,15 @@ export default function FreeSolo() {
   });
 
   return (
-    <Stack spacing={2} sx={{ width: 300 }}>
+    <Stack
+      spacing={2}
+      sx={{
+        width: 300,
+        "@media (max-width: 600px)": {
+          width: "93vw",
+        },
+      }}
+    >
       <Autocomplete
         id="free-solo-demo"
         freeSolo
@@ -30,7 +38,12 @@ export default function FreeSolo() {
         )}
         groupBy={(option) => option.firstLetter}
         getOptionLabel={(option) => option.text}
-        sx={{ width: 300 }}
+        sx={{
+          width: 300,
+          "@media (max-width: 600px)": {
+            width: "93vw",
+          },
+        }}
         renderInput={(params) => <TextField {...params} label="Categories" />}
       />
     </Stack>

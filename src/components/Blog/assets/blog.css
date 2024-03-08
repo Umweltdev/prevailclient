@@ -235,5 +235,28 @@
 
 .sOneBlogCardLink {
   text-decoration: none;
-  
+}
+
+@media only screen and (max-width: 600px) {
+  .sOneBlog {
+    margin: 6vh 4vw;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: top;
+    gap: 1vw;
+  }
+
+  .sOneBlogFeature {
+    margin-top: 2vh auto;
+    text-align: center;
+  }
+
+  .sOneBlogHero {
+    padding-top: 45vh;
+    font-size: 7vw;
+    color: var(--fourth-color);
+    margin-left: unset;
+    text-align: center;
+  }
 }

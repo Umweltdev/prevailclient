@@ -47,6 +47,7 @@ export default function AccordionUsage() {
     >
       {goalsObj.map((data, index) => (
         <Accordion
+        key={index}
           sx={{
             width: "40vw",
             "@media (max-width: 600px)": {

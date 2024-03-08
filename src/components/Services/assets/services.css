@@ -60,7 +60,7 @@
   height: 4px;
   background-color: #e6e6e6;
   width: 20vw;
-  margin: 3vh  auto;
+  margin: 3vh auto;
   background-image: linear-gradient(left, #8957d5 2%, #628cd5 50%, white 98%);
   background-image: -o-linear-gradient(
     left,
@@ -369,7 +369,6 @@
   object-fit: cover;
 }
 
-
 /* .service-details {
   opacity: 0;
   transform: translateX(-50px);
@@ -381,3 +380,15 @@
   transform: translateX(0);
 } */
 
+@media only screen and (max-width: 600px) {
+  .sOneContainer {
+    background-image: url("https://images.unsplash.com/photo-1552152370-fb05b25ff17d?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    /* position: fixed; */
+    background-repeat: no-repeat;
+    height: 20vh; /* You must set a specified height */
+    background-position: center fixed; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-attachment: fixed;
+    background-size: cover; /* Resize the background image to cover the entire container */
+  }
+}

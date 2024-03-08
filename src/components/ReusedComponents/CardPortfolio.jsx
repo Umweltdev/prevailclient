@@ -13,12 +13,23 @@ export default function MediaCard({ header, text, img, gradient }) {
         maxWidth: 345,
         height: 440,
         display: "flex",
-
         flexDirection: "column",
+        "@media (max-width: 600px)": {
+          maxWidth: 345,
+          height: 390,
+          display: "flex",
+          flexDirection: "column",
+        },
       }}
     >
       <CardMedia
-        sx={{ height: 180, objectFit: "cover" }}
+        sx={{
+          height: 180,
+          objectFit: "cover",
+          "@media (max-width: 600px)": {
+            height: 170,
+          },
+        }}
         image={img}
         title="green iguana"
       />
@@ -31,6 +42,12 @@ export default function MediaCard({ header, text, img, gradient }) {
             color: "#333",
             margin: "1vh 0",
             fontWeight: "bold",
+            "@media (max-width: 600px)": {
+              fontSize: "4vw",
+              color: "#333",
+              margin: "1vh 0",
+              fontWeight: "bold",
+            },
           }}
         >
           {header}
@@ -41,6 +58,11 @@ export default function MediaCard({ header, text, img, gradient }) {
             textJustify: "distribute",
             fontSize: "0.9vw",
             color: "#333",
+            "@media (max-width: 600px)": {
+              fontSize: "3vw",
+              color: "#333",
+              margin: "1vh 0",
+            },
           }}
         >
           {text}
@@ -59,6 +81,12 @@ export default function MediaCard({ header, text, img, gradient }) {
             fontWeight: "bold",
             boxShadow:
               "0px 1px 2px -1px rgba(255,105,135,0.5), 0px 3px 5px 0px rgba(255,105,135,0.3), 0px 1px 9px 0px rgba(255,105,135,0.2)",
+            "@media (max-width: 600px)": {
+              boxShadow: "unset",
+              fontWeight: "unset",
+              padding: "1vh 3vw",
+              fontSize: "3vw",
+            },
           }}
         >
           Learn More

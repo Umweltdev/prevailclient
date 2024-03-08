@@ -13,7 +13,7 @@ const SectionThree = () => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        margin: "5vh 0"
+        margin: "5vh 0",
       }}
     >
       <Typography
@@ -22,10 +22,17 @@ const SectionThree = () => {
           fontSize: "4vw",
           fontWeight: "900",
           color: "#884ed9",
+          "@media (max-width: 600px)": {
+            textAlign: "center",
+            fontSize: "7vw",
+            fontWeight: "900",
+            color: "#884ed9",
+          },
         }}
       >
         Services
       </Typography>
+
       <Typography
         sx={{
           textAlign: "center",
@@ -33,6 +40,11 @@ const SectionThree = () => {
           width: "70vw",
           margin: "0 auto",
           color: "#884ed9",
+          "@media (max-width: 600px)": {
+            textAlign: "center",
+            fontSize: "4vw",
+            width: "95vw",
+          },
         }}
       >
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum
@@ -41,6 +53,7 @@ const SectionThree = () => {
         illum minus dignissimos reiciendis! Amet doloremque atque natus
         dignissimos hic maiores repellat? Illum, accusantium!
       </Typography>
+      <span className="lineSpanServices"></span>
       <TextImageComponent
         text={`The term "digital landscape" refers to the entire digital
 environment where your brand operates. This includes various online platforms, digital

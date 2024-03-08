@@ -18,9 +18,15 @@ const SectionTwo = () => {
           backgroundImage: gradient,
           WebkitBackgroundClip: "text",
           color: "transparent",
+
+          "@media (max-width: 600px)": {
+            fontSize: "7vw",
+            textAlign: "justify",
+            textJustify: "distribute",
+          },
         }}
       >
-         Our Services
+        Our Services
       </Typography>
       <span className="lineSpanServices"></span>
       <div className="sTwoServicesCards">
