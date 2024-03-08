@@ -12,6 +12,14 @@ const PainPoint = ({ header, text, image }) => {
         justifyContent: "center",
         alignItems: "center",
         padding: "5vh 0",
+        "@media (max-width: 600px)": {
+          display: "flex",
+          flexDirection: "column",
+          backgroundColor: "white",
+          justifyContent: "center",
+          alignItems: "center",
+          padding: "2vh 0",
+        },
       }}
     >
       <img
@@ -19,7 +27,6 @@ const PainPoint = ({ header, text, image }) => {
           width: "450px",
           height: "450px",
           objectFit: "contain",
-        //   borderRadius: "50%",
           float: "left",
           shapeOutside: "inset(1% round 50%)",
         }}
@@ -38,6 +45,12 @@ const PainPoint = ({ header, text, image }) => {
             width: "40vw",
             textAlign: "justify",
             textJustify: "distribute",
+            "@media (max-width: 600px)": {
+              fontSize: "4vw",
+              width: "90vw",
+              textAlign: "justify",
+              textJustify: "distribute",
+            },
           }}
         >
           Prevail is dedicated to helping SMEs and local businesses overcome the

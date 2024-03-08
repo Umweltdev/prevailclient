@@ -13,6 +13,18 @@ const useStyles = makeStyles((theme) => ({
     color: "#FFF",
     padding: "15vh 10vw",
     clipPath: "polygon(0 0, 100% 0, 100% 70%, 0 100%)",
+
+    "@media (max-width: 600px)": {
+      position: "unset",
+      overflow: "hidden",
+      backgroundColor: "#884ed9",
+      color: "#FFF",
+      paddingTop: "unset",
+      width: "unset",
+      height: "unset",
+      left: "unset",
+      padding: "8vh 1vw",
+    },
   },
   heroContainer: {
     display: "flex",
@@ -20,9 +32,21 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     padding: "0 10vw",
+
+    "@media (max-width: 600px)": {
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      padding: "0 10vw",
+    },
   },
   textContainer: {
     width: "70vw",
+    "@media (max-width: 600px)": {
+      width: "90vw",
+      paddingTop: "10vh",
+    },
   },
   imageContainer: {
     display: "flex",
@@ -37,6 +61,9 @@ const useStyles = makeStyles((theme) => ({
   image: {
     height: "auto",
     animation: "$bounce 2s infinite alternate",
+    "@media (max-width: 600px)": {
+      width: "70vw",
+    },
   },
   "@keyframes bounce": {
     "0%": {
@@ -57,7 +84,17 @@ const HeroSection = ({ header, text, image }) => {
         <Grid className={classes.heroContainer}>
           <Grid className={classes.textContainer}>
             <Typography
-              sx={{ fontSize: "3vw", fontWeight: "900", color: "#fff" }}
+              sx={{
+                fontSize: "3vw",
+                fontWeight: "900",
+                color: "#fff",
+                "@media (max-width: 600px)": {
+                  fontSize: "6vw",
+                  fontWeight: "900",
+                  color: "#fff",
+                  textAlign: "center",
+                },
+              }}
             >
               Website Development & Management
             </Typography>
@@ -68,6 +105,14 @@ const HeroSection = ({ header, text, image }) => {
                 width: "40vw",
                 lineHeight: "4vh",
                 color: "#fff",
+                "@media (max-width: 600px)": {
+                  fontSize: "4vw",
+                  fontWeight: "unset",
+                  width: "95vw",
+                  lineHeight: "unset",
+                  color: "#fff",
+                  textAlign: "center"
+                },
               }}
             >
               In today's fast-paced digital world, small to medium-sized

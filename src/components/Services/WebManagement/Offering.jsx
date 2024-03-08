@@ -5,7 +5,7 @@ import ImageTextComponent from "../../ReusedComponents/ImageTextComponent";
 import TextImageService from "../TextImageService";
 import ImageTextService from "../ImageTextService";
 import PackagesLayout from "../BrandIdentity/PackagesLayout";
-import Footer from "../../Footer/Footer"
+import Footer from "../../Footer/Footer";
 
 const Offering = () => {
   return (
@@ -19,6 +19,16 @@ const Offering = () => {
         // padding: "0 auto",
         backgroundColor: "#7097da",
         // margin: "10vh 5vw",
+        "@media (max-width: 600px)": {
+          display: "flex",
+          flexDirection: "column",
+          gap: "4vw",
+          justifyContent: "center",
+          alignItems: "top",
+          padding: "2vh 0",
+          backgroundColor: "#7097da",
+          // margin: "10vh 5vw",
+        },
       }}
     >
       <Grid sx={{ textAlign: "center" }}>
@@ -28,6 +38,12 @@ const Offering = () => {
             textAlign: "center",
             fontWeight: "bold",
             color: "white",
+            "@media (max-width: 600px)": {
+              fontSize: "7vw",
+              textAlign: "center",
+              fontWeight: "bold",
+              color: "white",
+            },
           }}
         >
           Offering
@@ -36,10 +52,16 @@ const Offering = () => {
           sx={{
             width: "60vw",
             fontSize: "1.5vw",
-            textAlign: "center",
+            textAlign: "centert",
             fontWeight: "bold",
             margin: "0 auto",
             color: "white",
+            "@media (max-width: 600px)": {
+              fontSize: "4vw",
+              width: "90vw",
+              textAlign: "justify",
+              textJustify: "distribute",
+            },
           }}
         >
           We are excited to introduce Prevail's groundbreaking "Website
@@ -130,8 +152,14 @@ const Offering = () => {
             fontSize: "1.5vw",
             textAlign: "center",
             fontWeight: "bold",
-            // margin: "0 auto",
+            margin: "0 auto",
             color: "white",
+            "@media (max-width: 600px)": {
+              fontSize: "4vw",
+              width: "90vw",
+              textAlign: "justify",
+              textJustify: "distribute",
+            },
           }}
         >
           Contact Prevail today to transform your digital presence. Let us build
@@ -151,6 +179,15 @@ const Offering = () => {
           alignItems: "center",
           padding: "10vh 0",
           gap: "2vw",
+          "@media (max-width: 600px)": {
+            backgroundColor: "white",
+            display: "unset",
+            justifyContent: "center",
+            alignItems: "center",
+            padding: "unset",
+            gap: "2vh",
+            margin: "0 auto"
+          },
         }}
       >
         <PackagesLayout
@@ -186,7 +223,6 @@ const Offering = () => {
           fourth={"Basic website customisation"}
         />
       </Grid>
-      <Footer/>
     </div>
   );
 };
