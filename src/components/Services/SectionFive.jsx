@@ -21,7 +21,7 @@ const SectionFive = () => {
 
   return (
     <div className="slider">
-      <h1 className='silder-text'>Click Any Client to view case Study</h1>
+      <h1 className='silder-text'>View Case Study</h1>
       <div className="slide-track">
         {slideImages.map((image, index) => (
           <div className="slide" key={index}>

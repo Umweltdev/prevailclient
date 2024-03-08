@@ -11,15 +11,29 @@ export default function ContactInput() {
       xs
       container
       spacing={2}
-      width={800}
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      margin="0 auto"
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        margin: "0 auto",
+        width: 800,
+        "@media (max-width: 600px)": {
+          width: "95vw",
+          flexDirection: "column",
+        },
+      }}
     >
       <Box
         component="form"
-        sx={{ margin: 1, display: "flex", gap: "2vw", flexWrap: "wrap" }}
+        sx={{
+          margin: 1,
+          display: "flex",
+          gap: "2vw",
+          flexWrap: "wrap",
+          "@media (max-width: 600px)": {
+            flexDirection: "column",
+          },
+        }}
         noValidate
         autoComplete="on"
         display="flex"
@@ -28,37 +42,67 @@ export default function ContactInput() {
         flexWrap="wrap"
       >
         <TextField
-          sx={{ width: "27vw" }}
+          sx={{
+            width: "27vw",
+            "@media (max-width: 600px)": {
+              width: "90vw",
+            },
+          }}
           id="outlined-basic"
           label="First Name"
           variant="outlined"
         />
         <TextField
-          sx={{ width: "27vw" }}
+          sx={{
+            width: "27vw",
+            "@media (max-width: 600px)": {
+              width: "90vw",
+            },
+          }}
           id="outlined-basic"
           label="Last Name"
           variant="outlined"
         />
         <TextField
-          sx={{ width: "27vw" }}
+          sx={{
+            width: "27vw",
+            "@media (max-width: 600px)": {
+              width: "90vw",
+            },
+          }}
           id="outlined-basic"
           label="Email"
           variant="outlined"
         />
         <TextField
-          sx={{ width: "27vw" }}
+          sx={{
+            width: "27vw",
+            "@media (max-width: 600px)": {
+              width: "90vw",
+            },
+          }}
           id="outlined-basic"
           label="Phone"
           variant="outlined"
         />
         <TextField
-          sx={{ width: "27vw" }}
+          sx={{
+            width: "27vw",
+            "@media (max-width: 600px)": {
+              width: "90vw",
+            },
+          }}
           id="outlined-basic"
           label="Location"
           variant="outlined"
         />
         <TextField
-          sx={{ width: "27vw" }}
+          sx={{
+            width: "27vw",
+            "@media (max-width: 600px)": {
+              width: "90vw",
+            },
+          }}
           id="outlined-basic"
           label="Company Name"
           variant="outlined"
@@ -70,7 +114,13 @@ export default function ContactInput() {
         multiline
         rows={4}
         //   defaultValue="Default Value"
-        sx={{ width: "56vw", mt: "2vh" }}
+        sx={{
+          width: "56vw",
+          mt: "2vh",
+          "@media (max-width: 600px)": {
+            width: "90vw",
+          },
+        }}
         fullWidth
       />
       <CustomizedHook />
@@ -81,6 +131,10 @@ export default function ContactInput() {
           marginTop: "2vh",
           marginBottom: "15vh",
           backgroundColor: "#884ED9",
+
+          "@media (max-width: 600px)": {
+            width: "90vw",
+          },
         }}
       >
         Submit

@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "landing | page update"
+git commit -m "mobile flex across all pages"
 
 git push
 

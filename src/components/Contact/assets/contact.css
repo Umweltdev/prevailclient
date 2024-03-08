@@ -52,7 +52,7 @@
 
 .sTwoContactParagraph {
   line-height: 4vh;
-  color:  #884ed9;
+  color: #884ed9;
   margin-top: 4vh;
 }
 /* SECTION THREE */
@@ -188,4 +188,18 @@ input:focus {
   margin-bottom: 2vh;
   font-weight: bold;
   color: var(--first-color);
+}
+
+@media only screen and (max-width: 600px) {
+  .sTwoContactHeader {
+    text-align: center;
+    color: #884ed9;
+    font-size: 5vw;
+  }
+  .sTwoContactParagraph {
+    line-height: unset;
+    color: #884ed9;
+    margin-top: 1vh;
+    width: 95vw;
+  }
 }

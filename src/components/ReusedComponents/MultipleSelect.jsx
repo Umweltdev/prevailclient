@@ -186,7 +186,10 @@ export default function CustomizedHook() {
         </Label>
         <InputWrapper
           ref={setAnchorEl}
-          sx={{ width: "56vw" }}
+          sx={{ width: "56vw", 
+            "@media (max-width: 600px)": {
+              width: "90vw",
+            }, }}
           className={focused ? "focused" : ""}
         >
           {value.map((option, index) => (
