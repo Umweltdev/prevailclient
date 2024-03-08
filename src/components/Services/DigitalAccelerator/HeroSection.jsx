@@ -14,6 +14,13 @@ const useStyles = makeStyles((theme) => ({
     padding: "20vh 10vw 5vh 10vh",
     // Add the clip-path property for the diagonal line
     clipPath: "polygon(0 0, 100% 100, 100% 50%, 50% 100%)",
+
+    "@media (max-width: 600px)": {
+      backgroundColor: "#884ed9", // Remove the background color
+      borderBottom: "1px solid #FFF", // Add a solid white border at the bottom
+      clipPath: "unset",
+      padding: "13vh 0 1vh 0",
+    },
   },
   heroContainer: {
     display: "flex",
@@ -22,15 +29,30 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     gap: "10vw",
     padding: "0 10vw",
+    "@media (max-width: 600px)": {
+      display: "unset",
+      flexDiection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      gap: "10vw",
+      padding: "unset",
+      margin: "0 auto",
+    },
   },
   textContainer: {
     width: "70vw",
+    "@media (max-width: 600px)": {
+      width: "100%",
+    },
   },
   imageContainer: {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     zIndex: "100",
+    "@media (max-width: 600px)": {
+      width: "100vw",
+    },
   },
   textHeader: {
     fontSize: "4vw",
@@ -39,6 +61,9 @@ const useStyles = makeStyles((theme) => ({
   image: {
     height: "auto",
     animation: "$bounce 2s infinite alternate",
+    "@media (max-width: 600px)": {
+      width: "70vw",
+    },
   },
   "@keyframes bounce": {
     "0%": {
@@ -56,6 +81,12 @@ const useStyles = makeStyles((theme) => ({
     width: "50%",
     height: "100%",
     backgroundColor: "blue",
+    "@media (max-width: 600px)": {
+      position: "unset",
+      backgroundColor: "unset",
+      height: "60%",
+      width: "unset",
+    },
   },
 }));
 
@@ -70,7 +101,17 @@ const HeroSection = ({ header, text, image }) => {
         <Grid className={classes.heroContainer}>
           <Grid className={classes.textContainer}>
             <Typography
-              sx={{ fontSize: "3vw", fontWeight: "900", color: "#fff" }}
+              sx={{
+                fontSize: "3vw",
+                fontWeight: "900",
+                color: "#fff",
+                "@media (max-width: 600px)": {
+                  fontSize: "6vw",
+                  fontWeight: "900",
+                  textAlign: "center",
+                  margin: "0 auto",
+                },
+              }}
             >
               Digital Accelerator
             </Typography>
@@ -81,6 +122,15 @@ const HeroSection = ({ header, text, image }) => {
                 width: "40vw",
                 lineHeight: "4vh",
                 color: "#fff",
+                "@media (max-width: 600px)": {
+                  fontSize: "3vw",
+                  fontWeight: "unset",
+                  width: "95vw",
+                  lineHeight: "unset",
+                  color: "white",
+                  textAlign: "center",
+                  margin: "0 auto",
+                },
               }}
             >
               Attention SMEs and local businesses in Ireland! The digital

@@ -17,7 +17,16 @@ const usp = () => {
           textAlign: "center",
           fontSize: "1.5vw",
           margin: "0 auto",
-          fontWeight: "900"
+          fontWeight: "900",
+          "@media (max-width: 600px)": {
+            width: "95vw",
+            padding: "3vh 0",
+            color: "white",
+            textAlign: "center",
+            fontSize: "4vw",
+            margin: "0 auto",
+            fontWeight: "unset",
+          },
         }}
       >
         Our Digital Presence Accelerator stands out because of its integrated
