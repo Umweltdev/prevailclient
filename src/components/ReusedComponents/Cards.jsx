@@ -19,6 +19,16 @@ export default function BasicCard({ headerText, text, icon }) {
         justifyContent: "center",
         alignItems: "center",
         textDecoration: "none",
+
+        "@media (max-width: 600px)": {
+          width: 270,
+          height: 340,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          textDecoration: "none",
+        },
       }}
     >
       <CardContent>
@@ -39,17 +49,40 @@ export default function BasicCard({ headerText, text, icon }) {
             textAlign: "center",
             fontWeight: "bold",
             padding: "2vh 0",
+            "@media (max-width: 600px)": {
+              fontSize: 20,
+              textAlign: "center",
+              fontWeight: "bold",
+              padding: "0",
+            },
           }}
           color="text.secondary"
           gutterBottom
         >
           {headerText}
         </Typography>
-        <Typography sx={{ fontSize: 14, textAlign: "center" }} variant="body2">
+        <Typography
+          sx={{
+            fontSize: 14,
+            textAlign: "center",
+            "@media (max-width: 600px)": {
+              fontSize: 12,
+              textAlign: "center",
+            },
+          }}
+          variant="body2"
+        >
           {text}
         </Typography>
       </CardContent>
-      <CardActions sx={{ padding: "6vh 0 2vh 0" }}>
+      <CardActions
+        sx={{
+          padding: "6vh 0 2vh 0",
+          "@media (max-width: 600px)": {
+            padding: "0",
+          },
+        }}
+      >
         <BasicButtons text="Learn More" />
       </CardActions>
     </Card>

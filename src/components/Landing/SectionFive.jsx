@@ -19,6 +19,10 @@ const cardInfo = [
           borderRadius: "50%",
           display: "block",
           margin: "auto",
+          "@media (max-width: 600px)": {
+            fontSize: "13vw",
+            padding: "1.5vw",
+          },
         }}
       />
     ),
@@ -36,6 +40,10 @@ const cardInfo = [
           borderRadius: "50%",
           display: "block",
           margin: "auto",
+          "@media (max-width: 600px)": {
+            fontSize: "13vw",
+            padding: "1.5vw",
+          },
         }}
       />
     ),
@@ -53,6 +61,10 @@ const cardInfo = [
           borderRadius: "50%",
           display: "block",
           margin: "auto",
+          "@media (max-width: 600px)": {
+            fontSize: "13vw",
+            padding: "1.5vw",
+          },
         }}
       />
     ),
@@ -70,6 +82,10 @@ const cardInfo = [
           borderRadius: "50%",
           display: "block",
           margin: "auto",
+          "@media (max-width: 600px)": {
+            fontSize: "13vw",
+            padding: "1.5vw",
+          },
         }}
       />
     ),
@@ -82,7 +98,14 @@ const SectionFive = (gradient) => {
   return (
     <div className="sTwoServicesContainer1">
       <Typography
-        sx={{ fontSize: "3vw", fontWeight: "bold" }}
+        sx={{
+          fontSize: "3vw",
+          fontWeight: "bold",
+          "@media (max-width: 600px)": {
+           fontSize: "6vw",
+            textAlign: "center"
+          },
+        }}
         className="sTwoServicesHeader1"
       >
         Your Tools For Success

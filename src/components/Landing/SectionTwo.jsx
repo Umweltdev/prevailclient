@@ -17,11 +17,13 @@ const SectionTwo = () => {
           long-term success. PMM is not just a marketing agency; it is a
           strategic partner for businesses in the digital age.
         </p>
-
-        <spline-viewer
-          loading-anim-type="spinner-small-light"
-          url="https://prod.spline.design/YwnKOA8cJ8yoNsFC/scene.splinecode"
-        ></spline-viewer>
+        <div></div>
+          <spline-viewer
+            className="spinnerSplin"
+            loading-anim-type="spinner-small-light"
+            url="https://prod.spline.design/YwnKOA8cJ8yoNsFC/scene.splinecode"
+          ></spline-viewer>
+        
       </div>
     </div>
   );

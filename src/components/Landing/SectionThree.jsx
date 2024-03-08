@@ -28,6 +28,10 @@ const SectionThree = () => {
           backgroundImage: gradient,
           WebkitBackgroundClip: "text",
           color: "transparent",
+          "@media (max-width: 600px)": {
+            fontSize: 20,
+            textAlign: "center"
+          },
         }}
       >
         Our Core Values Stands For

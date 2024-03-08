@@ -30,10 +30,31 @@ const ComponentContact = ({ header, text, img }) => {
   return (
     <Grid container className={classes.container}>
       <Grid item xs={12} md={6} className={classes.leftContainer}>
-        <Typography variant="h4" gutterBottom>
+        <Typography
+          sx={{
+            fontSize: "2vw",
+            fontWeight: "bold",
+            "@media (max-width: 600px)": {
+              fontSize: "5vw",
+              fontWeight: "bold",
+            },
+          }}
+        >
           {header}
         </Typography>
-        <Typography variant="body2" className={classes.input}>
+        <Typography
+          sx={{
+            fontSize: "1.4vw",
+            textAlign: "justify",
+            textJustify: "distribute",
+            width: "40vw",
+            "@media (max-width: 600px)": {
+              fontSize: "4vw",
+              width: "unset",
+            },
+          }}
+          className={classes.input}
+        >
           {text}
         </Typography>
         <Box
@@ -41,6 +62,10 @@ const ComponentContact = ({ header, text, img }) => {
           sx={{
             "& > :not(style)": { m: 1, width: "50ch" },
             marginTop: "3vh",
+            "@media (max-width: 600px)": {
+              width: "95vw",
+              margin: "auto", // Center align the form on mobile screens
+            },
           }}
           noValidate
           autoComplete="off"
@@ -65,6 +90,28 @@ const ComponentContact = ({ header, text, img }) => {
                 color: "white",
                 fontSize: "1vw",
               },
+
+              // Mobile
+              "@media (max-width: 600px)": {
+                "& .MuiOutlinedInput-root": {
+                  "& fieldset": {
+                    borderColor: "white",
+                    height: "5vh",
+                    width: "80vw",
+                  },
+                  "&:hover fieldset": { borderColor: "white" },
+                  "&.Mui-focused fieldset": { borderColor: "white" },
+                },
+                "& .MuiInputBase-input": {
+                  color: "white",
+                  fontSize: "1vw",
+                  // textAlign: "center",
+                },
+                "& .MuiInputLabel-root": {
+                  color: "white",
+                  fontSize: "3vw",
+                },
+              },
             }}
           />
           <TextField
@@ -87,6 +134,28 @@ const ComponentContact = ({ header, text, img }) => {
                 color: "white",
                 fontSize: "1vw",
               },
+
+              // Mobile
+              "@media (max-width: 600px)": {
+                "& .MuiOutlinedInput-root": {
+                  "& fieldset": {
+                    borderColor: "white",
+                    height: "5vh",
+                    width: "80vw",
+                  },
+                  "&:hover fieldset": { borderColor: "white" },
+                  "&.Mui-focused fieldset": { borderColor: "white" },
+                },
+                "& .MuiInputBase-input": {
+                  color: "white",
+                  fontSize: "1vw",
+                  // textAlign: "center",
+                },
+                "& .MuiInputLabel-root": {
+                  color: "white",
+                  fontSize: "3vw",
+                },
+              },
             }}
           />
           <TextField
@@ -108,6 +177,28 @@ const ComponentContact = ({ header, text, img }) => {
               "& .MuiInputLabel-root": {
                 color: "white",
                 fontSize: "1vw",
+              },
+
+              // Mobile
+              "@media (max-width: 600px)": {
+                "& .MuiOutlinedInput-root": {
+                  "& fieldset": {
+                    borderColor: "white",
+                    height: "5vh",
+                    width: "80vw",
+                  },
+                  "&:hover fieldset": { borderColor: "white" },
+                  "&.Mui-focused fieldset": { borderColor: "white" },
+                },
+                "& .MuiInputBase-input": {
+                  color: "white",
+                  fontSize: "1vw",
+                  // textAlign: "center",
+                },
+                "& .MuiInputLabel-root": {
+                  color: "white",
+                  fontSize: "3vw",
+                },
               },
             }}
           />
@@ -132,11 +223,33 @@ const ComponentContact = ({ header, text, img }) => {
                 color: "white",
                 fontSize: "1vw",
               },
+
+              // Mobile
+              "@media (max-width: 600px)": {
+                "& .MuiOutlinedInput-root": {
+                  "& fieldset": {
+                    borderColor: "white",
+                    height: "10vh",
+                    width: "80vw",
+                  },
+                  "&:hover fieldset": { borderColor: "white" },
+                  "&.Mui-focused fieldset": { borderColor: "white" },
+                },
+                "& .MuiInputBase-input": {
+                  color: "white",
+                  fontSize: "1vw",
+                  // textAlign: "center",
+                },
+                "& .MuiInputLabel-root": {
+                  color: "white",
+                  fontSize: "3vw",
+                },
+              },
             }}
           />
-          <Grid sx={{ marginTop: "2vh" }}>
+          {/* <Grid sx={{ marginTop: "2vh" }}>
             <CustomizedButtons text="Submit"/>
-          </Grid>
+          </Grid> */}
         </Box>
       </Grid>
       <Grid item xs={12} md={6}>

@@ -46,7 +46,14 @@ export default function AccordionUsage() {
       }}
     >
       {goalsObj.map((data, index) => (
-        <Accordion sx={{ width: "40vw" }}>
+        <Accordion
+          sx={{
+            width: "40vw",
+            "@media (max-width: 600px)": {
+              width: "90vw",
+            },
+          }}
+        >
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls={`panel${index + 1}-content`}
@@ -55,14 +62,33 @@ export default function AccordionUsage() {
             sx={{
               display: "flex",
               alignItems: "center",
+              "@media (max-width: 600px)": {
+                fontSize: "3vw",
+              },
             }}
           >
             {data.icon}
-           
-            <Typography sx={{ margin: "auto" }}>{data.mainText}</Typography>
+
+            <Typography
+              sx={{
+                margin: "auto",
+                "@media (max-width: 600px)": {
+                  fontSize: "3.2vw",
+                  fontWeight: "bold"
+                },
+              }}
+            >
+              {data.mainText}
+            </Typography>
           </AccordionSummary>
           <AccordionDetails
-            sx={{ textAlign: "justify", textJustify: "distribute" }}
+            sx={{
+              textAlign: "justify",
+              textJustify: "distribute",
+              "@media (max-width: 600px)": {
+                fontSize: "3.2vw",
+              },
+            }}
           >
             {data.subText}
           </AccordionDetails>

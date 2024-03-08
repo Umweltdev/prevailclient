@@ -1253,16 +1253,12 @@ FOOTER
 
 /* SECTION SEVEN */
 .sectionSeven {
-  background-image: url(../assets/rev.svg) !important;
-  height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: top;
-  gap: 2vw;
-  padding-top: 5vh;
+  align-items: center;
+  margin: 5vh auto;
+  gap: 4vh;
 }
 
 .sSevenText {
@@ -1312,3 +1308,91 @@ FOOTER
 /* .sSevenOne {
   padding-top: 5vh;
 } */
+
+@media only screen and (max-width: 600px) {
+  .spline-Layer {
+    height: 100vh !important;
+  }
+
+  .hero-one {
+    padding-top: 5vh;
+    font-size: 1.5vw;
+    font-weight: 100;
+    color: white;
+  }
+
+  .hero-two {
+    font-size: 3.8vw;
+    width: 50vw;
+    color: white;
+    margin-top: unset;
+  }
+
+  .spinnerSplin {
+    display: none;
+  }
+
+  .sThreeContainer {
+    background: white;
+    padding: 4vh 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 3vw;
+    width: 100vw;
+  }
+
+  .sTwoServicesContainer1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: unset;
+  }
+
+  .sTwoServicesHeader1 {
+    font-size: var(--big-header);
+    background: linear-gradient(45deg, #a16ad9 30%, #70a1e3 90%);
+    font-size: unset;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+  }
+
+  /* .sSevenRight {
+    display: none;
+    flex-direction: column;
+    gap: 60vh;
+    top: 0;
+  } */
+
+  /* .sSevenText {
+    width: 90vw;
+    text-justify: unset;
+    text-align: unset;
+    font-size: 4vw;
+    text-align: center;
+    text-justify: distribute;
+    text-indent: unset;
+    line-height: unset;
+    padding-top: 2vh;
+    color: #333;
+  } */
+
+  /* .sectionSeven {
+    background: url(../assets/rev.svg) !important;
+    height: unset;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: top;
+    gap: 2vw;
+    padding-top: 0;
+  } */
+}
