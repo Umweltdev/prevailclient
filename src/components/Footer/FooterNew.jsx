@@ -4,6 +4,7 @@ import logo from "./assets/pmmlogo.png";
 import { Call, Email, LocationOn } from "@mui/icons-material";
 import CustomizedAccordions from "./Accordion";
 import AccordionTransition from "./AccordionTwo";
+import { makeStyles } from "@mui/styles";
 
 const accord = [
   {
@@ -51,7 +52,17 @@ const service = [
   },
 ];
 
+const useStyles = makeStyles({
+  image: {
+    width: "7vw",
+    "@media (max-width: 600px)": {
+      width: "22vw",
+    },
+  },
+});
+
 const FooterNew = () => {
+  const classes = useStyles();
   return (
     <Grid sx={{ boxShadow: "0px -1px 1px #ba8bd7", background: "#884ed9" }}>
       <Grid
@@ -87,12 +98,13 @@ const FooterNew = () => {
           }}
         >
           <img
-            style={{
-              width: "7vw",
-              "@media (max-width: 600px)": {
-                width: "24vw",
-              },
-            }}
+            // style={{
+            //   width: "7vw",
+            //   "@media (max-width: 600px)": {
+            //     width: "24vw",
+            //   },
+            // }}
+            className={classes.image}
             src={logo}
             alt=""
           />
@@ -227,7 +239,7 @@ const FooterNew = () => {
           padding: "1vw 0 1vw 10vw",
         }}
       >
-        © 2024 Salt Marketing | All Right Reserved{" "}
+        © 2024 Prevail | All Right Reserved{" "}
       </Typography>
     </Grid>
   );
