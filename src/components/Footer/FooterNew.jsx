@@ -59,7 +59,7 @@ const FooterNew = () => {
           display: "flex",
           padding: "7vh 0",
           justifyContent: "center",
-          alignItems: "center",
+          alignItems: "top",
           gap: "3vw",
           borderRadius: "0 0 5vw 5vw",
           background: "white",
@@ -108,7 +108,9 @@ const FooterNew = () => {
           </Typography>
         </Grid>
         <Grid className="">
-          <Typography sx={{ fontSize: "1.6vw" }}>Our Core Values</Typography>
+          <Typography sx={{ fontSize: "1.6vw", fontWeight: "bold" }}>
+            Our Core Values
+          </Typography>
           {accord.map((data, index) => (
             <Grid key={index}>
               <CustomizedAccordions header={data.header} text={data.text} />
@@ -116,7 +118,9 @@ const FooterNew = () => {
           ))}
         </Grid>
         <Grid className="">
-          <Typography sx={{ fontSize: "1.6vw" }}>Services</Typography>
+          <Typography sx={{ fontSize: "1.6vw", fontWeight: "bold" }}>
+            Services
+          </Typography>
           {service.map((data, index) => (
             <Grid key={index}>
               <AccordionTransition header={data.header} text={data.text} />
