@@ -1,4 +1,5 @@
 import Footer from "../components/Footer/Footer";
+import FooterNew from "../components/Footer/FooterNew";
 import Hero from "../components/Landing/Hero";
 import SectionFive from "../components/Landing/SectionFive";
 import SectionFour from "../components/Landing/SectionFour";
@@ -22,7 +23,7 @@ const Landing = () => {
       <SectionFour />
       <SectionSix />
       <SectionSeven/>
-      <Footer />
+      <FooterNew />
     </div>
   );
 };

@@ -8,6 +8,7 @@ import ServiceDetails3 from "./ServiceDetails3";
 import PackagesLayout from "./PackagesLayout";
 import Packages from "./Packages";
 import Footer from "../../Footer/Footer"
+import FooterNew from "../../Footer/FooterNew";
 
 const BrandIdentity = () => {
   return (
@@ -17,7 +18,7 @@ const BrandIdentity = () => {
       <ServiceDetails2 />
       <ServiceDetails3 />
       <Packages />
-      <Footer/>
+      <FooterNew/>
     </>
   );
 };

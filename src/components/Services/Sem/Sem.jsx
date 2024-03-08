@@ -5,6 +5,7 @@ import HeroSection from "./HeroSection";
 import PainPoint from "./PainPoint";
 import Solutions from "./Solutions";
 import Footer from "../../Footer/Footer";
+import FooterNew from "../../Footer/FooterNew";
 
 const Sem = () => {
   return (
@@ -13,7 +14,7 @@ const Sem = () => {
       <HeroSection />
       <PainPoint />
       <Solutions/>
-      <Footer/>
+      <FooterNew/>
     </>
   );
 };

@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar/Navbar.jsx";
 import SectionFour from "../components/About/SectionFour.jsx";
 import SectionConsultation from "../components/About/SectionConsultation.jsx";
 import DrawerAppBar from "../components/Navbar/Appbar.jsx";
+import FooterNew from "../components/Footer/FooterNew.jsx";
 
 const About = () => {
   return (
@@ -17,7 +18,7 @@ const About = () => {
       <SectionConsultation />
       {/* <SectionFour /> */}
       <SectionThree />
-      <Footer />
+      <FooterNew />
     </div>
   );
 };

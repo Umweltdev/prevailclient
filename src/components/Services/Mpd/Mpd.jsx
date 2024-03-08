@@ -5,6 +5,7 @@ import PainPoint from './PainPoints'
 import Advantages from './Advantages'
 import Budget from './Budget'
 import Footer from "../../Footer/Footer"
+import FooterNew from '../../Footer/FooterNew'
 
 const Mpd = () => {
   return (
@@ -14,7 +15,7 @@ const Mpd = () => {
       <PainPoint/>
       <Advantages/>
       <Budget/>
-      <Footer/>
+      <FooterNew/>
     </div>
   )
 }

@@ -5,6 +5,7 @@ import PainPoint from "./PainPoint";
 import Advantages from "./Advantages";
 import Usp from "./Usp";
 import Footer from "../../Footer/Footer"
+import FooterNew from "../../Footer/FooterNew";
 
 const DigitalAccelerator = () => {
   return (
@@ -14,7 +15,7 @@ const DigitalAccelerator = () => {
       <PainPoint />
       <Advantages />
       <Usp />
-      <Footer />
+      <FooterNew />
     </div>
   );
 };

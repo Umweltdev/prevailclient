@@ -6,6 +6,7 @@ import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
 import DrawerAppBar from "../components/Navbar/Appbar";
 import ContactInput from "../components/Contact/ContactInput";
+import FooterNew from "../components/Footer/FooterNew";
 
 
 const Contact = () => {
@@ -17,7 +18,7 @@ const Contact = () => {
       <ContactInput/>
       {/* <SectionThree /> */}
       <SectionFive />
-      <Footer />
+      <FooterNew />
     </div>
   );
 };

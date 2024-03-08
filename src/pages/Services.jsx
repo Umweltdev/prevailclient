@@ -6,6 +6,7 @@ import Footer from "../components/Footer/Footer";
 import SectionFive from "../components/Services/SectionFive";
 import SectionSix from "../components/Services/SectionSix";
 import Navbar from "../components/Navbar/Navbar";
+import FooterNew from "../components/Footer/FooterNew";
 
 const Services = () => {
   return (
@@ -17,7 +18,7 @@ const Services = () => {
       {/* <SectionFour /> */}
       {/* <SectionFive/> */}
       {/* <SectionSix /> */}
-      <Footer />
+      <FooterNew />
     </div>
   );
 };

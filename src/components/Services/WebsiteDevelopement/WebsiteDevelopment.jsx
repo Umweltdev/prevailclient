@@ -14,7 +14,7 @@ const WebsiteDevelopment = () => {
       <PainPoint />
       <Advantages />
       <Benefits />
-      <Footer/>
+      <FooterNew/>
     </div>
   );
 };

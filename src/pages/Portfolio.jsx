@@ -6,6 +6,7 @@ import SectionFive from "../components/Portfolio/SectionFive";
 import Footer from "../components/Footer/Footer"
 import Navbar from "../components/Navbar/Navbar";
 import DrawerAppBar from "../components/Navbar/Appbar";
+import FooterNew from "../components/Footer/FooterNew";
 // import SectionSix from "../components/Portfolio/SectionSix";
 
 const Portfolio = () => {
@@ -18,7 +19,7 @@ const Portfolio = () => {
       {/* <SectionSix/> */}
       <SectionFour />
       <SectionFive />
-      <Footer />
+      <FooterNew />
     </div>
   );
 };
