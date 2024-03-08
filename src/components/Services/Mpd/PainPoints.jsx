@@ -1,8 +1,24 @@
 import { Grid, Typography } from "@mui/material";
 import React from "react";
 import imago from "../assets/mirr.png";
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles({
+  image: {
+    width: "450px",
+    height: "450px",
+    objectFit: "contain",
+    //   borderRadius: "50%",
+    float: "left",
+    shapeOutside: "inset(1% round 50%)",
+    "@media (max-width: 600px)": {
+      display: "none",
+    },
+  },
+});
 
 const PainPoint = ({ header, text, image }) => {
+  const classes = useStyles();
   return (
     <Grid
       sx={{
@@ -12,6 +28,14 @@ const PainPoint = ({ header, text, image }) => {
         justifyContent: "center",
         alignItems: "center",
         padding: "5vh 0",
+        "@media (max-width: 600px)": {
+          display: "flex",
+          flexDirection: "column",
+          backgroundColor: "white",
+          justifyContent: "center",
+          alignItems: "center",
+          padding: "2vh 0",
+        },
       }}
     >
       <img
@@ -23,6 +47,7 @@ const PainPoint = ({ header, text, image }) => {
           float: "left",
           shapeOutside: "inset(1% round 50%)",
         }}
+        className={classes.image}
         src={imago}
         alt=""
       />
@@ -38,6 +63,12 @@ const PainPoint = ({ header, text, image }) => {
             width: "40vw",
             textAlign: "justify",
             textJustify: "distribute",
+            "@media (max-width: 600px)": {
+              fontSize: "4vw",
+              width: "90vw",
+              textAlign: "justify",
+              textJustify: "distribute",
+            },
           }}
         >
           Managing digital marketing budgets and understanding how marketing

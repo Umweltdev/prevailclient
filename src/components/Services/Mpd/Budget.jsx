@@ -13,7 +13,16 @@ const Budget = () => {
       }}
     >
       <Typography
-        sx={{ fontSize: "1.6vw", width: "60vw", textAlign: "center" }}
+        sx={{
+          fontSize: "1.6vw",
+          width: "60vw",
+          textAlign: "center",
+          "@media (max-width: 600px)": {
+            fontSize: "4vw",
+            width: "95vw",
+            textAlign: "center",
+          },
+        }}
       >
         Do not let budget constraints limit your growth. Embrace the digital age
         with the Marketing Price Displacement (MPD) API. Sign up now to

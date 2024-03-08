@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
   textContainer: {
     width: "70vw",
     "@media (max-width: 600px)": {
-      width: "100vw",
+      width: "100%",
     },
   },
   imageContainer: {

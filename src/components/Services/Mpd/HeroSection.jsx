@@ -12,7 +12,13 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#884ed9",
     color: "#FFF",
     padding: "15vh 10vw",
-    // clipPath: "polygon(0 0, 100% 0, 100% 70%, 0 100%)",
+    "@media (max-width: 600px)": {
+      position: "relative",
+      overflow: "visible",
+      backgroundColor: "#884ed9",
+      color: "#FFF",
+      padding: "10vh 0 1vh 0",
+    },
   },
   heroContainer: {
     display: "flex",
@@ -21,9 +27,22 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     // gap: "10vw",
     padding: "0 10vw",
+
+    "@media (max-width: 600px)": {
+      display: "unset",
+      flexDiection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      gap: "1vw",
+      padding: "unset",
+      margin: "0 auto",
+    },
   },
   textContainer: {
     width: "70vw",
+    "@media (max-width: 600px)": {
+      width: "100%",
+    },
   },
   imageContainer: {
     display: "flex",
@@ -38,6 +57,9 @@ const useStyles = makeStyles((theme) => ({
   image: {
     height: "auto",
     animation: "$bounce 2s infinite alternate",
+    "@media (max-width: 600px)": {
+      width: "70vw",
+    },
   },
   "@keyframes bounce": {
     "0%": {
@@ -58,7 +80,16 @@ const HeroSection = ({ header, text, image }) => {
         <Grid className={classes.heroContainer}>
           <Grid className={classes.textContainer}>
             <Typography
-              sx={{ fontSize: "3vw", fontWeight: "900", color: "#fff" }}
+              sx={{
+                fontSize: "3vw",
+                fontWeight: "900",
+                color: "#fff",
+                "@media (max-width: 600px)": {
+                  fontSize: "7vw",
+                  fontWeight: "900",
+                  textAlign: "center",
+                },
+              }}
             >
               Marketing Price Displacement (MPD)
             </Typography>
@@ -69,6 +100,14 @@ const HeroSection = ({ header, text, image }) => {
                 width: "40vw",
                 lineHeight: "4vh",
                 color: "#fff",
+                "@media (max-width: 600px)": {
+                  fontSize: "3vw",
+                  fontWeight: "unset",
+                  width: "95vw",
+                  lineHeight: "unset",
+                  color: "white",
+                  textAlign: "center",
+                },
               }}
             >
               Welcome to the future of digital marketing with Prevail's
