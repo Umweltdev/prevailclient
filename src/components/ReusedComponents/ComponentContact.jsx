@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
     width: "50vw",
 
     "@media (max-width: 600px)": {
-      display: "none",
+      width: "85vw",
     },
   },
 }));
