@@ -25,7 +25,7 @@ export default function AccordionTransition({ header, text }) {
           "& .MuiAccordionDetails-root": {
             display: expanded ? "block" : "none",
           },
-          width: 400,
+          width: 365,
           boxShadow: "none", 
         }}
       >
@@ -34,7 +34,7 @@ export default function AccordionTransition({ header, text }) {
           aria-controls="panel1-content"
           id="panel1-header"
         >
-          <Typography>{header}</Typography>
+          <Typography >{header}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>{text}</Typography>

@@ -202,4 +202,16 @@ input:focus {
     margin-top: 1vh;
     width: 95vw;
   }
+
+  .sTwoContactHeader {
+    text-align: center;
+    color: #884ed9;
+    font-size: 7vw;
+  }
+
+  .sTwoContactParagraph {
+    line-height: unset;
+    color: #884ed9;
+    margin-top: 3vh;
+  }
 }
