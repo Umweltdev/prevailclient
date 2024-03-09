@@ -27,6 +27,9 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     width: 200,
+      "@media (max-width: 600px)": {
+        display: "none"
+      }
   },
 }));
 

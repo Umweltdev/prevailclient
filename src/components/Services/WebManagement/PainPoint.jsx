@@ -1,8 +1,25 @@
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography} from "@mui/material";
 import React from "react";
 import imago from "../assets/sect2.png";
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles({
+  image: {
+    width: "450px",
+    height: "450px",
+    objectFit: "contain",
+    //   borderRadius: "50%",
+    float: "left",
+    shapeOutside: "inset(1% round 50%)",
+    "@media (max-width: 600px)": {
+      display: "none",
+    },
+  },
+});
 
 const PainPoint = ({ header, text, image }) => {
+  const classes = useStyles()
+  
   return (
     <Grid
       sx={{
@@ -30,6 +47,7 @@ const PainPoint = ({ header, text, image }) => {
           float: "left",
           shapeOutside: "inset(1% round 50%)",
         }}
+        className={classes.image}
         src={imago}
         alt=""
       />
@@ -46,7 +64,7 @@ const PainPoint = ({ header, text, image }) => {
             textAlign: "justify",
             textJustify: "distribute",
             "@media (max-width: 600px)": {
-              fontSize: "4vw",
+              fontSize: "4.5vw",
               width: "90vw",
               textAlign: "justify",
               textJustify: "distribute",

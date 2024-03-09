@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
       width: "unset",
       height: "unset",
       left: "unset",
-      padding: "8vh 1vw",
+      padding: "15vh 1vw",
     },
   },
   heroContainer: {
@@ -34,18 +34,21 @@ const useStyles = makeStyles((theme) => ({
     padding: "0 10vw",
 
     "@media (max-width: 600px)": {
-      display: "flex",
-      flexDirection: "column",
+      display: "unset",
+      flexDiection: "column",
       justifyContent: "center",
       alignItems: "center",
-      padding: "0 10vw",
+      gap: "11vw",
+      padding: "unset",
+      margin: "0 auto",
     },
   },
   textContainer: {
     width: "70vw",
     "@media (max-width: 600px)": {
-      width: "90vw",
-      paddingTop: "10vh",
+      width: "unset",
+      paddingTop: "15vh",
+      textAlign: "center",
     },
   },
   imageContainer: {
@@ -53,6 +56,10 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
     zIndex: "100",
+
+    "@media (max-width: 600px)": {
+      width: "100vw",
+    },
   },
   textHeader: {
     fontSize: "4vw",
@@ -89,10 +96,11 @@ const HeroSection = ({ header, text, image }) => {
                 fontWeight: "900",
                 color: "#fff",
                 "@media (max-width: 600px)": {
-                  fontSize: "6vw",
+                  fontSize: "7vw",
                   fontWeight: "900",
                   color: "#fff",
                   textAlign: "center",
+                  margin: "0 auto",
                 },
               }}
             >
@@ -106,12 +114,13 @@ const HeroSection = ({ header, text, image }) => {
                 lineHeight: "4vh",
                 color: "#fff",
                 "@media (max-width: 600px)": {
-                  fontSize: "4vw",
+                  fontSize: "4.5vw",
                   fontWeight: "unset",
                   width: "95vw",
                   lineHeight: "unset",
                   color: "#fff",
-                  textAlign: "center"
+                  textAlign: "center",
+                  margin: "0 auto",
                 },
               }}
             >

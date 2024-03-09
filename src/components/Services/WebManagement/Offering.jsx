@@ -9,7 +9,7 @@ import Footer from "../../Footer/Footer";
 
 const Offering = () => {
   return (
-    <div
+    <Grid
       style={{
         display: "flex",
         flexDirection: "column",
@@ -43,6 +43,7 @@ const Offering = () => {
               textAlign: "center",
               fontWeight: "bold",
               color: "white",
+              padding: "2vh 0",
             },
           }}
         >
@@ -57,7 +58,7 @@ const Offering = () => {
             margin: "0 auto",
             color: "white",
             "@media (max-width: 600px)": {
-              fontSize: "4vw",
+              fontSize: "4.5vw",
               width: "90vw",
               textAlign: "justify",
               textJustify: "distribute",
@@ -155,7 +156,7 @@ const Offering = () => {
             margin: "0 auto",
             color: "white",
             "@media (max-width: 600px)": {
-              fontSize: "4vw",
+              fontSize: "4.5vw",
               width: "90vw",
               textAlign: "justify",
               textJustify: "distribute",
@@ -186,7 +187,7 @@ const Offering = () => {
             alignItems: "center",
             padding: "unset",
             gap: "2vh",
-            margin: "0 auto"
+            margin: "2vh auto",
           },
         }}
       >
@@ -223,7 +224,7 @@ const Offering = () => {
           fourth={"Basic website customisation"}
         />
       </Grid>
-    </div>
+    </Grid>
   );
 };
 
