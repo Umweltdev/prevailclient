@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     maxWidth: "90vw",
     "@media (max-width: 600px)": {
-      display: "flex",
+      display: "unset",
       alignItems: "center",
       flexDirection: "column-reverse",
       justifyContent: "center",
@@ -27,9 +27,10 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     width: 400,
-    
+    "@media (max-width: 600px)": {
+      display: "none",
+    },
   },
- 
 }));
 
 const ImageTextComponent = ({ text, imageUrl, textHeader }) => {

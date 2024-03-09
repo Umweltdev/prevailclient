@@ -16,7 +16,7 @@ export default function MediaCard({ header, text, img, gradient }) {
         flexDirection: "column",
         "@media (max-width: 600px)": {
           maxWidth: 345,
-          height: 390,
+          height: 440,
           display: "flex",
           flexDirection: "column",
         },
@@ -59,9 +59,9 @@ export default function MediaCard({ header, text, img, gradient }) {
             fontSize: "0.9vw",
             color: "#333",
             "@media (max-width: 600px)": {
-              fontSize: "3vw",
+              fontSize: "4vw",
               color: "#333",
-              margin: "1vh 0",
+              margin: "0.1vh 0",
             },
           }}
         >
