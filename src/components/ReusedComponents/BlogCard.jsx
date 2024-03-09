@@ -36,6 +36,7 @@ export default function BlogCard({
   date,
   category,
   gradient,
+  like,
 }) {
   const [expanded, setExpanded] = React.useState(false);
 
@@ -61,7 +62,7 @@ export default function BlogCard({
         alt={authorFirstName}
       />
       <CardContent>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" color="#884ed9">
           {category}
         </Typography>
         <Typography variant="body1" color="text.secondary">
@@ -69,8 +70,11 @@ export default function BlogCard({
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+        <IconButton
+          aria-label="add to favorites"
+          sx={{ display: "flex", alignItems: "center" }}
+        >
+          <FavoriteIcon /> <Typography variant="body2">{like}</Typography>
         </IconButton>
         <IconButton aria-label="share">
           <ShareIcon />
@@ -84,7 +88,7 @@ export default function BlogCard({
           <Button
             variant="contained"
             sx={{
-              background:'blue',
+              background: "blue",
               padding: "0.7vh 2vw",
               borderRadius: "5vw",
               color: "white",

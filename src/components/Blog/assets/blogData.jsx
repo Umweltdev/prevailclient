@@ -50,6 +50,7 @@ export const blogBlurbs = [
     header:
       "Unlocking the Potential: A Deep Dive into Proven Social Media Engagement Strategies for Maximum Impact",
     date: "April 15, 2023",
+    like: "475",
     category: "Social Media Marketing",
   },
   {
@@ -58,6 +59,7 @@ export const blogBlurbs = [
     header:
       "Mastering the Art of Email Marketing: In-Depth Tips for Crafting and Executing Successful Campaigns",
     date: "May 2, 2023",
+    like: "75",
     category: "Email Marketing",
   },
   {
@@ -66,6 +68,7 @@ export const blogBlurbs = [
     header:
       "The Influencer Advantage: A Comprehensive Guide to Establishing and Maintaining Effective Partnerships",
     date: "June 10, 2023",
+    like: "67",
     category: "Influencer Marketing",
   },
   {
@@ -74,6 +77,7 @@ export const blogBlurbs = [
     header:
       "Demystifying SEO: A Beginner's Guide to Navigating the Complex Landscape of Search Engine Optimization",
     date: "July 18, 2023",
+    like: "99",
     category: "Search Engine Optimization",
   },
   {
@@ -82,6 +86,7 @@ export const blogBlurbs = [
     header:
       "The Power of Data: Navigating the World of Analytics in Digital Marketing Strategies for Optimal Results",
     date: "August 5, 2023",
+    like: "68",
     category: "Data Analytics",
   },
   {
@@ -90,6 +95,7 @@ export const blogBlurbs = [
     header:
       "Mobile Marketing Trends: A Comprehensive Exploration of Strategies Shaping 2023 and Beyond",
     date: "October 12, 2023",
+    like: "05",
     category: "Mobile Marketing",
   },
   {
@@ -98,6 +104,7 @@ export const blogBlurbs = [
     header:
       "Maximizing ROI with PPC Advertising: Advanced Strategies for Effective and Profitable Campaigns",
     date: "November 8, 2023",
+    like: "09",
     category: "Paid Advertising",
   },
   {
@@ -106,6 +113,7 @@ export const blogBlurbs = [
     header:
       "Building a Strong Brand Presence on LinkedIn: Proven Strategies for Influence and Impact",
     date: "December 3, 2023",
+    like: "69",
     category: "Social Media Marketing",
   },
   {
@@ -114,6 +122,7 @@ export const blogBlurbs = [
     header:
       "E-commerce Revolution: Strategies for Creating and Managing a Thriving Digital Storefront in 2024",
     date: "January 20, 2024 Rick",
+    like: "405",
     category: "E-commerce",
   },
   {
@@ -122,6 +131,7 @@ export const blogBlurbs = [
     header:
       "Unlocking the Potential: A Deep Dive into Proven Social Media Engagement Strategies for Maximum Impact",
     date: "April 15, 2023",
+    like: "11",
     category: "Social Media Marketing",
   },
 ];

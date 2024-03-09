@@ -26,6 +26,7 @@ const SectionOne = () => {
                 date={data.date}
                 img={data.img}
                 category={data.category}
+                like={data.like}
               />
             </Link>
           ))}
