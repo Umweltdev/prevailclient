@@ -24,7 +24,9 @@ export default function AccordionExpandDefault() {
           aria-controls="panel1-content"
           id="panel1-header"
         >
-          <Typography>Unified Brand Presence</Typography>
+          <Typography sx={{ fontWeight: "bold" }}>
+            Unified Brand Presence
+          </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography
@@ -47,7 +49,9 @@ export default function AccordionExpandDefault() {
           aria-controls="panel2-content"
           id="panel2-header"
         >
-          <Typography>Time & Resorce Efficiency</Typography>
+          <Typography sx={{ fontWeight: "bold" }}>
+            Time & Resorce Efficiency
+          </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography
@@ -70,7 +74,7 @@ export default function AccordionExpandDefault() {
           aria-controls="panel2-content"
           id="panel2-header"
         >
-          <Typography>Strategic Synergy</Typography>
+          <Typography sx={{ fontWeight: "bold" }}>Strategic Synergy</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography
