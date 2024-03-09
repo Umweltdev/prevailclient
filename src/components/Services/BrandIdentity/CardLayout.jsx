@@ -14,7 +14,8 @@ export default function BrandIdentityCard() {
         gap: "1vw",
         "@media (max-width: 600px)": {
           gap: "1vh",
-          marginTop: "2vh",
+          margin: "2vh auto",
+          justifyContent: "center"
         },
       }}
     >

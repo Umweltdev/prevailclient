@@ -66,7 +66,7 @@ const PainPoint = ({ header, text, image }) => {
             textJustify: "distribute",
             // color: "white",
             "@media (max-width: 600px)": {
-              fontSize: "4vw",
+              fontSize: "4.5vw",
               width: "90vw",
               textAlign: "justify",
               textJustify: "distribute",

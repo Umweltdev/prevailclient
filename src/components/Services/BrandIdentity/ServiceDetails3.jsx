@@ -22,7 +22,7 @@ const ServiceDetails3 = () => {
           alignItems: "top",
           margin: "unset",
           backgroundColor: "#7097da",
-          padding: "10vh 5vw",
+          padding: "2vh 0",
         },
       }}
     >
@@ -52,7 +52,7 @@ const ServiceDetails3 = () => {
             margin: "0 auto",
             color: "white",
             "@media (max-width: 600px)": {
-              fontSize: "4vw",
+              fontSize: "4.5vw",
               textAlign: "center",
               fontWeight: "bold",
               color: "white",
@@ -69,7 +69,13 @@ const ServiceDetails3 = () => {
           but also deeply resonates with your target audience.
         </Typography>
       </Grid>
-      <Grid>
+      <Grid
+        sx={{
+          "@media (max-width: 600px)": {
+            margin: "0 auto",
+          },
+        }}
+      >
         <BrandIdentityCard />
       </Grid>
     </Grid>

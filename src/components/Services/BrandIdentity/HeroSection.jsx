@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
       overflow: "hidden",
       backgroundColor: "#884ed9",
       color: "#FFF",
-      paddingTop: "10vh",
+      paddingTop: "15vh",
       width: "unset",
       height: "unset",
       left: "unset",
@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
       flexDiection: "column",
       justifyContent: "center",
       alignItems: "center",
-      gap: "10vw",
+      gap: "11vw",
       padding: "unset",
       margin: "0 auto",
     },
@@ -64,9 +64,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    // "@media (max-width: 600px)": {
-    //   display: "none",
-    // },
+
   },
   textHeader: {
     fontSize: "4vw",
@@ -103,7 +101,7 @@ const HeroSection = ({ header, text, image }) => {
                 fontWeight: "900",
                 color: "white",
                 "@media (max-width: 600px)": {
-                  fontSize: "7vw",
+                  fontSize: "8vw",
                   fontWeight: "900",
                   textAlign: "center",
                 },
@@ -119,12 +117,13 @@ const HeroSection = ({ header, text, image }) => {
                 lineHeight: "4vh",
                 color: "white",
                 "@media (max-width: 600px)": {
-                  fontSize: "3vw",
+                  fontSize: "4.5vw",
                   fontWeight: "unset",
                   width: "95vw",
                   lineHeight: "unset",
                   color: "white",
                   textAlign: "center",
+                  margin: "0 auto",
                 },
               }}
             >
