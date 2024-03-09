@@ -1,4 +1,5 @@
 import Footer from "../Footer/Footer";
+import FooterNew from "../Footer/FooterNew";
 import Navbar from "../Navbar/Navbar";
 import BlogCard from "../ReusedComponents/BlogCard";
 import FreeSolo from "../ReusedComponents/SearchInput";
@@ -10,7 +11,7 @@ const SectionOne = () => {
   return (
     <div className="sOneBlogContainer">
       {/* <Navbar /> */}
-      <h1 className="sOneBlogHero">Latest News</h1>
+      <h1 className="sOneBlogHero">Blog</h1>
       <div className="sOneBlog">
         <div className="sOneBlogBlurbs">
           {blogBlurbs.map((data, index) => (
@@ -35,7 +36,7 @@ const SectionOne = () => {
           <FreeSolo />
         </div>
       </div>
-      <Footer />
+      <FooterNew />
     </div>
   );
 };
