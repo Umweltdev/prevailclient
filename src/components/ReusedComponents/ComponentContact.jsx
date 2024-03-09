@@ -17,6 +17,8 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     display: "flex",
     flexDirection: "row",
+    justifyContent: "center",
+    alignItems: 'center',
     "@media (max-width: 600px)": {
       width: "100%",
     },
@@ -33,8 +35,8 @@ const useStyles = makeStyles((theme) => ({
   },
 
   image: {
-    width: "50vw",
-
+    width: "45vw",
+    objectFit: "cover",
     "@media (max-width: 600px)": {
       width: "85vw",
     },

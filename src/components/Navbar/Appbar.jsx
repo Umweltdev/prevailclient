@@ -87,7 +87,7 @@ function DrawerAppBarWhite() {
             padding: "0 4vw",
             "@media (max-width: 600px)": {
               background: "rgba(255, 255, 255, 0.2)",
-              height: "7vh",
+              height: "10vh",
               display: "flex",
               justifyContent: "center",
               padding: "0 4vw",
@@ -110,7 +110,14 @@ function DrawerAppBarWhite() {
                 onClick={handleDrawerToggle}
                 sx={{ mr: 2, display: { sm: "none" } }}
               >
-                <MenuIcon />
+                <MenuIcon
+                  sx={{
+                    color: "#333",
+                    background: "white",
+                    padding: "0.6vw",
+                    fontSize: "3vh",
+                  }}
+                />
               </IconButton>
               <Typography
                 variant="h6"
@@ -121,7 +128,7 @@ function DrawerAppBarWhite() {
                   to={`/`}
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
-                  <img style={{ width: "12vw" }} src={logo} alt="logo" />
+                  <img style={{ width: "15vw" }} src={logo} alt="logo" />
                 </Link>
               </Typography>
             </Grid>

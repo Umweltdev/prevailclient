@@ -111,8 +111,6 @@
   height: 100vh
 } */
 
-
-
 /* SECTION THREE */
 .sThreeAboutContainer {
   padding: 6vh 0 0 0;
@@ -379,4 +377,35 @@
 
 .img-consult {
   width: 100vw;
+}
+
+@media only screen and (max-width: 600px) {
+  .consultation {
+    background-color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .img-consult {
+    width: 130vw;
+    text-align: center;
+  }
+
+  .sThreeAbouHero {
+    color: var(--main-color);
+    margin: 4vh 0;
+    background: -webkit-linear-gradient(
+      rgba(128, 100, 213, 1) 0%,
+      rgba(104, 125, 208, 1) 13%,
+      rgba(92, 142, 208, 1) 79%,
+      rgba(94, 77, 162, 1) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 7vw;
+    text-align: center;
+  }
 }

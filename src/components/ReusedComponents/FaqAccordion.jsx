@@ -30,7 +30,7 @@ export default function AccordionUsage({ header, headerText, gradient }) {
             fontWeight: "900",
             height: "10vh",
             "@media (max-width: 600px)": {
-              height: "8vh",
+              height: "9vh",
               fontSize: "3vw",
             },
           }}
@@ -42,7 +42,7 @@ export default function AccordionUsage({ header, headerText, gradient }) {
             fontSize: "1.3vw",
 
             "@media (max-width: 600px)": {
-              fontSize: "3vw",
+              fontSize: "4vw",
               textAlign: "justify",
               textJustify: "distribute",
             },
