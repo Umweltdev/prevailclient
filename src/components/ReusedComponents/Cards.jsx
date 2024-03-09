@@ -21,13 +21,14 @@ export default function BasicCard({ headerText, text, icon }) {
         textDecoration: "none",
 
         "@media (max-width: 600px)": {
-          width: 270,
-          height: 340,
+          width: "90vw",
+          height: 345,
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
           textDecoration: "none",
+          gap: "0",
         },
       }}
     >
@@ -53,7 +54,7 @@ export default function BasicCard({ headerText, text, icon }) {
               fontSize: 20,
               textAlign: "center",
               fontWeight: "bold",
-              padding: "0",
+              padding: "1vh 0",
             },
           }}
           color="text.secondary"
@@ -66,7 +67,7 @@ export default function BasicCard({ headerText, text, icon }) {
             fontSize: 14,
             textAlign: "center",
             "@media (max-width: 600px)": {
-              fontSize: 12,
+              fontSize: 14,
               textAlign: "center",
             },
           }}

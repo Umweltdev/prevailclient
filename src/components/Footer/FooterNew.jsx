@@ -43,7 +43,7 @@ const service = [
     text: `In the heart of every local business and SME beats a dream - a vision of growth, recognition, and success. At Prevail, we understand this dream and share it. In the digital marketplace, standing out is necessary, and our Search Engine Marketing (SEM) service can be a game-changer. `,
   },
   {
-    header: "Marketing Price Displacement ()MPD",
+    header: "Marketing Price Displacement (MPD)",
     text: `Welcome to the future of digital marketing with Prevail's Marketing Price Displacement (MPD) API. We understand that small and medium-sized enterprises (SMEs) and local businesses face unique challenges in the ever-changing digital landscape.`,
   },
   {

@@ -50,7 +50,7 @@ const ComponentContact = ({ header, text, img }) => {
             width: "40vw",
             "@media (max-width: 600px)": {
               fontSize: "4vw",
-              width: "unset",
+              width: "85vw",
             },
           }}
           className={classes.input}
@@ -65,6 +65,7 @@ const ComponentContact = ({ header, text, img }) => {
             "@media (max-width: 600px)": {
               width: "95vw",
               margin: "auto", // Center align the form on mobile screens
+              gap: "2vh",
             },
           }}
           noValidate
@@ -105,7 +106,7 @@ const ComponentContact = ({ header, text, img }) => {
                 "& .MuiInputBase-input": {
                   color: "white",
                   fontSize: "1vw",
-                  // textAlign: "center",
+                  margin: "0.3vh 0",
                 },
                 "& .MuiInputLabel-root": {
                   color: "white",
@@ -149,7 +150,7 @@ const ComponentContact = ({ header, text, img }) => {
                 "& .MuiInputBase-input": {
                   color: "white",
                   fontSize: "1vw",
-                  // textAlign: "center",
+                  margin: "0.3vh 0",
                 },
                 "& .MuiInputLabel-root": {
                   color: "white",
@@ -193,7 +194,7 @@ const ComponentContact = ({ header, text, img }) => {
                 "& .MuiInputBase-input": {
                   color: "white",
                   fontSize: "1vw",
-                  // textAlign: "center",
+                  margin: "0.3vh 0",
                 },
                 "& .MuiInputLabel-root": {
                   color: "white",
@@ -238,7 +239,7 @@ const ComponentContact = ({ header, text, img }) => {
                 "& .MuiInputBase-input": {
                   color: "white",
                   fontSize: "1vw",
-                  // textAlign: "center",
+                  margin: "0.3vh 0",
                 },
                 "& .MuiInputLabel-root": {
                   color: "white",

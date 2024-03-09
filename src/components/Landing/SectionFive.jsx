@@ -102,7 +102,7 @@ const SectionFive = (gradient) => {
           fontSize: "3vw",
           fontWeight: "bold",
           "@media (max-width: 600px)": {
-           fontSize: "6vw",
+           fontSize: 20,
             textAlign: "center"
           },
         }}

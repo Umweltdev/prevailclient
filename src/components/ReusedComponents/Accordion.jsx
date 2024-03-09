@@ -10,7 +10,13 @@ import data from "./assets/data.png";
 import bulb from "./assets/bulb.png";
 import badge from "./assets/badge.png";
 import { Box, Typography } from "@mui/material";
-import { Balance, Devices, Storefront, TipsAndUpdates, Workspaces } from "@mui/icons-material";
+import {
+  Balance,
+  Devices,
+  Storefront,
+  TipsAndUpdates,
+  Workspaces,
+} from "@mui/icons-material";
 
 const goalsObj = [
   {
@@ -47,11 +53,11 @@ export default function AccordionUsage() {
     >
       {goalsObj.map((data, index) => (
         <Accordion
-        key={index}
+          key={index}
           sx={{
             width: "40vw",
             "@media (max-width: 600px)": {
-              width: "90vw",
+              width: "95vw",
             },
           }}
         >
@@ -64,7 +70,7 @@ export default function AccordionUsage() {
               display: "flex",
               alignItems: "center",
               "@media (max-width: 600px)": {
-                fontSize: "3vw",
+                fontSize: "4vw",
               },
             }}
           >
@@ -74,8 +80,9 @@ export default function AccordionUsage() {
               sx={{
                 margin: "auto",
                 "@media (max-width: 600px)": {
-                  fontSize: "3.2vw",
-                  fontWeight: "bold"
+                  fontSize: "4vw",
+                  fontWeight: "bold",
+                  textAlign: "center",
                 },
               }}
             >
@@ -87,7 +94,7 @@ export default function AccordionUsage() {
               textAlign: "justify",
               textJustify: "distribute",
               "@media (max-width: 600px)": {
-                fontSize: "3.2vw",
+                fontSize: "4vw",
               },
             }}
           >

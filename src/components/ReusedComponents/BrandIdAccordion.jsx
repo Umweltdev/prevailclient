@@ -12,13 +12,11 @@ export default function AccordionUsage({ text, header }) {
       <Accordion sx={{ width: "23vw" }}>
         <AccordionSummary
           expandIcon={
-            <ExpandMoreIcon
-              sx={{  color: "#8843d9", fontWeight: "bold" }}
-            />
+            <ExpandMoreIcon sx={{ color: "#8843d9", fontWeight: "bold" }} />
           }
           aria-controls="panel1-content"
           id="panel1-header"
-          sx={{ fontSize: "1vw", color: "#8843d9", fontWeight: "bold" }}
+          sx={{ fontSize: "2vw", color: "#8843d9", fontWeight: "900" }}
         >
           {header}
         </AccordionSummary>

@@ -19,7 +19,7 @@ export default function BasicCard() {
       }}
     >
       <CardContent>
-        <Typography variant="body2">
+        <Typography variant="body3">
           Revolutionise your online presencewith our exclusivebundle. The{" "}
           <Link style={{ textDecoration: "none" }} to={`/digitalaccelerator`}>
             {" "}
