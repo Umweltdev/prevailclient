@@ -4,7 +4,8 @@ import Navbar from "../Navbar/Navbar";
 import { blogBlurbs } from "./assets/blogData";
 import "./assets/blog.css";
 import { Email, Facebook, Instagram, Twitter } from "@mui/icons-material";
-import Footer from "../Footer/Footer";
+import FooterNew from "../Footer/FooterNew";
+import DrawerAppBar from "../Navbar/Appbar"
 
 const BlogDetails = () => {
   // Access the parameters from the URL
@@ -20,7 +21,7 @@ const BlogDetails = () => {
 
   return (
     <div className="sOneBlogContainer">
-      <Navbar />
+      <DrawerAppBar />
       <div className="sOneBlogDetailsContainer">
         <h1 className="sOneBlogDetailsHeader">{blog.header}</h1>
         <div className="sOneBlogDetailsInfo">
@@ -34,7 +35,7 @@ const BlogDetails = () => {
           <Instagram />
           <Email />
         </div>
-        <img className="sOneBlogDetailsImg" src={blog.img} alt="" />"
+        <img className="sOneBlogDetailsImg" src={blog.img} alt="" />
         <p className="sOneBlogDetailsDesc">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio
           excepturi voluptas illum omnis soluta tempore laboriosam inventore
@@ -45,8 +46,24 @@ const BlogDetails = () => {
           sit tenetur iure asperiores nisi veniam officia quia, vel quas! Labore
           reprehenderit neque eaque saepe consequatur veritatis, perspiciatis
           veniam eligendi odio obcaecati tempore vitae doloribus assumenda quo
+        </p>
+
+        <p className="sOneBlogDetailsDesc">
+          {" "}
           ratione repellendus maiores quasi facere repudiandae? Est consequuntur
           qui optio illum sit suscipit hic nemo earum laudantium voluptas.
+          Distinctio, harum tempore. Totam velit ab numquam, incidunt eos natus,
+          deleniti at vel fugiat iure eligendi illo voluptate officiis non ea
+          laudantium tempora eveniet facilis, corporis voluptates. Ducimus at
+          temporibus officia neque cum libero nostrum veniam, nemo explicabo rem
+          hic odit deleniti voluptatibus provident incidunt eligendi.
+          Repudiandae in, vel nostrum corporis sit, repellat mollitia provident,
+          delectus natus ipsum error. Aliquam natus doloremque aperiam.
+          Molestiae minus animi debitis excepturi iste, voluptate cupiditate
+          repellendus vitae odit consectetur! Amet, sit. Beatae aspernatur aut
+          vitae repellat nobis, temporibus et ipsa soluta ratione libero
+        </p>
+        <p className="sOneBlogDetailsDesc">
           Distinctio, harum tempore. Totam velit ab numquam, incidunt eos natus,
           deleniti at vel fugiat iure eligendi illo voluptate officiis non ea
           laudantium tempora eveniet facilis, corporis voluptates. Ducimus at
@@ -70,19 +87,9 @@ const BlogDetails = () => {
           veniam eligendi odio obcaecati tempore vitae doloribus assumenda quo
           ratione repellendus maiores quasi facere repudiandae? Est consequuntur
           qui optio illum sit suscipit hic nemo earum laudantium voluptas.
-          Distinctio, harum tempore. Totam velit ab numquam, incidunt eos natus,
-          deleniti at vel fugiat iure eligendi illo voluptate officiis non ea
-          laudantium tempora eveniet facilis, corporis voluptates. Ducimus at
-          temporibus officia neque cum libero nostrum veniam, nemo explicabo rem
-          hic odit deleniti voluptatibus provident incidunt eligendi.
-          Repudiandae in, vel nostrum corporis sit, repellat mollitia provident,
-          delectus natus ipsum error. Aliquam natus doloremque aperiam.
-          Molestiae minus animi debitis excepturi iste, voluptate cupiditate
-          repellendus vitae odit consectetur! Amet, sit. Beatae aspernatur aut
-          vitae repellat nobis, temporibus et ipsa soluta ratione libero
         </p>
       </div>
-      <Footer />
+      <FooterNew />
     </div>
   );
 };

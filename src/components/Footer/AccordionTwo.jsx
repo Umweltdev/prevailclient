@@ -26,7 +26,10 @@ export default function AccordionTransition({ header, text }) {
             display: expanded ? "block" : "none",
           },
           width: 365,
-          boxShadow: "none", 
+          boxShadow: "none",
+          "@media (max-width: 600px)": {
+            margin: "0 auto"
+          },
         }}
       >
         <AccordionSummary
@@ -34,7 +37,7 @@ export default function AccordionTransition({ header, text }) {
           aria-controls="panel1-content"
           id="panel1-header"
         >
-          <Typography >{header}</Typography>
+          <Typography>{header}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>{text}</Typography>
