@@ -88,7 +88,7 @@ const HeroSection = ({ header, text, image }) => {
                 fontWeight: "900",
                 color: "blue",
                 "@media (max-width: 600px)": {
-                  fontSize: "5vw",
+                  fontSize: "7vw",
                   fontWeight: "900",
                   textAlign: "center",
                 },
@@ -104,7 +104,7 @@ const HeroSection = ({ header, text, image }) => {
                 lineHeight: "4vh",
                 color: "#7097da",
                 "@media (max-width: 600px)": {
-                  fontSize: "3vw",
+                  fontSize: "4.5vw",
                   fontWeight: "unset",
                   width: "95vw",
                   lineHeight: "unset",

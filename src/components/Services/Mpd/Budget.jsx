@@ -1,15 +1,22 @@
-import { Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import React from "react";
 
 const Budget = () => {
   return (
-    <div
-      style={{
+    <Grid
+      sx={{
         padding: "10vh 0",
         textAlign: "center",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        "@media (max-width: 600px)": {
+          padding: "5vh 0",
+          textAlign: "center",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        },
       }}
     >
       <Typography
@@ -18,7 +25,7 @@ const Budget = () => {
           width: "60vw",
           textAlign: "center",
           "@media (max-width: 600px)": {
-            fontSize: "4vw",
+            fontSize: "4.5vw",
             width: "95vw",
             textAlign: "center",
           },
@@ -31,7 +38,7 @@ const Budget = () => {
         towards increased market share and proportional income growth begins
         here.
       </Typography>
-    </div>
+    </Grid>
   );
 };
 

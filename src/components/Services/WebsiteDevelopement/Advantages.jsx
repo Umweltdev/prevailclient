@@ -47,10 +47,11 @@ const Advantages = () => {
             width: "40vw",
             textAlign: "center",
             "@media (max-width: 600px)": {
+              fontSize: "4.5",
               width: "95vw",
               textAlign: "center",
               justifyContent: "justify",
-              margin: "2vh 0"
+              margin: "2vh 0",
             },
           }}
         >

@@ -54,8 +54,7 @@ const Advantages = () => {
               textAlign: "center",
               color: "white",
               lineHeight: "unset",
-              fontWeight: "unset",
-              textAlign: "center",
+              fontWeight: "4.5vw",
             },
           }}
         >

@@ -1,8 +1,26 @@
 import { Grid, Typography } from "@mui/material";
 import React from "react";
 import imago from "../assets/nic.png";
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles({
+  image: {
+    width: "450px",
+    height: "450px",
+    objectFit: "contain",
+    //   borderRadius: "50%",
+    float: "left",
+    shapeOutside: "inset(1% round 50%)",
+    "@media (max-width: 600px)": {
+      width: "80vw",
+      height: "unset",
+    },
+  },
+});
 
 const PainPoint = ({ header, text, image }) => {
+  const classes = useStyles();
+
   return (
     <Grid
       sx={{
@@ -38,7 +56,7 @@ const PainPoint = ({ header, text, image }) => {
             textJustify: "distribute",
             color: "white",
             "@media (max-width: 600px)": {
-              fontSize: "4vw",
+              fontSize: "4.5vw",
               width: "95vw",
               textAlign: "justify",
               textJustify: "distribute",
@@ -57,14 +75,8 @@ const PainPoint = ({ header, text, image }) => {
         </Typography>
       </Grid>
       <img
-        style={{
-          width: "450px",
-          height: "450px",
-          objectFit: "contain",
-          //   borderRadius: "50%",
-          float: "left",
-          shapeOutside: "inset(1% round 50%)",
-        }}
+       
+        className={classes.image}
         src={imago}
         alt=""
       />

@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
       flexDiection: "column",
       justifyContent: "center",
       alignItems: "center",
-      gap: "10vw",
+      gap: "11vw",
       padding: "unset",
       margin: "0 auto",
     },
@@ -106,10 +106,10 @@ const HeroSection = ({ header, text, image }) => {
                 fontWeight: "900",
                 color: "#fff",
                 "@media (max-width: 600px)": {
-                  fontSize: "6vw",
+                  fontSize: "7vw",
                   fontWeight: "900",
                   textAlign: "center",
-                  margin: "0 auto",
+                  margin: "3vh 0 0 0",
                 },
               }}
             >
@@ -123,7 +123,7 @@ const HeroSection = ({ header, text, image }) => {
                 lineHeight: "4vh",
                 color: "#fff",
                 "@media (max-width: 600px)": {
-                  fontSize: "3vw",
+                  fontSize: "4.5vw",
                   fontWeight: "unset",
                   width: "95vw",
                   lineHeight: "unset",

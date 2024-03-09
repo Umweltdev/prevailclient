@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
       
     },
   },
+
   heroContainer: {
     display: "flex",
     flexDiection: "row",
@@ -64,6 +65,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    
 
   },
   textHeader: {
@@ -104,6 +106,7 @@ const HeroSection = ({ header, text, image }) => {
                   fontSize: "8vw",
                   fontWeight: "900",
                   textAlign: "center",
+                  margin: "0 auto",
                 },
               }}
             >

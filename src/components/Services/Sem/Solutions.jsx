@@ -32,7 +32,7 @@ const Solutions = () => {
             color: "#884ed9",
             "@media (max-width: 600px)": {
               width: "95vw",
-              fontSize: "4vw",
+              fontSize: "4.5vw",
               textAlign: "center",
               fontWeight: "bold",
               margin: "0 auto",

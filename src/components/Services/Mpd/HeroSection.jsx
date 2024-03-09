@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
       overflow: "visible",
       backgroundColor: "#884ed9",
       color: "#FFF",
-      padding: "10vh 0 1vh 0",
+      padding: "15vh 0 1vh 0",
     },
   },
   heroContainer: {
@@ -101,12 +101,13 @@ const HeroSection = ({ header, text, image }) => {
                 lineHeight: "4vh",
                 color: "#fff",
                 "@media (max-width: 600px)": {
-                  fontSize: "3vw",
+                  fontSize: "4.5vw",
                   fontWeight: "unset",
                   width: "95vw",
                   lineHeight: "unset",
                   color: "white",
                   textAlign: "center",
+                  margin: "0 auto",
                 },
               }}
             >
