@@ -58,7 +58,7 @@ const TextImageComponent = ({ text, imageUrl, textHeader }) => {
               fontSize: "2.2vw",
               color: "blue",
               "@media (max-width: 600px)": {
-                fontSize: "5vw",
+                fontSize: 20,
                 color: "blue",
                 textAlign: "left"
               },
@@ -72,7 +72,7 @@ const TextImageComponent = ({ text, imageUrl, textHeader }) => {
               fontSize: "1.4vw",
               color: "#333",
               "@media (max-width: 600px)": {
-                fontSize: "3.5vw",
+                fontSize: 18,
                 color: "#333",
                 textAlign: "justify",
                 textJustify: "distribute",

@@ -42,7 +42,7 @@ const SectionThree = () => {
           color: "#884ed9",
           "@media (max-width: 600px)": {
             textAlign: "center",
-            fontSize: "4vw",
+            fontSize: 20,
             width: "95vw",
           },
         }}
