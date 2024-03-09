@@ -15,12 +15,29 @@ const useStyles = makeStyles((theme) => ({
     padding: "2rem",
     background: "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
     color: "white",
+    display: "flex",
+    flexDirection: "row",
+    "@media (max-width: 600px)": {
+      width: "100%",
+    },
   },
   leftContainer: {
     paddingRight: "2rem",
+    "@media (max-width: 600px)": {
+      width: "100%",
+      paddingRight: "unset",
+    },
   },
   input: {
     marginBottom: "1rem",
+  },
+
+  image: {
+    width: "50vw",
+
+    "@media (max-width: 600px)": {
+      display: "none",
+    },
   },
 }));
 
@@ -50,7 +67,9 @@ const ComponentContact = ({ header, text, img }) => {
             width: "40vw",
             "@media (max-width: 600px)": {
               fontSize: "4vw",
-              width: "85vw",
+              width: "82vw",
+              textAlign: "justify",
+              textJustify: "distribute",
             },
           }}
           className={classes.input}
@@ -65,7 +84,7 @@ const ComponentContact = ({ header, text, img }) => {
             "@media (max-width: 600px)": {
               width: "95vw",
               margin: "auto", // Center align the form on mobile screens
-              gap: "2vh",
+              // gap: "2vh",
             },
           }}
           noValidate
@@ -85,7 +104,7 @@ const ComponentContact = ({ header, text, img }) => {
               "& .MuiInputBase-input": {
                 color: "white",
                 fontSize: "1vw",
-                // textAlign: "center",
+                textAlign: "center",
               },
               "& .MuiInputLabel-root": {
                 color: "white",
@@ -97,7 +116,7 @@ const ComponentContact = ({ header, text, img }) => {
                 "& .MuiOutlinedInput-root": {
                   "& fieldset": {
                     borderColor: "white",
-                    height: "5vh",
+                    height: "5.5vh",
                     width: "80vw",
                   },
                   "&:hover fieldset": { borderColor: "white" },
@@ -106,7 +125,7 @@ const ComponentContact = ({ header, text, img }) => {
                 "& .MuiInputBase-input": {
                   color: "white",
                   fontSize: "1vw",
-                  margin: "0.3vh 0",
+                  // margin: "0.3vh 0",
                 },
                 "& .MuiInputLabel-root": {
                   color: "white",
@@ -141,7 +160,7 @@ const ComponentContact = ({ header, text, img }) => {
                 "& .MuiOutlinedInput-root": {
                   "& fieldset": {
                     borderColor: "white",
-                    height: "5vh",
+                    height: "5.5vh",
                     width: "80vw",
                   },
                   "&:hover fieldset": { borderColor: "white" },
@@ -185,7 +204,7 @@ const ComponentContact = ({ header, text, img }) => {
                 "& .MuiOutlinedInput-root": {
                   "& fieldset": {
                     borderColor: "white",
-                    height: "5vh",
+                    height: "5.5vh",
                     width: "80vw",
                   },
                   "&:hover fieldset": { borderColor: "white" },
@@ -230,7 +249,7 @@ const ComponentContact = ({ header, text, img }) => {
                 "& .MuiOutlinedInput-root": {
                   "& fieldset": {
                     borderColor: "white",
-                    height: "10vh",
+                    height: "13vh",
                     width: "80vw",
                   },
                   "&:hover fieldset": { borderColor: "white" },
@@ -239,7 +258,7 @@ const ComponentContact = ({ header, text, img }) => {
                 "& .MuiInputBase-input": {
                   color: "white",
                   fontSize: "1vw",
-                  margin: "0.3vh 0",
+                  height: "5.5vh",
                 },
                 "& .MuiInputLabel-root": {
                   color: "white",
@@ -253,9 +272,13 @@ const ComponentContact = ({ header, text, img }) => {
           </Grid> */}
         </Box>
       </Grid>
-      <Grid item xs={12} md={6}>
-        <img src={img} alt="contact Image" style={{ width: "100%" }} />
-      </Grid>
+
+      <img
+        src={img}
+        alt="contact Image"
+        className={classes.image}
+        // style={{ width: "100%" }}
+      />
     </Grid>
   );
 };
