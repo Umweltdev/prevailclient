@@ -17,7 +17,7 @@ const SectionTwo = () => {
           long-term success. PMM is not just a marketing agency; it is a
           strategic partner for businesses in the digital age.
         </p>
-        <div></div>
+     
           <spline-viewer
             className="spinnerSplin"
             loading-anim-type="spinner-small-light"

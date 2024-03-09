@@ -219,6 +219,10 @@
   line-height: 4vh;
 }
 
+.sTwoHero {
+  width: "100%";
+}
+
 .sTwoHero1span {
   color: white;
   background: var(--first-color);
@@ -229,8 +233,8 @@
 .sTwoHero2 {
   line-height: 6vh;
   text-align: justify;
-  width: 80vw;
-  font-size: 1.2vw;
+  width: 95vw;
+  font-size: 5vw;
   padding-top: 23vh;
   text-justify: distribute;
   top: 0;
@@ -445,13 +449,13 @@
 /* SECTION TWO MOBILE */
 @media only screen and (max-width: 700px) {
   .sTwoContainer {
-    display: flex;
-    flex-direction: column;
-    padding: 1vw;
-    justify-content: center;
-    gap: 1vw;
-    margin-top: 5vh;
-    overflow-x: hidden;
+    background-color: #884ed9 !important;
+    height: 100vh;
+    background-position: unset;
+    background-repeat: unset;
+    background-size: unset;
+    /* margin: 3vh 0 0 0; */
+    padding: unset;
   }
 
   .sTwoHero {
@@ -491,10 +495,12 @@
 
   .sTwoHero2 {
     width: 95vw;
-    line-height: 3vh;
+    line-height: unset;
     text-align: center;
     margin-bottom: 1vh;
     margin-right: unset;
+    padding-top: 2vh;
+    font-weight: 100;
   }
 
   .sTwoRightBtn {
@@ -1311,7 +1317,8 @@ FOOTER
 
 @media only screen and (max-width: 600px) {
   .spline-Layer {
-    height: 100vh !important;
+    /* height: 120vh !important; */
+    display: none;
   }
 
   .hero-one {
@@ -1319,6 +1326,11 @@ FOOTER
     font-size: 1.5vw;
     font-weight: 100;
     color: white;
+  }
+
+  .hero-four {
+    margin-top: 10vh;
+    margin-left: 10vw;
   }
 
   .hero-two {
