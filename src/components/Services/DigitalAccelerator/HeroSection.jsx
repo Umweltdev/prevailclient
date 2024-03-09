@@ -16,10 +16,16 @@ const useStyles = makeStyles((theme) => ({
     clipPath: "polygon(0 0, 100% 100, 100% 50%, 50% 100%)",
 
     "@media (max-width: 600px)": {
-      backgroundColor: "#884ed9", // Remove the background color
-      borderBottom: "1px solid #FFF", // Add a solid white border at the bottom
+      position: "unset",
+      overflow: "hidden",
+      backgroundColor: "#884ed9",
+      color: "#FFF",
+      paddingTop: "15vh",
+      width: "unset",
+      height: "unset",
+      left: "unset",
       clipPath: "unset",
-      padding: "15vh 0 1vh 0",
+      padding: "unset",
     },
   },
   heroContainer: {
@@ -41,18 +47,18 @@ const useStyles = makeStyles((theme) => ({
   },
   textContainer: {
     width: "70vw",
-    // "@media (max-width: 600px)": {
-    //   width: "100%",
-    // },
+    "@media (max-width: 600px)": {
+      width: "100%",
+    },
   },
   imageContainer: {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     zIndex: "100",
-    "@media (max-width: 600px)": {
-      width: "100vw",
-    },
+    // "@media (max-width: 600px)": {
+    //   width: "100vw",
+    // },
   },
   textHeader: {
     fontSize: "4vw",
@@ -84,7 +90,7 @@ const useStyles = makeStyles((theme) => ({
     "@media (max-width: 600px)": {
       position: "unset",
       backgroundColor: "unset",
-      height: "60%",
+      height: "unset",
       width: "unset",
     },
   },

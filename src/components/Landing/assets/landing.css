@@ -14,7 +14,7 @@
   ) !important; */
   position: absolute;
   top: 0;
-  overflow: visible;
+  overflow: hidden;
   opacity: 0.8; /* Adjust as needed */
   overflow: hidden;
 }

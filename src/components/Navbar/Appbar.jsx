@@ -49,7 +49,13 @@ function DrawerAppBarWhite() {
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+    <Box
+      onClick={handleDrawerToggle}
+      sx={{
+        textAlign: "center",
+        "@media (max-width: 600px)": { overflow: "hidden" },
+      }}
+    >
       <Typography variant="h6" sx={{ my: 2 }}>
         <Link to={`/`} style={{ textDecoration: "none", color: "inherit" }}>
           <img style={{ height: "10vh" }} src={logo} alt="logo" />
@@ -91,6 +97,7 @@ function DrawerAppBarWhite() {
               display: "flex",
               justifyContent: "center",
               padding: "0 4vw",
+              overflow: "hidden",
             },
           }}
         >
@@ -100,7 +107,8 @@ function DrawerAppBarWhite() {
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
-                gap: "59vw",
+                gap: "57vw",
+                "@media (max-width: 600px)": { overflow: "hidden" },
               }}
             >
               <IconButton
@@ -108,14 +116,15 @@ function DrawerAppBarWhite() {
                 aria-label="open drawer"
                 edge="start"
                 onClick={handleDrawerToggle}
-                sx={{ mr: 2, display: { sm: "none" } }}
+                sx={{  display: { sm: "none" } }}
               >
                 <MenuIcon
                   sx={{
                     color: "#333",
                     background: "white",
-                    padding: "0.6vw",
-                    fontSize: "3vh",
+                    padding: "1.5vw",
+                    fontSize: "4vh",
+                    borderRadius: "50%"
                   }}
                 />
               </IconButton>
@@ -128,7 +137,7 @@ function DrawerAppBarWhite() {
                   to={`/`}
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
-                  <img style={{ width: "15vw" }} src={logo} alt="logo" />
+                  <img style={{ width: "14vw" }} src={logo} alt="logo" />
                 </Link>
               </Typography>
             </Grid>
