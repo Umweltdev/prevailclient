@@ -14,7 +14,7 @@ import Mpd from "./components/Services/Mpd/Mpd";
 import DigitalAccelerator from "./components/Services/DigitalAccelerator/DigitalAccelerator";
 import AboutOurWhy from "./components/About/AboutOurWhy";
 import AboutOurSolution from "./components/About/AboutOurSolution";
-
+import CaseDetails from "./components/Portfolio/CaseDetails";
 
 function App() {
   return (
@@ -35,7 +35,7 @@ function App() {
         path="/Services/digitalaccelerator"
         element={<DigitalAccelerator />}
       />
-
+      <Route path="/Portfolio/:index" element={<CaseDetails />} />
       <Route
         path="/Services/digitalaccelerator"
         element={<DigitalAccelerator />}

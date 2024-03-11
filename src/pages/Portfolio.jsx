@@ -7,18 +7,20 @@ import Footer from "../components/Footer/Footer"
 import Navbar from "../components/Navbar/Navbar";
 import DrawerAppBar from "../components/Navbar/Appbar";
 import FooterNew from "../components/Footer/FooterNew";
-// import SectionSix from "../components/Portfolio/SectionSix";
+import CaseStudies from "../components/Portfolio/CaseStudies";
+
 
 const Portfolio = () => {
   return (
     <div>
       <DrawerAppBar />
       <SectionOne />
-      <SectionTwo />
-      <SectionThree />
+      <CaseStudies/>
+      {/* <SectionTwo />
+      <SectionThree /> */}
       {/* <SectionSix/> */}
-      <SectionFour />
-      <SectionFive />
+      {/* <SectionFour />
+      <SectionFive /> */}
       <FooterNew />
     </div>
   );

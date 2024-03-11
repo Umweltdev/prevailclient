@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "about header section"
+git commit -m "portfolio redesign"
 
 git push
 

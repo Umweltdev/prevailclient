@@ -3,37 +3,6 @@ import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import "./assets/about.css";
 import { Button, Typography } from "@mui/material";
 
-const AboutData = [
-  {
-    header: "Our Why",
-    text: `Understanding the nuances of marketing budgets and effective
-              strategies is essential to businesses. The costs associated with
-              marketing can vary significantly, contingent on factors like a
-              company's marketing budget, specific goals, and the number of
-              marketing channels they choose to employ. It is a well-established
-              industry guideline that businesses should allocate between 15% and
-              20% of their sales towards marketing expenses. However, the
-              ultimate allocation hinges on a company's unique budget size,
-              marketing strategy, ambition, and the manner in which it intends
-              to utilise its marketing resources.`,
-  },
-  {
-    header: "Our Solution",
-    text: `This is where Prevail takes centre stage. We specialise in working
-              closely with SMEs and local businesses, empowering them to
-              differentiate themselves and position their brand effectively in
-              front of their target audience. We believe in forging strong
-              partnerships with our clients to develop tailored solutions that
-              maximise both short-term and long-term growth. Our distinctive
-              competencies lie in our seamless integration of automation, data
-              analysis, and marketing strategies. Our ultimate goal is to enable
-              businesses to thrive, irrespective of economic challenges, by
-              providing innovative and holistic solutions.`,
-  },
-];
-
-//    "@media (max-width: 600px)": {
-
 const SectionTwo = () => {
   const [selectedSection, setSelectedSection] = useState("Our Why");
 

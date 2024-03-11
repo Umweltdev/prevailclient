@@ -221,3 +221,66 @@ export const EstateSilver = [
   "brainstorm session",
   "1 revision",
 ];
+
+export const caseData = [
+  {
+    header: "MaaS",
+    text: "Rondo Digital Agency",
+    img: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y29tcGFuaWVzfGVufDB8fDB8fHww",
+  },
+  {
+    header: "MaaS",
+    text: "Toyota",
+    img: "https://images.unsplash.com/photo-1590650153855-d9e808231d41?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    header: "Website Design & Development",
+    text: "New Vision Cleaning",
+    img: "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    header: "Digital Marketing",
+    text: "New Vision Cleaning",
+    img: "https://plus.unsplash.com/premium_photo-1682129249054-b0aeef5ae1fe?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZHJ5JTIwY2xlYW5pbmd8ZW58MHx8MHx8fDA%3D",
+  },
+  {
+    header: "SEO",
+    text: "New Vision Cleaning",
+    img: "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    header: "Digital Marketing ",
+    text: "SYS",
+    img: "https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    header: "MaaS",
+    text: "AMSL Group",
+    img: "https://plus.unsplash.com/premium_photo-1677171749397-6195ed4d2f15?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    header: "Website Design & Development",
+    text: "Mark A. Quinn Solicitors ",
+    img: "https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    header: "SEO",
+    text: "Locksafe",
+    img: "https://images.unsplash.com/photo-1549637642-90187f64f420?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNvbXBhbmllc3xlbnwwfHwwfHx8MA%3D%3D",
+  },
+  {
+    header: "Digital Marketing ",
+    text: "Mag Asset",
+    img: "https://images.unsplash.com/photo-1510074377623-8cf13fb86c08?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    header: "SEO",
+    text: "Just Print",
+    img: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    header: "Digital Marketing",
+    text: "Peak Performance",
+    img: "https://images.unsplash.com/photo-1568992688065-536aad8a12f6?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+];
