@@ -7,25 +7,17 @@
   background-repeat: no-repeat; /* Do not repeat the image */
   background-attachment: fixed;
   background-size: cover; /* Resize the background image to cover the entire container */
-  /* background: linear-gradient(
-    140deg,
-    rgb(40, 221, 167) 0%,
-    #d04d9d 10%,
-    #7d44be 50%,
-    #293680 75%,
-    #0b001d 100%
-  ); */
-  /* opacity: 0.5; */
+  overflow: hidden;
 }
 
 /* SECTION TWO */
 .sTwoAboutContainer {
   display: flex;
   justify-content: center;
-  align-items: top;
-  padding: 20vh 10vw;
+  align-items: center;
+  padding: 25vh 10vw;
   align-items: flex-start;
-  background-color: var(--third-color);
+  background-color: #a16ad9;
   height: 100vh;
   /* gap: 1vw; */
 }
@@ -54,7 +46,7 @@
 }
 
 .sTwoAboutList.active {
-  color: var(--fourth-color); /* Change the background color to your needs */
+  color: blue; /* Change the background color to your needs */
 }
 
 .sTwoAboutDetail {
@@ -386,7 +378,7 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center  ;
+    justify-content: center;
     align-items: center;
   }
 

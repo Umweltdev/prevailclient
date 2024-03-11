@@ -106,6 +106,8 @@ const SectionTwo = () => {
                 sx={{
                   width: "10vw",
                   margin: "5vh 0",
+                  background: "#884ed9",
+                  fontWeight: "bold",
                   "@media (max-width: 600px)": {
                     width: "unset",
                     margin: "2vh 0",
@@ -159,6 +161,8 @@ const SectionTwo = () => {
                 sx={{
                   width: "10vw",
                   margin: "5vh 0",
+                  background: "#884ed9",
+                  fontWeight: "bold",
                   "@media (max-width: 600px)": {
                     width: "unset",
                     margin: "2vh 0",
