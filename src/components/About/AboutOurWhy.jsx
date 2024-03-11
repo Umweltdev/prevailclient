@@ -75,9 +75,10 @@ const AboutOurWhy = () => {
             textAlign: "justify",
             width: "55vw",
             "@media (max-width: 600px)": {
-              padding: "10vh 0",
+              padding: "3vh 0",
               // margin: "0 auto",
               textAlign: "justify",
+              textJustify: "distribute",
               width: "95vw",
             },
           }}
