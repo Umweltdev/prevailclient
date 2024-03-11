@@ -27,7 +27,7 @@
   align-items: flex-start;
   background-color: var(--third-color);
   height: 100vh;
-  gap: 1vw;
+  /* gap: 1vw; */
 }
 
 .sTwoAboutSideBar {
@@ -50,6 +50,7 @@
   color: white;
   cursor: pointer;
   width: 20vw;
+  font-weight: bold;
 }
 
 .sTwoAboutList.active {
@@ -385,7 +386,7 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center  ;
     align-items: center;
   }
 
@@ -406,6 +407,53 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 7vw;
+    text-align: center;
+  }
+
+  .sTwoAboutSideBar {
+    width: unset;
+    left: unset;
+    top: unset;
+  }
+
+  .sTwoAboutContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: top;
+    padding: 2vh 1vw;
+    align-items: unset;
+    background-color: var(--third-color);
+    height: 70vh;
+    /* gap: 1vw; */
+  }
+
+  .sTwoAboutSideList {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 1vh;
+    padding-top: 10vh;
+    justify-content: top;
+    align-items: top;
+  }
+
+  .sTwoAboutDetail {
+    display: flex;
+    flex-direction: column;
+    margin-left: unset;
+    height: unset;
+    overflow: visible;
+    transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out;
+    margin: 2vh 0;
+  }
+
+  .sTwoAboutList {
+    font-size: 5vw;
+    color: white;
+    cursor: pointer;
+    width: unset;
+    font-weight: 900;
     text-align: center;
   }
 }

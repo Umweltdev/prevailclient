@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "mobile flex across all pages"
+git commit -m "about header section"
 
 git push
 

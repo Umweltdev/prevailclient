@@ -64,7 +64,16 @@ const useStyles = makeStyles({
 const FooterNew = () => {
   const classes = useStyles();
   return (
-    <Grid sx={{ boxShadow: "0px -1px 1px #ba8bd7", background: "#884ed9" }}>
+    <Grid
+      sx={{
+        boxShadow: "0px -1px 1px #ba8bd7",
+        background: "#884ed9",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        // alignItems: "center",
+      }}
+    >
       <Grid
         sx={{
           display: "flex",
@@ -74,6 +83,7 @@ const FooterNew = () => {
           gap: "3vw",
           borderRadius: "0 0 5vw 5vw",
           background: "white",
+
           "@media (max-width: 600px)": {
             display: "flex",
             flexDirection: "column",
@@ -237,6 +247,13 @@ const FooterNew = () => {
           color: "white",
           background: "#884ed9",
           padding: "1vw 0 1vw 10vw",
+          "@media (max-width: 600px)": {
+            color: "white",
+            background: "#884ed9",
+            textAlign: "center",
+            padding: "1vw 0 1vw 0",
+            fontSize: "3.5vw"
+          },
         }}
       >
         © 2024 Prevail | All Right Reserved{" "}

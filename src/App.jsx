@@ -12,6 +12,9 @@ import WebManagement from "./components/Services/WebManagement/WebManagement";
 import Sem from "./components/Services/Sem/Sem";
 import Mpd from "./components/Services/Mpd/Mpd";
 import DigitalAccelerator from "./components/Services/DigitalAccelerator/DigitalAccelerator";
+import AboutOurWhy from "./components/About/AboutOurWhy";
+import AboutOurSolution from "./components/About/AboutOurSolution";
+
 
 function App() {
   return (
@@ -32,6 +35,13 @@ function App() {
         path="/Services/digitalaccelerator"
         element={<DigitalAccelerator />}
       />
+
+      <Route
+        path="/Services/digitalaccelerator"
+        element={<DigitalAccelerator />}
+      />
+      <Route path="/about/ourWhy" element={<AboutOurWhy />} />
+      <Route path="/about/ourSolution" element={<AboutOurSolution />} />
     </Routes>
   );
 }
