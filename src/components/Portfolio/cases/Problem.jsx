@@ -1,8 +1,20 @@
 import { Grid, Typography } from "@mui/material";
-import React from "react";
+import { makeStyles } from "@mui/styles";
 import AccordionCase from "./Accordion";
 
+const useStyles = makeStyles({
+  image: {
+    width: "40vw",
+    "@media (max-width: 600px)": {
+      width: "90vw",
+    },
+  },
+});
+
 const Problem = () => {
+  const classes = useStyles();
+
+  
   return (
     <Grid
       sx={{
@@ -11,6 +23,14 @@ const Problem = () => {
         alignItems: "center",
         gap: "5vw",
         padding: "5vw",
+        "@media (max-width: 600px)": {
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-around",
+          alignItems: "center",
+          gap: "5vw",
+          padding: "5vw",
+        },
       }}
     >
       <Grid>
@@ -18,6 +38,10 @@ const Problem = () => {
           sx={{
             fontSize: "3vw",
             fontWeight: "bold",
+            "@media (max-width: 600px)": {
+              fontSize: "4.5vh",
+              fontWeight: "bold",
+            },
           }}
         >
           Challenges Faced
@@ -35,7 +59,7 @@ const Problem = () => {
 
       <Grid>
         <img
-          style={{ width: "40vw" }}
+          className={classes.image}
           src="https://saltmarketing.ie/wp-content/uploads/navan-8.png"
           alt=""
         />
