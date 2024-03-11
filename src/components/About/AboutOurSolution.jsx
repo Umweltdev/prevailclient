@@ -89,7 +89,8 @@ const AboutOurSolution = () => {
           with our clients to develop tailored solutions that maximise both
           short-term and long-term growth. Our distinctive competencies lie in
           our seamless integration of automation, data analysis, and marketing
-          strategies.<br/> Our ultimate goal is to enable businesses to thrive,
+          strategies.
+          <br /> Our ultimate goal is to enable businesses to thrive,
           irrespective of economic challenges, by providing innovative and
           holistic solutions. The Prevail approach is founded on a commitment to
           levelling the playing field for local businesses facing economic
@@ -101,7 +102,7 @@ const AboutOurSolution = () => {
         </Typography>
         <img
           className={classes.imago}
-          src="https://img.freepik.com/free-vector/illustration-social-media-concept_53876-18383.jpg?t=st=1710157543~exp=1710161143~hmac=bdee5066423ff5cd1b5d6911a2982fee98a4f1e05c9850f9e6d24728faf2b9a1&w=740"
+          src="https://img.freepik.com/free-vector/digital-lifestyle-concept-illustration_114360-7327.jpg?size=626&ext=jpg&ga=GA1.1.1056959296.1706817654&semt=sph"
           alt=""
         />
       </Grid>
