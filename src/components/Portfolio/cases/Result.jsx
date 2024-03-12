@@ -10,6 +10,10 @@ const Result = () => {
         justifyContent: "space-around",
         alignItems: "center",
         padding: "5vh 5vw",
+        "@media (max-width: 600px)": {
+          flexDirection: "column",
+          padding: "2vh 0",
+        },
       }}
     >
       <Grid>
@@ -17,6 +21,9 @@ const Result = () => {
           sx={{
             fontSize: "3vw",
             fontWeight: "bold",
+            "@media (max-width: 600px)": {
+              fontSize: "4.5vh",
+            },
           }}
         >
           Results Achieved
@@ -27,6 +34,11 @@ const Result = () => {
             height: "0.8vh",
             width: "10vw",
             margin: "3vh 0",
+            "@media (max-width: 600px)": {
+              height: "0.8vh",
+              width: "40vw",
+              margin: "1vh 0",
+            },
           }}
         ></Grid>
         <Typography
@@ -34,6 +46,13 @@ const Result = () => {
             fontSize: "1.4vw",
             width: "45vw",
             color: "#333",
+            "@media (max-width: 600px)": {
+              fontSize: "4vw",
+              width: "95vw",
+              color: "#333",
+              textAlign: "justify",
+              textJustify: "distribute",
+            },
           }}
         >
           Launching New Vision Cleaning's website was a big change in how they
@@ -51,6 +70,9 @@ const Result = () => {
             maxWidth: 500,
             background: "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
             color: "white",
+            "@media (max-width: 600px)": {
+              width: "95vw",
+            },
           }}
         >
           <CardContent
@@ -61,6 +83,14 @@ const Result = () => {
               gap: "6vw",
               alignItems: "center",
               padding: "3vw 3vw",
+              "@media (max-width: 600px)": {
+                display: "flex",
+                flexWrap: "unset",
+                justifyContent: "space-around",
+                gap: "unset",
+                alignItems: "center",
+                padding: "2vh 3vw",
+              },
             }}
           >
             <Grid
@@ -73,6 +103,10 @@ const Result = () => {
                 sx={{
                   fontSize: "4vw",
                   fontWeight: "bold",
+                  "@media (max-width: 600px)": {
+                    fontSize: "3vh",
+                    fontWeight: "bold",
+                  },
                 }}
               >
                 880
@@ -80,6 +114,9 @@ const Result = () => {
               <Typography
                 sx={{
                   fontSize: "1.3vw",
+                  "@media (max-width: 600px)": {
+                    fontSize: "4vw",
+                  },
                 }}
               >
                 Clicks
@@ -95,6 +132,10 @@ const Result = () => {
                 sx={{
                   fontSize: "4vw",
                   fontWeight: "bold",
+                  "@media (max-width: 600px)": {
+                    fontSize: "3vh",
+                    fontWeight: "bold",
+                  },
                 }}
               >
                 671
@@ -102,6 +143,9 @@ const Result = () => {
               <Typography
                 sx={{
                   fontSize: "1.3vw",
+                  "@media (max-width: 600px)": {
+                    fontSize: "4vw",
+                  },
                 }}
               >
                 Cost
@@ -117,6 +161,10 @@ const Result = () => {
                 sx={{
                   fontSize: "4vw",
                   fontWeight: "bold",
+                  "@media (max-width: 600px)": {
+                    fontSize: "3vh",
+                    fontWeight: "bold",
+                  },
                 }}
               >
                 3.78k
@@ -124,6 +172,9 @@ const Result = () => {
               <Typography
                 sx={{
                   fontSize: "1.3vw",
+                  "@media (max-width: 600px)": {
+                    fontSize: "4vw",
+                  },
                 }}
               >
                 Revenue
@@ -139,6 +190,10 @@ const Result = () => {
                 sx={{
                   fontSize: "4vw",
                   fontWeight: "bold",
+                  "@media (max-width: 600px)": {
+                    fontSize: "3vh",
+                    fontWeight: "bold",
+                  },
                 }}
               >
                 5.64x
@@ -146,6 +201,9 @@ const Result = () => {
               <Typography
                 sx={{
                   fontSize: "1.3vw",
+                  "@media (max-width: 600px)": {
+                    fontSize: "4vw",
+                  },
                 }}
               >
                 ROAS
