@@ -51,7 +51,6 @@ const Advantages = () => {
             fontWeight: "900",
             "@media (max-width: 600px)": {
               width: "95vw",
-              textAlign: "center",
               color: "white",
               lineHeight: "unset",
               fontWeight: "unset",

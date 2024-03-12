@@ -8,6 +8,7 @@ import HeroSection from "./cases/HeroSection";
 import Overview from "./cases/Overview";
 import Problem from "./cases/Problem";
 import Solutions from "./cases/Solutions";
+import Result from "./cases/Result";
 
 const CaseDetails = () => {
   const { index } = useParams();
@@ -23,7 +24,8 @@ const CaseDetails = () => {
       <HeroSection header={cases.header} text={cases.text} img={cases.img} />
       <Overview />
       <Problem />
-      <Solutions/>
+      <Solutions />
+      <Result />
       <FooterNew />
     </Grid>
   );
