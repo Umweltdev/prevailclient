@@ -9,6 +9,7 @@ import Overview from "./cases/Overview";
 import Problem from "./cases/Problem";
 import Solutions from "./cases/Solutions";
 import Result from "./cases/Result";
+import Testimonials from "./cases/Testimonials";
 
 const CaseDetails = () => {
   const { index } = useParams();
@@ -26,6 +27,7 @@ const CaseDetails = () => {
       <Problem />
       <Solutions />
       <Result />
+      <Testimonials/>
       <FooterNew />
     </Grid>
   );
