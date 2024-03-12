@@ -109,8 +109,30 @@ const FacebookCreatives = () => {
           alt=""
         />
       </Grid>
-      <Grid>
-        <Button></Button>
+      <Grid sx={{ padding: "2vh 0", gap: "1vw", display: "flex", flexWrap: "wrap"}}>
+        <Button
+          sx={{
+            background: "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
+            padding: "1vh 3vw",
+            color: "white",
+            borderRadius: "10vw",
+            fontWeight: "bold",
+          }}
+        >
+          Previous Case Study
+        </Button>
+        <Button
+          sx={{
+            background: "white",
+            padding: "0.8vh 3vw",
+            color: "blue",
+            border: "1px solid blue",
+            borderRadius: "10vw",
+            fontWeight: "bold",
+          }}
+        >
+         Next Case Study
+        </Button>
       </Grid>
     </Grid>
   );
