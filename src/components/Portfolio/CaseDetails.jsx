@@ -10,6 +10,7 @@ import Problem from "./cases/Problem";
 import Solutions from "./cases/Solutions";
 import Result from "./cases/Result";
 import Testimonials from "./cases/Testimonials";
+import FacebookCreatives from "./cases/FacebookCreatives";
 
 const CaseDetails = () => {
   const { index } = useParams();
@@ -28,6 +29,7 @@ const CaseDetails = () => {
       <Solutions />
       <Result />
       <Testimonials/>
+      <FacebookCreatives/>
       <FooterNew />
     </Grid>
   );

@@ -115,7 +115,7 @@ const Testimonials = () => {
             },
           }}
         >
-          Salt has given me a lot of peace of mind, which is very important. We
+          Prevail has given me a lot of peace of mind, which is very important. We
           are much less stressed about running our business now that we know a
           full-fledged marketing team is carefully managing every aspect of our
           digital marketing. It’s like having your own marketing department, but
@@ -145,13 +145,13 @@ const Testimonials = () => {
             fontSize: "1vw",
             textAlign: "center",
             margin: "1vh 0",
-            fontWeight: "bold",
+           
             "@media (max-width: 600px)": {
               color: "#333",
               fontSize: "4vw",
               textAlign: "center",
               margin: "0",
-              fontWeight: "bold",
+              
             },
           }}
         >
