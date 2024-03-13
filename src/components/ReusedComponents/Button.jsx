@@ -24,7 +24,7 @@ function BasicButtons({ text, gradient, width }) {
             fontWeight: "unset",
             fontSize: "3vw",
             boxShadow: "unset",
-            textAlign: "center"
+            textAlign: "center",
           },
         }}
       >

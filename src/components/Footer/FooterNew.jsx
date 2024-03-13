@@ -71,7 +71,7 @@ const FooterNew = () => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        // alignItems: "center",
+        bottom: 0,
       }}
     >
       <Grid
@@ -252,7 +252,7 @@ const FooterNew = () => {
             background: "#884ed9",
             textAlign: "center",
             padding: "1vw 0 1vw 0",
-            fontSize: "3.5vw"
+            fontSize: "3.5vw",
           },
         }}
       >

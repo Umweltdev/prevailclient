@@ -15,6 +15,11 @@ import DigitalAccelerator from "./components/Services/DigitalAccelerator/Digital
 import AboutOurWhy from "./components/About/AboutOurWhy";
 import AboutOurSolution from "./components/About/AboutOurSolution";
 import CaseDetails from "./components/Portfolio/CaseDetails";
+import Login from "./pages/Login";
+import SignUpForm from "./pages/SignUp";
+import LoginForm from "./pages/Login";
+
+
 
 function App() {
   return (
@@ -42,6 +47,8 @@ function App() {
       />
       <Route path="/about/ourWhy" element={<AboutOurWhy />} />
       <Route path="/about/ourSolution" element={<AboutOurSolution />} />
+      <Route path="/Sign Up" element={<SignUpForm />} />
+      <Route path="/Login" element={<LoginForm />} />
     </Routes>
   );
 }

@@ -19,7 +19,7 @@ import logo from "./pmmlogo.png";
 import { Grid } from "@mui/material";
 
 const drawerWidth = 240;
-const navItems = ["About", "Services", "Portfolio", "Blog", "Contact"];
+const navItems = ["About", "Services", "Portfolio", "Blog", "Contact", "Sign Up"];
 
 function DrawerAppBarWhite() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -116,7 +116,7 @@ function DrawerAppBarWhite() {
                 aria-label="open drawer"
                 edge="start"
                 onClick={handleDrawerToggle}
-                sx={{  display: { sm: "none" } }}
+                sx={{ display: { sm: "none" } }}
               >
                 <MenuIcon
                   sx={{
@@ -124,7 +124,7 @@ function DrawerAppBarWhite() {
                     background: "white",
                     padding: "1.5vw",
                     fontSize: "4vh",
-                    borderRadius: "50%"
+                    borderRadius: "50%",
                   }}
                 />
               </IconButton>
