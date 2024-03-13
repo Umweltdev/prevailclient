@@ -11,7 +11,6 @@ const useStyles = makeStyles({
     //   borderRadius: "50%",
     float: "left",
     shapeOutside: "inset(1% round 50%)",
-    shapeOutside: "inset(1% round 50%)",
     "@media (max-width: 600px)": {
       width: "80vw",
       height: "unset",

@@ -1,93 +1,228 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Stepper from '@mui/material/Stepper';
-import Step from '@mui/material/Step';
-import StepButton from '@mui/material/StepButton';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Stepper from "@mui/material/Stepper";
+import Step from "@mui/material/Step";
+import StepLabel from "@mui/material/StepLabel";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import TextField from "@mui/material/TextField";
+import {
+  FormControl,
+  Grid,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextareaAutosize,
+} from "@mui/material";
 
-const steps = ['Company  Information', 'Brand Overview', 'Target Audience', 'Digital Presence', 'Search Engine Optimisation', 'Thank You'];
+const steps = [
+  "Company Information",
+  "Brand Overview",
+  "Industry Overview",
+  "Target Audience",
+  "Digital Presence",
+  "Search Engine Optimisation",
+  "Submit",
+];
 
-export default function HorizontalNonLinearStepper() {
+export default function StepperForm() {
   const [activeStep, setActiveStep] = React.useState(0);
-  const [completed, setCompleted] = React.useState<{
-    [k: number]: boolean;
-  }>({});
+  const [skipped, setSkipped] = React.useState(new Set());
+  const [formData, setFormData] = React.useState({
+    companyName: "",
+    brandOverview: "",
+    industryOverview: "",
+    targetAudience: "",
+    digitalPresence: "",
+    searchEngineOptimisation: "",
+  });
 
-  const totalSteps = () => {
-    return steps.length;
+  const isStepOptional = (step) => {
+    return step === 1;
   };
 
-  const completedSteps = () => {
-    return Object.keys(completed).length;
-  };
-
-  const isLastStep = () => {
-    return activeStep === totalSteps() - 1;
-  };
-
-  const allStepsCompleted = () => {
-    return completedSteps() === totalSteps();
+  const isStepSkipped = (step) => {
+    return skipped.has(step);
   };
 
   const handleNext = () => {
-    const newActiveStep =
-      isLastStep() && !allStepsCompleted()
-        ? // It's the last step, but not all steps have been completed,
-          // find the first step that has been completed
-          steps.findIndex((step, i) => !(i in completed))
-        : activeStep + 1;
-    setActiveStep(newActiveStep);
+    let newSkipped = skipped;
+    if (isStepSkipped(activeStep)) {
+      newSkipped = new Set(newSkipped.values());
+      newSkipped.delete(activeStep);
+    }
+
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    setSkipped(newSkipped);
   };
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const handleStep = (step: number) => () => {
-    setActiveStep(step);
-  };
+  const handleSkip = () => {
+    if (!isStepOptional(activeStep)) {
+      throw new Error("You can't skip a step that isn't optional.");
+    }
 
-  const handleComplete = () => {
-    const newCompleted = completed;
-    newCompleted[activeStep] = true;
-    setCompleted(newCompleted);
-    handleNext();
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    setSkipped((prevSkipped) => {
+      const newSkipped = new Set(prevSkipped.values());
+      newSkipped.add(activeStep);
+      return newSkipped;
+    });
   };
 
   const handleReset = () => {
     setActiveStep(0);
-    setCompleted({});
+    setFormData({
+      companyName: "",
+      brandOverview: "",
+      industryOverview: "",
+      targetAudience: "",
+      digitalPresence: "",
+      searchEngineOptimisation: "",
+    });
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
 
   return (
-    <Box sx={{ width: '100%' }}>
-      <Stepper nonLinear activeStep={activeStep}>
-        {steps.map((label, index) => (
-          <Step key={label} completed={completed[index]}>
-            <StepButton color="inherit" onClick={handleStep(index)}>
-              {label}
-            </StepButton>
-          </Step>
-        ))}5
+    <Box
+      sx={{
+        width: "100%",
+        // height: "70vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+        padding: "20vh ",
+      }}
+    >
+      <Stepper activeStep={activeStep} alternativeLabel>
+        {steps.map((label, index) => {
+          const stepProps = {};
+          const labelProps = {};
+          if (isStepOptional(index)) {
+            labelProps.optional = (
+              <Typography variant="caption">Optional</Typography>
+            );
+          }
+          if (isStepSkipped(index)) {
+            stepProps.completed = false;
+          }
+          return (
+            <Step key={label} {...stepProps}>
+              <StepLabel {...labelProps}>{label}</StepLabel>
+            </Step>
+          );
+        })}
       </Stepper>
-      <div>
-        {allStepsCompleted() ? (
+      <form>
+        {activeStep === steps.length ? (
           <React.Fragment>
             <Typography sx={{ mt: 2, mb: 1 }}>
               All steps completed - you&apos;re finished
             </Typography>
-            <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-              <Box sx={{ flex: '1 1 auto' }} />
+            <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
+              <Box sx={{ flex: "1 1 auto" }} />
               <Button onClick={handleReset}>Reset</Button>
             </Box>
           </React.Fragment>
         ) : (
-          <React.Fragment>
-            <Typography sx={{ mt: 2, mb: 1, py: 1 }}>
-              Step {activeStep + 1}
-            </Typography>
-            <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
+          <Grid
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                pt: 2,
+                margin: "0 auto",
+              }}
+            >
+              {activeStep === 0 && (
+                <Grid
+                  sx={{ display: "flex", flexDirection: "column", gap: "4vh" }}
+                >
+                  <Grid sx={{ margin: "0 auto" }}>
+                    <Typography>
+                      What is the name of your establishment, and what is the
+                      industry/sector?
+                    </Typography>
+                    <TextField
+                      sx={{ width: "50vw" }}
+                      name="companyName"
+                      label="Company Name/Industry"
+                      value={formData.companyName}
+                      onChange={handleChange}
+                    />
+                  </Grid>
+                  <Grid sx={{ margin: "0 auto" }}>
+                    <Typography>
+                      Can you describe your establishment in a few sentences?
+                    </Typography>
+                    <TextField
+                      sx={{ width: "50vw" }}
+                      name="companyName"
+                      label="Company Name/Industry"
+                      value={formData.companyName}
+                      onChange={handleChange}
+                    />
+                  </Grid>
+                  <Grid sx={{ margin: "0 auto" }}>
+                    <Typography>
+                      How long has your business been operating in Ireland?
+                    </Typography>
+                    <FormControl sx={{ margin: "1vh 0" }}>
+                      <InputLabel id="demo-simple-select-label">
+                        Select
+                      </InputLabel>
+                      <Select
+                        sx={{ width: "50vw" }}
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={Select}
+                        label="Select"
+                        onChange={handleChange}
+                      >
+                        <MenuItem value={10}>Yes</MenuItem>
+                        <MenuItem value={20}>No</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </Grid>
+                  <>
+                    <Typography>If yes, please provide them below</Typography>
+                    <TextareaAutosize
+                      placeholder="Type anything…"
+                      sx={{ maxWidth: "80vw" }}
+                      minRows={4}
+                    />
+                  </>
+                </Grid>
+              )}
+              {activeStep === 1 && (
+                <TextField
+                  name="brandOverview"
+                  label="Brand Overview"
+                  value={formData.brandOverview}
+                  onChange={handleChange}
+                />
+              )}
+              {/* Add more fields for other steps as needed */}
+            </Box>
+            <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
               <Button
                 color="inherit"
                 disabled={activeStep === 0}
@@ -96,26 +231,19 @@ export default function HorizontalNonLinearStepper() {
               >
                 Back
               </Button>
-              <Box sx={{ flex: '1 1 auto' }} />
-              <Button onClick={handleNext} sx={{ mr: 1 }}>
-                Next
+              <Box sx={{ flex: "1 1 auto" }} />
+              {isStepOptional(activeStep) && (
+                <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
+                  Skip
+                </Button>
+              )}
+              <Button onClick={handleNext}>
+                {activeStep === steps.length - 1 ? "Finish" : "Next"}
               </Button>
-              {activeStep !== steps.length &&
-                (completed[activeStep] ? (
-                  <Typography variant="caption" sx={{ display: 'inline-block' }}>
-                    Step {activeStep + 1} already completed
-                  </Typography>
-                ) : (
-                  <Button onClick={handleComplete}>
-                    {completedSteps() === totalSteps() - 1
-                      ? 'Finish'
-                      : 'Complete Step'}
-                  </Button>
-                ))}
             </Box>
-          </React.Fragment>
+          </Grid>
         )}
-      </div>
+      </form>
     </Box>
   );
 }

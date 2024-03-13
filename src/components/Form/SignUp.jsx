@@ -149,21 +149,23 @@ const SignUp = () => {
             Login
           </Link>
         </Typography>
-        <Button
-          variant="contained"
-          sx={{
-            width: "56vw",
-            marginTop: "2vh",
-            marginBottom: "15vh",
-            backgroundColor: "#884ED9",
+        <Link to="/Stepper">
+          <Button
+            variant="contained"
+            sx={{
+              width: "56vw",
+              marginTop: "2vh",
+              marginBottom: "15vh",
+              backgroundColor: "#884ED9",
 
-            "@media (max-width: 600px)": {
-              width: "90vw",
-            },
-          }}
-        >
-          Sign Up
-        </Button>
+              "@media (max-width: 600px)": {
+                width: "90vw",
+              },
+            }}
+          >
+            Sign Up
+          </Button>
+        </Link>
       </Grid>
       {/* <FooterNew /> */}
     </Grid>
