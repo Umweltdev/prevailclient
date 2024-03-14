@@ -24,7 +24,16 @@ const SignUp = () => {
           },
         }}
       >
-        <Typography sx={{ fontSize: "3vw", fontWeight: "bold" }}>
+        <Typography
+          sx={{
+            fontSize: "3vw",
+            fontWeight: "bold",
+            "@media (max-width: 600px)": {
+              fontSize: "4.5vh",
+              flexDirection: "column",
+            },
+          }}
+        >
           Sign Up
         </Typography>
         <Box

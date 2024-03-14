@@ -6,6 +6,7 @@ import StepLabel from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
+import Textarea from "@mui/joy/Textarea";
 import {
   FormControl,
   Grid,
@@ -157,7 +158,7 @@ export default function StepperForm() {
                   sx={{ display: "flex", flexDirection: "column", gap: "4vh" }}
                 >
                   <Grid sx={{ margin: "0 auto" }}>
-                    <Typography>
+                    <Typography sx={{ width: "50vw" }}>
                       What is the name of your establishment, and what is the
                       industry/sector?
                     </Typography>
@@ -170,7 +171,7 @@ export default function StepperForm() {
                     />
                   </Grid>
                   <Grid sx={{ margin: "0 auto" }}>
-                    <Typography>
+                    <Typography sx={{ width: "50vw" }}>
                       Can you describe your establishment in a few sentences?
                     </Typography>
                     <TextField
@@ -182,8 +183,9 @@ export default function StepperForm() {
                     />
                   </Grid>
                   <Grid sx={{ margin: "0 auto" }}>
-                    <Typography>
-                      How long has your business been operating in Ireland?
+                    <Typography sx={{ width: "50vw" }}>
+                      How long has your business been operating in Ireland? (A).
+                      If yes, please provide them below.
                     </Typography>
                     <FormControl sx={{ margin: "1vh 0" }}>
                       <InputLabel id="demo-simple-select-label">
@@ -202,23 +204,91 @@ export default function StepperForm() {
                       </Select>
                     </FormControl>
                   </Grid>
-                  <>
-                    <Typography>If yes, please provide them below</Typography>
+
+                  <TextareaAutosize
+                    placeholder="Type anything…"
+                    sx={{ maxWidth: "80vw" }}
+                    minRows={6}
+                  />
+                </Grid>
+              )}
+              {/* SECOND STEPPER */}
+              {activeStep === 1 && (
+                <Grid
+                  sx={{ display: "flex", flexDirection: "column", gap: "4vh" }}
+                >
+                  <Grid sx={{ margin: "0 auto" }}>
+                    <Typography sx={{ width: "45vw" }}>
+                      Do you have any existing brand identity you want to retain
+                      or modify? (e.g., logo, colour scheme, font style) <br />
+                    </Typography>
+                    <TextField
+                      sx={{ width: "50vw" }}
+                      name="companyName"
+                      label="Company Name/Industry"
+                      value={formData.companyName}
+                      onChange={handleChange}
+                    />
+                  </Grid>
+                  <Grid sx={{ width: "80vw" }}>
+                    <Typography>
+                      <ul>
+                        <li>If yes, please provide them below.</li>
+                        <li>
+                          If you still need to, please provide examples of
+                          brands or designs that appeal to your vision
+                        </li>
+                      </ul>
+                    </Typography>
+                   
                     <TextareaAutosize
                       placeholder="Type anything…"
                       sx={{ maxWidth: "80vw" }}
                       minRows={4}
                     />
-                  </>
+                  </Grid>
+                  <Grid sx={{ margin: "0 auto" }}>
+                    <Typography>
+                      Can you describe your establishment in a few sentences?
+                    </Typography>
+                    <TextField
+                      sx={{ width: "50vw" }}
+                      name="companyName"
+                      label="Company Name/Industry"
+                      value={formData.companyName}
+                      onChange={handleChange}
+                    />
+                  </Grid>
+                  <Grid sx={{ margin: "0 auto" }}>
+                    <Typography>
+                      How long has your business been operating in Ireland? (A).
+                      If yes, please provide them below.
+                    </Typography>
+                    <FormControl sx={{ margin: "1vh 0" }}>
+                      <InputLabel id="demo-simple-select-label">
+                        Select
+                      </InputLabel>
+                      <Select
+                        sx={{ width: "50vw" }}
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={Select}
+                        label="Select"
+                        onChange={handleChange}
+                      >
+                        <MenuItem value={10}>Yes</MenuItem>
+                        <MenuItem value={20}>No</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </Grid>
+
+                  <Typography>If yes, please provide them below</Typography>
+                  <TextareaAutosize
+                    placeholder="Type anything…"
+                    sx={{ maxWidth: "80vw" }}
+                    minRows={4}
+                  />
                 </Grid>
-              )}
-              {activeStep === 1 && (
-                <TextField
-                  name="brandOverview"
-                  label="Brand Overview"
-                  value={formData.brandOverview}
-                  onChange={handleChange}
-                />
               )}
               {/* Add more fields for other steps as needed */}
             </Box>

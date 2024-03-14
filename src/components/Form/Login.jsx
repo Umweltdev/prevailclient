@@ -26,7 +26,15 @@ const Login = () => {
         }}
       >
         <Typography
-          sx={{ fontSize: "3vw", fontWeight: "bold", textAlign: "center" }}
+          sx={{
+            fontSize: "3vw",
+            fontWeight: "bold",
+            textAlign: "center",
+            "@media (max-width: 600px)": {
+              fontSize: "4.5vh",
+              flexDirection: "column",
+            },
+          }}
         >
           Login
         </Typography>

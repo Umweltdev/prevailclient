@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "portfolio redesign"
+git commit -m "logi/signup form"
 
 git push
 
