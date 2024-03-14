@@ -16,10 +16,10 @@ import {
   TextareaAutosize,
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import FormSelect from "./FormSelect";
-import FormInputText from "./FormInputText";
-import FormTextArea from "./FormTextArea";
-import SubmitStepper from "./SubmitStepper";
+import FormSelect from "./StepperFormInputs/FormSelect";
+import FormInputText from "./StepperFormInputs/FormInputText";
+import FormTextArea from "./StepperFormInputs/FormTextArea";
+import SubmitStepper from "./StepperFormInputs/SubmitStepper";
 
 const useStyles = makeStyles({
   textArea: {
@@ -51,7 +51,7 @@ export default function StepperForm() {
     searchEngineOptimisation: "",
   });
 
-  const classes = useStyles();
+  
 
   const isStepOptional = (step) => {
     return step === 1;

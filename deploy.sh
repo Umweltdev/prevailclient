@@ -6,4 +6,4 @@ git commit -m "stepper form 2"
 
 git push
 
-# npm run build
+npm run build

@@ -19,6 +19,7 @@ import SignUpForm from "./pages/SignUp";
 import LoginForm from "./pages/Login";
 
 import Stepper from "./pages/Stepper";
+import MobStepper from "./pages/MobStepper";
 
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
       <Route path="/Sign Up" element={<SignUpForm />} />
       <Route path="/Login" element={<LoginForm />} />
       <Route path="/Stepper" element={<Stepper />} />
+      <Route path="/MobStepper" element={<MobStepper />} />
     </Routes>
   );
 }

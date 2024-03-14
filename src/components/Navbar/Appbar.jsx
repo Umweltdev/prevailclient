@@ -13,13 +13,21 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import wLogo from "./wlogo.png";
 import logo from "./pmmlogo.png";
 import { Grid } from "@mui/material";
 
 const drawerWidth = 240;
-const navItems = ["About", "Services", "Portfolio", "Blog", "Contact", "Sign Up"];
+const navItems = [
+  "About",
+  "Services",
+  { path: "/Services/digitalaccelerator", label: "Digital Accelerator" },
+  "Portfolio",
+  "Blog",
+  "Contact",
+  "Sign Up",
+];
 
 function DrawerAppBarWhite() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -56,7 +64,7 @@ function DrawerAppBarWhite() {
         "@media (max-width: 600px)": { overflow: "hidden" },
       }}
     >
-      <Typography variant="h6" sx={{ my: 2 }}>
+      <Typography variant="h6" sx={{ my: 2, marginRight: "10vw" }}>
         <Link to={`/`} style={{ textDecoration: "none", color: "inherit" }}>
           <img style={{ height: "10vh" }} src={logo} alt="logo" />
         </Link>
@@ -64,15 +72,30 @@ function DrawerAppBarWhite() {
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <Link
-              to={`/${item.toLowerCase()}`}
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              <ListItemButton sx={{ textAlign: "center" }}>
-                <ListItemText primary={item} />
+          <ListItem key={item.path || item} disablePadding>
+            {typeof item === "string" ? (
+              <Link
+                to={`/${item.toLowerCase()}`}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <ListItemButton sx={{ textAlign: "center" }}>
+                  <ListItemText primary={item} />
+                </ListItemButton>
+              </Link>
+            ) : (
+              <ListItemButton
+                sx={{
+                  textAlign: "center",
+                }}
+              >
+                <NavLink
+                  style={{ textDecoration: "none", color: "inherit" }}
+                  to={item.path}
+                >
+                  <ListItemText primary={item.label} />
+                </NavLink>
               </ListItemButton>
-            </Link>
+            )}
           </ListItem>
         ))}
       </List>
@@ -107,14 +130,14 @@ function DrawerAppBarWhite() {
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
-                gap: "57vw",
+                gap: "59vw",
                 "@media (max-width: 600px)": { overflow: "hidden" },
               }}
             >
               <IconButton
                 color="inherit"
                 aria-label="open drawer"
-                edge="start"
+                // edge="start"
                 onClick={handleDrawerToggle}
                 sx={{ display: { sm: "none" } }}
               >
@@ -144,26 +167,64 @@ function DrawerAppBarWhite() {
             <Typography
               variant="h6"
               component="div"
-              sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+              sx={{
+                flexGrow: 1,
+                display: { xs: "none", sm: "block" },
+              }}
             >
               <Link
                 to={`/`}
-                style={{ textDecoration: "none", color: "inherit" }}
+                style={{
+                  textDecoration: "none",
+                  color: "inherit",
+                
+                }}
               >
                 <img style={{ height: "10vh" }} src={logo} alt="logo" />
               </Link>
             </Typography>
             <Box sx={{ display: { xs: "none", sm: "block" } }}>
-              {navItems.map((item) => (
-                <Button key={item} sx={{ color: "#884ed9", fontWeight: "900" }}>
-                  <Link
-                    to={`/${item.toLowerCase()}`}
-                    style={{ textDecoration: "none", color: "#884ed9" }}
-                  >
-                    {item}
-                  </Link>
-                </Button>
-              ))}
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  // justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
+                {navItems.map((item) => (
+                  <ListItem key={item.path || item}>
+                    {typeof item === "string" ? (
+                      <Button
+                        key={item}
+                        sx={{
+                          color: "#884ed9",
+                          fontWeight: "900",
+                        }}
+                      >
+                        <Link
+                          to={`/${item.toLowerCase()}`}
+                          style={{ textDecoration: "none", color: "inherit" }}
+                        >
+                          {item}
+                        </Link>
+                      </Button>
+                    ) : (
+                      <Button
+                        key={item.path}
+                        sx={{ color: "#884ed9", fontWeight: "900" }}
+                      >
+                        <NavLink
+                          style={{ textDecoration: "none", color: "inherit" }}
+                          to={item.path}
+                        >
+                          {item.label}
+                        </NavLink>
+                      </Button>
+                    )}
+                  </ListItem>
+                ))}
+              </Box>
             </Box>
           </Toolbar>
         </AppBar>

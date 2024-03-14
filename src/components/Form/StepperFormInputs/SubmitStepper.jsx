@@ -1,8 +1,22 @@
 import { Grid, Typography } from "@mui/material";
 import React from "react";
-import Logo from "./pmmlogo.png";
+import Logo from "../pmmlogo.png";
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles({
+  image: {
+    width: "8vw",
+    marginBottom: "3vh",
+    "@media (max-width: 600px)": {
+      width: "10vh",
+      marginBottom: "3vh",
+    },
+  },
+});
 
 const SubmitStepper = () => {
+  const classes = useStyles()
+
   return (
     <Grid
       sx={{
@@ -13,8 +27,18 @@ const SubmitStepper = () => {
         alignItems: "center",
       }}
     >
-      <img style={{ width: "8vw", marginBottom: "3vh" }} src={Logo} alt="" />
-      <Typography sx={{ textAlign: "center", width: "60vw" }}>
+      <img className={classes.image} src={Logo} alt="" />
+      <Typography
+        sx={{
+          textAlign: "center",
+          width: "60vw",
+          "@media (max-width: 600px)": {
+            width: "80vw",
+            textAlign: "justify",
+            alignJustify: "distribute"
+          },
+        }}
+      >
         We appreciate your time and effort in completing this questionnaire.
         Your responses will provide us with valuable insights into your
         business. This understanding will enable us to create customised and

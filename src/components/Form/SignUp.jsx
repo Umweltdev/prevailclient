@@ -2,9 +2,18 @@ import React from "react";
 import DrawerAppBarWhite from "../Navbar/Appbar";
 import FooterNew from "../Footer/FooterNew";
 import { Box, Button, Grid, TextField, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate();
+
+  const handleSignUp = () => {
+    if (window.innerWidth <= 600) {
+      navigate("/MobStepper");
+    } else {
+      navigate("/Stepper");
+    }
+  };
   return (
     <Grid sx={{ margin: "20vh 0" }}>
       {/* <DrawerAppBarWhite /> */}
@@ -158,23 +167,23 @@ const SignUp = () => {
             Login
           </Link>
         </Typography>
-        <Link to="/Stepper">
-          <Button
-            variant="contained"
-            sx={{
-              width: "56vw",
-              marginTop: "2vh",
-              marginBottom: "15vh",
-              backgroundColor: "#884ED9",
 
-              "@media (max-width: 600px)": {
-                width: "90vw",
-              },
-            }}
-          >
-            Sign Up
-          </Button>
-        </Link>
+        <Button
+          variant="contained"
+          onClick={handleSignUp}
+          sx={{
+            width: "56vw",
+            marginTop: "2vh",
+            marginBottom: "15vh",
+            backgroundColor: "#884ED9",
+
+            "@media (max-width: 600px)": {
+              width: "90vw",
+            },
+          }}
+        >
+          Sign Up
+        </Button>
       </Grid>
       {/* <FooterNew /> */}
     </Grid>
