@@ -107,7 +107,10 @@ export default function VerticalLinearStepper() {
       </Stepper>
       {activeStep === steps.length && (
         <Paper square elevation={0} sx={{ p: 3 }}>
-          <Typography>All steps completed - you&apos;re finished</Typography>
+          <Typography>
+            All steps completed - We will get back to you as soon as Possible
+            through your email, or check Your dashboard for Update
+          </Typography>
           <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
             Reset
           </Button>

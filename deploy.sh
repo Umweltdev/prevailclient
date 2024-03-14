@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "stepper form 2"
+git commit -m "stepper form mobile completed"
 
 git push
 

@@ -144,7 +144,8 @@ export default function StepperForm() {
         {activeStep === steps.length ? (
           <React.Fragment>
             <Typography sx={{ mt: 2, mb: 1 }}>
-              All steps completed - you&apos;re finished
+              All steps completed - We will get back to you as soon as Possible
+              through your email, or check Your dashboard for Update
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
               <Box sx={{ flex: "1 1 auto" }} />
