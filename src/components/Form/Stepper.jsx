@@ -16,12 +16,16 @@ import {
   TextareaAutosize,
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import FormSelect from "./FormSelect";
+import FormInputText from "./FormInputText";
+import FormTextArea from "./FormTextArea";
+import SubmitStepper from "./SubmitStepper";
 
 const useStyles = makeStyles({
   textArea: {
     width: "50vw",
-  
-    marginBottom: '3vh'
+
+    marginBottom: "3vh",
   },
 });
 
@@ -173,131 +177,156 @@ export default function StepperForm() {
                     alignItems: "center",
                   }}
                 >
-                  <Grid sx={{ margin: "0 auto", marginBottom: "3vh" }}>
-                    <Typography sx={{ width: "50vw" }}>
-                      What is the name of your establishment, and what is the
-                      industry/sector?
-                    </Typography>
-                    <TextField
-                      sx={{ width: "50vw" }}
-                      name="companyName"
-                      label="Company Name/Industry"
-                      value={formData.companyName}
-                      onChange={handleChange}
-                    />
-                  </Grid>
-                  <Grid sx={{ margin: "0 auto", marginBottom: "3vh" }}>
-                    <Typography sx={{ width: "50vw" }}>
-                      Can you describe your establishment in a few sentences?
-                    </Typography>
-                    <TextField
-                      sx={{ width: "50vw" }}
-                      name="companyName"
-                      label="Company Name/Industry"
-                      value={formData.companyName}
-                      onChange={handleChange}
-                    />
-                  </Grid>
-                  <Grid sx={{ margin: "0 auto", marginBottom: "3vh" }}>
-                    <Typography sx={{ width: "50vw" }}>
-                      How long has your business been operating in Ireland? (A).
-                      If yes, please provide them below.
-                    </Typography>
-                    <FormControl sx={{ margin: "1vh 0" }}>
-                      <InputLabel id="demo-simple-select-label">
-                        Select
-                      </InputLabel>
-                      <Select
-                        sx={{ width: "50vw" }}
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={Select}
-                        label="Select"
-                        onChange={handleChange}
-                      >
-                        <MenuItem value={10}>Yes</MenuItem>
-                        <MenuItem value={20}>No</MenuItem>
-                      </Select>
-                    </FormControl>
-                  </Grid>
-
-                  <Typography>If yes, please provide them below.</Typography>
-                  <TextareaAutosize
-                    placeholder="Type anything…"
-                    sx={{ maxWidth: "50vw" }}
-                    minRows={6}
+                  <FormInputText
+                    label="What is the name of your establishment, and what is the
+                      industry/sector?"
+                    name="company"
+                    labelInput="Company & Industry"
+                    value={formData.companyName}
+                    onChange={handleChange}
                   />
+
+                  <FormTextArea label="Can you describe your establishment in a few sentences?" />
+
+                  <FormSelect
+                    label="How long has your business been operating in Ireland? (A).
+                      If yes, please provide them below."
+                    value1="Yes"
+                    value2="No"
+                    onChange={handleChange}
+                  />
+
+                  <FormTextArea label="If yes, please provide them below" />
                 </Grid>
               )}
               {/* SECOND STEPPER */}
               {activeStep === 1 && (
                 <Grid sx={{ display: "flex", flexDirection: "column" }}>
-                  <Grid
-                    sx={{
-                      width: "50vw",
-                      margin: "0 auto",
-                      marginBottom: "3vh",
-                    }}
-                  >
-                    <Typography sx={{ width: "47vw", ml: "5px" }}>
-                      Do you have any existing brand identity you want to retain
-                      or modify? (e.g., logo, colour scheme, font style) <br />
-                    </Typography>
-                    <TextField
-                      sx={{ width: "50vw" }}
-                      name="companyName"
-                      label="Company Name/Industry"
-                      value={formData.companyName}
-                      onChange={handleChange}
-                    />
-                  </Grid>
-
-                  <ul
-                    style={{
-                      listStyle: "none",
-                      marginLeft: "5px",
-                      width: "45vw",
-                    }}
-                  >
-                    <li>(A) If yes, please provide them below.</li>
-                    <li>
-                      (B) If you still need to, please provide examples of
-                      brands or designs that appeal to your vision
-                    </li>
-                  </ul>
-
-                  <TextareaAutosize
-                    placeholder="Type here..."
-                    className={classes.textArea}
-                    minRows={6}
+                  <FormSelect
+                    label=" Do you have any existing brand identity you want to retain
+                      or modify? (e.g., logo, colour scheme, font style)"
+                    value1="Yes"
+                    value2="No"
                   />
 
-                  <Grid sx={{ margin: "0 auto", width: "50vw" }}>
-                    <Typography>
-                      How would you like your brand to be perceived by your
-                      target audience?
-                    </Typography>
-                    <TextareaAutosize
-                      placeholder="Type here..."
-                      className={classes.textArea}
-                      minRows={6}
-                    />
-                  </Grid>
+                  <FormTextArea
+                    label="(A) If yes, please provide them below"
+                    label2="(B) If you still need to, please provide examples of
+                      brands or designs that appeal to your vision"
+                  />
 
-                  <Grid sx={{ margin: "0 auto", width: "50vw" }}>
-                    <Typography>
-                      Are there any specific emotions or feelings you want your
-                      brand to evoke?
-                    </Typography>
-                    <TextareaAutosize
-                      placeholder="Type here..."
-                      className={classes.textArea}
-                      minRows={6}
-                    />
-                  </Grid>
+                  <FormTextArea
+                    label=" How would you like your brand to be perceived by your
+                      target audience?"
+                  />
 
-                 
-                 
+                  <FormTextArea
+                    label="Are there any specific emotions or feelings you want your
+                      brand to evoke?"
+                  />
+                </Grid>
+              )}
+              {activeStep === 2 && (
+                <Grid sx={{ display: "flex", flexDirection: "column" }}>
+                  <FormTextArea label="Who are your main competitors in the industry?" />
+
+                  <FormTextArea label=" What are your establishment's unique features, benefits, or unique selling points?" />
+
+                  <FormTextArea label="Are there any specific elements of your competitors' brand identities or ethos that you find appealing or inspiring?" />
+                </Grid>
+              )}
+              {activeStep === 3 && (
+                <Grid sx={{ display: "flex", flexDirection: "column" }}>
+                  <FormTextArea
+                    label="Who are your primary customers or ideal customers?"
+                    label2="(a) Can you provide a breakdown of the percentage of male and female customers? (b) What is the age range of your target audience? (C) What is your target audience's geographic location (country and region)?"
+                  />
+
+                  <FormSelect
+                    label="Do you have any existing customer data or insights that can help us understand your target audience better? (e.g., customer surveys, sales data, website analytics, CRM data)"
+                    value1="Yes"
+                    value2="No"
+                  />
+                  <FormTextArea label="If so, please provide the data." />
+
+                  <FormSelect
+                    label="Have you observed any specific behaviours or patterns among your customers?"
+                    value1="Yes"
+                    value2="No"
+                  />
+                  <FormTextArea label="If yes, please provide details." />
+
+                  <FormSelect
+                    label="Are you aware of any critical needs, desires, or pain points of your ideal customer that your establishment aims to address? "
+                    value1="Yes"
+                    value2="No"
+                  />
+                  <FormTextArea label="If yes, please provide details." />
+
+                  <FormTextArea label="How does your ideal customer align with your business goals and objectives?" />
+                </Grid>
+              )}
+              {activeStep === 4 && (
+                <Grid sx={{ display: "flex", flexDirection: "column" }}>
+                  <FormSelect
+                    label="Do you currently have a website? "
+                    value1="Yes"
+                    value2="No"
+                  />
+                  <FormInputText
+                    label="If yes, please provide the website link and do you use a hosting platform (Shopify, Squarespace, Wix)."
+                    name="website"
+                    labelInput="Website"
+                  />
+
+                  <FormSelect
+                    label="Do you have or need an e-commerce platform to sell products or services online?"
+                    value1="Yes"
+                    value2="No"
+                  />
+
+                  <FormSelect
+                    label="Who are your top competitors, and what aspects of their websites do you appreciate or dislike?"
+                    value1="Yes"
+                    value2="No"
+                  />
+                </Grid>
+              )}
+              {activeStep === 5 && (
+                <Grid sx={{ display: "flex", flexDirection: "column" }}>
+                  <FormSelect
+                    label="Have you conducted a Search Engine Optimisation (SEO) audit for your website?"
+                    value1="Yes"
+                    value2="No"
+                  />
+                  <FormTextArea label="If yes, please provide the last audit date and critical findings." />
+
+                  <FormSelect
+                    label="Are you actively managing your business profile on Google My Business and other search engines?"
+                    value1="Yes"
+                    value2="No"
+                  />
+
+                  <FormTextArea label="What are the primary keywords or phrases you are ranked for or would like to rank for in search engine results?" />
+
+                  <FormSelect
+                    label="Have you utilised or are you considering paid advertising campaigns on SEO?"
+                    value1="Yes"
+                    value2="No"
+                  />
+                  <FormTextArea label="If yes, please specify your budget and objectives." />
+                </Grid>
+              )}
+              {activeStep === 6 && (
+                <Grid
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <SubmitStepper />
                 </Grid>
               )}
               {/* Add more fields for other steps as needed */}
