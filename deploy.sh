@@ -2,8 +2,8 @@
 
 git add .
 
-git commit -m "logi/signup form"
+git commit -m "stepper form 2"
 
 git push
 
-npm run build
+# npm run build
