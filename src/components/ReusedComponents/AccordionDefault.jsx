@@ -5,6 +5,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Grid } from "@mui/material";
+import theme from "../../theme";
 
 export default function AccordionExpandDefault() {
   return (
@@ -13,6 +14,7 @@ export default function AccordionExpandDefault() {
         width: "100%",
         maxWidth: 675,
         margin: "0 auto",
+        fontFamily: theme.typography.fontFamily,
         "@media (max-width: 600px)": {
           maxWidth: "95vw",
         },
@@ -24,7 +26,9 @@ export default function AccordionExpandDefault() {
           aria-controls="panel1-content"
           id="panel1-header"
         >
-          <Typography sx={{ fontWeight: "bold" }}>
+          <Typography
+            sx={{ fontWeight: "bold", fontFamily: theme.typography.fontFamily }}
+          >
             Unified Brand Presence
           </Typography>
         </AccordionSummary>
@@ -33,6 +37,7 @@ export default function AccordionExpandDefault() {
             sx={{
               textAlign: "justify",
               textJustify: "distribute",
+              fontFamily: theme.typography.fontFamily,
               "@media (max-width: 600px)": {
                 fontSize: "4vw",
               },
@@ -49,7 +54,9 @@ export default function AccordionExpandDefault() {
           aria-controls="panel2-content"
           id="panel2-header"
         >
-          <Typography sx={{ fontWeight: "bold" }}>
+          <Typography
+            sx={{ fontWeight: "bold", fontFamily: theme.typography.fontFamily }}
+          >
             Time & Resorce Efficiency
           </Typography>
         </AccordionSummary>
@@ -58,6 +65,7 @@ export default function AccordionExpandDefault() {
             sx={{
               textAlign: "justify",
               textJustify: "distribute",
+              fontFamily: theme.typography.fontFamily,
               "@media (max-width: 600px)": {
                 fontSize: "4vw",
               },
@@ -74,13 +82,18 @@ export default function AccordionExpandDefault() {
           aria-controls="panel2-content"
           id="panel2-header"
         >
-          <Typography sx={{ fontWeight: "bold" }}>Strategic Synergy</Typography>
+          <Typography
+            sx={{ fontWeight: "bold", fontFamily: theme.typography.fontFamily }}
+          >
+            Strategic Synergy
+          </Typography>
         </AccordionSummary>
         <AccordionDetails disableGutters>
           <Typography
             sx={{
               textAlign: "justify",
               textJustify: "distribute",
+              fontFamily: theme.typography.fontFamily,
               "@media (max-width: 600px)": {
                 fontSize: "4vw",
               },
