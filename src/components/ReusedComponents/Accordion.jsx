@@ -17,6 +17,7 @@ import {
   TipsAndUpdates,
   Workspaces,
 } from "@mui/icons-material";
+import theme from "../../theme";
 
 const goalsObj = [
   {
@@ -49,13 +50,16 @@ export default function AccordionUsage() {
         backgroundColor: "white",
         padding: "2vw",
         borderRadius: "1vw",
+        fontFamily: theme.typography.fontFamily,
       }}
     >
       {goalsObj.map((data, index) => (
         <Accordion
+          disableGutters
           key={index}
           sx={{
-            width: "40vw",
+            width: "50vw",
+            fontFamily: theme.typography.fontFamily,
             "@media (max-width: 600px)": {
               width: "95vw",
             },
@@ -69,6 +73,7 @@ export default function AccordionUsage() {
             sx={{
               display: "flex",
               alignItems: "center",
+
               "@media (max-width: 600px)": {
                 fontSize: "4vw",
               },
@@ -79,6 +84,8 @@ export default function AccordionUsage() {
             <Typography
               sx={{
                 margin: "auto",
+                fontSize: theme.typography.fontSize,
+                fontFamily: theme.typography.fontFamily,
                 "@media (max-width: 600px)": {
                   fontSize: "4vw",
                   fontWeight: "bold",
@@ -93,6 +100,7 @@ export default function AccordionUsage() {
             sx={{
               textAlign: "justify",
               textJustify: "distribute",
+              fontFamily: theme.typography.fontFamily,
               "@media (max-width: 600px)": {
                 fontSize: "4vw",
               },

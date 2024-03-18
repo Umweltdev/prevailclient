@@ -3,12 +3,27 @@ import oneImg from "../../assets/1.png";
 import twoImg from "../../assets/2.png";
 import threeImg from "../../assets/31.png";
 import land2 from "./assets/land2.png";
+import { makeStyles } from "@mui/styles";
+import theme from "../../theme";
+
+const useStyles = makeStyles({
+  sectTwoText: {
+    fontFamily: theme.typography.fontFamily,
+    fontWeight: theme.typography.fontWeightRegular,
+    fontSize: theme.typography.fontSizeMedium,
+    color: theme.palette.other.light,
+    paddingTop: "15vh",
+    width: "90vw",
+  },
+});
 
 const SectionTwo = () => {
+  const classes = useStyles();
+
   return (
     <div className="sTwoContainer">
       <div className="sTwoHero">
-        <p className="sTwoHero2">
+        <p className={classes.sectTwoText}>
           Prevail is a cutting-edge marketing agency specialising in redefining
           the way businesses navigate the digital landscape. At PMM, we
           recognise that the modern economy presents unique challenges for local
@@ -17,13 +32,12 @@ const SectionTwo = () => {
           long-term success. PMM is not just a marketing agency; it is a
           strategic partner for businesses in the digital age.
         </p>
-     
-          <spline-viewer
-            className="spinnerSplin"
-            loading-anim-type="spinner-small-light"
-            url="https://prod.spline.design/YwnKOA8cJ8yoNsFC/scene.splinecode"
-          ></spline-viewer>
-        
+
+        <spline-viewer
+          className="spinnerSplin"
+          loading-anim-type="spinner-small-light"
+          url="https://prod.spline.design/YwnKOA8cJ8yoNsFC/scene.splinecode"
+        ></spline-viewer>
       </div>
     </div>
   );

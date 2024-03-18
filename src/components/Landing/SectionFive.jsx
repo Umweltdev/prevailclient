@@ -18,7 +18,7 @@ const cardInfo = [
           padding: "0.7vw",
           borderRadius: "50%",
           display: "block",
-          margin: "auto",
+          // margin: "auto",
           "@media (max-width: 600px)": {
             fontSize: "13vw",
             padding: "1.5vw",
@@ -39,7 +39,7 @@ const cardInfo = [
           padding: "0.7vw",
           borderRadius: "50%",
           display: "block",
-          margin: "auto",
+          // margin: "auto",
           "@media (max-width: 600px)": {
             fontSize: "13vw",
             padding: "1.5vw",
@@ -60,7 +60,7 @@ const cardInfo = [
           padding: "0.7vw",
           borderRadius: "50%",
           display: "block",
-          margin: "auto",
+          // margin: "auto",
           "@media (max-width: 600px)": {
             fontSize: "13vw",
             padding: "1.5vw",
@@ -81,7 +81,7 @@ const cardInfo = [
           padding: "0.7vw",
           borderRadius: "50%",
           display: "block",
-          margin: "auto",
+          // margin: "auto",
           "@media (max-width: 600px)": {
             fontSize: "13vw",
             padding: "1.5vw",
@@ -102,8 +102,8 @@ const SectionFive = (gradient) => {
           fontSize: "3vw",
           fontWeight: "bold",
           "@media (max-width: 600px)": {
-           fontSize: 20,
-            textAlign: "center"
+            fontSize: 20,
+            textAlign: "center",
           },
         }}
         className="sTwoServicesHeader1"

@@ -18,7 +18,7 @@ export default function AccordionExpandDefault() {
         },
       }}
     >
-      <Accordion defaultExpanded>
+      <Accordion defaultExpanded disableGutters>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1-content"
@@ -43,7 +43,7 @@ export default function AccordionExpandDefault() {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion disableGutters>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -68,7 +68,7 @@ export default function AccordionExpandDefault() {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion disableGutters>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -76,7 +76,7 @@ export default function AccordionExpandDefault() {
         >
           <Typography sx={{ fontWeight: "bold" }}>Strategic Synergy</Typography>
         </AccordionSummary>
-        <AccordionDetails>
+        <AccordionDetails disableGutters>
           <Typography
             sx={{
               textAlign: "justify",

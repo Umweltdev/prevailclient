@@ -2,7 +2,8 @@ import Navbar from "../Navbar/Navbar";
 import BasicButtons from "../ReusedComponents/Button";
 import "./assets/landing.css";
 import { motion } from "framer-motion";
-// import bgImg from "./assets/bgpmm.png";
+import theme from "../../theme";
+
 
 let easing = [0.6, -0.05, 0.01, 0.99];
 const transition = { duration: 1, ease: [0.6, 0.01, -0.05, 0.9] };
