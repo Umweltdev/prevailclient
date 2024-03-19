@@ -10,9 +10,9 @@ const useStyles = makeStyles({
   sectTwoText: {
     fontFamily: theme.typography.fontFamily,
     fontWeight: theme.typography.fontWeightRegular,
-    fontSize: theme.typography.fontSizeMedium,
+    fontSize: theme.typography.fontSize,
     color: theme.palette.other.light,
-    paddingTop: "15vh",
+    paddingTop: "18vh",
     width: "90vw",
   },
 });
