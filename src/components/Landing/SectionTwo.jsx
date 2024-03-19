@@ -5,6 +5,7 @@ import threeImg from "../../assets/31.png";
 import land2 from "./assets/land2.png";
 import { makeStyles } from "@mui/styles";
 import theme from "../../theme";
+import pos from "./assets/pos.png";
 
 const useStyles = makeStyles({
   sectTwoText: {
@@ -12,12 +13,13 @@ const useStyles = makeStyles({
     fontWeight: theme.typography.fontWeightRegular,
     fontSize: theme.typography.fontSizeMedium,
     color: theme.palette.other.light,
-    padding: "15vh 0",
+    padding: "18vh 0",
     // width: "90vw",
-    textAlign: "center",
-    width: "60vw",
+    textAlign: "justify",
+    textJustify: "distribute",
+    width: "44vw",
     lineHeight: "6vh",
-    margin: "5vh auto",
+    // margin: "5vh auto",
   },
 });
 
@@ -36,12 +38,7 @@ const SectionTwo = () => {
           long-term success. PMM is not just a marketing agency; it is a
           strategic partner for businesses in the digital age.
         </p>
-
-        {/* <spline-viewer
-          className="spinnerSplin"
-          loading-anim-type="spinner-small-light"
-          url="https://prod.spline.design/YwnKOA8cJ8yoNsFC/scene.splinecode"
-        ></spline-viewer> */}
+        <img src={pos} alt="" />
       </div>
     </div>
   );

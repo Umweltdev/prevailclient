@@ -12,7 +12,7 @@ export default function AccordionExpandDefault() {
     <Grid
       sx={{
         width: "100%",
-        maxWidth: "46vw",
+        maxWidth: "49vw",
         margin: "0 auto",
         fontFamily: '1vw',
         "@media (max-width: 600px)": {

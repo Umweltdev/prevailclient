@@ -12,7 +12,7 @@ export default function BasicCard() {
   return (
     <Card
       sx={{
-        maxWidth: "46vw",
+        maxWidth: "49vw",
         textAlign: "justify",
         textJustify: "distribute",
         borderRadius: "5px 0",
