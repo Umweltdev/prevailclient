@@ -13,7 +13,8 @@ import CustomizedButtons from "./ReusedButton";
 const useStyles = makeStyles((theme) => ({
   container: {
     padding: "2rem",
-    background: "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
+    // background: "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
+    background: "#884ed9",
     color: "white",
     display: "flex",
     flexDirection: "row",
@@ -103,6 +104,7 @@ const ComponentContact = ({ header, text, img }) => {
                 "& fieldset": { borderColor: "white", height: "8vh" },
                 "&:hover fieldset": { borderColor: "white" },
                 "&.Mui-focused fieldset": { borderColor: "white" },
+                width: "40vw",
               },
               "& .MuiInputBase-input": {
                 color: "white",
@@ -143,10 +145,12 @@ const ComponentContact = ({ header, text, img }) => {
             variant="outlined"
             sx={{
               color: "white",
+
               "& .MuiOutlinedInput-root": {
                 "& fieldset": { borderColor: "white", height: "8vh" },
                 "&:hover fieldset": { borderColor: "white" },
                 "&.Mui-focused fieldset": { borderColor: "white" },
+                width: "40vw",
               },
               "& .MuiInputBase-input": {
                 color: "white",
@@ -191,6 +195,7 @@ const ComponentContact = ({ header, text, img }) => {
                 "& fieldset": { borderColor: "white", height: "8vh" },
                 "&:hover fieldset": { borderColor: "white" },
                 "&.Mui-focused fieldset": { borderColor: "white" },
+                width: "40vw",
               },
               "& .MuiInputBase-input": {
                 color: "white",
@@ -240,6 +245,7 @@ const ComponentContact = ({ header, text, img }) => {
                 "& fieldset": { borderColor: "white" },
                 "&:hover fieldset": { borderColor: "white" },
                 "&.Mui-focused fieldset": { borderColor: "white" },
+                width: "40vw",
               },
               "& .MuiInputBase-input": { color: "white", fontSize: "1vw" },
               "& .MuiInputLabel-root": {
