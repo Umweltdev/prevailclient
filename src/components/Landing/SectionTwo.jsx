@@ -13,7 +13,7 @@ const useStyles = makeStyles({
     fontSize: theme.typography.fontSizeMedium,
     color: theme.palette.other.light,
     padding: "15vh 0",
-    width: "90vw",
+    // width: "90vw",
     textAlign: "center",
     width: "60vw",
     lineHeight: "6vh",
