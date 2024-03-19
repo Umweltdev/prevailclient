@@ -14,6 +14,7 @@ export default function BasicCard() {
       sx={{
         maxWidth: "46vw",
         textAlign: "justify",
+        textJustify: "distribute",
         borderRadius: "5px 0",
         fontFamily: "1vw",
         boxShadow:

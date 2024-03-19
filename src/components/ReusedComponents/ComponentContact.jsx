@@ -53,6 +53,7 @@ const ComponentContact = ({ header, text, img }) => {
           sx={{
             fontSize: "2vw",
             fontWeight: "bold",
+            width: "40vw",
             "@media (max-width: 600px)": {
               fontSize: "5vw",
               fontWeight: "bold",
@@ -63,7 +64,7 @@ const ComponentContact = ({ header, text, img }) => {
         </Typography>
         <Typography
           sx={{
-            fontSize: "1.4vw",
+            fontSize: "1.3vw",
             textAlign: "justify",
             textJustify: "distribute",
             width: "40vw",
