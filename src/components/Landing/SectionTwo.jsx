@@ -21,6 +21,10 @@ const useStyles = makeStyles({
     lineHeight: "6vh",
     // margin: "5vh auto",
   },
+
+  image: {
+    width: "25vw"
+  }
 });
 
 const SectionTwo = () => {
@@ -38,7 +42,7 @@ const SectionTwo = () => {
           long-term success. PMM is not just a marketing agency; it is a
           strategic partner for businesses in the digital age.
         </p>
-        <img src={pos} alt="" />
+        <img className={classes.image} src={pos} alt="" />
       </div>
     </div>
   );
