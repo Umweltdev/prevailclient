@@ -12,20 +12,20 @@ import CustomizedButtons from "./ReusedButton";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    padding: "2rem",
+    padding: "8vw 2vw",
     // background: "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
     background: "#884ed9",
     color: "white",
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
-    alignItems: 'center',
+    alignItems: "center",
+    // height: "100vh",
     "@media (max-width: 600px)": {
       width: "100%",
     },
   },
   leftContainer: {
-    paddingRight: "2rem",
     "@media (max-width: 600px)": {
       width: "100%",
       paddingRight: "unset",
@@ -36,8 +36,11 @@ const useStyles = makeStyles((theme) => ({
   },
 
   image: {
-    width: "45vw",
+    width: "43vw",
     objectFit: "cover",
+    height: "78vh",
+    borderRadius: "1rem",
+    boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px;",
     "@media (max-width: 600px)": {
       width: "85vw",
     },
