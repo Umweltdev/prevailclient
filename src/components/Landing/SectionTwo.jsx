@@ -10,11 +10,14 @@ const useStyles = makeStyles({
   sectTwoText: {
     fontFamily: theme.typography.fontFamily,
     fontWeight: theme.typography.fontWeightRegular,
-    fontSize: theme.typography.fontSize,
+    fontSize: theme.typography.fontSizeMedium,
     color: theme.palette.other.light,
-    paddingTop: "18vh",
+    padding: "15vh 0",
     width: "90vw",
-    
+    textAlign: "center",
+    width: "60vw",
+    lineHeight: "6vh",
+    margin: "5vh auto",
   },
 });
 
@@ -34,11 +37,11 @@ const SectionTwo = () => {
           strategic partner for businesses in the digital age.
         </p>
 
-        <spline-viewer
+        {/* <spline-viewer
           className="spinnerSplin"
           loading-anim-type="spinner-small-light"
           url="https://prod.spline.design/YwnKOA8cJ8yoNsFC/scene.splinecode"
-        ></spline-viewer>
+        ></spline-viewer> */}
       </div>
     </div>
   );

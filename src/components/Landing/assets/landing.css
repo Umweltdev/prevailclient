@@ -181,12 +181,12 @@
 /* SECTION TWO */
 .sTwoContainer {
   background-color: #884ed9 !important;
-  height: 80vh;
+  /* height: 80vh; */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   /* margin: 3vh 0 0 0; */
-  padding: 0 5vw;
+  /* padding: 0 5vw; */
 }
 
 .sTwoHero {
@@ -1249,13 +1249,13 @@ FOOTER
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 5vh auto;
-  gap: 5vh;
+  margin: 10vh auto;
+  gap: 9vh;
   
 }
 
 .sectSevenImage {
-  width: 30vw
+  width: 40vw
 }
 
 .sSevenText {

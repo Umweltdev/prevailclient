@@ -66,7 +66,7 @@ const FooterNew = () => {
   return (
     <Grid
       sx={{
-        boxShadow: "0px -1px 1px #ba8bd7",
+        // boxShadow: "0px -1px 1px #ba8bd7",
         background: "#884ed9",
         display: "flex",
         flexDirection: "column",
