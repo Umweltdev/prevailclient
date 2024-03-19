@@ -10,13 +10,13 @@ export default function ContactInput() {
     <Grid
       xs
       container
-      spacing={2}
+      // spacing={2}
       sx={{
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         margin: "0 auto",
-        width: 800,
+        width: "80%",
         "@media (max-width: 600px)": {
           width: "95vw",
           flexDirection: "column",
@@ -30,6 +30,7 @@ export default function ContactInput() {
           display: "flex",
           gap: "2vw",
           flexWrap: "wrap",
+          width: "100%",
           "@media (max-width: 600px)": {
             flexDirection: "column",
           },
