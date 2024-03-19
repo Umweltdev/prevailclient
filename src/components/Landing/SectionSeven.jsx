@@ -5,13 +5,18 @@ import AccordionUsage from "../ReusedComponents/BrandIdAccordion";
 import { Link } from "react-router-dom";
 import AccordionExpandDefault from "../ReusedComponents/AccordionDefault";
 import BasicCard from "./CardOurCores";
+import images from './assets/land2.png'
 
 const SectionSeven = () => {
   return (
     <div className="sectionSeven">
-      <BasicCard />
-
-      <AccordionExpandDefault />
+      <div>
+        <img className="sectSevenImage" src={images} alt="" />
+      </div>
+      <div>
+        <BasicCard />
+        <AccordionExpandDefault />
+      </div>
     </div>
   );
 };

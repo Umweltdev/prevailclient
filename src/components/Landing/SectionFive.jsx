@@ -12,10 +12,10 @@ const cardInfo = [
     img: (
       <Campaign
         sx={{
-          background: "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
+          background: "#ab63f3",
           color: "white",
-          fontSize: "5vw",
-          padding: "0.7vw",
+          fontSize: "11vw",
+          padding: "0.9vw",
           borderRadius: "50%",
           display: "block",
           // margin: "auto",
@@ -33,9 +33,9 @@ const cardInfo = [
     img: (
       <Computer
         sx={{
-          background: "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
+          background: "#ab63f3",
           color: "white",
-          fontSize: "5vw",
+          fontSize: "11vw",
           padding: "0.7vw",
           borderRadius: "50%",
           display: "block",
@@ -54,9 +54,9 @@ const cardInfo = [
     img: (
       <QueryStats
         sx={{
-          background: "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
+          background: "#ab63f3",
           color: "white",
-          fontSize: "5vw",
+          fontSize: "11vw",
           padding: "0.7vw",
           borderRadius: "50%",
           display: "block",
@@ -75,9 +75,9 @@ const cardInfo = [
     img: (
       <Sell
         sx={{
-          background: "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
+          background: "#ab63f3",
           color: "white",
-          fontSize: "5vw",
+          fontSize: "11vw",
           padding: "0.7vw",
           borderRadius: "50%",
           display: "block",
@@ -101,12 +101,13 @@ const SectionFive = (gradient) => {
         sx={{
           fontSize: "3vw",
           fontWeight: "bold",
+          color: "#884ed9",
           "@media (max-width: 600px)": {
             fontSize: 20,
             textAlign: "center",
           },
         }}
-        className="sTwoServicesHeader1"
+        className=""
       >
         Your Tools For Success
       </Typography>

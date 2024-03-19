@@ -15,7 +15,7 @@ const gradient = "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)";
 
 const useStyles = makeStyles({
   sThreeContainer: {
-    background: theme.palette.primary.light,
+    background: "white",
     height: "100vh",
     padding: "15vh 0",
     backgroundPosition: "center",
@@ -25,11 +25,12 @@ const useStyles = makeStyles({
     gap: "3vw",
   },
   accordionHeader: {
-    fontSize: theme.typography.fontSizeBig,
+    fontSize: theme.typography.fontSizeMedium,
     fontWeight: 900,
     backgroundImage: gradient,
     WebkitBackgroundClip: "text",
-    color: "transparent",
+    color: "#884ed9",
+  
     fontFamily: theme.typography.fontFamily,
     "@media (max-width: 600px)": {
       fontSize: 20,

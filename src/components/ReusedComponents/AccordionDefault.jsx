@@ -12,9 +12,9 @@ export default function AccordionExpandDefault() {
     <Grid
       sx={{
         width: "100%",
-        maxWidth: 675,
+        maxWidth: 575,
         margin: "0 auto",
-        fontFamily: theme.typography.fontFamily,
+        fontFamily: '1vw',
         "@media (max-width: 600px)": {
           maxWidth: "95vw",
         },
@@ -27,7 +27,7 @@ export default function AccordionExpandDefault() {
           id="panel1-header"
         >
           <Typography
-            sx={{ fontWeight: "bold", fontFamily: theme.typography.fontFamily }}
+            sx={{ fontWeight: "bold", fontFamily: '1vw' }}
           >
             Unified Brand Presence
           </Typography>
@@ -37,7 +37,7 @@ export default function AccordionExpandDefault() {
             sx={{
               textAlign: "justify",
               textJustify: "distribute",
-              fontFamily: theme.typography.fontFamily,
+              fontFamily: '1vw',
               "@media (max-width: 600px)": {
                 fontSize: "4vw",
               },
@@ -55,7 +55,7 @@ export default function AccordionExpandDefault() {
           id="panel2-header"
         >
           <Typography
-            sx={{ fontWeight: "bold", fontFamily: theme.typography.fontFamily }}
+            sx={{ fontWeight: "bold", fontFamily: '1vw' }}
           >
             Time & Resorce Efficiency
           </Typography>
@@ -65,7 +65,7 @@ export default function AccordionExpandDefault() {
             sx={{
               textAlign: "justify",
               textJustify: "distribute",
-              fontFamily: theme.typography.fontFamily,
+              fontFamily: '1vw',
               "@media (max-width: 600px)": {
                 fontSize: "4vw",
               },
@@ -83,7 +83,7 @@ export default function AccordionExpandDefault() {
           id="panel2-header"
         >
           <Typography
-            sx={{ fontWeight: "bold", fontFamily: theme.typography.fontFamily }}
+            sx={{ fontWeight: "bold", fontFamily: '1vw' }}
           >
             Strategic Synergy
           </Typography>
@@ -93,7 +93,7 @@ export default function AccordionExpandDefault() {
             sx={{
               textAlign: "justify",
               textJustify: "distribute",
-              fontFamily: theme.typography.fontFamily,
+              fontFamily: '1vw',
               "@media (max-width: 600px)": {
                 fontSize: "4vw",
               },

@@ -7,16 +7,18 @@ import Typography from "@mui/material/Typography";
 import BasicButtons from "./Button";
 import { Button, Grid } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import theme from "../../theme";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   cardContainer: {
-    width: 490,
+    // width: 600,
     // height: 420,
     display: "flex",
     flexDirection: "column",
-    padding: "1vw",
+    padding: "4vh 2vw",
     borderRadius: "5px",
+    boxShadow:
+      "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px",
+
     // width: "100%",
     // justifyContent: "center",
     // alignItems: "center",
@@ -37,18 +39,16 @@ const useStyles = makeStyles((theme) => ({
   cardHeader: {
     display: "flex",
     justifyContent: "space-between",
-    alignItems: "center",
-    marginBottom: "4vh",
-    width: "100%",
+    gap: "1vw",
   },
 
   header: {
-    fontSize: theme.typography.fontSizeMedium,
-    // textAlign: "center",
+    fontSize: "6vw",
     fontWeight: "bold",
     padding: "2vh 0",
-    // color: "#333",
-    color: theme.palette.primary.dark,
+    marginBottom: "2vh",
+    color: "#ab63f3",
+
     "@media (max-width: 600px)": {
       fontSize: 20,
       textAlign: "center",
@@ -58,10 +58,16 @@ const useStyles = makeStyles((theme) => ({
   },
 
   text: {
-    fontSize: theme.typography.fontSize,
-    width: "100%",
+    // fontSize: "0.1vw",
+    width: "25vw",
     textAlign: "justify",
     textJustify: "distribute",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "2vw",
+    marginBottom: "4vh",
+
     "@media (max-width: 600px)": {
       fontSize: 14,
       textAlign: "center",
@@ -73,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#d6c0ee",
     fontSize: "2vw",
     width: "10vw",
-    padding: "2vh 0 2vh 0",
+    padding: "1vh 0 2vh 0",
     borderRadius: "35px",
 
     "@media (max-width: 600px)": {
@@ -81,7 +87,7 @@ const useStyles = makeStyles((theme) => ({
       width: "unset",
     },
   },
-}));
+});
 
 export default function BasicCard({ headerText, text, icon }) {
   const classes = useStyles();
@@ -89,35 +95,42 @@ export default function BasicCard({ headerText, text, icon }) {
   return (
     <Card elevation={1} className={classes.cardContainer}>
       <Grid className={classes.cardHeader}>
-        <Typography variant={1} className={classes.header}>
-          {headerText}
-        </Typography>
-        {icon}
+        <Grid>
+          <Typography
+            sx={{
+              fontSize: "1.5vw",
+              fontWeight: "bold",
+              marginBottom: "1vh",
+              color: "#ab63f3",
+            }}
+          >
+            {headerText}
+          </Typography>
+          <Typography sx={{fontSize: "1vw"}} className={classes.text}>{text}</Typography>
+          <Button
+            sx={{
+              color: "white",
+              backgroundColor: "#ab63f3",
+              fontSize: "0.9vw",
+              width: "10vw",
+              borderRadius: "35px",
+              marginTop: "2vh",
+              textAlign: "center",
+
+              "@media (max-width: 600px)": {
+                padding: "1vh 2vh",
+                width: "unset",
+              },
+            }}
+            variant="contained"
+          >
+            Learn More
+          </Button>
+        </Grid>
+        <Grid>
+          <Grid> {icon}</Grid>
+        </Grid>
       </Grid>
-
-      <Typography className={classes.text} variant="body2">
-        {text}
-      </Typography>
-
-      <Button
-        sx={{
-          color: "#3101ae",
-          backgroundColor: "#d6c0ee",
-          fontSize: theme.typography.fontSizeSmall,
-          width: "10vw",
-          fontWeight: theme.typography.fontWeightRegular,
-          borderRadius: "35px",
-          marginTop: "4vh",
-          textAlign: "center",
-          "@media (max-width: 600px)": {
-            padding: "1vh 2vh",
-            width: "unset",
-          },
-        }}
-        variant="contained"
-      >
-        Learn More
-      </Button>
     </Card>
   );
 }

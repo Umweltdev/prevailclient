@@ -22,7 +22,7 @@ const palette = {
 };
 
 const typography = {
-  fontFamily: "Roboto, monospace",
+  fontFamily: "Quando, serif",
 
   // Weight
   fontWeightLight: 300,

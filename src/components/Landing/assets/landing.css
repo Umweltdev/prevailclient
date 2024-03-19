@@ -1067,7 +1067,7 @@ FOOTER
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 6vw;
+  gap: 3vw;
 }
 
 .sTwoServicesCard1 {
@@ -1247,12 +1247,15 @@ FOOTER
 /* SECTION SEVEN */
 .sectionSeven {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 5vh auto;
-  /* gap: 4vh; */
+  gap: 5vh;
   
+}
+
+.sectSevenImage {
+  width: 30vw
 }
 
 .sSevenText {

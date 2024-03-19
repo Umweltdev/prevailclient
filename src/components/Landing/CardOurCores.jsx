@@ -12,10 +12,10 @@ export default function BasicCard() {
   return (
     <Card
       sx={{
-        width: 675,
-        textAlign: "center",
+        width: 575,
+        textAlign: "justify",
         borderRadius: "5px 0",
-        fontFamily: theme.typography.fontFamily,
+        fontFamily: '1vw',
         boxShadow:
           "0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0)",
         "@media (max-width: 600px)": {

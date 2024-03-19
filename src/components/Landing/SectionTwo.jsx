@@ -14,6 +14,7 @@ const useStyles = makeStyles({
     color: theme.palette.other.light,
     paddingTop: "18vh",
     width: "90vw",
+    
   },
 });
 
