@@ -23,7 +23,7 @@ const useStyles = makeStyles({
   },
 
   image: {
-    width: "25vw"
+    width: "400px"
   }
 });
 

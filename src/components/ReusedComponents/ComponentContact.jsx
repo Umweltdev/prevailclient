@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   image: {
     width: "43vw",
     objectFit: "cover",
-    height: "78vh",
+    height: "600px",
     borderRadius: "1rem",
     boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px;",
     "@media (max-width: 600px)": {
