@@ -22,15 +22,17 @@
   padding-top: 45vh;
   font-size: var(--big-header);
   color: var(--fourth-color);
-  margin-left: 6vw;
+  margin-left: 8vw;
 }
 
 .sOneBlog {
-  margin: 6vh 4vw;
+  /* margin: 6vh 4vw; */
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: top;
   gap: 1vw;
+  padding: 4vh 8vw
+  
 }
 
 .sOneBlogCard {
@@ -110,6 +112,7 @@
 }
 
 .sOneBlogFeature {
+  flex: 1;
   margin-top: 4vh;
 }
 
