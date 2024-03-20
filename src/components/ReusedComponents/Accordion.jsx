@@ -21,22 +21,66 @@ import theme from "../../theme";
 
 const goalsObj = [
   {
-    icon: <Storefront sx={{ color: "#884ED7", fontSize: "2.5vw" }} />,
+    icon: (
+      <Storefront
+        sx={{
+          color: "#884ED7",
+          fontSize: "2.5vw",
+          "@media (max-width: 600px)": {
+            fontSize: "5vw",
+            textAlign: "center",
+          },
+        }}
+      />
+    ),
     mainText: "Empowering Local Businesses",
     subText: `Recognise the struggle of local SMEs in the current economic climate. Prevail is committed to empowering these businesses, providing them with the tools and resources to compete effectively against larger enterprises.`,
   },
   {
-    icon: <Devices sx={{ color: "#884ED7", fontSize: "2.5vw"  }} />,
+    icon: (
+      <Devices
+        sx={{
+          color: "#884ED7",
+          fontSize: "2.5vw",
+          "@media (max-width: 600px)": {
+            fontSize: "5vw",
+            textAlign: "center",
+          },
+        }}
+      />
+    ),
     mainText: "Innovative and Accessible Technology",
     subText: `Address the gap in technology accessibility between large corporations and “small-to-medium-sized" enterprises (SMEs). Prevail will focus on bringing innovative, affordable tech solutions to local businesses, allowing them to harness automation and other advancements without the need for full-time programmers.`,
   },
   {
-    icon: <TipsAndUpdates sx={{ color: "#884ED7", fontSize: "2.5vw"  }} />,
+    icon: (
+      <TipsAndUpdates
+        sx={{
+          color: "#884ED7",
+          fontSize: "2.5vw",
+          "@media (max-width: 600px)": {
+            fontSize: "5vw",
+            textAlign: "center",
+          },
+        }}
+      />
+    ),
     mainText: "Adaptive Business Strategies",
     subText: `Understand the volatility in consumer demands and behaviours. Prevail offers insights and tools to help local businesses quickly adapt to changing market conditions, ensuring they remain competitive and responsive to consumer needs.`,
   },
   {
-    icon: <Balance sx={{ color: "#884ED7", fontSize: "2.5vw"  }} />,
+    icon: (
+      <Balance
+        sx={{
+          color: "#884ED7",
+          fontSize: "2.5vw",
+          "@media (max-width: 600px)": {
+            fontSize: "5vw",
+            textAlign: "center",
+          },
+        }}
+      />
+    ),
     mainText: "Market Equity and Fair Competition",
     subText: `Address the challenge of market share decline for local businesses. Prevail stands for creating a more equitable market where local businesses can compete fairly with larger enterprises, ensuring diversity and choice in the market.`,
   },
@@ -88,7 +132,7 @@ export default function AccordionUsage() {
                 fontFamily: theme.typography.fontFamily,
                 "@media (max-width: 600px)": {
                   fontSize: "4vw",
-                  fontWeight: "bold",
+                  fontWeight: "unset",
                   textAlign: "center",
                 },
               }}

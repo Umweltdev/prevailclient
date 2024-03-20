@@ -11,12 +11,14 @@ export default function MediaCard({ header, text, img, gradient }) {
     <Card
       sx={{
         maxWidth: 345,
-        height: 440,
+        // height: 440,
         display: "flex",
+        borderRadius: "20px",
         flexDirection: "column",
+        padding: "0 0 2vh 0",
         "@media (max-width: 600px)": {
           maxWidth: 345,
-          height: 440,
+          // height: 440,
           display: "flex",
           flexDirection: "column",
         },
@@ -26,6 +28,7 @@ export default function MediaCard({ header, text, img, gradient }) {
         sx={{
           height: 180,
           objectFit: "cover",
+          borderRadius: "20px",
           "@media (max-width: 600px)": {
             height: 170,
           },
@@ -36,11 +39,11 @@ export default function MediaCard({ header, text, img, gradient }) {
       <CardContent sx={{ padding: "2vh" }}>
         <Typography
           sx={{
-            textAlign: "justify",
-            textJustify: "distribute",
+            // textAlign: "justify",
+            // textJustify: "distribute",
             fontSize: "1.4vw",
             color: "#333",
-            margin: "1vh 0",
+            margin: "2vh 0 0 0",
             fontWeight: "bold",
             "@media (max-width: 600px)": {
               fontSize: "4vw",
@@ -56,8 +59,9 @@ export default function MediaCard({ header, text, img, gradient }) {
           sx={{
             textAlign: "justify",
             textJustify: "distribute",
-            fontSize: "0.9vw",
+            fontSize: "1.2vw",
             color: "#333",
+            marginTop: "1vh",
             "@media (max-width: 600px)": {
               fontSize: "4vw",
               color: "#333",

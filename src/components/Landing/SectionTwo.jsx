@@ -20,11 +20,19 @@ const useStyles = makeStyles({
     width: "44vw",
     lineHeight: "6vh",
     // margin: "5vh auto",
+    "@media (max-width: 600px)": {
+      fontSize: "4vw",
+      width: "95vw",
+      lineHeight: "4vh",
+      padding: "2vh 0",
+      textAlign: "center",
+      margin: "0 auto"
+    },
   },
 
   image: {
-    width: "400px"
-  }
+    width: "400px",
+  },
 });
 
 const SectionTwo = () => {

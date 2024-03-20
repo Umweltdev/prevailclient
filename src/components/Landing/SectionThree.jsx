@@ -23,6 +23,10 @@ const useStyles = makeStyles({
     justifyContent: "center",
     alignItems: "center",
     gap: "3vw",
+
+    "@media (max-width: 600px)": {
+      flexDirection: "column",
+    },
   },
   accordionHeader: {
     fontSize: "2.5vw",
@@ -49,7 +53,7 @@ const SectionThree = () => {
         </Typography>
         <AccordionUsage />
       </Box>
-      <hr style={{color: "#884ed9"}}/>
+      <hr style={{ color: "#884ed9" }} />
     </>
   );
 };

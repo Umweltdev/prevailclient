@@ -25,14 +25,14 @@ const useStyles = makeStyles({
     // textDecoration: "none",
 
     "@media (max-width: 600px)": {
-      width: "90vw",
-      height: 345,
+      width: "95vw",
+      // height: 345,
       display: "flex",
-      flexDirection: "column",
-      justifyContent: "center",
-      alignItems: "center",
-      textDecoration: "none",
-      gap: "0",
+      // flexDirection: "column",
+      // justifyContent: "center",
+      // alignItems: "center",
+      // textDecoration: "none",
+      // gap: "0",
     },
   },
 
@@ -50,8 +50,8 @@ const useStyles = makeStyles({
     color: "#ab63f3",
 
     "@media (max-width: 600px)": {
-      fontSize: 20,
-      textAlign: "center",
+      // fontSize: 20,
+      // textAlign: "center",
       fontWeight: "bold",
       padding: "1vh 0",
     },
@@ -70,7 +70,8 @@ const useStyles = makeStyles({
 
     "@media (max-width: 600px)": {
       fontSize: 14,
-      textAlign: "center",
+      // textAlign: "center",
+      width: "unset",
     },
   },
 
@@ -85,6 +86,7 @@ const useStyles = makeStyles({
     "@media (max-width: 600px)": {
       padding: "0",
       width: "unset",
+      fontSize: "5vw",
     },
   },
 });
@@ -102,11 +104,27 @@ export default function BasicCard({ headerText, text, icon }) {
               fontWeight: "bold",
               marginBottom: "1vh",
               color: "#ab63f3",
+              "@media (max-width: 600px)": {
+                fontSize: "5vw",
+                fontWeight: "unset",
+                marginBottom: "1vh",
+                color: "#ab63f3",
+              },
             }}
           >
             {headerText}
           </Typography>
-          <Typography sx={{fontSize: "1vw"}} className={classes.text}>{text}</Typography>
+          <Typography
+            sx={{
+              fontSize: "1vw",
+              "@media (max-width: 600px)": {
+                fontSize: "4vw",
+              },
+            }}
+            className={classes.text}
+          >
+            {text}
+          </Typography>
           <Button
             sx={{
               color: "white",
@@ -118,8 +136,10 @@ export default function BasicCard({ headerText, text, icon }) {
               textAlign: "center",
 
               "@media (max-width: 600px)": {
-                padding: "1vh 2vh",
+                // padding: "0",
                 width: "unset",
+                fontSize: "3vw",
+                width: "37vw",
               },
             }}
             variant="contained"
