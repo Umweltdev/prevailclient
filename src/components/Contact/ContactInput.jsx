@@ -44,7 +44,7 @@ export default function ContactInput() {
       >
         <TextField
           sx={{
-            width: "27vw",
+            width: "350px",
             "@media (max-width: 600px)": {
               width: "90vw",
             },
@@ -55,7 +55,7 @@ export default function ContactInput() {
         />
         <TextField
           sx={{
-            width: "27vw",
+            width: "350px",
             "@media (max-width: 600px)": {
               width: "90vw",
             },
@@ -66,7 +66,7 @@ export default function ContactInput() {
         />
         <TextField
           sx={{
-            width: "27vw",
+            width: "350px",
             "@media (max-width: 600px)": {
               width: "90vw",
             },
@@ -77,7 +77,7 @@ export default function ContactInput() {
         />
         <TextField
           sx={{
-            width: "27vw",
+            width: "350px",
             "@media (max-width: 600px)": {
               width: "90vw",
             },
@@ -88,7 +88,7 @@ export default function ContactInput() {
         />
         <TextField
           sx={{
-            width: "27vw",
+            width: "350px",
             "@media (max-width: 600px)": {
               width: "90vw",
             },
@@ -99,7 +99,7 @@ export default function ContactInput() {
         />
         <TextField
           sx={{
-            width: "27vw",
+            width: "350px",
             "@media (max-width: 600px)": {
               width: "90vw",
             },
@@ -116,7 +116,7 @@ export default function ContactInput() {
         rows={4}
         //   defaultValue="Default Value"
         sx={{
-          width: "56vw",
+          width: "730px",
           mt: "2vh",
           "@media (max-width: 600px)": {
             width: "90vw",
@@ -128,7 +128,7 @@ export default function ContactInput() {
       <Button
         variant="contained"
         sx={{
-          width: "56vw",
+          width: "730px",
           marginTop: "2vh",
           marginBottom: "15vh",
           backgroundColor: "#884ED9",

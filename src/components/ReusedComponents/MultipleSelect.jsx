@@ -186,7 +186,7 @@ export default function CustomizedHook() {
         </Label>
         <InputWrapper
           ref={setAnchorEl}
-          sx={{ width: "56vw", 
+          sx={{ width: "730px", 
             "@media (max-width: 600px)": {
               width: "90vw",
             }, }}
