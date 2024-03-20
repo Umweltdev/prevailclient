@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "navbar changed to suit background"
+git commit -m "portfolio case study"
 
 git push
 

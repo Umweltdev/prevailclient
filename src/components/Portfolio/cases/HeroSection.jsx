@@ -33,16 +33,18 @@ const useStyles = makeStyles({
   },
 
   image: {
-    width: "20vw",
-    height: "20vw",
+    width: "50VW",
+    height: "80vh",
     borderRadius: "5px",
     objectFit: "cover",
+    clipPath:
+      "polygon(100% 0%, 66% 0%, 70% 24%, 41% 38%, 88% 23%, 68% 0%, 0% 66%, 0% 100%, 45% 100%, 67% 100%, 87% 100%, 100% 100%, 100% 50%, 100% 25%)",
     "@media (max-width: 600px)": {
       width: "95vw",
       height: "60vw",
       borderRadius: "5px",
       objectFit: "cover",
-      marginTop: "2vh"
+      marginTop: "2vh",
     },
   },
 });
@@ -58,7 +60,7 @@ const HeroSection = ({ header, text, img }) => {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        padding: "10vh 15vw",
+        padding: "0 0 0 5vw",
         margin: "15vh 0",
         "@media (max-width: 600px)": {
           background: "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",

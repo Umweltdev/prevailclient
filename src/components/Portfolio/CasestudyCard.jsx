@@ -10,12 +10,13 @@ import { Link } from "react-router-dom";
 export default function CasestudyCard({ image, text, index }) {
   return (
     <Grid>
-      <Card sx={{ width: 340 }}>
+      <Card sx={{ width: 340, borderRadius: "20px" }}>
         <CardActionArea>
           <CardMedia
             component="img"
             height="240"
             image={image}
+            sx={{ borderRadius: "20px" }}
             alt="green iguana"
           />
           <CardContent>
@@ -27,9 +28,17 @@ export default function CasestudyCard({ image, text, index }) {
               sx={{
                 background: "#884ed9",
                 color: "white",
+                fontSize: "13px",
+                borderRadius: "25px",
+                padding: "8px 18px",
+                "&:hover": {
+                  backgroundColor: "white",
+                  color: "#884ed9",
+                  border: "1px solid #884ed9",
+                },
               }}
             >
-              Read More.
+              Read More
             </Button>
           </CardContent>
         </CardActionArea>

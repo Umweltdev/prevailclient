@@ -22,8 +22,9 @@ export default function AccordionCase() {
 
   return (
     <div>
-      <Accordion>
+      <Accordion disableGutters>
         <AccordionSummary
+          disableGutters
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1-content"
           id="panel1-header"
@@ -38,7 +39,7 @@ export default function AccordionCase() {
           devote much time to starting a new online project
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion disableGutters>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -54,7 +55,7 @@ export default function AccordionCase() {
           having no website, no domain name, and no digital traces at all.
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion disableGutters>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -69,7 +70,7 @@ export default function AccordionCase() {
           The client did not have the time or tools to design website content.
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion disableGutters>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -85,7 +86,7 @@ export default function AccordionCase() {
           business communication.
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion disableGutters>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"

@@ -10,6 +10,7 @@ const Result = () => {
         justifyContent: "space-around",
         alignItems: "center",
         padding: "5vh 5vw",
+        gap: "6vw",
         "@media (max-width: 600px)": {
           flexDirection: "column",
           padding: "2vh 0",
@@ -67,7 +68,7 @@ const Result = () => {
       <Grid>
         <Card
           sx={{
-            maxWidth: 500,
+            width: "40vw",
             background: "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
             color: "white",
             "@media (max-width: 600px)": {

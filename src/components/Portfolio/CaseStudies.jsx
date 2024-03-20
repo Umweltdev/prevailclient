@@ -54,7 +54,7 @@ const useStyles = makeStyles({
 
 const CaseStudies = () => {
   const [selectedSection, setSelectedSection] = useState("View All");
-  const [selectAll, setSelectAll] = useState(false);
+  const [selectAll, setSelectAll] = useState(true);
   const classes = useStyles();
 
   const handleSectionClick = (section) => {
@@ -139,11 +139,11 @@ const CaseStudies = () => {
                 className="sOneBlogCardLink"
                 style={{ textDecoration: "none" }}
               >
-                {selectedSection === data.header && (
+                {selectAll || selectedSection === data.header ? (
                   <Grid sx={{ display: "flex", flexDirection: "row" }}>
                     <CasestudyCard text={data.text} image={data.img} />
                   </Grid>
-                )}
+                ) : null}
               </Link>
             </Grid>
           ))}

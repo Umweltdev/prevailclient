@@ -51,50 +51,50 @@ const Testimonials = () => {
         <Grid>
           <Star
             sx={{
-              color: "#e1aa06",
+              color: "#ba8bd9",
               fontSize: "2.5vw",
               "@media (max-width: 600px)": {
-                color: "#e1aa06",
+                 color: "#ba8bd9",
                 fontSize: "4vh",
               },
             }}
           />
           <Star
             sx={{
-              color: "#e1aa06",
+               color: "#ba8bd9",
               fontSize: "2.5vw",
               "@media (max-width: 600px)": {
-                color: "#e1aa06",
+                 color: "#ba8bd9",
                 fontSize: "4vh",
               },
             }}
           />
           <Star
             sx={{
-              color: "#e1aa06",
+               color: "#ba8bd9",
               fontSize: "2.5vw",
               "@media (max-width: 600px)": {
-                color: "#e1aa06",
+                 color: "#ba8bd9",
                 fontSize: "4vh",
               },
             }}
           />
           <Star
             sx={{
-              color: "#e1aa06",
+               color: "#ba8bd9",
               fontSize: "2.5vw",
               "@media (max-width: 600px)": {
-                color: "#e1aa06",
+                 color: "#ba8bd9",
                 fontSize: "4vh",
               },
             }}
           />
           <Star
             sx={{
-              color: "#e1aa06",
+               color: "#ba8bd9",
               fontSize: "2.5vw",
               "@media (max-width: 600px)": {
-                color: "#e1aa06",
+                 color: "#ba8bd9",
                 fontSize: "4vh",
               },
             }}
