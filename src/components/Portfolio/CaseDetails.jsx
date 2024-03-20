@@ -17,15 +17,27 @@ import CaseNavigation from "./cases/CaseNavigation";
 const CaseDetails = () => {
   const { index } = useParams();
 
-  const cases = caseData[parseInt(index, 10)];
+  const currentIndex = parseInt(index, 10);
+  const currentCase = caseData[currentIndex];
 
-  if (!cases) {
-    return <div>Blog not found</div>;
+  if (!currentCase) {
+    return <div>Case study not found</div>;
   }
+
+  // Calculate URLs for previous and next case studies
+  const prevIndex = currentIndex - 1;
+  const nextIndex = currentIndex + 1;
+  const prevCaseUrl = prevIndex >= 0 ? `/Portfolio/${prevIndex}` : null;
+  const nextCaseUrl = nextIndex < caseData.length ? `/Portfolio/${nextIndex}` : null;
+
   return (
     <Grid>
       <DrawerAppBar />
-      <HeroSection header={cases.header} text={cases.text} img={cases.img} />
+      <HeroSection
+        header={currentCase.header}
+        text={currentCase.text}
+        img={currentCase.img}
+      />
       <Overview />
       <Problem />
       <Solutions />
@@ -33,7 +45,12 @@ const CaseDetails = () => {
       <Testimonials />
       <FacebookCreatives />
       <Accelerate />
-      <CaseNavigation />
+      <CaseNavigation
+        prevCase={prevCaseUrl}
+        nextCase={nextCaseUrl}
+        prevHeader={prevCaseUrl ? caseData[prevIndex].header : ""}
+        nextHeader={nextCaseUrl ? caseData[nextIndex].header : ""}
+      />
       <FooterNew />
     </Grid>
   );

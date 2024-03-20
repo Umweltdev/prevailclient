@@ -3,28 +3,6 @@ import { makeStyles } from "@mui/styles";
 import React from "react";
 
 const useStyles = makeStyles({
-  //   mainComponent: {
-  //     background: "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
-  //     height: "80vh",
-  //     display: "flex",
-  //     justifyContent: "space-between",
-  //     alignItems: "center",
-  //     padding: "10vh 15vw",
-  //     margin: "15vh 0",
-  //   },
-
-  //   heroComponent: {
-  //     display: "flex",
-  //     flexDirection: "column",
-  //     justifyContent: "center",
-  //     alignItems: "top",
-  //   },
-
-  //   textHero: {
-  //     color: "white",
-  //     fontSize: "7vw",
-  //     fontWeight: "bold",
-  //   },
 
   text: {
     color: "white",
@@ -45,6 +23,7 @@ const useStyles = makeStyles({
       borderRadius: "5px",
       objectFit: "cover",
       marginTop: "2vh",
+      clipPath: "unset",
     },
   },
 });
@@ -64,13 +43,13 @@ const HeroSection = ({ header, text, img }) => {
         margin: "15vh 0",
         "@media (max-width: 600px)": {
           background: "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
-          height: "70vh",
+          height: "60vh",
           display: "flex",
           flexDirection: "column",
           justifyContent: "unset",
           alignItems: "center",
           padding: "10vh 1vh 0 1vh",
-          margin: "10vh 0",
+          margin: "10vh 0 0 0",
         },
       }}
     >
