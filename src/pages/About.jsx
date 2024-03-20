@@ -7,11 +7,12 @@ import SectionFour from "../components/About/SectionFour.jsx";
 import SectionConsultation from "../components/About/SectionConsultation.jsx";
 import DrawerAppBar from "../components/Navbar/Appbar.jsx";
 import FooterNew from "../components/Footer/FooterNew.jsx";
+import AppBarOne from "../components/Navbar/AppbarOne.jsx";
 
 const About = () => {
   return (
     <div>
-      <DrawerAppBar />
+      <AppBarOne/>
       {/* <Navbar /> */}
       {/* <SectionOne /> */}
       <SectionTwo />

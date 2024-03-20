@@ -6,11 +6,12 @@ import Advantages from './Advantages'
 import Budget from './Budget'
 import Footer from "../../Footer/Footer"
 import FooterNew from '../../Footer/FooterNew'
+import AppBarOne from '../../Navbar/AppbarOne'
 
 const Mpd = () => {
   return (
     <div>
-      <DrawerAppBarWhite/>
+      <AppBarOne/>
       <HeroSection/>
       <PainPoint/>
       <Advantages/>

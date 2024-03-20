@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "stepper form mobile completed"
+git commit -m "navbar changed to suit background"
 
 git push
 

@@ -7,11 +7,12 @@ import Usp from "./Usp";
 import Footer from "../../Footer/Footer"
 import FooterNew from "../../Footer/FooterNew";
 import DrawerAppBarWhite from "../../Navbar/Appbar";
+import AppBarOne from "../../Navbar/AppbarOne";
 
 const DigitalAccelerator = () => {
   return (
     <div>
-      <DrawerAppBarWhite />
+      <AppBarOne />
       <HeroSection />
       <PainPoint />
       <Advantages />

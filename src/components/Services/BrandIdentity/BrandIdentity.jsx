@@ -9,11 +9,12 @@ import PackagesLayout from "./PackagesLayout";
 import Packages from "./Packages";
 import Footer from "../../Footer/Footer"
 import FooterNew from "../../Footer/FooterNew";
+import AppBarOne from "../../Navbar/AppbarOne";
 
 const BrandIdentity = () => {
   return (
     <>
-      <DrawerAppBarWhite />
+      <AppBarOne />
       <HeroSection />
       <ServiceDetails2 />
       <ServiceDetails3 />
