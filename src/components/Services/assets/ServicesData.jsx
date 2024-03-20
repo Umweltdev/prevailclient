@@ -23,31 +23,31 @@ export const serviceCard = [
     img: secondImage,
     link: "webmanagement",
     header: "Website Development & Management​",
-    text: `In today's fast-paced digital world, small to medium-sized enterprises (SMEs) and local businesses face unique challenges. The need for a robust and dynamic online presence is more critical than ever.`,
+    text: `In today's fast-paced digital world, small to medium-sized enterprises (SMEs) and local businesses face unique challenges. `,
   },
   {
     img: thirdImage,
     link: "website",
     header: "Custom Website Development & Management​",
-    text: `With Prevail’s “Custom Website Development & Management” service, you can embark on a digital transformation like never before. Our service offers two package options: the “Custom Website Executive Package” and the “Custom Website Elite Package”.`,
+    text: `With Prevail’s “Custom Website Development & Management” service, you can embark on a digital transformation like never before”`,
   },
   {
     img: fourthImage,
     link: "sem",
     header: "Search Engine Marketing (SEM)​",
-    text: `In the heart of every local business and SME beats a dream - a vision of growth, recognition, and success. At Prevail, we understand this dream and share it. In the digital marketplace, standing out is necessary, and our Search Engine Marketing (SEM) service can be a game-changer.`,
+    text: `In the heart of every local business and SME beats a dream - a vision of growth, recognition, and success. `,
   },
   {
     img: fifthImage,
     link: "mpd",
     header: "Marketing Price Displacement (MPD)",
-    text: "Welcome to the future of digital marketing with Prevail's Marketing Price Displacement (MPD) API. We understand that small and medium-sized enterprises (SMEs) and local businesses face unique challenges in the ever-changing digital landscape.",
+    text: "Welcome to the future of digital marketing with Prevail's Marketing Price Displacement (MPD) API.",
   },
   {
     img: sixthImage,
     link: "digitalaccelerator",
     header: "Digital Accelerator” Bundle​",
-    text: "Attention SMEs and local businesses in Ireland! The digital landscape is evolving rapidly, and it is no longer an option to stay competitive, but a necessity. Imagine having a cutting-edge website.",
+    text: "Attention SMEs and local businesses in Ireland! The digital landscape is evolving rapidly, and it is no longer an option to stay competitive, but a necessity.",
   },
 ];
 

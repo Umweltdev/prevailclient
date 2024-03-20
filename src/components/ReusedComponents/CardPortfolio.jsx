@@ -11,9 +11,9 @@ export default function MediaCard({ header, text, img, gradient }) {
     <Card
       sx={{
         maxWidth: "350px",
-        height: 440,
+        // height: "400px",
         display: "flex",
-        borderRadius: "20px",
+        borderRadius: "16px",
         flexDirection: "column",
         padding: "0 0 2vh 0",
         "@media (max-width: 600px)": {
@@ -28,7 +28,7 @@ export default function MediaCard({ header, text, img, gradient }) {
         sx={{
           height: 180,
           objectFit: "cover",
-          borderRadius: "20px",
+          borderRadius: "16px",
           "@media (max-width: 600px)": {
             height: 170,
           },

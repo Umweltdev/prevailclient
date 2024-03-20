@@ -31,7 +31,6 @@ const SectionTwo = () => {
       <span className="lineSpanServices"></span>
       <div className="sTwoServicesCards">
         {serviceCard.map((data, index) => (
-          // Wrap each MediaCard with a Link component
           <Link
             style={{ textDecoration: "none" }}
             key={index}
