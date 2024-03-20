@@ -109,7 +109,7 @@ const FacebookCreatives = () => {
           alt=""
         />
       </Grid>
-      <Grid sx={{ padding: "2vh 0", gap: "1vw", display: "flex", flexWrap: "wrap"}}>
+      {/* <Grid sx={{ padding: "2vh 0", gap: "1vw", display: "flex", flexWrap: "wrap"}}>
         <Button
           sx={{
             background: "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
@@ -133,7 +133,7 @@ const FacebookCreatives = () => {
         >
          Next Case Study
         </Button>
-      </Grid>
+      </Grid> */}
     </Grid>
   );
 };

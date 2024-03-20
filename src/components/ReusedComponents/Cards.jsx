@@ -139,7 +139,7 @@ export default function BasicCard({ headerText, text, icon }) {
                 // padding: "0",
                 width: "unset",
                 fontSize: "3vw",
-                width: "37vw",
+                
               },
             }}
             variant="contained"

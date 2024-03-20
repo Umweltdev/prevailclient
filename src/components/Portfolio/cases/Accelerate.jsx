@@ -7,13 +7,15 @@ const Accelerate = () => {
       <Card
         sx={{
           background: "#884ed9",
-          width: "80vw",
+          width: "1050px",
+          borderRadius: "16px",
           margin: "5vh auto",
           padding: "2vw",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
+
           "@media (max-width: 600px)": {
             padding: "3vh 0",
             width: "95vw",

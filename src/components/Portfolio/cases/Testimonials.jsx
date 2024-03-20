@@ -6,11 +6,12 @@ const Testimonials = () => {
   return (
     <Card
       sx={{
-        width: "75vw",
+        width: "1050px",
+        borderRadius: "16px",
         margin: "5vh auto",
         background: "#e2ccf7",
         // padding: "0 5vw",
-        borderRadius: "2vw",
+
         "@media (max-width: 600px)": {
           width: "95vw",
           margin: "2vh auto",
@@ -54,47 +55,47 @@ const Testimonials = () => {
               color: "#ba8bd9",
               fontSize: "2.5vw",
               "@media (max-width: 600px)": {
-                 color: "#ba8bd9",
+                color: "#ba8bd9",
                 fontSize: "4vh",
               },
             }}
           />
           <Star
             sx={{
-               color: "#ba8bd9",
+              color: "#ba8bd9",
               fontSize: "2.5vw",
               "@media (max-width: 600px)": {
-                 color: "#ba8bd9",
+                color: "#ba8bd9",
                 fontSize: "4vh",
               },
             }}
           />
           <Star
             sx={{
-               color: "#ba8bd9",
+              color: "#ba8bd9",
               fontSize: "2.5vw",
               "@media (max-width: 600px)": {
-                 color: "#ba8bd9",
+                color: "#ba8bd9",
                 fontSize: "4vh",
               },
             }}
           />
           <Star
             sx={{
-               color: "#ba8bd9",
+              color: "#ba8bd9",
               fontSize: "2.5vw",
               "@media (max-width: 600px)": {
-                 color: "#ba8bd9",
+                color: "#ba8bd9",
                 fontSize: "4vh",
               },
             }}
           />
           <Star
             sx={{
-               color: "#ba8bd9",
+              color: "#ba8bd9",
               fontSize: "2.5vw",
               "@media (max-width: 600px)": {
-                 color: "#ba8bd9",
+                color: "#ba8bd9",
                 fontSize: "4vh",
               },
             }}
@@ -115,11 +116,11 @@ const Testimonials = () => {
             },
           }}
         >
-          Prevail has given me a lot of peace of mind, which is very important. We
-          are much less stressed about running our business now that we know a
-          full-fledged marketing team is carefully managing every aspect of our
-          digital marketing. It’s like having your own marketing department, but
-          without all the costs and problems that come with running one.
+          Prevail has given me a lot of peace of mind, which is very important.
+          We are much less stressed about running our business now that we know
+          a full-fledged marketing team is carefully managing every aspect of
+          our digital marketing. It’s like having your own marketing department,
+          but without all the costs and problems that come with running one.
         </Typography>
         <Typography
           sx={{
@@ -145,13 +146,12 @@ const Testimonials = () => {
             fontSize: "1vw",
             textAlign: "center",
             margin: "1vh 0",
-           
+
             "@media (max-width: 600px)": {
               color: "#333",
               fontSize: "4vw",
               textAlign: "center",
               margin: "0",
-              
             },
           }}
         >
