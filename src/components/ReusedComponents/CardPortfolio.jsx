@@ -39,12 +39,11 @@ export default function MediaCard({ header, text, img, gradient }) {
       <CardContent sx={{ padding: "2vh" }}>
         <Typography
           sx={{
-            // textAlign: "justify",
             // textJustify: "distribute",
-            fontSize: "1.4vw",
+            fontSize: "18  px",
             color: "#333",
             margin: "2vh 0 0 0",
-            fontWeight: "bold",
+            // fontWeight: "bold",
             "@media (max-width: 600px)": {
               fontSize: "4vw",
               color: "#333",
@@ -58,8 +57,8 @@ export default function MediaCard({ header, text, img, gradient }) {
         <Typography
           sx={{
             textAlign: "justify",
-            textJustify: "distribute",
-            fontSize: "1.2vw",
+            // textJustify: "distribute",
+            fontSize: "13px",
             color: "#333",
             marginTop: "1vh",
             "@media (max-width: 600px)": {
@@ -74,17 +73,20 @@ export default function MediaCard({ header, text, img, gradient }) {
       </CardContent>
       <CardActions>
         <Button
-          size="small"
-          variant="contained"
+          // size="small"
+          // variant="contained"
           sx={{
             background:
               gradient || "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
-            padding: "1vh 2vw",
+            padding: "5px 15px",
             borderRadius: "5vw",
             color: "white",
-            fontWeight: "bold",
-            boxShadow:
-              "0px 1px 2px -1px rgba(255,105,135,0.5), 0px 3px 5px 0px rgba(255,105,135,0.3), 0px 1px 9px 0px rgba(255,105,135,0.2)",
+            fontSize: "13px",
+            textTransform: "none",
+
+            // fontWeight: "bold",
+            // boxShadow:
+            //   "0px 1px 2px -1px rgba(255,105,135,0.5), 0px 3px 5px 0px rgba(255,105,135,0.3), 0px 1px 9px 0px rgba(255,105,135,0.2)",
             "@media (max-width: 600px)": {
               boxShadow: "unset",
               fontWeight: "unset",
