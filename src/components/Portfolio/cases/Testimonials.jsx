@@ -6,7 +6,7 @@ const Testimonials = () => {
   return (
     <Card
       sx={{
-        width: "1050px",
+        width: "80vw",
         borderRadius: "16px",
         margin: "5vh auto",
         background: "#e2ccf7",

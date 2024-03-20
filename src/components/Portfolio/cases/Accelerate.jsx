@@ -7,7 +7,7 @@ const Accelerate = () => {
       <Card
         sx={{
           background: "#884ed9",
-          width: "1050px",
+          width: "1250px",
           borderRadius: "16px",
           margin: "5vh auto",
           padding: "2vw",

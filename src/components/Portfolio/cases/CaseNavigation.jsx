@@ -18,7 +18,7 @@ const CaseNavigation = () => {
           background: "#884ed9",
           color: "white",
           height: "120px",
-          width: "520px",
+          width: "620px",
           borderRadius: "16px",
         }}
       >
@@ -53,7 +53,7 @@ const CaseNavigation = () => {
           background: "#884ed9",
           color: "white",
           height: "120px",
-          width: "520px",
+          width: "620px",
           borderRadius: "16px",
         }}
       >
