@@ -117,7 +117,7 @@ export const shopifyGold = [
   "Advanced UI",
   "FAQ section",
   "Up to 10 pages",
-  "Website development presentation",
+  "Website Dev presentation",
   "Email set-up",
   "Website content review",
 ];
@@ -153,7 +153,7 @@ export const customItems = [
   "Brainstorm session",
   "Buy now function",
   "Website content review",
-  "Website development presentation",
+  "Website Dev presentation",
   "1 revision",
 ];
 
@@ -234,7 +234,7 @@ export const caseData = [
     img: "https://images.unsplash.com/photo-1590650153855-d9e808231d41?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    header: "Website Design & Development",
+    header: "Website Design & Dev",
     text: "New Vision Cleaning",
     img: "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
@@ -259,7 +259,7 @@ export const caseData = [
     img: "https://plus.unsplash.com/premium_photo-1677171749397-6195ed4d2f15?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    header: "Website Design & Development",
+    header: "Website Design & Dev",
     text: "Mark A. Quinn Solicitors ",
     img: "https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },

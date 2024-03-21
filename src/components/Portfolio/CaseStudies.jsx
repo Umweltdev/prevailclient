@@ -39,7 +39,7 @@ const useStyles = makeStyles({
     transition: "0.5s ease-in-out",
     // margin: "10vh 0 0 0",
     textAlign: "center",
-    width: "30vw",
+    width: "20vw",
     "&:hover": {
       backgroundColor: "#b4b4b4",
       color: "white",
@@ -106,13 +106,13 @@ const CaseStudies = () => {
             </li>
             <li
               className={`${classes.sTwoAboutList} ${
-                selectedSection === "Website Design & Development"
+                selectedSection === "Website Design & Dev"
                   ? classes.active
                   : ""
               }`}
-              onClick={() => handleSectionClick("Website Design & Development")}
+              onClick={() => handleSectionClick("Website Design & Dev")}
             >
-              Website Design & Development
+              Website Design & Dev
             </li>
             <li
               className={`${classes.sTwoAboutList} ${

@@ -114,6 +114,7 @@ function AppBarOne() {
             display: "flex",
             justifyContent: "center",
             padding: "0 4vw",
+            fontFamily: `"Sarabun","sans-serif"`,
             "@media (max-width: 600px)": {
               background: "rgba(255, 255, 255, 0.2)",
               height: "10vh",

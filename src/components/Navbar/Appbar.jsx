@@ -110,6 +110,7 @@ function DrawerAppBarWhite() {
           component="nav"
           sx={{
             background: "rgba(255, 255, 255, 0.2)",
+            fontFamily: `"Sarabun","sans-serif"`,
             height: "15vh",
             display: "flex",
             justifyContent: "center",
@@ -177,7 +178,6 @@ function DrawerAppBarWhite() {
                 style={{
                   textDecoration: "none",
                   color: "inherit",
-                
                 }}
               >
                 <img style={{ height: "10vh" }} src={logo} alt="logo" />
