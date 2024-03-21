@@ -15,9 +15,9 @@ const SectionTwo = () => {
         sx={{
           fontSize: 50,
           fontWeight: 900,
-          backgroundImage: gradient,
-          WebkitBackgroundClip: "text",
-          color: "transparent",
+          color: "#884ed9",
+          // WebkitBackgroundClip: "text",
+          // color: "transparent",
 
           "@media (max-width: 600px)": {
             fontSize: "7vw",

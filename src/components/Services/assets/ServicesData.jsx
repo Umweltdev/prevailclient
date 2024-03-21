@@ -8,43 +8,50 @@ import landingImage1 from "./brandd.png";
 
 export const serviceCard = [
   {
-    landingImg: landingImage1,
+    landingImg:
+      "https://images.unsplash.com/photo-1494253109108-2e30c049369b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     link: "brand",
-    img: firstImage,
+    // img: firstImage,
+    img: "https://images.unsplash.com/photo-1494253109108-2e30c049369b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     header: "Brand Identity",
     text: `Creating a cohesive brand identity is crucial in today's crowded digital and physical landscape. Our "Brand Identity Package" service lays the foundation for a lasting impression.`,
     section2header: "Pain Points",
     section2text:
       "In today's fast-paced, competitive world, merely existing is not enough. Small and local businesses often struggle to stand out in the crowded marketplace. Your brand might be getting lost in the digital noise, and potential customers may not even notice you.",
     section2img:
-      "https://img.freepik.com/free-vector/people-analyzing-growth-charts_52683-56854.jpg?t=st=1709675515~exp=1709679115~hmac=b1bc408aa3fab65dc615e1b715c34d2a8e954749bbacc7747acd4352de5fb8c6&w=740",
+      "https://images.unsplash.com/photo-1494253109108-2e30c049369b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    img: secondImage,
+    // img: secondImage,
+    img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     link: "webmanagement",
     header: "Website Development & Management​",
     text: `In today's fast-paced digital world, small to medium-sized enterprises (SMEs) and local businesses face unique challenges. `,
   },
   {
-    img: thirdImage,
+    // img: thirdImage,
+    img: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     link: "website",
-    header: "Custom Website Development & Management​",
+    header: "Custom Website & Management​",
     text: `With Prevail’s “Custom Website Development & Management” service, you can embark on a digital transformation like never before”`,
   },
   {
-    img: fourthImage,
+    // img: fourthImage,
+    img: "https://images.unsplash.com/photo-1607703703674-df96af81dffa?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     link: "sem",
     header: "Search Engine Marketing (SEM)​",
     text: `In the heart of every local business and SME beats a dream - a vision of growth, recognition, and success. `,
   },
   {
-    img: fifthImage,
+    // img: fifthImage,
+    img: "https://images.unsplash.com/photo-1707761918029-1295034aa31e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     link: "mpd",
     header: "Marketing Price Displacement (MPD)",
     text: "Welcome to the future of digital marketing with Prevail's Marketing Price Displacement (MPD) API.",
   },
   {
-    img: sixthImage,
+    // img: sixthImage,
+    img: "https://images.unsplash.com/photo-1611926653670-e18689373857?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     link: "digitalaccelerator",
     header: "Digital Accelerator” Bundle​",
     text: "Attention SMEs and local businesses in Ireland! The digital landscape is evolving rapidly, and it is no longer an option to stay competitive, but a necessity.",

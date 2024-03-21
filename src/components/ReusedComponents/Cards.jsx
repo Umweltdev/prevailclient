@@ -11,17 +11,12 @@ import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles({
   cardContainer: {
     // width: 600,
-    // height: 420,
+    height: 420,
     display: "flex",
     flexDirection: "column",
     padding: "4vh 2vw",
     borderRadius: "5vw",
     boxShadow: "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px",
-
-    // width: "100%",
-    // justifyContent: "center",
-    // alignItems: "center",
-    // textDecoration: "none",
 
     "@media (max-width: 600px)": {
       width: "95vw",

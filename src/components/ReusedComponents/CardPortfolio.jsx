@@ -10,12 +10,13 @@ export default function MediaCard({ header, text, img, gradient }) {
   return (
     <Card
       sx={{
-        maxWidth: "350px",
-        // height: "400px",
+        maxWidth: "25vw",
+        // height: "430px",
         display: "flex",
         borderRadius: "16px",
         flexDirection: "column",
-        padding: "0 0 2vh 0",
+        padding: "0 0 1.5vh 0",
+        boxShadow: " rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;",
         "@media (max-width: 600px)": {
           maxWidth: 345,
           // height: 440,
@@ -26,7 +27,7 @@ export default function MediaCard({ header, text, img, gradient }) {
     >
       <CardMedia
         sx={{
-          height: 180,
+          minHeight: "200px !important",
           objectFit: "cover",
           borderRadius: "16px",
           "@media (max-width: 600px)": {
@@ -40,10 +41,11 @@ export default function MediaCard({ header, text, img, gradient }) {
         <Typography
           sx={{
             // textJustify: "distribute",
-            fontSize: "18  px",
+            fontSize: "17px",
             color: "#333",
-            margin: "2vh 0 0 0",
-            // fontWeight: "bold",
+            margin: "2vh 0",
+            // fontWeight: "500",
+            letterSpacing: "3px",
             "@media (max-width: 600px)": {
               fontSize: "4vw",
               color: "#333",
@@ -57,14 +59,16 @@ export default function MediaCard({ header, text, img, gradient }) {
         <Typography
           sx={{
             textAlign: "justify",
-            // textJustify: "distribute",
+            textJustify: "distribute",
             fontSize: "13px",
             color: "#333",
             marginTop: "1vh",
+            letterSpacing: "1px",
+
             "@media (max-width: 600px)": {
               fontSize: "4vw",
               color: "#333",
-              margin: "0.1vh 0",
+              margin: "0 0 2vh 0",
             },
           }}
         >
@@ -76,17 +80,16 @@ export default function MediaCard({ header, text, img, gradient }) {
           // size="small"
           // variant="contained"
           sx={{
-            background:
-              gradient || "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
+            background: "#7097da",
             padding: "5px 15px",
             borderRadius: "5vw",
             color: "white",
             fontSize: "13px",
             textTransform: "none",
+            margin: "0 0 1vh 0",
+            transition: "0.5s ease-in-out",
 
-            // fontWeight: "bold",
-            // boxShadow:
-            //   "0px 1px 2px -1px rgba(255,105,135,0.5), 0px 3px 5px 0px rgba(255,105,135,0.3), 0px 1px 9px 0px rgba(255,105,135,0.2)",
+            "&:hover": { background: "#884ed9", color: "white" },
             "@media (max-width: 600px)": {
               boxShadow: "unset",
               fontWeight: "unset",

@@ -58,34 +58,9 @@
 
 .lineSpanServices {
   height: 4px;
-  background-color: #e6e6e6;
-  width: 20vw;
+  background: #884ed9;
+  width: 15vw;
   margin: 3vh auto;
-  background-image: linear-gradient(left, #8957d5 2%, #628cd5 50%, white 98%);
-  background-image: -o-linear-gradient(
-    left,
-    #8957d5 2%,
-    #628cd5 50%,
-    white 98%
-  );
-  background-image: -moz-linear-gradient(
-    left,
-    #8957d5 2%,
-    #628cd5 50%,
-    white 98%
-  );
-  background-image: -webkit-linear-gradient(
-    left,
-    #8957d5 2%,
-    #628cd5 50%,
-    white 98%
-  );
-  background-image: -ms-linear-gradient(
-    left,
-    #8957d5 2%,
-    #628cd5 50%,
-    white 98%
-  );
   /* background-image: -webkit-gradient(
     linear,
     left bottom,
