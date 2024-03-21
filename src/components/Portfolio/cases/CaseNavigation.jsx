@@ -10,8 +10,9 @@ const CaseNavigation = ({ prevCase, nextCase, nextHeader, prevHeader }) => {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        margin: "10vh auto",
+        margin: "5vh auto",
         width: "95vw",
+        
 
         "@media (max-width: 600px)": {
           margin: "2vh auto",

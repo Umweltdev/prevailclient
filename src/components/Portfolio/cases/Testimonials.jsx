@@ -42,7 +42,7 @@ const useStyles = makeStyles({
   },
 
   text: {
-    padding: "1vw",
+    padding: "0 1.5vw",
     textJustify: "distribute",
     textAlign: "justify",
   },
@@ -108,19 +108,21 @@ const Testimonials = () => {
             }}
             className={classes.iconQuote}
           />
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-          repellendus odit ex officiis ipsam velit incidunt dolores nobis,
-          praesentium vero aperiam. Aperiam rerum laborum dignissimos neque est,
-          reprehenderit ea eligendi doloribus vero alias magnam odio, ullam
-          perspiciatis officia, voluptatem necessitatibus.
+          <Typography className={classes.text}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
+            repellendus odit ex officiis ipsam velit incidunt dolores nobis,
+            praesentium vero aperiam. Aperiam rerum laborum dignissimos neque
+            est, reprehenderit ea eligendi doloribus vero alias magnam odio,
+            ullam perspiciatis officia, voluptatem necessitatibus.
+          </Typography>
           <Grid className={classes.classBotm}>
             <Typography
-              sx={{ fontWeight: "bold" }}
+              sx={{ fontWeight: "bold", padding: "0 1.4vw" }}
               className={classes.authorName}
             >
               James Huddork
             </Typography>
-            <Typography sx={{ fontSize: "13px" }}>
+            <Typography sx={{ fontSize: "13px", padding: "0 1.4vw" }}>
               20th April, 2023
             </Typography>
           </Grid>
