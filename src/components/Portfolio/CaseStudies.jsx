@@ -12,7 +12,7 @@ const useStyles = makeStyles({
     justifyContent: "center",
     alignItems: "center",
     margin: "5vh auto",
-    width: "65.4vw",
+    width: "92.4vw",
     // width: "819px",
     borderRadius: "3vw",
     background: "white",
@@ -30,15 +30,18 @@ const useStyles = makeStyles({
     listStyle: "none",
     // background: "#ba8bd9",
     color: "grey",
-    padding: "1vw 2vw",
+    padding: "1vw 0",
     borderRadius: "3vw",
     // fontWeight: "bold",
     fontSize: "1.3vw",
     cursor: "pointer",
+    fontFamily: `"Sarabun","sans-serif"`,
     transition: "0.5s ease-in-out",
     // margin: "10vh 0 0 0",
+    textAlign: "center",
+    width: "30vw",
     "&:hover": {
-      backgroundColor: "gray",
+      backgroundColor: "#b4b4b4",
       color: "white",
     },
 
@@ -55,7 +58,7 @@ const useStyles = makeStyles({
     },
   },
   active: {
-    background: "#70a1e3",
+    background: "#884ed9",
     color: "#fff",
   },
 
