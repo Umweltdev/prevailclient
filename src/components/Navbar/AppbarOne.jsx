@@ -155,11 +155,22 @@ function AppBarOne() {
               <Typography
                 variant="h6"
                 component="div"
-                sx={{ flexGrow: 1, display: { xs: "block", sm: "none" } }}
+                sx={{
+                  flexGrow: 1,
+                  display: {
+                    xs: "block",
+                    sm: "none",
+                    fontFamily: `"Sarabun","sans-serif"`,
+                  },
+                }}
               >
                 <Link
                   to={`/`}
-                  style={{ textDecoration: "none", color: "inherit" }}
+                  style={{
+                    textDecoration: "none",
+                    color: "inherit",
+                    fontFamily: `"Sarabun","sans-serif"`,
+                  }}
                 >
                   <img style={{ width: "14vw" }} src={logo} alt="logo" />
                 </Link>
@@ -171,6 +182,7 @@ function AppBarOne() {
               sx={{
                 flexGrow: 1,
                 display: { xs: "none", sm: "block" },
+                fontFamily: `"Sarabun","sans-serif"`,
               }}
             >
               <Link
@@ -204,7 +216,11 @@ function AppBarOne() {
                       >
                         <Link
                           to={`/${item.toLowerCase()}`}
-                          style={{ textDecoration: "none", color: "inherit" }}
+                          style={{
+                            textDecoration: "none",
+                            color: "inherit",
+                            fontFamily: `"Sarabun","sans-serif"`,
+                          }}
                         >
                           {item}
                         </Link>
@@ -215,7 +231,11 @@ function AppBarOne() {
                         sx={{ color: "white", fontWeight: "900" }}
                       >
                         <NavLink
-                          style={{ textDecoration: "none", color: "inherit" }}
+                          style={{
+                            textDecoration: "none",
+                            color: "inherit",
+                            fontFamily: `"Sarabun","sans-serif"`,
+                          }}
                           to={item.path}
                         >
                           {item.label}

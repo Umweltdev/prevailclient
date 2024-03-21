@@ -64,7 +64,14 @@ function DrawerAppBarWhite() {
         "@media (max-width: 600px)": { overflow: "hidden" },
       }}
     >
-      <Typography variant="h6" sx={{ my: 2, marginRight: "10vw" }}>
+      <Typography
+        variant="h6"
+        sx={{
+          my: 2,
+          marginRight: "10vw",
+          fontFamily: `"Sarabun","sans-serif"`,
+        }}
+      >
         <Link to={`/`} style={{ textDecoration: "none", color: "inherit" }}>
           <img style={{ height: "10vh" }} src={logo} alt="logo" />
         </Link>
@@ -76,7 +83,11 @@ function DrawerAppBarWhite() {
             {typeof item === "string" ? (
               <Link
                 to={`/${item.toLowerCase()}`}
-                style={{ textDecoration: "none", color: "inherit" }}
+                style={{
+                  textDecoration: "none",
+                  color: "inherit",
+                  fontFamily: `"Sarabun","sans-serif"`,
+                }}
               >
                 <ListItemButton sx={{ textAlign: "center" }}>
                   <ListItemText primary={item} />
@@ -89,7 +100,11 @@ function DrawerAppBarWhite() {
                 }}
               >
                 <NavLink
-                  style={{ textDecoration: "none", color: "inherit" }}
+                  style={{
+                    textDecoration: "none",
+                    color: "inherit",
+                    fontFamily: `"Sarabun","sans-serif"`,
+                  }}
                   to={item.path}
                 >
                   <ListItemText primary={item.label} />
@@ -159,7 +174,11 @@ function DrawerAppBarWhite() {
               >
                 <Link
                   to={`/`}
-                  style={{ textDecoration: "none", color: "inherit" }}
+                  style={{
+                    textDecoration: "none",
+                    color: "inherit",
+                    fontFamily: `"Sarabun","sans-serif"`,
+                  }}
                 >
                   <img style={{ width: "14vw" }} src={logo} alt="logo" />
                 </Link>
@@ -171,6 +190,7 @@ function DrawerAppBarWhite() {
               sx={{
                 flexGrow: 1,
                 display: { xs: "none", sm: "block" },
+                fontFamily: `"Sarabun","sans-serif"`,
               }}
             >
               <Link
@@ -204,7 +224,11 @@ function DrawerAppBarWhite() {
                       >
                         <Link
                           to={`/${item.toLowerCase()}`}
-                          style={{ textDecoration: "none", color: "inherit" }}
+                          style={{
+                            textDecoration: "none",
+                            color: "inherit",
+                            fontFamily: `"Sarabun","sans-serif"`,
+                          }}
                         >
                           {item}
                         </Link>
@@ -212,10 +236,18 @@ function DrawerAppBarWhite() {
                     ) : (
                       <Button
                         key={item.path}
-                        sx={{ color: "#884ed9", fontWeight: "900" }}
+                        sx={{
+                          color: "#884ed9",
+                          fontWeight: "900",
+                          fontFamily: `"Sarabun","sans-serif"`,
+                        }}
                       >
                         <NavLink
-                          style={{ textDecoration: "none", color: "inherit" }}
+                          style={{
+                            textDecoration: "none",
+                            color: "inherit",
+                            fontFamily: `"Sarabun","sans-serif"`,
+                          }}
                           to={item.path}
                         >
                           {item.label}
