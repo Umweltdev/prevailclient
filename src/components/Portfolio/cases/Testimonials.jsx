@@ -122,20 +122,12 @@ const Testimonials = () => {
               },
             }}
           />
-          <Grid sx={{ textAlign: "center", marginBottom: "1vh" }}>
-            <Star sx={{ color: "#e1aa06" }} />
-            <Star sx={{ color: "#e1aa06" }} />
-            <Star sx={{ color: "#e1aa06" }} />
-            <Star sx={{ color: "#e1aa06" }} />
-            <Star sx={{ color: "#e1aa06" }} />
-          </Grid>
 
           <Typography
             sx={{
-              
               textJustify: "distribute",
               textAlign: "justify",
-              width: "60vw"
+              width: "60vw",
             }}
           >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
@@ -145,15 +137,20 @@ const Testimonials = () => {
             ullam perspiciatis officia, voluptatem necessitatibus.
           </Typography>
           <Grid className={classes.classBotm}>
+            <Grid>
+              <Star sx={{ color: "#e1aa06" }} />
+              <Star sx={{ color: "#e1aa06" }} />
+              <Star sx={{ color: "#e1aa06" }} />
+              <Star sx={{ color: "#e1aa06" }} />
+              <Star sx={{ color: "#e1aa06" }} />
+            </Grid>
             <Typography
               sx={{ fontWeight: "bold" }}
               className={classes.authorName}
             >
               James Huddork
             </Typography>
-            <Typography sx={{ fontSize: "13px" }}>
-              20th April, 2023
-            </Typography>
+            <Typography sx={{ fontSize: "13px" }}>20th April, 2023</Typography>
           </Grid>
         </Typography>
       </Grid>

@@ -72,6 +72,7 @@ const useStyles = makeStyles({
 const CaseStudies = () => {
   const [selectedSection, setSelectedSection] = useState("View All");
   const [selectAll, setSelectAll] = useState(true);
+  
   const classes = useStyles();
 
   const handleSectionClick = (section) => {

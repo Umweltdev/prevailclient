@@ -69,16 +69,16 @@ export const blogBlurbs = [
       "The Influencer Advantage: A Comprehensive Guide to Establishing and Maintaining Effective Partnerships",
     date: "June 10, 2023",
     like: "67",
-    category: "Influencer Marketing",
+    category: "Email Marketing",
   },
   {
     img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     authorFirstName: "Jason Okafor",
     header:
-      "Demystifying SEO: A Beginner's Guide to Navigating the Complex Landscape of Search Engine Optimization",
+      "Demystifying SEO: A Beginner's Guide to Navigating the Complex Landscape of SEO",
     date: "July 18, 2023",
     like: "99",
-    category: "Search Engine Optimization",
+    category: "SEO",
   },
   {
     img: "https://plus.unsplash.com/premium_photo-1664475926084-d20248544896?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -87,7 +87,7 @@ export const blogBlurbs = [
       "The Power of Data: Navigating the World of Analytics in Digital Marketing Strategies for Optimal Results",
     date: "August 5, 2023",
     like: "68",
-    category: "Data Analytics",
+    category: "SEO",
   },
   {
     img: "https://images.unsplash.com/photo-1562577308-9e66f0c65ce5?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -105,7 +105,7 @@ export const blogBlurbs = [
       "Maximizing ROI with PPC Advertising: Advanced Strategies for Effective and Profitable Campaigns",
     date: "November 8, 2023",
     like: "09",
-    category: "Paid Advertising",
+    category: "Mobile Marketing",
   },
   {
     img: "https://images.unsplash.com/photo-1532622785990-d2c36a76f5a6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -123,7 +123,7 @@ export const blogBlurbs = [
       "E-commerce Revolution: Strategies for Creating and Managing a Thriving Digital Storefront in 2024",
     date: "January 20, 2024 Rick",
     like: "405",
-    category: "E-commerce",
+    category: "Social Media Marketing",
   },
   {
     img: "https://images.unsplash.com/photo-1533750516457-a7f992034fec?q=80&w=1506&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
