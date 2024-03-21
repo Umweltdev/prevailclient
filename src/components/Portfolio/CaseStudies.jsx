@@ -17,6 +17,7 @@ const useStyles = makeStyles({
     borderRadius: "27px",
     background: "white",
     boxShadow: "rgba(0, 0, 0, 0.25) 0px 14px 28px",
+    color: "grey",
     "@media (max-width: 600px)": {
       padding: "2vh 0",
       gap: "1vw",
@@ -28,7 +29,7 @@ const useStyles = makeStyles({
     textDecoration: "none",
     listStyle: "none",
     // background: "#ba8bd9",
-    color: "#d6c0ee",
+     color: "grey",
     padding: "14px 22px",
     borderRadius: "27px",
     // fontWeight: "bold",
@@ -38,7 +39,7 @@ const useStyles = makeStyles({
     // margin: "10vh 0 0 0",
     "&:hover": {
       backgroundColor: "gray",
-      color: "#f5f5f5",
+       color: "white",
     },
 
     "@media (max-width: 600px)": {
@@ -54,7 +55,8 @@ const useStyles = makeStyles({
     },
   },
   active: {
-    background: "#884ed9",
+    background: "#70a1e3",
+    color: "#fff"
   },
 
   cardComponent: {
