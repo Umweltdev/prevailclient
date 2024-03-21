@@ -26,10 +26,15 @@ export default function BlogSideCard({ header, category, img, date }) {
         backgroundColor: "#efe6f9",
         margin: "auto",
         boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+        borderRadius: "0.5vw",
       }}
     >
       <CardContent>
-        <Typography sx={{ fontSize: "1vw" }} color="text.secondary" gutterBottom>
+        <Typography
+          sx={{ fontSize: "1vw" }}
+          color="text.secondary"
+          gutterBottom
+        >
           {category}
         </Typography>
         <Typography
@@ -39,6 +44,7 @@ export default function BlogSideCard({ header, category, img, date }) {
             letterSpacing: "1px",
             textAlign: "justify",
             textJustify: "distribute",
+            margin: "0 0 2.5vh 0",
           }}
           color="text.secondary"
           gutterBottom
@@ -76,24 +82,25 @@ export default function BlogSideCard({ header, category, img, date }) {
         <CardActions>
           <Share
             sx={{
-              color: "#7097da",
+              color: "black",
               background: "#c3d2ef",
-              fontSize: "2.1vw",
+              fontSize: "2vw",
               padding: "5px",
               borderRadius: "50%",
+              fontWeight: "100",
             }}
           />
           <Favorite
             sx={{
-              color: "#7097da",
+              color: "black",
               background: "#c3d2ef",
-              fontSize: "2.1vw",
+              fontSize: "2vw",
               padding: "5px",
               borderRadius: "50%",
+              fontWeight: "100",
             }}
           />
         </CardActions>
-        
       </CardContent>
     </Card>
   );
