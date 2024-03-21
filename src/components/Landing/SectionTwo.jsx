@@ -12,7 +12,7 @@ const useStyles = makeStyles({
     fontFamily: theme.typography.fontFamily,
     fontWeight: theme.typography.fontWeightRegular,
     fontSize: theme.typography.fontSizeMedium,
-    color: theme.palette.other.light,
+    color: "black",
     padding: "18vh 0",
     // width: "90vw",
     textAlign: "justify",
@@ -26,7 +26,7 @@ const useStyles = makeStyles({
       lineHeight: "4vh",
       padding: "2vh 0",
       textAlign: "center",
-      margin: "0 auto"
+      margin: "0 auto",
     },
   },
 
