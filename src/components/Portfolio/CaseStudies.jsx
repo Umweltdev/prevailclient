@@ -12,11 +12,11 @@ const useStyles = makeStyles({
     justifyContent: "center",
     alignItems: "center",
     margin: "5vh auto",
-    // gap: "5px",
-    width: "819px",
-    borderRadius: "27px",
+    width: "65.4vw",
+    // width: "819px",
+    borderRadius: "3vw",
     background: "white",
-    boxShadow: "rgba(0, 0, 0, 0.25) 0px 14px 28px",
+    boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
     color: "grey",
     "@media (max-width: 600px)": {
       padding: "2vh 0",
@@ -29,9 +29,9 @@ const useStyles = makeStyles({
     textDecoration: "none",
     listStyle: "none",
     // background: "#ba8bd9",
-     color: "grey",
-    padding: "14px 22px",
-    borderRadius: "27px",
+    color: "grey",
+    padding: "1vw 2vw",
+    borderRadius: "3vw",
     // fontWeight: "bold",
     fontSize: "1.3vw",
     cursor: "pointer",
@@ -39,7 +39,7 @@ const useStyles = makeStyles({
     // margin: "10vh 0 0 0",
     "&:hover": {
       backgroundColor: "gray",
-       color: "white",
+      color: "white",
     },
 
     "@media (max-width: 600px)": {
@@ -47,7 +47,7 @@ const useStyles = makeStyles({
       listStyle: "none",
       background: "#ba8bd9",
       color: "white",
-      padding: "1vh 2vh",
+      padding: "1vw 2vw",
       borderRadius: "25px",
       // fontWeight: "bold",
       fontSize: "4vw",
@@ -56,7 +56,7 @@ const useStyles = makeStyles({
   },
   active: {
     background: "#70a1e3",
-    color: "#fff"
+    color: "#fff",
   },
 
   cardComponent: {
