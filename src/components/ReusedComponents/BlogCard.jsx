@@ -15,7 +15,7 @@ import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import avatar from "./assets/av.png";
-import { Button } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -45,68 +45,85 @@ export default function BlogCard({
   };
 
   return (
-    <Card sx={{ maxWidth: 345, "@media (max-width: 600px)": {width: "93vw"} }}>
-      <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            <img src={avatar} alt="" style={{ height: "50px" }} />
-          </Avatar>
-        }
-        title={authorFirstName}
-        subheader={date}
-      />
+    <Card
+      sx={{
+        maxWidth: 345,
+        "@media (max-width: 600px)": { width: "93vw" },
+        boxShadow:
+          "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;",
+        // borderRadius: "1vw",
+      }}
+    >
       <CardMedia
         component="img"
-        height="194"
+        height="254"
         image={img}
         alt={authorFirstName}
+        sx={{
+          height: "254px",
+        }}
       />
       <CardContent>
-        <Typography variant="body2" color="#884ed9">
+        <Typography
+          variant="body2"
+          color="#333"
+          sx={{ padding: "2vh 0", letterSpacing: "1px" }}
+        >
           {category}
         </Typography>
-        <Typography variant="body1" color="text.secondary">
+        <Typography
+          variant="body1"
+          sx={{
+            padding: "1vh 0",
+            letterSpacing: "1px",
+            textAlign: "justify",
+            textJustify: "distribute",
+          }}
+        >
           {header}
         </Typography>
+        <Grid>
+          <Typography sx={{ fontSize: "1vw", color: "909090" }}>
+            {authorFirstName} | {date}
+          </Typography>
+        </Grid>
       </CardContent>
-      <CardActions disableSpacing>
-        <IconButton
-          aria-label="add to favorites"
-          sx={{ display: "flex", alignItems: "center" }}
-        >
-          <FavoriteIcon /> <Typography variant="body2">{like}</Typography>
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <Button
-            variant="contained"
-            sx={{
-              background: "blue",
-              padding: "0.7vh 2vw",
+      <CardActions sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Grid sx={{ display: "flex" }}>
+          <IconButton
+            aria-label="add to favorites"
+            sx={{ display: "flex", alignItems: "center" }}
+          >
+            <FavoriteIcon /> <Typography variant="body2">{like}</Typography>
+          </IconButton>
+          <IconButton aria-label="share">
+            <ShareIcon />
+          </IconButton>
+        </Grid>
+        <Button
+          variant="contained"
+          sx={{
+            background: "#7097da",
+            padding: "0.7vh 2vw",
+            borderRadius: "5vw",
+            color: "white",
+            boxShadow: "none",
+            textTransform: "capitalize",
+            // "&hover": {
+            //   background: "#884ed9",
+            // },
+            "@media (max-width: 600px)": {
+              background:
+                gradient || "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
+              padding: "0.7vh 1vw",
               borderRadius: "5vw",
               color: "white",
-              fontWeight: "bold",
-              "@media (max-width: 600px)": {
-                background:
-                  gradient ||
-                  "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
-                padding: "0.7vh 1vw",
-                borderRadius: "5vw",
-                color: "white",
-                fontWeight: "unset",
-              },
-            }}
-          >
-            Read
-          </Button>
-        </ExpandMore>
+              fontWeight: "unset",
+            },
+          }}
+        >
+          Read
+        </Button>
       </CardActions>
     </Card>
   );
