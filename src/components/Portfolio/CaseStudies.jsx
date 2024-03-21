@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Grid, Typography } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { Link } from "react-router-dom";
 import { caseData } from "../Portfolio/assets/PortfolioData";
@@ -55,6 +55,7 @@ const useStyles = makeStyles({
       // fontWeight: "bold",
       fontSize: "4vw",
       cursor: "pointer",
+      width: "unset",
     },
   },
   active: {
@@ -106,9 +107,7 @@ const CaseStudies = () => {
             </li>
             <li
               className={`${classes.sTwoAboutList} ${
-                selectedSection === "Website Design & Dev"
-                  ? classes.active
-                  : ""
+                selectedSection === "Website Design & Dev" ? classes.active : ""
               }`}
               onClick={() => handleSectionClick("Website Design & Dev")}
             >
@@ -133,38 +132,36 @@ const CaseStudies = () => {
           </ul>
         </Grid>
       </Grid>
-      <Grid>
-        <Grid
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: "1vw",
-            flexWrap: "wrap",
-          }}
-        >
-          {caseData.map((data, index) => (
-            <Grid
+
+      <Box
+        
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: "1vw",
+          flexWrap: "wrap",
+        }}
+      >
+        {caseData.map((data, index) => (
+          <Grid
+            key={index}
+            sx={{ display: "flex", flexDirection: "row", margin: "5vh 0" }}
+          >
+            <Link
+              to={`/Portfolio/${index}`}
               key={index}
-              sx={{ display: "flex", flexDirection: "row", margin: "5vh 0" }}
+              className="sOneBlogCardLink"
+              style={{ textDecoration: "none" }}
             >
-              <Link
-                to={`/Portfolio/${index}`}
-                key={index}
-                className="sOneBlogCardLink"
-                style={{ textDecoration: "none" }}
-              >
-                {selectAll || selectedSection === data.header ? (
-                  <Grid sx={{ display: "flex", flexDirection: "row" }}>
-                    <CasestudyCard text={data.text} image={data.img} />
-                  </Grid>
-                ) : null}
-              </Link>
-            </Grid>
-          ))}
-        </Grid>
-      </Grid>
+              {selectAll || selectedSection === data.header ? (
+                <CasestudyCard text={data.text} image={data.img} />
+              ) : null}
+            </Link>
+          </Grid>
+        ))}
+      </Box>
     </Grid>
   );
 };

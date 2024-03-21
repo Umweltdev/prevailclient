@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 export default function CasestudyCard({ image, text, index }) {
   return (
-    <Grid>
+    <div>
       <Card sx={{ width: 340, borderRadius: "20px" }}>
         <CardActionArea>
           <CardMedia
@@ -43,6 +43,6 @@ export default function CasestudyCard({ image, text, index }) {
           </CardContent>
         </CardActionArea>
       </Card>
-    </Grid>
+    </div>
   );
 }
