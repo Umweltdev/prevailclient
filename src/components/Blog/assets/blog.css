@@ -2,7 +2,7 @@
   background-image: url("https://images.unsplash.com/photo-1552152370-fb05b25ff17d?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   /* position: fixed; */
   background-repeat: no-repeat;
-  
+
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-attachment: fixed;
@@ -177,11 +177,11 @@
 
 /* BLOG DETAILS */
 .sOneBlogDetailsContainer {
-  padding-top: 55vh;
+  padding-top: 26vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: top;
 }
 
 .sOneBlogDetailsHeader {
@@ -194,9 +194,11 @@
 }
 
 .sOneBlogDetailsImg {
-  width: 70vw;
+  width: 55vw;
   height: 60vh;
   object-fit: cover;
+  border-radius: 1vw 1vw 0 0;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .sOneBlogDetailsInfo {
@@ -223,17 +225,17 @@
   color: var(--fourth-color);
   display: flex;
   gap: 2vw;
-  padding: 3vh 0;
+  /* padding: 3vh 0; */
 }
 
 .sOneBlogDetailsDesc {
   padding: 3vh 0;
-  /* display: flex;
-  justify-content: center; */
   text-align: justify;
-  width: 70vw;
-  font-size: 1.3vw;
+  /* width: 70vw; */
+  font-size: 1.1vw;
   line-height: 4vh;
+  width: 55vw;
+  font-family: "Poppins", sans-serif;
 }
 
 .sOneBlogCardLink {
@@ -291,13 +293,14 @@
     padding-top: 25vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    gap: 10vw;
   }
 
   .sOneBlogDetailsHeader {
     justify-content: center;
-    text-align: center;
+    text-align: left;
     width: 95vw;
     font-size: 4vw;
     margin-bottom: 1vh;
@@ -307,7 +310,7 @@
   .sOneBlogDetailsInfo {
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: left;
     gap: 1vw;
   }
 
