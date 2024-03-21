@@ -11,25 +11,36 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    padding: "5vh 0",
-    gap: "2vw",
+    margin: "5vh auto",
+    // gap: "5px",
+    width: "65.5vw",
+    borderRadius: "27px",
+    background: "#d6c0ee",
+    // padding: "1.4vh 2vw",
     "@media (max-width: 600px)": {
       padding: "2vh 0",
       gap: "1vw",
-      flexWrap: "wrap"
+      flexWrap: "wrap",
     },
   },
 
   sTwoAboutList: {
     textDecoration: "none",
     listStyle: "none",
-    background: "#ba8bd9",
+    // background: "#ba8bd9",
     color: "white",
-    padding: "1vh 2vw",
-    borderRadius: "25px",
+    padding: "1.4vh 2vw",
+    borderRadius: "27px",
     // fontWeight: "bold",
     fontSize: "1.3vw",
     cursor: "pointer",
+    transition: "0.5s ease-in-out",
+    // width: "80vw",
+    "&:hover": {
+      backgroundColor: "#9c69c0",
+      color: "#f5f5f5",
+    },
+
     "@media (max-width: 600px)": {
       textDecoration: "none",
       listStyle: "none",

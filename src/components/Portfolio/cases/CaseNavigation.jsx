@@ -8,10 +8,10 @@ const CaseNavigation = ({ prevCase, nextCase, nextHeader, prevHeader }) => {
     <Grid
       sx={{
         display: "flex",
-        justifyContent: "center",
+        justifyContent: "space-between",
         alignItems: "center",
-        margin: "10vh auto",
-        gap: "10px",
+        margin: "10vh 4vw",
+        
         "@media (max-width: 600px)": {
           margin: "2vh auto",
         },
@@ -23,7 +23,7 @@ const CaseNavigation = ({ prevCase, nextCase, nextHeader, prevHeader }) => {
             background: "#884ed9",
             color: "white",
             height: "120px",
-            width: "620px",
+            width: "25vw",
             borderRadius: "16px",
             "@media (max-width: 600px)": {
               height: "100px",
@@ -72,7 +72,7 @@ const CaseNavigation = ({ prevCase, nextCase, nextHeader, prevHeader }) => {
             background: "#884ed9",
             color: "white",
             height: "120px",
-            width: "620px",
+            width: "25vw",
             borderRadius: "16px",
             "@media (max-width: 600px)": {
               height: "100px",
