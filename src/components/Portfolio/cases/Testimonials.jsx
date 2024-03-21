@@ -1,163 +1,131 @@
-import { FormatQuote, Star, Start } from "@mui/icons-material";
-import { Card, CardContent, Grid, Typography } from "@mui/material";
+import { FormatQuote, Star } from "@mui/icons-material"; // Corrected import
+import { Card, Grid, Typography } from "@mui/material";
+import { makeStyles } from "@mui/styles"; // Check if this path is correct for your MUI version
 import React from "react";
 
+const useStyles = makeStyles({
+  cardContainer: {
+    width: "70vw",
+    height: "25vw",
+    margin: "5vh auto",
+    background: "#e2ccf7",
+    display: "flex",
+    boxShadow: "rgba(0, 0, 0, 0.25) 0px 14px 28px",
+    borderRadius: "5vw",
+
+    "@media (max-width: 600px)": {
+      width: "95vw",
+      margin: "2vh auto",
+      background: "#e2ccf7",
+      // padding: "0 5vw",
+      borderRadius: "2vw",
+    },
+  },
+
+  iconQuote: {
+    textAlign: "right",
+    color: "#ba8bd9",
+    fontSize: "20vw",
+    marginLeft: "17vh",
+    display: "flex",
+    flexDirection: " column-reverse",
+
+    "@media (max-width: 600px)": {
+      fontSize: "10vh",
+    },
+  },
+
+  textImage: {
+    width: "20vw",
+    height: "30vw",
+    objectFit: "cover",
+  },
+
+  text: {
+    padding: "1vw",
+    textJustify: "distribute",
+    textAlign: "justify",
+  },
+
+  textSection: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  classBotm: {
+    marginTop: "3vh",
+  },
+
+  authorName: {
+    fontWeight: "600",
+  },
+});
+
 const Testimonials = () => {
+  const classes = useStyles();
+
   return (
     <Card
       sx={{
-        width: "80vw",
-        borderRadius: "16px",
+        width: "70vw",
+        height: "25vw",
         margin: "5vh auto",
-        background: "#e2ccf7",
-        // padding: "0 5vw",
+        display: "flex",
+        boxShadow: "rgba(0, 0, 0, 0.25) 0px 14px 28px",
+        borderRadius: "16px",
 
         "@media (max-width: 600px)": {
           width: "95vw",
-          margin: "2vh auto",
+          margin: "1vh auto",
           background: "#e2ccf7",
           // padding: "0 5vw",
           borderRadius: "2vw",
         },
       }}
     >
-      <CardContent
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          "@media (max-width: 600px)": {
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          },
-        }}
-      >
-        <FormatQuote
-          sx={{
-            textAlign: "right",
-            marginLeft: "60vw",
-            color: "#ba8bd9",
-            fontSize: "10vw",
-            "@media (max-width: 600px)": {
+      <img
+        className={classes.textImage}
+        src="https://images.unsplash.com/photo-1542190891-2093d38760f2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGJsYWNrJTIwYnVzc2luZXNzJTIwbWFufGVufDB8fDB8fHww"
+        alt="ceo"
+      />
+
+      <Grid className={classes.textSection}>
+        <Typography className={classes.text}>
+          <FormatQuote
+            sx={{
               textAlign: "right",
-              marginLeft: "75vw",
               color: "#ba8bd9",
-              fontSize: "10vh",
-            },
-          }}
-        />
-        <Grid>
-          <Star
-            sx={{
-              color: "#ba8bd9",
-              fontSize: "2.5vw",
-              "@media (max-width: 600px)": {
-                color: "#ba8bd9",
-                fontSize: "4vh",
-              },
-            }}
-          />
-          <Star
-            sx={{
-              color: "#ba8bd9",
-              fontSize: "2.5vw",
-              "@media (max-width: 600px)": {
-                color: "#ba8bd9",
-                fontSize: "4vh",
-              },
-            }}
-          />
-          <Star
-            sx={{
-              color: "#ba8bd9",
-              fontSize: "2.5vw",
-              "@media (max-width: 600px)": {
-                color: "#ba8bd9",
-                fontSize: "4vh",
-              },
-            }}
-          />
-          <Star
-            sx={{
-              color: "#ba8bd9",
-              fontSize: "2.5vw",
-              "@media (max-width: 600px)": {
-                color: "#ba8bd9",
-                fontSize: "4vh",
-              },
-            }}
-          />
-          <Star
-            sx={{
-              color: "#ba8bd9",
-              fontSize: "2.5vw",
-              "@media (max-width: 600px)": {
-                color: "#ba8bd9",
-                fontSize: "4vh",
-              },
-            }}
-          />
-        </Grid>
-        <Typography
-          sx={{
-            color: "#333",
-            fontSize: "1.4vw",
-            textAlign: "center",
-            margin: "3vh 0",
-
-            "@media (max-width: 600px)": {
-              color: "#333",
-              fontSize: "4.5vw",
-              textAlign: "center",
-              margin: "2vh 0",
-            },
-          }}
-        >
-          Prevail has given me a lot of peace of mind, which is very important.
-          We are much less stressed about running our business now that we know
-          a full-fledged marketing team is carefully managing every aspect of
-          our digital marketing. It’s like having your own marketing department,
-          but without all the costs and problems that come with running one.
-        </Typography>
-        <Typography
-          sx={{
-            color: "#7097da",
-            fontSize: "2vw",
-            textAlign: "center",
-            margin: "1vh 0",
-            fontWeight: "bold",
-            "@media (max-width: 600px)": {
-              color: "#7097da",
               fontSize: "5vw",
-              textAlign: "center",
-              margin: "unset",
-              fontWeight: "bold",
-            },
-          }}
-        >
-          Clive Buckley
-        </Typography>
-        <Typography
-          sx={{
-            color: "#333",
-            fontSize: "1vw",
-            textAlign: "center",
-            margin: "1vh 0",
+              marginLeft: "87vh",
+              display: "flex",
+              flexDirection: " column-reverse",
 
-            "@media (max-width: 600px)": {
-              color: "#333",
-              fontSize: "4vw",
-              textAlign: "center",
-              margin: "0",
-            },
-          }}
-        >
-          Owner
+              "@media (max-width: 600px)": {
+                fontSize: "10vh",
+              },
+            }}
+            className={classes.iconQuote}
+          />
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
+          repellendus odit ex officiis ipsam velit incidunt dolores nobis,
+          praesentium vero aperiam. Aperiam rerum laborum dignissimos neque est,
+          reprehenderit ea eligendi doloribus vero alias magnam odio, ullam
+          perspiciatis officia, voluptatem necessitatibus.
+          <Grid className={classes.classBotm}>
+            <Typography
+              sx={{ fontWeight: "bold" }}
+              className={classes.authorName}
+            >
+              James Huddork
+            </Typography>
+            <Typography sx={{ fontSize: "13px" }}>
+              20th April, 2023
+            </Typography>
+          </Grid>
         </Typography>
-      </CardContent>
+      </Grid>
     </Card>
   );
 };

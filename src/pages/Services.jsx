@@ -7,12 +7,14 @@ import SectionFive from "../components/Services/SectionFive";
 import SectionSix from "../components/Services/SectionSix";
 import Navbar from "../components/Navbar/Navbar";
 import FooterNew from "../components/Footer/FooterNew";
+import DrawerAppBarWhite from "../components/Navbar/Appbar";
 
 const Services = () => {
   return (
     <div>
       {/* <Navbar />    */}
-      <SectionOne />
+      {/* <SectionOne /> */}
+      <DrawerAppBarWhite />
       <SectionTwo />
       <SectionThree />
       {/* <SectionFour /> */}
