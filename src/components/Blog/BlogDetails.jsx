@@ -156,7 +156,7 @@ const BlogDetails = () => {
           </p>
         </Grid>
         <div className="blogRight">
-          <Typography> Up Next:</Typography>
+          {/* <Typography> Up Next:</Typography> */}
           <Grid>
             <BlogSideCard
               category={blog.category}
