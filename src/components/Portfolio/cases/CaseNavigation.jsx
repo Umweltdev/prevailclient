@@ -10,8 +10,9 @@ const CaseNavigation = ({ prevCase, nextCase, nextHeader, prevHeader }) => {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        margin: "10vh 4vw",
-        
+        margin: "10vh auto",
+        width: "95vw",
+
         "@media (max-width: 600px)": {
           margin: "2vh auto",
         },
@@ -23,7 +24,7 @@ const CaseNavigation = ({ prevCase, nextCase, nextHeader, prevHeader }) => {
             background: "#884ed9",
             color: "white",
             height: "120px",
-            width: "25vw",
+            width: "30vw",
             borderRadius: "16px",
             "@media (max-width: 600px)": {
               height: "100px",
@@ -72,7 +73,7 @@ const CaseNavigation = ({ prevCase, nextCase, nextHeader, prevHeader }) => {
             background: "#884ed9",
             color: "white",
             height: "120px",
-            width: "25vw",
+            width: "30vw",
             borderRadius: "16px",
             "@media (max-width: 600px)": {
               height: "100px",
