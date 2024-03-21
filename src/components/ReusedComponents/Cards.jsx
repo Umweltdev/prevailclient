@@ -15,9 +15,8 @@ const useStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     padding: "4vh 2vw",
-    borderRadius: "5px",
-    boxShadow:
-      "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px",
+    borderRadius: "5vw",
+    boxShadow: "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px",
 
     // width: "100%",
     // justifyContent: "center",
@@ -95,7 +94,28 @@ export default function BasicCard({ headerText, text, icon }) {
   const classes = useStyles();
 
   return (
-    <Card elevation={1} className={classes.cardContainer}>
+    <Card
+      elevation={1}
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        padding: "4vh 2vw",
+        borderRadius: "1.3vw",
+        boxShadow:
+          "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
+        height: "40vh",
+        "@media (max-width: 600px)": {
+          width: "95vw",
+          // height: 345,
+          display: "flex",
+          // flexDirection: "column",
+          // justifyContent: "center",
+          // alignItems: "center",
+          // textDecoration: "none",
+          // gap: "0",
+        },
+      }}
+    >
       <Grid className={classes.cardHeader}>
         <Grid>
           <Typography
@@ -139,7 +159,6 @@ export default function BasicCard({ headerText, text, icon }) {
                 // padding: "0",
                 width: "unset",
                 fontSize: "3vw",
-                
               },
             }}
             variant="contained"
