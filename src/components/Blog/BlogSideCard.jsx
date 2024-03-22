@@ -42,7 +42,7 @@ export default function BlogSideCard({ header, category, img, date }) {
           sx={{
             width: "20vw",
             fontSize: "0.9vw",
-            letterSpacing: "1px",
+            // letterSpacing: "0.5px",
             textAlign: "justify",
             textJustify: "distribute",
 
