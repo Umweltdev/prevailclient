@@ -87,7 +87,7 @@ export default function BlogSideCard({ header, category, img, date }) {
           <Share
             sx={{
               color: "#884ed9",
-              background: "#fff",
+              // background: "#fff",
               fontSize: "2vw",
               padding: "5px",
               borderRadius: "50%",
@@ -97,7 +97,7 @@ export default function BlogSideCard({ header, category, img, date }) {
           <Favorite
             sx={{
               color: "#884ed9",
-              background: "#fff",
+              // background: "#fff",
               fontSize: "2vw",
               padding: "5px",
               borderRadius: "50%",
