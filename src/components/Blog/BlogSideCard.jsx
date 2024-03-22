@@ -6,6 +6,7 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Favorite, Share } from "@mui/icons-material";
+import { Grid } from "@mui/material";
 
 const bull = (
   <Box
@@ -31,7 +32,7 @@ export default function BlogSideCard({ header, category, img, date }) {
     >
       <CardContent>
         <Typography
-          sx={{ fontSize: "1vw" }}
+          sx={{ fontSize: "1.2vw", fontWeight: "bold", color: "#909090" }}
           color="text.secondary"
           gutterBottom
         >
@@ -44,6 +45,7 @@ export default function BlogSideCard({ header, category, img, date }) {
             letterSpacing: "1px",
             textAlign: "justify",
             textJustify: "distribute",
+
             margin: "0 0 2.5vh 0",
           }}
           color="text.secondary"
@@ -51,21 +53,19 @@ export default function BlogSideCard({ header, category, img, date }) {
         >
           {header}
         </Typography>
-        <CardActions>
-          <Button
+        <Grid>
+          <Typography
             sx={{
               textTransform: "capitalize",
-              color: "#333",
-              background: "#c3d2ef",
+              color: "#884ed9",
+              background: "#fff",
               fontSize: "10px",
               borderRadius: "25px",
-              padding: "0.4vw 2vw",
-              margin: "0",
             }}
           >
             Date: {date}
-          </Button>
-        </CardActions>
+          </Typography>
+        </Grid>
       </CardContent>
       <CardContent>
         <img
@@ -82,8 +82,8 @@ export default function BlogSideCard({ header, category, img, date }) {
         <CardActions>
           <Share
             sx={{
-              color: "black",
-              background: "#c3d2ef",
+              color: "#884ed9",
+              background: "#fff",
               fontSize: "2vw",
               padding: "5px",
               borderRadius: "50%",
@@ -92,8 +92,8 @@ export default function BlogSideCard({ header, category, img, date }) {
           />
           <Favorite
             sx={{
-              color: "black",
-              background: "#c3d2ef",
+              color: "#884ed9",
+              background: "#fff",
               fontSize: "2vw",
               padding: "5px",
               borderRadius: "50%",
