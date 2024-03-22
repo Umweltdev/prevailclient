@@ -8,6 +8,9 @@ import SectionSix from "../components/Services/SectionSix";
 import Navbar from "../components/Navbar/Navbar";
 import FooterNew from "../components/Footer/FooterNew";
 import DrawerAppBarWhite from "../components/Navbar/Appbar";
+import Carousel from "../components/Services/Carousel";
+
+
 
 const Services = () => {
   return (
@@ -16,7 +19,8 @@ const Services = () => {
       {/* <SectionOne /> */}
       <DrawerAppBarWhite />
       <SectionTwo />
-      <SectionThree />
+      {/* <SectionThree /> */}
+      <Carousel />
       {/* <SectionFour /> */}
       {/* <SectionFive/> */}
       {/* <SectionSix /> */}
