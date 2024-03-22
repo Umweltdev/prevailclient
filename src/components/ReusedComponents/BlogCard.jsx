@@ -52,43 +52,49 @@ export default function BlogCard({
         "@media (max-width: 600px)": { width: "93vw" },
         boxShadow:
           "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;",
-        // borderRadius: "1vw",
+        padding: "1vw",
       }}
     >
+      <Typography
+        sx={{
+          padding: "2vh 0",
+          // letterSpacing: "1px",
+          // textAlign: "justify",
+          // textJustify: "distribute",
+          fontSize: "1.1vw",
+        }}
+      >
+        {header}
+      </Typography>
       <CardMedia
         component="img"
         image={img}
         alt={authorFirstName}
         sx={{
-          height: "18vw",
+          height: "15vw",
+          borderRadius: "1vw",
         }}
       />
-      <CardContent>
+      <Grid sx={{padding: "2.5vh 0 3vh 0"}}>
         <Typography
           color="#333"
-          sx={{ padding: "1vh 0", letterSpacing: "1px", fontSize: "0.9vw" }}
+          sx={{ fontSize: "0.9vw" }}
         >
           {category}
         </Typography>
-        <Typography
-          sx={{
-            padding: "1vh 0",
-            letterSpacing: "1px",
-            textAlign: "justify",
-            textJustify: "distribute",
-            fontSize: "1.1vw",
-          }}
-        >
-          {header}
-        </Typography>
+
         <Grid>
-          <Typography sx={{ fontSize: "1vw", color: "909090" }}>
+          <Typography
+            sx={{ fontSize: "1vw", color: "909090", fontSize: "0.9vw" }}
+          >
             {authorFirstName} | {date}
           </Typography>
         </Grid>
-      </CardContent>
-      <CardActions sx={{ display: "flex", justifyContent: "space-between", mb: "1.5vh" }}>
-        <Grid sx={{ display: "flex" }}>
+      </Grid>
+      <Grid
+        sx={{ display: "flex", justifyContent: "space-between", mb: "1.5vh" }}
+      >
+        {/* <Grid sx={{ display: "flex" }}>
           <IconButton
             aria-label="add to favorites"
             sx={{ display: "flex", alignItems: "center" }}
@@ -98,7 +104,7 @@ export default function BlogCard({
           <IconButton aria-label="share">
             <ShareIcon />
           </IconButton>
-        </Grid>
+        </Grid> */}
         <Button
           variant="contained"
           sx={{
@@ -123,7 +129,7 @@ export default function BlogCard({
         >
           Read
         </Button>
-      </CardActions>
+      </Grid>
     </Card>
   );
 }
