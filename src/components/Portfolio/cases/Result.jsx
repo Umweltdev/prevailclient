@@ -1,5 +1,74 @@
+import {
+  AdsClick,
+  Equalizer,
+  Euro,
+  Leaderboard,
+  ShowChart,
+  SsidChart,
+  StackedLineChart,
+  TrendingUp,
+} from "@mui/icons-material";
 import { Card, CardContent, Grid, Typography } from "@mui/material";
 import React from "react";
+
+const reultData = [
+  {
+    text: "Total Active Users",
+    mainIcon: <Leaderboard sx={{ color: "#884ed9", fontSize: "4vw" }} />,
+    subIcon: (
+      <SsidChart
+        sx={{
+          color: "#884ed9",
+          fontSize: "1.4vw",
+        }}
+      />
+    ),
+    rate: "+89.4%",
+    bigText: "43.7k",
+  },
+  {
+    text: "Product",
+    mainIcon: <ShowChart sx={{ color: "#884ed9", fontSize: "4vw" }} />,
+    subIcon: (
+      <TrendingUp
+        sx={{
+          color: "#884ed9",
+          fontSize: "1.4vw",
+        }}
+      />
+    ),
+    rate: "+20%",
+    bigText: "108k",
+  },
+  {
+    text: "Revenue",
+    mainIcon: <Euro sx={{ color: "#884ed9", fontSize: "4vw" }} />,
+    subIcon: (
+      <TrendingUp
+        sx={{
+          color: "#884ed9",
+          fontSize: "1.4vw",
+        }}
+      />
+    ),
+    rate: "+70",
+    bigText: "170k",
+  },
+  {
+    text: "Clicks",
+    mainIcon: <AdsClick sx={{ color: "#884ed9", fontSize: "4vw" }} />,
+    subIcon: (
+      <StackedLineChart
+        sx={{
+          color: "#884ed9",
+          fontSize: "1.4vw",
+        }}
+      />
+    ),
+    rate: "+50.4%",
+    bigText: "100k",
+  },
+];
 
 const Result = () => {
   return (
@@ -10,7 +79,7 @@ const Result = () => {
         justifyContent: "space-around",
         alignItems: "center",
         padding: "5vh 5vw",
-        gap: "6vw",
+        gap: "5vw",
         "@media (max-width: 600px)": {
           flexDirection: "column",
           padding: "2vh 0",
@@ -65,153 +134,73 @@ const Result = () => {
           talk to each other and gave their clients more confidence.
         </Typography>
       </Grid>
-      <Grid>
-        <Card
-          sx={{
-            width: "40vw",
-            background: "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
-            color: "white",
-            "@media (max-width: 600px)": {
-              width: "95vw",
-            },
-          }}
-        >
-          <CardContent
+
+
+      {/* CARD */}
+      <Grid sx={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
+        {reultData.map((data, index) => (
+          <Card
+            key={index}
             sx={{
+              width: "19vw",
+              background: "white",
+              color: "black",
               display: "flex",
-              flexWrap: "wrap",
               justifyContent: "space-around",
-              gap: "6vw",
               alignItems: "center",
-              padding: "3vw 3vw",
+              // gap: "2vh",
+              borderRadius: "15px",
+              padding: "15px 0 0 0",
+              boxShadow:
+                "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;",
               "@media (max-width: 600px)": {
-                display: "flex",
-                flexWrap: "unset",
-                justifyContent: "space-around",
-                gap: "unset",
-                alignItems: "center",
-                padding: "2vh 3vw",
+                width: "95vw",
               },
             }}
           >
-            <Grid
-              sx={{
-                textAlign: "center",
-                lineHeight: "0",
-              }}
-            >
+            <Grid>
               <Typography
                 sx={{
-                  fontSize: "4vw",
-                  fontWeight: "bold",
-                  "@media (max-width: 600px)": {
-                    fontSize: "3vh",
-                    fontWeight: "bold",
-                  },
+                  color: "#333",
+                  fontSize: "1.1vw",
+                  marginBottom: "2vh",
                 }}
               >
-                880
+                {data.text}
               </Typography>
-              <Typography
+              <Grid
                 sx={{
-                  fontSize: "1.3vw",
-                  "@media (max-width: 600px)": {
-                    fontSize: "4vw",
-                  },
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "left",
+                  gap: "5px",
+                  mb: "1vh",
                 }}
               >
-                Clicks
+                {data.subIcon}
+                <Typography
+                  sx={{
+                    color: "#333",
+                    fontSize: "1vw",
+                    fontWeight: "bold",
+                  }}
+                >
+                  {data.rate}
+                </Typography>
+              </Grid>
+              <Typography
+                sx={{
+                  color: "#333",
+                  fontSize: "2.5vw",
+                  fontWeight: "bold",
+                }}
+              >
+                {data.bigText}
               </Typography>
             </Grid>
-            <Grid
-              sx={{
-                textAlign: "center",
-                lineHeight: "1vh",
-              }}
-            >
-              <Typography
-                sx={{
-                  fontSize: "4vw",
-                  fontWeight: "bold",
-                  "@media (max-width: 600px)": {
-                    fontSize: "3vh",
-                    fontWeight: "bold",
-                  },
-                }}
-              >
-                671
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "1.3vw",
-                  "@media (max-width: 600px)": {
-                    fontSize: "4vw",
-                  },
-                }}
-              >
-                Cost
-              </Typography>
-            </Grid>
-            <Grid
-              sx={{
-                textAlign: "center",
-                lineHeight: "1vh",
-              }}
-            >
-              <Typography
-                sx={{
-                  fontSize: "4vw",
-                  fontWeight: "bold",
-                  "@media (max-width: 600px)": {
-                    fontSize: "3vh",
-                    fontWeight: "bold",
-                  },
-                }}
-              >
-                3.78k
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "1.3vw",
-                  "@media (max-width: 600px)": {
-                    fontSize: "4vw",
-                  },
-                }}
-              >
-                Revenue
-              </Typography>
-            </Grid>
-            <Grid
-              sx={{
-                textAlign: "center",
-                lineHeight: "1vh",
-              }}
-            >
-              <Typography
-                sx={{
-                  fontSize: "4vw",
-                  fontWeight: "bold",
-                  "@media (max-width: 600px)": {
-                    fontSize: "3vh",
-                    fontWeight: "bold",
-                  },
-                }}
-              >
-                5.64x
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "1.3vw",
-                  "@media (max-width: 600px)": {
-                    fontSize: "4vw",
-                  },
-                }}
-              >
-                ROAS
-              </Typography>
-            </Grid>
-          </CardContent>
-        </Card>
+            <Grid>{data.mainIcon}</Grid>
+          </Card>
+        ))}
       </Grid>
     </Grid>
   );
