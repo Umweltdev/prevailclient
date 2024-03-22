@@ -24,7 +24,7 @@ export default function BlogSideCard({ header, category, img, date }) {
         minWidth: "30vw",
         display: "flex",
         justifyContent: "space-around",
-        backgroundColor: "#909090",
+        backgroundColor: "#e7ecef",
         margin: "auto",
         boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
         borderRadius: "0.5vw",
@@ -33,7 +33,7 @@ export default function BlogSideCard({ header, category, img, date }) {
     >
       <CardContent>
         <Typography
-          sx={{ fontSize: "1.2vw", fontWeight: "bold", color: "#fff" }}
+          sx={{ fontSize: "1.2vw", fontWeight: "bold", color: "#333" }}
           color="text.secondary"
           gutterBottom
         >
@@ -43,9 +43,9 @@ export default function BlogSideCard({ header, category, img, date }) {
           sx={{
             width: "20vw",
             fontSize: "0.9vw",
-            color: "white",
-            textAlign: "justify",
-            textJustify: "distribute",
+            color: "#333",
+            // textAlign: "justify",
+            // textJustify: "distribute",
             // wordSpacing: "10px",
             margin: "0 0 2.5vh 0",
           }}
@@ -58,7 +58,7 @@ export default function BlogSideCard({ header, category, img, date }) {
           <Typography
             sx={{
               textTransform: "capitalize",
-              color: "#909090",
+              color: "#884ed9",
               background: "#fff",
               fontSize: "0.9vw",
               borderRadius: "25px",
@@ -86,7 +86,7 @@ export default function BlogSideCard({ header, category, img, date }) {
         <CardActions>
           <Share
             sx={{
-              color: "#909090",
+              color: "#884ed9",
               background: "#fff",
               fontSize: "2vw",
               padding: "5px",
@@ -96,8 +96,7 @@ export default function BlogSideCard({ header, category, img, date }) {
           />
           <Favorite
             sx={{
-              // color: "#909090",
-              color: "#ffbaba",
+              color: "#884ed9",
               background: "#fff",
               fontSize: "2vw",
               padding: "5px",
