@@ -9,18 +9,23 @@ import DrawerAppBar from "../Navbar/Appbar";
 import { Grid, Typography } from "@mui/material";
 import BlogSideCard from "./BlogSideCard";
 import SideBarNews from "./SideBarNews";
+import CaseNavigation from "../Portfolio/cases/CaseNavigation";
 
 const BlogDetails = () => {
-  // Access the parameters from the URL
   const { index } = useParams();
 
-  // Assuming `blogBlurbs` is available in the same scope
-  const blog = blogBlurbs[parseInt(index, 10)];
+  const currentIndex = parseInt(index, 10);
+  const currentBlog = blogBlurbs[currentIndex];
 
-  if (!blog) {
-    // Handle the case when the blog with the specified index is not found
+  if (!currentBlog) {
     return <div>Blog not found</div>;
   }
+
+  const prevIndex = currentIndex - 1;
+  const nextIndex = currentIndex + 1;
+  const prevCaseUrl = prevIndex >= 0 ? `/blog/${prevIndex}` : null;
+  const nextCaseUrl =
+    nextIndex < blogBlurbs.length ? `/blog/${nextIndex}` : null;
 
   return (
     <div className="sOneBlogContainer">
@@ -30,11 +35,11 @@ const BlogDetails = () => {
           display: "flex",
           justifyContent: "space-evenly",
           alignItems: "top",
-          margin: "25vh auto",
+          margin: "25vh 0 0 0",
         }}
       >
         <Grid sx={{ width: "55vw" }}>
-          <img className="sOneBlogDetailsImg" src={blog.img} alt="" />
+          <img className="sOneBlogDetailsImg" src={currentBlog.img} alt="" />
           <Grid
             sx={{
               display: "flex",
@@ -47,7 +52,7 @@ const BlogDetails = () => {
             <Typography
               sx={{ fontSize: "1.4vw", width: "35vw", fontWeight: "900" }}
             >
-              {blog.header}
+              {currentBlog.header}
             </Typography>
             <div className="sOneBlogDetailsSocils">
               <Facebook
@@ -89,7 +94,7 @@ const BlogDetails = () => {
                 fontWeight: "800",
               }}
             >
-              {blog.authorFirstName} | {blog.date}
+              {currentBlog.authorFirstName} | {currentBlog.date}
             </Typography>
           </Grid>
           {/* <h1 className="sOneBlogDetailsHeader">{blog.header}</h1>
@@ -166,6 +171,13 @@ const BlogDetails = () => {
           {/* SIDEBAR NEWS WAS HERE */}
         </div>
       </Grid>
+
+      <CaseNavigation
+        prevCase={prevCaseUrl}
+        nextCase={nextCaseUrl}
+        prevHeader={prevCaseUrl ? blogBlurbs[prevIndex].header : ""}
+        nextHeader={nextCaseUrl ? blogBlurbs[nextIndex].header : ""}
+      />
 
       <FooterNew />
     </div>

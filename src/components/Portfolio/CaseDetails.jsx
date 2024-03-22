@@ -24,7 +24,7 @@ const CaseDetails = () => {
     return <div>Case study not found</div>;
   }
 
-  // Calculate URLs for previous and next case studies
+  
   const prevIndex = currentIndex - 1;
   const nextIndex = currentIndex + 1;
   const prevCaseUrl = prevIndex >= 0 ? `/Portfolio/${prevIndex}` : null;
@@ -51,6 +51,7 @@ const CaseDetails = () => {
         prevHeader={prevCaseUrl ? caseData[prevIndex].header : ""}
         nextHeader={nextCaseUrl ? caseData[nextIndex].header : ""}
       />
+      
       <FooterNew />
     </Grid>
   );

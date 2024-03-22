@@ -25,12 +25,12 @@ const CaseNavigation = ({ prevCase, nextCase, nextHeader, prevHeader }) => {
             color: "white",
             height: "120px",
             width: "30vw",
-            borderRadius: "16px",
+
             background: "rgba(136, 78, 217, 0.5)",
             WebkitBackdropFilter: "blur(30px)",
             backdropFilter: "blur(30px)",
             border: "1px solid rgba(136, 78, 217, 0.4)",
-            
+
             "@media (max-width: 600px)": {
               height: "100px",
               width: "45vw",
@@ -58,7 +58,7 @@ const CaseNavigation = ({ prevCase, nextCase, nextHeader, prevHeader }) => {
           </Typography>
           <Typography
             sx={{
-              fontSize: "25px",
+              fontSize: "15px",
               padding: "0 0 0 20px",
               fontWeight: 500,
               "@media (max-width: 600px)": {
@@ -78,7 +78,7 @@ const CaseNavigation = ({ prevCase, nextCase, nextHeader, prevHeader }) => {
             color: "white",
             height: "120px",
             width: "30vw",
-            borderRadius: "16px",
+
             background: "rgba(136, 78, 217, 0.5)",
             WebkitBackdropFilter: "blur(30px)",
             backdropFilter: "blur(30px)",
@@ -111,7 +111,7 @@ const CaseNavigation = ({ prevCase, nextCase, nextHeader, prevHeader }) => {
           </Typography>
           <Typography
             sx={{
-              fontSize: "25px",
+              fontSize: "15px",
               padding: "0 0 0 20px",
               fontWeight: 500,
               "@media (max-width: 600px)": {
