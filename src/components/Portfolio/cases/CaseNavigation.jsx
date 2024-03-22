@@ -4,7 +4,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../assets/portfolio.css";
 
-const CaseNavigation = ({ prevCase, nextCase, nextHeader, prevHeader }) => {
+const CaseNavigation = ({
+  prevCase,
+  nextCase,
+  nextHeader,
+  prevHeader,
+  nextNav,
+  prevNav,
+}) => {
   return (
     <Grid
       sx={{
@@ -54,7 +61,7 @@ const CaseNavigation = ({ prevCase, nextCase, nextHeader, prevHeader }) => {
                 fontSize: "20px",
               }}
             />
-            Previous Case Study
+            {prevNav}
           </Typography>
           <Typography
             sx={{
@@ -102,7 +109,7 @@ const CaseNavigation = ({ prevCase, nextCase, nextHeader, prevHeader }) => {
               },
             }}
           >
-            Next Case Study
+            {nextNav}
             <ArrowForward
               sx={{
                 fontSize: "20px",

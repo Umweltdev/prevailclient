@@ -175,6 +175,8 @@ const BlogDetails = () => {
       <CaseNavigation
         prevCase={prevCaseUrl}
         nextCase={nextCaseUrl}
+        prevNav={"Next Blog"}
+        nextNav={"Previous Nav"}
         prevHeader={prevCaseUrl ? blogBlurbs[prevIndex].header : ""}
         nextHeader={nextCaseUrl ? blogBlurbs[nextIndex].header : ""}
       />

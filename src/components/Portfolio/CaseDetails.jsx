@@ -48,10 +48,12 @@ const CaseDetails = () => {
       <CaseNavigation
         prevCase={prevCaseUrl}
         nextCase={nextCaseUrl}
+        prevNav={"Next Case"}
+        nextNav={"Previous Case"}
         prevHeader={prevCaseUrl ? caseData[prevIndex].header : ""}
         nextHeader={nextCaseUrl ? caseData[nextIndex].header : ""}
       />
-      
+
       <FooterNew />
     </Grid>
   );
