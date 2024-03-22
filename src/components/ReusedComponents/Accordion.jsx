@@ -95,6 +95,7 @@ export default function AccordionUsage() {
         padding: "2vw",
         borderRadius: "1vw",
         fontFamily: theme.typography.fontFamily,
+        boxShadow: "rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
       }}
     >
       {goalsObj.map((data, index) => (
@@ -154,7 +155,6 @@ export default function AccordionUsage() {
           </AccordionDetails>
         </Accordion>
       ))}
-      
     </Box>
   );
 }

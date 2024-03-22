@@ -85,7 +85,7 @@ export default function BlogCard({
 
         <Grid>
           <Typography
-            sx={{ fontSize: "1vw", color: "909090", fontSize: "0.9vw" }}
+            sx={{ color: "#b4b4b4", fontSize: "0.9vw" }}
           >
             {authorFirstName} | {date}
           </Typography>
