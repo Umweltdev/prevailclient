@@ -2,6 +2,7 @@ import { ArrowBack, ArrowForward } from "@mui/icons-material";
 import { Button, Card, Grid, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
+import "../assets/portfolio.css";
 
 const CaseNavigation = ({ prevCase, nextCase, nextHeader, prevHeader }) => {
   return (
@@ -12,7 +13,6 @@ const CaseNavigation = ({ prevCase, nextCase, nextHeader, prevHeader }) => {
         alignItems: "center",
         margin: "5vh auto",
         width: "95vw",
-        
 
         "@media (max-width: 600px)": {
           margin: "2vh auto",
@@ -22,11 +22,15 @@ const CaseNavigation = ({ prevCase, nextCase, nextHeader, prevHeader }) => {
       <Link style={{ textDecoration: "none" }} to={prevCase}>
         <Card
           sx={{
-            background: "#884ed9",
             color: "white",
             height: "120px",
             width: "30vw",
             borderRadius: "16px",
+            background: "rgba(136, 78, 217, 0.5)",
+            WebkitBackdropFilter: "blur(30px)",
+            backdropFilter: "blur(30px)",
+            border: "1px solid rgba(136, 78, 217, 0.4)",
+            
             "@media (max-width: 600px)": {
               height: "100px",
               width: "45vw",
@@ -71,11 +75,15 @@ const CaseNavigation = ({ prevCase, nextCase, nextHeader, prevHeader }) => {
       <Link style={{ textDecoration: "none" }} to={nextCase}>
         <Card
           sx={{
-            background: "#884ed9",
             color: "white",
             height: "120px",
             width: "30vw",
             borderRadius: "16px",
+            background: "rgba(136, 78, 217, 0.5)",
+            WebkitBackdropFilter: "blur(30px)",
+            backdropFilter: "blur(30px)",
+            border: "1px solid rgba(136, 78, 217, 0.4)",
+
             "@media (max-width: 600px)": {
               height: "100px",
               width: "45vw",
