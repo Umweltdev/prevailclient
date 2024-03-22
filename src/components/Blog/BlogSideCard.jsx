@@ -24,15 +24,16 @@ export default function BlogSideCard({ header, category, img, date }) {
         minWidth: "30vw",
         display: "flex",
         justifyContent: "space-around",
-        backgroundColor: "#fff",
+        backgroundColor: "#909090",
         margin: "auto",
         boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
         borderRadius: "0.5vw",
+        padding: "2.5vh 0 0 0",
       }}
     >
       <CardContent>
         <Typography
-          sx={{ fontSize: "1.2vw", fontWeight: "bold", color: "#909090" }}
+          sx={{ fontSize: "1.2vw", fontWeight: "bold", color: "#fff" }}
           color="text.secondary"
           gutterBottom
         >
@@ -42,10 +43,10 @@ export default function BlogSideCard({ header, category, img, date }) {
           sx={{
             width: "20vw",
             fontSize: "0.9vw",
-            // letterSpacing: "0.5px",
+            color: "white",
             textAlign: "justify",
             textJustify: "distribute",
-
+            // wordSpacing: "10px",
             margin: "0 0 2.5vh 0",
           }}
           color="text.secondary"
@@ -57,10 +58,13 @@ export default function BlogSideCard({ header, category, img, date }) {
           <Typography
             sx={{
               textTransform: "capitalize",
-              color: "#884ed9",
+              color: "#909090",
               background: "#fff",
-              fontSize: "10px",
+              fontSize: "0.9vw",
               borderRadius: "25px",
+              width: "12vw",
+              textAlign: "center",
+              padding: "1vh 1vw",
             }}
           >
             Date: {date}
@@ -82,7 +86,7 @@ export default function BlogSideCard({ header, category, img, date }) {
         <CardActions>
           <Share
             sx={{
-              color: "#884ed9",
+              color: "#909090",
               background: "#fff",
               fontSize: "2vw",
               padding: "5px",
@@ -92,7 +96,8 @@ export default function BlogSideCard({ header, category, img, date }) {
           />
           <Favorite
             sx={{
-              color: "#884ed9",
+              // color: "#909090",
+              color: "#ffbaba",
               background: "#fff",
               fontSize: "2vw",
               padding: "5px",

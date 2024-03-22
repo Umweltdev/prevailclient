@@ -44,7 +44,9 @@ const BlogDetails = () => {
               padding: "4vh 0 0 0",
             }}
           >
-            <Typography sx={{ fontSize: "1.4vw", width: "35vw" }}>
+            <Typography
+              sx={{ fontSize: "1.4vw", width: "35vw", fontWeight: "900" }}
+            >
               {blog.header}
             </Typography>
             <div className="sOneBlogDetailsSocils">
@@ -79,7 +81,14 @@ const BlogDetails = () => {
             </div>
           </Grid>
           <Grid sx={{ display: "flex" }}>
-            <Typography sx={{ fontSize: "1vw", margin: "1.2vh 0 0 0" }}>
+            <Typography
+              sx={{
+                fontSize: "1vw",
+                margin: "1.2vh 0 0 0",
+                webkitFontSmoothing: "antialiased",
+                fontWeight: "800",
+              }}
+            >
               {blog.authorFirstName} | {blog.date}
             </Typography>
           </Grid>
