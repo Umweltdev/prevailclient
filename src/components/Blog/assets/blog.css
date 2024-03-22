@@ -42,7 +42,7 @@
 .sOneBlogBlurbs {
   display: flex;
   flex-wrap: wrap;
-  gap: 2vw 2vh;
+  gap: 3vw;
 }
 
 .sOneBlogCard {

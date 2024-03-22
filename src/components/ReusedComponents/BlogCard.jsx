@@ -61,13 +61,12 @@ export default function BlogCard({
         alt={authorFirstName}
         sx={{
           height: "18vw",
-          
         }}
       />
       <CardContent>
         <Typography
           color="#333"
-          sx={{ padding: "2vh 0", letterSpacing: "1px", fontSize: "0.9vw" }}
+          sx={{ padding: "1vh 0", letterSpacing: "1px", fontSize: "0.9vw" }}
         >
           {category}
         </Typography>

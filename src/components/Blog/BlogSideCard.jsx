@@ -23,7 +23,7 @@ export default function BlogSideCard({ header, category, img, date }) {
         minWidth: "30vw",
         display: "flex",
         justifyContent: "space-around",
-        backgroundColor: "#efe6f9",
+        backgroundColor: "#fff",
         margin: "auto",
         boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
         borderRadius: "0.5vw",
@@ -56,7 +56,7 @@ export default function BlogSideCard({ header, category, img, date }) {
             sx={{
               textTransform: "capitalize",
               color: "#333",
-              background: "white",
+              background: "#c3d2ef",
               fontSize: "10px",
               borderRadius: "25px",
               padding: "0.4vw 2vw",

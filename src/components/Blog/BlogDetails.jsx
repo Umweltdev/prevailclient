@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import { blogBlurbs } from "./assets/blogData";
 import "./assets/blog.css";
@@ -50,38 +50,30 @@ const BlogDetails = () => {
             <div className="sOneBlogDetailsSocils">
               <Facebook
                 sx={{
-                  fontSize: "2.5vw",
-                  background: "#d6c0ee",
-                  padding: "5px",
+                  fontSize: "1.5vw",
                   borderRadius: "50%",
-                  color: "#884ed",
+                  color: "#884ed9",
                 }}
               />
               <Twitter
                 sx={{
-                  fontSize: "2.5vw",
-                  background: "#d6c0ee",
-                  padding: "5px",
+                  fontSize: "1.5vw",
                   borderRadius: "50%",
-                  color: "#884ed",
+                  color: "#884ed9",
                 }}
               />
               <Instagram
                 sx={{
-                  fontSize: "2.5vw",
-                  background: "#d6c0ee",
-                  padding: "5px",
+                  fontSize: "1.5vw",
                   borderRadius: "50%",
-                  color: "#884ed",
+                  color: "#884ed9",
                 }}
               />
               <Email
                 sx={{
-                  fontSize: "2.5vw",
-                  background: "#d6c0ee",
-                  padding: "5px",
+                  fontSize: "1.5vw",
                   borderRadius: "50%",
-                  color: "#884ed",
+                  color: "#884ed9",
                 }}
               />
             </div>
@@ -140,51 +132,29 @@ const BlogDetails = () => {
             Beatae aspernatur aut vitae repellat nobis, temporibus et ipsa
             soluta ratione libero
           </p>
-          <p className="sOneBlogDetailsDesc">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio
-            excepturi voluptas illum omnis soluta tempore laboriosam inventore
-            dicta. Vitae obcaecati totam labore nobis voluptas fugiat possimus
-            ipsum molestiae, alias facilis laudantium, quisquam natus quos,
-            eaque ad hic quaerat incidunt facere cumque repudiandae veniam
-            minima sint reprehenderit? Sint modi sequi rerum quidem amet eveniet
-            inventore, sit tenetur iure asperiores nisi veniam officia quia, vel
-            quas! Labore reprehenderit neque eaque saepe consequatur veritatis,
-            perspiciatis veniam eligendi odio obcaecati tempore vitae doloribus
-            assumenda quo ratione repellendus maiores quasi facere repudiandae?
-            Est consequuntur qui optio illum sit suscipit hic nemo earum
-            laudantium voluptas.
-          </p>
         </Grid>
         <div className="blogRight">
           {/* <Typography> Up Next:</Typography> */}
-          <Grid>
-            <BlogSideCard
-              category={blog.category}
-              date={blog.date}
-              header={blog.header}
-              img={blog.img}
-            />
+          <Grid sx={{ display: "flex", flexDirection: "column", gap: "2vh" }}>
+            {blogBlurbs.slice(0, 6).map((data, index) => (
+              <Link
+                to={`/blog/${index}`}
+                key={index}
+                className="sOneBlogCardLink"
+                style={{ textDecoration: "none" }}
+              >
+                <BlogSideCard
+                  key={index}
+                  category={data.category}
+                  date={data.date}
+                  header={data.header}
+                  img={data.img}
+                />
+              </Link>
+            ))}
           </Grid>
 
-          <Typography sx={{ marginTop: "4vh" }}> News:</Typography>
-          <Grid sx={{ display: "flex", flexDirection: "column", gap: "2vh" }}>
-            <SideBarNews
-              img={
-                "https://images.unsplash.com/photo-1589718539308-169369696599?q=80&w=1365&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              }
-              header={
-                "Tesla rolls out new incentives in China as price war escalates"
-              }
-            />
-            <SideBarNews
-              img={
-                "https://images.unsplash.com/photo-1572191267783-5618f992aff5?q=80&w=1564&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              }
-              header={
-                "Next Autopilot trial to test Tesla's blame-the-driver defense"
-              }
-            />
-          </Grid>
+          {/* SIDEBAR NEWS WAS HERE */}
         </div>
       </Grid>
 
