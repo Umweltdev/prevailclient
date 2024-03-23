@@ -58,10 +58,10 @@ export default function BlogCard({
       <Typography
         sx={{
           padding: "2vh 0",
-          // letterSpacing: "1px",
-          // textAlign: "justify",
-          // textJustify: "distribute",
+          fontWeight: "bold",
           fontSize: "1.1vw",
+          wordSpacing: "-2px"
+
         }}
       >
         {header}
@@ -78,7 +78,7 @@ export default function BlogCard({
       <Grid sx={{padding: "2.5vh 0 3vh 0"}}>
         <Typography
           color="#333"
-          sx={{ fontSize: "0.9vw" }}
+          sx={{ fontSize: "0.9vw", fontWeight: "700" }}
         >
           {category}
         </Typography>
@@ -108,7 +108,7 @@ export default function BlogCard({
         <Button
           variant="contained"
           sx={{
-            background: "#7097da",
+            background: "#884ed9",
             padding: "0.7vh 2vw",
             borderRadius: "5vw",
             color: "white",

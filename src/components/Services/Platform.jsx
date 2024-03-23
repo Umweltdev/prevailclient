@@ -10,9 +10,8 @@ const Platform = () => {
   return (
     <Grid
       sx={{
-        padding: "0 0 5vh 0",
+        padding: "0 0 2vh 0",
         margin: "0 auto",
-        // width: "75vw",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -75,13 +74,11 @@ const Platform = () => {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "top",
-          margin: "4vh auto",
+          margin: "0 auto",
           width: "75vw",
         }}
       >
-        <Grid
-          sx={{ width: "75vw", margin: "1vh 0", display: "flex", gap: "4vw" }}
-        >
+        <Grid sx={{ width: "75vw", display: "flex", gap: "4vw" }}>
           <Grid>
             <Typography
               sx={{
@@ -132,15 +129,28 @@ const Platform = () => {
             </Typography>
           </Grid>
         </Grid>
+        <img
+          style={{
+            width: "78vw",
+            height: "50vh",
+            objectFit: "cover",
+            borderRadius: "5px",
+            boxShadow:
+              "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
+          }}
+          src="https://plus.unsplash.com/premium_photo-1681488183639-f38511a647ef?q=80&w=1543&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="image"
+        />
+
         <Grid
           sx={{
-            width: "75vw",
+            width: "78vw",
             display: "flex",
             marginBottom: "5vh",
             // gap: "5vw",
             justifyContent: "space-between",
             alignItems: "center",
-            gap: "4vw",
+            gap: "5vw",
           }}
         >
           <Grid sx={{ width: "37vw" }}>
@@ -172,7 +182,7 @@ const Platform = () => {
               lasting impression on consumers to increase brand familiarity.
             </Typography>
           </Grid>
-          <img
+          {/* <img
             style={{
               width: "37vw",
               borderRadius: "1vw",
@@ -181,7 +191,11 @@ const Platform = () => {
             }}
             src="https://img.freepik.com/free-photo/copy-space-man-with-old-phone_23-2148467296.jpg?w=826"
             alt=""
-          />
+          /> */}
+          <spline-viewer
+            style={{ width: "37vw", height: "40vh" }}
+            url="https://prod.spline.design/kqWnRSHfs03RcYiO/scene.splinecode"
+          ></spline-viewer>
         </Grid>
       </Grid>
 

@@ -10,7 +10,7 @@ export default function MediaCard({ header, text, img, gradient }) {
   return (
     <Card
       sx={{
-        maxWidth: "25vw",
+        width: "37vw",
         // height: "430px",
         display: "flex",
         borderRadius: "16px",
@@ -27,7 +27,7 @@ export default function MediaCard({ header, text, img, gradient }) {
     >
       <CardMedia
         sx={{
-          minHeight: "200px !important",
+          height: "35vh",
           objectFit: "cover",
           borderRadius: "16px",
           "@media (max-width: 600px)": {
@@ -45,7 +45,8 @@ export default function MediaCard({ header, text, img, gradient }) {
             color: "#333",
             margin: "2vh 0",
             // fontWeight: "500",
-            letterSpacing: "3px",
+            // letterSpacing: "1px",
+            fontWeight: "bold",
             "@media (max-width: 600px)": {
               fontSize: "4vw",
               color: "#333",
@@ -60,10 +61,10 @@ export default function MediaCard({ header, text, img, gradient }) {
           sx={{
             textAlign: "justify",
             textJustify: "distribute",
-            fontSize: "13px",
+            fontSize: "14px",
             color: "#333",
             marginTop: "1vh",
-            letterSpacing: "1px",
+            // letterSpacing: "1px",
 
             "@media (max-width: 600px)": {
               fontSize: "4vw",
@@ -80,7 +81,7 @@ export default function MediaCard({ header, text, img, gradient }) {
           // size="small"
           // variant="contained"
           sx={{
-            background: "#7097da",
+            background: "#884ed9",
             padding: "5px 15px",
             borderRadius: "5vw",
             color: "white",

@@ -13,9 +13,9 @@
 .sTwoServicesContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 5vh 0;
+  justify-content: left;
+  margin-top: 10vh;
+  /* padding: 5vh 0 0 15vw; */
 }
 
 .sTwoServicesHeader {
@@ -29,7 +29,7 @@
   flex-wrap: wrap;
   justify-content: center;
   /* align-items: center; */
-  gap: 10px;
+  gap: 3vw;
 }
 
 .sTwoServicesCard {
@@ -58,9 +58,9 @@
 
 .lineSpanServices {
   height: 4px;
-  background: #884ed9;
-  width: 15vw;
-  margin: 3vh auto;
+  background: #333;
+  width: 10vw;
+  margin: 1vh 0;
   /* background-image: -webkit-gradient(
     linear,
     left bottom,

@@ -15,7 +15,9 @@ const SectionTwo = () => {
         sx={{
           fontSize: 50,
           fontWeight: 900,
-          color: "#884ed9",
+          color: "#333",
+          textAlign: "left",
+          marginLeft: "12vw",
           "@media (max-width: 600px)": {
             fontSize: "7vw",
             textAlign: "justify",
@@ -23,9 +25,9 @@ const SectionTwo = () => {
           },
         }}
       >
-        Our Services
+        Services
       </Typography>
-      <span className="lineSpanServices"></span>
+      <span style={{ marginLeft: "12vw" }} className="lineSpanServices"></span>
       <div className="sTwoServicesCards">
         {serviceCard.map((data, index) => (
           <Link

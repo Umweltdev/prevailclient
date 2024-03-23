@@ -48,6 +48,7 @@ export default function BlogSideCard({ header, category, img, date }) {
             // textJustify: "distribute",
             // wordSpacing: "10px",
             margin: "0 0 2.5vh 0",
+            
           }}
           color="text.secondary"
           gutterBottom

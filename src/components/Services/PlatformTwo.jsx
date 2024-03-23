@@ -14,7 +14,7 @@ const PlatformTwo = () => {
       <Grid sx={{ display: "flex", gap: "4vw", flexDirection: "column" }}>
         <Grid
           sx={{
-            marginBottom: "5vh",
+            // marginBottom: "1vh",
             display: "flex",
             gap: "5vw",
           }}
@@ -34,7 +34,7 @@ const PlatformTwo = () => {
               sx={{
                 fontSize: "1.4vw",
                 color: "#636363",
-                marginBottom: "1vh",
+                // marginBottom: "1vh",
                 textAlign: "justify",
               }}
             >
@@ -55,7 +55,6 @@ const PlatformTwo = () => {
               sx={{
                 fontSize: "1.4vw",
                 color: "#636363",
-                marginBottom: "1vh",
                 textAlign: "justify",
                 marginTop: "7vh",
               }}
@@ -73,9 +72,26 @@ const PlatformTwo = () => {
             </Typography>
           </Grid>
         </Grid>
+        <img
+          style={{
+            width: "79vw",
+            height: "50vh",
+            objectFit: "cover",
+            borderRadius: "5px",
+            boxShadow:
+              "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
+          }}
+          src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="image"
+        />
 
         <Grid
-          sx={{ display: "flex", flexDirection: "space-between", gap: "5vw" }}
+          sx={{
+            display: "flex",
+            flexDirection: "space-between",
+            gap: "5vw",
+            alignItems: "center",
+          }}
         >
           <Grid sx={{ width: "37vw" }}>
             <Typography
@@ -114,7 +130,7 @@ const PlatformTwo = () => {
               and attract more customers.
             </Typography>
           </Grid>
-          <img
+          {/* <img
             style={{
               width: "37vw",
               height: "75vh",
@@ -125,7 +141,12 @@ const PlatformTwo = () => {
             }}
             src="https://plus.unsplash.com/premium_photo-1684356819140-e82e7446b600?q=80&w=1384&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="image"
-          />
+          /> */}
+
+          <spline-viewer
+            style={{ width: "37vw", height: "70vh" }}
+            url="https://prod.spline.design/kqWnRSHfs03RcYiO/scene.splinecode"
+          ></spline-viewer>
         </Grid>
       </Grid>
     </Grid>
