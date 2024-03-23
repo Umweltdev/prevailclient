@@ -12,13 +12,20 @@ const Platform = () => {
       sx={{
         padding: "0 0 5vh 0",
         margin: "0 auto",
-        width: "90vw",
+        // width: "75vw",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
       }}
     >
-      <Grid sx={{ display: "flex", flexDirection: "column" }}>
+      <Grid
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          width: "75vw",
+          margin: "0 auto",
+        }}
+      >
         <Typography
           sx={{
             fontSize: "1.3vw",
@@ -46,7 +53,7 @@ const Platform = () => {
             fontSize: "1.4vw",
             color: "#636363",
             width: "60vw",
-            marginBottom: "10vh",
+            marginBottom: "5vh",
           }}
         >
           Are you ready to take your business to the next level? Imagine having
@@ -60,16 +67,18 @@ const Platform = () => {
           that resonates with them.
         </Typography>
       </Grid>
-      
+
       <Grid
         sx={{
           display: "flex",
           gap: "4vw",
           justifyContent: "center",
           alignItems: "top",
+          margin: "4vh auto",
+          width: "75vw",
         }}
       >
-        <Grid sx={{ width: "75vw", margin: "1vh 0" }}>
+        <Grid sx={{ width: "40vw", margin: "1vh 0" }}>
           <Typography
             sx={{
               display: "flex",
@@ -103,7 +112,7 @@ const Platform = () => {
             realm and attract the right customers.
           </Typography>
         </Grid>
-        <Grid sx={{ width: "75vw", display: "flex", marginBottom: "5vh" }}>
+        <Grid sx={{ width: "40vw", display: "flex", marginBottom: "5vh" }}>
           <Grid sx={{}}>
             <Typography
               sx={{
@@ -121,6 +130,7 @@ const Platform = () => {
                 fontSize: "1.4vw",
                 color: "#636363",
                 marginBottom: "3vh",
+                textAlign: "justify",
               }}
             >
               After this trigger event, consumers move into the initial
