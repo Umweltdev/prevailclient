@@ -64,11 +64,9 @@ function CarouselOne() {
           Digital Accelerator
         </Typography>
         <Typography
-          sx={
-            {
-              // width: "vw",
-            }
-          }
+          sx={{
+            textAlign: "justify",
+          }}
         >
           Revolutionise your online presencewith our exclusivebundle. The{" "}
           <Link style={{ textDecoration: "none" }} to={`/digitalaccelerator`}>
@@ -87,6 +85,19 @@ function CarouselOne() {
           to cohesive, impactful, and cost effective digital presence. Elevate
           your brand with Prevails integrated solutions.
         </Typography>
+
+        <Button
+          size="small"
+          sx={{
+            color: "white",
+            background: "#884ed9",
+            margin: "3vh 0",
+            textTransform: "capitalize",
+            padding: "1vh 2vw",
+          }}
+        >
+          Learn More
+        </Button>
       </Grid>
       <Grid
         sx={{
@@ -183,13 +194,18 @@ function CarouselOne() {
               justifyContent: "center",
               backdropFilter: "blur(1px)",
               borderRadius: "16px",
-              flexDirection: "column"
+              flexDirection: "column",
             }}
           >
             <Typography
               variant="h4"
               color="white"
-              sx={{ fontWeight: "bold", textAlign: "center", width: "30vw", mb: "7vh" }}
+              sx={{
+                fontWeight: "bold",
+                textAlign: "center",
+                width: "30vw",
+                mb: "7vh",
+              }}
             >
               {images[activeStep].title}{" "}
             </Typography>

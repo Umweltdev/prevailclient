@@ -23,7 +23,7 @@ const Landing = () => {
       <SectionFive />
       <SectionFour />
       <SectionSix />
-      <CarouselOne/>
+      {/* <CarouselOne/> */}
       <SectionSeven/>
       <FooterNew />
     </div>
