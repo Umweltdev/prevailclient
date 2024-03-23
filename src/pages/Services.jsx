@@ -9,6 +9,7 @@ import Navbar from "../components/Navbar/Navbar";
 import FooterNew from "../components/Footer/FooterNew";
 import DrawerAppBarWhite from "../components/Navbar/Appbar";
 import Carousel from "../components/Services/Carousel";
+import Platform from "../components/Services/Platform";
 
 
 
@@ -21,6 +22,7 @@ const Services = () => {
       <SectionTwo />
       {/* <SectionThree /> */}
       <Carousel />
+      <Platform/>
       {/* <SectionFour /> */}
       {/* <SectionFive/> */}
       {/* <SectionSix /> */}
