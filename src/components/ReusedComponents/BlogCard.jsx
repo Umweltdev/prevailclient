@@ -16,6 +16,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import avatar from "./assets/av.png";
 import { Button, Grid } from "@mui/material";
+import { Circle } from "@mui/icons-material";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -60,8 +61,7 @@ export default function BlogCard({
           padding: "2vh 0",
           fontWeight: "bold",
           fontSize: "1.1vw",
-          wordSpacing: "-2px"
-
+          wordSpacing: "-2px",
         }}
       >
         {header}
@@ -75,18 +75,22 @@ export default function BlogCard({
           borderRadius: "1vw",
         }}
       />
-      <Grid sx={{padding: "2.5vh 0 3vh 0"}}>
-        <Typography
-          color="#333"
-          sx={{ fontSize: "0.9vw", fontWeight: "700" }}
+      <Grid sx={{ padding: "2.5vh 0 3vh 0" }}>
+        <Grid
+          sx={{
+            // fontSize: "0.9vw",
+            fontWeight: "700",
+            display: "flex",
+            alignItems: "center",
+            gap: "5px",
+          }}
         >
-          {category}
-        </Typography>
+          <Circle sx={{ color: "#884ed9", fontSize: "1vw" }} />
+          <Typography sx={{ marginTop: "1vh" }}>{category}</Typography>
+        </Grid>
 
         <Grid>
-          <Typography
-            sx={{ color: "#b4b4b4", fontSize: "0.9vw" }}
-          >
+          <Typography sx={{ color: "#b4b4b4", fontSize: "0.9vw" }}>
             {authorFirstName} | {date}
           </Typography>
         </Grid>
@@ -114,9 +118,9 @@ export default function BlogCard({
             color: "white",
             boxShadow: "none",
             textTransform: "capitalize",
-            // "&hover": {
-            //   background: "#884ed9",
-            // },
+            "@hover": {
+              backgroundColor: "#884ed9",
+            },
             "@media (max-width: 600px)": {
               background:
                 gradient || "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",

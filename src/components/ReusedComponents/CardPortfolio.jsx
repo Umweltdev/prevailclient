@@ -6,6 +6,8 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
+
+
 export default function MediaCard({ header, text, img, gradient }) {
   return (
     <Card
