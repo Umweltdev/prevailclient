@@ -3,6 +3,7 @@ import { Card, Grid, Typography } from "@mui/material";
 import React from "react";
 import coke from "./assets/coke.png";
 import CardService from "./CardService";
+import CardPlatform from "./CardPlatform";
 
 const Platform = () => {
   return (
@@ -94,8 +95,9 @@ const Platform = () => {
           </Typography>
         </Grid>
       </Grid>
-      <Grid>
+      <Grid sx={{ display: "flex", gap: "5vw" }}>
         <CardService />
+        <CardPlatform />
       </Grid>
     </Grid>
   );
