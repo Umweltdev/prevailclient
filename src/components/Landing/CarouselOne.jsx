@@ -192,7 +192,7 @@ function CarouselOne() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              backdropFilter: "blur(1px)",
+              backdropFilter: "blur(0px)",
               borderRadius: "16px",
               flexDirection: "column",
             }}

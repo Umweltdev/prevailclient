@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "services main page"
+git commit -m "landing page carousel"
 
 git push
 
