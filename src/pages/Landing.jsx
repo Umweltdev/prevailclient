@@ -1,5 +1,6 @@
 import Footer from "../components/Footer/Footer";
 import FooterNew from "../components/Footer/FooterNew";
+import CarouselOne from "../components/Landing/CarouselOne";
 import Hero from "../components/Landing/Hero";
 import SectionFive from "../components/Landing/SectionFive";
 import SectionFour from "../components/Landing/SectionFour";
@@ -22,6 +23,7 @@ const Landing = () => {
       <SectionFive />
       <SectionFour />
       <SectionSix />
+      <CarouselOne/>
       <SectionSeven/>
       <FooterNew />
     </div>

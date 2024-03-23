@@ -182,7 +182,7 @@ const Platform = () => {
               lasting impression on consumers to increase brand familiarity.
             </Typography>
           </Grid>
-          {/* <img
+          <img
             style={{
               width: "37vw",
               borderRadius: "1vw",
@@ -191,11 +191,11 @@ const Platform = () => {
             }}
             src="https://img.freepik.com/free-photo/copy-space-man-with-old-phone_23-2148467296.jpg?w=826"
             alt=""
-          /> */}
-          <spline-viewer
+          />
+          {/* <spline-viewer
             style={{ width: "37vw", height: "40vh" }}
             url="https://prod.spline.design/kqWnRSHfs03RcYiO/scene.splinecode"
-          ></spline-viewer>
+          ></spline-viewer> */}
         </Grid>
       </Grid>
 

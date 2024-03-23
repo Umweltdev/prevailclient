@@ -197,7 +197,7 @@
   align-self: center;
   margin: auto;
   gap: 6vw;
-  color: "black"
+  color: "black";
 }
 
 .sTwoSpline {
@@ -1307,6 +1307,16 @@ FOOTER
 /* .sSevenOne {
   padding-top: 5vh;
 } */
+
+/* OVERLAY AT CAROUSEL */
+.glassmorphism {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.glassmorphism.visible {
+  opacity: 1;
+}
 
 @media only screen and (max-width: 600px) {
   .spline-Layer {
