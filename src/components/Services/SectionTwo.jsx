@@ -16,9 +16,6 @@ const SectionTwo = () => {
           fontSize: 50,
           fontWeight: 900,
           color: "#884ed9",
-          // WebkitBackgroundClip: "text",
-          // color: "transparent",
-
           "@media (max-width: 600px)": {
             fontSize: "7vw",
             textAlign: "justify",

@@ -10,22 +10,19 @@ import FooterNew from "../components/Footer/FooterNew";
 import DrawerAppBarWhite from "../components/Navbar/Appbar";
 import Carousel from "../components/Services/Carousel";
 import Platform from "../components/Services/Platform";
+import PlatformTwo from "../components/Services/PlatformTwo";
+
 
 
 
 const Services = () => {
   return (
     <div>
-      {/* <Navbar />    */}
-      {/* <SectionOne /> */}
       <DrawerAppBarWhite />
-      <SectionTwo />
-      {/* <SectionThree /> */}
       <Carousel />
-      <Platform/>
-      {/* <SectionFour /> */}
-      {/* <SectionFive/> */}
-      {/* <SectionSix /> */}
+      <SectionTwo />
+      <Platform />
+      <PlatformTwo/>
       <FooterNew />
     </div>
   );

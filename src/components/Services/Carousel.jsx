@@ -89,7 +89,7 @@ function Carousel() {
   };
 
   return (
-    <Grid sx={{ padding: "0 0 10vw 0" }} justifyContent="center">
+    <Grid sx={{ padding: "18vh 0 0 0" }} justifyContent="center">
       <Grid
         sx={{
           display: "flex",
@@ -106,7 +106,7 @@ function Carousel() {
               fontSize: "1.2vw",
               fontWeight: "bold",
               color: "#884ed9",
-              marginBottom: "3vh",
+              marginBottom: "2vh",
             }}
           >
             {images[activeStep].title}
@@ -116,7 +116,7 @@ function Carousel() {
               width: "35vw",
               fontSize: "2.3vw",
               fontWeight: "bold",
-              marginBottom: "3vh",
+              marginBottom: "2vh",
             }}
           >
             {images[activeStep].subTitle}
@@ -146,7 +146,7 @@ function Carousel() {
               fontSize: "1.4vw",
               mb: "3vh",
               letterSpacing: "1px",
-              height: "12vh",
+              height: "10vh",
             }}
           >
             {images[activeStep].subTitle}
@@ -178,7 +178,7 @@ function Carousel() {
               cursor: "pointer",
               display: "flex",
               justifyContent: "space-around",
-              marginTop: "5vh",
+              marginTop: "1vh",
               padding: "3vh 1vw",
               fontWeight: "900",
               fontSize: "1vw",

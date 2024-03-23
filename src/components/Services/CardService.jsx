@@ -22,7 +22,7 @@ import {
 
 const CardService = () => {
   return (
-    <Grid sx={{ display: "flex", position: "relative" }}>
+    <Grid sx={{ display: "flex", position: "relative", margin: "0 auto" }}>
       {/* SECOND CARD */}
       <Card
         sx={{
@@ -136,7 +136,7 @@ const CardService = () => {
           width: "29vw",
           // height: "21vw",
           position: "absolute",
-          left: "10vw",
+          left: "12vw",
           top: "-10px",
           zIndex: 2,
           borderRadius: "0.7vw",
