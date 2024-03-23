@@ -79,9 +79,9 @@ function AppBarOne() {
             {typeof item === "string" ? (
               <Link
                 to={`/${item.toLowerCase()}`}
-                style={{ textDecoration: "none", color: "inherit" }}
+                style={{ textDecoration: "none", color: "#884ED9" }}
               >
-                <ListItemButton sx={{ textAlign: "center" }}>
+                <ListItemButton sx={{ textAlign: "center", color: "#884ED9" }}>
                   <ListItemText primary={item} />
                 </ListItemButton>
               </Link>
@@ -89,10 +89,11 @@ function AppBarOne() {
               <ListItemButton
                 sx={{
                   textAlign: "center",
+                  color: "#884ED9"
                 }}
               >
                 <NavLink
-                  style={{ textDecoration: "none", color: "inherit" }}
+                  style={{ textDecoration: "none", color: "#884ED9" }}
                   to={item.path}
                 >
                   <ListItemText primary={item.label} />
@@ -213,7 +214,7 @@ function AppBarOne() {
                       <Button
                         key={item}
                         sx={{
-                          color: "white",
+                          color: "#884ED9",
                           fontWeight: "900",
                         }}
                       >
@@ -231,7 +232,7 @@ function AppBarOne() {
                     ) : (
                       <Button
                         key={item.path}
-                        sx={{ color: "white", fontWeight: "900" }}
+                        sx={{ color: "#884ED9", fontWeight: "900" }}
                       >
                         <NavLink
                           style={{

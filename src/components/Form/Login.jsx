@@ -1,10 +1,29 @@
-import { Box, Button, Grid, TextField, Typography } from "@mui/material";
-import React from "react";
-import DrawerAppBar from "../Navbar/Appbar";
+import React, { useState } from "react";
+import { Box, Button, Grid, TextField, Typography, Paper, IconButton } from "@mui/material";
 import { Link } from "react-router-dom";
+import { styled } from "@mui/system";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+import DrawerAppBar from "../Navbar/Appbar";
 import FooterNew from "../Footer/FooterNew";
 
+const CustomTextField = styled(TextField)({
+  "& .MuiOutlinedInput-root": {
+    fontSize: "14px",
+    height: "45px",
+    borderRadius: "10px",
+  },
+  "& .MuiInputLabel-root": {
+    fontSize: "14px",
+  },
+});
+
 const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <Grid sx={{ margin: "30vh 0" }}>
       {/* <DrawerAppBar /> */}
@@ -17,7 +36,6 @@ const Login = () => {
           justifyContent: "center",
           alignItems: "center",
           margin: "0 auto",
-
           width: 500,
           "@media (max-width: 600px)": {
             width: "95vw",
@@ -25,90 +43,96 @@ const Login = () => {
           },
         }}
       >
-        <Typography
+        <Paper
+          elevation={3}
           sx={{
-            fontSize: "3vw",
-            fontWeight: "bold",
-            textAlign: "center",
-            "@media (max-width: 600px)": {
-              fontSize: "4.5vh",
-              flexDirection: "column",
-            },
+            padding: "2rem",
+            width: "100%",
+            maxWidth: 500,
           }}
         >
-          Login
-        </Typography>
-        <Box
-          component="form"
-          sx={{
-            margin: 1,
-            display: "flex",
-            gap: "2vw",
-            flexWrap: "wrap",
-            "@media (max-width: 600px)": {
-              flexDirection: "column",
-            },
-          }}
-          noValidate
-          autoComplete="on"
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          flexWrap="wrap"
-        >
-          <TextField
+          <Typography
+            variant="h4"
+            align="center"
             sx={{
-              width: 500,
-              "@media (max-width: 600px)": {
-                width: "90vw",
-              },
-            }}
-            id="outlined-basic"
-            label="Email"
-            variant="outlined"
-          />
-
-          <TextField
-            sx={{
-              width: 500,
-              "@media (max-width: 600px)": {
-                width: "90vw",
-              },
-            }}
-            id="outlined-basic"
-            label="Password"
-            variant="outlined"
-            type="password"
-          />
-        </Box>
-        <Typography>
-          You dont have account with us?{" "}
-          <Link
-            to="/Sign Up"
-            style={{
+              fontSize: "3vw",
               fontWeight: "bold",
-              textDecoration: "none",
-              margin: "1vh 0",
+              "@media (max-width: 600px)": {
+                fontSize: "4.5vh",
+              },
             }}
           >
-            Sign Up
-          </Link>
-        </Typography>
-        <Button
-          variant="contained"
-          sx={{
-            width: 500,
-            marginTop: "2vh",
-            marginBottom: "15vh",
-            backgroundColor: "#884ED9",
-
-            "@media (max-width: 600px)": {
-              width: "90vw",
-            },
-          }}
-        >
-          Login
-        </Button>
+            Login
+          </Typography>
+          <Box
+            component="form"
+            sx={{
+              marginY: "2rem",
+              display: "flex",
+              flexDirection: "column",
+              gap: "2vw",
+            }}
+            noValidate
+            autoComplete="on"
+          >
+            <CustomTextField
+              fullWidth
+              label="Email"
+              variant="outlined"
+              sx={{
+                width: "100%",
+              }}
+            />
+            <Box sx={{ position: "relative" }}>
+              <CustomTextField
+                fullWidth
+                label="Password"
+                variant="outlined"
+                type={showPassword ? "text" : "password"}
+                sx={{
+                  width: "100%",
+                }}
+              />
+              <IconButton
+                onClick={handleTogglePassword}
+                sx={{
+                  position: "absolute",
+                  right: "10px",
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                }}
+              >
+                {showPassword ? <Visibility /> : <VisibilityOff />}
+              </IconButton>
+            </Box>
+          </Box>
+          <Typography align="center">
+            Don't have an account?{" "}
+            <Link
+              to="/Sign Up"
+              style={{
+                fontWeight: "bold",
+                textDecoration: "none",
+                margin: "1vh 0",
+              }}
+            >
+              Sign Up
+            </Link>
+          </Typography>
+          <Button
+            variant="contained"
+            sx={{
+              width: "100%",
+              marginTop: "2vh",
+              backgroundColor: "#884ED9",
+              "&:hover": {
+                backgroundColor: "#6b38fb",
+              },
+            }}
+          >
+            Login
+          </Button>
+        </Paper>
       </Grid>
     </Grid>
   );

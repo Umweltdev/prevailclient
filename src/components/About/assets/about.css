@@ -17,7 +17,7 @@
   align-items: center;
   padding: 25vh 10vw;
   align-items: flex-start;
-  background-color: #a16ad9;
+  background-color: white;
   height: 100vh;
   /* gap: 1vw; */
 }
@@ -39,7 +39,7 @@
 
 .sTwoAboutList {
   font-size: 2vw;
-  color: white;
+  color: black;
   cursor: pointer;
   width: 20vw;
   font-weight: bold;
@@ -115,7 +115,7 @@
   background-color: white;
 }
 
-.sThreeAbouHero {
+/* .sThreeAbouHero {
   color: var(--main-color);
   margin: 4vh 0;
   background: -webkit-linear-gradient(
@@ -127,6 +127,10 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 3vw;
+} */
+.sThreeAbouHero {
+  color: black;
+  margin: 4vh 0;
 }
 
 .sThreeHeroFAQS {

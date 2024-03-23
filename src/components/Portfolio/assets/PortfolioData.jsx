@@ -284,3 +284,18 @@ export const caseData = [
     img: "https://images.unsplash.com/photo-1568992688065-536aad8a12f6?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
 ];
+
+export const value = [
+  {
+    link: "ourWhy",
+    header: "Our Why",
+    img: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    text: "Understanding the nuances of marketing budgets and effective strategies is essential to businesses. The costs associated with marketing can vary significantly, contingent on factors like a company's marketing budget, specific goals, and the number of marketing channels they choose to employ. It is a well-established industry guideline that businesses should allocate between 15% and 20% of their sales towards marketing expenses.",
+  },
+  {
+    link: "ourSolution",
+    header: "Our Solution",
+    img: "https://images.unsplash.com/photo-1510074377623-8cf13fb86c08?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    text: "This is where Prevail takes centre stage. We specialise in working closely with SMEs and local businesses, empowering them to differentiate themselves and position their brand effectively in front of their target audience. We believe in forging strong partnerships with our clients to develop tailored solutions that maximise both short-term and long-term growth.",
+  }
+]
