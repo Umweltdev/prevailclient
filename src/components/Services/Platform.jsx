@@ -106,7 +106,9 @@ const Platform = () => {
               first step is understanding what they really need or desire. We
               know how important it is for your business to truly grasp the
               challenges and emotional factors that drive customer interest in
-              what you have to offer.
+              what you have to offer. By looking at how people interact with
+              your online presence, such as your website performance, customer
+              interaction, plus organic and paid traffic,
             </Typography>
           </Grid>
           <Grid>
@@ -119,15 +121,13 @@ const Platform = () => {
                 width: "37vw",
               }}
             >
-              By looking at how people interact with your online presence, such
-              as your website performance, customer interaction, plus organic
-              and paid traffic, we can help you gain insights into what your
-              customers like and don&#39;t like. We utilise tools like Google
-              Analytics and Google Trends to make sense of all this information
-              and provide you with our &quot;Search Engine Marketing (SEM)&quot;
-              services. With our expertise in search engine optimisation (SEO)
-              and paid ads, we help restore your confident to stand out in the
-              digital realm and attract the right customers.
+              We can help you gain insights into what your customers like and
+              don&#39;t like. We utilise tools like Google Analytics and Google
+              Trends to make sense of all this information and provide you with
+              our &quot;Search Engine Marketing (SEM)&quot; services. With our
+              expertise in search engine optimisation (SEO) and paid ads, we
+              help restore your confident to stand out in the digital realm and
+              attract the right customers.
             </Typography>
           </Grid>
         </Grid>
