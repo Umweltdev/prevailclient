@@ -60,26 +60,13 @@ const Platform = () => {
           that resonates with them.
         </Typography>
       </Grid>
-      <img
-        style={{
-          width: "75vw",
-          height: "50vh",
-          objectFit: "cover",
-          borderRadius: "5px",
-          margin: "3vh auto",
-          boxShadow:
-            "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;",
-        }}
-        src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        alt="image"
-      />
+      
       <Grid
         sx={{
           display: "flex",
           gap: "4vw",
           justifyContent: "center",
-          alignItems: "center",
-          flexDirection: "column",
+          alignItems: "top",
         }}
       >
         <Grid sx={{ width: "75vw", margin: "1vh 0" }}>
@@ -134,7 +121,6 @@ const Platform = () => {
                 fontSize: "1.4vw",
                 color: "#636363",
                 marginBottom: "3vh",
-                lineHeight: "6vh",
               }}
             >
               After this trigger event, consumers move into the initial
@@ -145,7 +131,6 @@ const Platform = () => {
               lasting impression on consumers to increase brand familiarity.
             </Typography>
           </Grid>
-          <img style={{ width: "18vw" }} src={trigger} alt="" />
         </Grid>
       </Grid>
 
