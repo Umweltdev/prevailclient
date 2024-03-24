@@ -65,21 +65,45 @@ function CarouselOne() {
         </Typography>
         <Typography
           sx={{
+            fontSize: "2.8vw",
+            mb: "3vh",
+            letterSpacing: "1px",
+            // height: "10vh",
+            color: "#484949",
+            fontWeight: "900",
+          }}
+        >
+          Bring agility to your enterprise
+        </Typography>
+        <Typography
+          sx={{
             textAlign: "justify",
           }}
         >
           Revolutionise your online presencewith our exclusivebundle. The{" "}
-          <Link style={{ textDecoration: "none" }} to={`/digitalaccelerator`}>
+          <Link
+            style={{
+              textDecoration: "none",
+              fontFamily: "Sarabun",
+              fontWeight: "900",
+            }}
+            to={`/digitalaccelerator`}
+          >
             {" "}
-            <span className="span">
-              "Digital Accelarator Bundle package"
-            </span>{" "}
+            "Digital Accelarator Bundle package"{" "}
           </Link>
           This all-encompassing package seamlessly integrates three core
           services- [website Production & Management]. [Brand Identitiy
           package], and [Search Engine Marketing(SEM)]. Prevail's
-          <Link style={{ textDecoration: "none" }} to={`/digitalaccelerator`}>
-            <span className="span">"Digital Accelerator Bundle Package"</span>
+          <Link
+            style={{
+              textDecoration: "none",
+              fontFamily: "Sarabun",
+              fontWeight: "900",
+            }}
+            to={`/digitalaccelerator`}
+          >
+            "Digital Accelerator Bundle Package"
           </Link>
           service is not just a bundle of services. it is your strategic gateway
           to cohesive, impactful, and cost effective digital presence. Elevate
@@ -94,6 +118,7 @@ function CarouselOne() {
             margin: "3vh 0",
             textTransform: "capitalize",
             padding: "1vh 2vw",
+            borderRadius: "25px",
           }}
         >
           Learn More
@@ -107,6 +132,40 @@ function CarouselOne() {
           gap: "2vw",
         }}
       >
+        {/* LEFT */}
+        <Grid
+          sx={{
+            width: "20vw",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            gap: "3vh",
+            textAlign: "left",
+          }}
+        >
+          {images.map((data, index) => (
+            <Grid>
+              <Typography
+                sx={{ color: "#333", fontSize: "1.2vw", fontWeight: "900" }}
+              >
+                {data.title}
+              </Typography>
+              <Typography sx={{ color: "#696969", fontSize: "1vw" }}>
+                {data.subTitle}
+              </Typography>
+            </Grid>
+          ))}
+          {/* <Grid>
+            <Typography
+              sx={{ color: "#333", fontSize: "1.7vw", fontWeight: "900" }}
+            >
+              350+
+            </Typography>
+            <Typography sx={{ color: "#696969", fontSize: "1.2vw" }}>
+              US dealerships{" "}
+            </Typography>
+          </Grid> */}
+        </Grid>
         {/* RIGHT */}
         <Grid
           sx={{
@@ -141,41 +200,6 @@ function CarouselOne() {
               flexDirection: "column",
             }}
           ></div>
-        </Grid>
-
-        {/* LEFT */}
-        <Grid
-          sx={{
-            width: "20vw",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            gap: "3vh",
-            textAlign: "right",
-          }}
-        >
-          {images.map((data, index) => (
-            <Grid>
-              <Typography
-                sx={{ color: "#333", fontSize: "1.2vw", fontWeight: "900" }}
-              >
-                {data.title}
-              </Typography>
-              <Typography sx={{ color: "#696969", fontSize: "1vw" }}>
-                {data.subTitle}
-              </Typography>
-            </Grid>
-          ))}
-          {/* <Grid>
-            <Typography
-              sx={{ color: "#333", fontSize: "1.7vw", fontWeight: "900" }}
-            >
-              350+
-            </Typography>
-            <Typography sx={{ color: "#696969", fontSize: "1.2vw" }}>
-              US dealerships{" "}
-            </Typography>
-          </Grid> */}
         </Grid>
       </Grid>
     </Grid>
