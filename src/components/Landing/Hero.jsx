@@ -3,6 +3,7 @@ import BasicButtons from "../ReusedComponents/Button";
 import "./assets/landing.css";
 import { motion } from "framer-motion";
 import theme from "../../theme";
+import { useNavigate } from "react-router-dom";
 
 let easing = [0.6, -0.05, 0.01, 0.99];
 const transition = { duration: 1, ease: [0.6, 0.01, -0.05, 0.9] };
@@ -81,6 +82,7 @@ const letter2 = {
 };
 
 const Hero = () => {
+   
   return (
     <motion.div
       initial={{ opacity: 0, height: 0 }}
@@ -111,7 +113,11 @@ const Hero = () => {
         variants={stagger}
       >
         <div className="hero-four">
-          <BasicButtons text="Schedule a consultation" bgColor="#450fad" />
+          <BasicButtons
+          
+            text="Schedule a consultation"
+            bgColor="#450fad"
+          />
         </div>
       </motion.div>
     </motion.div>
