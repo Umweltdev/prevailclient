@@ -9,6 +9,7 @@ import payment from "./assets/payment.png";
 import conn from "./assets/conn.png";
 import { AdsClick, Devices, Label, Schedule } from "@mui/icons-material";
 import "./assets/landing.css";
+import { makeStyles } from "@mui/styles";
 
 const images = [
   {
@@ -35,10 +36,26 @@ const images = [
   },
 ];
 
+const useStyles = makeStyles({
+  imageHeader: {
+    width: "42vw",
+    height: "28vw",
+    objectFit: "cover",
+    borderRadius: "16px",
+    "@media (max-width: 600px)": {
+      width: "95vw",
+      height: "30vh",
+      objectFit: "cover",
+      borderRadius: "1vw",
+    },
+  },
+});
+
 function CarouselOne() {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const [isOverlayVisible, setIsOverlayVisible] = React.useState(false);
+  const classes = useStyles()
 
   const handleStepChange = (step) => {
     setActiveStep(step);
@@ -47,7 +64,17 @@ function CarouselOne() {
 
   return (
     <Grid
-      sx={{ padding: "18vh 0 0 0", width: "60vw", margin: "5vh auto" }}
+      sx={{
+        padding: "18vh 0 0 0",
+        width: "60vw",
+        margin: "5vh auto",
+        "@media (max-width: 600px)": {
+          fontSize: "10vw",
+          margin: "1vh auto",
+          padding: "1vh 0 0 0",
+          width: "95vw",
+        },
+      }}
       justifyContent="center"
     >
       <Grid sx={{}}>
@@ -59,6 +86,10 @@ function CarouselOne() {
             // height: "10vh",
             color: "#884ed9",
             fontWeight: "900",
+            "@media (max-width: 600px)": {
+              fontSize: "4vw",
+              mb: "1vh",
+            },
           }}
         >
           Digital Accelerator
@@ -71,6 +102,10 @@ function CarouselOne() {
             // height: "10vh",
             color: "#484949",
             fontWeight: "900",
+            "@media (max-width: 600px)": {
+              fontSize: "7vw",
+              mb: "1vh",
+            },
           }}
         >
           Bring agility to your enterprise
@@ -78,6 +113,11 @@ function CarouselOne() {
         <Typography
           sx={{
             textAlign: "justify",
+            "@media (max-width: 600px)": {
+              fontSize: "4vw",
+              textJustify: "distribute",
+              mb: "1vh",
+            },
           }}
         >
           Revolutionise your online presencewith our exclusivebundle. The{" "}
@@ -119,6 +159,12 @@ function CarouselOne() {
             textTransform: "capitalize",
             padding: "1vh 2vw",
             borderRadius: "25px",
+            "@media (max-width: 600px)": {
+              fontSize: "4vw",
+              padding: "1vh 10vw",
+              textJustify: "distribute",
+              mb: "4vh",
+            },
           }}
         >
           Learn More
@@ -130,6 +176,9 @@ function CarouselOne() {
           alignItems: "center",
           justifyContent: "center",
           gap: "2vw",
+          "@media (max-width: 600px)": {
+            flexDirection: "column",
+          },
         }}
       >
         {/* LEFT */}
@@ -141,21 +190,40 @@ function CarouselOne() {
             justifyContent: "space-between",
             gap: "3vh",
             textAlign: "left",
+            "@media (max-width: 600px)": {
+              width: "95vw",
+            },
           }}
         >
           {images.map((data, index) => (
             <Grid>
               <Typography
-                sx={{ color: "#333", fontSize: "1.2vw", fontWeight: "900" }}
+                sx={{
+                  color: "#333",
+                  fontSize: "1.2vw",
+                  fontWeight: "900",
+                  "@media (max-width: 600px)": {
+                    fontSize: "6vw",
+                  },
+                }}
               >
                 {data.title}
               </Typography>
-              <Typography sx={{ color: "#696969", fontSize: "1vw" }}>
+              <Typography
+                sx={{
+                  color: "#696969",
+                  fontSize: "1vw",
+                  "@media (max-width: 600px)": {
+                    fontSize: "4vw",
+                    textAlign: "justify",
+                    textJustify: "center",
+                  },
+                }}
+              >
                 {data.subTitle}
               </Typography>
             </Grid>
           ))}
-         
         </Grid>
         {/* RIGHT */}
         <Grid
@@ -163,20 +231,19 @@ function CarouselOne() {
             width: "50vw",
             transition: " 1s ease-in-out",
             position: "relative",
+            "@media (max-width: 600px)": {
+              width: "95vw",
+            },
           }}
         >
           <img
             src={images[activeStep].imgPath}
             alt={images[activeStep].label}
-            style={{
-              width: "42vw",
-              height: "28vw",
-              objectFit: "cover",
-              borderRadius: "1vw",
-            }}
+            className={classes.imageHeader}
+            style={{}}
           />
-          <div
-            style={{
+          <Grid
+            sx={{
               position: "absolute",
               top: "0",
               left: "0",
@@ -189,8 +256,9 @@ function CarouselOne() {
               backdropFilter: "blur(0px)",
               borderRadius: "1vw",
               flexDirection: "column",
+              "@media (max-width: 600px)": { width: "95vw", height: "30vh" },
             }}
-          ></div>
+          ></Grid>
         </Grid>
       </Grid>
     </Grid>

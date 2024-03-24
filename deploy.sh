@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "landing page button direccted to stepper"
+git commit -m "landing page mobile fix"
 
 git push
 

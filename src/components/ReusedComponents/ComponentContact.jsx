@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
   leftContainer: {
     "@media (max-width: 600px)": {
-      width: "40vw",
+      // width: "40vw",
       paddingRight: "unset",
     },
   },
@@ -37,12 +37,13 @@ const useStyles = makeStyles((theme) => ({
 
   image: {
     width: "43vw",
+    height: "70vh",
     objectFit: "cover",
-    height: "600px",
     borderRadius: "1rem",
     boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px;",
     "@media (max-width: 600px)": {
-      width: "85vw",
+      width: "95vw",
+      height: "25vh"
     },
   },
 }));
@@ -61,6 +62,7 @@ const ComponentContact = ({ header, text, img }) => {
             "@media (max-width: 600px)": {
               fontSize: "5vw",
               fontWeight: "bold",
+              width: "95vw",
             },
           }}
         >
@@ -74,7 +76,7 @@ const ComponentContact = ({ header, text, img }) => {
             width: "40vw",
             "@media (max-width: 600px)": {
               fontSize: "4vw",
-              width: "82vw",
+              width: "95vw",
               textAlign: "justify",
               textJustify: "distribute",
             },
@@ -86,9 +88,10 @@ const ComponentContact = ({ header, text, img }) => {
         <Box
           component="form"
           sx={{
-            "& > :not(style)": { m: 1, width: "50ch" },
-            marginTop: "3vh",
+            "& > :not(style)": {my: 1,width: "50ch" },
+            
             "@media (max-width: 600px)": {
+             
               width: "95vw",
               margin: "auto", // Center align the form on mobile screens
               // gap: "2vh",
@@ -125,7 +128,7 @@ const ComponentContact = ({ header, text, img }) => {
                   "& fieldset": {
                     borderColor: "white",
                     height: "5.5vh",
-                    width: "80vw",
+                    width: "95vw",
                   },
                   "&:hover fieldset": { borderColor: "white" },
                   "&.Mui-focused fieldset": { borderColor: "white" },
@@ -171,7 +174,7 @@ const ComponentContact = ({ header, text, img }) => {
                   "& fieldset": {
                     borderColor: "white",
                     height: "5.5vh",
-                    width: "80vw",
+                    width: "95vw",
                   },
                   "&:hover fieldset": { borderColor: "white" },
                   "&.Mui-focused fieldset": { borderColor: "white" },
@@ -216,7 +219,7 @@ const ComponentContact = ({ header, text, img }) => {
                   "& fieldset": {
                     borderColor: "white",
                     height: "5.5vh",
-                    width: "80vw",
+                    width: "95vw",
                   },
                   "&:hover fieldset": { borderColor: "white" },
                   "&.Mui-focused fieldset": { borderColor: "white" },
@@ -262,7 +265,7 @@ const ComponentContact = ({ header, text, img }) => {
                   "& fieldset": {
                     borderColor: "white",
                     height: "13vh",
-                    width: "80vw",
+                    width: "95vw",
                   },
                   "&:hover fieldset": { borderColor: "white" },
                   "&.Mui-focused fieldset": { borderColor: "white" },
@@ -286,11 +289,13 @@ const ComponentContact = ({ header, text, img }) => {
               textTransform: "capitalize",
               border: "1px solid white",
               minWidth: "40vw",
-              marginLeft: "0.7vw",
               textAlign: "center",
               fontWeight: "900",
               transition: "background-color 0.5s ease-in-out",
               borderRadius: "25px",
+              "@media (max-width: 600px)": {
+                maxWidth: "95vw",
+              },
               "&:hover": {
                 // Corrected syntax for hover
                 backgroundColor: "#fff", // Corrected property name

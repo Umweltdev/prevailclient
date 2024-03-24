@@ -14,7 +14,7 @@ const useStyles = makeStyles({
     fontSize: theme.typography.fontSizeMedium,
     color: "black",
     padding: "18vh 0",
-    
+
     textAlign: "justify",
     textJustify: "distribute",
     width: "55vw",
@@ -22,16 +22,20 @@ const useStyles = makeStyles({
     // margin: "5vh auto",
     "@media (max-width: 600px)": {
       fontSize: "4vw",
-      width: "95vw",
+      width: "90vw",
       lineHeight: "4vh",
       padding: "2vh 0",
-      textAlign: "center",
       margin: "0 auto",
+      textAlign: "center",
     },
   },
 
   image: {
     width: "30vw",
+    "@media (max-width: 600px)": {
+      width: "90vw",
+      padding: "unset",
+    },
   },
 });
 

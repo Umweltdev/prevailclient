@@ -7,15 +7,26 @@ import AccordionExpandDefault from "../ReusedComponents/AccordionDefault";
 import BasicCard from "./CardOurCores";
 import images from "./assets/land2.png";
 import CarouselOne from "./CarouselOne";
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles({
+  imageCarousel: {
+    width: "25vw",
+    "@media (max-width: 600px)": {
+      display: "none",
+    },
+  },
+});
 
 const SectionSeven = () => {
+  const classes = useStyles();
   return (
     <div className="sectionSeven">
       <div>
         <CarouselOne />
       </div>
       <div>
-        <img style={{ width: "25vw" }} src={images} alt="" />
+        <img className={classes.imageCarousel} src={images} alt="" />
       </div>
     </div>
   );

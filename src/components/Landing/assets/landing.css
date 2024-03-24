@@ -448,11 +448,28 @@
 
 /* SECTION TWO MOBILE */
 @media only screen and (max-width: 700px) {
+  .hero-container {
+    background-color: #884ed9;
+    width: 100vw;
+    height: 50vh;
+    top: 0;
+    overflow: hidden;
+  }
+
+  .hero {
+    margin-top: 30vh;
+  }
+
+  .hero-one {
+    font-size: 4vw;
+  }
+
   .sTwoContainer {
     display: flex;
     flex-direction: column;
     padding: 1vw;
     justify-content: center;
+    align-items: center;
     gap: 1vw;
     margin-top: 5vh;
     overflow-x: hidden;
@@ -1326,14 +1343,14 @@ FOOTER
 
   .hero-one {
     padding-top: 5vh;
-    font-size: 1.5vw;
+    font-size: 5vw;
     font-weight: 100;
     color: white;
   }
 
   .hero-two {
-    font-size: 3.8vw;
-    width: 50vw;
+    font-size: 8vw;
+    width: 90vw;
     color: white;
     margin-top: unset;
   }
@@ -1362,7 +1379,17 @@ FOOTER
     justify-content: center;
     align-items: center;
     padding: unset;
-    margin-top: 4vh;
+    margin-top: unset;
+  }
+
+  .sectionSeven {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10vh auto;
+    gap: 5vw;
+    width: 80vw;
   }
 
   .sTwoServicesHeader1 {
@@ -1374,6 +1401,11 @@ FOOTER
   }
 
   .hero-four {
+    margin-top: unset;
+    margin-left: unset;
+  }
+
+  .mainDiv {
     display: none;
   }
 

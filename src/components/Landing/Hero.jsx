@@ -82,11 +82,14 @@ const letter2 = {
 };
 
 const Hero = () => {
-   
   return (
     <motion.div
       initial={{ opacity: 0, height: 0 }}
-      animate={{ opacity: 1, height: "100vh" }}
+      animate={{
+        opacity: 1,
+        height: "100vh",
+        "@media (max-width: 600px)": { height: "50vh" },
+      }}
       transition={{ duration: 1, ease: easing }}
       className="hero-container"
     >
@@ -113,11 +116,7 @@ const Hero = () => {
         variants={stagger}
       >
         <div className="hero-four">
-          <BasicButtons
-          
-            text="Schedule a consultation"
-            bgColor="#450fad"
-          />
+          <BasicButtons text="Schedule a consultation" bgColor="#450fad" />
         </div>
       </motion.div>
     </motion.div>
