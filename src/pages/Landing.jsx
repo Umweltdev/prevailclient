@@ -8,6 +8,7 @@ import SectionSeven from "../components/Landing/SectionSeven";
 import SectionSix from "../components/Landing/SectionSix";
 import SectionThree from "../components/Landing/SectionThree";
 import SectionTwo from "../components/Landing/SectionTwo";
+import YourTools from "../components/Landing/YourTools";
 import DrawerAppBar from "../components/Navbar/Appbar";
 import Navbar from "../components/Navbar/Navbar";
 // import Follower from "../components/MouseAnimation";
@@ -20,11 +21,12 @@ const Landing = () => {
       <Hero />
       <SectionTwo />
       <SectionThree />
+      <YourTools />
       <SectionFive />
       <SectionFour />
       <SectionSix />
       {/* <CarouselOne/> */}
-      <SectionSeven/>
+      <SectionSeven />
       <FooterNew />
     </div>
   );
