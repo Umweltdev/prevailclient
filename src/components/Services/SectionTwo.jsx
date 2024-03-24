@@ -27,7 +27,7 @@ const SectionTwo = () => {
       >
         Services
       </Typography>
-      <span style={{ marginLeft: "12vw" }} className="lineSpanServices"></span>
+      {/* <span style={{ marginLeft: "12vw" }} className="lineSpanServices"></span> */}
       <div className="sTwoServicesCards">
         {serviceCard.map((data, index) => (
           <Link

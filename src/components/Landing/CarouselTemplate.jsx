@@ -35,7 +35,7 @@ const images = [
   },
 ];
 
-function CarouselOne() {
+function CarouselTemplate() {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const [isOverlayVisible, setIsOverlayVisible] = React.useState(false);
@@ -104,13 +104,69 @@ function CarouselOne() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          gap: "2vw",
+          //   gap: "1vw",
         }}
       >
+        {/* LEFT */}
+        <Grid
+          sx={{
+            width: "20vw",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            gap: "5vh",
+          }}
+        >
+          <Grid>
+            <Typography
+              sx={{ color: "#333", fontSize: "1.7vw", fontWeight: "900" }}
+            >
+              Millions
+            </Typography>
+            <Typography sx={{ color: "#696969", fontSize: "1.2vw" }}>
+              BMW owners using Connected Drive Store
+            </Typography>
+          </Grid>
+
+          <Grid>
+            <Typography
+              sx={{ color: "#333", fontSize: "1.7vw", fontWeight: "900" }}
+            >
+              350+
+            </Typography>
+            <Typography sx={{ color: "#696969", fontSize: "1.2vw" }}>
+              US dealerships{" "}
+            </Typography>
+          </Grid>
+
+          <Grid sx={{ display: "flex", flexDirection: "column" }}>
+            <Typography
+              sx={{ color: "#333", fontSize: "1.5vw", fontWeight: "900" }}
+            >
+              Product used
+            </Typography>
+            <Grid>
+              <Grid sx={{ display: "flex", alignItems: "center", gap: "1vw" }}>
+                <img style={{ width: "1.7vw" }} src={payment} alt="" />
+                <Typography sx={{ color: "#696969", fontSize: "1.2vw" }}>
+                  Payments
+                </Typography>
+              </Grid>
+              <Grid sx={{ display: "flex", alignItems: "center", gap: "1vw" }}>
+                <img style={{ width: "1.7vw" }} src={conn} alt="" />
+                <Typography sx={{ color: "#696969", fontSize: "1.2vw" }}>
+                  Connect
+                </Typography>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+
         {/* RIGHT */}
         <Grid
           sx={{
             width: "50vw",
+
             transition: " 1s ease-in-out",
             position: "relative",
           }}
@@ -119,8 +175,8 @@ function CarouselOne() {
             src={images[activeStep].imgPath}
             alt={images[activeStep].label}
             style={{
-              width: "42vw",
-              height: "28vw",
+              width: "45vw",
+              height: "25vw",
               objectFit: "cover",
               borderRadius: "1vw",
             }}
@@ -131,55 +187,67 @@ function CarouselOne() {
               top: "0",
               left: "0",
               width: "100%",
-              height: "28vw",
-              background: "rgba(136,78,217,0.2)",
+              height: "100%",
+              background: "rgba(136,78,217,0.4)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               backdropFilter: "blur(0px)",
-              borderRadius: "1vw",
+              borderRadius: "16px",
               flexDirection: "column",
             }}
-          ></div>
-        </Grid>
-
-        {/* LEFT */}
-        <Grid
-          sx={{
-            width: "20vw",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            gap: "3vh",
-            textAlign: "right",
-          }}
-        >
-          {images.map((data, index) => (
-            <Grid>
-              <Typography
-                sx={{ color: "#333", fontSize: "1.2vw", fontWeight: "900" }}
-              >
-                {data.title}
-              </Typography>
-              <Typography sx={{ color: "#696969", fontSize: "1vw" }}>
-                {data.subTitle}
-              </Typography>
-            </Grid>
-          ))}
-          {/* <Grid>
+          >
             <Typography
-              sx={{ color: "#333", fontSize: "1.7vw", fontWeight: "900" }}
+              variant="h4"
+              color="white"
+              sx={{
+                fontWeight: "bold",
+                textAlign: "center",
+                width: "30vw",
+                mb: "7vh",
+              }}
             >
-              350+
+              {images[activeStep].title}{" "}
             </Typography>
-            <Typography sx={{ color: "#696969", fontSize: "1.2vw" }}>
-              US dealerships{" "}
+            <Typography
+              variant="h5"
+              color="white"
+              sx={{ fontWeight: "bold", textAlign: "center", width: "30vw" }}
+            >
+              {images[activeStep].subTitle}{" "}
             </Typography>
-          </Grid> */}
+          </div>
         </Grid>
+      </Grid>
+      <Grid
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        {images.map((step, index) => (
+          <Button
+            key={index}
+            onClick={() => handleStepChange(index)}
+            sx={{
+              cursor: "pointer",
+              display: "flex",
+              justifyContent: "space-around",
+              marginTop: "5vh",
+              padding: "1vh 0vw",
+              fontWeight: "900",
+              fontSize: "1vw",
+              color: "#333",
+              width: "25vw",
+              borderTop: activeStep === index ? "3px solid #a16ad9" : "none",
+            }}
+          >
+            {step.icon}
+          </Button>
+        ))}
       </Grid>
     </Grid>
   );
 }
 
-export default CarouselOne;
+export default CarouselTemplate;

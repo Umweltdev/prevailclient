@@ -12,10 +12,10 @@ const SectionSeven = () => {
   return (
     <div className="sectionSeven">
       <div>
-        <img className="sectSevenImage" src={images} alt="" />
+        <CarouselOne />
       </div>
       <div>
-        <CarouselOne />
+        <img className="sectSevenImage" src={images} alt="" />
       </div>
     </div>
   );
