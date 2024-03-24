@@ -20,10 +20,12 @@ export default function MediaCard({ header, text, img, gradient }) {
         padding: "0 0 1.5vh 0",
         boxShadow: " rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;",
         "@media (max-width: 600px)": {
-          maxWidth: 345,
+          width: "90vw",
           // height: 440,
           display: "flex",
           flexDirection: "column",
+          boxShadow: " rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;",
+          margin: "5vw",
         },
       }}
     >
@@ -33,7 +35,7 @@ export default function MediaCard({ header, text, img, gradient }) {
           objectFit: "cover",
           borderRadius: "16px",
           "@media (max-width: 600px)": {
-            height: 170,
+            height: "20vh",
           },
         }}
         image={img}
@@ -96,8 +98,9 @@ export default function MediaCard({ header, text, img, gradient }) {
             "@media (max-width: 600px)": {
               boxShadow: "unset",
               fontWeight: "unset",
-              padding: "1vh 3vw",
+              padding: "1vh 10vw",
               fontSize: "3vw",
+            
             },
           }}
         >

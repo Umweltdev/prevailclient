@@ -1,5 +1,5 @@
 .sOneBlogContainer {
-  background-image: url("https://images.unsplash.com/photo-1552152370-fb05b25ff17d?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  /* background-image: url("https://images.unsplash.com/photo-1552152370-fb05b25ff17d?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); */
   /* position: fixed; */
   background-repeat: no-repeat;
 
@@ -245,14 +245,11 @@
 
 @media only screen and (max-width: 600px) {
   .sOneBlogContainer {
-    background-image: url("https://images.unsplash.com/photo-1552152370-fb05b25ff17d?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    /* background-image: url("https://images.unsplash.com/photo-1552152370-fb05b25ff17d?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); */
     /* position: fixed; */
-    background-repeat: no-repeat;
+   
     height: 20vh; /* You must set a specified height */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-attachment: fixed;
-    background-size: cover; /* Resize the background image to cover the entire container */
+    margin: 0 auto;
     /* background: linear-gradient(
     140deg,
     rgb(40, 221, 167) 0%,
@@ -262,10 +259,10 @@
     #0b001d 100%
   ); */
     /* opacity: 0.5; */
-    width: 100%;
+    /* width: 100%; */
   }
   .sOneBlog {
-    margin: 1vh 2v;
+    margin: unset;
     display: flex;
     flex-direction: column-reverse;
     justify-content: center;
@@ -325,6 +322,8 @@
     width: 95vw;
     height: 30vh;
     object-fit: cover;
+    margin: 0 auto;
+    border-radius: 10px;
   }
 
   .sOneBlogDetailsDesc {
@@ -332,7 +331,7 @@
     /* display: flex;
   justify-content: center; */
     text-align: justify;
-    width: 90vw;
+    width: 95vw;
     font-size: 4vw;
     line-height: 4vh;
   }

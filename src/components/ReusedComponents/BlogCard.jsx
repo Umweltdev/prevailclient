@@ -50,10 +50,15 @@ export default function BlogCard({
       sx={{
         width: "26vw",
         borderRadius: "1vw",
-        "@media (max-width: 600px)": { width: "93vw" },
         boxShadow:
           "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;",
         padding: "1vw",
+        "@media (max-width: 600px)": {
+          width: "85vw",
+          margin: "0 auto",
+          borderRadius: "16px",
+          padding: "1vh",
+        },
       }}
     >
       <Typography
@@ -62,6 +67,7 @@ export default function BlogCard({
           fontWeight: "bold",
           fontSize: "1.1vw",
           wordSpacing: "-2px",
+          "@media (max-width: 600px)": { padding: "2vh 0", fontSize: "4.5vw" },
         }}
       >
         {header}
@@ -73,6 +79,7 @@ export default function BlogCard({
         sx={{
           height: "15vw",
           borderRadius: "1vw",
+          "@media (max-width: 600px)": { height: "30vh", borderRadius: "1vh" },
         }}
       />
       <Grid sx={{ padding: "2.5vh 0 3vh 0" }}>
@@ -85,12 +92,38 @@ export default function BlogCard({
             gap: "5px",
           }}
         >
-          <Circle sx={{ color: "#884ed9", fontSize: "1vw" }} />
-          <Typography sx={{ marginTop: "1vh" }}>{category}</Typography>
+          <Circle
+            sx={{
+              color: "#884ed9",
+              fontSize: "1vw",
+              "@media (max-width: 600px)": {
+                color: "#884ed9",
+                fontSize: "4vw",
+              },
+            }}
+          />
+          <Typography
+            sx={{
+              marginTop: "1vh",
+              "@media (max-width: 600px)": {
+                marginTop: "0.5vh",
+              },
+            }}
+          >
+            {category}
+          </Typography>
         </Grid>
 
         <Grid>
-          <Typography sx={{ color: "#b4b4b4", fontSize: "0.9vw" }}>
+          <Typography
+            sx={{
+              color: "#b4b4b4",
+              fontSize: "0.9vw",
+              "@media (max-width: 600px)": {
+                fontSize: "3.5vw",
+              },
+            }}
+          >
             {authorFirstName} | {date}
           </Typography>
         </Grid>
@@ -118,13 +151,14 @@ export default function BlogCard({
             color: "white",
             boxShadow: "none",
             textTransform: "capitalize",
+
             "@hover": {
               backgroundColor: "#884ed9",
             },
             "@media (max-width: 600px)": {
               background:
                 gradient || "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
-              padding: "0.7vh 1vw",
+              padding: "0.3vh 8vw",
               borderRadius: "5vw",
               color: "white",
               fontWeight: "unset",

@@ -20,7 +20,7 @@ export default function FreeSolo() {
       sx={{
         width: 300,
         "@media (max-width: 600px)": {
-          width: "93vw",
+          width: "85vw",
         },
       }}
     >
@@ -41,7 +41,7 @@ export default function FreeSolo() {
         sx={{
           width: 300,
           "@media (max-width: 600px)": {
-            width: "93vw",
+            width: "85vw",
           },
         }}
         renderInput={(params) => <TextField {...params} label="Categories" />}

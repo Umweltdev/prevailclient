@@ -1,7 +1,30 @@
 import { Grid, Typography } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import React from "react";
 
+const useStyles = makeStyles({
+  imagePlaform: {
+    width: "78vw",
+    height: "50vh",
+    objectFit: "cover",
+    borderRadius: "5px",
+    boxShadow:
+      "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
+
+    "@media (max-width: 600px)": {
+      width: "96vw",
+      height: "25vh",
+    },
+  },
+  spline: {
+    width: "30vw",
+  },
+});
+{
+}
+
 const PlatformTwo = () => {
+  const classes = useStyles();
   return (
     <Grid
       sx={{
@@ -11,21 +34,41 @@ const PlatformTwo = () => {
         flexDirection: "column",
       }}
     >
-      <Grid sx={{ display: "flex", gap: "4vw", flexDirection: "column" }}>
+      <Grid
+        sx={{
+          display: "flex",
+          gap: "4vw",
+          flexDirection: "column",
+        }}
+      >
         <Grid
           sx={{
             // marginBottom: "1vh",
             display: "flex",
             gap: "5vw",
+            "@media (max-width: 600px)": { flexDirection: "column" },
           }}
         >
-          <Grid sx={{ width: "37vw" }}>
+          <Grid
+            sx={{
+              width: "37vw",
+              "@media (max-width: 600px)": {
+                width: "95vw",
+              },
+            }}
+          >
             <Typography
               sx={{
                 display: "flex",
                 fontSize: "1.9vw",
                 fontWeight: "bold",
                 marginBottom: "2vh",
+                "@media (max-width: 600px)": {
+                  display: "flex",
+                  fontSize: "6vw",
+                  fontWeight: "bold",
+                  marginBottom: "1vh",
+                },
               }}
             >
               Active Evaluation
@@ -36,6 +79,12 @@ const PlatformTwo = () => {
                 color: "#636363",
                 // marginBottom: "1vh",
                 textAlign: "justify",
+                "@media (max-width: 600px)": {
+                  fontSize: "4vw",
+                  color: "#636363",
+                  // marginBottom: "1vh",
+                  textAlign: "justify",
+                },
               }}
             >
               During this stage, customers actively look around, much like
@@ -50,13 +99,26 @@ const PlatformTwo = () => {
               service,
             </Typography>
           </Grid>
-          <Grid sx={{ width: "37vw" }}>
+          <Grid
+            sx={{
+              width: "37vw",
+              "@media (max-width: 600px)": {
+                width: "95vw",
+              },
+            }}
+          >
             <Typography
               sx={{
                 fontSize: "1.4vw",
                 color: "#636363",
                 textAlign: "justify",
                 marginTop: "7vh",
+                "@media (max-width: 600px)": {
+                  fontSize: "4vw",
+                  color: "#636363",
+                  marginTop: "1vh",
+                  textAlign: "justify",
+                },
               }}
             >
               especially Pay-Per- Click (PPC) advertising, is crucial at this
@@ -73,14 +135,7 @@ const PlatformTwo = () => {
           </Grid>
         </Grid>
         <img
-          style={{
-            width: "79vw",
-            height: "50vh",
-            objectFit: "cover",
-            borderRadius: "5px",
-            boxShadow:
-              "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
-          }}
+          className={classes.imagePlaform}
           src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="image"
         />
@@ -91,9 +146,20 @@ const PlatformTwo = () => {
             flexDirection: "space-between",
             gap: "5vw",
             alignItems: "center",
+            "@media (max-width: 600px)": {
+              flexDirection: "column",
+              marginTop: "3vh",
+            },
           }}
         >
-          <Grid sx={{ width: "37vw" }}>
+          <Grid
+            sx={{
+              width: "37vw",
+              "@media (max-width: 600px)": {
+                width: "95vw",
+              },
+            }}
+          >
             <Typography
               sx={{
                 display: "flex",
@@ -101,6 +167,13 @@ const PlatformTwo = () => {
                 fontWeight: "bold",
                 color: "#494848",
                 marginBottom: "3vh",
+                "@media (max-width: 600px)": {
+                  display: "flex",
+                  fontSize: "6vw",
+                  fontWeight: "bold",
+                  color: "#494848",
+                  marginBottom: "1vh",
+                },
               }}
             >
               Purchasing
@@ -111,6 +184,12 @@ const PlatformTwo = () => {
                 color: "#636363",
                 marginBottom: "1vh",
                 textAlign: "justify",
+                "@media (max-width: 600px)": {
+                  fontSize: "4vw",
+
+                  color: "#494848",
+                  marginBottom: "1vh",
+                },
               }}
             >
               Consider the stage where a consumer is about to make a final
@@ -130,21 +209,10 @@ const PlatformTwo = () => {
               and attract more customers.
             </Typography>
           </Grid>
-          {/* <img
-            style={{
-              width: "37vw",
-              height: "75vh",
-              objectFit: "cover",
-              borderRadius: "5px",
-              boxShadow:
-                "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
-            }}
-            src="https://plus.unsplash.com/premium_photo-1684356819140-e82e7446b600?q=80&w=1384&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="image"
-          /> */}
 
           <spline-viewer
-            style={{ width: "37vw", height: "70vh" }}
+          className={classes.spline}
+            style={{width: "37vw", height: "70vh"}}
             url="https://prod.spline.design/kqWnRSHfs03RcYiO/scene.splinecode"
           ></spline-viewer>
         </Grid>

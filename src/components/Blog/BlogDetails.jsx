@@ -36,9 +36,22 @@ const BlogDetails = () => {
           justifyContent: "space-evenly",
           alignItems: "top",
           margin: "25vh 0 0 0",
+          "@media (max-width: 600px)": {
+            flexDirection: "column",
+            margin: "15vh auto",
+            alignItems: "center",
+          },
         }}
       >
-        <Grid sx={{ width: "55vw" }}>
+        <Grid
+          sx={{
+            width: "55vw",
+            "@media (max-width: 600px)": {
+              width: "95vw",
+              margin: "0 auto",
+            },
+          }}
+        >
           <img className="sOneBlogDetailsImg" src={currentBlog.img} alt="" />
           <Grid
             sx={{
@@ -47,10 +60,22 @@ const BlogDetails = () => {
               alignItems: "top",
               top: "0",
               padding: "4vh 0 0 0",
+              "@media (max-width: 600px)": {
+                flexDirection: "column",
+              },
             }}
           >
             <Typography
-              sx={{ fontSize: "1.4vw", width: "35vw", fontWeight: "900" }}
+              sx={{
+                fontSize: "1.4vw",
+                width: "35vw",
+                fontWeight: "900",
+                "@media (max-width: 600px)": {
+                  fontSize: "5vw",
+                  width: "80vw",
+                  fontWeight: "900",
+                },
+              }}
             >
               {currentBlog.header}
             </Typography>
@@ -60,6 +85,11 @@ const BlogDetails = () => {
                   fontSize: "1.5vw",
                   borderRadius: "50%",
                   color: "#884ed9",
+                  "@media (max-width: 600px)": {
+                    fontSize: "5vw",
+                    borderRadius: "50%",
+                    color: "#884ed9",
+                  },
                 }}
               />
               <Twitter
@@ -67,6 +97,11 @@ const BlogDetails = () => {
                   fontSize: "1.5vw",
                   borderRadius: "50%",
                   color: "#884ed9",
+                  "@media (max-width: 600px)": {
+                    fontSize: "5vw",
+                    borderRadius: "50%",
+                    color: "#884ed9",
+                  },
                 }}
               />
               <Instagram
@@ -74,6 +109,11 @@ const BlogDetails = () => {
                   fontSize: "1.5vw",
                   borderRadius: "50%",
                   color: "#884ed9",
+                  "@media (max-width: 600px)": {
+                    fontSize: "5vw",
+                    borderRadius: "50%",
+                    color: "#884ed9",
+                  },
                 }}
               />
               <Email
@@ -81,6 +121,11 @@ const BlogDetails = () => {
                   fontSize: "1.5vw",
                   borderRadius: "50%",
                   color: "#884ed9",
+                  "@media (max-width: 600px)": {
+                    fontSize: "5vw",
+                    borderRadius: "50%",
+                    color: "#884ed9",
+                  },
                 }}
               />
             </div>
@@ -92,6 +137,12 @@ const BlogDetails = () => {
                 margin: "1.2vh 0 0 0",
                 webkitFontSmoothing: "antialiased",
                 fontWeight: "800",
+                "@media (max-width: 600px)": {
+                  fontSize: "3vw",
+                  margin: "2vh 0 1vh 0",
+                  webkitFontSmoothing: "antialiased",
+                  fontWeight: "800",
+                },
               }}
             >
               {currentBlog.authorFirstName} | {currentBlog.date}

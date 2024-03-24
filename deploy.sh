@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "landing page mobile fix"
+git commit -m "blog mobile fix"
 
 git push
 

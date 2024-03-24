@@ -7,17 +7,26 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Favorite, Share } from "@mui/icons-material";
 import { Grid } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-  >
-    •
-  </Box>
-);
+const useStyles = makeStyles({
+  imago: {
+    width: "50",
+    height: "6vw",
+    objectFit: "cover",
+    borderRadius: "5px",
+    "@media (max-width: 600px)": {
+      width: "95vw",
+      height: "46vw",
+      objectFit: "cover",
+      borderRadius: "5px",
+    },
+  },
+});
 
 export default function BlogSideCard({ header, category, img, date }) {
+  const classes = useStyles();
+
   return (
     <Card
       sx={{
@@ -29,11 +38,24 @@ export default function BlogSideCard({ header, category, img, date }) {
         boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
         borderRadius: "0.5vw",
         padding: "2.5vh 0 0 0",
+        "@media (max-width: 600px)": {
+          minWidth: "95vw",
+          flexDirection: "column",
+          alignItems: "center",
+        },
       }}
     >
       <CardContent>
         <Typography
-          sx={{ fontSize: "1.2vw", fontWeight: "bold", color: "#333" }}
+          sx={{
+            fontSize: "1.2vw",
+            fontWeight: "bold",
+            color: "#333",
+            "@media (max-width: 600px)": {
+              fontSize: "5vw",
+              textAlign: "center",
+            },
+          }}
           color="text.secondary"
           gutterBottom
         >
@@ -48,14 +70,18 @@ export default function BlogSideCard({ header, category, img, date }) {
             // textJustify: "distribute",
             // wordSpacing: "10px",
             margin: "0 0 2.5vh 0",
-            
+            "@media (max-width: 600px)": {
+              fontSize: "5vw",
+              textAlign: "center",
+              width: "90vw",
+            },
           }}
           color="text.secondary"
           gutterBottom
         >
           {header}
         </Typography>
-        <Grid>
+        <Grid sx={{ "@media (max-width: 600px)": { margin: "auto" } }}>
           <Typography
             sx={{
               textTransform: "capitalize",
@@ -66,6 +92,17 @@ export default function BlogSideCard({ header, category, img, date }) {
               width: "12vw",
               textAlign: "center",
               padding: "1vh 1vw",
+              "@media (max-width: 600px)": {
+                textTransform: "capitalize",
+                color: "#884ed9",
+                background: "#fff",
+                fontSize: "3vw",
+                borderRadius: "25px",
+                width: "40vw",
+                textAlign: "center",
+                padding: "1vh 1vw",
+                margin: "0 auto",
+              },
             }}
           >
             Date: {date}
@@ -73,17 +110,7 @@ export default function BlogSideCard({ header, category, img, date }) {
         </Grid>
       </CardContent>
       <CardContent>
-        <img
-          style={{
-            width: "6vw",
-            height: "6vw",
-            objectFit: "cover",
-            borderRadius: "5px",
-          }}
-          src={img}
-          alt="image"
-        />
-
+        <img className={classes.imago} src={img} alt="image" />
         <CardActions>
           <Share
             sx={{

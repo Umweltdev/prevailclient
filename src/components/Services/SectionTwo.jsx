@@ -2,7 +2,7 @@ import "./assets/services.css";
 import { serviceCard } from "./assets/ServicesData";
 import "./assets/services.css";
 import MediaCard from "../ReusedComponents/CardPortfolio";
-import { Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import zIndex from "@mui/material/styles/zIndex";
 
@@ -20,15 +20,16 @@ const SectionTwo = () => {
           marginLeft: "12vw",
           "@media (max-width: 600px)": {
             fontSize: "7vw",
-            textAlign: "justify",
+            textAlign: "center",
             textJustify: "distribute",
+            marginLeft: "unset",
           },
         }}
       >
         Services
       </Typography>
       {/* <span style={{ marginLeft: "12vw" }} className="lineSpanServices"></span> */}
-      <div className="sTwoServicesCards">
+      <Grid className="sTwoServicesCards">
         {serviceCard.map((data, index) => (
           <Link
             style={{ textDecoration: "none" }}
@@ -38,7 +39,7 @@ const SectionTwo = () => {
             <MediaCard img={data.img} header={data.header} text={data.text} />
           </Link>
         ))}
-      </div>
+      </Grid>
     </div>
   );
 };

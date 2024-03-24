@@ -5,8 +5,36 @@ import coke from "./assets/coke.png";
 import CardService from "./CardService";
 import CardPlatform from "./CardPlatform";
 import trigger from "./assets/trigger.png";
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles({
+  imagePlaform: {
+    width: "78vw",
+    height: "50vh",
+    objectFit: "cover",
+    borderRadius: "5px",
+    boxShadow:
+      "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
+
+    "@media (max-width: 600px)": {
+      width: "unset",
+      height: "unset",
+    },
+  },
+  imageInit: {
+    width: "37vw",
+    borderRadius: "1vw",
+    boxShadow:
+      "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
+    "@media (max-width: 600px)": {
+      width: "95vw",
+      height: "unset",
+    },
+  },
+});
 
 const Platform = () => {
+  const classes = useStyles()
   return (
     <Grid
       sx={{
@@ -15,6 +43,9 @@ const Platform = () => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
+        "@media (max-width: 600px)": {
+          marginTop: "5vh",
+        },
       }}
     >
       <Grid
@@ -23,6 +54,10 @@ const Platform = () => {
           flexDirection: "column",
           width: "75vw",
           margin: "0 auto",
+          "@media (max-width: 600px)": {
+            width: "95vw",
+            margin: "0 auto",
+          },
         }}
       >
         <Typography
@@ -31,6 +66,10 @@ const Platform = () => {
             color: "#884ed9",
             marginBottom: "3vh",
             fontWeight: "900",
+            "@media (max-width: 600px)": {
+              fontSize: "4vw",
+              marginBottom: "1vh",
+            },
           }}
         >
           Customer Journey
@@ -43,6 +82,14 @@ const Platform = () => {
             fontWeight: "bold",
             width: "50vw",
             marginBottom: "3vh",
+            "@media (max-width: 600px)": {
+              fontSize: "6vw",
+              color: "#333",
+              textWeight: "bold",
+              fontWeight: "bold",
+              width: "95vw",
+              marginBottom: "1vh",
+            },
           }}
         >
           How you attract more customers with Prevail
@@ -53,6 +100,13 @@ const Platform = () => {
             color: "#636363",
             width: "60vw",
             marginBottom: "5vh",
+            "@media (max-width: 600px)": {
+              fontSize: "4vw",
+              color: "#636363",
+              width: "95vw",
+              marginBottom: "2vh",
+              textAlign: "justify",
+            },
           }}
         >
           Are you ready to take your business to the next level? Imagine having
@@ -76,9 +130,22 @@ const Platform = () => {
           alignItems: "top",
           margin: "0 auto",
           width: "75vw",
+          "@media (max-width: 600px)": {
+            width: "95vw",
+          },
         }}
       >
-        <Grid sx={{ width: "75vw", display: "flex", gap: "4vw" }}>
+        <Grid
+          sx={{
+            width: "75vw",
+            display: "flex",
+            gap: "4vw",
+            "@media (max-width: 600px)": {
+              width: "95vw",
+              flexDirection: "column",
+            },
+          }}
+        >
           <Grid>
             <Typography
               sx={{
@@ -86,6 +153,11 @@ const Platform = () => {
                 fontSize: "1.9vw",
                 fontWeight: "bold",
                 marginBottom: "2vh",
+                "@media (max-width: 600px)": {
+                  width: "95vw",
+                  fontSize: "6vw",
+                  marginBottom: "1vh",
+                },
               }}
             >
               Trigger
@@ -97,6 +169,11 @@ const Platform = () => {
                 margin: "1vh 0 0 0",
                 textAlign: "justify",
                 width: "37vw",
+                "@media (max-width: 600px)": {
+                  width: "95vw",
+                  fontSize: "4vw",
+                  marginBottom: "1vw",
+                },
               }}
             >
               Imagine you are starting a journey with each customer, and the
@@ -117,6 +194,12 @@ const Platform = () => {
                 textAlign: "justify",
                 width: "37vw",
                 marginTop: "7vh",
+                "@media (max-width: 600px)": {
+                  width: "95vw",
+                  fontSize: "4vw",
+                  marginBottom: "1vw",
+                  marginTop: "0vh",
+                },
               }}
             >
               We can help you gain insights into what your customers like and
@@ -130,14 +213,8 @@ const Platform = () => {
           </Grid>
         </Grid>
         <img
-          style={{
-            width: "78vw",
-            height: "50vh",
-            objectFit: "cover",
-            borderRadius: "5px",
-            boxShadow:
-              "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
-          }}
+          className={classes.imagePlaform}
+          style={{}}
           src="https://plus.unsplash.com/premium_photo-1681488183639-f38511a647ef?q=80&w=1543&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="image"
         />
@@ -151,9 +228,25 @@ const Platform = () => {
             justifyContent: "space-between",
             alignItems: "center",
             gap: "5vw",
+            "@media (max-width: 600px)": {
+              width: "95vw",
+              flexDirection: "column",
+              marginBottom: "1vh",
+              // gap: "5vw",
+              justifyContent: "space-between",
+              alignItems: "center",
+              gap: "1vw",
+            },
           }}
         >
-          <Grid sx={{ width: "37vw" }}>
+          <Grid
+            sx={{
+              width: "37vw",
+              "@media (max-width: 600px)": {
+                width: "95vw",
+              },
+            }}
+          >
             <Typography
               sx={{
                 display: "flex",
@@ -161,6 +254,10 @@ const Platform = () => {
                 fontWeight: "bold",
                 color: "#494848",
                 marginBottom: "3vh",
+                "@media (max-width: 600px)": {
+                  fontSize: "6vw",
+                  margin: "2vh 0",
+                },
               }}
             >
               Initial Consideration
@@ -172,6 +269,11 @@ const Platform = () => {
                 marginBottom: "3vh",
                 textAlign: "justify",
                 width: "37vw",
+                "@media (max-width: 600px)": {
+                  fontSize: "4vw",
+                  textAlign: "justify",
+                  width: "95vw",
+                },
               }}
             >
               After this trigger event, consumers move into the initial
@@ -183,12 +285,8 @@ const Platform = () => {
             </Typography>
           </Grid>
           <img
-            style={{
-              width: "37vw",
-              borderRadius: "1vw",
-              boxShadow:
-                "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
-            }}
+            className={classes.imageInit}
+            style={{}}
             src="https://img.freepik.com/free-photo/copy-space-man-with-old-phone_23-2148467296.jpg?w=826"
             alt=""
           />
@@ -199,7 +297,16 @@ const Platform = () => {
         </Grid>
       </Grid>
 
-      <Grid sx={{ display: "flex", gap: "5vw" }}>
+      <Grid
+        sx={{
+          display: "flex",
+          gap: "5vw",
+          marginTop: "5vh",
+          "@media (max-width: 600px)": {
+            flexDirection: "column"
+          },
+        }}
+      >
         <CardService />
         <CardPlatform />
       </Grid>

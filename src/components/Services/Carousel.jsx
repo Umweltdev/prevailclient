@@ -4,9 +4,21 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import { Button, Grid } from "@mui/material";
+import { makeStyles } from "@mui/styles";
+import {
+  AdsClick,
+  Campaign,
+  DevicesOther,
+  Plagiarism,
+  Poll,
+  Speed,
+  SsidChart,
+  Visibility,
+} from "@mui/icons-material";
 
 const images = [
   {
+    icon: <DevicesOther />,
     title: "Digital Landscape",
     subTitle: `The term "digital landscape" refers to the entire digital
 environment where your brand operates`,
@@ -19,6 +31,7 @@ that are relevant and impactful."`,
       "https://img.freepik.com/free-photo/social-media-concept-with-smartphone_52683-100042.jpg?t=st=1711131269~exp=1711134869~hmac=d6c3061eb82155664d26609d17f6fadf0333df875a6c0312b36f565f91cf5d7b&w=740",
   },
   {
+    icon: <Campaign />,
     title: "Brand Awarenes",
     subTitle: `Brand awareness strategies are to introduce your brand and its products or services`,
     text: `Brand awareness strategies are to introduce your brand and its products or services to your target audience. The goal is to create a long-lasting impression in the minds of potential customers so that when they are ready to make a purchase, they think of your brand. This can be achieved by implementing various digital marketing tactics such as content marketing, improving website aesthetics, optimising search engines, running social media campaigns, and more`,
@@ -26,6 +39,7 @@ that are relevant and impactful."`,
       "https://img.freepik.com/premium-photo/megaphone-against-gray-white-surface_443869-2.jpg?w=740",
   },
   {
+    icon: <SsidChart />,
     title: "Competitor Analysis",
     subTitle:
       "To succeed in the market, it is essential to research and understand your competitors strategies",
@@ -34,6 +48,7 @@ that are relevant and impactful."`,
       "https://img.freepik.com/premium-photo/close-up-king-chess-standing-winner-with-falling-chess_101448-2828.jpg?w=740",
   },
   {
+    icon: <Plagiarism />,
     title: "Keyword Ranking",
     subTitle:
       "Having a high keyword ranking can lead to organic traffic being directed to your site",
@@ -43,6 +58,7 @@ that are relevant and impactful."`,
   },
 
   {
+    icon: <AdsClick />,
     title: "Targeted Advertising",
     subTitle:
       "Examining your competitors can aid you in identifying market gaps",
@@ -51,6 +67,7 @@ that are relevant and impactful."`,
       "https://img.freepik.com/free-photo/realistic-camera-lens-target-perfect-shoot-3d-rendering_460848-10717.jpg?t=st=1711132156~exp=1711135756~hmac=a2eb2792453a9d692dfe9b766991387c34e257fc79f8d6b61dbf22bed2cf5e7c&w=740",
   },
   {
+    icon: <Visibility />,
     title: "Higher Visibility",
     subTitle:
       "The objective of this approach is to spend your marketing budget more efficiently",
@@ -59,6 +76,7 @@ that are relevant and impactful."`,
       "https://img.freepik.com/free-photo/medium-shot-woman-influencer-marketing_23-2150521879.jpg?t=st=1711131935~exp=1711135535~hmac=d630aa70503c1250839551a5fec5cee560ef36b708503a4e158817efb059b6fc&w=740",
   },
   {
+    icon: <Speed />,
     title: "Optimisation",
     subTitle:
       "Examining your competitors can aid you in identifying market gaps",
@@ -67,6 +85,7 @@ that are relevant and impactful."`,
       "https://img.freepik.com/free-photo/seo-analysis-business-concept-with-wooden-blocks-with-words-it-magnifying-glass-side-view_176474-10449.jpg?t=st=1711132366~exp=1711135966~hmac=42ea62114ac54299762812dbe70aeb7be4527b6cd37f961a6a45b1a5ff0dcaf7&w=740",
   },
   {
+    icon: <Poll />,
     title: "Reporting",
     subTitle:
       "Reporting provides valuable insights into what is working and what is not",
@@ -76,30 +95,60 @@ that are relevant and impactful."`,
   },
 ];
 
+const useStyles = makeStyles({
+  imageCar: {
+    width: "40vw",
+    height: "25vw",
+    objectFit: "cover",
+    boxShadow: "rgba(17, 12, 46, 0.15) 0px 48px 100px 0px",
+    borderRadius: "1vw",
+    "@media (max-width: 600px)": {
+      width: "95vw",
+      height: "25vh",
+      marginTop: "2vh",
+    },
+  },
+});
+
 function Carousel() {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
 
-  //   const buttonTop = {
-  //     border
-  //   }
+  const classes = useStyles();
 
   const handleStepChange = (step) => {
     setActiveStep(step);
   };
 
   return (
-    <Grid sx={{ padding: "18vh 0 0 0" }} justifyContent="center">
+    <Grid
+      sx={{
+        padding: "18vh 0 0 0",
+        "@media (max-width: 600px)": {
+          padding: "15vh 0 0 0",
+        },
+      }}
+      justifyContent="center"
+    >
       <Grid
         sx={{
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-        //   gap: "1vw",
+          "@media (max-width: 600px)": {
+            flexDirection: "column",
+          },
         }}
       >
         {/* LEFT */}
-        <Grid sx={{ width: "40vw" }}>
+        <Grid
+          sx={{
+            width: "40vw",
+            "@media (max-width: 600px)": {
+              width: "95vw",
+            },
+          }}
+        >
           <Typography
             sx={{
               width: "35vw",
@@ -107,6 +156,10 @@ function Carousel() {
               fontWeight: "bold",
               color: "#884ed9",
               marginBottom: "2vh",
+              "@media (max-width: 600px)": {
+                fontSize: "3vw",
+                width: "95vw",
+              },
             }}
           >
             {images[activeStep].title}
@@ -117,6 +170,10 @@ function Carousel() {
               fontSize: "2.3vw",
               fontWeight: "bold",
               marginBottom: "2vh",
+              "@media (max-width: 600px)": {
+                fontSize: "5vw",
+                width: "95vw",
+              },
             }}
           >
             {images[activeStep].subTitle}
@@ -127,7 +184,16 @@ function Carousel() {
               fontSize: "1.2vw",
               marginTop: "3vh",
               lineHeight: "4vh",
-              height: "50vh"
+              height: "50vh",
+              "@media (max-width: 600px)": {
+                width: "95vw",
+                fontSize: "4vw",
+                marginTop: "1vh",
+                lineHeight: "unset",
+                height: "unset",
+                textAlign: "justify",
+                textJustify: "distribute",
+              },
             }}
           >
             {images[activeStep].text}
@@ -139,6 +205,10 @@ function Carousel() {
           sx={{
             width: "40vw",
             transition: " 1s ease-in-out",
+            "@media (max-width: 600px)": {
+              width: "95vw",
+              transition: " 1s ease-in-out",
+            },
           }}
         >
           <Typography
@@ -147,20 +217,17 @@ function Carousel() {
               mb: "3vh",
               letterSpacing: "1px",
               height: "10vh",
+              "@media (max-width: 600px)": {
+                display: "none",
+              },
             }}
           >
             {images[activeStep].subTitle}
           </Typography>
           <img
+            className={classes.imageCar}
             src={images[activeStep].imgPath}
             alt={images[activeStep].label}
-            style={{
-              width: "40vw",
-              height: "25vw",
-              objectFit: "cover",
-              boxShadow: "rgba(17, 12, 46, 0.15) 0px 48px 100px 0px",
-              borderRadius: "1vw",
-            }}
           />
         </Grid>
       </Grid>
@@ -168,26 +235,52 @@ function Carousel() {
         sx={{
           display: "flex",
           justifyContent: "center",
+          "@media (max-width: 600px)": { width: "80vw", flexWrap: 'wrap', margin: "0 auto" },
         }}
       >
         {images.map((step, index) => (
-          <Button
-            key={index}
-            onClick={() => handleStepChange(index)}
-            sx={{
-              cursor: "pointer",
-              display: "flex",
-              justifyContent: "space-around",
-              marginTop: "1vh",
-              padding: "3vh 1vw",
-              fontWeight: "900",
-              fontSize: "1vw",
-              color: "#333",
-              borderTop: activeStep === index ? "3px solid #a16ad9" : "none",
-            }}
-          >
-            {step.title}
-          </Button>
+          <>
+            <Button
+              key={index}
+              onClick={() => handleStepChange(index)}
+              sx={{
+                cursor: "pointer",
+                display: "flex",
+                justifyContent: "space-around",
+                marginTop: "1vh",
+                padding: "3vh 1vw",
+                fontWeight: "900",
+                fontSize: "1vw",
+                color: "#333",
+                borderTop: activeStep === index ? "3px solid #a16ad9" : "none",
+                "@media (max-width: 600px)": { display: "none" },
+              }}
+            >
+              {step.title}
+            </Button>
+            <Button
+              key={index}
+              onClick={() => handleStepChange(index)}
+              sx={{
+                display: "none",
+
+                "@media (max-width: 600px)": {
+                  cursor: "pointer",
+                  display: "flex",
+                  // justifyContent: "space-around",
+                  marginTop: "3vh",
+                  padding: "1vh 0",
+                  fontSize: "3vw",
+
+                  color: activeStep === index ? "#a16ad9" : "#484949",
+                  borderTop:
+                    activeStep === index ? "3px solid #a16ad9" : "none",
+                },
+              }}
+            >
+              {step.icon}
+            </Button>
+          </>
         ))}
       </Grid>
     </Grid>
