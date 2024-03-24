@@ -1,5 +1,6 @@
 .hero-container {
-  background-image: url("https://prod.spline.design/Nb2I5a6X-Kr8fdit/scene.splinecode") !important;
+  /* background-image: url("https://prod.spline.design/Nb2I5a6X-Kr8fdit/scene.splinecode") !important; */
+  background-color: #884ed9;
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -12,7 +13,6 @@
     transparent 42%,
     #450fad 40%
   ) !important; */
-  position: absolute;
   top: 0;
   overflow: hidden;
   opacity: 0.8; /* Adjust as needed */
@@ -196,7 +196,7 @@
   align-items: center;
   align-self: center;
   margin: auto;
-  gap: 6vw;
+  gap: 5vw;
   color: "black";
 }
 
@@ -1253,7 +1253,8 @@ FOOTER
   justify-content: center;
   align-items: center;
   margin: 10vh auto;
-  gap: 10vh;
+  gap: 5vw;
+  width: 80vw;
 }
 
 .sectSevenImage {

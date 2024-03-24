@@ -15,7 +15,7 @@ const SectionSeven = () => {
         <CarouselOne />
       </div>
       <div>
-        <img className="sectSevenImage" src={images} alt="" />
+        <img style={{ width: "25vw" }} src={images} alt="" />
       </div>
     </div>
   );

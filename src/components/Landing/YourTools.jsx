@@ -7,7 +7,13 @@ import { Button, Grid } from "@mui/material";
 import { Link } from "react-router-dom";
 import payment from "./assets/payment.png";
 import conn from "./assets/conn.png";
-import { AdsClick, Devices, Label, QueryStats, Schedule } from "@mui/icons-material";
+import {
+  AdsClick,
+  Devices,
+  Label,
+  QueryStats,
+  Schedule,
+} from "@mui/icons-material";
 import "./assets/landing.css";
 
 const images = [
@@ -55,74 +61,13 @@ function YourTools() {
 
   return (
     <Grid
-      sx={{ padding: "10vh 0 0 0", width: "65vw", margin: "5vh auto" }}
+      sx={{ padding: "10vh 0 0 0", width: "90vw", margin: "5vh auto" }}
       justifyContent="center"
     >
-      {/* <Grid sx={{}}>
-        <Typography
-          sx={{
-            fontSize: "1.4vw",
-            mb: "3vh",
-            letterSpacing: "1px",
-            // height: "10vh",
-            color: "#884ed9",
-            fontWeight: "900",
-          }}
-        >
-          Digital Accelerator
-        </Typography>
-        <Typography
-          sx={{
-            fontSize: "2.8vw",
-            mb: "3vh",
-            letterSpacing: "1px",
-            // height: "10vh",
-            color: "#484949",
-            fontWeight: "900",
-          }}
-        >
-          Bring agility to your enterprise
-        </Typography>
-        <Typography
-          sx={{
-            textAlign: "justify",
-          }}
-        >
-          Revolutionise your online presencewith our exclusivebundle. The{" "}
-          <Link style={{ textDecoration: "none" }} to={`/digitalaccelerator`}>
-            {" "}
-            <span className="span">
-              "Digital Accelarator Bundle package"
-            </span>{" "}
-          </Link>
-          This all-encompassing package seamlessly integrates three core
-          services- [website Production & Management]. [Brand Identitiy
-          package], and [Search Engine Marketing(SEM)]. Prevail's
-          <Link style={{ textDecoration: "none" }} to={`/digitalaccelerator`}>
-            <span className="span">"Digital Accelerator Bundle Package"</span>
-          </Link>
-          service is not just a bundle of services. it is your strategic gateway
-          to cohesive, impactful, and cost effective digital presence. Elevate
-          your brand with Prevails integrated solutions.
-        </Typography>
-
-        <Button
-          size="small"
-          sx={{
-            color: "white",
-            background: "#884ed9",
-            margin: "3vh 0",
-            textTransform: "capitalize",
-            padding: "1vh 2vw",
-          }}
-        >
-          Learn More
-        </Button>
-      </Grid> */}
       <Typography
         sx={{
           fontSize: "2.8vw",
-          mb: "5vh",
+          mb: "2vh",
           letterSpacing: "1px",
           // height: "10vh",
           color: "#484949",
@@ -136,13 +81,13 @@ function YourTools() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          //   gap: "1vw",
+          gap: "2vw",
         }}
       >
         {/* LEFT */}
         <Grid
           sx={{
-            width: "15vw",
+            // width: "30vw",
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
@@ -200,13 +145,14 @@ function YourTools() {
             width: "50vw",
             transition: " 1s ease-in-out",
             position: "relative",
+            marginRight: "15vw",
           }}
         >
           <img
             src={images[activeStep].imgPath}
             alt={images[activeStep].label}
             style={{
-              width: "55vw",
+              width: "65vw",
               height: "28vw",
               objectFit: "cover",
               borderRadius: "1vw",
@@ -220,7 +166,7 @@ function YourTools() {
               bottom: isHovered ? "0" : "-50px",
               top: "0",
               left: "0",
-              width: "55vw",
+              width: "65vw",
               height: "28vw",
               background: "rgba(136,78,217,0.6)",
               display: "flex",
@@ -246,7 +192,11 @@ function YourTools() {
             <Typography
               variant="h6"
               color="white"
-              sx={{ fontWeight: "100", textAlign: "center", width: "50vw" }}
+              sx={{
+                textAlign: "center",
+                width: "60vw",
+                fontWeight: "900",
+              }}
             >
               {images[activeStep].subTitle}{" "}
             </Typography>
@@ -257,7 +207,7 @@ function YourTools() {
         sx={{
           display: "flex",
           justifyContent: "center",
-          width: "70vw"
+          width: "90vw",
         }}
       >
         {images.map((step, index) => (

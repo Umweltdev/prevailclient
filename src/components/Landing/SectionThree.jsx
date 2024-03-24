@@ -23,6 +23,8 @@ const useStyles = makeStyles({
     justifyContent: "center",
     alignItems: "center",
     gap: "3vw",
+    width: "90vw",
+    margin: "0 auto",
 
     "@media (max-width: 600px)": {
       flexDirection: "column",

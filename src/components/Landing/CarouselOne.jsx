@@ -155,16 +155,7 @@ function CarouselOne() {
               </Typography>
             </Grid>
           ))}
-          {/* <Grid>
-            <Typography
-              sx={{ color: "#333", fontSize: "1.7vw", fontWeight: "900" }}
-            >
-              350+
-            </Typography>
-            <Typography sx={{ color: "#696969", fontSize: "1.2vw" }}>
-              US dealerships{" "}
-            </Typography>
-          </Grid> */}
+         
         </Grid>
         {/* RIGHT */}
         <Grid

@@ -4,7 +4,6 @@ import "./assets/landing.css";
 import { motion } from "framer-motion";
 import theme from "../../theme";
 
-
 let easing = [0.6, -0.05, 0.01, 0.99];
 const transition = { duration: 1, ease: [0.6, 0.01, -0.05, 0.9] };
 
@@ -83,49 +82,39 @@ const letter2 = {
 
 const Hero = () => {
   return (
-    <div className="hero1">
-      <spline-viewer
-        className="spline-Layer"
-        url="https://prod.spline.design/Nb2I5a6X-Kr8fdit/scene.splinecode"
-      ></spline-viewer>
+    <motion.div
+      initial={{ opacity: 0, height: 0 }}
+      animate={{ opacity: 1, height: "100vh" }}
+      transition={{ duration: 1, ease: easing }}
+      className="hero-container"
+    >
       <motion.div
-        initial={{ opacity: 0, height: 0 }}
-        animate={{ opacity: 1, height: "100vh" }}
-        transition={{ duration: 1, ease: easing }}
-        className="hero-container"
+        className="hero"
+        initial="initial"
+        animate="animate"
+        variants={stagger}
       >
-        <motion.div
-          className="hero"
-          initial="initial"
-          animate="animate"
-          variants={stagger}
-        >
-          <motion.h1 variants={header} className="hero-one">
-            Prevail Marketing
-          </motion.h1>
-          <motion.h1 variants={letter} className="hero-two">
-            HOW CAN WE BE
-          </motion.h1>
-          <motion.h1 variants={letter2} className="hero-two">
-            YOUR PARTNER IN SUCCESS?
-          </motion.h1>
-        </motion.div>
-        <motion.div
-          className="hero"
-          initial="initial"
-          animate="animate"
-          variants={stagger}
-        >
-          <div className="hero-four">
-            <BasicButtons
-              text="Schedule a consultation"
-              bgColor="#450fad"
-            />
-            {/* <div className="heroBtn heroBtn__new">Schedule a consultation</div> */}
-          </div>
-        </motion.div>
+        <motion.h1 variants={header} className="hero-one">
+          Prevail Marketing
+        </motion.h1>
+        <motion.h1 variants={letter} className="hero-two">
+          HOW CAN WE BE
+        </motion.h1>
+        <motion.h1 variants={letter2} className="hero-two">
+          YOUR PARTNER IN SUCCESS?
+        </motion.h1>
       </motion.div>
-    </div>
+      <motion.div
+        className="hero"
+        initial="initial"
+        animate="animate"
+        variants={stagger}
+      >
+        <div className="hero-four">
+          <BasicButtons text="Schedule a consultation" bgColor="#450fad" />
+        </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

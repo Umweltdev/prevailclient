@@ -9,24 +9,22 @@ import SectionSix from "../components/Landing/SectionSix";
 import SectionThree from "../components/Landing/SectionThree";
 import SectionTwo from "../components/Landing/SectionTwo";
 import YourTools from "../components/Landing/YourTools";
-import DrawerAppBar from "../components/Navbar/Appbar";
-import Navbar from "../components/Navbar/Navbar";
+import AppBarOne from "../components/Navbar/AppbarOne"
 // import Follower from "../components/MouseAnimation";
 
 const Landing = () => {
   return (
     <div>
-      <DrawerAppBar />
+      <AppBarOne />
       {/* <Navbar /> */}
       <Hero />
       <SectionTwo />
       <SectionThree />
       <YourTools />
-      <SectionFive />
-      <SectionFour />
-      <SectionSix />
-      {/* <CarouselOne/> */}
+      {/* <SectionFive /> */}
+
       <SectionSeven />
+      <SectionFour />
       <FooterNew />
     </div>
   );

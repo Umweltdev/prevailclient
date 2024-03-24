@@ -14,10 +14,10 @@ const useStyles = makeStyles({
     fontSize: theme.typography.fontSizeMedium,
     color: "black",
     padding: "18vh 0",
-    // width: "90vw",
+    
     textAlign: "justify",
     textJustify: "distribute",
-    width: "44vw",
+    width: "55vw",
     lineHeight: "6vh",
     // margin: "5vh auto",
     "@media (max-width: 600px)": {
@@ -31,7 +31,7 @@ const useStyles = makeStyles({
   },
 
   image: {
-    width: "400px",
+    width: "30vw",
   },
 });
 
