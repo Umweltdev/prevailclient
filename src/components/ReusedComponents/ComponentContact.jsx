@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
   leftContainer: {
     "@media (max-width: 600px)": {
-      width: "100%",
+      width: "40vw",
       paddingRight: "unset",
     },
   },
@@ -279,9 +279,27 @@ const ComponentContact = ({ header, text, img }) => {
               },
             }}
           />
-          {/* <Grid sx={{ marginTop: "2vh" }}>
-            <CustomizedButtons text="Submit"/>
-          </Grid> */}
+          <Button
+            fullWidth={true}
+            sx={{
+              color: "white",
+              textTransform: "capitalize",
+              border: "1px solid white",
+              minWidth: "40vw",
+              marginLeft: "0.7vw",
+              textAlign: "center",
+              fontWeight: "900",
+              transition: "background-color 0.5s ease-in-out",
+              borderRadius: "25px",
+              "&:hover": {
+                // Corrected syntax for hover
+                backgroundColor: "#fff", // Corrected property name
+                color: "#884ed9",
+              },
+            }}
+          >
+            Submit
+          </Button>
         </Box>
       </Grid>
 

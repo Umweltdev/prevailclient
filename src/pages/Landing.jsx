@@ -5,7 +5,6 @@ import Hero from "../components/Landing/Hero";
 import SectionFive from "../components/Landing/SectionFive";
 import SectionFour from "../components/Landing/SectionFour";
 import SectionSeven from "../components/Landing/SectionSeven";
-import SectionSix from "../components/Landing/SectionSix";
 import SectionThree from "../components/Landing/SectionThree";
 import SectionTwo from "../components/Landing/SectionTwo";
 import YourTools from "../components/Landing/YourTools";
@@ -22,7 +21,6 @@ const Landing = () => {
       <SectionThree />
       <YourTools />
       {/* <SectionFive /> */}
-
       <SectionSeven />
       <SectionFour />
       <FooterNew />
