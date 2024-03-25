@@ -24,10 +24,11 @@ export default function AccordionUsage({ header, headerText, gradient }) {
           id="panel1-header"
           sx={{
             background: "#A16AD9",
-              //gradient || "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
+            //gradient || "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
             fontSize: "1vw",
             color: "white",
             fontWeight: "900",
+            fontFamily: "Sarabun",
             height: "10vh",
             "@media (max-width: 600px)": {
               height: "9vh",
@@ -39,8 +40,8 @@ export default function AccordionUsage({ header, headerText, gradient }) {
         </AccordionSummary>
         <AccordionDetails
           sx={{
-            fontSize: "1.3vw",
-
+            fontSize: "1.1vw",
+            fontFamily: "Sarabun",
             "@media (max-width: 600px)": {
               fontSize: "4vw",
               textAlign: "justify",

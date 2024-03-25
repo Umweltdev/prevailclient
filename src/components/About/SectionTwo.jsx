@@ -11,42 +11,39 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    padding: "5vh 0",
-    gap: "2vw",
-    "@media (max-width: 600px)": {
-      padding: "2vh 0",
-      gap: "1vw",
-      flexWrap: "wrap"
-    },
+    margin: "5vh auto",
+    width: "92.4vw", // Initial width for larger screens
+    borderRadius: "3vw",
+    background: "white",
+    boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
+    color: "grey",
+    padding: "0", // Remove default padding
+    listStyle: "none", // Remove default list styles
   },
-
   sTwoAboutList: {
     textDecoration: "none",
-    listStyle: "none",
-    background: "#ba8bd9",
-    color: "white",
-    padding: "1vh 2vw",
-    borderRadius: "25px",
+    color: "grey",
+    padding: "1vh 1vw", // Add padding for each list item
+    borderRadius: "3vw",
     fontSize: "1.3vw",
     cursor: "pointer",
-    "@media (max-width: 600px)": {
-      textDecoration: "none",
-      listStyle: "none",
-      background: "#ba8bd9",
+    fontFamily: `"Sarabun","sans-serif"`,
+    transition: "0.5s ease-in-out",
+    textAlign: "center",
+    margin: "0 1vw", // Add margin between list items
+    "&:hover": {
+      backgroundColor: "#b4b4b4",
       color: "white",
-      padding: "1vh 2vh",
-      borderRadius: "25px",
+    },
+    "@media (max-width: 600px)": {
       fontSize: "4vw",
-      cursor: "pointer",
+      padding: "1vh 2vw", // Adjust padding for smaller screens
+      margin: "0.5vh 0", // Adjust margin for smaller screens
+      width: "auto", // Make width auto for smaller screens
     },
   },
   active: {
     background: "#884ed9",
-  },
-
-  cardComponent: {
-    display: "flex",
-    flexDirection: "row",
   },
 });
 
@@ -59,64 +56,47 @@ const SectionTwo = () => {
   };
 
   return (
-    <Grid>
-      <Grid>
-        <Grid>
-          <ul className={classes.CaseNavlist}>
-            <li
-              className={`${classes.sTwoAboutList} ${
-                selectedSection === "Our Why" ? classes.active : ""
-              }`}
-              onClick={() => handleSectionClick("Our Why")}
-            >
-              Our Why
-            </li>
-            <li
-              className={`${classes.sTwoAboutList} ${
-                selectedSection === "Our Solution" ? classes.active : ""
-              }`}
-              onClick={() => handleSectionClick("Our Solution")}
-            >
-              Our Solution
-            </li>
-          </ul>
-        </Grid>
-      </Grid>
-      <Grid>
-        <Grid
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: "1vw",
-            flexWrap: "wrap",
-          }}
+    <Grid container>
+      <ul className={classes.CaseNavlist}>
+        <li
+          className={`${classes.sTwoAboutList} ${
+            selectedSection === "Our Why" ? classes.active : ""
+          }`}
+          onClick={() => handleSectionClick("Our Why")}
         >
-          {value
-            .filter((data) => data.header === selectedSection)
-            .map((data, index) => (
-              <Grid
-                key={index}
-                sx={{ display: "flex", flexDirection: "row", margin: "5vh 0" }}
+          Our Why
+        </li>
+        <li
+          className={`${classes.sTwoAboutList} ${
+            selectedSection === "Our Solution" ? classes.active : ""
+          }`}
+          onClick={() => handleSectionClick("Our Solution")}
+        >
+          Our Solution
+        </li>
+      </ul>
+      <Grid
+        container
+        spacing={2}
+        justifyContent="center" // Center the content horizontally
+      >
+        {value
+          .filter((data) => data.header === selectedSection)
+          .map((data, index) => (
+            <Grid item key={index}>
+              <Link
+                to={`/about/${data.link}`}
+                className="sOneBlogCardLink"
+                style={{ textDecoration: "none" }}
               >
-                <Link
-                  to={`/about/${data.link}`}
-                  key={index}
-                  className="sOneBlogCardLink"
-                  style={{ textDecoration: "none" }}
-                >
-                  <Grid sx={{ display: "flex", flexDirection: "row" }}>
-                    <CasestudyCards
-                      header={data.header}
-                      text={data.text}
-                      image={data.img}
-                    />
-                  </Grid>
-                </Link>
-              </Grid>
-            ))}
-        </Grid>
+                <CasestudyCards
+                  header={data.header}
+                  text={data.text}
+                  image={data.img}
+                />
+              </Link>
+            </Grid>
+          ))}
       </Grid>
     </Grid>
   );
