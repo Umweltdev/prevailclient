@@ -14,7 +14,8 @@ const useStyles = makeStyles({
     borderRadius: "5vw",
 
     "@media (max-width: 600px)": {
-      width: "95vw",
+      width: "90vw",
+      height: "70vh",
       margin: "2vh auto",
       background: "#e2ccf7",
       // padding: "0 5vw",
@@ -39,6 +40,11 @@ const useStyles = makeStyles({
     width: "20vw",
     height: "30vw",
     objectFit: "cover",
+    "@media (max-width: 600px)": {
+      width: "95vw",
+      height: "40vh",
+      objectFit: "cover",
+    },
   },
 
   text: {
@@ -56,6 +62,9 @@ const useStyles = makeStyles({
 
   classBotm: {
     marginTop: "3vh",
+    "@media (max-width: 600px)": {
+      marginTop: "1vh",
+    },
   },
 
   authorName: {
@@ -79,15 +88,17 @@ const Testimonials = () => {
 
         "@media (max-width: 600px)": {
           width: "95vw",
+          height: "82vh",
           margin: "2vh auto",
+          flexDirection: "column",
           background: "#e2ccf7",
           // padding: "0 5vw",
-          borderRadius: "2vw",
+          borderRadius: "2vh",
         },
       }}
     >
       <img
-        sx={{ width: "25vw", height: "30vw", objectFit: "cover" }}
+        className={classes.textImage}
         src="https://images.unsplash.com/photo-1542190891-2093d38760f2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGJsYWNrJTIwYnVzc2luZXNzJTIwbWFufGVufDB8fDB8fHww"
         alt="ceo"
       />
@@ -118,7 +129,8 @@ const Testimonials = () => {
               flexDirection: " column-reverse",
 
               "@media (max-width: 600px)": {
-                fontSize: "10vh",
+                fontSize: "10vw",
+                marginLeft: "70vw",
               },
             }}
           />
@@ -128,6 +140,10 @@ const Testimonials = () => {
               textJustify: "distribute",
               textAlign: "justify",
               width: "60vw",
+              "@media (max-width: 600px)": {
+                fontSize: "4vw",
+                width: "80vw",
+              },
             }}
           >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus

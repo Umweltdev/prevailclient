@@ -14,12 +14,25 @@ import React from "react";
 const reultData = [
   {
     text: "Total Active Users",
-    mainIcon: <Leaderboard sx={{ color: "#884ed9", fontSize: "4vw" }} />,
+    mainIcon: (
+      <Leaderboard
+        sx={{
+          color: "#884ed9",
+          fontSize: "4vw",
+          "@media (max-width: 600px)": {
+            fontSize: "15vw",
+          },
+        }}
+      />
+    ),
     subIcon: (
       <SsidChart
         sx={{
           color: "#884ed9",
           fontSize: "1.4vw",
+          "@media (max-width: 600px)": {
+            fontSize: "4.5vw",
+          },
         }}
       />
     ),
@@ -28,12 +41,25 @@ const reultData = [
   },
   {
     text: "Product",
-    mainIcon: <ShowChart sx={{ color: "#884ed9", fontSize: "4vw" }} />,
+    mainIcon: (
+      <ShowChart
+        sx={{
+          color: "#884ed9",
+          fontSize: "4vw",
+          "@media (max-width: 600px)": {
+            fontSize: "15vw",
+          },
+        }}
+      />
+    ),
     subIcon: (
       <TrendingUp
         sx={{
           color: "#884ed9",
           fontSize: "1.4vw",
+          "@media (max-width: 600px)": {
+            fontSize: "4vw",
+          },
         }}
       />
     ),
@@ -42,12 +68,25 @@ const reultData = [
   },
   {
     text: "Revenue",
-    mainIcon: <Euro sx={{ color: "#884ed9", fontSize: "4vw" }} />,
+    mainIcon: (
+      <Euro
+        sx={{
+          color: "#884ed9",
+          fontSize: "4vw",
+          "@media (max-width: 600px)": {
+            fontSize: "15vw",
+          },
+        }}
+      />
+    ),
     subIcon: (
       <TrendingUp
         sx={{
           color: "#884ed9",
           fontSize: "1.4vw",
+          "@media (max-width: 600px)": {
+            fontSize: "4.5vw",
+          },
         }}
       />
     ),
@@ -56,12 +95,25 @@ const reultData = [
   },
   {
     text: "Clicks",
-    mainIcon: <AdsClick sx={{ color: "#884ed9", fontSize: "4vw" }} />,
+    mainIcon: (
+      <AdsClick
+        sx={{
+          color: "#884ed9",
+          fontSize: "4vw",
+          "@media (max-width: 600px)": {
+            fontSize: "15vw",
+          },
+        }}
+      />
+    ),
     subIcon: (
       <StackedLineChart
         sx={{
           color: "#884ed9",
           fontSize: "1.4vw",
+          "@media (max-width: 600px)": {
+            fontSize: "4.5vw",
+          },
         }}
       />
     ),
@@ -135,9 +187,18 @@ const Result = () => {
         </Typography>
       </Grid>
 
-
       {/* CARD */}
-      <Grid sx={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
+      <Grid
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "20px",
+          "@media (max-width: 600px)": {
+            justifyContent: "center", 
+            alignItems: "center"
+          },
+        }}
+      >
         {reultData.map((data, index) => (
           <Card
             key={index}
@@ -164,6 +225,9 @@ const Result = () => {
                   color: "#333",
                   fontSize: "1.1vw",
                   marginBottom: "2vh",
+                  "@media (max-width: 600px)": {
+                    fontSize: "4.5vw",
+                  },
                 }}
               >
                 {data.text}
@@ -175,6 +239,9 @@ const Result = () => {
                   justifyContent: "left",
                   gap: "5px",
                   mb: "1vh",
+                  // "@media (max-width: 600px)": {
+                  //   fontSize: "4.5vw",
+                  // },
                 }}
               >
                 {data.subIcon}
@@ -183,6 +250,9 @@ const Result = () => {
                     color: "#333",
                     fontSize: "1vw",
                     fontWeight: "bold",
+                    "@media (max-width: 600px)": {
+                      fontSize: "4.5vw",
+                    },
                   }}
                 >
                   {data.rate}
@@ -193,6 +263,9 @@ const Result = () => {
                   color: "#333",
                   fontSize: "2.5vw",
                   fontWeight: "bold",
+                  "@media (max-width: 600px)": {
+                    fontSize: "6vw",
+                  },
                 }}
               >
                 {data.bigText}
