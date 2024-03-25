@@ -15,12 +15,10 @@ const Landing = () => {
   return (
     <div>
       <AppBarOne />
-      {/* <Navbar /> */}
       <Hero />
       <SectionTwo />
       <SectionThree />
       <YourTools />
-      {/* <SectionFive /> */}
       <SectionSeven />
       <SectionFour />
       <FooterNew />

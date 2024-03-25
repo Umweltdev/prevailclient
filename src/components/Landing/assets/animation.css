@@ -1,0 +1,12 @@
+
+img {
+    animation: fade-in linear;
+    animation-timeline: view();
+    animation-range-start: 500px;
+    animation-range-end: 700px;
+}
+
+@keyframes fade-in {
+    from {scale: .8; opacity: 0;}
+    to {scale: 1; opacity: 1;}
+}

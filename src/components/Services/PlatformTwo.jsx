@@ -4,7 +4,7 @@ import React from "react";
 
 const useStyles = makeStyles({
   imagePlaform: {
-    width: "78vw",
+    width: "79vw",
     height: "50vh",
     objectFit: "cover",
     borderRadius: "5px",
@@ -78,7 +78,7 @@ const PlatformTwo = () => {
                 fontSize: "1.4vw",
                 color: "#636363",
                 // marginBottom: "1vh",
-                textAlign: "justify",
+                // textAlign: "justify",
                 "@media (max-width: 600px)": {
                   fontSize: "4vw",
                   color: "#636363",
@@ -111,7 +111,7 @@ const PlatformTwo = () => {
               sx={{
                 fontSize: "1.4vw",
                 color: "#636363",
-                textAlign: "justify",
+                // textAlign: "justify",
                 marginTop: "7vh",
                 "@media (max-width: 600px)": {
                   fontSize: "4vw",
@@ -183,7 +183,7 @@ const PlatformTwo = () => {
                 fontSize: "1.4vw",
                 color: "#636363",
                 marginBottom: "1vh",
-                textAlign: "justify",
+                // textAlign: "justify",
                 "@media (max-width: 600px)": {
                   fontSize: "4vw",
 
@@ -211,8 +211,8 @@ const PlatformTwo = () => {
           </Grid>
 
           <spline-viewer
-          className={classes.spline}
-            style={{width: "37vw", height: "70vh"}}
+            className={classes.spline}
+            style={{ width: "37vw", height: "70vh" }}
             url="https://prod.spline.design/kqWnRSHfs03RcYiO/scene.splinecode"
           ></spline-viewer>
         </Grid>

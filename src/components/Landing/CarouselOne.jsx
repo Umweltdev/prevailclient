@@ -84,7 +84,7 @@ function CarouselOne() {
             mb: "3vh",
             letterSpacing: "1px",
             // height: "10vh",
-            color: "#884ed9",
+            color: "#333",
             fontWeight: "900",
             "@media (max-width: 600px)": {
               fontSize: "4vw",

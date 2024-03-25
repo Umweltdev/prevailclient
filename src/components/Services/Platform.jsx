@@ -34,7 +34,7 @@ const useStyles = makeStyles({
 });
 
 const Platform = () => {
-  const classes = useStyles()
+  const classes = useStyles();
   return (
     <Grid
       sx={{
@@ -167,7 +167,7 @@ const Platform = () => {
                 fontSize: "1.4vw",
                 color: "#636363",
                 margin: "1vh 0 0 0",
-                textAlign: "justify",
+                // textAlign: "justify",
                 width: "37vw",
                 "@media (max-width: 600px)": {
                   width: "95vw",
@@ -191,7 +191,7 @@ const Platform = () => {
                 fontSize: "1.4vw",
                 color: "#636363",
                 margin: "1vh 0 0 0",
-                textAlign: "justify",
+                // textAlign: "justify",
                 width: "37vw",
                 marginTop: "7vh",
                 "@media (max-width: 600px)": {
@@ -267,8 +267,8 @@ const Platform = () => {
                 fontSize: "1.4vw",
                 color: "#636363",
                 marginBottom: "3vh",
-                textAlign: "justify",
-                width: "37vw",
+                // textAlign: "justify",
+                width: "36vw",
                 "@media (max-width: 600px)": {
                   fontSize: "4vw",
                   textAlign: "justify",
@@ -303,7 +303,7 @@ const Platform = () => {
           gap: "5vw",
           marginTop: "5vh",
           "@media (max-width: 600px)": {
-            flexDirection: "column"
+            flexDirection: "column",
           },
         }}
       >

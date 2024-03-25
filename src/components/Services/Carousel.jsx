@@ -98,7 +98,7 @@ that are relevant and impactful."`,
 const useStyles = makeStyles({
   imageCar: {
     width: "40vw",
-    height: "25vw",
+    height: "23vw",
     objectFit: "cover",
     boxShadow: "rgba(17, 12, 46, 0.15) 0px 48px 100px 0px",
     borderRadius: "1vw",
@@ -123,9 +123,9 @@ function Carousel() {
   return (
     <Grid
       sx={{
-        padding: "25vh 0 0 0",
+        padding: "20vh 0 0 0",
         "@media (max-width: 600px)": {
-          padding: "15vh 0 0 0",
+          padding: "13vh 0 0 0",
         },
       }}
       justifyContent="center"
@@ -135,6 +135,7 @@ function Carousel() {
           display: "flex",
           alignItems: "top",
           justifyContent: "center",
+          height: "85vh",
           "@media (max-width: 600px)": {
             flexDirection: "column",
           },
@@ -196,6 +197,13 @@ function Carousel() {
               },
             }}
           >
+            <Label
+              sx={{
+                fontSize: "1.8vw",
+                color: "#a16ad9",
+                "@media (max-width: 600px)": { fontSize: "10vw" },
+              }}
+            />
             {images[activeStep].text}
           </Typography>
         </Grid>
@@ -213,13 +221,6 @@ function Carousel() {
           }}
         >
           <Grid sx={{ display: "flex", alignItems: "top" }}>
-            <Label
-              sx={{
-                fontSize: "1.8vw",
-                color: "#a16ad9",
-                "@media (max-width: 600px)": { fontSize: "10vw" },
-              }}
-            />
             <Typography
               sx={{
                 fontSize: "1.4vw",
@@ -299,13 +300,19 @@ function Carousel() {
                   cursor: "pointer",
                   display: "flex",
                   justifyContent: "space-around",
-                  // marginTop: "1vh",
+                  marginTop: "-18vh",
                   padding: "3vh 1vw",
                   // fontWeight: "900",
                   fontSize: "1vw",
-                  color: activeStep === index ? "#fff" : "#333",
+                  color: activeStep === index ? "#884ed9" : "#333",
+                  fontWeight: activeStep === index ? "bold" : "none",
                   borderRadius: "3vw",
-                  background: activeStep === index ? "#884ed9" : "none",
+                  // background: activeStep === index ? "#884ed9" : "none",
+                  "&:hover": {
+                    backgroundColor: "#b4b4b4",
+                    color: "#fff",
+                    borderRadius: "3vw",
+                  },
                   "@media (max-width: 600px)": { display: "none" },
                 }}
               >
@@ -321,7 +328,7 @@ function Carousel() {
                     cursor: "pointer",
                     display: "flex",
                     // justifyContent: "space-around",
-                    marginTop: "3vh",
+                    // marginTop: "2vh",
                     padding: "1vh 0",
                     fontSize: "3vw",
 

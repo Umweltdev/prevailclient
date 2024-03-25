@@ -24,7 +24,7 @@
 }
 
 .sTwoServicesCards {
-  margin: 6vh 0;
+  margin: 6vh 0 10vh 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

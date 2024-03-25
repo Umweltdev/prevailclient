@@ -132,7 +132,7 @@ function YourTools() {
           "@media (max-width: 600px)": { fontSize: "7vw", textAlign: "center" },
         }}
       >
-        Your Tools For Succes
+        Resources
       </Typography>
       <Grid
         sx={{
@@ -146,7 +146,7 @@ function YourTools() {
         {/* LEFT */}
         <Grid
           sx={{
-            // width: "30vw",
+            // width: "15vw",
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
@@ -154,134 +154,71 @@ function YourTools() {
             "@media (max-width: 600px)": { textAlign: "center", gap: "1vh" },
           }}
         >
-          <Grid>
-            <Typography
-              sx={{
-                color: "#333",
-                fontSize: "1.7vw",
-                fontWeight: "900",
-                "@media (max-width: 600px)": {
-                  fontSize: "5vw",
-                },
-              }}
-            >
-              Millions
-            </Typography>
-            <Typography
-              sx={{
-                color: "#696969",
-                fontSize: "1.2vw",
-                "@media (max-width: 600px)": {
-                  fontSize: "4vw",
-                },
-              }}
-            >
-              BMW owners using Connected Drive Store
-            </Typography>
-          </Grid>
-
-          <Grid>
-            <Typography
-              sx={{
-                color: "#333",
-                fontSize: "1.7vw",
-                fontWeight: "900",
-                "@media (max-width: 600px)": {
-                  fontSize: "5vw",
-                },
-              }}
-            >
-              350+
-            </Typography>
-            <Typography
-              sx={{
-                color: "#696969",
-                fontSize: "1.2vw",
-                "@media (max-width: 600px)": {
-                  fontSize: "5vw",
-                },
-              }}
-            >
-              US dealerships{" "}
-            </Typography>
-          </Grid>
-
-          <Grid sx={{ display: "flex", flexDirection: "column" }}>
-            <Typography
-              sx={{
-                color: "#333",
-                fontSize: "1.5vw",
-                fontWeight: "900",
-                "@media (max-width: 600px)": {
-                  fontSize: "5vw",
-                },
-              }}
-            >
-              Product used
-            </Typography>
-            <Grid
-              sx={{
-                "@media (max-width: 600px)": {
-                  display: "flex",
-                  flexDirection: "row",
-                  fontSize: "5vw",
-                  margin: "0 auto",
-                  gap: "5vw",
-                },
-              }}
-            >
-              <Grid
+          <Link style={{ textDecoration: "none" }} to={"/Services/brand"}>
+            <Grid>
+              <Typography
                 sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "1vw",
+                  color: "#333",
+                  fontSize: "1.3vw",
+                  fontWeight: "900",
                   "@media (max-width: 600px)": {
-                    flexDirection: "row",
-                    gap: "1vw",
                     fontSize: "5vw",
                   },
                 }}
               >
-                <img className={classes.imageProduct} src={payment} alt="" />
-                <Typography
-                  sx={{
-                    color: "#696969",
-                    fontSize: "1.2vw",
-                    "@media (max-width: 600px)": {
-                      fontSize: "4vw",
-                    },
-                  }}
-                >
-                  Payments
-                </Typography>
-              </Grid>
-              <Grid
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "1vw",
-                  "@media (max-width: 600px)": {
-                    flexDirection: "row",
-                    gap: "1vw",
-                    fontSize: "5vw",
-                  },
-                }}
-              >
-                <img className={classes.imageProduct} src={conn} alt="" />
-                <Typography
-                  sx={{
-                    color: "#696969",
-                    fontSize: "1.2vw",
-                    "@media (max-width: 600px)": {
-                      fontSize: "4vw",
-                    },
-                  }}
-                >
-                  Connect
-                </Typography>
-              </Grid>
+                Branding
+              </Typography>
             </Grid>
-          </Grid>
+          </Link>
+
+          <Link style={{ textDecoration: "none" }} to={"/Services/website"}>
+            <Grid>
+              <Typography
+                sx={{
+                  color: "#333",
+                  fontSize: "1.3vw",
+                  fontWeight: "900",
+                  "@media (max-width: 600px)": {
+                    fontSize: "5vw",
+                  },
+                }}
+              >
+                Website Development
+              </Typography>
+            </Grid>
+          </Link>
+          <Link style={{ textDecoration: "none" }} to={"/Services/sem"}>
+            <Grid>
+              <Typography
+                sx={{
+                  color: "#333",
+                  fontSize: "1.3vw",
+                  fontWeight: "900",
+                  "@media (max-width: 600px)": {
+                    fontSize: "5vw",
+                  },
+                }}
+              >
+                Search Engine Marketing
+              </Typography>
+            </Grid>
+          </Link>
+          <Link style={{ textDecoration: "none" }} to={"/Services/mpd"}>
+            <Grid>
+              <Typography
+                sx={{
+                  color: "#333",
+                  fontSize: "1.3vw",
+                  fontWeight: "900",
+                  "@media (max-width: 600px)": {
+                    fontSize: "5vw",
+                  },
+                }}
+              >
+                Marketing Price Displacement API
+              </Typography>
+            </Grid>
+          </Link>
         </Grid>
 
         {/* RIGHT */}
@@ -384,7 +321,6 @@ function YourTools() {
               color: activeStep === index ? "#a16ad9" : "#909090",
               width: "30vw",
               borderTop: activeStep === index ? "3px solid #a16ad9" : "none",
-            
             }}
           >
             {step.icon}

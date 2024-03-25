@@ -40,16 +40,19 @@ const Overview = () => {
   return (
     <Grid
       sx={{
-        background: "#e2ccf7",
-        width: "80vw",
+        background: "#fff",
+        width: "66vw",
+        height: "60vh",
         display: "flex",
         flexDirection: "row",
         padding: "2vw",
         justifyContent: "center",
         alignItems: "center",
-        borderRadius: "2vw",
+        borderRadius: "1vw",
         color: "#333",
         margin: "5vh auto",
+        boxShadow:
+          "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;",
         "@media (max-width: 600px)": {
           background: "#e2ccf7",
           width: "95vw",
@@ -67,7 +70,7 @@ const Overview = () => {
       <Grid>
         <Typography
           sx={{
-            fontSize: "3vw",
+            fontSize: "3.5vw",
             fontWeight: "bold",
             "@media (max-width: 600px)": {
               fontSize: "4.5vh",
@@ -77,7 +80,7 @@ const Overview = () => {
         >
           Overview
         </Typography>
-        <Grid
+        {/* <Grid
           sx={{
             background: "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
             height: "0.8vh",
@@ -90,10 +93,10 @@ const Overview = () => {
               margin: "1vh 1vw",
             },
           }}
-        ></Grid>
+        ></Grid> */}
         <Typography
           sx={{
-            fontSize: "1.3vw",
+            fontSize: "1.8vw",
             width: "100%",
             "@media (max-width: 600px)": {
               fontSize: "4vw",
@@ -111,7 +114,7 @@ const Overview = () => {
       </Grid>
       <Grid
         sx={{
-          background: "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
+          background: "#884ed9",
           height: "14vh",
           width: "1vw",
           margin: "2vh 2vw",
@@ -122,7 +125,7 @@ const Overview = () => {
       ></Grid>
       <Grid
         sx={{
-          width: "35vw",
+          width: "55vw",
           "@media (max-width: 600px)": {
             width: "95vw",
             padding: "2vh",
