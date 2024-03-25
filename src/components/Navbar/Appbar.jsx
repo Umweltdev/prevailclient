@@ -41,7 +41,10 @@ function DrawerAppBarWhite() {
       const isVisible =
         prevScrollPos > currentScrollPos || currentScrollPos <= 100;
 
-      setShowNavbar(isVisible);
+      // Hide the navbar on mobile devices when it overflows
+      const isMobile = window.innerWidth <= 600;
+      setShowNavbar(isVisible && !isMobile);
+
       prevScrollPos = currentScrollPos;
     };
 

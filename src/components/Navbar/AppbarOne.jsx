@@ -41,7 +41,10 @@ function AppBarOne() {
       const isVisible =
         prevScrollPos > currentScrollPos || currentScrollPos <= 100;
 
-      setShowNavbar(isVisible);
+      // Hide the navbar on mobile devices when it overflows
+      const isMobile = window.innerWidth <= 600;
+      setShowNavbar(isVisible && !isMobile);
+
       prevScrollPos = currentScrollPos;
     };
 
@@ -51,6 +54,26 @@ function AppBarOne() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+
+  // React.useEffect(() => {
+  //   let prevScrollPos = window.pageYOffset;
+
+  //   const handleScroll = () => {
+  //     const currentScrollPos = window.pageYOffset;
+  //     const isVisible =
+  //       prevScrollPos > currentScrollPos || currentScrollPos <= 100;
+
+  //     setShowNavbar(isVisible);
+  //     prevScrollPos = currentScrollPos;
+  //   };
+
+  //   window.addEventListener("scroll", handleScroll);
+
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
