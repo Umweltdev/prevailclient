@@ -48,7 +48,7 @@ const useStyles = makeStyles({
   },
 
   text: {
-    padding: "0 1.5vw",
+    padding: "1vw",
     textJustify: "distribute",
     textAlign: "justify",
   },
@@ -124,7 +124,7 @@ const Testimonials = () => {
               textAlign: "right",
               color: "#ba8bd9",
               fontSize: "5vw",
-              marginLeft: "55vw",
+              marginLeft: "53vw",
               display: "flex",
               flexDirection: " column-reverse",
 
@@ -139,7 +139,7 @@ const Testimonials = () => {
             sx={{
               textJustify: "distribute",
               textAlign: "justify",
-              width: "60vw",
+              width: "57vw",
               "@media (max-width: 600px)": {
                 fontSize: "4vw",
                 width: "80vw",
