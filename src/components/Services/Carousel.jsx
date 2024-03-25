@@ -9,6 +9,7 @@ import {
   AdsClick,
   Campaign,
   DevicesOther,
+  Label,
   Plagiarism,
   Poll,
   Speed,
@@ -21,9 +22,8 @@ const images = [
     icon: <DevicesOther />,
     title: "Digital Landscape",
     subTitle: `The term "digital landscape" refers to the entire digital
-environment where your brand operates`,
-    text: `The term "digital landscape" refers to the entire digital
-environment where your brand operates. This includes various online platforms, digital
+environment where your brand operates.`,
+    text: `This includes various online platforms, digital
 trends, consumer behaviour online, and the evolution of digital marketing strategies. It
 is essential to understand the digital landscape to develop effective marketing strategies
 that are relevant and impactful."`,
@@ -33,8 +33,8 @@ that are relevant and impactful."`,
   {
     icon: <Campaign />,
     title: "Brand Awarenes",
-    subTitle: `Brand awareness strategies are to introduce your brand and its products or services`,
-    text: `Brand awareness strategies are to introduce your brand and its products or services to your target audience. The goal is to create a long-lasting impression in the minds of potential customers so that when they are ready to make a purchase, they think of your brand. This can be achieved by implementing various digital marketing tactics such as content marketing, improving website aesthetics, optimising search engines, running social media campaigns, and more`,
+    subTitle: `Brand awareness strategies are to introduce your brand and its products or services.`,
+    text: `To your target audience. The goal is to create a long-lasting impression in the minds of potential customers so that when they are ready to make a purchase, they think of your brand. This can be achieved by implementing various digital marketing tactics such as content marketing, improving website aesthetics, optimising search engines, running social media campaigns, and more`,
     imgPath:
       "https://img.freepik.com/premium-photo/megaphone-against-gray-white-surface_443869-2.jpg?w=740",
   },
@@ -42,8 +42,8 @@ that are relevant and impactful."`,
     icon: <SsidChart />,
     title: "Competitor Analysis",
     subTitle:
-      "To succeed in the market, it is essential to research and understand your competitors strategies",
-    text: "To succeed in the market, it is essential to research and understand your competitors strategies, strengths, weaknesses, and market positioning. Examining your competitors can aid you in identifying market gaps, learning from their successes or mistakes, and differentiating your brand. This analysis can inform your marketing strategies, product development, and overall business strategy.",
+      "To succeed in the market, it is essential to research and understand your competitors strategies.",
+    text: "strengths, weaknesses, and market positioning. Examining your competitors can aid you in identifying market gaps, learning from their successes or mistakes, and differentiating your brand. This analysis can inform your marketing strategies, product development, and overall business strategy.",
     imgPath:
       "https://img.freepik.com/premium-photo/close-up-king-chess-standing-winner-with-falling-chess_101448-2828.jpg?w=740",
   },
@@ -51,7 +51,7 @@ that are relevant and impactful."`,
     icon: <Plagiarism />,
     title: "Keyword Ranking",
     subTitle:
-      "Having a high keyword ranking can lead to organic traffic being directed to your site",
+      "Having a high keyword ranking can lead to organic traffic being directed to your site.",
     text: "When we talk about digital marketing, the term keyword ranking refers to the position of your website on search engine results pages (SERPs) for specific keywords. Having a high keyword ranking can lead to organic traffic being directed to your site, improve visibility, and enhance brand credibility. SEO (Search Engine Optimisation) strategies such as optimising website content, building backlinks, and improving site speed are used to improve keyword rankings",
     imgPath:
       "https://img.freepik.com/premium-photo/block-keyword-yellow-background-conceptual-image-importance-keywords_121826-2305.jpg?w=740",
@@ -61,7 +61,7 @@ that are relevant and impactful."`,
     icon: <AdsClick />,
     title: "Targeted Advertising",
     subTitle:
-      "Examining your competitors can aid you in identifying market gaps",
+      "Examining your competitors can aid you in identifying market gaps.",
     text: "To succeed in the market, it is essential to research and understand your competitors' strategies, strengths, weaknesses, and market positioning. Examining your competitors can aid you in identifying market gaps, learning from their successes or mistakes, and differentiating your brand. This analysis can inform your marketing strategies, product development, and overall business strategy.",
     imgPath:
       "https://img.freepik.com/free-photo/realistic-camera-lens-target-perfect-shoot-3d-rendering_460848-10717.jpg?t=st=1711132156~exp=1711135756~hmac=a2eb2792453a9d692dfe9b766991387c34e257fc79f8d6b61dbf22bed2cf5e7c&w=740",
@@ -70,7 +70,7 @@ that are relevant and impactful."`,
     icon: <Visibility />,
     title: "Higher Visibility",
     subTitle:
-      "The objective of this approach is to spend your marketing budget more efficiently",
+      "The objective of this approach is to spend your marketing budget more efficiently.",
     text: "This is a strategy where you direct your advertising efforts to a specific audience based on demographics, interests, behaviour, or other criteria. The objective of this approach is to spend your marketing budget more efficiently by reaching people who are more likely to be interested in your products or services. By doing this, you can achieve better results and maximise your return on investment.",
     imgPath:
       "https://img.freepik.com/free-photo/medium-shot-woman-influencer-marketing_23-2150521879.jpg?t=st=1711131935~exp=1711135535~hmac=d630aa70503c1250839551a5fec5cee560ef36b708503a4e158817efb059b6fc&w=740",
@@ -79,7 +79,7 @@ that are relevant and impactful."`,
     icon: <Speed />,
     title: "Optimisation",
     subTitle:
-      "Examining your competitors can aid you in identifying market gaps",
+      "Examining your competitors can aid you in identifying market gaps.",
     text: "To succeed in the market, it is essential to research and understand your competitors' strategies, strengths, weaknesses, and market positioning. Examining your competitors can aid you in identifying market gaps, learning from their successes or mistakes, and differentiating your brand. This analysis can inform your marketing strategies, product development, and overall business strategy.",
     imgPath:
       "https://img.freepik.com/free-photo/seo-analysis-business-concept-with-wooden-blocks-with-words-it-magnifying-glass-side-view_176474-10449.jpg?t=st=1711132366~exp=1711135966~hmac=42ea62114ac54299762812dbe70aeb7be4527b6cd37f961a6a45b1a5ff0dcaf7&w=740",
@@ -88,7 +88,7 @@ that are relevant and impactful."`,
     icon: <Poll />,
     title: "Reporting",
     subTitle:
-      "Reporting provides valuable insights into what is working and what is not",
+      "Reporting provides valuable insights into what is working and what is not.",
     text: "This involves collecting and analysing data to evaluate the performance of your digital marketing activities. Reporting provides valuable insights into what is working and what is not, enabling you to make informed decisions to improve your marketing strategies. Reports can cover various metrics, including website traffic, conversion rates, social media engagement, and ROI (Return on Investment).",
     imgPath:
       "https://img.freepik.com/free-photo/business-concept-with-graphic-holography_23-2149160928.jpg",
@@ -123,7 +123,7 @@ function Carousel() {
   return (
     <Grid
       sx={{
-        padding: "18vh 0 0 0",
+        padding: "25vh 0 0 0",
         "@media (max-width: 600px)": {
           padding: "15vh 0 0 0",
         },
@@ -133,7 +133,7 @@ function Carousel() {
       <Grid
         sx={{
           display: "flex",
-          alignItems: "center",
+          alignItems: "top",
           justifyContent: "center",
           "@media (max-width: 600px)": {
             flexDirection: "column",
@@ -180,9 +180,9 @@ function Carousel() {
           </Typography>
           <Typography
             sx={{
-              width: "25vw",
+              width: "35vw",
               fontSize: "1.2vw",
-              marginTop: "3vh",
+              marginTop: "5vh",
               lineHeight: "4vh",
               height: "50vh",
               "@media (max-width: 600px)": {
@@ -205,25 +205,52 @@ function Carousel() {
           sx={{
             width: "40vw",
             transition: " 1s ease-in-out",
+
             "@media (max-width: 600px)": {
               width: "95vw",
               transition: " 1s ease-in-out",
             },
           }}
         >
-          <Typography
-            sx={{
-              fontSize: "1.4vw",
-              mb: "3vh",
-              letterSpacing: "1px",
-              height: "10vh",
-              "@media (max-width: 600px)": {
-                display: "none",
-              },
-            }}
-          >
-            {images[activeStep].subTitle}
-          </Typography>
+          <Grid sx={{ display: "flex", alignItems: "top" }}>
+            <Label
+              sx={{
+                fontSize: "1.8vw",
+                color: "#a16ad9",
+                "@media (max-width: 600px)": { fontSize: "10vw" },
+              }}
+            />
+            <Typography
+              sx={{
+                fontSize: "1.4vw",
+                mb: "3vh",
+                letterSpacing: "1px",
+                // height: "10vh",
+                alignSelf: "center",
+                "@media (max-width: 600px)": {
+                  display: "none",
+                },
+              }}
+            >
+              {images[activeStep].subTitle}
+              <Label
+                sx={{
+                  fontSize: "1.8vw",
+                  color: "#a16ad9",
+                  paddingTop: "vh",
+                  // height: "13vh",
+                  "@media (max-width: 600px)": { fontSize: "10vw" },
+                }}
+              />
+            </Typography>
+
+            {/* <Label
+              sx={{
+                fontSize: "5vw",
+                "@media (max-width: 600px)": { fontSize: "10vw" },
+              }}
+            /> */}
+          </Grid>
           <img
             className={classes.imageCar}
             src={images[activeStep].imgPath}
@@ -235,53 +262,80 @@ function Carousel() {
         sx={{
           display: "flex",
           justifyContent: "center",
-          "@media (max-width: 600px)": { width: "80vw", flexWrap: 'wrap', margin: "0 auto" },
+          "@media (max-width: 600px)": {
+            width: "80vw",
+            flexWrap: "wrap",
+            margin: "0 auto",
+          },
         }}
       >
-        {images.map((step, index) => (
-          <>
-            <Button
-              key={index}
-              onClick={() => handleStepChange(index)}
+        <Grid
+          sx={{
+            display: "flex",
+            background: "white",
+            boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
+            color: "grey",
+            borderRadius: "3vw",
+          }}
+        >
+          {images.map((step, index) => (
+            <Grid
               sx={{
-                cursor: "pointer",
-                display: "flex",
-                justifyContent: "space-around",
-                marginTop: "1vh",
-                padding: "3vh 1vw",
-                fontWeight: "900",
-                fontSize: "1vw",
+                background: "white",
+                // boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
+                borderRadius: "3vw",
                 color: "#333",
-                borderTop: activeStep === index ? "3px solid #a16ad9" : "none",
-                "@media (max-width: 600px)": { display: "none" },
-              }}
-            >
-              {step.title}
-            </Button>
-            <Button
-              key={index}
-              onClick={() => handleStepChange(index)}
-              sx={{
-                display: "none",
-
-                "@media (max-width: 600px)": {
-                  cursor: "pointer",
-                  display: "flex",
-                  // justifyContent: "space-around",
-                  marginTop: "3vh",
-                  padding: "1vh 0",
-                  fontSize: "3vw",
-
-                  color: activeStep === index ? "#a16ad9" : "#484949",
-                  borderTop:
-                    activeStep === index ? "3px solid #a16ad9" : "none",
+                "&:hover": {
+                  backgroundColor: "#b4b4b4",
+                  color: "#fff",
+                  borderRadius: "3vw",
                 },
               }}
             >
-              {step.icon}
-            </Button>
-          </>
-        ))}
+              <Button
+                key={index}
+                onClick={() => handleStepChange(index)}
+                sx={{
+                  cursor: "pointer",
+                  display: "flex",
+                  justifyContent: "space-around",
+                  // marginTop: "1vh",
+                  padding: "3vh 1vw",
+                  // fontWeight: "900",
+                  fontSize: "1vw",
+                  color: activeStep === index ? "#fff" : "#333",
+                  borderRadius: "3vw",
+                  background: activeStep === index ? "#884ed9" : "none",
+                  "@media (max-width: 600px)": { display: "none" },
+                }}
+              >
+                {step.title}
+              </Button>
+              <Button
+                key={index}
+                onClick={() => handleStepChange(index)}
+                sx={{
+                  display: "none",
+
+                  "@media (max-width: 600px)": {
+                    cursor: "pointer",
+                    display: "flex",
+                    // justifyContent: "space-around",
+                    marginTop: "3vh",
+                    padding: "1vh 0",
+                    fontSize: "3vw",
+
+                    color: activeStep === index ? "#a16ad9" : "#484949",
+                    borderTop:
+                      activeStep === index ? "3px solid #a16ad9" : "none",
+                  },
+                }}
+              >
+                {step.icon}
+              </Button>
+            </Grid>
+          ))}
+        </Grid>
       </Grid>
     </Grid>
   );

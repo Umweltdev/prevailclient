@@ -45,7 +45,8 @@ export default function MediaCard({ header, text, img, gradient }) {
         <Typography
           sx={{
             // textJustify: "distribute",
-            fontSize: "17px",
+            fontSize: "1.7vw",
+            wordSpacing: "-3px",
             color: "#333",
             margin: "2vh 0",
             // fontWeight: "500",
@@ -65,9 +66,10 @@ export default function MediaCard({ header, text, img, gradient }) {
           sx={{
             textAlign: "justify",
             textJustify: "distribute",
-            fontSize: "14px",
+            fontSize: "1",
             color: "#333",
             marginTop: "1vh",
+            wordSpacing: "-2px",
             // letterSpacing: "1px",
 
             "@media (max-width: 600px)": {
@@ -100,7 +102,6 @@ export default function MediaCard({ header, text, img, gradient }) {
               fontWeight: "unset",
               padding: "1vh 10vw",
               fontSize: "3vw",
-            
             },
           }}
         >
