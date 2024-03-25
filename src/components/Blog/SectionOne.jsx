@@ -9,6 +9,7 @@ import { BlogCategory, blogBlurbs } from "./assets/blogData";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Grid } from "@mui/material";
+import BlogListSideCard from "./BlogListSideCard";
 
 
 
@@ -169,6 +170,7 @@ const SectionOne = () => {
         </div>
         <div className="sOneBlogFeature">
           <FreeSolo />
+          <BlogListSideCard/>
         </div>
       </div>
       <FooterNew />

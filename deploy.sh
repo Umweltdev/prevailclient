@@ -2,7 +2,7 @@
 
 git add .
 
-git commit -m "portfolio mobile fix"
+git commit -m "blog list sidebar"
 
 git push
 

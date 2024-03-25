@@ -18,7 +18,7 @@ export default function FreeSolo() {
     <Stack
       spacing={2}
       sx={{
-        width: 300,
+        width: "27vw",
         "@media (max-width: 600px)": {
           width: "85vw",
         },
@@ -39,7 +39,7 @@ export default function FreeSolo() {
         groupBy={(option) => option.firstLetter}
         getOptionLabel={(option) => option.text}
         sx={{
-          width: 300,
+          width: "27vw",
           "@media (max-width: 600px)": {
             width: "85vw",
           },
