@@ -4,6 +4,8 @@ import { value } from "../Portfolio/assets/PortfolioData";
 import { makeStyles } from "@mui/styles";
 import { Grid } from "@mui/material";
 import CasestudyCards from "../Portfolio/CasestudyCards";
+import consult from "./assets/consult.svg";
+import "./SectionConsultation.css"; 
 
 const useStyles = makeStyles({
   CaseNavlist: {
@@ -11,39 +13,56 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    margin: "5vh auto",
-    width: "92.4vw", // Initial width for larger screens
+    margin: "5vh 30.5vw",
+    width: "92.4vw",
     borderRadius: "3vw",
     background: "white",
     boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
     color: "grey",
-    padding: "0", // Remove default padding
-    listStyle: "none", // Remove default list styles
+    overflow: "hidden", // Prevent overflow
+    "@media (max-width: 600px)": {
+      padding: "2vh 0",
+      gap: "1vw",
+      flexWrap: "wrap",
+    },
   },
-  sTwoAboutList: {
+
+ sTwoAboutList: {
     textDecoration: "none",
+    listStyle: "none",
+    // background: "#ba8bd9",
     color: "grey",
-    padding: "1vh 1vw", // Add padding for each list item
+    padding: "1vw ",
     borderRadius: "3vw",
+    // fontWeight: "bold",
     fontSize: "1.3vw",
     cursor: "pointer",
     fontFamily: `"Sarabun","sans-serif"`,
     transition: "0.5s ease-in-out",
+    // margin: "10vh 0 0 0",
     textAlign: "center",
-    margin: "0 1vw", // Add margin between list items
+    width: "20vw",
     "&:hover": {
       backgroundColor: "#b4b4b4",
       color: "white",
     },
+
     "@media (max-width: 600px)": {
+      textDecoration: "none",
+      listStyle: "none",
+      background: "#ba8bd9",
+      color: "white",
+      padding: "1vw 2vw",
+      borderRadius: "25px",
+      // fontWeight: "bold",
       fontSize: "4vw",
-      padding: "1vh 2vw", // Adjust padding for smaller screens
-      margin: "0.5vh 0", // Adjust margin for smaller screens
-      width: "auto", // Make width auto for smaller screens
+      cursor: "pointer",
+      width: "unset",
     },
   },
   active: {
     background: "#884ed9",
+    color: "#fff",
   },
 });
 
@@ -64,7 +83,7 @@ const SectionTwo = () => {
           }`}
           onClick={() => handleSectionClick("Our Why")}
         >
-          Our Why
+          Why Us
         </li>
         <li
           className={`${classes.sTwoAboutList} ${
@@ -72,31 +91,37 @@ const SectionTwo = () => {
           }`}
           onClick={() => handleSectionClick("Our Solution")}
         >
-          Our Solution
+          Solutions
         </li>
       </ul>
       <Grid
         container
         spacing={2}
         justifyContent="center" // Center the content horizontally
+        xs={12} md={8}
       >
         {value
           .filter((data) => data.header === selectedSection)
           .map((data, index) => (
             <Grid item key={index}>
-              <Link
+              {/* <Link
                 to={`/about/${data.link}`}
                 className="sOneBlogCardLink"
                 style={{ textDecoration: "none" }}
-              >
+              > */}
                 <CasestudyCards
                   header={data.header}
                   text={data.text}
-                  image={data.img}
+                  //image={data.img}
                 />
-              </Link>
+              {/* </Link> */}
             </Grid>
           ))}
+      </Grid>
+      <Grid xs={12} md={4}>
+        <div className="consultation">
+          <img className="img-consult" src={consult} alt="" />
+        </div>
       </Grid>
     </Grid>
   );

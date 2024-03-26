@@ -12,7 +12,7 @@ import Carousel from "../components/Services/Carousel";
 import Platform from "../components/Services/Platform";
 import PlatformTwo from "../components/Services/PlatformTwo";
 import AutomationSection from "../components/Services/AutomationSection";
-import Reduce from "../components/Services/Reduce";
+//import Reduce from "../components/Services/Reduce";
 
 
 

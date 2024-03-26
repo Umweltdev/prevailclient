@@ -1,57 +1,65 @@
-import * as React from "react";
-import Accordion from "@mui/material/Accordion";
-import AccordionActions from "@mui/material/AccordionActions";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Button from "@mui/material/Button";
-import { Grid } from "@mui/material";
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
+import MuiAccordion from '@mui/material/Accordion';
+import MuiAccordionSummary from '@mui/material/AccordionSummary';
+import MuiAccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+
+const CustomAccordion = styled((props) => (
+  <MuiAccordion disableGutters elevation={0} square {...props} />
+))(({ theme }) => ({
+  border: `1px solid ${theme.palette.divider}`,
+  '&:not(:last-child)': {
+    borderBottom: 0,
+  },
+  '&::before': {
+    display: 'none',
+  },
+}));
+
+const CustomAccordionSummary = styled((props) => (
+  <MuiAccordionSummary
+    expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}
+    {...props}
+  />
+))(({ theme }) => ({
+  backgroundColor:
+    theme.palette.mode === 'dark'
+      ? 'rgba(255, 255, 255, .05)'
+      : '#884ed9', // Set the header background color
+  color: 'white', // Set the text color for the header
+  fontFamily: 'Sarabun', // Set the font family
+  flexDirection: 'row-reverse',
+  '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
+    transform: 'rotate(90deg)',
+  },
+  '& .MuiAccordionSummary-content': {
+    marginLeft: theme.spacing(1),
+  },
+}));
+
+const CustomAccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
+  padding: theme.spacing(2),
+  borderTop: '1px solid rgba(0, 0, 0, .125)',
+  fontFamily: 'Sarabun', // Set the font family
+}));
 
 export default function AccordionUsage({ header, headerText, gradient }) {
+  const [expanded, setExpanded] = React.useState(false);
+
+  const handleChange = () => {
+    setExpanded(!expanded);
+  };
+
   return (
-    <Grid>
-      <Accordion
-        sx={{
-          width: "40vw",
-          "@media (max-width: 600px)": {
-            width: "95vw",
-          },
-        }}
-      >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
-          aria-controls="panel1-content"
-          id="panel1-header"
-          sx={{
-            background: "#A16AD9",
-            //gradient || "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
-            fontSize: "1vw",
-            color: "white",
-            fontWeight: "900",
-            fontFamily: "Sarabun",
-            height: "10vh",
-            "@media (max-width: 600px)": {
-              height: "9vh",
-              fontSize: "3vw",
-            },
-          }}
-        >
-          {header}
-        </AccordionSummary>
-        <AccordionDetails
-          sx={{
-            fontSize: "1.1vw",
-            fontFamily: "Sarabun",
-            "@media (max-width: 600px)": {
-              fontSize: "4vw",
-              textAlign: "justify",
-              textJustify: "distribute",
-            },
-          }}
-        >
-          {headerText}
-        </AccordionDetails>
-      </Accordion>
-    </Grid>
+    <CustomAccordion expanded={expanded} onChange={handleChange}>
+      <CustomAccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+        <Typography sx={{ }}>{header}</Typography>
+      </CustomAccordionSummary>
+      <CustomAccordionDetails>
+        <Typography>{headerText}</Typography>
+      </CustomAccordionDetails>
+    </CustomAccordion>
   );
 }

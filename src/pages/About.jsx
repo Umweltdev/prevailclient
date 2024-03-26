@@ -8,7 +8,7 @@ import SectionConsultation from "../components/About/SectionConsultation.jsx";
 import DrawerAppBar from "../components/Navbar/Appbar.jsx";
 import FooterNew from "../components/Footer/FooterNew.jsx";
 import AppBarOne from "../components/Navbar/AppbarOne.jsx";
-import { Grid, Box } from "@mui/material";
+//import { Grid, Box } from "@mui/material";
 
 const About = () => {
   return (
@@ -17,16 +17,9 @@ const About = () => {
       {/* <Navbar /> */}
       {/* <SectionOne /> */}
       <br /> <br /> <br /> <br />
-      <Grid container spacing={2}>
-      <Grid item xs={12} md={6}> 
       <SectionTwo />
-      </Grid>
-      <Grid item xs={12} md={6}>
-      <SectionConsultation />
-      </Grid>
-      </Grid>
       {/* <SectionFour /> */}
-      <hr />
+      <br /> <hr />
       <SectionThree />
       <FooterNew />
     </div>
