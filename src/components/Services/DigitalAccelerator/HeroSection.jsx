@@ -11,7 +11,8 @@ const useStyles = makeStyles((theme) => ({
     overflow: "visible",
     backgroundColor: "#884ed9",
     color: "#FFF",
-    padding: "20vh 10vw 5vh 10vh",
+    padding: "30vh 10vw 5vh 10vh",
+    height: "100vh",
     // Add the clip-path property for the diagonal line
     clipPath: "polygon(0 0, 100% 100, 100% 50%, 50% 100%)",
 

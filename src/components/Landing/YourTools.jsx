@@ -141,6 +141,7 @@ const useStyles = makeStyles({
     height: "28vw",
     objectFit: "cover",
     borderRadius: "16px",
+    boxShadow: "rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;",
     "@media (max-width: 600px)": {
       width: "95vw",
       height: "50vh",

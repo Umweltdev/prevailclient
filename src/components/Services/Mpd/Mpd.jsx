@@ -6,7 +6,7 @@ import Advantages from './Advantages'
 import Budget from './Budget'
 import Footer from "../../Footer/Footer"
 import FooterNew from '../../Footer/FooterNew'
-import AppBarOne from '../../Navbar/AppbarOne'
+import AppBarOne from '../../Navbar/Appbar'
 
 const Mpd = () => {
   return (

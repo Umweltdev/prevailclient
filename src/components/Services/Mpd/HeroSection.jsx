@@ -9,14 +9,14 @@ const useStyles = makeStyles((theme) => ({
   hero: {
     position: "relative",
     overflow: "visible",
-    backgroundColor: "#884ed9",
-    color: "#FFF",
+    backgroundColor: "white",
+    color: "#333",
     padding: "15vh 10vw",
     "@media (max-width: 600px)": {
       position: "relative",
       overflow: "visible",
-      backgroundColor: "#884ed9",
-      color: "#FFF",
+      backgroundColor: "white",
+      color: "#333",
       padding: "15vh 0 1vh 0",
     },
   },
@@ -83,7 +83,7 @@ const HeroSection = ({ header, text, image }) => {
               sx={{
                 fontSize: "3vw",
                 fontWeight: "900",
-                color: "#fff",
+                color: "#333",
                 "@media (max-width: 600px)": {
                   fontSize: "7vw",
                   fontWeight: "900",
@@ -99,7 +99,7 @@ const HeroSection = ({ header, text, image }) => {
                 fontWeight: "600",
                 width: "40vw",
                 lineHeight: "4vh",
-                color: "#fff",
+                color: "#333",
                 "@media (max-width: 600px)": {
                   fontSize: "4.5vw",
                   fontWeight: "unset",

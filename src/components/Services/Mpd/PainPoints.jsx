@@ -1,16 +1,16 @@
 import { Grid, Typography } from "@mui/material";
 import React from "react";
-import imago from "../assets/mirr.png";
+import imago from "../assets/combat.png";
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
   image: {
-    width: "450px",
+    width: "25vw",
     height: "450px",
     objectFit: "contain",
-    //   borderRadius: "50%",
-    float: "left",
-    shapeOutside: "inset(1% round 50%)",
+    borderRadius: "1vw",
+
+    // shapeOutside: "inset(1% round 50%)",
     "@media (max-width: 600px)": {
       display: "none",
     },
@@ -28,6 +28,8 @@ const PainPoint = ({ header, text, image }) => {
         justifyContent: "center",
         alignItems: "center",
         padding: "5vh 0",
+        background: "#6c6d9d",
+        gap: "2vw",
         "@media (max-width: 600px)": {
           display: "flex",
           flexDirection: "column",
@@ -38,31 +40,20 @@ const PainPoint = ({ header, text, image }) => {
         },
       }}
     >
-      <img
-        style={{
-          width: "450px",
-          height: "450px",
-          objectFit: "contain",
-          //   borderRadius: "50%",
-          float: "left",
-          shapeOutside: "inset(1% round 50%)",
-        }}
-        className={classes.image}
-        src={imago}
-        alt=""
-      />
+      <img className={classes.image} src={imago} alt="" />
       <Grid>
-        {/* <Typography
-          sx={{ fontSize: "4vw", fontWeight: "900", color: "#884ed9" }}
+        <Typography
+          sx={{ fontSize: "4vw", fontWeight: "900", color: "white" }}
         >
           Pain Points
-        </Typography> */}
+        </Typography>
         <Typography
           sx={{
             fontSize: "1.5vw",
             width: "40vw",
             textAlign: "justify",
             textJustify: "distribute",
+            color: "white",
             "@media (max-width: 600px)": {
               fontSize: "4.5vw",
               width: "90vw",

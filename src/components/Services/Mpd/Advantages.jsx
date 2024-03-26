@@ -1,6 +1,7 @@
 import { Accordion, Grid, Typography } from "@mui/material";
 import React from "react";
 import AccordionUsage from "./Accordion";
+import Carousel from "./Carousel";
 
 const Advantages = () => {
   return (
@@ -11,7 +12,8 @@ const Advantages = () => {
         justifyContent: "center",
         alignItems: "top",
         gap: "4vw",
-        background: "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
+        background: "white",
+
         "@media (max-width: 600px)": {
           flexDirection: "column",
           padding: "3vh 0",
@@ -28,7 +30,7 @@ const Advantages = () => {
         /> */}
         <Typography
           sx={{
-            color: "white",
+            color: "#333",
             fontSize: "3vw",
             fontWeight: "900",
             "@media (max-width: 600px)": {
@@ -46,9 +48,10 @@ const Advantages = () => {
           sx={{
             width: "40vw",
             textAlign: "left",
-            color: "white",
-            lineHeight: "4vh",
+            color: "#333",
+            lineHeight: "5vh",
             fontWeight: "900",
+            
             "@media (max-width: 600px)": {
               width: "95vw",
               textAlign: "center",
@@ -69,6 +72,7 @@ const Advantages = () => {
       </Grid>
       <Grid>
         <AccordionUsage />
+        {/* <Carousel /> */}
       </Grid>
     </Grid>
   );

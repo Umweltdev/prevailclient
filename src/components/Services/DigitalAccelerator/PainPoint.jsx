@@ -1,14 +1,17 @@
-import { Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
 import imago from "../assets/as.png";
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
-  image: {
-    width: "450px",
-    height: "450px",
-    objectFit: "contain",
+  imago: {
+    width: "35vw",
+    // height: "400px",
+    objectFit: "cover",
+    // position: "fixed",
     //   borderRadius: "50%",
+    borderRadius: "1vw",
+    boxShadow: "rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;",
     float: "left",
     shapeOutside: "inset(1% round 50%)",
     "@media (max-width: 600px)": {
@@ -18,7 +21,8 @@ const useStyles = makeStyles({
 });
 
 const PainPoint = ({ header, text, image }) => {
-  const classes = useStyles()
+  const classes = useStyles();
+
   return (
     <Grid
       sx={{
@@ -26,7 +30,8 @@ const PainPoint = ({ header, text, image }) => {
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
-        padding: "5vh 0",
+        padding: "15vh 0",
+        height: "100vh",
         // background: "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
         gap: "4vw",
         "@media (max-width: 600px)": {
@@ -40,30 +45,23 @@ const PainPoint = ({ header, text, image }) => {
       }}
     >
       <img
-        style={{
-          width: "450px",
-          height: "450px",
-          objectFit: "contain",
-          //   borderRadius: "50%",
-          float: "left",
-          shapeOutside: "inset(1% round 50%)",
-        }}
-        className={classes.image}
-        src={imago}
+        className={classes.imago}
+        src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1484&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         alt=""
       />
+
       <Grid>
-        {/* <Typography
+        <Typography
           sx={{ fontSize: "4vw", fontWeight: "900", color: "#884ed9" }}
         >
           Pain Points
-        </Typography> */}
+        </Typography>
         <Typography
           sx={{
-            fontSize: "1.5vw",
+            fontSize: "1.4vw",
             width: "40vw",
-            textAlign: "justify",
-            textJustify: "distribute",
+            // textAlign: "justify",
+            // textJustify: "distribute",
             // color: "white",
             "@media (max-width: 600px)": {
               fontSize: "4.5vw",

@@ -8,6 +8,7 @@ import Footer from "../../Footer/Footer"
 import FooterNew from "../../Footer/FooterNew";
 import DrawerAppBarWhite from "../../Navbar/Appbar";
 import AppBarOne from "../../Navbar/AppbarOne";
+import YourTools from "./Solution";
 
 const DigitalAccelerator = () => {
   return (
@@ -15,7 +16,9 @@ const DigitalAccelerator = () => {
       <AppBarOne />
       <HeroSection />
       <PainPoint />
-      <Advantages />
+      <hr/>
+      <YourTools/>
+      {/* <Advantages /> */}
       <Usp />
       <FooterNew />
     </div>
