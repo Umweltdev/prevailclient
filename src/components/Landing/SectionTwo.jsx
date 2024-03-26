@@ -47,9 +47,9 @@ const SectionTwo = () => {
       <Grid>
         <Typography
           sx={{
-            fontSize: "3vw",
+            fontSize: "1.5vw",
             color: "#884ed9",
-            marginBottom: "3vh",
+            marginBottom: "2vh",
             textAlign: "justify",
             fontWeight: "bold",
             width: "40vw",
@@ -62,11 +62,28 @@ const SectionTwo = () => {
         >
           Introduction
         </Typography>
-        
+
         <Typography
-      
           sx={{
-            fontSize: "1.3vw",
+            fontSize: "2vw",
+            color: "#333",
+            marginBottom: "1vh",
+            fontWeight: "bold",
+            width: "40vw",
+            "@media (max-width: 600px)": {
+              fontSize: "4vw",
+              textAlign: "justify",
+              width: "95vw",
+            },
+          }}
+        >
+          Our Mission is to empower you with innovative solutions that drive
+          long-term success
+        </Typography>
+
+        <Typography
+          sx={{
+            fontSize: "1.2vw",
             color: "#636363",
             marginBottom: "4vh",
 
@@ -92,8 +109,8 @@ const SectionTwo = () => {
               textTransform: "capitalize",
               backgroundColor: "#884ed9",
               color: "white",
-              fontSize: "1.4vw",
-              borderRadius: "25px",
+              fontSize: "1.2vw",
+              borderRadius: "3vw",
               padding: "0.5vw 5vw",
               border: "1px solid #884ed9",
               "&:hover": {

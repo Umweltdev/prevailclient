@@ -80,12 +80,13 @@ function CarouselOne() {
       <Grid sx={{}}>
         <Typography
           sx={{
-            fontSize: "1.4vw",
+            fontSize: "1.5vw",
             mb: "3vh",
             letterSpacing: "1px",
             // height: "10vh",
-            color: "#333",
+            // color: "#333",
             fontWeight: "900",
+            color: "#884ed9",
             "@media (max-width: 600px)": {
               fontSize: "4vw",
               mb: "1vh",

@@ -207,14 +207,18 @@ function YourTools() {
           }}
         >
           {images.map((step, index) => (
-            <Link style={{ textDecoration: "none" }} to={`/Services/${step.link}`}>
+            <Link
+              style={{ textDecoration: "none" }}
+              to={`/Services/${step.link}`}
+            >
               <Grid display="flex" alignItems="center">
                 <Typography
                   sx={{
                     color: "#333",
                     fontSize: "1.3vw",
                     fontWeight: "900",
-                    marginRight: "0.5vw", // Optional spacing between icon and text
+                    marginRight: "0.5vw",
+
                     "@media (max-width: 600px)": {
                       fontSize: "5vw",
                     },
@@ -225,7 +229,11 @@ function YourTools() {
                 <Typography
                   sx={{
                     fontSize: "1.3vw",
-                    "@media (max-width: 600px)": { fontSize: "5vw" },
+                    color: "#333",
+
+                    "@media (max-width: 600px)": {
+                      fontSize: "5vw",
+                    },
                   }}
                 >
                   {step.title}
@@ -233,55 +241,6 @@ function YourTools() {
               </Grid>
             </Link>
           ))}
-
-          {/* <Link style={{ textDecoration: "none" }} to={"/Services/website"}>
-            <Grid>
-              <Typography
-                sx={{
-                  color: "#333",
-                  fontSize: "1.3vw",
-                  fontWeight: "900",
-                  "@media (max-width: 600px)": {
-                    fontSize: "5vw",
-                  },
-                }}
-              >
-                Website Development
-              </Typography>
-            </Grid>
-          </Link>
-          <Link style={{ textDecoration: "none" }} to={"/Services/sem"}>
-            <Grid>
-              <Typography
-                sx={{
-                  color: "#333",
-                  fontSize: "1.3vw",
-                  fontWeight: "900",
-                  "@media (max-width: 600px)": {
-                    fontSize: "5vw",
-                  },
-                }}
-              >
-                Search Engine Marketing
-              </Typography>
-            </Grid>
-          </Link>
-          <Link style={{ textDecoration: "none" }} to={"/Services/mpd"}>
-            <Grid>
-              <Typography
-                sx={{
-                  color: "#333",
-                  fontSize: "1.3vw",
-                  fontWeight: "900",
-                  "@media (max-width: 600px)": {
-                    fontSize: "5vw",
-                  },
-                }}
-              >
-                Marketing Price Displacement API
-              </Typography>
-            </Grid>
-          </Link> */}
         </Grid>
 
         {/* RIGHT */}
@@ -313,10 +272,11 @@ function YourTools() {
               left: "0",
               width: "65vw",
               height: "28vw",
-              // background: "rgba(136,78,217,0.6)",
+              background: "rgba(0,0,0,0.7)",
               display: "flex",
-              alignItems: "center",
+              alignItems: "left",
               justifyContent: "center",
+              padding: "2vw",
               //   backdropFilter: "blur(1px)",
               borderRadius: "16px",
               flexDirection: "column",
@@ -332,9 +292,9 @@ function YourTools() {
               color="white"
               sx={{
                 fontWeight: "bold",
-                textAlign: "center",
-                width: "30vw",
-                mb: "7vh",
+                textAlign: "left",
+                // width: "30vw",
+                mb: "5vh",
                 "@media (max-width: 600px)": {
                   mb: "3vh",
                   width: "90vw",
@@ -348,8 +308,8 @@ function YourTools() {
               variant="h6"
               color="white"
               sx={{
-                textAlign: "center",
-                width: "60vw",
+                textAlign: "left",
+                width: "50vw",
                 fontWeight: "900",
                 "@media (max-width: 600px)": {
                   width: "90vw",
