@@ -7,7 +7,7 @@ const useStyles = makeStyles({
   cardContainer: {
     width: "70vw",
     height: "25vw",
-    margin: "5vh auto",
+    margin: "5vh auto 20vh 0",
     background: "#e2ccf7",
     display: "flex",
     boxShadow: "rgba(0, 0, 0, 0.25) 0px 14px 28px",
@@ -80,7 +80,7 @@ const Testimonials = () => {
       sx={{
         width: "80vw",
         height: "25vw",
-        margin: "5vh auto",
+        margin: "5vh auto 15vh auto",
         // background: "#e2ccf7",
         display: "flex",
         boxShadow: "rgba(0, 0, 0, 0.25) 0px 14px 28px",

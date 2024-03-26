@@ -42,17 +42,16 @@ const Overview = () => {
       sx={{
         background: "#fff",
         width: "66vw",
-        height: "60vh",
+        height: "50vh",
         display: "flex",
         flexDirection: "row",
         padding: "2vw",
         justifyContent: "center",
         alignItems: "center",
-        borderRadius: "1vw",
+        borderRadius: "1.5vw",
         color: "#333",
         margin: "5vh auto",
-        boxShadow:
-          "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;",
+        boxShadow: "rgba(0, 0, 0, 0.1) 0px 10px 50px;",
         "@media (max-width: 600px)": {
           background: "#e2ccf7",
           width: "95vw",
@@ -70,7 +69,7 @@ const Overview = () => {
       <Grid>
         <Typography
           sx={{
-            fontSize: "3.5vw",
+            fontSize: "2.5vw",
             fontWeight: "bold",
             "@media (max-width: 600px)": {
               fontSize: "4.5vh",
@@ -96,7 +95,7 @@ const Overview = () => {
         ></Grid> */}
         <Typography
           sx={{
-            fontSize: "1.8vw",
+            fontSize: "1.7vw",
             width: "100%",
             "@media (max-width: 600px)": {
               fontSize: "4vw",

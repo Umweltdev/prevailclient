@@ -2,27 +2,43 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
-import { Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 
 export default function FacebookCreatives() {
   return (
-    <Box sx={{ width: "80vw", height: 650, overflowY: "scroll", margin: "15vh auto" }}>
-      <Typography sx={{textAlign: "center", margin: "2vh 0 5vh 0", fontSize: "3vw", fontWeight: 'bold'}}>
+    <Grid sx={{margin: "10vh 0"}}>
+      <Typography
+        sx={{
+          textAlign: "center",
+          // margin: "3vh 0 1vh 0",
+          fontSize: "3vw",
+          fontWeight: "bold",
+        }}
+      >
         Marketing Collaterals
       </Typography>
-      <ImageList variant="masonry" cols={3} gap={8}>
-        {itemData.map((item) => (
-          <ImageListItem key={item.img}>
-            <img
-              srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-              src={`${item.img}?w=248&fit=crop&auto=format`}
-              alt={item.title}
-              loading="lazy"
-            />
-          </ImageListItem>
-        ))}
-      </ImageList>
-    </Box>
+      <Box
+        sx={{
+          width: "80vw",
+          height: 450,
+          overflowY: "scroll",
+          margin: "5vh auto",
+        }}
+      >
+        <ImageList variant="masonry" cols={3} >
+          {itemData.map((item) => (
+            <ImageListItem key={item.img}>
+              <img
+                srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                src={`${item.img}?w=248&fit=crop&auto=format`}
+                alt={item.title}
+                loading="lazy"
+              />
+            </ImageListItem>
+          ))}
+        </ImageList>
+      </Box>
+    </Grid>
   );
 }
 

@@ -22,17 +22,7 @@ const useStyles = makeStyles({
 
 const SectionTwo = () => {
   const classes = useStyles();
-  const myRef = useRef();
-  const [myElementVisible, setMyElementIsVisible] = useState();
-  console.log("myElementIsVisible", myElementVisible);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      const entry = entries[0];
-      setMyElementIsVisible(entry.isIntersecting);
-    });
-    observer.observe(myRef.current);
-  }, []);
+ 
 
   return (
     <Grid
@@ -56,12 +46,12 @@ const SectionTwo = () => {
     >
       <Grid>
         <Typography
-          ref={myRef}
           sx={{
-            fontSize: "1.3vw",
+            fontSize: "3vw",
             color: "#884ed9",
-            marginBottom: "1vh",
+            marginBottom: "3vh",
             textAlign: "justify",
+            fontWeight: "bold",
             width: "40vw",
             "@media (max-width: 600px)": {
               fontSize: "4vw",
@@ -72,31 +62,13 @@ const SectionTwo = () => {
         >
           Introduction
         </Typography>
+        
         <Typography
-          ref={myRef}
+      
           sx={{
-            fontSize: "2vw",
-            color: "#333",
-            marginBottom: "3vh",
-            // textAlign: "justify",
-            wordSpacing: "-5px",
-
-            "@media (max-width: 600px)": {
-              fontSize: "4vw",
-              textAlign: "justify",
-              width: "95vw",
-            },
-          }}
-        >
-          Prevail is a cutting-edge marketing agency specialising in redefining
-          the way businesses navigate the digital landscape.
-        </Typography>
-        <Typography
-          ref={myRef}
-          sx={{
-            fontSize: "1.2vw",
+            fontSize: "1.3vw",
             color: "#636363",
-            marginBottom: "3vh",
+            marginBottom: "4vh",
 
             "@media (max-width: 600px)": {
               fontSize: "4vw",
@@ -120,9 +92,9 @@ const SectionTwo = () => {
               textTransform: "capitalize",
               backgroundColor: "#884ed9",
               color: "white",
-              fontSize: "1.1vw",
+              fontSize: "1.4vw",
               borderRadius: "25px",
-              padding: "1px 3vw",
+              padding: "0.5vw 5vw",
               border: "1px solid #884ed9",
               "&:hover": {
                 color: "#884ed9",

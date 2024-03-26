@@ -100,7 +100,7 @@ const Hero = () => {
         variants={stagger}
       >
         <motion.h1 variants={header} className="hero-one">
-          Prevail Marketing
+          {/* Prevail Marketing */}
         </motion.h1>
         <motion.h1 variants={letter} className="hero-two">
           HOW CAN WE BE

@@ -72,7 +72,7 @@ const useStyles = makeStyles({
 const CaseStudies = () => {
   const [selectedSection, setSelectedSection] = useState("View All");
   const [selectAll, setSelectAll] = useState(true);
-  
+
   const classes = useStyles();
 
   const handleSectionClick = (section) => {
@@ -135,7 +135,6 @@ const CaseStudies = () => {
       </Grid>
 
       <Box
-        
         sx={{
           display: "flex",
           flexDirection: "row",

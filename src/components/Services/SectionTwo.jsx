@@ -17,7 +17,7 @@ const SectionTwo = () => {
           fontWeight: 900,
           color: "#333",
           textAlign: "left",
-          marginLeft: "12vw",
+          marginLeft: "2vw",
           "@media (max-width: 600px)": {
             fontSize: "7vw",
             textAlign: "center",

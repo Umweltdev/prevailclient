@@ -33,8 +33,9 @@ const CaseNavigation = ({
             height: "120px",
             width: "30vw",
             borderRadius: "16px",
-            background: "rgb(136, 78, 217)",
-            // WebkitBackdropFilter: "blur(30px)",
+            background: "linear-gradient(135deg, #be90fd 30%, #884ed9 90%)",
+
+            // WebkitBackdropFilter: "blur(30px) #884ed9",
             // backdropFilter: "blur(30px)",
             // border: "1px solid rgba(136, 78, 217, 0.4)",
 
@@ -61,7 +62,7 @@ const CaseNavigation = ({
                 fontSize: "20px",
               }}
             />
-            {prevNav}
+            {nextNav}
           </Typography>
           <Typography
             sx={{
@@ -73,7 +74,7 @@ const CaseNavigation = ({
               },
             }}
           >
-            {prevHeader}
+            {nextHeader}
           </Typography>
         </Card>
       </Link>
@@ -86,7 +87,7 @@ const CaseNavigation = ({
             height: "120px",
             width: "30vw",
             borderRadius: "16px",
-            background: "rgb(136, 78, 217)",
+            background: "linear-gradient(45deg, #884ed9 30%, #be90fd 90%)",
 
             "@media (max-width: 600px)": {
               height: "100px",
@@ -106,7 +107,7 @@ const CaseNavigation = ({
               },
             }}
           >
-            {nextNav}
+            {prevNav}
             <ArrowForward
               sx={{
                 fontSize: "20px",
@@ -123,7 +124,7 @@ const CaseNavigation = ({
               },
             }}
           >
-            {nextHeader}
+            {prevHeader}
           </Typography>
         </Card>
       </Link>

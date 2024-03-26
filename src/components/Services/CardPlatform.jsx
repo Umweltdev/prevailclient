@@ -20,7 +20,7 @@ const CardPlatform = () => {
           width: "38vw",
           marginTop: "20vh",
           marginLeft: "10vw",
-          marginRight: "10vw",
+          marginRight: "4vw",
           borderRadius: "0.7vw",
           position: "relative",
           boxShadow:

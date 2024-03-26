@@ -28,6 +28,19 @@ const images = [
         }}
       />
     ),
+    smallIcon: (
+      <Label
+        sx={{
+          fontSize: "2vw",
+          color: "#884ed9",
+          marginTop: "0.5vh",
+          "@media (max-width: 600px)": {
+            fontSize: "10vw",
+          },
+        }}
+      />
+    ),
+    link: "brand",
     title: "Branding",
     subTitle: `Our “Brand Identity Package” service is the foundation for creating a lasting impression. We collaborate closely with you to define their unique brand identity, crafting eye-catching logos and compelling marketing collateral.`,
     imgPath:
@@ -42,6 +55,19 @@ const images = [
         }}
       />
     ),
+    smallIcon: (
+      <Devices
+        sx={{
+          fontSize: "2vw",
+          color: "#884ed9",
+          marginTop: "0.5vh",
+          "@media (max-width: 600px)": {
+            fontSize: "10vw",
+          },
+        }}
+      />
+    ),
+    link: "website",
     title: "Website Development",
     subTitle: `Prevail's groundbreaking "Website Production & Management" service, is a strategic initiative designed to empower SMEs and local businesses with a robust online presence that not only captivates but also seamlessly engages with their target audience.`,
     imgPath:
@@ -56,6 +82,19 @@ const images = [
         }}
       />
     ),
+    smallIcon: (
+      <AdsClick
+        sx={{
+          fontSize: "2vw",
+          color: "#884ed9",
+          marginTop: "0.5vh",
+          "@media (max-width: 600px)": {
+            fontSize: "10vw",
+          },
+        }}
+      />
+    ),
+    link: "sem",
     title: "Search Engine Marketing",
     subTitle: `Our "Search Engine Marketing (SEM)” service is the gateway to getting businesses in front of their ideal target audience. Our SEM service goes beyond the basics, providing a comprehensive approach around targeted advertising, SEO, performance metrics and continuous adjustment & reports."`,
     imgPath:
@@ -70,6 +109,19 @@ const images = [
         }}
       />
     ),
+    smallIcon: (
+      <QueryStats
+        sx={{
+          fontSize: "2vw",
+          color: "#884ed9",
+          marginTop: "0.5vh",
+          "@media (max-width: 600px)": {
+            fontSize: "10vw",
+          },
+        }}
+      />
+    ),
+    link: "mpd",
     title: "Marketing Price Displacement API",
     subTitle:
       "The “Marketing Cost Displacement (MCD)” API is not just a tool; it is a strategic asset. By seamlessly integrating a blend of elastic pricing and yield management. SMEs and local businesses can gain the power of budget allocation in their marketing spend.",
@@ -154,24 +206,35 @@ function YourTools() {
             "@media (max-width: 600px)": { textAlign: "center", gap: "1vh" },
           }}
         >
-          <Link style={{ textDecoration: "none" }} to={"/Services/brand"}>
-            <Grid>
-              <Typography
-                sx={{
-                  color: "#333",
-                  fontSize: "1.3vw",
-                  fontWeight: "900",
-                  "@media (max-width: 600px)": {
-                    fontSize: "5vw",
-                  },
-                }}
-              >
-                Branding
-              </Typography>
-            </Grid>
-          </Link>
+          {images.map((step, index) => (
+            <Link style={{ textDecoration: "none" }} to={`/Services/${step.link}`}>
+              <Grid display="flex" alignItems="center">
+                <Typography
+                  sx={{
+                    color: "#333",
+                    fontSize: "1.3vw",
+                    fontWeight: "900",
+                    marginRight: "0.5vw", // Optional spacing between icon and text
+                    "@media (max-width: 600px)": {
+                      fontSize: "5vw",
+                    },
+                  }}
+                >
+                  {step.smallIcon}
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: "1.3vw",
+                    "@media (max-width: 600px)": { fontSize: "5vw" },
+                  }}
+                >
+                  {step.title}
+                </Typography>
+              </Grid>
+            </Link>
+          ))}
 
-          <Link style={{ textDecoration: "none" }} to={"/Services/website"}>
+          {/* <Link style={{ textDecoration: "none" }} to={"/Services/website"}>
             <Grid>
               <Typography
                 sx={{
@@ -218,7 +281,7 @@ function YourTools() {
                 Marketing Price Displacement API
               </Typography>
             </Grid>
-          </Link>
+          </Link> */}
         </Grid>
 
         {/* RIGHT */}
@@ -250,7 +313,7 @@ function YourTools() {
               left: "0",
               width: "65vw",
               height: "28vw",
-              background: "rgba(136,78,217,0.6)",
+              // background: "rgba(136,78,217,0.6)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",

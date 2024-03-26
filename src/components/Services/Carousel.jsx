@@ -309,8 +309,9 @@ function Carousel() {
                   borderRadius: "3vw",
                   // background: activeStep === index ? "#884ed9" : "none",
                   "&:hover": {
-                    backgroundColor: "#b4b4b4",
-                    color: "#fff",
+                    backgroundColor: "#dcdcdc",
+                    color: "#333",
+                    fontWeight: "bold",
                     borderRadius: "3vw",
                   },
                   "@media (max-width: 600px)": { display: "none" },
@@ -327,8 +328,6 @@ function Carousel() {
                   "@media (max-width: 600px)": {
                     cursor: "pointer",
                     display: "flex",
-                    // justifyContent: "space-around",
-                    // marginTop: "2vh",
                     padding: "1vh 0",
                     fontSize: "3vw",
 
