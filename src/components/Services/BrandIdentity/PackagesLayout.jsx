@@ -26,6 +26,8 @@ const PackagesLayout = ({
       sx={{
         width: 300,
         height: 400,
+        borderRadius: 4,
+        boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
         "@media (max-width: 600px)": {
           marginTop: "1vh"
         },
@@ -61,9 +63,14 @@ const PackagesLayout = ({
         <Typography textAlign="center" variant="body2" color="text.secondary">
           {fifth}
         </Typography>
-        <Typography textAlign="center" variant="body2" color="text.secondary">
+        <Button 
+          sx={{
+          borderRadius: 7,
+          padding: "8px 16px",
+        }}
+          variant="contained" color="primary" >
           {sixth}
-        </Typography>
+        </Button>
         <Typography textAlign="center" variant="body2" color="text.secondary">
           {seventh}
         </Typography>

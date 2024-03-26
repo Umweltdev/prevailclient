@@ -22,6 +22,7 @@ const Packages = () => {
           fontWeight: "bold",
           color: "#884ed9",
           margin: "5vh 0",
+          fontFamily: `"Sarabun", sans-serif`,
           "@media (max-width: 600px)": {
             fontSize: "7vw",
             fontWeight: "bold",
@@ -49,7 +50,7 @@ const Packages = () => {
           third={"Colour scheme"}
           fourth={"Typography"}
           fifth={"Letterhead design or invoice design"}
-          sixth={"Brainstorm session"}
+          sixth={"Subscribe Now"}
         />
         <PackagesLayout
           packages="Brand Identity Elite Package"
@@ -57,11 +58,12 @@ const Packages = () => {
           first="Everything in the “Brand Identity Starter Package”"
           second="Logo design concept (up to 4 proposals)"
           third={"Business card concept (up to 2 proposals)"}
-          fourth={"Letterhead design concept (up to 2 proposals)"}
-          // fifth={"Letterhead design or invoice design"}
-          // sixth={"Flyer design concept (up to 2 proposals)"}
+          fourth={"Sd design concept (up to 2 proposals)"}
+          //fifth={"Letterhead design or invoice design"}
+          sixth={"Subscribe Now"}
           // seventh={"brochure design concept (up to 2 proposals)"}
           // eigth={"Package or envelope design"}
+          //seventeen={"Subscribe Now"}
         />
       </Grid>
     </div>

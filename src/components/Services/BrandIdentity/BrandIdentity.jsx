@@ -15,9 +15,12 @@ const BrandIdentity = () => {
   return (
     <>
       <AppBarOne />
+      <br /> <br /> <br /> <br />
       <HeroSection />
-      <ServiceDetails2 />
+      <hr /><br />
+      {/* <ServiceDetails2 /> */}
       <ServiceDetails3 />
+      <hr />
       <Packages />
       <FooterNew/>
     </>
