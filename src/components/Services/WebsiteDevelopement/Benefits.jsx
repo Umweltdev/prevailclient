@@ -17,11 +17,11 @@ const Benefits = () => {
         sx={{
           fontSize: "4vw",
           fontWeight: "900",
-          color: "#70a1e3",
+          color: "black",
           "@media (max-width: 600px)": {
             fontSize: "7vw",
             fontWeight: "900",
-            color: "#70a1e3",
+            color: "black",
           },
         }}
       >

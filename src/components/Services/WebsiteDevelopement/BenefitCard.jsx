@@ -42,21 +42,24 @@ const card = (
       justifyContent: "center",
       alignItems: "center",
       gap: "2vw",
+      overflowY: "auto",
     }}
   >
     {benefits.map((data, index) => (
       <Card
         key={index}
         sx={{
-          width: 350,
-          height: 200,
-          background: "#70a1e3",
-          color: "white",
+          width: 400,
+          height: auto,
+          background: "#fff",
+          color: "black",
+          borderRadius: 4,
+          boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
           "@media (max-width: 600px)": {
             width: 350,
-            height: 170,
-            background: "#70a1e3",
-            color: "white",
+            height: auto,
+            background: "#fff",
+            color: "black",
           },
         }}
       >
@@ -64,7 +67,7 @@ const card = (
           <Typography
             variant="h5"
             component="div"
-            textAlign="center"
+            textAlign="start"
             fontSize="1.5vw"
             mb="3vh"
             fontWeight="900"
@@ -78,7 +81,7 @@ const card = (
             {data.header}
           </Typography>
 
-          <Typography variant="body2" textAlign="center">
+          <Typography variant="body2" textAlign="start">
             {data.text}
           </Typography>
         </CardContent>

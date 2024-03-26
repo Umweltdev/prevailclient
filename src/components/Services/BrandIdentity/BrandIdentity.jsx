@@ -17,10 +17,10 @@ const BrandIdentity = () => {
       <AppBarOne />
       <br /> <br /> <br /> <br />
       <HeroSection />
-      <hr /><br />
-      {/* <ServiceDetails2 /> */}
+      <br /><br /><br /><br />
+      <ServiceDetails2 />
       <ServiceDetails3 />
-      <hr />
+      <br /> <br /><br /><br />
       <Packages />
       <FooterNew/>
     </>
