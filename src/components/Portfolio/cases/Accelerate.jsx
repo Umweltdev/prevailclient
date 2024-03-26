@@ -1,12 +1,13 @@
 import { Button, Card, Grid, Typography } from "@mui/material";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Accelerate = () => {
   return (
     <Grid>
       <Card
         sx={{
-          background: "#884ed9",
+          // background: "#884ed9",
           width: "95vw",
           borderRadius: "16px",
           margin: "5vh auto",
@@ -16,6 +17,7 @@ const Accelerate = () => {
           alignItems: "center",
           flexDirection: "column",
           boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px",
+          background: "linear-gradient(45deg, #884ed9 30%, #be90fd 90%)",
 
           "@media (max-width: 600px)": {
             padding: "3vh 0",
@@ -44,7 +46,7 @@ const Accelerate = () => {
             },
           }}
         >
-          With Salt Marketing Today
+          With Prevail Marketing and Management
         </Typography>
         <Grid
           sx={{
@@ -57,29 +59,32 @@ const Accelerate = () => {
             },
           }}
         >
-          <Button
-            sx={{
-              background: "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
-              padding: "1vh 3vw",
-              color: "white",
-              borderRadius: "10vw",
-              fontWeight: "bold",
-            }}
-          >
-            Request a Free Audit
-          </Button>
-          <Button
-            sx={{
-              background: "white",
-              padding: "0.8vh 3vw",
-              color: "blue",
-              border: "1px solid blue",
-              borderRadius: "10vw",
-              fontWeight: "bold",
-            }}
-          >
-            Book A Call
-          </Button>
+          <Link textDecoration="none" to="/Stepper">
+            <Button
+              sx={{
+                background: "#884ed9",
+                padding: "1vh 3vw",
+                color: "white",
+                borderRadius: "10vw",
+                fontWeight: "bold",
+              }}
+            >
+              Request a Free Audit
+            </Button>
+          </Link>
+          <Link textDecoration="none" to="/Stepper">
+            <Button
+              sx={{
+                background: "#884ed9",
+                padding: "1vh 3vw",
+                color: "white",
+                borderRadius: "10vw",
+                fontWeight: "bold",
+              }}
+            >
+              Book A Call
+            </Button>
+          </Link>
         </Grid>
       </Card>
     </Grid>

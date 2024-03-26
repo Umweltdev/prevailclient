@@ -10,6 +10,10 @@
   background-size: cover; /* Resize the background image to cover the entire container */
 }
 
+.this {
+  color: rgb(199, 161, 253)
+}
+
 /* Section One */
 .sOnePort {
   padding-top: 37vh;
