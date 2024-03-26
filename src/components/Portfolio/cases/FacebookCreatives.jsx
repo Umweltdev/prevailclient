@@ -6,8 +6,8 @@ import { Typography } from "@mui/material";
 
 export default function FacebookCreatives() {
   return (
-    <Box sx={{ width: "80vw", height: 450, overflowY: "scroll", margin: "15vh auto" }}>
-      <Typography>
+    <Box sx={{ width: "80vw", height: 650, overflowY: "scroll", margin: "15vh auto" }}>
+      <Typography sx={{textAlign: "center", margin: "2vh 0 5vh 0", fontSize: "3vw", fontWeight: 'bold'}}>
         Marketing Collaterals
       </Typography>
       <ImageList variant="masonry" cols={3} gap={8}>

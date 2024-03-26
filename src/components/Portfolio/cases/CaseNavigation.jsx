@@ -33,9 +33,9 @@ const CaseNavigation = ({
             height: "120px",
             width: "30vw",
             borderRadius: "16px",
-            background: "rgba(136, 78, 217, 0.5)",
-            WebkitBackdropFilter: "blur(30px)",
-            backdropFilter: "blur(30px)",
+            background: "rgb(136, 78, 217)",
+            // WebkitBackdropFilter: "blur(30px)",
+            // backdropFilter: "blur(30px)",
             // border: "1px solid rgba(136, 78, 217, 0.4)",
 
             "@media (max-width: 600px)": {
@@ -86,10 +86,7 @@ const CaseNavigation = ({
             height: "120px",
             width: "30vw",
             borderRadius: "16px",
-            background: "rgba(136, 78, 217, 0.5)",
-            WebkitBackdropFilter: "blur(30px)",
-            backdropFilter: "blur(30px)",
-            // border: "1px solid rgba(136, 78, 217, 0.4)",
+            background: "rgb(136, 78, 217)",
 
             "@media (max-width: 600px)": {
               height: "100px",
