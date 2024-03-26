@@ -2,6 +2,7 @@ import { Add } from "@mui/icons-material";
 import { useState } from "react";
 import { FAQS } from "./assets/OurWhyObjects";
 import AccordionUsage from "../ReusedComponents/FaqAccordion";
+import "./SectionThree.css";
 
 const SectionThree = () => {
   // State to manage the visibility of each FAQ item
@@ -19,7 +20,7 @@ const SectionThree = () => {
   return (
     <div className="sThreeAboutContainer">
       <div className="sThreeHeroSection">
-        <h1 className="sThreeAbouHero">Frequently Asked Questions</h1>
+        <h1 className="sThreeAbouHero sarabun-thin">Frequently Asked Questions</h1>
       </div>
       <div className="sThreeHeroFAQS">
         {FAQS.map((data, index) => (

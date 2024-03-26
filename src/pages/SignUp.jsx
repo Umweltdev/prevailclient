@@ -7,6 +7,7 @@ const SignUpForm = () => {
   return (
     <div>
         <DrawerAppBarWhite/>
+        <br /> <br /> <br /> <br />
         <SignUp />
         <FooterNew/>
     </div>

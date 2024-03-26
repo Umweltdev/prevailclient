@@ -25,6 +25,7 @@ const useStyle = makeStyles({
     color: "#7097da",
     fontSize: "8vw",
     fontWeight: "bold",
+    fontFamily: "Sarabun",
     "@media (max-width: 600px)": { fontSize: "10vw", fontWeight: "bold" },
   },
 
@@ -73,6 +74,7 @@ const AboutOurSolution = () => {
             // margin: "0 auto",
             textAlign: "justify",
             width: "55vw",
+            fontFamily: "Sarabun",
             "@media (max-width: 600px)": {
               padding: "3vh 0",
               // margin: "0 auto",

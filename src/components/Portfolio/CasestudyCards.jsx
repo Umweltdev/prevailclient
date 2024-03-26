@@ -1,24 +1,10 @@
+import * as React from "react";
 import { Grid, Typography } from "@mui/material";
-import React from "react";
-import imago from "../assets/sect2.png";
 import { makeStyles } from "@mui/styles";
 
-const useStyles = makeStyles({
-  imagePlaform: {
-    width: "78vw",
-    height: "50vh",
-    objectFit: "cover",
-    borderRadius: "5px",
-    boxShadow:
-      "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
-
-    "@media (max-width: 600px)": {
-      width: "unset",
-      height: "unset",
-    },
-  },
+{/*const useStyles = makeStyles({
   imageInit: {
-    width: "37vw",
+    width: "27.5vw",
     borderRadius: "1vw",
     boxShadow:
       "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
@@ -27,18 +13,16 @@ const useStyles = makeStyles({
       height: "unset",
     },
   },
-});
+})*/}
 
-const ServiceDetails2 = () => {
-  const classes = useStyles()
+export default function CasestudyCards({ header, text, index }) {
+  //const classes = useStyles()
   return (
     <Grid
           sx={{
-            width: "78vw",
+            width: "50vw",
             display: "flex",
             marginBottom: "5vh",
-            marginTop: "5vh",
-            paddingLeft: "10vw",
             // gap: "5vw",
             justifyContent: "space-between",
             alignItems: "center",
@@ -54,21 +38,11 @@ const ServiceDetails2 = () => {
             },
           }}
         >
-          <img
-            className={classes.imageInit}
-            style={{}}
-            src={imago}
-            alt=""
-          />
-          {/* <spline-viewer
-            style={{ width: "37vw", height: "40vh" }}
-            url="https://prod.spline.design/kqWnRSHfs03RcYiO/scene.splinecode"
-          ></spline-viewer> */}
-           <Grid
+          <Grid
             sx={{
-              width: "37vw",
+              width: "70vw",
               "@media (max-width: 600px)": {
-                width: "95vw",
+                width: "70vw",
               },
             }}
           >
@@ -85,15 +59,15 @@ const ServiceDetails2 = () => {
                 },
               }}
             >
-              Pain Points
+              {header}
             </Typography>
             <Typography
               sx={{
-                fontSize: "1.4vw",
+                fontSize: "1.1vw",
                 color: "#636363",
                 marginBottom: "3vh",
                 textAlign: "justify",
-                width: "37vw",
+                width: "50vw",
                 "@media (max-width: 600px)": {
                   fontSize: "4vw",
                   textAlign: "justify",
@@ -101,11 +75,13 @@ const ServiceDetails2 = () => {
                 },
               }}
             >
-              In today's fast-paced, competitive world, merely existing is not enough. Small and local businesses often struggle to stand out in the crowded marketplace. Your brand might be getting lost in the digital noise, and potential customers may not even notice you.
+             {text}
             </Typography>
           </Grid>
+          {/* <spline-viewer
+            style={{ width: "37vw", height: "40vh" }}
+            url="https://prod.spline.design/kqWnRSHfs03RcYiO/scene.splinecode"
+          ></spline-viewer> */}
         </Grid>
   );
-};
-
-export default ServiceDetails2;
+}

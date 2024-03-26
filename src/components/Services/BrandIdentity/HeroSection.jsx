@@ -8,59 +8,42 @@ const theme = createTheme();
 const useStyles = makeStyles((theme) => ({
   hero: {
     position: "relative",
-    overflow: "hidden",
-    backgroundColor: "#884ed9",
-    color: "#FFF",
-    paddingTop: "10vh",
+    backgroundColor: "#BA8BD9", // Lighter blue background
+    color: "#29323C", // Darker blue text
+    padding: "10vh 0", // Adjust padding for content
 
     "&::before": {
-      position: "absolute",
-      top: 0,
-      left: -50,
-      width: "150%",
-      height: "150%",
-      backgroundColor: "#dccefa",
-      transformOrigin: "top right",
-      transform: "skewY(-45deg)",
-      margin: "0 auto",
+      display: "none",
     },
 
     "@media (max-width: 600px)": {
-      position: "unset",
-      overflow: "hidden",
-      backgroundColor: "#884ed9",
-      color: "#FFF",
-      paddingTop: "15vh",
-      width: "unset",
-      height: "unset",
-      left: "unset",
-      
+      padding: "15vh 0",
     },
   },
 
   heroContainer: {
     display: "flex",
-    flexDiection: "row",
     justifyContent: "center",
     alignItems: "center",
-    padding: "0 10vw",
+    padding: "0 10vw", // Adjust padding based on layout choice
 
     "@media (max-width: 600px)": {
-      display: "unset",
-      flexDiection: "column",
-      justifyContent: "center",
-      alignItems: "center",
-      gap: "11vw",
-      padding: "unset",
-      margin: "0 auto",
+      flexDirection: "column",
+      alignItems: "flex-start", // Text stacked on top of image on mobile
     },
   },
-  textContainer: {
-    width: "70vw",
+
+   textContainer: {
+    width: "70vw", // Adjust based on layout choice (more space for text priority)
+    marginBottom: "5vh", // Add spacing if image is below text
+
     "@media (max-width: 600px)": {
       width: "100%",
+      textAlign: "center", // Center text on mobile
+      marginBottom: "0", // Remove margin if stacked on image
     },
   },
+
   imageContainer: {
     display: "flex",
     alignItems: "center",
@@ -68,9 +51,10 @@ const useStyles = makeStyles((theme) => ({
     
 
   },
-  textHeader: {
-    fontSize: "4vw",
-    fontWeight: "900",
+   textHeader: {
+    fontSize: "5vw", // Increase header font size
+    fontWeight: "bold", // Adjust font weight
+    marginBottom: "2vh", // Add spacing after header
   },
   image: {
     height: "auto",

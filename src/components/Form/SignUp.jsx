@@ -1,11 +1,34 @@
-import React from "react";
-import DrawerAppBarWhite from "../Navbar/Appbar";
-import FooterNew from "../Footer/FooterNew";
-import { Box, Button, Grid, TextField, Typography } from "@mui/material";
+import React, { useState } from "react";
+import { Box, Button, Grid, Paper, TextField, Typography } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
+import { styled } from "@mui/system";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+
+const CustomTextField = styled(TextField)({
+  "& .MuiOutlinedInput-root": {
+    fontSize: "14px",
+    height: "45px",
+    borderRadius: "10px",
+  },
+  "& .MuiInputLabel-root": {
+    fontSize: "14px",
+  },
+});
 
 const SignUp = () => {
   const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    location: "",
+    companyName: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const handleSignUp = () => {
     if (window.innerWidth <= 600) {
@@ -14,179 +37,152 @@ const SignUp = () => {
       navigate("/Stepper");
     }
   };
+
+  const handleFormChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const toggleConfirmPasswordVisibility = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
+
+  const isFormFilled =
+    Object.values(formData).every((val) => val.trim() !== "") &&
+    formData.password === formData.confirmPassword;
+
   return (
-    <Grid sx={{ margin: "20vh 0" }}>
-      {/* <DrawerAppBarWhite /> */}
-      <Grid
-        xs
-        container
-        spacing={2}
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          margin: "0 auto",
-          width: 800,
-          "@media (max-width: 600px)": {
-            width: "95vw",
-            flexDirection: "column",
-          },
-        }}
-      >
-        <Typography
-          sx={{
-            fontSize: "3vw",
-            fontWeight: "bold",
-            "@media (max-width: 600px)": {
-              fontSize: "4.5vh",
-              flexDirection: "column",
-            },
-          }}
-        >
-          Sign Up
-        </Typography>
-        <Box
-          component="form"
-          sx={{
-            margin: 1,
-            display: "flex",
-            gap: "2vw",
-            flexWrap: "wrap",
-            "@media (max-width: 600px)": {
-              flexDirection: "column",
-            },
-          }}
-          noValidate
-          autoComplete="on"
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          flexWrap="wrap"
-        >
-          <TextField
-            sx={{
-              width: "27vw",
-              "@media (max-width: 600px)": {
-                width: "90vw",
-              },
-            }}
-            id="outlined-basic"
-            label="First Name"
-            variant="outlined"
-          />
-          <TextField
-            sx={{
-              width: "27vw",
-              "@media (max-width: 600px)": {
-                width: "90vw",
-              },
-            }}
-            id="outlined-basic"
-            label="Last Name"
-            variant="outlined"
-          />
-          <TextField
-            sx={{
-              width: "27vw",
-              "@media (max-width: 600px)": {
-                width: "90vw",
-              },
-            }}
-            id="outlined-basic"
-            label="Email"
-            variant="outlined"
-          />
-          <TextField
-            sx={{
-              width: "27vw",
-              "@media (max-width: 600px)": {
-                width: "90vw",
-              },
-            }}
-            id="outlined-basic"
-            label="Phone"
-            variant="outlined"
-          />
-          <TextField
-            sx={{
-              width: "27vw",
-              "@media (max-width: 600px)": {
-                width: "90vw",
-              },
-            }}
-            id="outlined-basic"
-            label="Location"
-            variant="outlined"
-          />
-          <TextField
-            sx={{
-              width: "27vw",
-              "@media (max-width: 600px)": {
-                width: "90vw",
-              },
-            }}
-            id="outlined-basic"
-            label="Company Name"
-            variant="outlined"
-          />
-          <TextField
-            sx={{
-              width: "27vw",
-              "@media (max-width: 600px)": {
-                width: "90vw",
-              },
-            }}
-            id="outlined-basic"
-            label="Password"
-            variant="outlined"
-            type="password"
-          />
-          <TextField
-            sx={{
-              width: "27vw",
-              "@media (max-width: 600px)": {
-                width: "90vw",
-              },
-            }}
-            id="outlined-basic"
-            label="Confirm Password"
-            type="password"
-            variant="outlined"
-          />
-        </Box>
-        <Typography>
-          You already have and accont?{" "}
-          <Link
-            to="/Login"
-            style={{
-              fontWeight: "bold",
-              textDecoration: "none",
-              margin: "1vh 0",
-            }}
-          >
-            Login
-          </Link>
-        </Typography>
-
-        <Button
-          variant="contained"
-          onClick={handleSignUp}
-          sx={{
-            width: "56vw",
-            marginTop: "2vh",
-            marginBottom: "15vh",
-            backgroundColor: "#884ED9",
-
-            "@media (max-width: 600px)": {
-              width: "90vw",
-            },
-          }}
-        >
-          Sign Up
-        </Button>
-      </Grid>
-      {/* <FooterNew /> */}
-    </Grid>
+    <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "100vh", bgcolor: "#F6F9FC", py: 3 }}>
+      <Paper elevation={3} sx={{ p: 3, width: "80%", maxWidth: 500 }}>
+        <Grid container direction="column" spacing={2}>
+          <Grid item>
+            <Typography variant="h4" align="center">
+              Sign Up
+            </Typography>
+          </Grid>
+          <Grid item>
+            <form>
+              <Grid container direction="column" spacing={2}>
+                <Grid item>
+                  <CustomTextField
+                    fullWidth
+                    label="First Name"
+                    variant="outlined"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleFormChange}
+                  />
+                </Grid>
+                <Grid item>
+                  <CustomTextField
+                    fullWidth
+                    label="Last Name"
+                    variant="outlined"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleFormChange}
+                  />
+                </Grid>
+                <Grid item>
+                  <CustomTextField
+                    fullWidth
+                    label="Phone Number"
+                    variant="outlined"
+                    name="phoneNumber"
+                    value={formData.phone}
+                    onChange={handleFormChange}
+                  />
+                </Grid>
+                <Grid item>
+                  <CustomTextField
+                    fullWidth
+                    label="Location"
+                    variant="outlined"
+                    name="location"
+                    value={formData.location}
+                    onChange={handleFormChange}
+                  />
+                </Grid>
+                <Grid item>
+                  <CustomTextField
+                    fullWidth
+                    label="Company Name"
+                    variant="outlined"
+                    name="companyName"
+                    value={formData.companyName}
+                    onChange={handleFormChange}
+                  />
+                </Grid>
+                <Grid item>
+                  <CustomTextField
+                    fullWidth
+                    label="Password"
+                    variant="outlined"
+                    type={showPassword ? "text" : "password"}
+                    name="password"
+                    value={formData.password}
+                    onChange={handleFormChange}
+                    InputProps={{
+                      endAdornment: (
+                        <Box
+                          sx={{ cursor: "pointer" }}
+                          onClick={togglePasswordVisibility}
+                        >
+                          {showPassword ? <Visibility /> : <VisibilityOff />}
+                        </Box>
+                      ),
+                    }}
+                  />
+                </Grid>
+                <Grid item>
+                  <CustomTextField
+                    fullWidth
+                    label="Confirm Password"
+                    variant="outlined"
+                    type={showConfirmPassword ? "text" : "password"}
+                    name="confirmPassword"
+                    value={formData.confirmPassword}
+                    onChange={handleFormChange}
+                    InputProps={{
+                      endAdornment: (
+                        <Box
+                          sx={{ cursor: "pointer" }}
+                          onClick={toggleConfirmPasswordVisibility}
+                        >
+                          {showConfirmPassword ? <Visibility /> : <VisibilityOff />}
+                        </Box>
+                      ),
+                    }}
+                  />
+                </Grid>
+              </Grid>
+            </form>
+          </Grid>
+          <Grid item>
+            <Button
+              variant="contained"
+              onClick={handleSignUp}
+              //disabled={!isFormFilled}
+              fullWidth
+            >
+              Sign Up
+            </Button>
+          </Grid>
+          <Grid item>
+            <Typography align="center">
+              Already have an account?{" "}
+              <Link to="/Login" style={{ fontWeight: "bold", textDecoration: "none" }}>
+                Login
+              </Link>
+            </Typography>
+          </Grid>
+        </Grid>
+      </Paper>
+    </Box>
   );
 };
 

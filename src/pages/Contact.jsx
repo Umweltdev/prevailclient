@@ -14,6 +14,7 @@ const Contact = () => {
     <div>
       <DrawerAppBar />
       {/* <SectionOne /> */}
+      <br /><br />
       <SectionTwo />
       <ContactInput/>
       {/* <SectionThree /> */}

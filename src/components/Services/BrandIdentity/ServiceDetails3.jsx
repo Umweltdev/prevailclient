@@ -1,8 +1,36 @@
 import { Grid, Typography } from "@mui/material";
 import React from "react";
 import BrandIdentityCard from "./CardLayout";
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles({
+  imagePlaform: {
+    width: "78vw",
+    height: "50vh",
+    objectFit: "cover",
+    borderRadius: "5px",
+    boxShadow:
+      "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
+
+    "@media (max-width: 600px)": {
+      width: "unset",
+      height: "unset",
+    },
+  },
+  imageInit: {
+    width: "37vw",
+    borderRadius: "1vw",
+    boxShadow:
+      "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
+    "@media (max-width: 600px)": {
+      width: "95vw",
+      height: "unset",
+    },
+  },
+});
 
 const ServiceDetails3 = () => {
+  
   return (
     <Grid
       sx={{
@@ -27,39 +55,35 @@ const ServiceDetails3 = () => {
       }}
     >
       <Grid sx={{ textAlign: "justify" }}>
-        <Typography
-          sx={{
-            fontSize: "4vw",
-            textAlign: "justify",
-            fontWeight: "bold",
-            color: "white",
-            "@media (max-width: 600px)": {
-              fontSize: "7vw",
-              textAlign: "center",
-              fontWeight: "bold",
-              color: "white",
-            },
-          }}
-        >
+      <Typography
+              sx={{
+                display: "flex",
+                fontSize: "1.8vw",
+                fontWeight: "bold",
+                color: "#494848",
+                marginBottom: "3vh",
+                "@media (max-width: 600px)": {
+                  fontSize: "6vw",
+                  margin: "2vh 0",
+                },
+              }}
+            >
           Offering
         </Typography>
         <Typography
-          sx={{
-            width: "30vw",
-            fontSize: "1.5vw",
-            textAlign: "justify",
-            fontWeight: "bold",
-            margin: "0 auto",
-            color: "white",
-            "@media (max-width: 600px)": {
-              fontSize: "4.5vw",
-              textAlign: "center",
-              fontWeight: "bold",
-              color: "white",
-              width: "95vw",
-            },
-          }}
-        >
+              sx={{
+                fontSize: "1.4vw",
+                color: "#636363",
+                marginBottom: "3vh",
+                textAlign: "justify",
+                width: "37vw",
+                "@media (max-width: 600px)": {
+                  fontSize: "4vw",
+                  textAlign: "justify",
+                  width: "95vw",
+                },
+              }}
+            >
           Here's where our "Brand Identity Package" service comes into play,
           addressing your pain point with precision. Our collaborative process
           is the heartbeat of our success. We work closely with you, the

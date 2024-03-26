@@ -1,5 +1,6 @@
 import React from "react";
 import consult from "./assets/consult.svg";
+import "./SectionConsultation.css"; 
 
 const SectionConsultation = () => {
   return (
