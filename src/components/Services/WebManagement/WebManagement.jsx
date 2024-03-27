@@ -11,8 +11,11 @@ const WebManagement = () => {
   return (
     <>
       <AppBarOne />
+      <br /><br /><br /><br />
       <HeroSection />
+      <br /><br /><br /><br />
       <PainPoint />
+      <br /><br /><br /><br />
       <Offering />
       <FooterNew />
     </>
