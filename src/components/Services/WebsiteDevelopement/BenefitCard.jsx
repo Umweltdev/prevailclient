@@ -42,7 +42,6 @@ const card = (
       justifyContent: "center",
       alignItems: "center",
       gap: "2vw",
-      overflowY: "auto",
     }}
   >
     {benefits.map((data, index) => (
@@ -54,7 +53,7 @@ const card = (
           background: "#fff",
           color: "black",
           borderRadius: 4,
-          boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+          //boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
           "@media (max-width: 600px)": {
             width: 350,
             height: auto,
