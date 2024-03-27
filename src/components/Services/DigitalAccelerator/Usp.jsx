@@ -6,7 +6,12 @@ import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   imageCard: {
-    width: "25vw",
+    width: "40vw",
+    height: "60vh",
+    objectFit: "cover",
+    borderRadius: "5px",
+    boxShadow:
+      "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;",
   },
 });
 
@@ -14,14 +19,14 @@ const usp = () => {
   const classes = useStyles();
 
   return (
-    <div
-      style={{
-        background: "#4c3c61",
+    <Grid
+      sx={{
+        background: "#fff",
         margin: "0 auto",
         padding: "5vw",
       }}
     >
-      <Card
+      <Grid
         sx={{
           width: "80vw",
           margin: "0 auto",
@@ -30,17 +35,17 @@ const usp = () => {
           alignItems: "center",
           justifyContent: "center",
           padding: "3vw",
-          boxShadow: "rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;",
+          gap: "4vw",
         }}
       >
         <Grid>
           <Typography
             sx={{
-              width: "50vw",
+              width: "40vw",
               // padding: "10vh 0",
               color: "#333",
               textAlign: "",
-              fontSize: "1.3vw",
+              fontSize: "1.2vw",
               margin: "0 auto",
 
               "@media (max-width: 600px)": {
@@ -61,10 +66,10 @@ const usp = () => {
             elements work together seamlessly. This collaborative effort not
             only elevates your brand but also delivers tangible results, saving
             you valuable time and resources by entrusting all aspects of your
-            digital presence to us. <br/> Don't let your business fall behind in the
-            digital race. Experience the satisfaction and confidence that come
-            with having a robust online presence and take the logical step of
-            improving your business. Sign up now for a free consultation and
+            digital presence to us. <br /> Don't let your business fall behind
+            in the digital race. Experience the satisfaction and confidence that
+            come with having a robust online presence and take the logical step
+            of improving your business. Sign up now for a free consultation and
             take the first step towards revolutionising your digital presence.
             Let us help you make your business the new digital landmark!
           </Typography>
@@ -89,9 +94,13 @@ const usp = () => {
             </Button>
           </Link>
         </Grid>
-        <img className={classes.imageCard} src={wow} alt="" />
-      </Card>
-    </div>
+        <img
+          className={classes.imageCard}
+          src="https://img.freepik.com/free-photo/map-lying-wooden-table_53876-105723.jpg?t=st=1711546470~exp=1711550070~hmac=d7237c66b8d9e019842d35ae2a991cafec377c59d9762d3623e4000d763283c6&w=740"
+          alt=""
+        />
+      </Grid>
+    </Grid>
   );
 };
 

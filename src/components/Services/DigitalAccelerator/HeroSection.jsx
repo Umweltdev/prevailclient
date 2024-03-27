@@ -7,14 +7,15 @@ const theme = createTheme();
 
 const useStyles = makeStyles((theme) => ({
   hero: {
-    position: "relative",
-    overflow: "visible",
-    backgroundColor: "#884ed9",
-    color: "#FFF",
-    padding: "30vh 10vw 5vh 10vh",
+    // position: "relative",
+    // overflow: "visible",
+    backgroundColor: "#fff",
+    color: "#333",
+    padding: "30vh 0vw 5vh 0vh",
     height: "100vh",
+    margin: "0 auto",
     // Add the clip-path property for the diagonal line
-    clipPath: "polygon(0 0, 100% 100, 100% 50%, 50% 100%)",
+    // clipPath: "polygon(0 0, 100% 100, 100% 50%, 50% 100%)",
 
     "@media (max-width: 600px)": {
       position: "unset",
@@ -34,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    gap: "10vw",
+    gap: "5vw",
     padding: "0 10vw",
     "@media (max-width: 600px)": {
       display: "unset",
@@ -67,34 +68,22 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     height: "auto",
-    animation: "$bounce 2s infinite alternate",
+    width: "37vw",
+    borderRadius: "1vw",
+    boxShadow:
+      "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;",
     "@media (max-width: 600px)": {
       width: "70vw",
     },
   },
-  "@keyframes bounce": {
-    "0%": {
-      transform: "translateY(0)",
-    },
-    "100%": {
-      transform: "translateY(-20px)",
-    },
-  },
-  // Add a new class for the diagonal line with blue color
-  diagonalLine: {
-    position: "absolute",
-    top: 0,
-    right: 0,
-    width: "50%",
-    height: "100%",
-    backgroundColor: "blue",
-    "@media (max-width: 600px)": {
-      position: "unset",
-      backgroundColor: "unset",
-      height: "unset",
-      width: "unset",
-    },
-  },
+  // "@keyframes bounce": {
+  //   "0%": {
+  //     transform: "translateY(0)",
+  //   },
+  //   "100%": {
+  //     transform: "translateY(-20px)",
+  //   },
+  // },
 }));
 
 const HeroSection = ({ header, text, image }) => {
@@ -104,14 +93,14 @@ const HeroSection = ({ header, text, image }) => {
     <ThemeProvider theme={theme}>
       <div className={classes.hero}>
         {/* Add the diagonal line element */}
-        <div className={classes.diagonalLine}></div>
+        {/* <div className={classes.diagonalLine}></div> */}
         <Grid className={classes.heroContainer}>
           <Grid className={classes.textContainer}>
             <Typography
               sx={{
                 fontSize: "3vw",
                 fontWeight: "900",
-                color: "#fff",
+                color: "#333",
                 "@media (max-width: 600px)": {
                   fontSize: "8vw",
                   fontWeight: "900",
@@ -124,11 +113,11 @@ const HeroSection = ({ header, text, image }) => {
             </Typography>
             <Typography
               sx={{
-                fontSize: "1vw",
-                fontWeight: "600",
+                fontSize: "1.3vw",
+                // fontWeight: "600",
                 width: "40vw",
                 lineHeight: "4vh",
-                color: "#fff",
+                color: "#333",
                 "@media (max-width: 600px)": {
                   fontSize: "4.5vw",
                   fontWeight: "unset",
@@ -157,7 +146,7 @@ const HeroSection = ({ header, text, image }) => {
           <Grid className={classes.imageContainer}>
             <img
               sx={{}}
-              src={landingImage1}
+              src="https://img.freepik.com/premium-photo/rocket-coming-out-laptop-screen-white-background-ai-digital-illustration-concept-ideas-start-up-generative-ai_620624-6796.jpg?w=740"
               alt="Your Image"
               className={classes.image}
             />

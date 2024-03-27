@@ -23,7 +23,7 @@ const images = [
     icon: (
       <Label
         sx={{
-          fontSize: "5vw",
+          fontSize: "3.5vw",
           "@media (max-width: 600px)": { fontSize: "10vw" },
         }}
       />
@@ -50,7 +50,7 @@ const images = [
     icon: (
       <Devices
         sx={{
-          fontSize: "5vw",
+          fontSize: "3.5vw",
           "@media (max-width: 600px)": { fontSize: "10vw" },
         }}
       />
@@ -77,7 +77,7 @@ const images = [
     icon: (
       <AdsClick
         sx={{
-          fontSize: "5vw",
+          fontSize: "3.5vw",
           "@media (max-width: 600px)": { fontSize: "10vw" },
         }}
       />
@@ -103,14 +103,10 @@ const images = [
 ];
 
 const useStyles = makeStyles({
-  imageProduct: {
-    width: "1.7vw",
-    "@media (max-width: 600px)": { width: "5vw" },
-  },
-
+ 
   mainImage: {
-    width: "45vw",
-    height: "23vw",
+    width: "37vw",
+    // height: "23vw",
     objectFit: "cover",
     borderRadius: "16px",
     boxShadow: "rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;",
@@ -139,13 +135,10 @@ function YourTools() {
   return (
     <Grid
       sx={{
-        padding: "15vh 0",
-        width: "95vw",
-        // margin: "5vh auto",
-        margin: "0 auto",
+        padding: "15vh 0vw",
+        margin: "5vh auto",
         "@media (max-width: 600px)": { width: "95vw" },
       }}
-      justifyContent="center"
     >
       <Typography
         sx={{
@@ -166,32 +159,38 @@ function YourTools() {
           display: "flex",
           alignItems: "top",
           justifyContent: "center",
-          gap: "7vw",
+          margin: "0 auto",
+          gap: "9vw",
           "@media (max-width: 600px)": { flexDirection: "column" },
         }}
       >
         <Grid
           sx={{
-            height: "35vh",
+            // height: "40vh",
+            // width: "60vw",
+            width: "40vw",
             display: "flex",
             flexDirection: "column",
             alignItems: "top",
+            // margin: "0 auto",
           }}
         >
           <Typography
-            sx={{ fontSize: "2.4vw", fontWeight: "900", marginBottom: "3vh" }}
+            sx={{ fontSize: "1.8vw", fontWeight: "900", marginBottom: "3vh" }}
           >
             {images[activeStep].title}
           </Typography>
-          <Typography>{images[activeStep].subTitle}</Typography>
+          <Typography
+            sx={{ fontSize: "1.3vw", marginBottom: "3vh",  }}
+          >
+            {images[activeStep].subTitle}
+          </Typography>
         </Grid>
 
         <Grid
           sx={{
-            width: "30vw",
-            transition: " 1s ease-in-out",
-            position: "relative",
-            marginRight: "15vw",
+            // width: "40vw",
+            // transition: " 1s ease-in-out",
             "@media (max-width: 600px)": {
               width: "100%",
               marginRight: "unset",
@@ -212,7 +211,8 @@ function YourTools() {
         sx={{
           display: "flex",
           justifyContent: "center",
-          width: "96vw",
+          width: "80vw",
+          margin: "0 auto",
         }}
       >
         {images.map((step, index) => (
@@ -228,7 +228,7 @@ function YourTools() {
               fontWeight: "900",
               fontSize: "1vw",
               color: activeStep === index ? "#a16ad9" : "#909090",
-              width: "30vw",
+              width: "20vw",
               borderTop: activeStep === index ? "3px solid #a16ad9" : "none",
             }}
           >

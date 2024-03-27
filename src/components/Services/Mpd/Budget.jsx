@@ -21,7 +21,7 @@ const Budget = () => {
         flexDirection: "row",
         margin: "15vh auto",
         justifyContent: "center",
-        gap: "5vw",
+        gap: "2vw",
       }}
     >
       <Grid
@@ -38,7 +38,7 @@ const Budget = () => {
         <Typography
           sx={{
             fontSize: "3vw",
-            width: "45vw",
+            width: "43vw",
             fontWeight: "bold",
             marginBottom: "3vh",
             "@media (max-width: 600px)": {
@@ -54,7 +54,7 @@ const Budget = () => {
         <Typography
           sx={{
             fontSize: "1.4vw",
-            width: "45vw",
+            width: "40vw",
             "@media (max-width: 600px)": {
               fontSize: "4.5vw",
               width: "95vw",

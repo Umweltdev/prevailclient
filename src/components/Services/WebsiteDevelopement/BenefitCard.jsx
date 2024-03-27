@@ -50,14 +50,14 @@ const card = (
         key={index}
         sx={{
           width: 400,
-          height: auto,
+          height: "auto",
           background: "#fff",
           color: "black",
           borderRadius: 4,
           boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
           "@media (max-width: 600px)": {
             width: 350,
-            height: auto,
+            height: "auto",
             background: "#fff",
             color: "black",
           },

@@ -7,12 +7,14 @@ const theme = createTheme();
 
 const useStyles = makeStyles((theme) => ({
   hero: {
-    position: "relative",
+    // position: "relative",
     overflow: "visible",
-    backgroundColor: "#884ed9",
+    backgroundColor: "#fff",
     color: "#FFF",
-    padding: "15vh 10vw",
-    clipPath: "polygon(0 0, 100% 100, 100% 50%, 50% 100%)",
+    padding: "29vh 10vw",
+    width: "80vw",
+    margin: "auto",
+    // clipPath: "polygon(0 0, 100% 100, 100% 50%, 50% 100%)",
     "@media (max-width: 600px)": {
       backgroundColor: "#884ed9", // Remove the background color
       borderBottom: "1px solid #FFF", // Add a solid white border at the bottom
@@ -26,8 +28,9 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    gap: "10vw",
-    padding: "0 10vw",
+    gap: "8vw",
+    margin: "auto",
+    // padding: "0 10vw",
 
     "@media (max-width: 600px)": {
       display: "unset",
@@ -58,36 +61,39 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "4vw",
     fontWeight: "900",
   },
-  image: {
-    height: "auto",
-    animation: "$bounce 2s infinite alternate",
+  imago: {
+    width: "40vw",
+    borderRadius: "1vw",
+    boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
+    // height: "auto",
+    // animation: "$bounce 2s infinite alternate",
     "@media (max-width: 600px)": {
       width: "70vw",
     },
   },
-  "@keyframes bounce": {
-    "0%": {
-      transform: "translateY(0)",
-    },
-    "100%": {
-      transform: "translateY(-20px)",
-    },
-  },
+  // "@keyframes bounce": {
+  //   "0%": {
+  //     transform: "translateY(0)",
+  //   },
+  //   "100%": {
+  //     transform: "translateY(-20px)",
+  //   },
+  // },
   // Add a new class for the diagonal line with blue color
-  diagonalLine: {
-    position: "absolute",
-    top: 0,
-    right: 0,
-    width: "50%",
-    height: "100%",
-    backgroundColor: "blue",
-    "@media (max-width: 600px)": {
-      position: "unset",
-      backgroundColor: "unset",
-      height: "60%",
-      width: "unset",
-    },
-  },
+  // diagonalLine: {
+  //   position: "absolute",
+  //   top: 0,
+  //   right: 0,
+  //   width: "50%",
+  //   height: "100%",
+  //   backgroundColor: "blue",
+  //   "@media (max-width: 600px)": {
+  //     position: "unset",
+  //     backgroundColor: "unset",
+  //     height: "60%",
+  //     width: "unset",
+  //   },
+  // },
 }));
 
 const HeroSection = ({ header, text, image }) => {
@@ -97,14 +103,14 @@ const HeroSection = ({ header, text, image }) => {
     <ThemeProvider theme={theme}>
       <div className={classes.hero}>
         {/* Add the diagonal line element */}
-        <div className={classes.diagonalLine}></div>
+        {/* <div className={classes.diagonalLine}></div> */}
         <Grid className={classes.heroContainer}>
           <Grid className={classes.textContainer}>
             <Typography
               sx={{
                 fontSize: "3vw",
                 fontWeight: "900",
-                color: "#fff",
+                color: "#333",
                 "@media (max-width: 600px)": {
                   fontSize: "7vw",
                   fontWeight: "900",
@@ -117,11 +123,11 @@ const HeroSection = ({ header, text, image }) => {
             </Typography>
             <Typography
               sx={{
-                fontSize: "1vw",
-                fontWeight: "600",
+                fontSize: "1.3vw",
+                // fontWeight: "600",
                 width: "40vw",
                 lineHeight: "4vh",
-                color: "#fff",
+                color: "#333 ",
                 "@media (max-width: 600px)": {
                   fontSize: "4.5vw",
                   fontWeight: "unset",
@@ -146,9 +152,9 @@ const HeroSection = ({ header, text, image }) => {
           <Grid className={classes.imageContainer}>
             <img
               sx={{}}
-              src={landingImage1}
+              src="https://img.freepik.com/free-photo/search-engine-marketing-concept_23-2150833507.jpg?w=740"
               alt="Your Image"
-              className={classes.image}
+              className={classes.imago}
             />
           </Grid>
         </Grid>

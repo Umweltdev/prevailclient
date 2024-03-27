@@ -5,7 +5,8 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
   imago: {
-    width: "35vw",
+    width: "40vw",
+    height: "50vh",
     // height: "400px",
     objectFit: "cover",
     // position: "fixed",

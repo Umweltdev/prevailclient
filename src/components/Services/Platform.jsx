@@ -9,7 +9,7 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
   imagePlaform: {
-    width: "93vw",
+    width: "82vw",
     height: "50vh",
     objectFit: "cover",
     borderRadius: "1vw",
@@ -52,7 +52,7 @@ const Platform = () => {
         sx={{
           display: "flex",
           flexDirection: "column",
-          width: "93vw",
+          width: "82vw",
           margin: "0 auto",
           "@media (max-width: 600px)": {
             width: "95vw",
@@ -80,7 +80,7 @@ const Platform = () => {
             color: "#333",
             textWeight: "bold",
             fontWeight: "bold",
-            width: "80vw",
+            width: "60vw",
             marginBottom: "3vh",
             "@media (max-width: 600px)": {
               fontSize: "6vw",
@@ -129,7 +129,7 @@ const Platform = () => {
           justifyContent: "center",
           alignItems: "top",
           margin: "0 auto",
-          width: "93vw",
+          width: "82vw",
           "@media (max-width: 600px)": {
             width: "95vw",
           },
@@ -137,7 +137,7 @@ const Platform = () => {
       >
         <Grid
           sx={{
-            width: "93vw",
+            width: "80vw",
             display: "flex",
             gap: "4vw",
             "@media (max-width: 600px)": {
@@ -168,7 +168,7 @@ const Platform = () => {
                 color: "#636363",
                 margin: "1vh 0 0 0",
                 // textAlign: "justify",
-                width: "45vw",
+                width: "40vw",
                 "@media (max-width: 600px)": {
                   width: "95vw",
                   fontSize: "4vw",
@@ -192,7 +192,7 @@ const Platform = () => {
                 color: "#636363",
                 margin: "1vh 0 0 0",
                 // textAlign: "justify",
-                width: "45vw",
+                width: "40vw",
                 marginTop: "7vh",
                 "@media (max-width: 600px)": {
                   width: "95vw",
@@ -221,7 +221,7 @@ const Platform = () => {
 
         <Grid
           sx={{
-            width: "93vw",
+            width: "83vw",
             display: "flex",
             marginBottom: "5vh",
             // gap: "5vw",
@@ -268,7 +268,7 @@ const Platform = () => {
                 color: "#636363",
                 marginBottom: "3vh",
                 // textAlign: "justify",
-                width: "50vw",
+                width: "40vw",
                 "@media (max-width: 600px)": {
                   fontSize: "4vw",
                   textAlign: "justify",
@@ -300,7 +300,7 @@ const Platform = () => {
       <Grid
         sx={{
           display: "flex",
-          gap: "13vw",
+          gap: "5vw",
           marginTop: "5vh",
           "@media (max-width: 600px)": {
             flexDirection: "column",

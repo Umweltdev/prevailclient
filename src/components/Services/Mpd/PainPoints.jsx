@@ -19,17 +19,21 @@ const useStyles = makeStyles({
 
 const PainPoint = ({ header, text, image }) => {
   const classes = useStyles();
+
   return (
     <Grid
       sx={{
         display: "flex",
         flexDirection: "row",
-        backgroundColor: "white",
+        // backgroundColor: "white",
         justifyContent: "center",
         alignItems: "center",
         padding: "5vh 0",
-        background: "#6c6d9d",
-        gap: "2vw",
+        background: "#884ed9",
+        gap: "9vw",
+        height: "100vh",
+        // width: "80vw",
+        margin: "0 auto",
         "@media (max-width: 600px)": {
           display: "flex",
           flexDirection: "column",
@@ -42,15 +46,13 @@ const PainPoint = ({ header, text, image }) => {
     >
       <img className={classes.image} src={imago} alt="" />
       <Grid>
-        <Typography
-          sx={{ fontSize: "4vw", fontWeight: "900", color: "white" }}
-        >
+        <Typography sx={{ fontSize: "4vw", fontWeight: "900", color: "white" }}>
           Pain Points
         </Typography>
         <Typography
           sx={{
-            fontSize: "1.5vw",
-            width: "40vw",
+            fontSize: "1.4vw",
+            width: "50vw",
             textAlign: "justify",
             textJustify: "distribute",
             color: "white",

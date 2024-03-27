@@ -10,7 +10,7 @@ export default function MediaCard({ header, text, img, gradient }) {
   return (
     <Card
       sx={{
-        width: "44vw",
+        width: "39vw",
         height: "77vh",
         display: "flex",
         borderRadius: "16px",

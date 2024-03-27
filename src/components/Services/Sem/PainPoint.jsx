@@ -28,7 +28,7 @@ const PainPoint = ({ header, text, image }) => {
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
-        padding: "25vh 0",
+        padding: "10vh 0",
         gap: "4vw",
         "@media (max-width: 600px)": {
           display: "flex",
@@ -40,6 +40,11 @@ const PainPoint = ({ header, text, image }) => {
         },
       }}
     >
+      <img
+        className={classes.image}
+        src="https://img.freepik.com/free-photo/cheerful-young-woman-poses-torn-yellow-paper-hole-wall-emotional-expressive-shouting-calling-with-speaker_155003-39643.jpg?t=st=1711470439~exp=1711474039~hmac=ec09f07205e91443642f252ad603a6a2bae10d50bb0ed86464ccc80ae269e071&w=740"
+        alt=""
+      />
       <Grid>
         <Typography
           sx={{ fontSize: "4vw", fontWeight: "900", color: "#884ed9" }}
@@ -69,11 +74,6 @@ const PainPoint = ({ header, text, image }) => {
           approach that can drain resources without delivering results.
         </Typography>
       </Grid>
-      <img
-        className={classes.image}
-        src="https://img.freepik.com/free-photo/cheerful-young-woman-poses-torn-yellow-paper-hole-wall-emotional-expressive-shouting-calling-with-speaker_155003-39643.jpg?t=st=1711470439~exp=1711474039~hmac=ec09f07205e91443642f252ad603a6a2bae10d50bb0ed86464ccc80ae269e071&w=740"
-        alt=""
-      />
     </Grid>
   );
 };

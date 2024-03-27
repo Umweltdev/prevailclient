@@ -20,79 +20,76 @@ import {
 const images = [
   {
     icon: <DevicesOther />,
-    title: "Digital Landscape",
-    subTitle: `The term "digital landscape" refers to the entire digital
-environment where your brand operates.`,
-    text: `This includes various online platforms, digital
-trends, consumer behaviour online, and the evolution of digital marketing strategies. It
-is essential to understand the digital landscape to develop effective marketing strategies
-that are relevant and impactful."`,
+    title: "Precision Targeting",
+    // subTitle: `We understand that visibility is not enough; businesses need to be seen by the right audience.`,
+    text: "We understand that visibility is not enough; businesses need to be seen by the right audience. Our SEM service ensures targeted display marketing, optimising for the audience that matters most to our clients. ",
     imgPath:
-      "https://img.freepik.com/free-photo/social-media-concept-with-smartphone_52683-100042.jpg?t=st=1711131269~exp=1711134869~hmac=d6c3061eb82155664d26609d17f6fadf0333df875a6c0312b36f565f91cf5d7b&w=740",
+      "https://img.freepik.com/premium-photo/shot-red-darts-arrows-target-center-business-target-goal-success-concept_53476-4868.jpg?w=740",
   },
   {
     icon: <Campaign />,
-    title: "Brand Awarenes",
-    subTitle: `Brand awareness strategies are to introduce your brand and its products or services.`,
-    text: `To your target audience. The goal is to create a long-lasting impression in the minds of potential customers so that when they are ready to make a purchase, they think of your brand. This can be achieved by implementing various digital marketing tactics such as content marketing, improving website aesthetics, optimising search engines, running social media campaigns, and more`,
+    title: "SEO Mastery",
+    // subTitle: `Brand awareness strategies are to introduce your brand and its products or services.`,
+    text: "Prevail offers a comprehensive approach to Search Engine Optimization (SEO), from regular audits and keyword optimisation to real-time performance metrics and periodical reporting.",
+
     imgPath:
-      "https://img.freepik.com/premium-photo/megaphone-against-gray-white-surface_443869-2.jpg?w=740",
+      "https://img.freepik.com/premium-photo/chess-king-bishop-pawn-wood-metal-yellow-golden-silver-decoration-business-marketing-financial-management-strategy-idea-decision-leadership-successful-winner-game-teamwork-black-background3d-render_178037-187.jpg?w=740",
   },
   {
     icon: <SsidChart />,
-    title: "Competitor Analysis",
-    subTitle:
-      "To succeed in the market, it is essential to research and understand your competitors strategies.",
-    text: "strengths, weaknesses, and market positioning. Examining your competitors can aid you in identifying market gaps, learning from their successes or mistakes, and differentiating your brand. This analysis can inform your marketing strategies, product development, and overall business strategy.",
+    title: "Continuous Optimisation",
+    // subTitle:
+    //   "To succeed in the market, it is essential to research and understand your competitors strategies.",
+    text: "SEM is an ongoing process that requires continual optimisation of campaigns, regular health checks, and analysis of PPC performance to ensure alignment with our client's evolving missions and objectives.",
     imgPath:
-      "https://img.freepik.com/premium-photo/close-up-king-chess-standing-winner-with-falling-chess_101448-2828.jpg?w=740",
+      "https://img.freepik.com/free-photo/standard-quality-control-concept-m_23-2150041850.jpg?t=st=1711540852~exp=1711544452~hmac=a958aa9122b025075105a9b7fe4627524ac10ef43b4327b3e2da5df73ad2838d&w=740",
   },
   {
     icon: <Plagiarism />,
-    title: "Keyword Ranking",
-    subTitle:
-      "Having a high keyword ranking can lead to organic traffic being directed to your site.",
-    text: "When we talk about digital marketing, the term keyword ranking refers to the position of your website on search engine results pages (SERPs) for specific keywords. Having a high keyword ranking can lead to organic traffic being directed to your site, improve visibility, and enhance brand credibility. SEO (Search Engine Optimisation) strategies such as optimising website content, building backlinks, and improving site speed are used to improve keyword rankings",
+    title: "Comprehensive Analytics",
+    // subTitle:
+    //   "Having a high keyword ranking can lead to organic traffic being directed to your site.",
+    text: "Our service includes installing Google Analytics, Google Display, and Google Trends. This provides clients with valuable insights about user behaviour, website performance, and marketing effectiveness.",
     imgPath:
-      "https://img.freepik.com/premium-photo/block-keyword-yellow-background-conceptual-image-importance-keywords_121826-2305.jpg?w=740",
+      "https://img.freepik.com/premium-photo/business-data-analysis-analytics-customers-insights-with-charts-abstract-blue-background-vector-illustration-generative-ai_438099-11783.jpg?w=740",
   },
 
   {
     icon: <AdsClick />,
-    title: "Targeted Advertising",
-    subTitle:
-      "Examining your competitors can aid you in identifying market gaps.",
-    text: "To succeed in the market, it is essential to research and understand your competitors' strategies, strengths, weaknesses, and market positioning. Examining your competitors can aid you in identifying market gaps, learning from their successes or mistakes, and differentiating your brand. This analysis can inform your marketing strategies, product development, and overall business strategy.",
+    title: "Competitive Edge",
+    // subTitle:
+    //   "Examining your competitors can aid you in identifying market gaps.",
+    text: "We conduct comprehensive competitive analysis and research, ensuring our clients maintain a competitive edge in the digital landscape through backlink monitoring and gap analysis.",
     imgPath:
-      "https://img.freepik.com/free-photo/realistic-camera-lens-target-perfect-shoot-3d-rendering_460848-10717.jpg?t=st=1711132156~exp=1711135756~hmac=a2eb2792453a9d692dfe9b766991387c34e257fc79f8d6b61dbf22bed2cf5e7c&w=740",
+      "https://img.freepik.com/free-photo/gold-chess-chess-board-game-business-metaphor-leadership-concept_1150-19585.jpg?t=st=1711540979~exp=1711544579~hmac=4c49c1addeb8f6965b461b342c80ccf194c7587df24f3d385a24ac9968e18337&w=740",
   },
   {
     icon: <Visibility />,
-    title: "Higher Visibility",
-    subTitle:
-      "The objective of this approach is to spend your marketing budget more efficiently.",
-    text: "This is a strategy where you direct your advertising efforts to a specific audience based on demographics, interests, behaviour, or other criteria. The objective of this approach is to spend your marketing budget more efficiently by reaching people who are more likely to be interested in your products or services. By doing this, you can achieve better results and maximise your return on investment.",
+    title: "Local Dominance",
+    // subTitle:
+    //   "The objective of this approach is to spend your marketing budget more efficiently.",
+    text: "Our service includes setting up Google My Business, Bing & Yahoo business listings, and implementing local marketing strategies to increase visibility in specific geographic areas for locally focused businesses.",
     imgPath:
-      "https://img.freepik.com/free-photo/medium-shot-woman-influencer-marketing_23-2150521879.jpg?t=st=1711131935~exp=1711135535~hmac=d630aa70503c1250839551a5fec5cee560ef36b708503a4e158817efb059b6fc&w=740",
+      "https://img.freepik.com/free-photo/dark-wooden-pieces-pawn-arrangement_23-2149382411.jpg?t=st=1711541111~exp=1711544711~hmac=47707e450e03dca5a2c9c6356d5df8d65c5c0c6d89016c198294f6f48de56bfe&w=740",
   },
-  {
-    icon: <Speed />,
-    title: "Optimisation",
-    subTitle:
-      "Examining your competitors can aid you in identifying market gaps.",
-    text: "To succeed in the market, it is essential to research and understand your competitors' strategies, strengths, weaknesses, and market positioning. Examining your competitors can aid you in identifying market gaps, learning from their successes or mistakes, and differentiating your brand. This analysis can inform your marketing strategies, product development, and overall business strategy.",
-    imgPath:
-      "https://img.freepik.com/free-photo/seo-analysis-business-concept-with-wooden-blocks-with-words-it-magnifying-glass-side-view_176474-10449.jpg?t=st=1711132366~exp=1711135966~hmac=42ea62114ac54299762812dbe70aeb7be4527b6cd37f961a6a45b1a5ff0dcaf7&w=740",
-  },
-  {
-    icon: <Poll />,
-    title: "Reporting",
-    subTitle:
-      "Reporting provides valuable insights into what is working and what is not.",
-    text: "This involves collecting and analysing data to evaluate the performance of your digital marketing activities. Reporting provides valuable insights into what is working and what is not, enabling you to make informed decisions to improve your marketing strategies. Reports can cover various metrics, including website traffic, conversion rates, social media engagement, and ROI (Return on Investment).",
-    imgPath:
-      "https://img.freepik.com/free-photo/business-concept-with-graphic-holography_23-2149160928.jpg",
-  },
+  // {
+  //   icon: <Speed />,
+  //   title: "Optimisation",
+  //   subTitle:
+  //     "Examining your competitors can aid you in identifying market gaps.",
+  //   text: "To succeed in the market, it is essential to research and understand your competitors' strategies, strengths, weaknesses, and market positioning. Examining your competitors can aid you in identifying market gaps, learning from their successes or mistakes, and differentiating your brand. This analysis can inform your marketing strategies, product development, and overall business strategy.",
+  //   imgPath:
+  //     "https://img.freepik.com/free-photo/seo-analysis-business-concept-with-wooden-blocks-with-words-it-magnifying-glass-side-view_176474-10449.jpg?t=st=1711132366~exp=1711135966~hmac=42ea62114ac54299762812dbe70aeb7be4527b6cd37f961a6a45b1a5ff0dcaf7&w=740",
+  // },
+  // {
+  //   icon: <Poll />,
+  //   title: "Reporting",
+  //   subTitle:
+  //     "Reporting provides valuable insights into what is working and what is not.",
+  //   text: "This involves collecting and analysing data to evaluate the performance of your digital marketing activities. Reporting provides valuable insights into what is working and what is not, enabling you to make informed decisions to improve your marketing strategies. Reports can cover various metrics, including website traffic, conversion rates, social media engagement, and ROI (Return on Investment).",
+  //   imgPath:
+  //     "https://img.freepik.com/free-photo/business-concept-with-graphic-holography_23-2149160928.jpg",
+  // },
 ];
 
 const useStyles = makeStyles({
@@ -123,22 +120,48 @@ function Carousel() {
   return (
     <Grid
       sx={{
-        padding: "10vh 0 5vh 0",
+        padding: "15vh 0 0 0",
         display: "flex",
         flexDirection: "column",
+        width: "80vw",
+        margin: "0 auto",
         "@media (max-width: 600px)": {
           padding: "13vh 0 0 0",
         },
       }}
       justifyContent="center"
     >
-      {/* <Typography sx={{}}>Solution</Typography> */}
+      <Grid
+        sx={{
+          margin: "0 auto",
+          width: "60vw",
+          textAlign: "center",
+          marginBottom: "3vh",
+        }}
+      >
+        <Typography sx={{ fontSize: "2.5vw", fontWeight: "900" }}>
+          Solution
+        </Typography>
+        <Typography sx={{}}>
+          {" "}
+          Imagine your business not just being seen but being noticed by the
+          right eyes. Our SEM service is not about casting a wide, aimless net.
+          It is about precision - ensuring that your business is visible to
+          those who are actively seeking what you offer. This targeted approach
+          connects you directly with your ideal audience, turning searches into
+          valuable opportunities. With Prevail, we do not just set up campaigns;
+          we nurture them, adapting to the shifting landscapes of online
+          marketing to keep your business relevant and robust.
+        </Typography>
+      </Grid>
+
       <Grid
         sx={{
           display: "flex",
-          alignItems: "top",
+          // alignItems: "center",
           justifyContent: "center",
           height: "85vh",
+          marginTop: "4vh",
           "@media (max-width: 600px)": {
             flexDirection: "column",
           },
@@ -148,6 +171,7 @@ function Carousel() {
         <Grid
           sx={{
             width: "40vw",
+            marginTop: "4vh",
             "@media (max-width: 600px)": {
               width: "95vw",
             },
@@ -156,10 +180,10 @@ function Carousel() {
           <Typography
             sx={{
               width: "35vw",
-              fontSize: "1.2vw",
+              fontSize: "2vw",
               fontWeight: "bold",
-              color: "#884ed9",
-              marginBottom: "2vh",
+              color: "#333",
+              // marginBottom: "2vh",
               "@media (max-width: 600px)": {
                 fontSize: "3vw",
                 width: "95vw",
@@ -168,27 +192,14 @@ function Carousel() {
           >
             {images[activeStep].title}
           </Typography>
+
           <Typography
             sx={{
               width: "35vw",
-              fontSize: "2.3vw",
-              fontWeight: "bold",
-              marginBottom: "2vh",
-              "@media (max-width: 600px)": {
-                fontSize: "5vw",
-                width: "95vw",
-              },
-            }}
-          >
-            {images[activeStep].subTitle}
-          </Typography>
-          <Typography
-            sx={{
-              width: "35vw",
-              fontSize: "1.2vw",
-              marginTop: "5vh",
-              lineHeight: "4vh",
-              height: "50vh",
+              fontSize: "1.4vw",
+              marginTop: "2vh",
+              // lineHeight: "4vh",
+              // height: "50vh",
               "@media (max-width: 600px)": {
                 width: "95vw",
                 fontSize: "4vw",
@@ -200,13 +211,6 @@ function Carousel() {
               },
             }}
           >
-            <Label
-              sx={{
-                fontSize: "1.8vw",
-                color: "#a16ad9",
-                "@media (max-width: 600px)": { fontSize: "10vw" },
-              }}
-            />
             {images[activeStep].text}
           </Typography>
         </Grid>
@@ -223,38 +227,6 @@ function Carousel() {
             },
           }}
         >
-          <Grid sx={{ display: "flex", alignItems: "top" }}>
-            <Typography
-              sx={{
-                fontSize: "1.4vw",
-                mb: "3vh",
-                letterSpacing: "1px",
-                // height: "10vh",
-                alignSelf: "center",
-                "@media (max-width: 600px)": {
-                  display: "none",
-                },
-              }}
-            >
-              {images[activeStep].subTitle}
-              <Label
-                sx={{
-                  fontSize: "1.8vw",
-                  color: "#a16ad9",
-                  paddingTop: "vh",
-                  // height: "13vh",
-                  "@media (max-width: 600px)": { fontSize: "10vw" },
-                }}
-              />
-            </Typography>
-
-            {/* <Label
-              sx={{
-                fontSize: "5vw",
-                "@media (max-width: 600px)": { fontSize: "10vw" },
-              }}
-            /> */}
-          </Grid>
           <img
             className={classes.imageCar}
             src={images[activeStep].imgPath}
@@ -266,6 +238,7 @@ function Carousel() {
         sx={{
           display: "flex",
           justifyContent: "center",
+
           "@media (max-width: 600px)": {
             width: "80vw",
             flexWrap: "wrap",
@@ -280,6 +253,7 @@ function Carousel() {
             boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
             color: "grey",
             borderRadius: "3vw",
+            // width: "85vw",
           }}
         >
           {images.map((step, index) => (
@@ -289,6 +263,7 @@ function Carousel() {
                 // boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
                 borderRadius: "3vw",
                 color: "#333",
+
                 "&:hover": {
                   backgroundColor: "#b4b4b4",
                   color: "#fff",
@@ -303,19 +278,19 @@ function Carousel() {
                   cursor: "pointer",
                   display: "flex",
                   justifyContent: "space-around",
-                  marginTop: "-18vh",
-                  padding: "3vh 1vw",
+                  marginTop: "-33vh",
+                  padding: "1vh 1vw",
                   // fontWeight: "900",
-                  fontSize: "1vw",
+                  fontSize: "0.9vw",
                   color: activeStep === index ? "#884ed9" : "#333",
                   fontWeight: activeStep === index ? "bold" : "none",
-                  borderRadius: "3vw",
+                  borderRadius: "1px",
                   // background: activeStep === index ? "#884ed9" : "none",
                   "&:hover": {
                     backgroundColor: "#dcdcdc",
                     color: "#333",
                     fontWeight: "bold",
-                    borderRadius: "3vw",
+                    borderRadius: "0.5vw",
                   },
                   "@media (max-width: 600px)": { display: "none" },
                 }}

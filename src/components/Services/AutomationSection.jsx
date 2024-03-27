@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Box, Typography, Grid, Divider } from '@mui/material';
 import { Build, AttachMoney, EventAvailable, Alarm } from '@mui/icons-material'; // Import icons
 
+
 const AutomationSection = () => {
   return (
     <Box sx={{ 

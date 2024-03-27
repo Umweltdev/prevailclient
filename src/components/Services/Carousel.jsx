@@ -264,7 +264,7 @@ function Carousel() {
           display: "flex",
           justifyContent: "center",
           "@media (max-width: 600px)": {
-            width: "80vw",
+            width: "83vw",
             flexWrap: "wrap",
             margin: "0 auto",
           },
@@ -283,7 +283,6 @@ function Carousel() {
             <Grid
               sx={{
                 background: "white",
-                // boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
                 borderRadius: "3vw",
                 color: "#333",
                 "&:hover": {
@@ -301,9 +300,9 @@ function Carousel() {
                   display: "flex",
                   justifyContent: "space-around",
                   marginTop: "-18vh",
-                  padding: "3vh 1vw",
+                  padding: "1vh 5px",
                   // fontWeight: "900",
-                  fontSize: "1vw",
+                  fontSize: "0.94vw",
                   color: activeStep === index ? "#884ed9" : "#333",
                   fontWeight: activeStep === index ? "bold" : "none",
                   borderRadius: "3vw",
@@ -312,7 +311,8 @@ function Carousel() {
                     backgroundColor: "#dcdcdc",
                     color: "#333",
                     fontWeight: "bold",
-                    borderRadius: "3vw",
+                    borderRadius: "1vh",
+                    boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px;"
                   },
                   "@media (max-width: 600px)": { display: "none" },
                 }}

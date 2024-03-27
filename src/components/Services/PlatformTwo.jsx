@@ -4,10 +4,11 @@ import React from "react";
 
 const useStyles = makeStyles({
   imagePlaform: {
-    width: "93vw",
+    width: "83vw",
     height: "50vh",
     objectFit: "cover",
     borderRadius: "5px",
+    margin: "0 auto",
     boxShadow:
       "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
 
@@ -32,6 +33,8 @@ const PlatformTwo = () => {
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
+        width: "83vw",
+        margin: "0 auto",
       }}
     >
       <Grid
@@ -46,12 +49,14 @@ const PlatformTwo = () => {
             // marginBottom: "1vh",
             display: "flex",
             gap: "5vw",
+            margin: "0 auto",
             "@media (max-width: 600px)": { flexDirection: "column" },
           }}
         >
           <Grid
             sx={{
-              width: "45vw",
+              width: "39vw",
+              margin: "0 auto",
               "@media (max-width: 600px)": {
                 width: "95vw",
               },
@@ -102,7 +107,7 @@ const PlatformTwo = () => {
           </Grid>
           <Grid
             sx={{
-              width: "37vw",
+              width: "39vw",
               "@media (max-width: 600px)": {
                 width: "95vw",
               },
@@ -112,7 +117,7 @@ const PlatformTwo = () => {
               sx={{
                 fontSize: "1.4vw",
                 color: "#636363",
-                width: "44vw",
+
                 marginTop: "7vh",
                 "@media (max-width: 600px)": {
                   fontSize: "4vw",
@@ -146,6 +151,7 @@ const PlatformTwo = () => {
             display: "flex",
             flexDirection: "space-between",
             gap: "5vw",
+            width: "83vw",
             alignItems: "center",
             "@media (max-width: 600px)": {
               flexDirection: "column",

@@ -11,7 +11,8 @@ const useStyles = makeStyles((theme) => ({
     overflow: "visible",
     backgroundColor: "white",
     color: "#333",
-    padding: "15vh 10vw",
+    padding: "30vh 0",
+    height: "100vh",
     "@media (max-width: 600px)": {
       position: "relative",
       overflow: "visible",
@@ -25,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    // gap: "10vw",
+    gap: "7vw",
     padding: "0 10vw",
 
     "@media (max-width: 600px)": {
@@ -55,20 +56,22 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "900",
   },
   image: {
-    height: "auto",
-    animation: "$bounce 2s infinite alternate",
+    width: "37vw",
+    borderRadius: "1vw",
+    // height: "auto",
+    // animation: "$bounce 2s infinite alternate",
     "@media (max-width: 600px)": {
       width: "70vw",
     },
   },
-  "@keyframes bounce": {
-    "0%": {
-      transform: "translateY(0)",
-    },
-    "100%": {
-      transform: "translateY(-20px)",
-    },
-  },
+  // "@keyframes bounce": {
+  //   "0%": {
+  //     transform: "translateY(0)",
+  //   },
+  //   "100%": {
+  //     transform: "translateY(-20px)",
+  //   },
+  // },
 }));
 
 const HeroSection = ({ header, text, image }) => {
@@ -126,7 +129,7 @@ const HeroSection = ({ header, text, image }) => {
           <Grid className={classes.imageContainer}>
             <img
               sx={{}}
-              src={landingImage1}
+              src="https://img.freepik.com/premium-photo/multicolored-shopbags-bundle-dollars-coins-gray-background-shopping-concept_668389-686.jpg?w=740"
               alt="Your Image"
               className={classes.image}
             />
