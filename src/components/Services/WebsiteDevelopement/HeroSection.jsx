@@ -29,84 +29,87 @@ const useStyles = makeStyles({
   },
 });
 
-
 const HeroSection = () => {
   const classes = useStyles();
 
   return (
     <Grid
-    sx={{
-      width: "78vw",
-      display: "flex",
-      marginBottom: "5vh",
-      marginTop: "5vh",
-      paddingLeft: "10vw",
-      // gap: "5vw",
-      justifyContent: "space-between",
-      alignItems: "center",
-      gap: "5vw",
-      "@media (max-width: 600px)": {
-        width: "95vw",
-        flexDirection: "column",
-        marginBottom: "1vh",
-        // gap: "5vw",
+      sx={{
+        width: "80vw",
+        display: "flex",
+        margin: "10vh auto",
         justifyContent: "space-between",
         alignItems: "center",
-        gap: "1vw",
-      },
-    }}
-  >
-    {/* <spline-viewer
-      style={{ width: "37vw", height: "40vh" }}
-      url="https://prod.spline.design/kqWnRSHfs03RcYiO/scene.splinecode"
-    ></spline-viewer> */}
-     <Grid
-      sx={{
-        width: "37vw",
+        gap: "5vw",
+        height: "100vh",
         "@media (max-width: 600px)": {
           width: "95vw",
+          flexDirection: "column",
+          marginBottom: "1vh",
+          // gap: "5vw",
+          justifyContent: "space-between",
+          alignItems: "center",
+          gap: "1vw",
         },
       }}
     >
-      <Typography
+      {/* <spline-viewer
+      style={{ width: "37vw", height: "40vh" }}
+      url="https://prod.spline.design/kqWnRSHfs03RcYiO/scene.splinecode"
+    ></spline-viewer> */}
+      <Grid
         sx={{
-          display: "flex",
-          fontSize: "1.8vw",
-          fontWeight: "bold",
-          color: "#494848",
-          marginBottom: "3vh",
-          "@media (max-width: 600px)": {
-            fontSize: "6vw",
-            margin: "2vh 0",
-          },
-        }}
-      >
-        Custom Website Development & Management
-      </Typography>
-      <Typography
-        sx={{
-          fontSize: "1.4vw",
-          color: "#636363",
-          marginBottom: "3vh",
-          textAlign: "justify",
           width: "37vw",
           "@media (max-width: 600px)": {
-            fontSize: "4vw",
-            textAlign: "justify",
             width: "95vw",
           },
         }}
       >
-        With Prevail’s “Custom Website Development & Management” service, you can embark on a digital transformation like never before. Our service offers two package options: the “Custom Website Executive Package” and the “Custom Website Elite Package”, both of which are tailored to your specific needs to create your dream website. This comprehensive solution is more than just a website - it is the key to your online success..
-      </Typography>
+        <Typography
+          sx={{
+            display: "flex",
+            fontSize: "1.8vw",
+            fontWeight: "bold",
+            color: "#494848",
+            marginBottom: "3vh",
+            "@media (max-width: 600px)": {
+              fontSize: "6vw",
+              margin: "2vh 0",
+            },
+          }}
+        >
+          Custom Website Development & Management
+        </Typography>
+        <Typography
+          sx={{
+            fontSize: "1.4vw",
+            color: "#636363",
+            marginBottom: "3vh",
+            // textAlign: "justify",
+            width: "37vw",
+            "@media (max-width: 600px)": {
+              fontSize: "4vw",
+              textAlign: "justify",
+              width: "95vw",
+            },
+          }}
+        >
+          With Prevail’s “Custom Website Development & Management” service, you
+          can embark on a digital transformation like never before. Our service
+          offers two package options: the “Custom Website Executive Package” and
+          the “Custom Website Elite Package”, both of which are tailored to your
+          specific needs to create your dream website. This comprehensive
+          solution is more than just a website - it is the key to your online
+          success..
+        </Typography>
+      </Grid>
+      <img
+        className={classes.imageInit}
+        style={{}}
+        src="https://img.freepik.com/premium-photo/devices-mock-up-scene-travel-blog-3d-rendering_72104-3722.jpg?w=740"
+        alt=""
+      />
     </Grid>
-    <img
-      className={classes.imageInit}
-      style={{}}
-      src={landingImage1}
-      alt=""
-    />
-  </Grid>
   );
 };
 

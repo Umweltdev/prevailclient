@@ -10,14 +10,17 @@ const Benefits = () => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        padding: "10vh 0",
+        // padding: "10vh 0",
+       
       }}
     >
       <Typography
         sx={{
           fontSize: "4vw",
           fontWeight: "900",
-          color: "black",
+        
+          color: "#333",
+           margin: "0 0 2vh 0",
           "@media (max-width: 600px)": {
             fontSize: "7vw",
             fontWeight: "900",
@@ -28,7 +31,7 @@ const Benefits = () => {
         Benefits
       </Typography>
 
-      <Grid>
+      <Grid sx={{padding: "10vh 0", height: "100vh"}}>
         <BenefitCard />
       </Grid>
     </div>

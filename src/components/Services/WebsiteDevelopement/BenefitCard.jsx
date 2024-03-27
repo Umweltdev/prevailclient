@@ -34,65 +34,132 @@ const benefits = [
   },
 ];
 
-const card = (
-  <Grid
-    sx={{
-      display: "flex",
-      flexWrap: "wrap",
-      justifyContent: "center",
-      alignItems: "center",
-      gap: "2vw",
-    }}
-  >
-    {benefits.map((data, index) => (
-      <Card
-        key={index}
-        sx={{
-          width: 400,
-          height: "auto",
-          background: "#fff",
-          color: "black",
-          borderRadius: 4,
-          //boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-          "@media (max-width: 600px)": {
-            width: 350,
-            height: "auto",
-            background: "#fff",
-            color: "black",
-          },
-        }}
-      >
-        <CardContent>
-          <Typography
-            variant="h5"
-            component="div"
-            textAlign="start"
-            fontSize="1.5vw"
-            mb="3vh"
-            fontWeight="900"
-            sx={{
-              "@media (max-width: 600px)": {
-                fontSize: "4vw",
-                mb: "1vh",
-              },
-            }}
-          >
-            {data.header}
-          </Typography>
+// const BenefitCard = (
+//   <Grid
+//     sx={{
+//       display: "flex",
+//       flexWrap: "wrap",
+//       justifyContent: "center",
+//       alignItems: "center",
+//       gap: "2vw",
+//     }}
+//   >
+//     {benefits.map((data, index) => (
+//       <Card
+//         // elevation={15}
+//         key={index}
+//         sx={{
+//           width: "25vw",
+//           height: "30vh",
+//           textAlign: "center",
+//           background: "#fff",
+//           // color: "black",
+//           borderRadius: 4,
+//           color: "#333",
+//           boxShadow: "rgba(17, 17, 26, 0.1) 0px 0px 16px;",
+//           "@media (max-width: 600px)": {
+//             width: 350,
+//             height: "auto",
+//             background: "#fff",
+//             color: "black",
+//           },
+//         }}
+//       >
+//         <CardContent>
+//           <Typography
+//             variant="h5"
+//             // component="div"
+//             textAlign="center"
+//             fontSize="1.5vw"
+//             mb="3vh"
+//             fontWeight="900"
+//             sx={{
+//               "@media (max-width: 600px)": {
+//                 fontSize: "4vw",
+//                 mb: "1vh",
+//               },
+//             }}
+//           >
+//             {data.header}
+//           </Typography>
 
-          <Typography variant="body2" textAlign="start">
-            {data.text}
-          </Typography>
-        </CardContent>
-      </Card>
-    ))}
-  </Grid>
-);
+//           <Typography variant="body2" textAlign="center">
+//             {data.text}
+//           </Typography>
+//         </CardContent>
+//       </Card>
+//     ))}
+//   </Grid>
+// );
 
-export default function OutlinedCard() {
+// export default BenefitCard;
+
+const BenefitCard = () => {
   return (
-    <Box sx={{ minWidth: 275 }}>
-      <Card variant="contained">{card}</Card>
-    </Box>
+    <Grid
+      sx={{
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: "2vw",
+      }}
+    >
+      {benefits.map((data, index) => (
+        <Card
+          // elevation={15}
+          key={index}
+          sx={{
+            width: "25vw",
+            height: "33vh",
+            textAlign: "center",
+            background: "#fff",
+            // color: "black",
+            borderRadius: 4,
+            color: "#333",
+            boxShadow: "rgba(17, 17, 26, 0.1) 0px 0px 16px;",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            "@media (max-width: 600px)": {
+              width: 350,
+              height: "auto",
+              background: "#fff",
+              color: "black",
+            },
+          }}
+        >
+          <CardContent>
+            <Typography
+              variant="h5"
+              // component="div"
+              textAlign="center"
+              fontSize="1.5vw"
+              mb="3vh"
+              fontWeight="900"
+              sx={{
+                "@media (max-width: 600px)": {
+                  fontSize: "4vw",
+                  mb: "1vh",
+                },
+              }}
+            >
+              {data.header}
+            </Typography>
+
+            <Typography
+              sx={{ fontSize: "1.1vw" }}
+              variant="body2"
+              textAlign="center"
+            >
+              {data.text}
+            </Typography>
+          </CardContent>
+        </Card>
+      ))}
+    </Grid>
   );
-}
+};
+
+export default BenefitCard;

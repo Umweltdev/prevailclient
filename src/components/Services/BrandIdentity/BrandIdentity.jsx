@@ -7,7 +7,7 @@ import ServiceDetails2 from "./ServiceDetails2";
 import ServiceDetails3 from "./ServiceDetails3";
 import PackagesLayout from "./PackagesLayout";
 import Packages from "./Packages";
-import Footer from "../../Footer/Footer"
+import Footer from "../../Footer/Footer";
 import FooterNew from "../../Footer/FooterNew";
 import AppBarOne from "../../Navbar/AppbarOne";
 
@@ -15,14 +15,18 @@ const BrandIdentity = () => {
   return (
     <>
       <AppBarOne />
-      <br /> <br /> <br /> <br />
       <HeroSection />
-      <br /><br /><br /><br />
+      <br />
+      <br />
+      <br />
+      <br />
       <ServiceDetails2 />
       <ServiceDetails3 />
-      <br /> <br /><br /><br />
+      <br /> <br />
+      <br />
+      <br />
       <Packages />
-      <FooterNew/>
+      <FooterNew />
     </>
   );
 };

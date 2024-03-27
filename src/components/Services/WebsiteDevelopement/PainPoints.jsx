@@ -33,78 +33,86 @@ const PainPoint = () => {
 
   return (
     <Grid
-    sx={{
-      width: "78vw",
-      display: "flex",
-      marginBottom: "5vh",
-      marginTop: "5vh",
-      paddingLeft: "10vw",
-      // gap: "5vw",
-      justifyContent: "space-between",
-      alignItems: "center",
-      gap: "5vw",
-      "@media (max-width: 600px)": {
-        width: "95vw",
-        flexDirection: "column",
-        marginBottom: "1vh",
+      sx={{
+        width: "80vw",
+        display: "flex",
+        margin: "5vh auto 10vh auto",
+        height: "80vh",
+        // marginTop: "5vh",
+        // paddingLeft: "10vw",
         // gap: "5vw",
         justifyContent: "space-between",
         alignItems: "center",
-        gap: "1vw",
-      },
-    }}
-  >
-    {/* <spline-viewer
-      style={{ width: "37vw", height: "40vh" }}
-      url="https://prod.spline.design/kqWnRSHfs03RcYiO/scene.splinecode"
-    ></spline-viewer> */}
-     <Grid
-      sx={{
-        width: "37vw",
+        gap: "5vw",
         "@media (max-width: 600px)": {
           width: "95vw",
+          flexDirection: "column",
+          marginBottom: "1vh",
+          // gap: "5vw",
+          justifyContent: "space-between",
+          alignItems: "center",
+          gap: "1vw",
         },
       }}
     >
-      <Typography
+      {/* <spline-viewer
+      style={{ width: "37vw", height: "40vh" }}
+      url="https://prod.spline.design/kqWnRSHfs03RcYiO/scene.splinecode"
+    ></spline-viewer> */}
+      <Grid
         sx={{
-          display: "flex",
-          fontSize: "1.8vw",
-          fontWeight: "bold",
-          color: "#884ED9",
-          marginBottom: "3vh",
-          "@media (max-width: 600px)": {
-            fontSize: "6vw",
-            margin: "2vh 0",
-          },
-        }}
-      >
-        Digital Landscape & Technical Difficulties
-      </Typography>
-      <Typography
-        sx={{
-          fontSize: "1.4vw",
-          color: "#636363",
-          marginBottom: "3vh",
-          textAlign: "justify",
           width: "37vw",
           "@media (max-width: 600px)": {
-            fontSize: "4vw",
-            textAlign: "justify",
             width: "95vw",
           },
         }}
       >
-        In the vast digital landscape, technical challenges often overshadow the aspirations of local businesses. Many SMEs struggle with a generic online presence that fails to capture the essence of their brand. Prevail understands the frustration of navigating through complex web development processes to find a distinctive identity that goes beyond cookie-cutter designs. That is why our “Custom Website Development & Management” service is designed to simplify the technicalities, transparency, and engaging features tailored to your business needs.
-      </Typography>
+        <Typography
+          sx={{
+            display: "flex",
+            fontSize: "2vw",
+            fontWeight: "bold",
+            color: "#333",
+            marginBottom: "3vh",
+            "@media (max-width: 600px)": {
+              fontSize: "6vw",
+              margin: "2vh 0",
+            },
+          }}
+        >
+          Digital Landscape & Technical Difficulties
+        </Typography>
+        <Typography
+          sx={{
+            fontSize: "1.4vw",
+            color: "#636363",
+            marginBottom: "3vh",
+            // textAlign: "justify",
+            width: "37vw",
+            "@media (max-width: 600px)": {
+              fontSize: "4vw",
+              textAlign: "justify",
+              width: "95vw",
+            },
+          }}
+        >
+          In the vast digital landscape, technical challenges often overshadow
+          the aspirations of local businesses. Many SMEs struggle with a generic
+          online presence that fails to capture the essence of their brand.
+          Prevail understands the frustration of navigating through complex web
+          development processes to find a distinctive identity that goes beyond
+          cookie-cutter designs. That is why our “Custom Website Development &
+          Management” service is designed to simplify the technicalities,
+          transparency, and engaging features tailored to your business needs.
+        </Typography>
+      </Grid>
+      <img
+        className={classes.imageInit}
+        style={{}}
+        src="https://img.freepik.com/free-photo/beautiful-stylish-staff-sitting-office-desk-using-laptop-listening-colleague_146671-15596.jpg?t=st=1711557988~exp=1711561588~hmac=e8f9e9f1a52c4397e8f47c4944845ee587db6ae260157183b67dea721207ba98&w=740"
+        alt=""
+      />
     </Grid>
-    <img
-      className={classes.imageInit}
-      style={{}}
-      src={imago}
-      alt=""
-    />
-  </Grid>
   );
 };
 

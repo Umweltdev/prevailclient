@@ -6,7 +6,7 @@ const Packages = () => {
   return (
     <div
       style={{
-        margin: "5vh auto",
+        margin: "0 auto 10vh auto",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -20,8 +20,8 @@ const Packages = () => {
         sx={{
           fontSize: "4vw",
           fontWeight: "bold",
-          color: "#884ed9",
-          margin: "5vh 0",
+          color: "#333",
+          // margin: "1vh 0", 
           fontFamily: `"Sarabun", sans-serif`,
           "@media (max-width: 600px)": {
             fontSize: "7vw",
@@ -33,11 +33,13 @@ const Packages = () => {
       >
         Packages
       </Typography>
+
       <Grid
         sx={{
           backgroundColor: "white",
           display: "flex",
           justifyContent: "center",
+          flexWrap: "wrap",
           alignItems: "center",
           padding: "10vh 0",
           gap: "2vw",
@@ -59,7 +61,7 @@ const Packages = () => {
           second={"Domain set-up & hosting"}
           third={"Admin login"}
           fourth={"Basic website customisation"}
-          sixth={"Subscribe"}
+          sixth={"Subscribe Now"}
         />
         <PackagesLayout
           packages={"Shopify Ultimate Package"}
@@ -68,7 +70,7 @@ const Packages = () => {
           second={"Domain set-up & hosting"}
           third={"Admin login"}
           fourth={"Basic website customisation"}
-          sixth={"Subscribe"}
+          sixth={"Subscribe Now"}
         />
         <PackagesLayout
           packages={"Estate Agency Complete Platform"}
@@ -77,7 +79,7 @@ const Packages = () => {
           second={"Domain set-up & hosting"}
           third={"Admin login"}
           fourth={"Basic website customisation"}
-          sixth={"Subscribe"}
+          sixth={"Subscribe Now"}
         />
         <PackagesLayout
           packages={"Estate Agency Ultimate Platform"}
@@ -86,8 +88,9 @@ const Packages = () => {
           second={"Domain set-up & hosting"}
           third={"Admin login"}
           fourth={"Basic website customisation"}
-          sixth={"Subscribe"}
+          sixth={"Subscribe Now"}
         />
+       
       </Grid>
     </div>
   );

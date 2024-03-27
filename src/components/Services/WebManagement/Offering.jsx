@@ -1,4 +1,4 @@
-import { Button, Grid, Typography } from "@mui/material";
+import { Button, Card, Grid, Typography } from "@mui/material";
 import React from "react";
 import TextImageComponent from "../../ReusedComponents/TextImageComponent";
 import ImageTextComponent from "../../ReusedComponents/ImageTextComponent";
@@ -6,19 +6,21 @@ import TextImageService from "../TextImageService";
 import ImageTextService from "../ImageTextService";
 import PackagesLayout from "../BrandIdentity/PackagesLayout";
 import Footer from "../../Footer/Footer";
+import Carousel from "./Carousel";
 
 const Offering = () => {
   return (
     <Grid
-      style={{
+      sx={{
         display: "flex",
         flexDirection: "column",
         gap: "4vw",
         justifyContent: "center",
         alignItems: "top",
-        // padding: "0 auto",
-        backgroundColor: "#7097da",
-        // margin: "10vh 5vw",
+        backgroundColor: "#ff",
+
+        // height: "100vh",
+
         "@media (max-width: 600px)": {
           display: "flex",
           flexDirection: "column",
@@ -27,17 +29,25 @@ const Offering = () => {
           alignItems: "top",
           padding: "2vh 0",
           backgroundColor: "#7097da",
-          // margin: "10vh 5vw",
         },
       }}
     >
-      <Grid sx={{ textAlign: "center" }}>
+      <Card
+        sx={{
+          textAlign: "center",
+          padding: "2vw",
+          width: "70vw",
+          margin: "0 auto",
+          borderRadius: "1.5vw",
+          boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;",
+        }}
+      >
         <Typography
           sx={{
-            fontSize: "4vw",
+            fontSize: "3vw",
             textAlign: "center",
             fontWeight: "bold",
-            color: "white",
+            color: "#333",
             "@media (max-width: 600px)": {
               fontSize: "7vw",
               textAlign: "center",
@@ -52,11 +62,12 @@ const Offering = () => {
         <Typography
           sx={{
             width: "60vw",
-            fontSize: "1.5vw",
+            fontSize: "1.2vw",
             textAlign: "centert",
-            fontWeight: "bold",
+            // fontWeight: "bold",
             margin: "0 auto",
-            color: "white",
+            color: "#333",
+            lineHeight: "6vh",
             "@media (max-width: 600px)": {
               fontSize: "4.5vw",
               width: "90vw",
@@ -72,8 +83,20 @@ const Offering = () => {
           audience. Our comprehensive service goes beyond the conventional
           website development model but a state-of-the-art website.
         </Typography>
-      </Grid>
+      </Card>
+
       <Grid
+        sx={{
+          background: "white",
+          display: "flex",
+          flexDirection: "column",
+          gap: "2vh",
+          padding: "5vh 0",
+        }}
+      >
+        <Carousel />
+      </Grid>
+      {/* <Grid
         sx={{
           background: "white",
           display: "flex",
@@ -145,7 +168,7 @@ const Offering = () => {
             "https://img.freepik.com/free-vector/mmorpg-abstract-concept-illustration_335657-1858.jpg?t=st=1709724683~exp=1709728283~hmac=fbd3a3394862cb6aa06ddcfd00244d864e8648ae3abfc4e665fc95b811443967&w=1060"
           }
         />
-      </Grid>
+      </Grid> */}
       <Grid>
         <Typography
           sx={{
@@ -171,58 +194,6 @@ const Offering = () => {
           embark on this journey with you, ensuring that your website not only
           meets but exceeds expectations.
         </Typography>
-      </Grid>
-      <Grid
-        sx={{
-          backgroundColor: "white",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          padding: "10vh 0",
-          gap: "2vw",
-          "@media (max-width: 600px)": {
-            backgroundColor: "white",
-            display: "unset",
-            justifyContent: "center",
-            alignItems: "center",
-            padding: "unset",
-            gap: "2vh",
-            margin: "2vh auto",
-          },
-        }}
-      >
-        <PackagesLayout
-          packages={"Shopify Complete Package"}
-          amount={"Original €2,000 once-off"}
-          first={"SSL certificate"}
-          second={"Domain set-up & hosting"}
-          third={"Admin login"}
-          fourth={"Basic website customisation"}
-        />
-        <PackagesLayout
-          packages={"Shopify Ultimate Package"}
-          amount={"Original €2,000 once-off"}
-          first={"SSL certificate"}
-          second={"Domain set-up & hosting"}
-          third={"Admin login"}
-          fourth={"Basic website customisation"}
-        />
-        <PackagesLayout
-          packages={"Estate Agency Complete Platform"}
-          amount={"Original €2,000 once-off"}
-          first={"SSL certificate"}
-          second={"Domain set-up & hosting"}
-          third={"Admin login"}
-          fourth={"Basic website customisation"}
-        />
-        <PackagesLayout
-          packages={"Estate Agency Ultimate Platform"}
-          amount={"Original €2,000 once-off"}
-          first={"SSL certificate"}
-          second={"Domain set-up & hosting"}
-          third={"Admin login"}
-          fourth={"Basic website customisation"}
-        />
       </Grid>
     </Grid>
   );

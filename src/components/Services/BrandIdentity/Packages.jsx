@@ -6,7 +6,7 @@ const Packages = () => {
   return (
     <div
       style={{
-        margin: "5vh auto",
+        margin: "5vh auto 20vh auto",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -20,7 +20,7 @@ const Packages = () => {
         sx={{
           fontSize: "4vw",
           fontWeight: "bold",
-          color: "#884ed9",
+          color: "#333",
           margin: "5vh 0",
           fontFamily: `"Sarabun", sans-serif`,
           "@media (max-width: 600px)": {

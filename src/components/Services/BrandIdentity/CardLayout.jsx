@@ -30,9 +30,9 @@ export default function BrandIdentityCard() {
             <CardContent>
               <Typography
                 gutterBottom
-                variant="h5"
-                component="div"
-                sx={{ fontFamily: `"Sarabun", sans-serif` }} // Set font family to Sarabun
+                // variant="h5"
+                // component="div"
+                sx={{ fontFamily: `"Sarabun", sans-serif`, fontSize: "1.5vw" }} // Set font family to Sarabun
               >
                 {data.header}
               </Typography>

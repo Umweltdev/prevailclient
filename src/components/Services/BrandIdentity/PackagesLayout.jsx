@@ -19,17 +19,19 @@ const PackagesLayout = ({
   thirtheen,
   fourteen,
   fifteen,
-  sixteen, seventeen
+  sixteen,
+  seventeen,
 }) => {
   return (
     <Card
       sx={{
-        width: 300,
-        height: 400,
+        width: "25vw",
+        height: "50vh",
+        minHeight: "55vh",
         borderRadius: 4,
-        boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+        boxShadow: "rgba(0, 0, 0, 0.1) 0px 10px 50px;",
         "@media (max-width: 600px)": {
-          marginTop: "1vh"
+          marginTop: "1vh",
         },
       }}
     >
@@ -40,6 +42,7 @@ const PackagesLayout = ({
           justifyContent: "center",
           alignItems: "center",
           gap: "2vh",
+          padding: "3vw 0 ",
         }}
       >
         <Typography textAlign="center" fontWeight="bold">
@@ -63,12 +66,18 @@ const PackagesLayout = ({
         <Typography textAlign="center" variant="body2" color="text.secondary">
           {fifth}
         </Typography>
-        <Button 
+        <Button
+          disableElevation
           sx={{
-          borderRadius: 7,
-          padding: "8px 16px",
-        }}
-          variant="contained" color="primary" >
+            borderRadius: 7,
+            backgroundColor: "#884ed9",
+            textTransform: "capitalize",
+            fontSize: "1vw",
+            padding: "1vh 2vw",
+          }}
+          variant="contained"
+          color="primary"
+        >
           {sixth}
         </Button>
         <Typography textAlign="center" variant="body2" color="text.secondary">

@@ -27,10 +27,15 @@ const useStyles = makeStyles({
       height: "unset",
     },
   },
+  imageBrand: {
+    width: "37vw",
+    borderRadius: "1vw",
+    boxShadow: "rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px"
+  },
 });
 
 const ServiceDetails3 = () => {
-  
+  const classes = useStyles()
   return (
     <Grid
       sx={{
@@ -55,35 +60,35 @@ const ServiceDetails3 = () => {
       }}
     >
       <Grid sx={{ textAlign: "justify" }}>
-      <Typography
-              sx={{
-                display: "flex",
-                fontSize: "1.8vw",
-                fontWeight: "bold",
-                color: "#494848",
-                marginBottom: "3vh",
-                "@media (max-width: 600px)": {
-                  fontSize: "6vw",
-                  margin: "2vh 0",
-                },
-              }}
-            >
+        <Typography
+          sx={{
+            display: "flex",
+            fontSize: "2vw",
+            fontWeight: "bold",
+            color: "#494848",
+            marginBottom: "3vh",
+            "@media (max-width: 600px)": {
+              fontSize: "6vw",
+              margin: "2vh 0",
+            },
+          }}
+        >
           Offering
         </Typography>
         <Typography
-              sx={{
-                fontSize: "1.4vw",
-                color: "#636363",
-                marginBottom: "3vh",
-                textAlign: "justify",
-                width: "37vw",
-                "@media (max-width: 600px)": {
-                  fontSize: "4vw",
-                  textAlign: "justify",
-                  width: "95vw",
-                },
-              }}
-            >
+          sx={{
+            fontSize: "1.4vw",
+            color: "#636363",
+            marginBottom: "3vh",
+            textAlign: "justify",
+            width: "37vw",
+            "@media (max-width: 600px)": {
+              fontSize: "4vw",
+              textAlign: "justify",
+              width: "95vw",
+            },
+          }}
+        >
           Here's where our "Brand Identity Package" service comes into play,
           addressing your pain point with precision. Our collaborative process
           is the heartbeat of our success. We work closely with you, the
@@ -92,6 +97,11 @@ const ServiceDetails3 = () => {
           confidence you'll feel when your brand identity is not just cohesive
           but also deeply resonates with your target audience.
         </Typography>
+        <img
+          className={classes.imageBrand}
+          src="https://img.freepik.com/premium-photo/brand-name-written-black-paper-background-with-white-blue-wooden-colored-pencils-3d-illustration_556904-556.jpg?w=826"
+          alt=""
+        />
       </Grid>
       <Grid
         sx={{
