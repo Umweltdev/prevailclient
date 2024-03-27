@@ -33,9 +33,6 @@ function AppBarOne() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [showNavbar, setShowNavbar] = React.useState(true);
 
- 
-
-
   React.useEffect(() => {
     let prevScrollPos = window.pageYOffset;
 
@@ -67,7 +64,14 @@ function AppBarOne() {
         "@media (max-width: 600px)": { overflow: "hidden" },
       }}
     >
-      <Typography variant="h6" sx={{ my: 2, marginRight: "10vw" }}>
+      <Typography
+        variant="h6"
+        sx={{
+          my: 2,
+          marginRight: "10vw",
+          fontFamily: `"Sarabun","sans-serif"`,
+        }}
+      >
         <Link to={`/`} style={{ textDecoration: "none", color: "inherit" }}>
           <img style={{ height: "10vh" }} src={logo} alt="logo" />
         </Link>
@@ -79,9 +83,13 @@ function AppBarOne() {
             {typeof item === "string" ? (
               <Link
                 to={`/${item.toLowerCase()}`}
-                style={{ textDecoration: "none", color: "#fff" }}
+                style={{
+                  textDecoration: "none",
+                  color: "inherit",
+                  fontFamily: `"Sarabun","sans-serif"`,
+                }}
               >
-                <ListItemButton sx={{ textAlign: "center", color: "#fff" }}>
+                <ListItemButton sx={{ textAlign: "center" }}>
                   <ListItemText primary={item} />
                 </ListItemButton>
               </Link>
@@ -89,11 +97,14 @@ function AppBarOne() {
               <ListItemButton
                 sx={{
                   textAlign: "center",
-                  color: "#fff"
                 }}
               >
                 <NavLink
-                  style={{ textDecoration: "none", color: "#fff" }}
+                  style={{
+                    textDecoration: "none",
+                    color: "inherit",
+                    fontFamily: `"Sarabun","sans-serif"`,
+                  }}
                   to={item.path}
                 >
                   <ListItemText primary={item.label} />
@@ -114,11 +125,11 @@ function AppBarOne() {
           component="nav"
           sx={{
             background: "rgba(255, 255, 255, 0.2)",
+            fontFamily: `"Sarabun","sans-serif"`,
             height: "15vh",
             display: "flex",
             justifyContent: "center",
             padding: "0 4vw",
-            fontFamily: `"Sarabun","sans-serif"`,
             "@media (max-width: 600px)": {
               background: "rgba(255, 255, 255, 0.2)",
               height: "10vh",
@@ -159,14 +170,7 @@ function AppBarOne() {
               <Typography
                 variant="h6"
                 component="div"
-                sx={{
-                  flexGrow: 1,
-                  display: {
-                    xs: "block",
-                    sm: "none",
-                    fontFamily: `"Sarabun","sans-serif"`,
-                  },
-                }}
+                sx={{ flexGrow: 1, display: { xs: "block", sm: "none" } }}
               >
                 <Link
                   to={`/`}
@@ -214,7 +218,7 @@ function AppBarOne() {
                       <Button
                         key={item}
                         sx={{
-                          color: "#fff",
+                          color: "#884ed9",
                           fontWeight: "900",
                         }}
                       >
@@ -232,7 +236,11 @@ function AppBarOne() {
                     ) : (
                       <Button
                         key={item.path}
-                        sx={{ color: "#fff", fontWeight: "900" }}
+                        sx={{
+                          color: "#884ed9",
+                          fontWeight: "900",
+                          fontFamily: `"Sarabun","sans-serif"`,
+                        }}
                       >
                         <NavLink
                           style={{

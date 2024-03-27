@@ -40,7 +40,7 @@ const ServiceDetails3 = () => {
         justifyContent: "center",
         alignItems: "top",
         margin: "0 auto",
-        backgroundColor: "#7097da",
+        backgroundColor: "white",
         padding: "10vh 5vw",
         "@media (max-width: 600px)": {
           display: "flex",
