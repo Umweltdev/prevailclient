@@ -8,7 +8,7 @@ const useStyles = makeStyles({
     width: "38vw",
     // height: "450px",
     objectFit: "cover",
-    boxShadow: "0px 16px 48px 0px rgba(0, 0, 0, 0.176);",
+    boxShadow: "rgba(0, 0, 0, 0.1) 0px 10px 50px;",
     borderRadius: "1vw",
     // float: "left",
     // shapeOutside: "inset(1% round 50%)",

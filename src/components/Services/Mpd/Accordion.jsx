@@ -50,7 +50,7 @@ export default function AccordionUsage() {
       }}
     >
       {advantages.map((data, index) => (
-        <Accordion key={index}>
+        <Accordion key={index} disableGutters>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1-content"

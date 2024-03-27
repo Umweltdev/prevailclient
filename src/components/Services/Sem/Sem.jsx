@@ -7,6 +7,7 @@ import Solutions from "./Solutions";
 import Footer from "../../Footer/Footer";
 import FooterNew from "../../Footer/FooterNew";
 import AppBarOne from "../../Navbar/AppbarOne";
+import Carousel from "./Carousel";
 
 const Sem = () => {
   return (
@@ -14,8 +15,10 @@ const Sem = () => {
       <AppBarOne />
       <HeroSection />
       <PainPoint />
-      <Solutions/>
-      <FooterNew/>
+      {/* <Solutions/> */}
+      <hr />
+      <Carousel />
+      <FooterNew />
     </>
   );
 };

@@ -1,6 +1,6 @@
 import { Grid, Typography } from "@mui/material";
 import React from "react";
-import imago from "../assets/combat.png";
+import imago from "../assets/look.png";
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
