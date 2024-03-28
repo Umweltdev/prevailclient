@@ -12,7 +12,7 @@ import Carousel from "./Carousel";
 const Sem = () => {
   return (
     <>
-      <AppBarOne />
+      <DrawerAppBarWhite />
       <HeroSection />
       <PainPoint />
       {/* <Solutions/> */}

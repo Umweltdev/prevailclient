@@ -13,11 +13,11 @@ import YourTools from "./Solution";
 const DigitalAccelerator = () => {
   return (
     <div>
-      <AppBarOne />
+      <DrawerAppBarWhite />
       <HeroSection />
       <PainPoint />
-      <hr/>
-      <YourTools/>
+      <hr />
+      <YourTools />
       {/* <Advantages /> */}
       <Usp />
       <FooterNew />

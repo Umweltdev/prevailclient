@@ -16,7 +16,7 @@ import AppBarOne from "../components/Navbar/AppbarOne";
 const Landing = () => {
   return (
     <div>
-      <DrawerAppBarWhite />
+      <AppBarOne />
       <Hero />
       <SectionTwo />
       <SectionThree />

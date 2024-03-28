@@ -14,7 +14,7 @@ import AppBarOne from "../../Navbar/AppbarOne";
 const BrandIdentity = () => {
   return (
     <>
-      <AppBarOne />
+      <DrawerAppBarWhite />
       <HeroSection />
       <br />
       <br />

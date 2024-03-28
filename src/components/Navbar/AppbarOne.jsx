@@ -218,7 +218,7 @@ function AppBarOne() {
                       <Button
                         key={item}
                         sx={{
-                          color: "#884ed9",
+                          color: "#fff",
                           fontWeight: "900",
                         }}
                       >
@@ -237,7 +237,7 @@ function AppBarOne() {
                       <Button
                         key={item.path}
                         sx={{
-                          color: "#884ed9",
+                          color: "#fff",
                           fontWeight: "900",
                           fontFamily: `"Sarabun","sans-serif"`,
                         }}

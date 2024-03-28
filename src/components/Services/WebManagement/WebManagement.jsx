@@ -10,11 +10,11 @@ import Packages from "./Packages";
 const WebManagement = () => {
   return (
     <>
-      <AppBarOne />
+      <DrawerAppBarWhite />
       <HeroSection />
       <PainPoint />
       <Offering />
-      <Packages/>
+      <Packages />
       <FooterNew />
     </>
   );
