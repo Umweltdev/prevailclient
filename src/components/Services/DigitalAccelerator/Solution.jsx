@@ -44,7 +44,7 @@ const images = [
     title: "Brand Identity Package",
     subTitle: `Establish a strong and cohesive brand identity that resonates across all customer touchpoints, from eye-catching logos and compelling marketing collateral to business cards and brochures. Collaborate closely with our design to develop a unique brand that sets your business apart in a competitive market and connects with your target audience. We do not believe in a one-size-fits-all mentality, that is why we offer a range of choices to perfectly align with your brand personality. For more information check out our “Brand Identity Package” page.`,
     imgPath:
-      "https://img.freepik.com/premium-photo/book-with-brand-identity-guidelines_746318-614.jpg",
+      "https://images.unsplash.com/photo-1580569214296-5cf2bffc5ccd?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     icon: (
@@ -103,7 +103,6 @@ const images = [
 ];
 
 const useStyles = makeStyles({
- 
   mainImage: {
     width: "37vw",
     // height: "23vw",
@@ -117,7 +116,16 @@ const useStyles = makeStyles({
     },
   },
 
-  maindiv: {},
+  imageAcc: {
+    margin: "0 auto",
+    marginBottom: "5vh",
+    width: "80vw",
+    height: "60vh",
+    objectFit: "cover",
+    boxShadow:
+      "rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;",
+    borderRadius: "1vw",
+  },
 });
 
 function YourTools() {
@@ -135,11 +143,18 @@ function YourTools() {
   return (
     <Grid
       sx={{
-        padding: "15vh 0vw",
+        padding: "5vh 0vw",
         margin: "5vh auto",
+        display: "flex",
+        flexDirection: "column",
         "@media (max-width: 600px)": { width: "95vw" },
       }}
     >
+      <img
+        className={classes.imageAcc}
+        src="https://images.unsplash.com/photo-1629904853716-f0bc54eea481?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt=""
+      />
       <Typography
         sx={{
           fontSize: "3vw",
@@ -148,7 +163,7 @@ function YourTools() {
           textAlign: "center",
           color: "#484949",
           fontWeight: "900",
-          marginBottom: "4vh",
+          marginBottom: "6vh",
           "@media (max-width: 600px)": { fontSize: "7vw", textAlign: "center" },
         }}
       >
@@ -160,7 +175,7 @@ function YourTools() {
           alignItems: "top",
           justifyContent: "center",
           margin: "0 auto",
-          gap: "9vw",
+          gap: "5vw",
           "@media (max-width: 600px)": { flexDirection: "column" },
         }}
       >
@@ -180,9 +195,7 @@ function YourTools() {
           >
             {images[activeStep].title}
           </Typography>
-          <Typography
-            sx={{ fontSize: "1.3vw", marginBottom: "3vh",  }}
-          >
+          <Typography sx={{ fontSize: "1.3vw", marginBottom: "3vh" }}>
             {images[activeStep].subTitle}
           </Typography>
         </Grid>
@@ -211,7 +224,7 @@ function YourTools() {
         sx={{
           display: "flex",
           justifyContent: "center",
-          width: "80vw",
+          width: "82vw",
           margin: "0 auto",
         }}
       >
@@ -225,14 +238,21 @@ function YourTools() {
               justifyContent: "space-around",
               marginTop: "5vh",
               padding: "1vh 0vw",
-              fontWeight: "900",
+              // fontWeight: "900",
               fontSize: "1vw",
-              color: activeStep === index ? "#a16ad9" : "#909090",
-              width: "20vw",
-              borderTop: activeStep === index ? "3px solid #a16ad9" : "none",
+              color: activeStep === index ? "#884ed9" : "#333",
+              fontWeight: activeStep === index ? "bold" : "none",
+              width: "40vw",
+              "&:hover": {
+                backgroundColor: "#dcdcdc",
+                color: "#333",
+                fontWeight: "bold",
+                borderRadius: "1vh",
+                boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px;",
+              },
             }}
           >
-            {step.icon}
+            {step.title}
           </Button>
         ))}
       </Grid>

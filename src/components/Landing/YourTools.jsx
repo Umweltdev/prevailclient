@@ -142,6 +142,7 @@ const useStyles = makeStyles({
     objectFit: "cover",
     borderRadius: "16px",
     boxShadow: "rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;",
+    transition: "transform 0.5s ease-in-out",
     "@media (max-width: 600px)": {
       width: "95vw",
       height: "50vh",
@@ -149,7 +150,18 @@ const useStyles = makeStyles({
     },
   },
 
-  maindiv: {},
+  imgGrid: {
+    width: "50vw",
+    position: "relative",
+    marginRight: "15vw",
+    transform: "translateX(0%)",
+    transition: "transform 0.5s ease-in-out",
+    "@media (max-width: 600px)": {
+      width: "100%",
+      marginRight: "unset",
+      margin: "0 auto",
+    },
+  },
 });
 
 function YourTools() {
@@ -161,7 +173,7 @@ function YourTools() {
 
   const handleStepChange = (step) => {
     setActiveStep(step);
-    setIsOverlayVisible(true);
+    // setIsOverlayVisible(true);
   };
 
   return (
@@ -179,7 +191,6 @@ function YourTools() {
           fontSize: "2.8vw",
           mb: "2vh",
           letterSpacing: "1px",
-          // height: "10vh",
           color: "#484949",
           fontWeight: "900",
           "@media (max-width: 600px)": { fontSize: "7vw", textAlign: "center" },
@@ -196,21 +207,20 @@ function YourTools() {
           "@media (max-width: 600px)": { flexDirection: "column" },
         }}
       >
-        {/* LEFT */}
         <Grid
           sx={{
-            // width: "15vw",
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
-            gap: "5vh",
+            gap: "2vh",
             "@media (max-width: 600px)": { textAlign: "center", gap: "1vh" },
           }}
         >
           {images.map((step, index) => (
-            <Link
-              style={{ textDecoration: "none" }}
-              to={`/Services/${step.link}`}
+            <Grid
+              onClick={() => handleStepChange(index)}
+              key={index}
+              style={{ textDecoration: "none", cursor: "pointer" }}
             >
               <Grid display="flex" alignItems="center">
                 <Typography
@@ -219,10 +229,7 @@ function YourTools() {
                     fontSize: "1.3vw",
                     fontWeight: "900",
                     marginRight: "0.5vw",
-
-                    "@media (max-width: 600px)": {
-                      fontSize: "5vw",
-                    },
+                    "@media (max-width: 600px)": { fontSize: "5vw" },
                   }}
                 >
                   {step.smallIcon}
@@ -231,33 +238,17 @@ function YourTools() {
                   sx={{
                     fontSize: "1.3vw",
                     color: "#333",
-
-                    "@media (max-width: 600px)": {
-                      fontSize: "5vw",
-                    },
+                    "@media (max-width: 600px)": { fontSize: "5vw" },
                   }}
                 >
                   {step.title}
                 </Typography>
               </Grid>
-            </Link>
+            </Grid>
           ))}
         </Grid>
 
-        {/* RIGHT */}
-        <Grid
-          sx={{
-            width: "50vw",
-            transition: " 1s ease-in-out",
-            position: "relative",
-            marginRight: "15vw",
-            "@media (max-width: 600px)": {
-              width: "100%",
-              marginRight: "unset",
-              margin: "0 auto",
-            },
-          }}
-        >
+        <Grid className={classes.imgGrid}>
           <img
             src={images[activeStep].imgPath}
             alt={images[activeStep].label}
@@ -278,13 +269,11 @@ function YourTools() {
               alignItems: "left",
               justifyContent: "center",
               padding: "2vw",
-              //   backdropFilter: "blur(1px)",
               borderRadius: "16px",
               flexDirection: "column",
               "@media (max-width: 600px)": {
                 width: "95vw",
                 height: "50vh",
-                // position: "unset",
               },
             }}
           >
@@ -294,7 +283,6 @@ function YourTools() {
               sx={{
                 fontWeight: "bold",
                 textAlign: "left",
-                // width: "30vw",
                 mb: "5vh",
                 "@media (max-width: 600px)": {
                   mb: "3vh",
@@ -322,34 +310,6 @@ function YourTools() {
             </Typography>
           </Grid>
         </Grid>
-      </Grid>
-      <Grid
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          width: "90vw",
-        }}
-      >
-        {images.map((step, index) => (
-          <Button
-            key={index}
-            onClick={() => handleStepChange(index)}
-            sx={{
-              cursor: "pointer",
-              display: "flex",
-              justifyContent: "space-around",
-              marginTop: "5vh",
-              padding: "1vh 0vw",
-              fontWeight: "900",
-              fontSize: "1vw",
-              color: activeStep === index ? "#a16ad9" : "#909090",
-              width: "30vw",
-              borderTop: activeStep === index ? "3px solid #a16ad9" : "none",
-            }}
-          >
-            {step.icon}
-          </Button>
-        ))}
       </Grid>
     </Grid>
   );

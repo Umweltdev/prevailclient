@@ -47,7 +47,7 @@ const PainPoint = ({ header, text, image }) => {
       />
       <Grid>
         <Typography
-          sx={{ fontSize: "4vw", fontWeight: "900", color: "#884ed9" }}
+          sx={{ fontSize: "2.5vw", fontWeight: "900", color: "#884ed9" }}
         >
           Pain Points
         </Typography>
@@ -56,7 +56,7 @@ const PainPoint = ({ header, text, image }) => {
             fontSize: "1.5vw",
             width: "40vw",
             textAlign: "justify",
-            textJustify: "distribute",
+            // textJustify: "distribute",
             "@media (max-width: 600px)": {
               fontSize: "4.5vw",
               width: "90vw",

@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     // overflow: "visible",
     backgroundColor: "#fff",
     color: "#333",
-    padding: "30vh 0vw 5vh 0vh",
+    padding: "25vh 0vw 5vh 0vh",
     height: "100vh",
     margin: "0 auto",
     // Add the clip-path property for the diagonal line
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    gap: "5vw",
+    gap: "3vw",
     padding: "0 10vw",
     "@media (max-width: 600px)": {
       display: "unset",
@@ -68,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     height: "auto",
-    width: "37vw",
+    width: "42vw",
     borderRadius: "1vw",
     boxShadow:
       "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;",
@@ -98,9 +98,26 @@ const HeroSection = ({ header, text, image }) => {
           <Grid className={classes.textContainer}>
             <Typography
               sx={{
+                fontSize: "1.5vw",
+                fontWeight: "900",
+                color: "#884ed9",
+                marginBottom: "1.5vh",
+                "@media (max-width: 600px)": {
+                  fontSize: "8vw",
+                  fontWeight: "900",
+                  textAlign: "center",
+                  margin: "0 auto",
+                },
+              }}
+            >
+              Starter Pack
+            </Typography>
+            <Typography
+              sx={{
                 fontSize: "3vw",
                 fontWeight: "900",
                 color: "#333",
+                marginBottom: "1vh",
                 "@media (max-width: 600px)": {
                   fontSize: "8vw",
                   fontWeight: "900",

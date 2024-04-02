@@ -228,8 +228,20 @@ const BlogDetails = () => {
         nextCase={nextCaseUrl}
         prevNav={"Next Blog"}
         nextNav={"Previous Nav"}
-        prevHeader={prevCaseUrl ? blogBlurbs[prevIndex].header : ""}
-        nextHeader={nextCaseUrl ? blogBlurbs[nextIndex].header : ""}
+        prevHeader={
+          prevCaseUrl
+            ? blogBlurbs[prevIndex].header.length > 30
+              ? blogBlurbs[prevIndex].header.slice(0, 37) + "..."
+              : blogBlurbs[prevIndex].header
+            : ""
+        }
+        nextHeader={
+          nextCaseUrl
+            ? blogBlurbs[nextIndex].header.length > 30
+              ? blogBlurbs[nextIndex].header.slice(0, 27) + "..."
+              : blogBlurbs[nextIndex].header
+            : ""
+        }
       />
 
       <FooterNew />

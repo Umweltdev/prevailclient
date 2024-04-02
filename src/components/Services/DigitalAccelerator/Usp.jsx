@@ -73,7 +73,7 @@ const usp = () => {
             take the first step towards revolutionising your digital presence.
             Let us help you make your business the new digital landmark!
           </Typography>
-          <Link to={"/about"}>
+          <Link to={"/stepper"}>
             <Button
               sx={{
                 textTransform: "capitalize",

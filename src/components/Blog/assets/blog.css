@@ -21,9 +21,10 @@
 
 .sOneBlogHero {
   padding-top: 25vh;
-  font-size: var(--big-header);
-  color: var(--fourth-color);
-  margin-left: 8vw;
+  font-size: 5vw;
+  color: #884ed9;
+  text-align: left;
+  /* margin-left: 5vw; */
 }
 
 .sOneBlog {
@@ -111,10 +112,10 @@
   font-weight: bold;
 }
 
-.sOneBlogFeature {
+/* .sOneBlogFeature {
   flex: 1;
-  margin-top: 4vh;
-}
+  
+} */
 
 .oneBlogInputContainer {
   background-color: var(--fourth-color);
@@ -236,7 +237,6 @@
   line-height: 4vh;
   width: 55vw;
   font-family: "Poppins", sans-serif;
-  
 }
 
 .sOneBlogCardLink {
@@ -247,7 +247,7 @@
   .sOneBlogContainer {
     /* background-image: url("https://images.unsplash.com/photo-1552152370-fb05b25ff17d?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); */
     /* position: fixed; */
-   
+
     height: 20vh; /* You must set a specified height */
     margin: 0 auto;
     /* background: linear-gradient(

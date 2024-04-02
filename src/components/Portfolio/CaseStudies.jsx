@@ -142,16 +142,24 @@ const CaseStudies = () => {
           alignItems: "center",
           gap: "1vw",
           flexWrap: "wrap",
+          magin: "0 auto",
         }}
       >
-        {caseData.map((data, index) => (
-          <Grid
-            key={index}
-            sx={{ display: "flex", flexDirection: "row", margin: "5vh 0" }}
-          >
+        <Grid
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            margin: "5vh 0",
+            flexWrap: "wrap",
+            magin: "0 auto",
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+        >
+          {caseData.map((data, index) => (
             <Link
-              to={`/Portfolio/${index}`}
               key={index}
+              to={`/Portfolio/${index}`}
               className="sOneBlogCardLink"
               style={{ textDecoration: "none" }}
             >
@@ -159,8 +167,8 @@ const CaseStudies = () => {
                 <CasestudyCard text={data.text} image={data.img} />
               ) : null}
             </Link>
-          </Grid>
-        ))}
+          ))}
+        </Grid>
       </Box>
     </Grid>
   );

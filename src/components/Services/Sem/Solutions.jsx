@@ -1,12 +1,14 @@
-import React from 'react'
-import TextImageService from '../TextImageService';
-import ImageTextService from '../ImageTextService';
-import { Grid, Typography } from '@mui/material';
+import React from "react";
+import TextImageService from "../TextImageService";
+import ImageTextService from "../ImageTextService";
+import { Grid, Typography } from "@mui/material";
 
 const Solutions = () => {
   return (
     <div>
       <Grid sx={{ textAlign: "center" }}>
+       
+       
         <Typography
           sx={{
             fontSize: "4vw",
@@ -116,6 +118,6 @@ const Solutions = () => {
       </Grid>
     </div>
   );
-}
+};
 
-export default Solutions
+export default Solutions;

@@ -11,8 +11,6 @@ import { useState } from "react";
 import { Grid } from "@mui/material";
 import BlogListSideCard from "./BlogListSideCard";
 
-
-
 const useStyles = makeStyles({
   CaseNavlist: {
     fontSize: "1vw",
@@ -20,7 +18,7 @@ const useStyles = makeStyles({
     justifyContent: "center",
     alignItems: "center",
     margin: "5vh auto",
-    width: "92.4vw",
+    width: "88vw",
     // width: "819px",
     borderRadius: "3vw",
     background: "white",
@@ -48,7 +46,7 @@ const useStyles = makeStyles({
     transition: "0.5s ease-in-out",
     // margin: "10vh 0 0 0",
     textAlign: "center",
-    width: "20vw",
+    width: "18vw",
     "&:hover": {
       backgroundColor: "#b4b4b4",
       color: "white",
@@ -75,6 +73,7 @@ const useStyles = makeStyles({
   cardComponent: {
     display: "flex",
     flexDirection: "row",
+    margin: "2vh auto",
   },
 });
 
@@ -94,87 +93,118 @@ const SectionOne = () => {
   };
 
   return (
-    <div className="sOneBlogContainer">
-      {/* <Navbar /> */}
-      <h1 className="sOneBlogHero">Blog</h1>
-      <Grid>
+    <>
+      <Grid
+        sx={{
+          // margin: "15vh auto",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          // margin: "0 auto"
+        }}
+      >
+        {/* <Navbar /> */}
+        <h1 className="sOneBlogHero">Blog</h1>
         <Grid>
-          <ul className={classes.CaseNavlist}>
-            <li
-              className={`${classes.sTwoAboutList} ${
-                selectedSection === "View All" ? classes.active : ""
-              }`}
-              onClick={handleSelectAll}
-            >
-              View All
-            </li>
-            <li
-              className={`${classes.sTwoAboutList} ${
-                selectedSection === "Social Media Marketing"
-                  ? classes.active
-                  : ""
-              }`}
-              onClick={() => handleSectionClick("Social Media Marketing")}
-            >
-              Social Media Marketing
-            </li>
-            <li
-              className={`${classes.sTwoAboutList} ${
-                selectedSection === "Email Marketing" ? classes.active : ""
-              }`}
-              onClick={() => handleSectionClick("Email Marketing")}
-            >
-              Email Marketing
-            </li>
-            <li
-              className={`${classes.sTwoAboutList} ${
-                selectedSection === "SEO" ? classes.active : ""
-              }`}
-              onClick={() => handleSectionClick("SEO")}
-            >
-              SEO
-            </li>
-            
-            <li
-              className={`${classes.sTwoAboutList} ${
-                selectedSection === "Mobile Marketing" ? classes.active : ""
-              }`}
-              onClick={() => handleSectionClick("Mobile Marketing")}
-            >
-              Mobile Marketing
-            </li>
-          </ul>
+          <Grid>
+            <ul className={classes.CaseNavlist}>
+              <li
+                className={`${classes.sTwoAboutList} ${
+                  selectedSection === "View All" ? classes.active : ""
+                }`}
+                onClick={handleSelectAll}
+              >
+                View All
+              </li>
+              <li
+                className={`${classes.sTwoAboutList} ${
+                  selectedSection === "Social Media Marketing"
+                    ? classes.active
+                    : ""
+                }`}
+                onClick={() => handleSectionClick("Social Media Marketing")}
+              >
+                Social Media Marketing
+              </li>
+              <li
+                className={`${classes.sTwoAboutList} ${
+                  selectedSection === "Email Marketing" ? classes.active : ""
+                }`}
+                onClick={() => handleSectionClick("Email Marketing")}
+              >
+                Email Marketing
+              </li>
+              <li
+                className={`${classes.sTwoAboutList} ${
+                  selectedSection === "SEO" ? classes.active : ""
+                }`}
+                onClick={() => handleSectionClick("SEO")}
+              >
+                SEO
+              </li>
+
+              <li
+                className={`${classes.sTwoAboutList} ${
+                  selectedSection === "Mobile Marketing" ? classes.active : ""
+                }`}
+                onClick={() => handleSectionClick("Mobile Marketing")}
+              >
+                Mobile Marketing
+              </li>
+            </ul>
+          </Grid>
+        </Grid>
+        <Grid
+          sx={{
+            width: "90vw",
+            display: "flex",
+            // justifyContent: "space-between",
+            alignItems: "top",
+            gap: "4vw",
+            margin: "0 auto",
+          }}
+        >
+          <Grid
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              margin: "0 auto",
+              flexWrap: "wrap",
+              magin: "0 auto",
+              justifyContent: "center",
+              alignItems: "top",
+              // gap: "2vw"
+            }}
+          >
+            {blogBlurbs.map((data, index) => (
+              <Link
+                to={`/blog/${index}`}
+                key={index}
+                className="sOneBlogCardLink"
+                style={{ textDecoration: "none" }}
+              >
+                {selectAll || selectedSection === data.category ? (
+                  <BlogCard
+                    authorFirstName={data.authorFirstName}
+                    header={data.header}
+                    date={data.date}
+                    img={data.img}
+                    category={data.category}
+                    like={data.like}
+                  />
+                ) : null}
+              </Link>
+            ))}
+          </Grid>
+          <Grid sx={{ marginRight: "1vw" }} className="sOneBlogFeature">
+            <FreeSolo />
+            <BlogListSideCard />
+          </Grid>
         </Grid>
       </Grid>
-      <div className="sOneBlog">
-        <div className="sOneBlogBlurbs">
-          {blogBlurbs.map((data, index) => (
-            <Link
-              to={`/blog/${index}`}
-              key={index}
-              className="sOneBlogCardLink"
-              style={{ textDecoration: "none" }}
-            >
-              {selectAll || selectedSection === data.category ? (
-                <BlogCard
-                  authorFirstName={data.authorFirstName}
-                  header={data.header}
-                  date={data.date}
-                  img={data.img}
-                  category={data.category}
-                  like={data.like}
-                />
-              ) : null}
-            </Link>
-          ))}
-        </div>
-        <div className="sOneBlogFeature">
-          <FreeSolo />
-          <BlogListSideCard/>
-        </div>
-      </div>
       <FooterNew />
-    </div>
+    </>
   );
 };
 

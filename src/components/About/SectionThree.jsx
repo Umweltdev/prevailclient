@@ -24,10 +24,10 @@ const SectionThree = () => {
       </div>
       <div className="sThreeHeroFAQS">
         {FAQS.map((data, index) => (
-          <AccordionUsage header={data.question} headerText={data.answer} />
+          <AccordionUsage key={index} header={data.question} headerText={data.answer} />
         ))}
       </div>
-    </div>
+    </div> 
   );
 };
 

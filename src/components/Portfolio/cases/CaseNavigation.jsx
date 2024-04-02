@@ -31,13 +31,9 @@ const CaseNavigation = ({
           sx={{
             color: "white",
             height: "120px",
-            width: "30vw",
+            width: "23vw",
             borderRadius: "16px",
             background: "linear-gradient(135deg, #be90fd 30%, #884ed9 90%)",
-
-            // WebkitBackdropFilter: "blur(30px) #884ed9",
-            // backdropFilter: "blur(30px)",
-            // border: "1px solid rgba(136, 78, 217, 0.4)",
 
             "@media (max-width: 600px)": {
               height: "100px",
@@ -85,7 +81,7 @@ const CaseNavigation = ({
           sx={{
             color: "white",
             height: "120px",
-            width: "30vw",
+            width: "23vw",
             borderRadius: "16px",
             background: "linear-gradient(45deg, #884ed9 30%, #be90fd 90%)",
 

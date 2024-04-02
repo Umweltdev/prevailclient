@@ -22,6 +22,7 @@
     "react-dom": "^18.2.0",
     "react-intersection-observer": "^9.8.1",
     "react-router-dom": "^6.19.0",
+    "react-spring": "^9.7.3",
     "react-swipeable-views": "^0.14.0",
     "react-swipeable-views-utils": "^0.14.0",
     "react-transition-group": "^4.4.5",

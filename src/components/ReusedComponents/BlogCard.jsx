@@ -48,11 +48,12 @@ export default function BlogCard({
   return (
     <Card
       sx={{
-        width: "26vw",
+        width: "27vw",
         borderRadius: "1vw",
         boxShadow:
           "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;",
         padding: "1vw",
+        margin: "10px",
         "@media (max-width: 600px)": {
           width: "85vw",
           margin: "0 auto",

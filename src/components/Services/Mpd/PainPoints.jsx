@@ -5,10 +5,12 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
   image: {
-    width: "25vw",
-    height: "450px",
-    objectFit: "contain",
+    width: "40vw",
+    // height: "450px",
+    objectFit: "cover",
     borderRadius: "1vw",
+    boxShadow:
+      "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;",
 
     // shapeOutside: "inset(1% round 50%)",
     "@media (max-width: 600px)": {
@@ -30,7 +32,7 @@ const PainPoint = ({ header, text, image }) => {
         alignItems: "center",
         padding: "5vh 0",
         background: "#884ed9",
-        gap: "9vw",
+        gap: "5vw",
         height: "100vh",
         // width: "80vw",
         margin: "0 auto",
@@ -44,7 +46,11 @@ const PainPoint = ({ header, text, image }) => {
         },
       }}
     >
-      <img className={classes.image} src={imago} alt="" />
+      <img
+        className={classes.image}
+        src="https://img.freepik.com/free-photo/accountant-calculating-profit-with-financial-analysis-graphs_74855-4937.jpg?w=740"
+        alt=""
+      />
       <Grid>
         <Typography sx={{ fontSize: "4vw", fontWeight: "900", color: "white" }}>
           Pain Points
@@ -52,7 +58,7 @@ const PainPoint = ({ header, text, image }) => {
         <Typography
           sx={{
             fontSize: "1.4vw",
-            width: "50vw",
+            width: "40vw",
             textAlign: "justify",
             textJustify: "distribute",
             color: "white",

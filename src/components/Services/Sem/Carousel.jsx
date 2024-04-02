@@ -105,6 +105,15 @@ const useStyles = makeStyles({
       marginTop: "2vh",
     },
   },
+
+  mainImage: {
+    width: "80vw",
+    height: "50vh",
+    objectFit: "cover",
+    margin: "0 0 5vh 0",
+    borderRadius: "5px",
+    boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
+  },
 });
 
 function Carousel() {
@@ -131,18 +140,34 @@ function Carousel() {
       }}
       justifyContent="center"
     >
+      <img
+        className={classes.mainImage}
+        src="https://img.freepik.com/free-photo/homepage-concept-with-search-bar_23-2150040210.jpg?t=st=1711627296~exp=1711630896~hmac=d04c9ee44ba5854784f2e620f2f2d6a581e1f4b83fe23f4ddc2f01c13224e04c&w=826"
+        alt=""
+      />
       <Grid
         sx={{
           margin: "0 auto",
-          width: "60vw",
+          // width: "60vw",
           textAlign: "center",
           marginBottom: "3vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
-        <Typography sx={{ fontSize: "2.5vw", fontWeight: "900" }}>
+        <Typography sx={{ fontSize: "3.2vw", fontWeight: "900" }}>
           Solution
         </Typography>
-        <Typography sx={{}}>
+        <Typography
+          sx={{
+            fontSize: "1.3vw",
+            width: "80vw",
+            textAlign: "center",
+            margin: "0 auto",
+          }}
+        >
           {" "}
           Imagine your business not just being seen but being noticed by the
           right eyes. Our SEM service is not about casting a wide, aimless net.
@@ -240,7 +265,7 @@ function Carousel() {
           justifyContent: "center",
 
           "@media (max-width: 600px)": {
-            width: "80vw",
+            width: "82vw",
             flexWrap: "wrap",
             margin: "0 auto",
           },
@@ -279,12 +304,13 @@ function Carousel() {
                   display: "flex",
                   justifyContent: "space-around",
                   marginTop: "-33vh",
-                  padding: "1vh 1vw",
+                  padding: "1vh 0vw",
                   // fontWeight: "900",
-                  fontSize: "0.9vw",
+                  fontSize: "0.8vw",
                   color: activeStep === index ? "#884ed9" : "#333",
                   fontWeight: activeStep === index ? "bold" : "none",
                   borderRadius: "1px",
+                  width: "13.4vw",
                   // background: activeStep === index ? "#884ed9" : "none",
                   "&:hover": {
                     backgroundColor: "#dcdcdc",

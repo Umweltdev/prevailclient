@@ -13,6 +13,7 @@ export default function CasestudyCard({ image, text, index }) {
       <Card
         sx={{
           width: 340,
+          margin: "10px",
           borderRadius: "20px",
           boxShadow: "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px",
         }}

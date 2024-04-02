@@ -1,7 +1,7 @@
 .hero-container {
   /* background-image: url("https://prod.spline.design/Nb2I5a6X-Kr8fdit/scene.splinecode") !important; */
   background-color: #884ed9;
-  height: 100%;
+  /* height: 100%; */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -17,6 +17,7 @@
   overflow: hidden;
   opacity: 0.8; /* Adjust as needed */
   overflow: hidden;
+
 }
 
 .spline-Layer {

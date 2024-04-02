@@ -17,15 +17,12 @@ const Advantages = () => {
           padding: "3vh 0",
           width: "100%",
           alignItems: "center",
-        },
+        }, 
       }}
     >
+     
       <Grid>
-        {/* <img
-          style={{ width: "30vw" }}
-          src="https://img.freepik.com/free-vector/ui-ux-designers-isometric-composition-with-small-people-creating-custom-design-web-site-3d-vector-illustration_1284-68939.jpg?t=st=1709736669~exp=1709740269~hmac=e49daffd87aa3d7a0df9f6d4b12d8760952a23f7fbf33869718cc687a9cc3ab5&w=1060"
-          alt=""
-        /> */}
+        
         <Typography
           sx={{
             color: "white",

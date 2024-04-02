@@ -71,8 +71,8 @@ const SectionTwo = () => {
             fontWeight: "bold",
             width: "40vw",
             "@media (max-width: 600px)": {
-              fontSize: "4vw",
-              textAlign: "justify",
+              fontSize: "6vw",
+              // textAlign: "justify",
               width: "95vw",
             },
           }}
@@ -89,7 +89,7 @@ const SectionTwo = () => {
 
             "@media (max-width: 600px)": {
               fontSize: "4vw",
-              textAlign: "justify",
+              // textAlign: "justify",
               width: "95vw",
             },
           }}
@@ -113,6 +113,12 @@ const SectionTwo = () => {
               borderRadius: "3vw",
               padding: "0.5vw 5vw",
               border: "1px solid #884ed9",
+              "@media (max-width: 600px)": {
+                fontSize: "4vw",
+                // textAlign: "justify",
+                width: "95vw",
+                margin: "0 0 4vh 0",
+              },
               "&:hover": {
                 color: "#884ed9",
                 borderRadius: "1px solid #884ed9",
