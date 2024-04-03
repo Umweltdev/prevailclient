@@ -29,7 +29,7 @@ const useStyles = makeStyles({
   },
 });
 
-const SectionTwo = () => {
+const Solutions = () => {
   const classes = useStyles();
 
   return (
@@ -38,7 +38,7 @@ const SectionTwo = () => {
         width: "80vw",
         display: "flex",
         // margin: "15vh auto",
-        margin: "30vh auto 0 auto",
+        margin: "5vh auto 0 auto",
         justifyContent: "space-between",
         alignItems: "center",
         gap: "7vw",
@@ -75,7 +75,7 @@ const SectionTwo = () => {
             },
           }}
         >
-          Why Us
+          Solutions
         </Typography>
         <Typography
           sx={{
@@ -91,22 +91,17 @@ const SectionTwo = () => {
             },
           }}
         >
-          Understanding the nuances of marketing budgets and effective strategies is essential to businesses. 
-          The costs associated with marketing can vary significantly, contingent on factors like a company's marketing budget, 
-          specific goals, and the number of marketing channels they choose to employ. 
-          It is a well-established industry guideline that businesses should allocate between 15% and 20% of their sales towards marketing expenses. 
-          However, the ultimate allocation hinges on a company's unique budget size, marketing strategy, ambition, and the manner in which it intends to utilise its marketing resources. 
-          That is why understanding the nuances of our market share, budgets, and effects is essential in a company’s strategy to promote themselves to their right & unique target audiences.
+          This is where Prevail takes centre stage. We specialise in working closely with SMEs and local businesses, empowering them to differentiate themselves and position their brand effectively in front of their target audience. We believe in forging strong partnerships with our clients to develop tailored solutions that maximise both short-term and long-term growth. Our distinctive competencies lie in our seamless integration of automation, data analysis, and marketing strategies.
         </Typography>
       </Grid>
       <img
         className={classes.imageInit}
         style={{}}
-        src="https://t4.ftcdn.net/jpg/00/96/54/53/360_F_96545306_cX6N4Fv2TTVRMKahA3aoCvxlUOGm2KkV.jpg"
+        src="https://lh3.googleusercontent.com/-Sc2ssrD9vSw/XgNAlzBRIcI/AAAAAAAABh8/hdeQycdFOXEufjFDE-pTikxiun3EGrhMwCLcBGAsYHQ/s1600/IMG_ORG_1577271437572.jpeg"
         alt=""
       />
     </Grid>
   );
 };
 
-export default SectionTwo;
+export default Solutions;

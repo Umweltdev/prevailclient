@@ -29,7 +29,7 @@ const useStyles = makeStyles({
   },
 });
 
-const SectionTwo = () => {
+const SectionFive = () => {
   const classes = useStyles();
 
   return (
@@ -38,7 +38,7 @@ const SectionTwo = () => {
         width: "80vw",
         display: "flex",
         // margin: "15vh auto",
-        margin: "30vh auto 0 auto",
+        margin: "10vh auto 0 auto",
         justifyContent: "space-between",
         alignItems: "center",
         gap: "7vw",
@@ -53,7 +53,12 @@ const SectionTwo = () => {
         },
       }}
     >
-     
+     <img
+        className={classes.imageInit}
+        style={{}}
+        src="https://imageio.forbes.com/specials-images/imageserve/61bd343aecd04efd3b8fba2a/problem-solving--solution--systems-thinking--light-bulb/0x0.jpg?format=jpg&crop=2347,1320,x0,y115,safe&width=960"
+        alt=""
+      />
       <Grid
         sx={{
           width: "40vw",
@@ -62,7 +67,7 @@ const SectionTwo = () => {
           },
         }}
       >
-        <Typography
+        {/* <Typography
           sx={{
             display: "flex",
             fontSize: "3vw",
@@ -75,8 +80,8 @@ const SectionTwo = () => {
             },
           }}
         >
-          Why Us
-        </Typography>
+          Our Why
+        </Typography> */}
         <Typography
           sx={{
             fontSize: "1.2vw",
@@ -91,22 +96,11 @@ const SectionTwo = () => {
             },
           }}
         >
-          Understanding the nuances of marketing budgets and effective strategies is essential to businesses. 
-          The costs associated with marketing can vary significantly, contingent on factors like a company's marketing budget, 
-          specific goals, and the number of marketing channels they choose to employ. 
-          It is a well-established industry guideline that businesses should allocate between 15% and 20% of their sales towards marketing expenses. 
-          However, the ultimate allocation hinges on a company's unique budget size, marketing strategy, ambition, and the manner in which it intends to utilise its marketing resources. 
-          That is why understanding the nuances of our market share, budgets, and effects is essential in a company’s strategy to promote themselves to their right & unique target audiences.
+        Our ultimate goal is to enable businesses to thrive, irrespective of economic challenges, by providing innovative and holistic solutions. The Prevail approach is founded on a commitment to levelling the playing field for local businesses facing economic uncertainty. By emphasising collaboration and tailor-made strategies, we ensure that our clients have the tools to compete effectively in a dynamic digital landscape. Our focus is not just on marketing; it is on delivering results, sustaining growth, and prevailing against the odds.
         </Typography>
       </Grid>
-      <img
-        className={classes.imageInit}
-        style={{}}
-        src="https://t4.ftcdn.net/jpg/00/96/54/53/360_F_96545306_cX6N4Fv2TTVRMKahA3aoCvxlUOGm2KkV.jpg"
-        alt=""
-      />
     </Grid>
   );
 };
 
-export default SectionTwo;
+export default SectionFive;
