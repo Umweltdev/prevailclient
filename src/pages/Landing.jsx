@@ -2,6 +2,7 @@ import Footer from "../components/Footer/Footer";
 import FooterNew from "../components/Footer/FooterNew";
 import CarouselOne from "../components/Landing/CarouselOne";
 import Hero from "../components/Landing/Hero";
+import OurCore from "../components/Landing/OurCore";
 import SectionFive from "../components/Landing/SectionFive";
 import SectionFour from "../components/Landing/SectionFour";
 import SectionSeven from "../components/Landing/SectionSeven";
@@ -20,6 +21,7 @@ const Landing = () => {
       <Hero />
       <SectionTwo />
       <SectionThree />
+      <OurCore />
       <YourTools />
       <SectionSeven />
       <SectionFour />

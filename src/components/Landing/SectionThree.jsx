@@ -55,7 +55,6 @@ const SectionThree = () => {
         </Typography>
         <AccordionUsage />
       </Box>
-      <hr style={{ color: "#884ed9" }} />
     </>
   );
 };
