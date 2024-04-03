@@ -17,6 +17,8 @@ import {
 } from "@mui/icons-material";
 import "./assets/landing.css";
 import { makeStyles } from "@mui/styles";
+import "../../main.css";
+import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 
 const images = [
   {
@@ -142,7 +144,8 @@ const useStyles = makeStyles({
     objectFit: "cover",
     borderRadius: "16px",
     boxShadow: "rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;",
-    transition: "transform 0.5s ease-in-out",
+    animation: "$fadeInOut 0.5s ease-in-out forwards",
+
     "@media (max-width: 600px)": {
       width: "95vw",
       height: "50vh",
@@ -155,11 +158,38 @@ const useStyles = makeStyles({
     position: "relative",
     marginRight: "15vw",
     transform: "translateX(0%)",
-    transition: "transform 0.5s ease-in-out",
+    animation: "$fadeInOut 0.5s ease-in-out forwards",
     "@media (max-width: 600px)": {
       width: "100%",
       marginRight: "unset",
       margin: "0 auto",
+    },
+  },
+  overlay: {
+    position: "absolute",
+    bottom: "0",
+    left: "0",
+    width: "100%",
+    height: "100%",
+    background: "rgba(0, 0, 0, 0.7)",
+    display: "flex",
+    alignItems: "left",
+    justifyContent: "center",
+    padding: "2vw",
+    borderRadius: "16px",
+    flexDirection: "column",
+    animation: "$fadeInOut 0.5s ease-in-out forwards",
+    opacity: 0,
+  },
+
+
+
+  "@keyframes fadeInOut": {
+    "0%": {
+      opacity: 0,
+    },
+    "100%": {
+      opacity: 1,
     },
   },
 });
@@ -172,9 +202,13 @@ function YourTools() {
   const classes = useStyles();
 
   const handleStepChange = (step) => {
-    setActiveStep(step);
-    // setIsOverlayVisible(true);
+    setActiveStep(step); // Update the active step immediately
+    setIsOverlayVisible(false); // Start the fade-out animation
+    setTimeout(() => {
+      setIsOverlayVisible(true); // After a short delay, start the fade-in animation
+    }, 100); // Adjust the delay as needed for proper timing
   };
+
 
   return (
     <Grid
@@ -257,6 +291,9 @@ function YourTools() {
             onMouseLeave={() => setIsHovered(false)}
           />
           <Grid
+            className={`${classes.overlay} ${
+              isOverlayVisible ? "visible" : ""
+            }`}
             sx={{
               position: "absolute",
               bottom: isHovered ? "0" : "-50px",
@@ -271,6 +308,7 @@ function YourTools() {
               padding: "2vw",
               borderRadius: "16px",
               flexDirection: "column",
+              animation: "$fadeInOut 0.5s ease-in-out forwards",
               "@media (max-width: 600px)": {
                 width: "95vw",
                 height: "50vh",
