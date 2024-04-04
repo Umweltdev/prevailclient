@@ -106,6 +106,7 @@ const useStyles = makeStyles({
       width: "95vw",
       height: "25vh",
       marginTop: "2vh",
+      margin: "0vh 2.5vw",
     },
   },
 });
@@ -126,6 +127,7 @@ function Carousel() {
         padding: "20vh 0 0 0",
         "@media (max-width: 600px)": {
           padding: "13vh 0 0 0",
+          margin: "0 auto",
         },
       }}
       justifyContent="center"
@@ -138,6 +140,7 @@ function Carousel() {
           height: "85vh",
           "@media (max-width: 600px)": {
             flexDirection: "column",
+            margin: "0 auto",
           },
         }}
       >
@@ -147,6 +150,7 @@ function Carousel() {
             width: "40vw",
             "@media (max-width: 600px)": {
               width: "95vw",
+              margin: "0 auto",
             },
           }}
         >
@@ -158,7 +162,7 @@ function Carousel() {
               color: "#884ed9",
               marginBottom: "2vh",
               "@media (max-width: 600px)": {
-                fontSize: "3vw",
+                fontSize: "4vw",
                 width: "95vw",
               },
             }}
@@ -201,7 +205,7 @@ function Carousel() {
               sx={{
                 fontSize: "1.8vw",
                 color: "#a16ad9",
-                "@media (max-width: 600px)": { fontSize: "10vw" },
+                "@media (max-width: 600px)": { fontSize: "3vw" },
               }}
             />
             {images[activeStep].text}
@@ -240,7 +244,7 @@ function Carousel() {
                   color: "#a16ad9",
                   paddingTop: "vh",
                   // height: "13vh",
-                  "@media (max-width: 600px)": { fontSize: "10vw" },
+                  "@media (max-width: 600px)": { fontSize: "2vw" },
                 }}
               />
             </Typography>
@@ -277,6 +281,11 @@ function Carousel() {
             boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
             color: "grey",
             borderRadius: "3vw",
+            "@media (max-width: 600px)": {
+              flexWrap: "wrap",
+              justifyContent: "center",
+              alignItems: "center",
+            },
           }}
         >
           {images.map((step, index) => (
@@ -312,7 +321,7 @@ function Carousel() {
                     color: "#333",
                     fontWeight: "bold",
                     borderRadius: "1vh",
-                    boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px;"
+                    boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px;",
                   },
                   "@media (max-width: 600px)": { display: "none" },
                 }}
@@ -320,7 +329,6 @@ function Carousel() {
                 {step.title}
               </Button>
               <Button
-                key={index}
                 onClick={() => handleStepChange(index)}
                 sx={{
                   display: "none",
@@ -330,6 +338,7 @@ function Carousel() {
                     display: "flex",
                     padding: "1vh 0",
                     fontSize: "3vw",
+                    width: "20.5vw",
 
                     color: activeStep === index ? "#a16ad9" : "#484949",
                     borderTop:

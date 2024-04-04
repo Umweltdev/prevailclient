@@ -31,7 +31,7 @@ const CaseNavigation = ({
           sx={{
             color: "white",
             height: "120px",
-            width: "23vw",
+            width: "17vw",
             borderRadius: "16px",
             background: "linear-gradient(135deg, #be90fd 30%, #884ed9 90%)",
 
@@ -81,7 +81,7 @@ const CaseNavigation = ({
           sx={{
             color: "white",
             height: "120px",
-            width: "23vw",
+            width: "17vw",
             borderRadius: "16px",
             background: "linear-gradient(45deg, #884ed9 30%, #be90fd 90%)",
 

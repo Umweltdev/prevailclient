@@ -164,6 +164,7 @@ const PlatformTwo = () => {
               width: "45vw",
               "@media (max-width: 600px)": {
                 width: "95vw",
+                margin: "0 auto",
               },
             }}
           >
@@ -205,15 +206,15 @@ const PlatformTwo = () => {
               range of services. Our &quot;Brand Identity Package&quot; service
               makes your brand stand out, while our &quot;Search Engine
               Marketing (SEM)&quot; service ensures that you reach the right
-              audience on Google or Bing. Additionally, our &quot;Website
-              Production &amp; Management&quot; service keeps your website
-              attractive and user-friendly. Currently, we are offering a special
-              deal: the &quot;Digital Accelerator&quot; Bundle. This bundle
-              combines these three key services to give your digital marketing
-              strategy a powerful and visually appealing boost. The best part is
-              that we are offering it at a huge discount of up to 70%. This
-              bundle is a complete solution to make your business shine online
-              and attract more customers.
+              audience on Google or Bing. <br /> <br /> Additionally, our
+              &quot;Website Production &amp; Management&quot; service keeps your
+              website attractive and user-friendly. Currently, we are offering a
+              special deal: the &quot;Digital Accelerator&quot; Bundle. This
+              bundle combines these three key services to give your digital
+              marketing strategy a powerful and visually appealing boost. The
+              best part is that we are offering it at a huge discount of up to
+              70%. This bundle is a complete solution to make your business
+              shine online and attract more customers.
             </Typography>
           </Grid>
 

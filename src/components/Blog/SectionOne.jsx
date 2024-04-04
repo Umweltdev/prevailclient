@@ -163,6 +163,12 @@ const SectionOne = () => {
             alignItems: "top",
             gap: "4vw",
             margin: "0 auto",
+
+            "@media (max-width: 600px)": {
+              flexDirection: "column",
+              alignItems: "center",
+              
+            },
           }}
         >
           <Grid
@@ -174,7 +180,13 @@ const SectionOne = () => {
               magin: "0 auto",
               justifyContent: "center",
               alignItems: "top",
-              // gap: "2vw"
+              "@media (max-width: 600px)": {
+                "@media (max-width: 600px)": {
+                  flexDirection: "column",
+                  alignItems: "center",
+                 
+                },
+              },
             }}
           >
             {blogBlurbs.map((data, index) => (
@@ -197,7 +209,7 @@ const SectionOne = () => {
               </Link>
             ))}
           </Grid>
-          <Grid sx={{ marginRight: "1vw" }} className="sOneBlogFeature">
+          <Grid sx={{ marginRight: "1vw", }} className="sOneBlogFeature">
             <FreeSolo />
             <BlogListSideCard />
           </Grid>

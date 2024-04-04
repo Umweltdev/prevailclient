@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "white",
       color: "#333",
       padding: "15vh 0 1vh 0",
+      height: "65vh",
     },
   },
   heroContainer: {
@@ -61,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
     // height: "auto",
     // animation: "$bounce 2s infinite alternate",
     "@media (max-width: 600px)": {
-      width: "70vw",
+      display: "none",
     },
   },
   // "@keyframes bounce": {
@@ -108,8 +109,8 @@ const HeroSection = ({ header, text, image }) => {
                   fontWeight: "unset",
                   width: "95vw",
                   lineHeight: "unset",
-                  color: "white",
-                  textAlign: "center",
+                  color: "#333",
+                  textAlign: "justify",
                   margin: "0 auto",
                 },
               }}

@@ -8,12 +8,21 @@ const useStyles = makeStyles({
     width: "40vw",
     objectFit: "cover",
     borderRadius: "1vw",
-    boxShadow: "rgba(0, 0, 0, 0.2) 0px 18px 50px -10px"
+    boxShadow: "rgba(0, 0, 0, 0.2) 0px 18px 50px -10px",
+    "@media (max-width: 600px)": {
+      width: "95vw",
+      textAlign: "center",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      margin: "0 2.5vw"
+    },
   },
 });
 
 const Budget = () => {
   const classes = useStyles();
+
   return (
     <Grid
       sx={{
@@ -22,6 +31,12 @@ const Budget = () => {
         margin: "15vh auto",
         justifyContent: "center",
         gap: "2vw",
+        "@media (max-width: 600px)": {
+          margin: "1vh auto",
+          flexDirection: "column",
+          textAlign: "center",
+          justifyContent: "center",
+        },
       }}
     >
       <Grid
@@ -32,6 +47,9 @@ const Budget = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            "@media (max-width: 600px)": {
+              flexDirection: "column",
+            },
           },
         }}
       >
@@ -42,7 +60,7 @@ const Budget = () => {
             fontWeight: "bold",
             marginBottom: "3vh",
             "@media (max-width: 600px)": {
-              fontSize: "4.5vw",
+              fontSize: "7vw",
               width: "95vw",
               textAlign: "center",
             },
@@ -69,7 +87,7 @@ const Budget = () => {
           towards increased market share and proportional income growth begins
           here.
         </Typography>
-        <Link to={"/about"}>
+        <Link to={"/stepper"}>
           <Button
             sx={{
               textTransform: "capitalize",
@@ -80,9 +98,16 @@ const Budget = () => {
               padding: "0.5vw 5vw",
               border: "1px solid #884ed9",
               marginTop: "4vh",
+              transition: "1s ease-in-out",
+              "@media (max-width: 600px)": {
+                fontSize: "4vw",
+                textAlign: "center",
+                borderRadius: "5vh",
+              },
               "&:hover": {
                 color: "#884ed9",
                 borderRadius: "1px solid #884ed9",
+                padding: "1vh 5vw",
               },
             }}
           >

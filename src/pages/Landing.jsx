@@ -20,7 +20,7 @@ const Landing = () => {
       <AppBarOne />
       <Hero />
       <SectionTwo />
-      <SectionThree />
+      {/* <SectionThree /> */}
       <OurCore />
       <YourTools />
       <SectionSeven />

@@ -55,8 +55,8 @@ export default function BlogCard({
         padding: "1vw",
         margin: "10px",
         "@media (max-width: 600px)": {
-          width: "85vw",
-          margin: "0 auto",
+          width: "90vw",
+          margin: "2vh auto",
           borderRadius: "16px",
           padding: "1vh",
         },

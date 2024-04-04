@@ -277,8 +277,8 @@
 
   .sOneBlogHero {
     padding-top: 25vh;
-    font-size: 7vw;
-    color: var(--fourth-color);
+    font-size: 8vw;
+    color: #884ed9;
     margin-left: unset;
     text-align: center;
     display: flex;
@@ -333,6 +333,6 @@
     text-align: justify;
     width: 95vw;
     font-size: 4vw;
-    line-height: 4vh;
+    line-height: 3vh;
   }
 }

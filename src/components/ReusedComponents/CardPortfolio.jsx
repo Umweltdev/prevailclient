@@ -5,8 +5,22 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles({
+  imago: {
+    minHeight: "40vh",
+    objectFit: "cover",
+    borderRadius: "16px",
+    "@media (max-width: 600px)": {
+      minHeight: "20vh",
+    },
+  },
+});
 
 export default function MediaCard({ header, text, img, gradient }) {
+  const classes = useStyles();
+
   return (
     <Card
       sx={{
@@ -20,12 +34,12 @@ export default function MediaCard({ header, text, img, gradient }) {
         boxShadow: "rgba(0, 0, 0, 0.1) 0px 10px 50px;",
 
         "@media (max-width: 600px)": {
-          width: "90vw",
-          // height: 440,
+          width: "95vw",
+          height: "unset",
           display: "flex",
           flexDirection: "column",
           boxShadow: " rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;",
-          margin: "5vw",
+          margin: "unset",
         },
       }}
     >
@@ -48,18 +62,7 @@ export default function MediaCard({ header, text, img, gradient }) {
       >
         {header}
       </Typography>
-      <CardMedia
-        sx={{
-          minHeight: "40vh",
-          objectFit: "cover",
-          borderRadius: "16px",
-          "@media (max-width: 600px)": {
-            height: "20vh",
-          },
-        }}
-        image={img}
-        title="green iguana"
-      />
+      <CardMedia className={classes.imago} image={img} title="green iguana" />
 
       <Typography
         sx={{
@@ -74,7 +77,7 @@ export default function MediaCard({ header, text, img, gradient }) {
           "@media (max-width: 600px)": {
             fontSize: "4vw",
             color: "#333",
-            margin: "0 0 2vh 0",
+            margin: "2vh 0",
           },
         }}
       >
@@ -99,8 +102,11 @@ export default function MediaCard({ header, text, img, gradient }) {
           "@media (max-width: 600px)": {
             boxShadow: "unset",
             fontWeight: "unset",
-            padding: "1vh 10vw",
-            fontSize: "3vw",
+            padding: "0.5vh 4vw",
+            fontSize: "4vw",
+            width: "32vw",
+            borderRadius: "5vh",
+            margin: "1vh 0",
           },
         }}
       >

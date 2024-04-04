@@ -1,6 +1,5 @@
 import { Grid, Typography } from "@mui/material";
 import React from "react";
-import imago from "../assets/look.png";
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
@@ -14,7 +13,7 @@ const useStyles = makeStyles({
 
     // shapeOutside: "inset(1% round 50%)",
     "@media (max-width: 600px)": {
-      display: "none",
+      width: "95vw",
     },
   },
 });
@@ -42,7 +41,9 @@ const PainPoint = ({ header, text, image }) => {
           backgroundColor: "white",
           justifyContent: "center",
           alignItems: "center",
-          padding: "2vh 0",
+          padding: "1vh 0",
+          color: "#333",
+          height: "100vh",
         },
       }}
     >
@@ -52,7 +53,17 @@ const PainPoint = ({ header, text, image }) => {
         alt=""
       />
       <Grid>
-        <Typography sx={{ fontSize: "4vw", fontWeight: "900", color: "white" }}>
+        <Typography
+          sx={{
+            fontSize: "4vw",
+            fontWeight: "900",
+            color: "white",
+            "@media (max-width: 600px)": {
+              fontSize: "7vw",
+              color: "#333",
+            },
+          }}
+        >
           Pain Points
         </Typography>
         <Typography
@@ -61,12 +72,13 @@ const PainPoint = ({ header, text, image }) => {
             width: "40vw",
             textAlign: "justify",
             textJustify: "distribute",
-            color: "white",
+            color: "#fff",
             "@media (max-width: 600px)": {
               fontSize: "4.5vw",
               width: "90vw",
               textAlign: "justify",
               textJustify: "distribute",
+              color: "#333",
             },
           }}
         >

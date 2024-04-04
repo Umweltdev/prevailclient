@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./style.css";
-import { slides as initialSlides } from "./assets/LandingData";
+import { slides as initialSlides } from "../assets/mpdData";
 
-const OurCore = () => {
+const Solution = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slides, setSlides] = useState(initialSlides);
   const intervalRef = useRef(null);
@@ -63,7 +63,7 @@ const OurCore = () => {
 
   return (
     <div
-      className="carousel"
+      className="carousel1"
       style={{
         backgroundImage: `url(${slides[currentSlide].image})`,
       }}
@@ -78,7 +78,7 @@ const OurCore = () => {
           >
             <img src={slides[currentSlide].image} alt={slide.title} />
             <div className="content">
-              <p className="title">Our Core Values</p>
+              {/* <p className="title">Our Core Values</p> */}
               <div className="topic">{slides[currentSlide].topic}</div>
               <div className="des">{slides[currentSlide].description}</div>
               <div className="buttons">
@@ -119,4 +119,4 @@ const OurCore = () => {
   );
 };
 
-export default OurCore;
+export default Solution;

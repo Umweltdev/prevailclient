@@ -1,6 +1,5 @@
 import "./assets/services.css";
 import { serviceCard } from "./assets/ServicesData";
-import "./assets/services.css";
 import MediaCard from "../ReusedComponents/CardPortfolio";
 import { Grid, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -29,7 +28,17 @@ const SectionTwo = () => {
         Services
       </Typography>
       {/* <span style={{ marginLeft: "12vw" }} className="lineSpanServices"></span> */}
-      <Grid className="sTwoServicesCards">
+      <Grid
+        sx={{
+          margin: "6vh 0 10vh 0",
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          /* width: 95vw; */
+          gap: "4vw",
+         
+        }}
+      >
         {serviceCard.map((data, index) => (
           <Link
             style={{ textDecoration: "none" }}
