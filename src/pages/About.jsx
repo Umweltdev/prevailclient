@@ -4,10 +4,11 @@ import SectionThree from "../components/About/SectionThree";
 import SectionTwo from "../components/About/SectionTwo";
 import Navbar from "../components/Navbar/Navbar.jsx";
 import SectionFour from "../components/About/SectionFour.jsx";
-import SectionConsultation from "../components/About/SectionConsultation.jsx";
+import Solutions from "../components/About/Solutions.jsx";
 import DrawerAppBar from "../components/Navbar/Appbar.jsx";
 import FooterNew from "../components/Footer/FooterNew.jsx";
 import AppBarOne from "../components/Navbar/Appbar.jsx";
+import SectionFive from "../components/About/SectionFive.jsx";
 //import { Grid, Box } from "@mui/material";
 
 const About = () => {
@@ -16,10 +17,12 @@ const About = () => {
       <AppBarOne/>
       {/* <Navbar /> */}
       {/* <SectionOne /> */}
-      <br /> <br /> <br /> <br />
       <SectionTwo />
-      {/* <SectionFour /> */}
-      <br /> <hr />
+       <SectionFour />
+       <br /><br /><hr />
+       <Solutions />
+       <SectionFive />
+      <br /><br /> <hr />
       <SectionThree />
       <FooterNew />
     </div>

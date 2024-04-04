@@ -1,85 +1,109 @@
+import { Grid, Typography } from "@mui/material";
 import React from "react";
+import { makeStyles } from "@mui/styles";
+//import landingImage1 from "../assets/brandd.png";
 
-const TimelineCard = ({ accentColor, date, title, description }) => (
-  <li style={{ "--accent-color": accentColor }}>
-    <div className="date">{date}</div>
-    <div className="title">{title}</div>
-    <div className="descr">{description}</div>
-  </li>
-);
+const useStyles = makeStyles({
+  imagePlaform: {
+    width: "80vw",
+    height: "50vh",
+    objectFit: "cover",
+    borderRadius: "5px",
+    boxShadow:
+      "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
 
-const Timeline = () => (
-  <div>
-    <h1 className="timeline-header">Consultation Journey</h1>
-    <ul className="ul-list">
-      <TimelineCard
-        accentColor="#41516C"
-        date="Prospect Information Submission"
-        title=""
-        description="The prospect initiates the process by filling out their information on our website"
-      />
-      <TimelineCard
-        accentColor="#FBCA3E"
-        date="Availability confirmation Email"
-        title=""
-        description="After submission, the prospect receives an email containing a calendar with availability options for a 10-minute call to confirm their interest."
-      />
-      <TimelineCard
-        accentColor="#E24A68"
-        date="Consultation Questionnaire Request"
-        title=""
-        description="During the call, if the prospect expresses interest in proceeding, they receive an email containing the consultation questionnaire document or a website link"
-      />
-      <TimelineCard
-        accentColor="#1B5F8C"
-        date="Questionnaire Submission"
-        title=""
-        description="Upon completion of the questionnaire, the prospect sends or uploads the document."
-      />
-      <TimelineCard
-        accentColor="#ab00ff"
-        date="Reminder and Opt-Out for Questionnaire Completion"
-        title=""
-        description="In case the questionnaire is not completed, the prospect may receive a reminder email, with the option to opt out of receiving further reminders."
-      />
-      <TimelineCard
-        accentColor="#ab63f3"
-        date="Meeting Scheduling"
-        title=""
-        description="The prospect will receive an email to schedule a meeting, the email will contain a calendar with availability options."
-      />
-      <TimelineCard
-        accentColor="#0076ff"
-        date="Initial Requirements and Service Presentation"
-        title=""
-        description="A meeting lasting about an hour is scheduled where Prevail outlines the prospect's requirements, service options, value, and the benefits of choosing Prevail's services."
-      />
-      <TimelineCard
-        accentColor="green"
-        date="Proposed Strategy Meeting Scheduling"
-        title=""
-        description="The prospect receives a calendar email to schedule a meeting to discuss the proposed strategy, its components, and how it aligns with their goals."
-      />
-      <TimelineCard
-        accentColor="red"
-        date="Prospect’s Feedback, Payment Agreement and Timeline"
-        title=""
-        description="Following the meeting, the prospect provides feedback and reaches an agreement on the payment plan and timeline."
-      />
-      <TimelineCard
-        accentColor="#303443"
-        date="Contract Document Signing"
-        title=""
-        description="The prospect receives an email with the contract document for signing and sending back or uploading."
-      />
-      <TimelineCard
-        accentColor="#5a5050"
-        date="Client Onboarding and Job Commencement"
-        title=""
-        description="Once the initial payment is made, the prospect officially becomes Prevail's client, and the marketing work begins. "
-      />
-    </ul>
-  </div>
-);
+    "@media (max-width: 600px)": {
+      width: "unset",
+      height: "unset",
+    },
+  },
+  imageInit: {
+    width: "37vw",
+    borderRadius: "1vw",
+    boxShadow:
+      "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
+    "@media (max-width: 600px)": {
+      width: "95vw",
+      height: "unset",
+    },
+  },
+});
 
-export default Timeline;
+const SectionFour = () => {
+  const classes = useStyles();
+
+  return (
+    <Grid
+      sx={{
+        width: "80vw",
+        display: "flex",
+        // margin: "15vh auto",
+        margin: "5vh auto 0 auto",
+        justifyContent: "space-between",
+        alignItems: "center",
+        gap: "7vw",
+        "@media (max-width: 600px)": {
+          width: "95vw",
+          flexDirection: "column",
+          marginBottom: "1vh",
+          // gap: "5vw",
+          justifyContent: "space-between",
+          alignItems: "center",
+          gap: "1vw",
+        },
+      }}
+    >
+     <img
+        className={classes.imageInit}
+        style={{}}
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaDu3kkFF00jEXnh7hoioYHH_74oK5Lfn22eBytczPouJudRWqzNumfNDOrQxCZrXkQMc&usqp=CAU"
+        alt=""
+      />
+      <Grid
+        sx={{
+          width: "40vw",
+          "@media (max-width: 600px)": {
+            width: "95vw",
+          },
+        }}
+      >
+        {/* <Typography
+          sx={{
+            display: "flex",
+            fontSize: "3vw",
+            fontWeight: "bold",
+            color: "#494848",
+            marginBottom: "3vh",
+            "@media (max-width: 600px)": {
+              fontSize: "6vw",
+              margin: "2vh 0",
+            },
+          }}
+        >
+          Our Why
+        </Typography> */}
+        <Typography
+          sx={{
+            fontSize: "1.2vw",
+            color: "#636363",
+            marginBottom: "3vh",
+            // textAlign: "justify",
+            width: "37vw",
+            "@media (max-width: 600px)": {
+              fontSize: "4vw",
+              textAlign: "justify",
+              width: "95vw",
+            },
+          }}
+        >
+        Our paramount concern is the current trend where large enterprises tend to dominate the digital landscape. 
+        They often do so by employing full-time programmers and have the financial capacity to invest in a plethora of SaaS solutions. 
+        Regrettably, this trend leads to a rapid erosion of market share for local businesses and SMEs, often catching them in financial distress before they even realise it. 
+        The stark reality is that local businesses and SMEs find it challenging to outcompete these industry giants and are losing their market share within their respective sectors.
+        </Typography>
+      </Grid>
+    </Grid>
+  );
+};
+
+export default SectionFour;
