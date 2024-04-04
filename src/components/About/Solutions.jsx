@@ -97,7 +97,7 @@ const Solutions = () => {
       <img
         className={classes.imageInit}
         style={{}}
-        src="https://lh3.googleusercontent.com/-Sc2ssrD9vSw/XgNAlzBRIcI/AAAAAAAABh8/hdeQycdFOXEufjFDE-pTikxiun3EGrhMwCLcBGAsYHQ/s1600/IMG_ORG_1577271437572.jpeg"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShedynUjYH5YHcFMDXBp-N6Eyw3_9fQU5VjN1ullVUeg&s"
         alt=""
       />
     </Grid>
