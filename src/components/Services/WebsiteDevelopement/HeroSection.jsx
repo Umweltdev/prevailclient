@@ -46,10 +46,11 @@ const HeroSection = () => {
           width: "95vw",
           flexDirection: "column",
           marginBottom: "1vh",
-          // gap: "5vw",
+          margin: "15vh auto",
           justifyContent: "space-between",
           alignItems: "center",
           gap: "1vw",
+          height: "70vh",
         },
       }}
     >
@@ -75,6 +76,7 @@ const HeroSection = () => {
             "@media (max-width: 600px)": {
               fontSize: "6vw",
               margin: "2vh 0",
+              textAlign: "center",
             },
           }}
         >
@@ -89,8 +91,9 @@ const HeroSection = () => {
             width: "37vw",
             "@media (max-width: 600px)": {
               fontSize: "4vw",
-              textAlign: "justify",
+              textAlign: "center",
               width: "95vw",
+              marginBottom: "0",
             },
           }}
         >

@@ -101,7 +101,7 @@ const useStyles = makeStyles({
     borderRadius: "1vw",
     "@media (max-width: 600px)": {
       width: "95vw",
-      height: "25vh",
+      height: "20vh",
       marginTop: "2vh",
     },
   },
@@ -113,6 +113,12 @@ const useStyles = makeStyles({
     margin: "0 0 5vh 0",
     borderRadius: "5px",
     boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
+    "@media (max-width: 600px)": {
+      width: "95vw",
+      height: "30vh",
+      margin: "0 auto",
+      // marginTop: "2vh",
+    },
   },
 });
 
@@ -135,7 +141,10 @@ function Carousel() {
         width: "80vw",
         margin: "0 auto",
         "@media (max-width: 600px)": {
-          padding: "13vh 0 0 0",
+          padding: "5vh 0 0 0",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100vw",
         },
       }}
       justifyContent="center"
@@ -155,9 +164,29 @@ function Carousel() {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
+          "@media (max-width: 600px)": {
+            margin: "0 auto",
+            // width: "60vw",
+            textAlign: "center",
+            marginBottom: "3vh",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          },
         }}
       >
-        <Typography sx={{ fontSize: "3.2vw", fontWeight: "900" }}>
+        <Typography
+          sx={{
+            fontSize: "3.2vw",
+            fontWeight: "900",
+            "@media (max-width: 600px)": {
+              fontSize: "6vw",
+              fontWeight: "900",
+              marginTop: "3vh",
+            },
+          }}
+        >
           Solution
         </Typography>
         <Typography
@@ -166,6 +195,9 @@ function Carousel() {
             width: "80vw",
             textAlign: "center",
             margin: "0 auto",
+            "@media (max-width: 600px)": {
+              fontSize: "4vw",
+            },
           }}
         >
           {" "}
@@ -189,6 +221,8 @@ function Carousel() {
           marginTop: "4vh",
           "@media (max-width: 600px)": {
             flexDirection: "column",
+            height: "unset",
+            margin: "4vh auto",
           },
         }}
       >
@@ -210,7 +244,7 @@ function Carousel() {
               color: "#333",
               // marginBottom: "2vh",
               "@media (max-width: 600px)": {
-                fontSize: "3vw",
+                fontSize: "6vw",
                 width: "95vw",
               },
             }}

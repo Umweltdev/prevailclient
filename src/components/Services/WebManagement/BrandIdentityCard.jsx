@@ -13,6 +13,10 @@ export default function BrandIdentityCard() {
       spacing={2}
       sx={{
         marginTop: "2vh",
+        "@media (max-width: 600px)": {
+          margin: "0 auto",
+         
+        },
       }}
     >
       {brandManagementCard.map((data, index) => (
@@ -25,6 +29,9 @@ export default function BrandIdentityCard() {
               height: "100%",
               borderRadius: "1.5rem", // Increase border radius
               boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", // Add box shadow
+              "@media (max-width: 600px)": {
+                width: "90vw",
+              },
             }}
           >
             <CardContent>

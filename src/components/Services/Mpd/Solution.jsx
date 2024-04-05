@@ -78,7 +78,7 @@ const Solution = () => {
           >
             <img src={slides[currentSlide].image} alt={slide.title} />
             <div className="content">
-              {/* <p className="title">Our Core Values</p> */}
+              <p className="author">SOLUTION</p>
               <div className="topic">{slides[currentSlide].topic}</div>
               <div className="des">{slides[currentSlide].description}</div>
               <div className="buttons">

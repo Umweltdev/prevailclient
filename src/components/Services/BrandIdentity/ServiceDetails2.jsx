@@ -41,8 +41,7 @@ const ServiceDetails2 = () => {
         "@media (max-width: 600px)": {
           width: "95vw",
           flexDirection: "column",
-          marginBottom: "1vh",
-          // gap: "5vw",
+          margin: "5vh auto",
           justifyContent: "space-between",
           alignItems: "center",
           gap: "1vw",
@@ -61,15 +60,16 @@ const ServiceDetails2 = () => {
           ></spline-viewer> */}
       <Card
         sx={{
-         
           margin: "0 auto",
           textAlign: "center",
           width: "70vw",
           padding: "3vw",
           borderRadius: "1.5vw",
-          boxShadow: "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px",
+          boxShadow:
+            "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px",
           "@media (max-width: 600px)": {
             width: "95vw",
+            margin: "0 auto",
           },
         }}
       >
@@ -77,7 +77,7 @@ const ServiceDetails2 = () => {
           sx={{
             textAlign: "center",
             fontSize: "3vw",
-            fontWeight: '900',
+            fontWeight: "900",
             marginBottom: "2vh",
             color: "#333",
             "@media (max-width: 600px)": {
@@ -98,8 +98,8 @@ const ServiceDetails2 = () => {
             margin: "0 auto",
             "@media (max-width: 600px)": {
               fontSize: "4vw",
-              textAlign: "justify",
-              width: "95vw",
+              textAlign: "center",
+              width: "90vw",
             },
           }}
         >

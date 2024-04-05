@@ -16,15 +16,12 @@ const BrandIdentity = () => {
     <>
       <DrawerAppBarWhite />
       <HeroSection />
+      {/* <br />
       <br />
       <br />
-      <br />
-      <br />
+      <br /> */}
       <ServiceDetails2 />
       <ServiceDetails3 />
-      <br /> <br />
-      <br />
-      <br />
       <Packages />
       <FooterNew />
     </>

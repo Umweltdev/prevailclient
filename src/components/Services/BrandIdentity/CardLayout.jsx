@@ -13,6 +13,9 @@ export default function BrandIdentityCard() {
       spacing={2}
       sx={{
         marginTop: "2vh",
+        "@media (max-width: 600px)": {
+          margin: "0 2vw",
+        },
       }}
     >
       {brandIdentityCard.map((data, index) => (
@@ -25,6 +28,9 @@ export default function BrandIdentityCard() {
               height: "100%",
               borderRadius: "1.5rem", // Increase border radius
               boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", // Add box shadow
+              "@media (max-width: 600px)": {
+                width: "88vw",
+              },
             }}
           >
             <CardContent>
@@ -32,7 +38,13 @@ export default function BrandIdentityCard() {
                 gutterBottom
                 // variant="h5"
                 // component="div"
-                sx={{ fontFamily: `"Sarabun", sans-serif`, fontSize: "1.5vw" }} // Set font family to Sarabun
+                sx={{
+                  fontFamily: `"Sarabun", sans-serif`,
+                  fontSize: "1.5vw",
+                  "@media (max-width: 600px)": {
+                    fontSize: "6vw",
+                  },
+                }} // Set font family to Sarabun
               >
                 {data.header}
               </Typography>

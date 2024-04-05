@@ -6,7 +6,7 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
-import theme from "../../theme";
+// import theme from "../../theme";
 
 export default function BasicCard() {
   return (
@@ -25,7 +25,7 @@ export default function BasicCard() {
       }}
     >
       <CardContent>
-        <Typography variant="body3" fontFamily={theme.typography.fontFamily}>
+        <Typography variant="body3" >
           Revolutionise your online presencewith our exclusivebundle. The{" "}
           <Link style={{ textDecoration: "none" }} to={`/digitalaccelerator`}>
             {" "}

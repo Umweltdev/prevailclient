@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import theme from "../../theme";
+// import theme from "../../theme";
 import AccordionUsage from "../ReusedComponents/Accordion";
 import {
   Balance,
@@ -36,7 +36,7 @@ const useStyles = makeStyles({
     backgroundImage: gradient,
     WebkitBackgroundClip: "text",
     color: "#884ed9",
-    fontFamily: theme.typography.fontFamily,
+    // fontFamily: theme.typography.fontFamily,
     "@media (max-width: 600px)": {
       fontSize: 20,
       textAlign: "center",

@@ -22,11 +22,12 @@ const drawerWidth = 240;
 const navItems = [
   "About",
   "Services",
-  { path: "/Services/digitalaccelerator", label: "Digital Accelerator" },
+  // { path: "/Services/digitalaccelerator", label: "Digital Accelerator" },
   "Portfolio",
   "Blog",
   "Contact",
-  "Sign Up",
+  { path: "/user/profile", label: "Dashboard" },
+  "SignUp",
 ];
 
 function AppBarOne() {

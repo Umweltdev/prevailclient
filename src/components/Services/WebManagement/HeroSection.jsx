@@ -51,6 +51,7 @@ const HeroSection = () => {
           justifyContent: "space-between",
           alignItems: "center",
           gap: "1vw",
+          height: "60vh"
         },
       }}
     >

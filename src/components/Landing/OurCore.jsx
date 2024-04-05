@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./style.css";
 import { slides as initialSlides } from "./assets/LandingData";
+import { Link } from "react-router-dom";
 
 const OurCore = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -59,7 +60,7 @@ const OurCore = () => {
     return description;
   };
 
-  // console.log(slides[currentSlide]);
+  const thumbnailIndex = (currentSlide + 1) % slides.length;
 
   return (
     <div
@@ -78,12 +79,16 @@ const OurCore = () => {
           >
             <img src={slides[currentSlide].image} alt={slide.title} />
             <div className="content">
-              <p className="title">Our Core Values</p>
+              <p className="author">Resources</p>
               <div className="topic">{slides[currentSlide].topic}</div>
               <div className="des">{slides[currentSlide].description}</div>
               <div className="buttons">
-                <button>SEE MORE</button>
-                <button>SUBSCRIBE</button>
+                <Link className="theLink" to={`/Services/${index}`}>
+                  SEE MORE
+                </Link>
+                <Link className="theLinkTwo" to={`/Services/${index}`}>
+                  SUBSCRIBE
+                </Link>
               </div>
             </div>
           </div>
@@ -92,14 +97,14 @@ const OurCore = () => {
       <div className="thumbnail">
         {slides.map((slide, index) => (
           <div
-            className={`item ${index === currentSlide ? "active" : ""}`}
+            className={`item ${index === thumbnailIndex ? "active" : ""}`}
             key={index}
           >
-            <img src={slide.image} alt={slide.title} />
+            <img src={slides[index].image} alt={slides[index].title} />
             <div className="content">
-              <p className="spanText">{slide.topic}</p>
+              <p className="spanText">{slides[index].topic}</p>
               <p className="normaltext">
-                {truncateDescription(slide.description)}
+                {truncateDescription(slides[index].description)}
               </p>
             </div>
           </div>
@@ -110,10 +115,12 @@ const OurCore = () => {
         <button id="prev" onClick={prevSlide}>
           {"<"}
         </button>
+
         <button id="next" onClick={nextSlide}>
           {">"}
         </button>
       </div>
+
       <div className="time"></div>
     </div>
   );

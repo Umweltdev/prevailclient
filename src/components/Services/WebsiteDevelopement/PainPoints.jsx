@@ -77,6 +77,7 @@ const PainPoint = () => {
             "@media (max-width: 600px)": {
               fontSize: "6vw",
               margin: "2vh 0",
+              textAlign: "center"
             },
           }}
         >
@@ -91,7 +92,7 @@ const PainPoint = () => {
             width: "37vw",
             "@media (max-width: 600px)": {
               fontSize: "4vw",
-              textAlign: "justify",
+              textAlign: "center",
               width: "95vw",
             },
           }}

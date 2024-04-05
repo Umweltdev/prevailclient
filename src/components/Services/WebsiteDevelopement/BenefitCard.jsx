@@ -123,10 +123,12 @@ const BenefitCard = () => {
             justifyContent: "center",
             alignItems: "center",
             "@media (max-width: 600px)": {
-              width: 350,
-              height: "auto",
+              width: "90vw",
+              height: "unset",
               background: "#fff",
               color: "black",
+              padding: "2vh",
+              boxShadow: "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;"
             },
           }}
         >
@@ -140,7 +142,7 @@ const BenefitCard = () => {
               fontWeight="900"
               sx={{
                 "@media (max-width: 600px)": {
-                  fontSize: "4vw",
+                  fontSize: "5vw",
                   mb: "1vh",
                 },
               }}
@@ -149,7 +151,13 @@ const BenefitCard = () => {
             </Typography>
 
             <Typography
-              sx={{ fontSize: "1.1vw" }}
+              sx={{
+                fontSize: "1.1vw",
+                "@media (max-width: 600px)": {
+                  fontSize: "4vw",
+                  mb: "1vh",
+                },
+              }}
               variant="body2"
               textAlign="center"
             >

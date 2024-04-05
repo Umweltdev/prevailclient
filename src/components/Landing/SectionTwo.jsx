@@ -29,10 +29,11 @@ const SectionTwo = () => {
       sx={{
         width: "90vw",
         display: "flex",
+        height: "100vh",
         justifyContent: "space-between",
         alignItems: "center",
         gap: "10vw",
-        margin: "10vh auto 0 auto",
+        margin: "10vh auto",
         "@media (max-width: 600px)": {
           width: "95vw",
           flexDirection: "column",

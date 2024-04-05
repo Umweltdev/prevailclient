@@ -30,7 +30,6 @@ const useStyles = makeStyles({
 });
 
 const Offering = () => {
-  
   return (
     <Grid
       sx={{
@@ -47,44 +46,55 @@ const Offering = () => {
           flexDirection: "column",
           gap: "4vw",
           justifyContent: "center",
-          alignItems: "top",
-          margin: "unset",
+          alignItems: "center",
           backgroundColor: "#7097da",
           padding: "2vh 0",
+          margin: "0 auto",
         },
       }}
     >
-      <Grid sx={{ textAlign: "justify" }}>
-      <Typography
-              sx={{
-                display: "flex",
-                fontSize: "1.8vw",
-                fontWeight: "bold",
-                color: "#494848",
-                marginBottom: "3vh",
-                "@media (max-width: 600px)": {
-                  fontSize: "6vw",
-                  margin: "2vh 0",
-                },
-              }}
-            >
+      <Grid sx={{ textAlign: "center" }}>
+        <Typography
+          sx={{
+            display: "flex",
+            fontSize: "1.8vw",
+            fontWeight: "bold",
+            color: "#494848",
+            marginBottom: "3vh",
+            "@media (max-width: 600px)": {
+              fontSize: "6vw",
+              margin: "2vh 0",
+              textAlign: "center",
+              justifyContent: "center",
+              alignItems: "center",
+              color: "white",
+            },
+          }}
+        >
           Offering
         </Typography>
         <Typography
-              sx={{
-                fontSize: "1.4vw",
-                color: "#636363",
-                marginBottom: "3vh",
-                textAlign: "justify",
-                width: "37vw",
-                "@media (max-width: 600px)": {
-                  fontSize: "4vw",
-                  textAlign: "justify",
-                  width: "95vw",
-                },
-              }}
-            >
-         We are excited to introduce Prevail's groundbreaking "Website Production & Management" service, a strategic initiative designed to empower SMEs and local businesses with a robust online presence that not only captivates but also seamlessly engages with their target audience. Our comprehensive service goes beyond the conventional website development model but a state-of-the-art website.
+          sx={{
+            fontSize: "1.4vw",
+            color: "#636363",
+            marginBottom: "3vh",
+            textAlign: "justify",
+            width: "37vw",
+            "@media (max-width: 600px)": {
+              fontSize: "4vw",
+              textAlign: "center",
+              width: "95vw",
+              margin: "0 auto",
+              color: "white",
+            },
+          }}
+        >
+          We are excited to introduce Prevail's groundbreaking "Website
+          Production & Management" service, a strategic initiative designed to
+          empower SMEs and local businesses with a robust online presence that
+          not only captivates but also seamlessly engages with their target
+          audience. Our comprehensive service goes beyond the conventional
+          website development model but a state-of-the-art website.
         </Typography>
       </Grid>
       <Grid

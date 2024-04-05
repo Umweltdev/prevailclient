@@ -14,12 +14,13 @@ const useStyles = makeStyles((theme) => ({
     padding: "29vh 10vw",
     width: "80vw",
     margin: "auto",
-    // clipPath: "polygon(0 0, 100% 100, 100% 50%, 50% 100%)",
     "@media (max-width: 600px)": {
-      backgroundColor: "#884ed9", // Remove the background color
       borderBottom: "1px solid #FFF", // Add a solid white border at the bottom
       clipPath: "unset",
-      padding: "13vh 0 1vh 0",
+      padding: "unset",
+      margin: "13vh auto 5vh auto",
+      overflow: "unset",
+      width: "100%",
     },
   },
 
@@ -29,37 +30,45 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     gap: "8vw",
-    margin: "auto",
+    margin: "0 auto",
     // padding: "0 10vw",
 
     "@media (max-width: 600px)": {
       display: "unset",
-      flexDiection: "column",
+      flexDirection: "column",
       justifyContent: "center",
       alignItems: "center",
-      gap: "11vw",
+      gap: "unset",
       padding: "unset",
       margin: "0 auto",
+      width: "95vw",
     },
   },
   textContainer: {
     width: "70vw",
     "@media (max-width: 600px)": {
-      width: "100%",
+      width: "95vw",
+      textAlign: "center",
+      margin: '3vh auto'
+      // display: "flex",
+      // flexDirection: "column",
     },
   },
   imageContainer: {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    zIndex: "100",
     "@media (max-width: 600px)": {
-      width: "100vw",
+      width: "95vw",
+      margin: "0 auto"
     },
   },
   textHeader: {
     fontSize: "4vw",
     fontWeight: "900",
+    "@media (max-width: 600px)": {
+      fontSize: "5vw",
+    },
   },
   imago: {
     width: "40vw",
@@ -68,7 +77,7 @@ const useStyles = makeStyles((theme) => ({
     // height: "auto",
     // animation: "$bounce 2s infinite alternate",
     "@media (max-width: 600px)": {
-      width: "70vw",
+      width: "90vw",
     },
   },
   // "@keyframes bounce": {
@@ -129,11 +138,10 @@ const HeroSection = ({ header, text, image }) => {
                 lineHeight: "4vh",
                 color: "#333 ",
                 "@media (max-width: 600px)": {
-                  fontSize: "4.5vw",
+                  fontSize: "4vw",
                   fontWeight: "unset",
-                  width: "95vw",
+                  width: "90vw",
                   lineHeight: "unset",
-                  color: "white",
                   textAlign: "center",
                   margin: "0 auto",
                 },

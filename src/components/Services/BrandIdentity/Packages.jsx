@@ -12,7 +12,7 @@ const Packages = () => {
         justifyContent: "center",
         alignItems: "center",
         "@media (max-width: 600px)": {
-          margin: "1vh auto",
+          margin: "1vh auto 0 auto",
         },
       }}
     >

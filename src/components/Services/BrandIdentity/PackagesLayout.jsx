@@ -32,6 +32,10 @@ const PackagesLayout = ({
         boxShadow: "rgba(0, 0, 0, 0.1) 0px 10px 50px;",
         "@media (max-width: 600px)": {
           marginTop: "1vh",
+          height: "40vh",
+          width: "85vw",
+          boxShadow:
+            "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
         },
       }}
     >
@@ -43,6 +47,9 @@ const PackagesLayout = ({
           alignItems: "center",
           gap: "2vh",
           padding: "3vw 0 ",
+          "@media (max-width: 600px)": {
+            padding: "5vh 2vh",
+          },
         }}
       >
         <Typography textAlign="center" fontWeight="bold">
@@ -74,6 +81,11 @@ const PackagesLayout = ({
             textTransform: "capitalize",
             fontSize: "1vw",
             padding: "1vh 2vw",
+
+            "@media (max-width: 600px)": {
+              fontSize: "4vw",
+              padding: "1vh 2vh",
+            },
           }}
           variant="contained"
           color="primary"

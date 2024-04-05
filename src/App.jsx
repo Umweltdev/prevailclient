@@ -20,7 +20,7 @@ import LoginForm from "./pages/Login";
 
 import Stepper from "./pages/Stepper";
 import MobStepper from "./pages/MobStepper";
-
+import UserDashBoard from "./pages/UserDashboard";
 
 function App() {
   return (
@@ -48,10 +48,12 @@ function App() {
       />
       <Route path="/about/ourWhy" element={<AboutOurWhy />} />
       <Route path="/about/ourSolution" element={<AboutOurSolution />} />
-      <Route path="/Sign Up" element={<SignUpForm />} />
+      <Route path="/SignUp" element={<SignUpForm />} />
       <Route path="/Login" element={<LoginForm />} />
       <Route path="/Stepper" element={<Stepper />} />
       <Route path="/MobStepper" element={<MobStepper />} />
+      <Route path="/UserDashboard" element={<UserDashBoard />} />
+      <Route path="/user/*" element={<UserDashBoard />} />
     </Routes>
   );
 }

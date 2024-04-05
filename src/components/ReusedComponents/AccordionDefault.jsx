@@ -5,7 +5,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Grid } from "@mui/material";
-import theme from "../../theme";
+// import theme from "../../theme";
 
 export default function AccordionExpandDefault() {
   return (

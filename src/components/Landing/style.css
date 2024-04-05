@@ -21,6 +21,7 @@ header {
   align-items: center;
   position: relative;
   z-index: 100;
+  font-family: "Sarabun", sans-serif;
 }
 
 header a {
@@ -31,14 +32,12 @@ header a {
 /* carousel */
 
 .carousel {
-  height: 100vh;
-  /* margin-top: -50px; */
+  height: 110vh;
   width: 100vw;
   overflow: hidden;
   position: relative;
-  background-color: rgba(0, 0, 0, 0.5);
   margin: 15vh 0;
-  font-family: Sarabun, sans-serif;
+  font-family: "Sarabun", sans-serif;
 }
 
 .carousel .list .item {
@@ -46,7 +45,7 @@ header a {
   height: 100%;
   position: absolute;
   inset: 0 0 0 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  font-family: "Sarabun", sans-serif;
 }
 
 .carousel .list .item img {
@@ -71,40 +70,73 @@ header a {
 .carousel .list .item .author {
   font-weight: bold;
   letter-spacing: 10px;
-  color: #884ed9;
+  color: #fff;
+  font-family: "Sarabun", sans-serif;
 }
 
 .carousel .list .item .title,
 .carousel .list .item .topic {
-  font-size: 2em;
+  font-size: 4.5em;
   font-weight: bold;
   line-height: 1.3em;
+  width: 50vw;
+  font-family: "Sarabun", sans-serif;
 }
 
 .carousel .list .item .topic {
   color: #884ed9;
+  font-family: "Sarabun", sans-serif;
 }
 
 .carousel .list .item .buttons {
   display: grid;
-  grid-template-columns: repeat(2, 130px);
+  grid-template-columns: repeat(2, 200px);
   grid-template-rows: 40px;
   gap: 5px;
   margin-top: 20px;
 }
 
-.carousel .list .item .buttons button {
+/* .carousel .list .item .buttons Link {
   border: none;
-  background-color: #ffffff;
+  background-color: white;
   letter-spacing: 3px;
   font-family: Poppins;
   font-weight: 500;
+  border-radius: 5vw;
+  color: #884ed9;
+} */
+
+.theLink {
+  border: none;
+  background-color: white;
+  letter-spacing: 3px;
+  /* font-family: Poppins; */
+  font-weight: 500;
+  border-radius: 5vw;
+  color: #884ed9;
+  text-align: center;
+  padding: 1vh 3vw;
+  text-decoration: none;
+  font-family: "Sarabun", sans-serif;
+}
+
+.theLinkTwo {
+  background-color: transparent;
+  border: 1px solid #884ed9;
+  color: #fff;
+  border-radius: 5vw;
+  text-align: center;
+  padding: 1vh 3vw;
+  text-decoration: none;
+  font-family: "Sarabun", sans-serif;
 }
 
 .carousel .list .item .buttons button:nth-child(2) {
   background-color: transparent;
-  border: 1px solid #fff;
-  color: #ffffff;
+  border: 1px solid #884ed9;
+  color: #fff;
+  border-radius: 5vw;
+  font-family: "Sarabun", sans-serif;
 }
 
 .thumbnail {
@@ -122,7 +154,6 @@ header a {
   height: 220px;
   flex-shrink: 0;
   position: relative;
-  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 20px;
 }
 .thumbnail .item img {
@@ -130,7 +161,6 @@ header a {
   height: 100%;
   object-fit: cover;
   border-radius: 20px;
-  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .thumbnail .item .content {
@@ -139,7 +169,7 @@ header a {
   bottom: 10px;
   left: 10px;
   right: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
+
   padding: 1vw;
 }
 
@@ -154,7 +184,7 @@ header a {
 
 .arrows {
   position: absolute;
-  top: 80%;
+  margin-top: -5vh;
   right: 52%;
   z-index: 100;
   width: 300px;
@@ -171,7 +201,7 @@ header a {
   background-color: #eee4;
   border: none;
   color: #fff;
-  font-family: monospace;
+  /* font-family: monospace; */
   font-weight: bold;
   transition: 0.5s;
 }
@@ -361,9 +391,7 @@ header a {
     font-size: 9vw !important;
   }
 
-
-
-  .title {
+  /* .title {
     font-weight: 500;
     font-size: 5vw !important;
   }
@@ -382,7 +410,46 @@ header a {
   .normaltext {
     font-size: 3vw !important;
     color: white;
+  } */
+
+  .carousel {
+    height: 95vh;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+    margin: 15vh 0;
+    font-family: Sarabun, sans-serif;
   }
+
+  .arrows {
+    position: absolute;
+    margin-top: 1vh;
+    right: 52%;
+    z-index: 100;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .carousel .list .item .buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 130px);
+    grid-template-rows: 40px;
+    gap: 5px;
+    margin-top: 20px;
+  }
+
+  .des {
+    width: 80vw !important;
+    font-family: "Sarabun", sans-serif;
+  }
+}
+
+.des {
+  width: 60vw !important;
+  font-family: "Sarabun", sans-serif;
 }
 
 .spanText {

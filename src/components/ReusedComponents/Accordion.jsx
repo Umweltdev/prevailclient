@@ -17,7 +17,7 @@ import {
   TipsAndUpdates,
   Workspaces,
 } from "@mui/icons-material";
-import theme from "../../theme";
+// import theme from "../../theme";
 
 const goalsObj = [
   {
@@ -94,7 +94,7 @@ export default function AccordionUsage() {
         backgroundColor: "white",
         padding: "2vw",
         borderRadius: "1vw",
-        fontFamily: theme.typography.fontFamily,
+        // fontFamily: theme.typography.fontFamily,
         boxShadow: "rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
       }}
     >
@@ -104,7 +104,7 @@ export default function AccordionUsage() {
           key={index}
           sx={{
             width: "50vw",
-            fontFamily: theme.typography.fontFamily,
+            // fontFamily: theme.typography.fontFamily,
             "@media (max-width: 600px)": {
               width: "95vw",
             },
@@ -130,7 +130,7 @@ export default function AccordionUsage() {
               sx={{
                 margin: "auto",
                 fontSize: "1.6vw",
-                fontFamily: theme.typography.fontFamily,
+                // fontFamily: theme.typography.fontFamily,
                 "@media (max-width: 600px)": {
                   fontSize: "4vw",
                   fontWeight: "unset",
@@ -145,7 +145,7 @@ export default function AccordionUsage() {
             sx={{
               textAlign: "justify",
               textJustify: "distribute",
-              fontFamily: theme.typography.fontFamily,
+              // fontFamily: theme.typography.fontFamily,
               "@media (max-width: 600px)": {
                 fontSize: "4vw",
               },

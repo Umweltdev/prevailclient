@@ -36,7 +36,7 @@ header a {
   width: 100vw;
   overflow: hidden;
   position: relative;
-  background-color: rgba(0, 0, 0, 0.5);
+  
   /* margin: 15vh 0; */
   font-family: Sarabun, sans-serif;
 }
@@ -72,7 +72,7 @@ header a {
 .carousel1 .list .item .author {
   font-weight: bold;
   letter-spacing: 10px;
-  color: #884ed9;
+  color: #fff;
 }
 
 .carousel1 .list .item .title,
@@ -88,7 +88,7 @@ header a {
 
 .carousel1 .list .item .buttons {
   display: grid;
-  grid-template-columns: repeat(2, 130px);
+  grid-template-columns: repeat(2, 160px);
   grid-template-rows: 40px;
   gap: 5px;
   margin-top: 20px;
@@ -96,16 +96,21 @@ header a {
 
 .carousel1 .list .item .buttons button {
   border: none;
-  background-color: #ffffff;
+  background-color: #884ed9;
   letter-spacing: 3px;
-  font-family: Poppins;
+  /* font-family: Poppins; */
   font-weight: 500;
+  color: white;
+  border-radius: 5vw;
+  
 }
 
 .carousel1 .list .item .buttons button:nth-child(2) {
   background-color: transparent;
-  border: 1px solid #fff;
-  color: #ffffff;
+  border: 1px solid #884ed9;
+  color: #884ed9;
+  border-radius: 5vw;
+  
 }
 
 .thumbnail {
@@ -123,7 +128,7 @@ header a {
   height: 220px;
   flex-shrink: 0;
   position: relative;
-  background-color: rgba(0, 0, 0, 0.5);
+  
   border-radius: 20px;
 }
 .thumbnail .item img {
@@ -131,7 +136,7 @@ header a {
   height: 100%;
   object-fit: cover;
   border-radius: 20px;
-  background-color: rgba(0, 0, 0, 0.5);
+  
 }
 
 .thumbnail .item .content {
@@ -140,7 +145,7 @@ header a {
   bottom: 10px;
   left: 10px;
   right: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
+  
   padding: 1vw;
 }
 
@@ -172,7 +177,7 @@ header a {
   background-color: #eee4;
   border: none;
   color: #fff;
-  font-family: monospace;
+  /* font-family: monospace; */
   font-weight: bold;
   transition: 0.5s;
 }
@@ -359,7 +364,7 @@ header a {
     width: 100vw;
     overflow: hidden;
     position: relative;
-    background-color: rgba(0, 0, 0, 0.5);
+    
     margin: 5vh 0;
     font-family: Sarabun, sans-serif;
   }

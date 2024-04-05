@@ -30,12 +30,13 @@ const useStyles = makeStyles({
   imageBrand: {
     width: "37vw",
     borderRadius: "1vw",
-    boxShadow: "rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px"
+    boxShadow:
+      "rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px",
   },
 });
 
 const ServiceDetails3 = () => {
-  const classes = useStyles()
+  const classes = useStyles();
   return (
     <Grid
       sx={{
@@ -52,14 +53,15 @@ const ServiceDetails3 = () => {
           flexDirection: "column",
           gap: "4vw",
           justifyContent: "center",
-          alignItems: "top",
-          margin: "unset",
+          alignItems: "center",
+          margin: "5vh auto",
           backgroundColor: "#7097da",
           padding: "2vh 0",
+          color: "white",
         },
       }}
     >
-      <Grid sx={{ textAlign: "justify" }}>
+      <Grid sx={{ textAlign: "center" }}>
         <Typography
           sx={{
             display: "flex",
@@ -69,7 +71,11 @@ const ServiceDetails3 = () => {
             marginBottom: "3vh",
             "@media (max-width: 600px)": {
               fontSize: "6vw",
-              margin: "2vh 0",
+              margin: "2vh auto",
+              textAlign: "center",
+              justifyContent: 'center',
+              alignItems: 'center',
+              color: "white"
             },
           }}
         >
@@ -84,8 +90,9 @@ const ServiceDetails3 = () => {
             width: "37vw",
             "@media (max-width: 600px)": {
               fontSize: "4vw",
-              textAlign: "justify",
-              width: "95vw",
+              textAlign: "center",
+              width: "90vw",
+              color: "white"
             },
           }}
         >

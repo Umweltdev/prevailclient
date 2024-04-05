@@ -1,47 +1,53 @@
 import { createTheme } from "@mui/material/styles";
 
-const palette = {
-  primary: {
-    light: "#d6c0ee",
-    main: "#a16ad9",
-    dark: "#40009f",
-    contrastText: "#ffffff",
+export const theme = createTheme({
+  palette: {
+    mode: "light",
+    primary: {
+      main: "#eb8510",
+    },
   },
-  secondary: {
-    light: "#c3d2ef",
-    main: "#7097da",
-    dark: "#003994",
-    contrastText: "#ffffff",
+  typography: {
+    fontFamily: ["Sarabun", "sans-serif"].join(","),
+    fontSize: 14,
+    h5: {
+      fontWeight: 700,
+      fontSize: "25px",
+      lineHeight: 1,
+    },
+    h6: {
+      fontWeight: 600,
+      fontSize: "20px",
+      lineHeight: 1,
+    },
+    body2: {
+      fontWeight: 600,
+      fontSize: "16px",
+      lineHeight: 1.5,
+    },
+    body1: {
+      fontWeight: 400,
+      fontSize: "16px",
+      lineHeight: 1.5,
+    },
+    subtitle1: {
+      fontWeight: 600,
+      fontSize: "14px",
+      lineHeight: 1.5,
+    },
+    subtitle2: {
+      fontWeight: 400,
+      fontSize: "14px",
+      lineHeight: 1.5,
+    },
   },
-  other: {
-    light: "#efe6f9",
-    main: "#884ed9",
-    dark: "#3101ae",
-    contrastText: "#ffffff",
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 968,
+      lg: 1250,
+      xl: 1536,
+    },
   },
-};
-
-const typography = {
-  // fontFamily: "Quando, serif",
-
-  // Weight
-  fontWeightLight: 300,
-  fontWeightRegular: 400,
-  fontWeightMedium: 500,
-  fontWeightBold: 700,
-
-  // Size
-  fontSizeSmall: 12,
-  fontSize: 16,
-  fontSizeMedium: 22,
-  fontSizeBig: 32,
-  fontSizeSubHeader: 45,
-  fontSizeHeader: 57,
-};
-
-const theme = createTheme({
-  palette,
-  typography,
 });
-
-export default theme;

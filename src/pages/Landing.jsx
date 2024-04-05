@@ -21,8 +21,9 @@ const Landing = () => {
       <Hero />
       <SectionTwo />
       {/* <SectionThree /> */}
-      <OurCore />
       <YourTools />
+      <OurCore />
+
       <SectionSeven />
       <SectionFour />
       <FooterNew />

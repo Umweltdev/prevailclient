@@ -13,7 +13,7 @@ const useStyles = makeStyles({
     // float: "left",
     // shapeOutside: "inset(1% round 50%)",
     "@media (max-width: 600px)": {
-      width: "80vw",
+      width: "90vw",
       height: "unset",
     },
   },
@@ -47,7 +47,12 @@ const PainPoint = ({ header, text, image }) => {
       />
       <Grid>
         <Typography
-          sx={{ fontSize: "2.5vw", fontWeight: "900", color: "#884ed9" }}
+          sx={{
+            fontSize: "2.5vw",
+            fontWeight: "900",
+            color: "#884ed9",
+            "@media (max-width: 600px)": { fontSize: "6vw", marginTop: "3vh" },
+          }}
         >
           Pain Points
         </Typography>
@@ -62,6 +67,7 @@ const PainPoint = ({ header, text, image }) => {
               width: "90vw",
               textAlign: "justify",
               textJustify: "distribute",
+              mb: "3vh"
             },
           }}
         >

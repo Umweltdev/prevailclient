@@ -38,22 +38,23 @@ const HeroSection = () => {
         width: "80vw",
         display: "flex",
         // margin: "15vh auto",
-        margin: "30vh auto 0 auto",
+        margin: "10vh auto 0 auto",
         justifyContent: "space-between",
         alignItems: "center",
         gap: "7vw",
+        height: "100vh",
         "@media (max-width: 600px)": {
           width: "95vw",
+          height: "60vh",
           flexDirection: "column",
-          marginBottom: "1vh",
-          // gap: "5vw",
+          marginBottom: "unset",
+          margin: "15vh auto 0 auto",
           justifyContent: "space-between",
           alignItems: "center",
           gap: "1vw",
         },
       }}
     >
-     
       <Grid
         sx={{
           width: "40vw",

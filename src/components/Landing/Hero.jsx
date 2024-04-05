@@ -2,7 +2,7 @@ import Navbar from "../Navbar/Navbar";
 import BasicButtons from "../ReusedComponents/Button";
 import "./assets/landing.css";
 import { motion } from "framer-motion";
-import theme from "../../theme";
+// import theme from "../../theme";
 import { useNavigate } from "react-router-dom";
 
 let easing = [0.6, -0.05, 0.01, 0.99];
