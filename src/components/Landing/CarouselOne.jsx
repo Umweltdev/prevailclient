@@ -46,7 +46,7 @@ const useStyles = makeStyles({
       width: "95vw",
       height: "30vh",
       objectFit: "cover",
-      borderRadius: "1vw",
+      borderRadius: "5vw",
     },
   },
 });
@@ -55,7 +55,7 @@ function CarouselOne() {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const [isOverlayVisible, setIsOverlayVisible] = React.useState(false);
-  const classes = useStyles()
+  const classes = useStyles();
 
   const handleStepChange = (step) => {
     setActiveStep(step);
@@ -116,7 +116,7 @@ function CarouselOne() {
             textAlign: "justify",
             "@media (max-width: 600px)": {
               fontSize: "4vw",
-              textJustify: "distribute",
+              textAlign: "unset",
               mb: "1vh",
             },
           }}
@@ -164,7 +164,8 @@ function CarouselOne() {
               fontSize: "4vw",
               padding: "1vh 10vw",
               textJustify: "distribute",
-              mb: "4vh",
+              margin: "1vh 0",
+              mb: "6vh",
             },
           }}
         >
@@ -216,8 +217,7 @@ function CarouselOne() {
                   fontSize: "1vw",
                   "@media (max-width: 600px)": {
                     fontSize: "4vw",
-                    textAlign: "justify",
-                    textJustify: "center",
+                   
                   },
                 }}
               >
@@ -255,8 +255,9 @@ function CarouselOne() {
               alignItems: "center",
               justifyContent: "center",
               backdropFilter: "blur(0px)",
-              borderRadius: "1vw",
+              borderRadius: "5vw",
               flexDirection: "column",
+
               "@media (max-width: 600px)": { width: "95vw", height: "30vh" },
             }}
           ></Grid>

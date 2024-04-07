@@ -19,10 +19,10 @@ const About = () => {
       {/* <SectionOne /> */}
       <SectionTwo />
        <SectionFour />
-       <br /><br /><hr />
+      <hr />
        <Solutions />
        <SectionFive />
-      <br /><br /> <hr />
+      <hr />
       <SectionThree />
       <FooterNew />
     </div>

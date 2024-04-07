@@ -41,7 +41,7 @@ const PainPoint = ({ header, text, image }) => {
           backgroundColor: "white",
           justifyContent: "center",
           alignItems: "center",
-          padding: "1vh 0",
+          padding: "5vh 0",
           color: "#333",
           height: "100vh",
         },
@@ -61,6 +61,7 @@ const PainPoint = ({ header, text, image }) => {
             "@media (max-width: 600px)": {
               fontSize: "7vw",
               color: "#333",
+              margin: "4vh 0 0 0"
             },
           }}
         >
@@ -74,7 +75,7 @@ const PainPoint = ({ header, text, image }) => {
             textJustify: "distribute",
             color: "#fff",
             "@media (max-width: 600px)": {
-              fontSize: "4.5vw",
+              fontSize: "4vw",
               width: "90vw",
               textAlign: "justify",
               textJustify: "distribute",

@@ -23,8 +23,7 @@ const useStyles = makeStyles({
     boxShadow:
       "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
     "@media (max-width: 600px)": {
-      width: "95vw",
-      height: "unset",
+      display: "none",
     },
   },
 });
@@ -50,10 +49,10 @@ const Solutions = () => {
           justifyContent: "space-between",
           alignItems: "center",
           gap: "1vw",
+          margin: "2vh auto 0 auto",
         },
       }}
     >
-     
       <Grid
         sx={{
           width: "40vw",
@@ -71,7 +70,7 @@ const Solutions = () => {
             marginBottom: "3vh",
             "@media (max-width: 600px)": {
               fontSize: "6vw",
-              margin: "2vh 0",
+              margin: "1vh 0",
             },
           }}
         >
@@ -88,16 +87,23 @@ const Solutions = () => {
               fontSize: "4vw",
               textAlign: "justify",
               width: "95vw",
+              marginBottom: "0vh",
             },
           }}
         >
-          This is where Prevail takes centre stage. We specialise in working closely with SMEs and local businesses, empowering them to differentiate themselves and position their brand effectively in front of their target audience. We believe in forging strong partnerships with our clients to develop tailored solutions that maximise both short-term and long-term growth. Our distinctive competencies lie in our seamless integration of automation, data analysis, and marketing strategies.
+          This is where Prevail takes centre stage. We specialise in working
+          closely with SMEs and local businesses, empowering them to
+          differentiate themselves and position their brand effectively in front
+          of their target audience. We believe in forging strong partnerships
+          with our clients to develop tailored solutions that maximise both
+          short-term and long-term growth. Our distinctive competencies lie in
+          our seamless integration of automation, data analysis, and marketing
+          strategies.
         </Typography>
       </Grid>
       <img
         className={classes.imageInit}
-        style={{}}
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShedynUjYH5YHcFMDXBp-N6Eyw3_9fQU5VjN1ullVUeg&s"
+        src="https://img.freepik.com/free-photo/server-energy-consumption-monitoring_482257-75934.jpg?w=826"
         alt=""
       />
     </Grid>

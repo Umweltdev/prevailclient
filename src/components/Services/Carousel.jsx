@@ -126,7 +126,7 @@ function Carousel() {
       sx={{
         padding: "20vh 0 0 0",
         "@media (max-width: 600px)": {
-          padding: "13vh 0 0 0",
+          padding: "5vh 0 0 0",
           margin: "0 auto",
         },
       }}
@@ -196,8 +196,6 @@ function Carousel() {
                 marginTop: "1vh",
                 lineHeight: "unset",
                 height: "unset",
-                textAlign: "justify",
-                textJustify: "distribute",
               },
             }}
           >
@@ -271,6 +269,7 @@ function Carousel() {
             width: "83vw",
             flexWrap: "wrap",
             margin: "0 auto",
+            marginTop: "-7vh"
           },
         }}
       >

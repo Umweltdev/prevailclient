@@ -382,13 +382,27 @@ header a {
 }
 
 @media screen and (max-width: 678px) {
+
   .carousel .list .item .content {
     padding-right: 0;
   }
 
   .carousel .list .item .topic {
     color: #884ed9;
-    font-size: 9vw !important;
+    font-size: 8vw !important;
+    width: 95vw
+  }
+
+  .theLink {
+    font-size: 3vw;
+    padding: 1vh 3vw;
+    height: 4vh;
+  }
+
+  .theLinkTwo {
+    font-size: 3vw;
+    padding: 1vh 3vw;
+    height: 4vh;
   }
 
   /* .title {
@@ -417,7 +431,7 @@ header a {
     width: 100vw;
     overflow: hidden;
     position: relative;
-    margin: 15vh 0;
+    margin: 1vh 0;
     font-family: Sarabun, sans-serif;
   }
 
@@ -442,7 +456,7 @@ header a {
   }
 
   .des {
-    width: 80vw !important;
+    width: 90vw !important;
     font-family: "Sarabun", sans-serif;
   }
 }
