@@ -23,8 +23,7 @@ const useStyles = makeStyles({
     boxShadow:
       "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
     "@media (max-width: 600px)": {
-      width: "95vw",
-      height: "unset",
+      display: "none",
     },
   },
 });
@@ -43,6 +42,7 @@ const SectionFour = () => {
         alignItems: "center",
         gap: "7vw",
         "@media (max-width: 600px)": {
+          margin: "0 auto",
           width: "95vw",
           flexDirection: "column",
           marginBottom: "1vh",
@@ -53,7 +53,7 @@ const SectionFour = () => {
         },
       }}
     >
-     <img
+      <img
         className={classes.imageInit}
         style={{}}
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaDu3kkFF00jEXnh7hoioYHH_74oK5Lfn22eBytczPouJudRWqzNumfNDOrQxCZrXkQMc&usqp=CAU"
@@ -93,13 +93,19 @@ const SectionFour = () => {
               fontSize: "4vw",
               textAlign: "justify",
               width: "95vw",
+              marginTop: "2vh"
             },
           }}
         >
-        Our paramount concern is the current trend where large enterprises tend to dominate the digital landscape. 
-        They often do so by employing full-time programmers and have the financial capacity to invest in a plethora of SaaS solutions. 
-        Regrettably, this trend leads to a rapid erosion of market share for local businesses and SMEs, often catching them in financial distress before they even realise it. 
-        The stark reality is that local businesses and SMEs find it challenging to outcompete these industry giants and are losing their market share within their respective sectors.
+          Our paramount concern is the current trend where large enterprises
+          tend to dominate the digital landscape. They often do so by employing
+          full-time programmers and have the financial capacity to invest in a
+          plethora of SaaS solutions. Regrettably, this trend leads to a rapid
+          erosion of market share for local businesses and SMEs, often catching
+          them in financial distress before they even realise it. The stark
+          reality is that local businesses and SMEs find it challenging to
+          outcompete these industry giants and are losing their market share
+          within their respective sectors.
         </Typography>
       </Grid>
     </Grid>

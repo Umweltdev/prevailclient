@@ -88,7 +88,7 @@ const Testimonials = () => {
 
         "@media (max-width: 600px)": {
           width: "95vw",
-          height: "82vh",
+          height: "85vh",
           margin: "2vh auto",
           flexDirection: "column",
           background: "#e2ccf7",

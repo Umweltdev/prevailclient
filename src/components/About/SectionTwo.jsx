@@ -45,6 +45,7 @@ const SectionTwo = () => {
         "@media (max-width: 600px)": {
           width: "95vw",
           flexDirection: "column",
+          margin: "13vh auto 0 auto",
           marginBottom: "1vh",
           // gap: "5vw",
           justifyContent: "space-between",
@@ -53,7 +54,6 @@ const SectionTwo = () => {
         },
       }}
     >
-     
       <Grid
         sx={{
           width: "40vw",
@@ -91,12 +91,19 @@ const SectionTwo = () => {
             },
           }}
         >
-          Understanding the nuances of marketing budgets and effective strategies is essential to businesses. 
-          The costs associated with marketing can vary significantly, contingent on factors like a company's marketing budget, 
-          specific goals, and the number of marketing channels they choose to employ. 
-          It is a well-established industry guideline that businesses should allocate between 15% and 20% of their sales towards marketing expenses. 
-          However, the ultimate allocation hinges on a company's unique budget size, marketing strategy, ambition, and the manner in which it intends to utilise its marketing resources. 
-          That is why understanding the nuances of our market share, budgets, and effects is essential in a company’s strategy to promote themselves to their right & unique target audiences.
+          Understanding the nuances of marketing budgets and effective
+          strategies is essential to businesses. The costs associated with
+          marketing can vary significantly, contingent on factors like a
+          company's marketing budget, specific goals, and the number of
+          marketing channels they choose to employ. It is a well-established
+          industry guideline that businesses should allocate between 15% and 20%
+          of their sales towards marketing expenses. However, the ultimate
+          allocation hinges on a company's unique budget size, marketing
+          strategy, ambition, and the manner in which it intends to utilise its
+          marketing resources. That is why understanding the nuances of our
+          market share, budgets, and effects is essential in a company’s
+          strategy to promote themselves to their right & unique target
+          audiences.
         </Typography>
       </Grid>
       <img

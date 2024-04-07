@@ -114,7 +114,7 @@ function YourTools() {
           letterSpacing: "1px",
           color: "#484949",
           fontWeight: "900",
-          "@media (max-width: 600px)": { fontSize: "7vw", textAlign: "center" },
+          "@media (max-width: 600px)": { fontSize: "6vw", textAlign: "center" },
         }}
       >
         Our Core Values
@@ -134,7 +134,7 @@ function YourTools() {
             flexDirection: "column",
             justifyContent: "space-between",
             gap: "2vh",
-            "@media (max-width: 600px)": { textAlign: "center", gap: "1vh" },
+            "@media (max-width: 600px)": { textAlign: "left", gap: "1vh" },
           }}
         >
           {images.map((step, index) => (
@@ -150,7 +150,7 @@ function YourTools() {
                     fontSize: "1.3vw",
                     fontWeight: "900",
                     marginRight: "0.5vw",
-                    "@media (max-width: 600px)": { fontSize: "5vw" },
+                    "@media (max-width: 600px)": { fontSize: "3vw", marginRight: "3vh" },
                   }}
                 >
                   {step.smallIcon}
@@ -159,7 +159,7 @@ function YourTools() {
                   sx={{
                     fontSize: "1.3vw",
                     color: "#333",
-                    "@media (max-width: 600px)": { fontSize: "5vw" },
+                    "@media (max-width: 600px)": { fontSize: "4vw" },
                   }}
                 >
                   {step.title}

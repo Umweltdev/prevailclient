@@ -47,7 +47,7 @@ export default function MediaCard({ header, text, img, gradient }) {
         sx={{
           // textJustify: "distribute",
           fontSize: "1.9vw",
-          wordSpacing: "-4px",
+          wordSpacing: "-1px",
           color: "#333",
           margin: "1vh 0",
           // fontWeight: "500",

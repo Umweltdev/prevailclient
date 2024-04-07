@@ -1,9 +1,22 @@
 #!/bin/bash
 
-git add .
+# git add .
 
-git commit -m "second section fix"
+# git commit -m "second section fix"
 
-git push
+# git push
 
-npm run build
+# npm run build
+
+heroku create prevaildigitalmart
+
+rm -rf node_modules 
+
+rm -rf package-lock.json
+
+heroku git:remote -a prevaildigitalmart
+
+npm install
+
+git push heroku main
+

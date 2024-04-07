@@ -36,7 +36,7 @@ header a {
   width: 100vw;
   overflow: hidden;
   position: relative;
-  
+
   /* margin: 15vh 0; */
   font-family: Sarabun, sans-serif;
 }
@@ -102,7 +102,6 @@ header a {
   font-weight: 500;
   color: white;
   border-radius: 5vw;
-  
 }
 
 .carousel1 .list .item .buttons button:nth-child(2) {
@@ -110,7 +109,6 @@ header a {
   border: 1px solid #884ed9;
   color: #884ed9;
   border-radius: 5vw;
-  
 }
 
 .thumbnail {
@@ -128,7 +126,7 @@ header a {
   height: 220px;
   flex-shrink: 0;
   position: relative;
-  
+
   border-radius: 20px;
 }
 .thumbnail .item img {
@@ -136,7 +134,6 @@ header a {
   height: 100%;
   object-fit: cover;
   border-radius: 20px;
-  
 }
 
 .thumbnail .item .content {
@@ -145,7 +142,7 @@ header a {
   bottom: 10px;
   left: 10px;
   right: 10px;
-  
+
   padding: 1vw;
 }
 
@@ -359,12 +356,12 @@ header a {
 
 @media screen and (max-width: 678px) {
   .carousel1 {
-    height: 80vh;
+    height: 100vh;
     /* margin-top: -50px; */
     width: 100vw;
     overflow: hidden;
     position: relative;
-    
+
     margin: 5vh 0;
     font-family: Sarabun, sans-serif;
   }
@@ -375,7 +372,8 @@ header a {
 
   .carousel1 .list .item .topic {
     color: #884ed9;
-    font-size: 9vw !important;
+    font-size: 7vw !important;
+    width: 90vw;
   }
 
   .title {
@@ -386,6 +384,7 @@ header a {
   .des {
     font-size: 3.7vw;
     line-height: 2vh;
+    width: 80vw;
   }
 
   .spanText {
@@ -397,6 +396,32 @@ header a {
   .normaltext {
     font-size: 3vw !important;
     color: white;
+  }
+
+  .carousel1 .list .item .buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 130px);
+    grid-template-rows: 40px;
+    gap: 5px;
+    margin-top: 10px;
+  }
+
+  .carousel1 .list .item .buttons button {
+    border: none;
+    background-color: #884ed9;
+    letter-spacing: 3px;
+    /* font-family: Poppins; */
+    font-weight: 500;
+    color: white;
+    border-radius: 5vw;
+    font-size: 3vw;
+  }
+
+  .carousel1 .list .item .buttons button:nth-child(2) {
+    background-color: transparent;
+    border: 1px solid #884ed9;
+    color: white;
+    border-radius: 5vw;
   }
 }
 

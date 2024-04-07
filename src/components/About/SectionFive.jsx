@@ -50,10 +50,11 @@ const SectionFive = () => {
           justifyContent: "space-between",
           alignItems: "center",
           gap: "1vw",
+          margin: "2vh auto 0 auto",
         },
       }}
     >
-     <img
+      <img
         className={classes.imageInit}
         style={{}}
         src="https://imageio.forbes.com/specials-images/imageserve/61bd343aecd04efd3b8fba2a/problem-solving--solution--systems-thinking--light-bulb/0x0.jpg?format=jpg&crop=2347,1320,x0,y115,safe&width=960"
@@ -93,10 +94,18 @@ const SectionFive = () => {
               fontSize: "4vw",
               textAlign: "justify",
               width: "95vw",
+              marginTop: "2vh"
             },
           }}
         >
-        Our ultimate goal is to enable businesses to thrive, irrespective of economic challenges, by providing innovative and holistic solutions. The Prevail approach is founded on a commitment to levelling the playing field for local businesses facing economic uncertainty. By emphasising collaboration and tailor-made strategies, we ensure that our clients have the tools to compete effectively in a dynamic digital landscape. Our focus is not just on marketing; it is on delivering results, sustaining growth, and prevailing against the odds.
+          Our ultimate goal is to enable businesses to thrive, irrespective of
+          economic challenges, by providing innovative and holistic solutions.
+          The Prevail approach is founded on a commitment to levelling the
+          playing field for local businesses facing economic uncertainty. By
+          emphasising collaboration and tailor-made strategies, we ensure that
+          our clients have the tools to compete effectively in a dynamic digital
+          landscape. Our focus is not just on marketing; it is on delivering
+          results, sustaining growth, and prevailing against the odds.
         </Typography>
       </Grid>
     </Grid>

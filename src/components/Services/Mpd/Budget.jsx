@@ -74,7 +74,7 @@ const Budget = () => {
             fontSize: "1.4vw",
             width: "40vw",
             "@media (max-width: 600px)": {
-              fontSize: "4.5vw",
+              fontSize: "4vw",
               width: "95vw",
               textAlign: "center",
             },

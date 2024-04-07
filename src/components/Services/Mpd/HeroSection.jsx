@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "white",
       color: "#333",
       padding: "15vh 0 1vh 0",
-      height: "65vh",
+      height: "60vh",
     },
   },
   heroContainer: {
@@ -105,12 +105,12 @@ const HeroSection = ({ header, text, image }) => {
                 lineHeight: "4vh",
                 color: "#333",
                 "@media (max-width: 600px)": {
-                  fontSize: "4.5vw",
+                  fontSize: "4vw",
                   fontWeight: "unset",
                   width: "95vw",
                   lineHeight: "unset",
                   color: "#333",
-                  textAlign: "justify",
+                  textAlign: "center",
                   margin: "0 auto",
                 },
               }}

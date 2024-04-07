@@ -84,7 +84,7 @@ export const images = [
       <Label
         sx={{
           fontSize: "5vw",
-          "@media (max-width: 600px)": { fontSize: "10vw" },
+          "@media (max-width: 600px)": { fontSize: "5vw" },
         }}
       />
     ),
@@ -95,7 +95,7 @@ export const images = [
           color: "#884ed9",
           marginTop: "0.5vh",
           "@media (max-width: 600px)": {
-            fontSize: "10vw",
+            fontSize: "6vw",
           },
         }}
       />
@@ -123,7 +123,7 @@ export const images = [
           color: "#884ed9",
           marginTop: "0.5vh",
           "@media (max-width: 600px)": {
-            fontSize: "10vw",
+            fontSize: "6vw",
           },
         }}
       />
@@ -150,7 +150,7 @@ export const images = [
           color: "#884ed9",
           marginTop: "0.5vh",
           "@media (max-width: 600px)": {
-            fontSize: "10vw",
+            fontSize: "6vw",
           },
         }}
       />
@@ -177,7 +177,7 @@ export const images = [
           color: "#884ed9",
           marginTop: "0.5vh",
           "@media (max-width: 600px)": {
-            fontSize: "10vw",
+            fontSize: "6vw",
           },
         }}
       />
