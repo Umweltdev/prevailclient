@@ -12,6 +12,12 @@ const useStyles = makeStyles({
     borderRadius: "1vw",
     boxShadow:
       "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;",
+    "@media (max-width: 600px)": {
+      width: "95vw",
+      height: "30vh",
+      objectFit: "cover",
+      borderRadius: "5vw",
+    },
   },
 });
 
@@ -36,6 +42,9 @@ const usp = () => {
           justifyContent: "center",
           padding: "3vw",
           gap: "4vw",
+          "@media (max-width: 600px)": {
+            flexDirection: "column",
+          },
         }}
       >
         <Grid>
@@ -49,9 +58,9 @@ const usp = () => {
               margin: "0 auto",
 
               "@media (max-width: 600px)": {
-                width: "50vw",
+                width: "95vw",
                 padding: "3vh 0",
-                color: "white",
+                color: "#333",
                 textAlign: "center",
                 fontSize: "4vw",
                 margin: "0 auto",
@@ -87,6 +96,19 @@ const usp = () => {
                 "&:hover": {
                   color: "#884ed9",
                   borderRadius: "1px solid #884ed9",
+                },
+                "@media (max-width: 600px)": {
+                  textTransform: "capitalize",
+                  backgroundColor: "#884ed9",
+                  color: "white",
+                  fontSize: "4vw",
+                  borderRadius: "5vw",
+                  padding: "0.5vw 5vw",
+                  border: "1px solid #884ed9",
+                  marginTop: "4.3vh",
+                  margin: "0 auto",
+                  textAlign: "center",
+                  width: "95vw"
                 },
               }}
             >

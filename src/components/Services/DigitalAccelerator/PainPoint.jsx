@@ -38,7 +38,8 @@ const PainPoint = ({ header, text, image }) => {
           backgroundColor: "white",
           justifyContent: "center",
           alignItems: "center",
-          padding: "2vh 0",
+          padding: "5vh 0",
+          height: "50vh",
         },
       }}
     >
@@ -50,7 +51,14 @@ const PainPoint = ({ header, text, image }) => {
 
       <Grid>
         <Typography
-          sx={{ fontSize: "2.5vw", fontWeight: "900", color: "#884ed9" }}
+          sx={{
+            fontSize: "2.5vw",
+            fontWeight: "900",
+            color: "#884ed9",
+            "@media (max-width: 600px)": {
+              fontSize: "6vw",
+            },
+          }}
         >
           Pain Points
         </Typography>
@@ -58,16 +66,16 @@ const PainPoint = ({ header, text, image }) => {
           sx={{
             fontSize: "1.4vw",
             width: "40vw",
-            lineHeight: '5.5vh',
+            lineHeight: "5.5vh",
             // textAlign: "justify",
             // textJustify: "distribute",
             // color: "white",
             "@media (max-width: 600px)": {
-              fontSize: "4.5vw",
+              fontSize: "4vw",
               width: "90vw",
               textAlign: "justify",
               textJustify: "distribute",
-              
+              lineHeight: "unset",
             },
           }}
         >

@@ -19,12 +19,12 @@ import AutomationSection from "../components/Services/AutomationSection";
 
 const Services = () => {
   return (
-    <div>
+    <div style={{ width: "100%", overflow: "hidden" }}>
       <DrawerAppBarWhite />
       <Carousel />
       <SectionTwo />
       <Platform />
-      <PlatformTwo/>
+      <PlatformTwo />
       <br /> <br /> <br />
       <AutomationSection />
       <br /> <hr /> <br />
@@ -34,3 +34,5 @@ const Services = () => {
 };
 
 export default Services;
+
+// integrative-frog-psyix4zu9vsuaxxqwsapar12.herokudns.com

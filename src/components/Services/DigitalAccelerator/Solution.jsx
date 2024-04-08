@@ -111,7 +111,7 @@ const useStyles = makeStyles({
     boxShadow: "rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;",
     "@media (max-width: 600px)": {
       width: "95vw",
-      height: "50vh",
+      height: "30vh",
       borderRadius: "16px",
     },
   },
@@ -125,6 +125,11 @@ const useStyles = makeStyles({
     boxShadow:
       "rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;",
     borderRadius: "1vw",
+    "@media (max-width: 600px)": {
+      width: "95vw",
+      height: "30vh",
+      borderRadius: "16px",
+    },
   },
 });
 
@@ -188,14 +193,31 @@ function YourTools() {
             flexDirection: "column",
             alignItems: "top",
             // margin: "0 auto",
+            "@media (max-width: 600px)": { width: "100%" },
           }}
         >
           <Typography
-            sx={{ fontSize: "1.8vw", fontWeight: "900", marginBottom: "3vh" }}
+            sx={{
+              fontSize: "1.8vw",
+              fontWeight: "900",
+              marginBottom: "3vh",
+              width: "40vw",
+              "@media (max-width: 600px)": { fontSize: "6vw", width: "95vw" },
+            }}
           >
             {images[activeStep].title}
           </Typography>
-          <Typography sx={{ fontSize: "1.3vw", marginBottom: "3vh" }}>
+          <Typography
+            sx={{
+              fontSize: "1.3vw",
+              marginBottom: "3vh",
+              "@media (max-width: 600px)": {
+                fontSize: "4vw",
+                width: "95vw",
+                marginBottom: "0vh",
+              },
+            }}
+          >
             {images[activeStep].subTitle}
           </Typography>
         </Grid>
@@ -243,12 +265,18 @@ function YourTools() {
               color: activeStep === index ? "#884ed9" : "#333",
               fontWeight: activeStep === index ? "bold" : "none",
               width: "40vw",
+
               "&:hover": {
                 backgroundColor: "#dcdcdc",
                 color: "#333",
                 fontWeight: "bold",
                 borderRadius: "1vh",
                 boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px;",
+              },
+              "@media (max-width: 600px)": {
+                marginTop: "3vh",
+                fontSize: "2.5vw",
+                width: "100vw",
               },
             }}
           >

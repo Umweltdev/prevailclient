@@ -127,13 +127,14 @@ const SectionTwo = () => {
         sx={{
           width: "37vw",
           height: "60vh",
-          borderRadius: "5vw",
+          borderRadius: "1vw",
           objectFit: "cover",
           boxShadow:
             "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
           "@media (max-width: 600px)": {
             width: "95vw",
             height: "unset",
+            borderRadius: "5vw",
           },
         }}
         component="img"

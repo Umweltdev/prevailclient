@@ -6,10 +6,10 @@ import DrawerAppBar from "../components/Navbar/Appbar";
 
 const Blog = () => {
   return (
-    <>
+    <div style={{ width: "100%", overflow: "hidden" }}>
       <DrawerAppBar />
       <SectionOne />
-    </>
+    </div>
   );
 };
 

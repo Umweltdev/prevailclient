@@ -6,11 +6,11 @@ import MobileStepper from "../components/Form/MobileStepper";
 
 const MobStepper = () => {
   return (
-    <>
+    <div style={{ width: "100%", overflow: "hidden" }}>
       <DrawerAppBarWhite />
-      <MobileStepper/>
-      <FooterNew/>
-    </>
+      <MobileStepper />
+      <FooterNew />
+    </div>
   );
 };
 

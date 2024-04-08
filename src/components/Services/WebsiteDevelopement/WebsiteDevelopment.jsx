@@ -9,13 +9,13 @@ import FooterNew from "../../Footer/FooterNew";
 
 const WebsiteDevelopment = () => {
   return (
-    <div>
+    <div style={{ width: "100%", overflow: "hidden" }}>
       <DrawerAppBarWhite />
       <HeroSection />
       <PainPoint />
       {/* <Advantages /> */}
       <Benefits />
-      <FooterNew/>
+      <FooterNew />
     </div>
   );
 };

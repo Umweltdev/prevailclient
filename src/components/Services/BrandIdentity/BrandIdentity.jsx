@@ -13,7 +13,7 @@ import AppBarOne from "../../Navbar/AppbarOne";
 
 const BrandIdentity = () => {
   return (
-    <>
+    <div style={{ width: "100%", overflow: "hidden" }}>
       <DrawerAppBarWhite />
       <HeroSection />
       {/* <br />
@@ -24,7 +24,7 @@ const BrandIdentity = () => {
       <ServiceDetails3 />
       <Packages />
       <FooterNew />
-    </>
+    </div>
   );
 };
 

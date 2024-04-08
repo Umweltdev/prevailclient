@@ -14,8 +14,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { Link, NavLink } from "react-router-dom";
-import wLogo from "./wlogo.png";
-import logo from "./pmmlogo.png";
+import logo from "./pm2.png";
 import { Grid } from "@mui/material";
 
 const drawerWidth = 240;
@@ -78,8 +77,8 @@ function DrawerAppBarWhite() {
         </Link>
       </Typography>
       <Divider />
-      <List>
-        {navItems.map((item) => (
+      {navItems.map((item) => (
+        <List>
           <ListItem key={item.path || item} disablePadding>
             {typeof item === "string" ? (
               <Link
@@ -113,8 +112,8 @@ function DrawerAppBarWhite() {
               </ListItemButton>
             )}
           </ListItem>
-        ))}
-      </List>
+        </List>
+      ))}
     </Box>
   );
 
@@ -205,15 +204,15 @@ function DrawerAppBarWhite() {
               </Link>
             </Typography>
             <Box sx={{ display: { xs: "none", sm: "block" } }}>
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "row",
-                  // justifyContent: "space-between",
-                  alignItems: "center",
-                }}
-              >
-                {navItems.map((item) => (
+              {navItems.map((item) => (
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "row",
+                    // justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
+                >
                   <ListItem key={item.path || item}>
                     {typeof item === "string" ? (
                       <Button
@@ -256,8 +255,8 @@ function DrawerAppBarWhite() {
                       </Button>
                     )}
                   </ListItem>
-                ))}
-              </Box>
+                </Box>
+              ))}
             </Box>
           </Toolbar>
         </AppBar>

@@ -38,7 +38,7 @@ const SectionFive = () => {
         width: "80vw",
         display: "flex",
         // margin: "15vh auto",
-        margin: "10vh auto 0 auto",
+        margin: "10vh auto",
         justifyContent: "space-between",
         alignItems: "center",
         gap: "7vw",

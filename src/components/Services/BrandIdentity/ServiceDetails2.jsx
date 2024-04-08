@@ -11,7 +11,6 @@ const useStyles = makeStyles({
   //   borderRadius: "5px",
   //   boxShadow:
   //     "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
-
   //   "@media (max-width: 600px)": {
   //     width: "unset",
   //     height: "unset",
@@ -30,7 +29,7 @@ const useStyles = makeStyles({
 });
 
 const ServiceDetails2 = () => {
-  const classes = useStyles()
+  const classes = useStyles();
   return (
     <Grid
       sx={{
