@@ -62,6 +62,7 @@ function AppBarOne() {
       onClick={handleDrawerToggle}
       sx={{
         textAlign: "center",
+        color: "#884ed9",
         "@media (max-width: 600px)": { overflow: "hidden" },
       }}
     >
@@ -86,7 +87,7 @@ function AppBarOne() {
                 to={`/${item.toLowerCase()}`}
                 style={{
                   textDecoration: "none",
-                  color: "inherit",
+                  color: "#884ed9",
                   fontFamily: `"Sarabun","sans-serif"`,
                 }}
               >
@@ -103,7 +104,7 @@ function AppBarOne() {
                 <NavLink
                   style={{
                     textDecoration: "none",
-                    color: "inherit",
+                    color: "#884ed9",
                     fontFamily: `"Sarabun","sans-serif"`,
                   }}
                   to={item.path}
@@ -177,7 +178,7 @@ function AppBarOne() {
                   to={`/`}
                   style={{
                     textDecoration: "none",
-                    color: "inherit",
+                    color: "#884ed9",
                     fontFamily: `"Sarabun","sans-serif"`,
                   }}
                 >
@@ -198,7 +199,7 @@ function AppBarOne() {
                 to={`/`}
                 style={{
                   textDecoration: "none",
-                  color: "inherit",
+                  color: "#884ed9",
                 }}
               >
                 <img style={{ height: "10vh" }} src={logo} alt="logo" />
@@ -227,7 +228,7 @@ function AppBarOne() {
                           to={`/${item.toLowerCase()}`}
                           style={{
                             textDecoration: "none",
-                            color: "inherit",
+                            color: "#884ed9",
                             fontFamily: `"Sarabun","sans-serif"`,
                           }}
                         >
@@ -246,7 +247,7 @@ function AppBarOne() {
                         <NavLink
                           style={{
                             textDecoration: "none",
-                            color: "inherit",
+                            color: "#884ed9",
                             fontFamily: `"Sarabun","sans-serif"`,
                           }}
                           to={item.path}
@@ -286,3 +287,5 @@ function AppBarOne() {
 }
 
 export default AppBarOne;
+
+// AppBarOne

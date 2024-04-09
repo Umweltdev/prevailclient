@@ -14,6 +14,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { Link, NavLink } from "react-router-dom";
+import wLogo from "./wlogo.png";
 import logo from "./pm2.png";
 import { Grid } from "@mui/material";
 
@@ -61,6 +62,7 @@ function DrawerAppBarWhite() {
       onClick={handleDrawerToggle}
       sx={{
         textAlign: "center",
+        color: "white",
         "@media (max-width: 600px)": { overflow: "hidden" },
       }}
     >
@@ -72,20 +74,20 @@ function DrawerAppBarWhite() {
           fontFamily: `"Sarabun","sans-serif"`,
         }}
       >
-        <Link to={`/`} style={{ textDecoration: "none", color: "inherit" }}>
+        <Link to={`/`} style={{ textDecoration: "none", color: "white" }}>
           <img style={{ height: "10vh" }} src={logo} alt="logo" />
         </Link>
       </Typography>
       <Divider />
-      {navItems.map((item) => (
-        <List>
+      <List>
+        {navItems.map((item) => (
           <ListItem key={item.path || item} disablePadding>
             {typeof item === "string" ? (
               <Link
                 to={`/${item.toLowerCase()}`}
                 style={{
                   textDecoration: "none",
-                  color: "inherit",
+                  color: "#fff",
                   fontFamily: `"Sarabun","sans-serif"`,
                 }}
               >
@@ -102,7 +104,7 @@ function DrawerAppBarWhite() {
                 <NavLink
                   style={{
                     textDecoration: "none",
-                    color: "inherit",
+                    color: "#fff",
                     fontFamily: `"Sarabun","sans-serif"`,
                   }}
                   to={item.path}
@@ -112,8 +114,8 @@ function DrawerAppBarWhite() {
               </ListItemButton>
             )}
           </ListItem>
-        </List>
-      ))}
+        ))}
+      </List>
     </Box>
   );
 
@@ -176,7 +178,7 @@ function DrawerAppBarWhite() {
                   to={`/`}
                   style={{
                     textDecoration: "none",
-                    color: "inherit",
+                    color: "#fff",
                     fontFamily: `"Sarabun","sans-serif"`,
                   }}
                 >
@@ -197,28 +199,28 @@ function DrawerAppBarWhite() {
                 to={`/`}
                 style={{
                   textDecoration: "none",
-                  color: "inherit",
+                  color: "#fff",
                 }}
               >
                 <img style={{ height: "10vh" }} src={logo} alt="logo" />
               </Link>
             </Typography>
             <Box sx={{ display: { xs: "none", sm: "block" } }}>
-              {navItems.map((item) => (
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexDirection: "row",
-                    // justifyContent: "space-between",
-                    alignItems: "center",
-                  }}
-                >
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  // justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
+                {navItems.map((item) => (
                   <ListItem key={item.path || item}>
                     {typeof item === "string" ? (
                       <Button
                         key={item}
                         sx={{
-                          color: "#884ed9",
+                          color: "#fff",
                           fontWeight: "900",
                         }}
                       >
@@ -226,7 +228,7 @@ function DrawerAppBarWhite() {
                           to={`/${item.toLowerCase()}`}
                           style={{
                             textDecoration: "none",
-                            color: "inherit",
+                            color: "#fff",
                             fontFamily: `"Sarabun","sans-serif"`,
                           }}
                         >
@@ -237,7 +239,7 @@ function DrawerAppBarWhite() {
                       <Button
                         key={item.path}
                         sx={{
-                          color: "#884ed9",
+                          color: "#fff",
                           fontWeight: "900",
                           fontFamily: `"Sarabun","sans-serif"`,
                         }}
@@ -245,7 +247,7 @@ function DrawerAppBarWhite() {
                         <NavLink
                           style={{
                             textDecoration: "none",
-                            color: "inherit",
+                            color: "#fff",
                             fontFamily: `"Sarabun","sans-serif"`,
                           }}
                           to={item.path}
@@ -255,8 +257,8 @@ function DrawerAppBarWhite() {
                       </Button>
                     )}
                   </ListItem>
-                </Box>
-              ))}
+                ))}
+              </Box>
             </Box>
           </Toolbar>
         </AppBar>
@@ -285,3 +287,5 @@ function DrawerAppBarWhite() {
 }
 
 export default DrawerAppBarWhite;
+
+// DrawerAppBarWhite;
