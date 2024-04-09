@@ -25,9 +25,11 @@ const SectionSeven = () => {
       <div>
         <CarouselOne />
       </div>
-      <div>
-        <img className={classes.imageCarousel} src={images} alt="" />
-      </div>
+
+      <spline-viewer
+        loading-anim-type="spinner-small-light"
+        url="https://prod.spline.design/a8Fys5Ccl0bJRiwt/scene.splinecode"
+      ></spline-viewer>
     </div>
   );
 };
