@@ -62,7 +62,7 @@ function DrawerAppBarWhite() {
       onClick={handleDrawerToggle}
       sx={{
         textAlign: "center",
-        color: "#884ed9",
+        color: "white",
         "@media (max-width: 600px)": { overflow: "hidden" },
       }}
     >
@@ -74,7 +74,7 @@ function DrawerAppBarWhite() {
           fontFamily: `"Sarabun","sans-serif"`,
         }}
       >
-        <Link to={`/`} style={{ textDecoration: "none", color: "inherit" }}>
+        <Link to={`/`} style={{ textDecoration: "none", color: "white" }}>
           <img style={{ height: "10vh" }} src={logo} alt="logo" />
         </Link>
       </Typography>
@@ -87,7 +87,7 @@ function DrawerAppBarWhite() {
                 to={`/${item.toLowerCase()}`}
                 style={{
                   textDecoration: "none",
-                  color: "#884ed9",
+                  color: "#fff",
                   fontFamily: `"Sarabun","sans-serif"`,
                 }}
               >
@@ -104,7 +104,7 @@ function DrawerAppBarWhite() {
                 <NavLink
                   style={{
                     textDecoration: "none",
-                    color: "#884ed9",
+                    color: "#fff",
                     fontFamily: `"Sarabun","sans-serif"`,
                   }}
                   to={item.path}
@@ -178,7 +178,7 @@ function DrawerAppBarWhite() {
                   to={`/`}
                   style={{
                     textDecoration: "none",
-                    color: "#884ed9",
+                    color: "#fff",
                     fontFamily: `"Sarabun","sans-serif"`,
                   }}
                 >
@@ -199,7 +199,7 @@ function DrawerAppBarWhite() {
                 to={`/`}
                 style={{
                   textDecoration: "none",
-                  color: "#884ed9",
+                  color: "#fff",
                 }}
               >
                 <img style={{ height: "10vh" }} src={logo} alt="logo" />
@@ -228,7 +228,7 @@ function DrawerAppBarWhite() {
                           to={`/${item.toLowerCase()}`}
                           style={{
                             textDecoration: "none",
-                            color: "#884ed9",
+                            color: "#fff",
                             fontFamily: `"Sarabun","sans-serif"`,
                           }}
                         >
@@ -247,7 +247,7 @@ function DrawerAppBarWhite() {
                         <NavLink
                           style={{
                             textDecoration: "none",
-                            color: "#884ed9",
+                            color: "#fff",
                             fontFamily: `"Sarabun","sans-serif"`,
                           }}
                           to={item.path}

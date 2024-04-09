@@ -9,7 +9,7 @@ import SectionSeven from "../components/Landing/SectionSeven";
 import SectionThree from "../components/Landing/SectionThree";
 import SectionTwo from "../components/Landing/SectionTwo";
 import YourTools from "../components/Landing/YourTools";
-import DrawerAppBarWhite from "../components/Navbar/AppbarOne";
+import DrawerAppBarWhite from "../components/Navbar/Appbar";
 import AppBarOne from "../components/Navbar/AppbarOne";
 // import DrawerAppBarWhite from "../components/Navbar/DrawerAppBarWhite";
 // import Follower from "../components/MouseAnimation";

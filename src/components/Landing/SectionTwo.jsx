@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 import { useInView } from "react-intersection-observer";
 
 const SectionTwo = () => {
-  const { ref, inView, entry } = useInView(options);
+  // const { ref, inView, entry } = useInView(options);
 
-  const myRef = useRef();
-  const [myElementIsVisible, setMyElementI]
+  // const myRef = useRef();
+  // const [myElementIsVisible, setMyElementI]
 
   return (
     <Grid
