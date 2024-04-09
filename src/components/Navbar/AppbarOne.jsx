@@ -62,7 +62,7 @@ function AppBarOne() {
       onClick={handleDrawerToggle}
       sx={{
         textAlign: "center",
-        color: "#884ed9",
+        color: "white",
         "@media (max-width: 600px)": { overflow: "hidden" },
       }}
     >
@@ -74,7 +74,7 @@ function AppBarOne() {
           fontFamily: `"Sarabun","sans-serif"`,
         }}
       >
-        <Link to={`/`} style={{ textDecoration: "none", color: "inherit" }}>
+        <Link to={`/`} style={{ textDecoration: "none", color: "white" }}>
           <img style={{ height: "10vh" }} src={logo} alt="logo" />
         </Link>
       </Typography>
@@ -87,7 +87,7 @@ function AppBarOne() {
                 to={`/${item.toLowerCase()}`}
                 style={{
                   textDecoration: "none",
-                  color: "#884ed9",
+                  color: "white",
                   fontFamily: `"Sarabun","sans-serif"`,
                 }}
               >
@@ -104,7 +104,7 @@ function AppBarOne() {
                 <NavLink
                   style={{
                     textDecoration: "none",
-                    color: "#884ed9",
+                    color: "white",
                     fontFamily: `"Sarabun","sans-serif"`,
                   }}
                   to={item.path}
@@ -161,7 +161,7 @@ function AppBarOne() {
               >
                 <MenuIcon
                   sx={{
-                    color: "#333",
+                    color: "white",
                     background: "white",
                     padding: "1.5vw",
                     fontSize: "4vh",
@@ -178,7 +178,7 @@ function AppBarOne() {
                   to={`/`}
                   style={{
                     textDecoration: "none",
-                    color: "#884ed9",
+                    color: "white",
                     fontFamily: `"Sarabun","sans-serif"`,
                   }}
                 >
@@ -199,7 +199,7 @@ function AppBarOne() {
                 to={`/`}
                 style={{
                   textDecoration: "none",
-                  color: "#884ed9",
+                  color: "white",
                 }}
               >
                 <img style={{ height: "10vh" }} src={logo} alt="logo" />
@@ -220,7 +220,7 @@ function AppBarOne() {
                       <Button
                         key={item}
                         sx={{
-                          color: "#fff",
+                          color: "white",
                           fontWeight: "900",
                         }}
                       >
@@ -228,7 +228,7 @@ function AppBarOne() {
                           to={`/${item.toLowerCase()}`}
                           style={{
                             textDecoration: "none",
-                            color: "#884ed9",
+                            color: "white",
                             fontFamily: `"Sarabun","sans-serif"`,
                           }}
                         >
@@ -239,7 +239,7 @@ function AppBarOne() {
                       <Button
                         key={item.path}
                         sx={{
-                          color: "#fff",
+                          color: "white",
                           fontWeight: "900",
                           fontFamily: `"Sarabun","sans-serif"`,
                         }}
@@ -247,7 +247,7 @@ function AppBarOne() {
                         <NavLink
                           style={{
                             textDecoration: "none",
-                            color: "#884ed9",
+                            color: "white",
                             fontFamily: `"Sarabun","sans-serif"`,
                           }}
                           to={item.path}
