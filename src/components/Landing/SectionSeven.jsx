@@ -25,11 +25,12 @@ const SectionSeven = () => {
       <div>
         <CarouselOne />
       </div>
-
-      <spline-viewer
-        loading-anim-type="spinner-small-light"
-        url="https://prod.spline.design/a8Fys5Ccl0bJRiwt/scene.splinecode"
-      ></spline-viewer>
+      <div>
+        <spline-viewer
+          loading-anim-type="spinner-small-light"
+          url="https://prod.spline.design/a8Fys5Ccl0bJRiwt/scene.splinecode"
+        ></spline-viewer>
+      </div>
     </div>
   );
 };

@@ -255,7 +255,7 @@ function CarouselOne() {
               alignItems: "center",
               justifyContent: "center",
               backdropFilter: "blur(0px)",
-              borderRadius: "5vw",
+              borderRadius: "1vw",
               flexDirection: "column",
 
               "@media (max-width: 600px)": { width: "95vw", height: "30vh" },

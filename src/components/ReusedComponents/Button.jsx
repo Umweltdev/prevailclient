@@ -25,6 +25,7 @@ function BasicButtons({ text, gradient, width }) {
           borderRadius: "5vw",
           color: "white",
           fontWeight: "bold",
+          width: "25vw",
           // boxShadow:
           //   "0px 3px 5px -1px rgba(255,105,135,0.5), 0px 6px 10px 0px rgba(255,105,135,0.3), 0px 1px 18px 0px rgba(255,105,135,0.2)",
 

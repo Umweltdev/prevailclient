@@ -17,7 +17,7 @@ import AppBarOne from "../components/Navbar/AppbarOne";
 const Landing = () => {
   return (
     <div style={{ width: "100%", overflow: "hidden" }}>
-      <AppBarOne />
+      <DrawerAppBarWhite />
       <Hero />
       <SectionTwo />
       {/* <SectionThree /> */}

@@ -9,16 +9,17 @@ export default function ContactInput() {
   return (
     <Card
       sx={{
-        margin: "0 auto",
+        margin: "5vh auto",
         textAlign: "center",
         width: "70vw",
         padding: "3vw",
         borderRadius: "1.5vw",
+       
         boxShadow:
           "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px",
         "@media (max-width: 600px)": {
           width: "100%",
-          margin: "0 auto",
+          margin: "1vh auto",
         },
       }}
     >

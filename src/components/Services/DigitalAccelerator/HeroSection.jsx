@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     // overflow: "visible",
     backgroundColor: "#fff",
     color: "#333",
-    padding: "25vh 0vw 5vh 0vh",
+    padding: "17vh 0vw 5vh 0vh",
     height: "100vh",
     margin: "0 auto",
     // Add the clip-path property for the diagonal line
@@ -53,15 +53,16 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
     },
   },
-  imageContainer: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    zIndex: "100",
-    // "@media (max-width: 600px)": {
-    //   width: "100vw",
-    // },
-  },
+  // imageContainer: {
+  //   display: "flex",
+  //   alignItems: "center",
+  //   justifyContent: "center",
+  //   zIndex: "100",
+  //   // height: "10vh",
+  //   // "@media (max-width: 600px)": {
+  //   //   width: "100vw",
+  //   // },
+  // },
   textHeader: {
     fontSize: "4vw",
     fontWeight: "900",
@@ -84,6 +85,10 @@ const useStyles = makeStyles((theme) => ({
   //     transform: "translateY(-20px)",
   //   },
   // },
+  spline: {
+    width: "20vw",
+    height: "30vh",
+  },
 }));
 
 const HeroSection = ({ header, text, image }) => {
@@ -161,12 +166,17 @@ const HeroSection = ({ header, text, image }) => {
             </Typography>
           </Grid>
           <Grid className={classes.imageContainer}>
-            <img
+          {/* <img
               sx={{}}
               src="https://img.freepik.com/premium-photo/rocket-coming-out-laptop-screen-white-background-ai-digital-illustration-concept-ideas-start-up-generative-ai_620624-6796.jpg?w=740"
               alt="Your Image"
               className={classes.image}
-            />
+            /> */}
+          {/* <spline-viewer url="https://prod.spline.design/qcQ3N9XvycPUNkgo/scene.splinecode"></spline-viewer> */}
+          <spline-viewer
+            className={classes.spline}
+            url="https://prod.spline.design/qcQ3N9XvycPUNkgo/scene.splinecode"
+          ></spline-viewer>
           </Grid>
         </Grid>
       </div>

@@ -4,12 +4,12 @@ import { Button, CardMedia, Grid, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useInView } from "react-intersection-observer";
+import styles from "./animation.module.css"
 
 const SectionTwo = () => {
-  // const { ref, inView, entry } = useInView(options);
+  const { ref: myRef, inView: myElementVisible } = useInView();
+  const { ref: sectionRef, inView: rocketIsVisible } = useInView();
 
-  // const myRef = useRef();
-  // const [myElementIsVisible, setMyElementI]
 
   return (
     <Grid
@@ -127,6 +127,7 @@ const SectionTwo = () => {
         alt=""
       /> */}
       <CardMedia
+        ref={styles.imageStyle}
         sx={{
           width: "37vw",
           height: "60vh",
