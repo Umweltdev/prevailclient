@@ -20,14 +20,14 @@ const useStyles = makeStyles((theme) => ({
     "@media (max-width: 600px)": {
       position: "unset",
       overflow: "hidden",
-      backgroundColor: "#884ed9",
-      color: "#FFF",
+      backgroundColor: "#white",
+      color: "#333",
       paddingTop: "15vh",
       width: "unset",
-      height: "unset",
+      height: "100vh",
       left: "unset",
       clipPath: "unset",
-      padding: "unset",
+      padding: "10vh 0vw 0vh 0vh",
     },
   },
   heroContainer: {
@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
     boxShadow:
       "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;",
     "@media (max-width: 600px)": {
-      width: "70vw",
+      width: "90vw",
     },
   },
   // "@keyframes bounce": {
@@ -103,7 +103,7 @@ const HeroSection = ({ header, text, image }) => {
                 color: "#884ed9",
                 marginBottom: "1.5vh",
                 "@media (max-width: 600px)": {
-                  fontSize: "8vw",
+                  fontSize: "4vw",
                   fontWeight: "900",
                   textAlign: "center",
                   margin: "0 auto",
@@ -136,13 +136,13 @@ const HeroSection = ({ header, text, image }) => {
                 lineHeight: "4vh",
                 color: "#333",
                 "@media (max-width: 600px)": {
-                  fontSize: "4.5vw",
+                  fontSize: "4vw",
                   fontWeight: "unset",
                   width: "95vw",
                   lineHeight: "unset",
-                  color: "white",
+                  color: "#333",
                   textAlign: "center",
-                  margin: "0 auto",
+                  margin: "2vh auto",
                 },
               }}
             >

@@ -11,14 +11,15 @@ import FooterNew from "../components/Footer/FooterNew";
 
 const Contact = () => {
   return (
-    <div>
+    <div style={{ width: "100%", overflow: "hidden" }}>
       <DrawerAppBar />
       {/* <SectionOne /> */}
-      <br /><br />
+      <br />
+      <br />
       <SectionTwo />
-      <ContactInput/>
+      <ContactInput />
       {/* <SectionThree /> */}
-      <SectionFive />
+      {/* <SectionFive /> */}
       <FooterNew />
     </div>
   );

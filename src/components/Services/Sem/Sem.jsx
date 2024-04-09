@@ -11,7 +11,7 @@ import Carousel from "./Carousel";
 
 const Sem = () => {
   return (
-    <>
+    <div style={{ width: "100%", overflow: "hidden" }}>
       <DrawerAppBarWhite />
       <HeroSection />
       <PainPoint />
@@ -19,7 +19,7 @@ const Sem = () => {
       <hr />
       <Carousel />
       <FooterNew />
-    </>
+    </div>
   );
 };
 

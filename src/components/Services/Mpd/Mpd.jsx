@@ -11,7 +11,7 @@ import Solution from "./Solution";
 
 const Mpd = () => {
   return (
-    <div>
+    <div style={{ width: "100%", overflow: "hidden" }}>
       <AppBarOne />
       <HeroSection />
       <PainPoint />

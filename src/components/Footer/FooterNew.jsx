@@ -1,6 +1,6 @@
 import { Grid, Typography } from "@mui/material";
 import React from "react";
-import logo from "./assets/pmmlogo.png";
+import logo from "./assets/pm2.png";
 import { Call, Email, LocationOn } from "@mui/icons-material";
 import CustomizedAccordions from "./Accordion";
 import AccordionTransition from "./AccordionTwo";

@@ -6,9 +6,9 @@ import Login from "../components/Form/Login";
 
 const LoginForm = () => {
   return (
-    <div>
+    <div style={{ width: "100%", overflow: "hidden" }}>
       <DrawerAppBarWhite />
-      <Login/>
+      <Login />
       <FooterNew />
     </div>
   );

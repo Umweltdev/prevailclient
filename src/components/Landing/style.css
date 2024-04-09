@@ -38,6 +38,8 @@ header a {
   position: relative;
   margin: 15vh 0;
   font-family: "Sarabun", sans-serif;
+  overflow: hidden;
+  width: 100%;
 }
 
 .carousel .list .item {
@@ -382,7 +384,6 @@ header a {
 }
 
 @media screen and (max-width: 678px) {
-
   .carousel .list .item .content {
     padding-right: 0;
   }
@@ -390,7 +391,7 @@ header a {
   .carousel .list .item .topic {
     color: #884ed9;
     font-size: 8vw !important;
-    width: 95vw
+    width: 95vw;
   }
 
   .theLink {

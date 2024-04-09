@@ -15,7 +15,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { Link, NavLink } from "react-router-dom";
 import wLogo from "./wlogo.png";
-import logo from "./pmmlogo.png";
+import logo from "./pm2.png";
 import { Grid } from "@mui/material";
 
 const drawerWidth = 240;

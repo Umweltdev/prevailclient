@@ -5,13 +5,13 @@ import FooterNew from '../components/Footer/FooterNew'
 
 const SignUpForm = () => {
   return (
-    <div>
-        <DrawerAppBarWhite/>
-        <br /> <br /> <br /> <br />
-        <SignUp />
-        <FooterNew/>
+    <div style={{ width: "100%", overflow: "hidden" }}>
+      <DrawerAppBarWhite />
+      <br /> <br /> <br /> <br />
+      <SignUp />
+      <FooterNew />
     </div>
-  )
+  );
 }
 
 export default SignUpForm

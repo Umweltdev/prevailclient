@@ -12,10 +12,10 @@ import CaseStudies from "../components/Portfolio/CaseStudies";
 
 const Portfolio = () => {
   return (
-    <div>
+    <div style={{ width: "100%", overflow: "hidden" }}>
       <DrawerAppBar />
       <SectionOne />
-      <CaseStudies/>
+      <CaseStudies />
       {/* <SectionTwo />
       <SectionThree /> */}
       {/* <SectionSix/> */}

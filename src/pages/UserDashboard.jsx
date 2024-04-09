@@ -23,7 +23,7 @@ const UserDashBoard = () => {
     setDrawer(false);
   };
   return (
-    <>
+    <div style={{ width: "100%", overflow: "hidden" }}>
       {/* <Announcement /> */}
       <DrawerAppBarWhite />
       <Box
@@ -116,7 +116,7 @@ const UserDashBoard = () => {
       </Drawer>
       {/* <Newsletter /> */}
       <FooterNew />
-    </>
+    </div>
   );
 };
 

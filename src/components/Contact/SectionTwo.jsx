@@ -99,7 +99,7 @@ const SectionTwo = () => {
             "@media (max-width: 600px)": {
               fontSize: "4vw",
               textAlign: "justify",
-              width: "95vw",
+              width: "90vw",
             },
           }}
         >
