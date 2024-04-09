@@ -94,12 +94,7 @@ const Hero = () => {
       className="hero-container"
     >
       {/* Spline animation */}
-      {/* <spline-viewer
-        loading-anim-type="spinner-small-light"
-        url="https://prod.spline.design/Nb2I5a6X-Kr8fdit/scene.splinecode"
-        style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0 }}
-      ></spline-viewer> */}
-
+      
       <motion.div
         className="hero"
         initial="initial"
