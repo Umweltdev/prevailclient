@@ -1,11 +1,11 @@
 .hero-container {
   /* background-image: url("https://prod.spline.design/Nb2I5a6X-Kr8fdit/scene.splinecode") !important; */
-  background-color: #884ed9;
+  /* background-color: #884ed9; */
   /* height: 100%; */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  display: flex;
+  /* display: flex; */
   width: 100%;
   height: 100vh;
   /* background: linear-gradient(
@@ -18,10 +18,19 @@
   opacity: 0.8; /* Adjust as needed */
 }
 
-.spline-Layer {
+.spline-container {
+  position: absolute;
+  z-index: 1;
+}
+/* .spline-Layer {
   position: relative;
   width: 400px;
   height: 200px;
+} */
+
+.spline-container {
+  width: 100%;
+  overflow: hidden;
 }
 
 .hero {
@@ -29,7 +38,7 @@
   display: flex;
   flex-direction: column;
   gap: 2vh;
-  z-index: 2;
+  z-index: 999;
 }
 
 .hero-one {
@@ -37,6 +46,7 @@
   font-size: 1.5vw;
   font-weight: 100;
   color: white;
+  z-index: 999;
 }
 
 .hero-two {
@@ -44,10 +54,12 @@
   width: 50vw;
   color: white;
   margin-top: 1.2vh;
+  z-index: 999;
 }
 
 .hero-three {
-  font-size: 1.2vw;
+  margin-left: 65vw;
+  z-index: 999;
 }
 
 .heroBtn {
@@ -62,6 +74,7 @@
   background-color: #450fad;
   padding: 3vh 3vw;
   border-radius: 5vw;
+  z-index: 999;
 }
 
 .heroBtn:hover,
@@ -141,8 +154,9 @@
 }
 
 .hero-four {
-  margin-top: 70vh;
+  /* margin-top: 50vh;
   margin-left: 10vw;
+  z-index: -999; */
 }
 
 /* Mobile breakpoint */
@@ -1269,6 +1283,7 @@ FOOTER
   justify-content: center;
   align-items: center;
   margin: 10vh auto;
+  margin-left: 13vw;
   gap: 5vw;
   width: 80vw;
 }

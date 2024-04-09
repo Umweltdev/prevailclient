@@ -220,7 +220,7 @@ function AppBarOne() {
                       <Button
                         key={item}
                         sx={{
-                          color: "white",
+                          color: "#884ed9",
                           fontWeight: "900",
                         }}
                       >
@@ -228,7 +228,7 @@ function AppBarOne() {
                           to={`/${item.toLowerCase()}`}
                           style={{
                             textDecoration: "none",
-                            color: "white",
+                            color: "#884ed9",
                             fontFamily: `"Sarabun","sans-serif"`,
                           }}
                         >

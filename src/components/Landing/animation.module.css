@@ -1,0 +1,8 @@
+.imageVisible {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+#image {
+  opacity: 0;
+}

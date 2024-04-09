@@ -220,9 +220,12 @@ const PlatformTwo = () => {
               shine online and attract more customers.
             </Typography>
           </Grid>
-          <Grid className={classes.spline}></Grid>
+          <Grid className={classes.spline}>
+            <spline-viewer url="https://prod.spline.design/kqWnRSHfs03RcYiO/scene.splinecode"></spline-viewer>
+          </Grid>
         </Grid>
       </Grid>
+
       {/* <spline-viewer url="https://prod.spline.design/kqWnRSHfs03RcYiO/scene.splinecode"></spline-viewer> */}
     </Grid>
   );
