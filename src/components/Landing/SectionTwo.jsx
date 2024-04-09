@@ -3,10 +3,13 @@ import { useRef, useEffect, useState } from "react";
 import { Button, CardMedia, Grid, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-
+import { useInView } from "react-intersection-observer";
 
 const SectionTwo = () => {
- 
+  const { ref, inView, entry } = useInView(options);
+
+  const myRef = useRef();
+  const [myElementIsVisible, setMyElementI]
 
   return (
     <Grid

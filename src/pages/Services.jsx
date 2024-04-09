@@ -14,9 +14,6 @@ import PlatformTwo from "../components/Services/PlatformTwo";
 import AutomationSection from "../components/Services/AutomationSection";
 //import Reduce from "../components/Services/Reduce";
 
-
-
-
 const Services = () => {
   return (
     <div style={{ width: "100%", overflow: "hidden" }}>

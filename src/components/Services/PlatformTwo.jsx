@@ -18,7 +18,10 @@ const useStyles = makeStyles({
     },
   },
   spline: {
-    width: "30vw",
+    width: "40vw",
+    height: "80vh",
+    objectFit: "cover",
+    borderRadius: "10vw",
   },
 });
 {
@@ -217,14 +220,10 @@ const PlatformTwo = () => {
               shine online and attract more customers.
             </Typography>
           </Grid>
-
-          <spline-viewer
-            className={classes.spline}
-            style={{ width: "43vw", height: "60vh" }}
-            url="https://prod.spline.design/kqWnRSHfs03RcYiO/scene.splinecode"
-          ></spline-viewer>
+          <Grid className={classes.spline}></Grid>
         </Grid>
       </Grid>
+      {/* <spline-viewer url="https://prod.spline.design/kqWnRSHfs03RcYiO/scene.splinecode"></spline-viewer> */}
     </Grid>
   );
 };
