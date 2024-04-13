@@ -84,6 +84,13 @@ const letter2 = {
 const Hero = () => {
   return (
     <>
+      <div className="spline-container">
+        <spline-viewer
+          style={{width: "100vw"}}
+          loading-anim-type="spinner-small-light"
+          url="https://prod.spline.design/Nb2I5a6X-Kr8fdit/scene.splinecode"
+        ></spline-viewer>
+      </div>
       <motion.div
         initial={{ opacity: 0, height: 0 }}
         animate={{
@@ -94,13 +101,6 @@ const Hero = () => {
         transition={{ duration: 1, ease: easing }}
         className="hero-container"
       >
-        <div className="spline-container">
-          <spline-viewer
-            loading-anim-type="spinner-small-light"
-            url="https://prod.spline.design/Nb2I5a6X-Kr8fdit/scene.splinecode"
-          ></spline-viewer>
-        </div>
-
         <motion.div
           className="hero"
           initial="initial"

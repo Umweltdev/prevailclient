@@ -6,8 +6,9 @@
   background-repeat: no-repeat;
   background-size: cover;
   /* display: flex; */
-  width: 100%;
-  height: 100vh;
+  width: 100vw;
+  height: 110vh;
+  background-color: #f9f7fb;
   /* background: linear-gradient(
     to top left,
     transparent 42%,
@@ -21,12 +22,13 @@
 .spline-container {
   position: absolute;
   z-index: 1;
+  height: 100vh;
+  width: 100vw;
 }
-/* .spline-Layer {
+.spline {
   position: relative;
-  width: 400px;
-  height: 200px;
-} */
+  width: 100vw;
+}
 
 .spline-container {
   width: 100%;
