@@ -44,10 +44,10 @@ function App() {
         element={<DigitalAccelerator />}
       />
       <Route path="/Portfolio/:index" element={<CaseDetails />} />
-      <Route
+      {/* <Route
         path="/Services/digitalaccelerator"
         element={<DigitalAccelerator />}
-      />
+      /> */}
       <Route path="/about/ourWhy" element={<AboutOurWhy />} />
       <Route path="/about/ourSolution" element={<AboutOurSolution />} />
       <Route path="/SignUp" element={<SignUpForm />} />
