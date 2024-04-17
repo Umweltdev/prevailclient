@@ -159,7 +159,7 @@ const Login = () => {
             <Typography align="center">
               Don't have an account?{" "}
               <Link
-                to="/Sign Up"
+                to="/Signup"
                 style={{
                   fontWeight: "bold",
                   textDecoration: "none",
