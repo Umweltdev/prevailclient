@@ -13,26 +13,21 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import wLogo from "./wlogo.png";
 import logo from "./pm2.png";
 import { Grid } from "@mui/material";
+import { AuthContext } from "../../context/AuthContext";
 
 const drawerWidth = 240;
-const navItems = [
-  "About",
-  "Services",
-  // { path: "/Services/digitalaccelerator", label: "Digital Accelerator" },
-  "Portfolio",
-  "Blog",
-  "Contact",
-  { path: "/user/profile", label: "Dashboard" },
-  "SignUp",
-];
 
 function DrawerAppBarWhite() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [showNavbar, setShowNavbar] = React.useState(true);
+  const { isLoggedIn, loading, error, dispatch } =
+    React.useContext(AuthContext);
+  const [navItems, setNavItems] = React.useState([]);
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     let prevScrollPos = window.pageYOffset;
@@ -56,6 +51,41 @@ function DrawerAppBarWhite() {
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    dispatch({ type: "LOGOUT" });
+  };
+
+  React.useEffect(() => {
+    const updateNavItems = () => {
+      setNavItems(
+        isLoggedIn
+          ? [
+              "About",
+              "Services",
+              "Portfolio",
+              "Blog",
+              "Contact",
+              { path: "/user/profile", label: "Dashboard" },
+              { label: "Logout", onClick: handleLogout, path: "/login" },
+            ]
+          : [
+              "About",
+              "Services",
+              "Portfolio",
+              "Blog",
+              "Contact",
+              "SignUp",
+              "Login",
+            ]
+      );
+    };
+
+    updateNavItems();
+
+    return () => {};
+  }, [isLoggedIn]);
 
   const drawer = (
     <Box
@@ -287,5 +317,3 @@ function DrawerAppBarWhite() {
 }
 
 export default DrawerAppBarWhite;
-
-// DrawerAppBarWhite;

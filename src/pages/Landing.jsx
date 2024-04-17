@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import Footer from "../components/Footer/Footer";
 import FooterNew from "../components/Footer/FooterNew";
 import CarouselOne from "../components/Landing/CarouselOne";
@@ -11,13 +12,15 @@ import SectionTwo from "../components/Landing/SectionTwo";
 import YourTools from "../components/Landing/YourTools";
 import DrawerAppBarWhite from "../components/Navbar/Appbar";
 import AppBarOne from "../components/Navbar/AppbarOne";
+import { AuthContext } from "../context/AuthContext";
 // import DrawerAppBarWhite from "../components/Navbar/DrawerAppBarWhite";
 // import Follower from "../components/MouseAnimation";
 
-const Landing = () => {
+const Landing = (props) => {
+   const { isLoggedIn } = useContext(AuthContext);
   return (
     <div style={{ width: "100%", overflow: "hidden" }}>
-      <DrawerAppBarWhite />
+      {/* <DrawerAppBarWhite {...props} isLoggedIn={isLoggedIn} /> */}
       <Hero />
       <SectionTwo />
       {/* <SectionThree /> */}

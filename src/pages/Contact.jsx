@@ -7,12 +7,17 @@ import Navbar from "../components/Navbar/Navbar";
 import DrawerAppBar from "../components/Navbar/Appbar";
 import ContactInput from "../components/Contact/ContactInput";
 import FooterNew from "../components/Footer/FooterNew";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
+import DrawerAppBarWhite from "../components/Navbar/Appbar";
 
 
-const Contact = () => {
+const Contact = (props) => {
+  const { isLoggedIn } = useContext(AuthContext);
+
   return (
     <div style={{ width: "100%", overflow: "hidden" }}>
-      <DrawerAppBar />
+      {/* <DrawerAppBarWhite {...props} isLoggedIn={isLoggedIn} /> */}
       {/* <SectionOne /> */}
       <br />
       <br />

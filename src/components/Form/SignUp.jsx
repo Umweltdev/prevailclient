@@ -3,6 +3,7 @@ import { Box, Button, Grid, Paper, TextField, Typography } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import { styled } from "@mui/system";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import axios from "axios";
 
 const CustomTextField = styled(TextField)({
   "& .MuiOutlinedInput-root": {
@@ -29,12 +30,39 @@ const SignUp = () => {
   });
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
-  const handleSignUp = () => {
-    if (window.innerWidth <= 600) {
-      navigate("/MobStepper");
-    } else {
-      navigate("/Stepper");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      setLoading(true); // Set loading to true when submitting
+      await axios.post(
+        "http://localhost:8080/api/auth/register",
+        formData
+      );
+      setSuccess("Registration successful!");
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        location: "",
+        companyName: "",
+        password: "",
+        confirmPassword: "",
+      });
+      if (window.innerWidth <= 600) {
+        navigate("/MobStepper");
+      } else {
+        navigate("/Stepper");
+      }
+    } catch (err) {
+      setError(`Registration failed. Please try again: ${err.response}`);
+      console.log(err.response);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -56,7 +84,16 @@ const SignUp = () => {
     formData.password === formData.confirmPassword;
 
   return (
-    <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "100vh", bgcolor: "#F6F9FC", py: 3 }}>
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        minHeight: "100vh",
+        bgcolor: "#F6F9FC",
+        py: 3,
+      }}
+    >
       <Paper elevation={3} sx={{ p: 3, width: "80%", maxWidth: 500 }}>
         <Grid container direction="column" spacing={2}>
           <Grid item>
@@ -90,9 +127,19 @@ const SignUp = () => {
                 <Grid item>
                   <CustomTextField
                     fullWidth
+                    label="Email"
+                    variant="outlined"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleFormChange}
+                  />
+                </Grid>
+                <Grid item>
+                  <CustomTextField
+                    fullWidth
                     label="Phone Number"
                     variant="outlined"
-                    name="phoneNumber"
+                    name="phone"
                     value={formData.phone}
                     onChange={handleFormChange}
                   />
@@ -153,7 +200,11 @@ const SignUp = () => {
                           sx={{ cursor: "pointer" }}
                           onClick={toggleConfirmPasswordVisibility}
                         >
-                          {showConfirmPassword ? <Visibility /> : <VisibilityOff />}
+                          {showConfirmPassword ? (
+                            <Visibility />
+                          ) : (
+                            <VisibilityOff />
+                          )}
                         </Box>
                       ),
                     }}
@@ -165,8 +216,8 @@ const SignUp = () => {
           <Grid item>
             <Button
               variant="contained"
-              onClick={handleSignUp}
-              //disabled={!isFormFilled}
+              onClick={handleSubmit}
+              disabled={!isFormFilled}
               fullWidth
             >
               Sign Up
@@ -175,7 +226,10 @@ const SignUp = () => {
           <Grid item>
             <Typography align="center">
               Already have an account?{" "}
-              <Link to="/Login" style={{ fontWeight: "bold", textDecoration: "none" }}>
+              <Link
+                to="/Login"
+                style={{ fontWeight: "bold", textDecoration: "none" }}
+              >
                 Login
               </Link>
             </Typography>

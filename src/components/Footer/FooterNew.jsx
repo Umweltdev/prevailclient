@@ -66,12 +66,11 @@ const FooterNew = () => {
   return (
     <Grid
       sx={{
-        // boxShadow: "0px -1px 1px #ba8bd7",
         background: "#884ed9",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        bottom: 0,
+        
       }}
     >
       <Grid
@@ -256,7 +255,7 @@ const FooterNew = () => {
           },
         }}
       >
-        © 2024 Prevail | All Right Reserved{" "}
+        © 2024 Prevail Agency | All Right Reserved
       </Typography>
     </Grid>
   );

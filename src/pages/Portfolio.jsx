@@ -8,12 +8,16 @@ import Navbar from "../components/Navbar/Navbar";
 import DrawerAppBar from "../components/Navbar/Appbar";
 import FooterNew from "../components/Footer/FooterNew";
 import CaseStudies from "../components/Portfolio/CaseStudies";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
+import DrawerAppBarWhite from "../components/Navbar/Appbar";
 
 
-const Portfolio = () => {
+const Portfolio = (props) => {
+   const { isLoggedIn } = useContext(AuthContext);
   return (
     <div style={{ width: "100%", overflow: "hidden" }}>
-      <DrawerAppBar />
+      {/* <DrawerAppBarWhite {...props} isLoggedIn={isLoggedIn} /> */}
       <SectionOne />
       <CaseStudies />
       {/* <SectionTwo />
