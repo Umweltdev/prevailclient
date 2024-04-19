@@ -13,7 +13,7 @@ import Addresses from "./Addresses";
 import Address from "./Address";
 import EditProfile from "./Edit-Profile";
 import SavedProperties from "./SavedProperties";
-
+import Invoice from "./Invoice";
 
 const UserDashBoard = () => {
   const [drawer, setDrawer] = useState(false);
@@ -36,7 +36,15 @@ const UserDashBoard = () => {
       >
         <Container maxWidth="lg">
           <Grid container spacing={3} position="relative">
-            <Grid item md={12} lg={3} display={{ xs: "none", md: "block" }} position={{xs:"relative",lg:"sticky" }}top="0" height="100%">
+            <Grid
+              item
+              md={12}
+              lg={3}
+              display={{ xs: "none", md: "block" }}
+              position={{ xs: "relative", lg: "sticky" }}
+              top="0"
+              height="100%"
+            >
               <Box
                 bgcolor="#fff"
                 py={5}
@@ -68,8 +76,12 @@ const UserDashBoard = () => {
                   path="/bookings/:id"
                   element={<Booking openDrawer={openDrawer} />}
                 />
+                {/* <Route
+                  path="/invoice"
+                  element={<Invoice openDrawer={openDrawer} />}
+                /> */}
                 <Route
-                  path="/addresses"
+                  path="/addresses/:id"
                   element={<Addresses openDrawer={openDrawer} />}
                 />
                 <Route

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import {
   Typography,
   Box,
@@ -13,19 +13,16 @@ import Header from "./Header";
 import { useLocation, useParams } from "react-router-dom";
 import axios from "axios";
 import Loading from "../utils/Loading";
+import { AuthContext } from "../../context/AuthContext";
 
 const Profile = () => {
   const isNonMobile = useMediaQuery("(min-width:968px)");
   const Mobile = useMediaQuery("(min-width:600px)");
   const location = useLocation();
-
-  const user = location.state?.user;
-
-  // console.log(user.user.firstName);
-  // console.log(user);
+  const { user } = useContext(AuthContext);
 
   if (!user) {
-    return <Loading/>;
+    return <Loading />;
   }
 
   return (
@@ -117,9 +114,9 @@ const Profile = () => {
               color: "rgb(125, 135, 156)",
             }}
           >
-            Username
+            Company
           </small>
-          <Typography variant="subtitle2">{user?.user.firstName}</Typography>
+          <Typography variant="subtitle2">{user?.user.company}</Typography>
         </Box>
       </Paper>
     </Stack>
