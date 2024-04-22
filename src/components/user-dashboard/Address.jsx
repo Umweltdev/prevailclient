@@ -16,12 +16,12 @@ import { statesInNigeria } from "./data";
 import { Link, useNavigate } from "react-router-dom";
 import PlaceIcon from "@mui/icons-material/Place";
 import Header from "./Header";
-
+import { userRequest } from "../../requestMethods";
 
 const Address = ({ openDrawer }) => {
-  // const { id } = useParams();
-  // const navigate = useNavigate();
-  const [address, setAddress] = useState({});
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const [invoice, setInvoice] = useState({});
   const isNonMobile = useMediaQuery("(min-width:968px)");
 
   // const handleNewAddress = async (data) => {
@@ -42,31 +42,31 @@ const Address = ({ openDrawer }) => {
   //   }
   // };
 
-  // useEffect(() => {
-  //   const getAddress = async () => {
-  //     try {
-  //       const res = await userRequest.get(`/address/${id}`);
-  //       setAddress(res.data);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-  //   if (id !== "new") {
-  //     getAddress();
-  //   }
-  // }, [id]);
+  useEffect(() => {
+    const getInvoice = async () => {
+      try {
+        const res = await userRequest.get(`/invoice/${id}`);
+        setInvoice(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    if (id !== "new") {
+      getInvoice();
+    }
+  }, [id]);
 
   const initialValues = {
-    fullName: address?.fullName || "",
-    phone: address?.phone || "",
-    address: address?.address || "",
-    state: address?.state || "",
+    invoiceNumber: invoice?.invoiceNumber || "",
+    createDate: invoice?.createDate || "",
+    dueDate: invoice?.dueDate || "",
+    items: invoice?.items || "",
   };
   return (
     <Stack spacing={2}>
       <Header
         Icon={PlaceIcon}
-        // title={id === "new" ? "Add Address" : "Edit Address"}
+        title={id === "new" ? "Add Address" : "Edit Address"}
         openDrawer={openDrawer}
         button="Back To Address"
         link={`/user/addresses`}
@@ -223,14 +223,14 @@ const Address = ({ openDrawer }) => {
               </Box>
               <Button
                 type="submit"
-                // disabled={!isValid || (!dirty && id === "new")}
+                disabled={!isValid || (!dirty && id === "new")}
                 sx={{
                   mt: 4,
                   textTransform: "none",
-                  // bgcolor:
-                  //   !isValid || (!dirty && id === "new")
-                  //     ? "#0000001f !important"
-                  //     : "primary.main",
+                  bgcolor:
+                    !isValid || (!dirty && id === "new")
+                      ? "#0000001f !important"
+                      : "primary.main",
                   color: "white",
                   fontSize: "14px",
                   paddingX: "20px",
@@ -242,8 +242,7 @@ const Address = ({ openDrawer }) => {
                   },
                 }}
               >
-                Save Changes
-                {/* {id === "new" ? "Save Address" : "Save Changes"} */}
+                {id === "new" ? "Save Address" : "Save Changes"}
               </Button>
             </form>
           )}

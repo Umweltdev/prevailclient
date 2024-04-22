@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { Typography, Box, Stack, Button, Link as MuiLink } from "@mui/material";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
@@ -10,19 +10,23 @@ import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { Description } from "@mui/icons-material";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-// import { useDispatch } from "react-redux";
-// import { logout } from '../../redux/userRedux'
+import { AuthContext } from "../../context/AuthContext";
+import { Receipt } from "@mui/icons-material";
 
 const ILink = ({ text, Icon, url, closeDrawer }) => {
   const location = useLocation();
+  const user = useContext(AuthContext);
+
   const isActive =
     location.pathname === `/user/${url}` ||
     location.pathname.startsWith(`/user/${url}/`) ||
     (location.pathname === "/user" && url === "profile");
+
   return (
     <MuiLink
       component={Link}
       to={`/user/${url}`}
+      // state={{ user }}
       onClick={closeDrawer}
       underline="none"
       variant="subtitle2"
@@ -55,24 +59,19 @@ const DashboardBox = ({ closeDrawer }) => {
     dispatch(logout());
     navigate("/");
   };
-  const dashboards = [
-    {
-      text: "Bookings",
-      Icon: <BookmarkBorderIcon />,
-      url: "bookings",
-    },
-    {
-      text: "Saved",
-      Icon: <FavoriteBorderIcon />,
-      url: "saved",
-    },
-    {
-      text: "Invoices",
-      Icon: <Description />,
-      url: "invoices",
-    },
-    // { text: "Suppor Icon: <HeadsetMicIcon />, url: "support" },
-  ];
+  // const dashboards = [
+  //   {
+  //     text: "Bookings",
+  //     Icon: <BookmarkBorderIcon />,
+  //     url: "bookings",
+  //   },
+  //   {
+  //     text: "Saved",
+  //     Icon: <FavoriteBorderIcon />,
+  //     url: "saved",
+  //   },
+  //   // { text: "Suppor Icon: <HeadsetMicIcon />, url: "support" },
+  // ];
 
   const account = [
     {
@@ -80,16 +79,26 @@ const DashboardBox = ({ closeDrawer }) => {
       Icon: <PersonOutlineOutlinedIcon />,
       url: "profile",
     },
+    // {
+    //   text: "Invoice",
+    //   Icon: <Receipt />,
+    //   url: "invoice",
+    // },
     {
-      text: "Addresses",
-      Icon: <LocationOnIcon />,
-      url: "addresses",
+      text: "Invoices",
+      Icon: <Description />,
+      url: "invoices",
     },
+    // {
+    //   text: "Invoice",
+    //   Icon: <Receipt />,
+    //   url: "addresses",
+    // },
   ];
   return (
     <>
       <Stack spacing={5}>
-        <Stack spacing={1.5}>
+        {/* <Stack spacing={1.5}>
           <Typography pl={3.5} variant="subtitle2">
             DASHBOARD
           </Typography>
@@ -98,7 +107,7 @@ const DashboardBox = ({ closeDrawer }) => {
               <ILink key={index} {...dashboard} closeDrawer={closeDrawer} />
             ))}
           </Stack>
-        </Stack>
+        </Stack> */}
         <Stack spacing={1.5}>
           <Typography pl={3.5} variant="subtitle2">
             ACCOUNT SETTINGS
