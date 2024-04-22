@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Box, Grid, Container, Drawer } from "@mui/material";
 import DrawerAppBarWhite from "../components/Navbar/Appbar";
@@ -11,10 +11,13 @@ import Addresses from "../components/user-dashboard/Addresses";
 import Address from "../components/user-dashboard/Address";
 import SavedProperties from "../components/user-dashboard/SavedProperties";
 import FooterNew from "../components/Footer/FooterNew";
+import { AuthContext } from "../context/AuthContext";
+import Invoices from "../components/user-dashboard/Invoices";
+import Invoice from "../components/user-dashboard/Invoice";
 
-
-const UserDashBoard = () => {
+const UserDashBoard = (props) => {
   const [drawer, setDrawer] = useState(false);
+  const { isLoggedIn } = useContext(AuthContext);
   const openDrawer = () => {
     setDrawer(true);
   };
@@ -25,7 +28,7 @@ const UserDashBoard = () => {
   return (
     <div style={{ width: "100%", overflow: "hidden" }}>
       {/* <Announcement /> */}
-      <DrawerAppBarWhite />
+      {/* <DrawerAppBarWhite {...props} isLoggedIn={isLoggedIn} /> */}
       <Box
         sx={{
           bgcolor: "#fbfbfb",
@@ -85,6 +88,15 @@ const UserDashBoard = () => {
                 <Route
                   path="/saved"
                   element={<SavedProperties openDrawer={openDrawer} />}
+                />
+                <Route
+                  path="/invoices"
+                  element={<Invoices openDrawer={openDrawer} />}
+                />
+
+                <Route
+                  path="/invoices/:id"
+                  element={<Invoice openDrawer={openDrawer} />}
                 />
               </Routes>
             </Grid>

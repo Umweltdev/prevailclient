@@ -16,7 +16,7 @@ import { statesInNigeria } from "./data";
 import { Link, useNavigate } from "react-router-dom";
 import PlaceIcon from "@mui/icons-material/Place";
 import Header from "./Header";
-// import { userRequest } from "../../requestMethods";
+
 
 const Address = ({ openDrawer }) => {
   // const { id } = useParams();

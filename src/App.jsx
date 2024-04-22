@@ -22,9 +22,11 @@ import Stepper from "./pages/Stepper";
 import MobStepper from "./pages/MobStepper";
 import UserDashBoard from "./pages/UserDashboard";
 
+
 function App() {
   return (
     <Routes>
+     
       <Route path="/" element={<Landing />} />
       <Route path="/About" element={<About />} />
       <Route path="/Portfolio" element={<Portfolio />} />
@@ -42,14 +44,15 @@ function App() {
         element={<DigitalAccelerator />}
       />
       <Route path="/Portfolio/:index" element={<CaseDetails />} />
-      <Route
+      {/* <Route
         path="/Services/digitalaccelerator"
         element={<DigitalAccelerator />}
-      />
+      /> */}
       <Route path="/about/ourWhy" element={<AboutOurWhy />} />
       <Route path="/about/ourSolution" element={<AboutOurSolution />} />
       <Route path="/SignUp" element={<SignUpForm />} />
       <Route path="/Login" element={<LoginForm />} />
+      {/* <Route path="/Logout" element={< />} /> */}
       <Route path="/Stepper" element={<Stepper />} />
       <Route path="/MobStepper" element={<MobStepper />} />
       <Route path="/UserDashboard" element={<UserDashBoard />} />

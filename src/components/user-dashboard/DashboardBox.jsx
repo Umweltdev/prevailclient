@@ -8,6 +8,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PaymentIcon from "@mui/icons-material/Payment";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import LogoutIcon from "@mui/icons-material/Logout";
+import { Description } from "@mui/icons-material";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 // import { useDispatch } from "react-redux";
 // import { logout } from '../../redux/userRedux'
@@ -64,6 +65,11 @@ const DashboardBox = ({ closeDrawer }) => {
       text: "Saved",
       Icon: <FavoriteBorderIcon />,
       url: "saved",
+    },
+    {
+      text: "Invoices",
+      Icon: <Description />,
+      url: "invoices",
     },
     // { text: "Suppor Icon: <HeadsetMicIcon />, url: "support" },
   ];

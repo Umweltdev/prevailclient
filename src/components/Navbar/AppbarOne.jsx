@@ -28,6 +28,7 @@ const navItems = [
   "Contact",
   { path: "/user/profile", label: "Dashboard" },
   "SignUp",
+  "Logout",
 ];
 
 function AppBarOne() {

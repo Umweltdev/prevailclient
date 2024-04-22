@@ -12,12 +12,15 @@ import Carousel from "../components/Services/Carousel";
 import Platform from "../components/Services/Platform";
 import PlatformTwo from "../components/Services/PlatformTwo";
 import AutomationSection from "../components/Services/AutomationSection";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 //import Reduce from "../components/Services/Reduce";
 
-const Services = () => {
+const Services = (props) => {
+   const { isLoggedIn } = useContext(AuthContext);
   return (
     <div style={{ width: "100%", overflow: "hidden" }}>
-      <DrawerAppBarWhite />
+      {/* <DrawerAppBarWhite {...props} isLoggedIn={isLoggedIn} /> */}
       <Carousel />
       <SectionTwo />
       <Platform />

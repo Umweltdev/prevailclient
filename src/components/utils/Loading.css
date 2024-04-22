@@ -1,0 +1,53 @@
+.blink {
+   animation: blink 2s linear infinite;
+  -webkit-animation: blink 2s linear infinite;
+  width: 10vw;
+}
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes blink {
+ 0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* 
+.blink {
+  width: 220px;
+ 
+  background-color: #342ab8;
+  padding: 10px;
+  text-align: center;
+  line-height: 50px;
+}
+span {
+  font-size: 26px;
+  font-family: cursive;
+  color: #fff;
+  animation: blink 2s linear infinite;
+}
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+} */

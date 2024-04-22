@@ -13,26 +13,68 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import { Link, NavLink } from "react-router-dom";
-import wLogo from "./wlogo.png";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "./pm2.png";
-import { Grid } from "@mui/material";
+import { Grid, Menu, MenuItem } from "@mui/material";
+import { AuthContext } from "../../context/AuthContext";
 
 const drawerWidth = 240;
-const navItems = [
-  "About",
-  "Services",
-  // { path: "/Services/digitalaccelerator", label: "Digital Accelerator" },
-  "Portfolio",
-  "Blog",
-  "Contact",
-  { path: "/user/profile", label: "Dashboard" },
-  "SignUp",
+
+const servicesData = [
+  {
+    text: "Services",
+    link: "/Services",
+  },
+  {
+    text: "Brand Identity",
+    link: "/Services/brand",
+  },
+  {
+    text: "Custom Website & Management",
+    link: "/Services/website",
+  },
+  {
+    text: "Website Developement & Management",
+    link: "/Services/webmanagement",
+  },
+  {
+    text: "Search Engine Marketing (SEM)",
+    link: "/Services/sem",
+  },
+  {
+    text: "Marketing Price Displacement (MPD)",
+    link: "/Services/mpd",
+  },
+  {
+    text: "Digital Accelerator",
+    link: "/Services/digitalaccelerator",
+  },
 ];
 
 function DrawerAppBarWhite() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [showNavbar, setShowNavbar] = React.useState(true);
+  const { isLoggedIn, dispatch } = React.useContext(AuthContext);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const navigate = useNavigate();
+
+  const handleDrawerToggle = () => {
+    setMobileOpen((prevState) => !prevState);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    dispatch({ type: "LOGOUT" });
+    navigate("/login");
+  };
+
+  const handleServicesClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   React.useEffect(() => {
     let prevScrollPos = window.pageYOffset;
@@ -53,9 +95,35 @@ function DrawerAppBarWhite() {
     };
   }, []);
 
-  const handleDrawerToggle = () => {
-    setMobileOpen((prevState) => !prevState);
-  };
+  const navItems = React.useMemo(
+    () =>
+      isLoggedIn
+        ? [
+            "About",
+            {
+              label: "Services",
+              onClick: handleServicesClick,
+            },
+            "Portfolio",
+            "Blog",
+            "Contact",
+            { path: "/user/profile", label: "Dashboard" },
+            { label: "Logout", onClick: handleLogout, path: "/login" },
+          ]
+        : [
+            "About",
+            {
+              label: "Services",
+              onClick: handleServicesClick,
+            },
+            "Portfolio",
+            "Blog",
+            "Contact",
+            "SignUp",
+            "Login",
+          ],
+    [isLoggedIn, handleLogout]
+  );
 
   const drawer = (
     <Box
@@ -80,8 +148,8 @@ function DrawerAppBarWhite() {
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item.path || item} disablePadding>
+        {navItems.map((item, index) => (
+          <ListItem key={index} disablePadding>
             {typeof item === "string" ? (
               <Link
                 to={`/${item.toLowerCase()}`}
@@ -101,16 +169,7 @@ function DrawerAppBarWhite() {
                   textAlign: "center",
                 }}
               >
-                <NavLink
-                  style={{
-                    textDecoration: "none",
-                    color: "#884ed9",
-                    fontFamily: `"Sarabun","sans-serif"`,
-                  }}
-                  to={item.path}
-                >
-                  <ListItemText primary={item.label} />
-                </NavLink>
+                <ListItemText primary={item.label} />
               </ListItemButton>
             )}
           </ListItem>
@@ -155,7 +214,6 @@ function DrawerAppBarWhite() {
               <IconButton
                 color="inherit"
                 aria-label="open drawer"
-                // edge="start"
                 onClick={handleDrawerToggle}
                 sx={{ display: { sm: "none" } }}
               >
@@ -210,12 +268,11 @@ function DrawerAppBarWhite() {
                 sx={{
                   display: "flex",
                   flexDirection: "row",
-                  // justifyContent: "space-between",
                   alignItems: "center",
                 }}
               >
-                {navItems.map((item) => (
-                  <ListItem key={item.path || item}>
+                {navItems.map((item, index) => (
+                  <ListItem key={index}>
                     {typeof item === "string" ? (
                       <Button
                         key={item}
@@ -237,23 +294,15 @@ function DrawerAppBarWhite() {
                       </Button>
                     ) : (
                       <Button
-                        key={item.path}
+                        key={item.label}
                         sx={{
                           color: "#884ed9",
                           fontWeight: "900",
                           fontFamily: `"Sarabun","sans-serif"`,
                         }}
+                        onClick={item.onClick}
                       >
-                        <NavLink
-                          style={{
-                            textDecoration: "none",
-                            color: "#884ed9",
-                            fontFamily: `"Sarabun","sans-serif"`,
-                          }}
-                          to={item.path}
-                        >
-                          {item.label}
-                        </NavLink>
+                        {item.label}
                       </Button>
                     )}
                   </ListItem>
@@ -282,10 +331,20 @@ function DrawerAppBarWhite() {
           {drawer}
         </Drawer>
       </nav>
+      <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
+        {servicesData.map((data, i) => (
+          <MenuItem key={i} onClick={handleClose}>
+            <Link
+              style={{ color: "#333", textDecoration: "none" }}
+              to={data.link}
+            >
+              {data.text}
+            </Link>
+          </MenuItem>
+        ))}
+      </Menu>
     </Box>
   );
 }
 
 export default DrawerAppBarWhite;
-
-// DrawerAppBarWhite;

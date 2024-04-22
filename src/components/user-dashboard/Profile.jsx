@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import {
   Typography,
   Box,
@@ -10,21 +10,31 @@ import {
 } from "@mui/material";
 import PersonIcon from "@mui/icons-material/Person";
 import Header from "./Header";
-// import { useSelector } from "react-redux";
+import { useLocation, useParams } from "react-router-dom";
+import axios from "axios";
+import Loading from "../utils/Loading";
+import { AuthContext } from "../../context/AuthContext";
 
-const Profile = ({ openDrawer }) => {
+
+const Profile = () => {
   const isNonMobile = useMediaQuery("(min-width:968px)");
   const Mobile = useMediaQuery("(min-width:600px)");
-  // const user = useSelector((state) => state.user.currentUser);
+  const location = useLocation();
+
+  const {user} =  useContext(AuthContext)
+
+  if (!user) {
+    return <Loading/>;
+  }
 
   return (
     <Stack spacing={3}>
       <Header
         Icon={PersonIcon}
         title={"My Profile"}
-        openDrawer={openDrawer}
+        // openDrawer={openDrawer}
         button="Edit Profile"
-        // link={`/user/profile/${user?._id}`}
+        link={`/user/profile/${user?.user._id}`}
       />
 
       <Paper
@@ -54,7 +64,7 @@ const Profile = ({ openDrawer }) => {
             First Name
           </small>
           <Typography variant="subtitle2" textTransform="capitalize">
-          Valentine
+            {user.user.firstName}
           </Typography>
         </Box>
         <Box
@@ -73,7 +83,7 @@ const Profile = ({ openDrawer }) => {
             Last Name
           </small>
           <Typography variant="subtitle2" textTransform="capitalize">
-            Doe
+            {user?.user.lastName}
           </Typography>
         </Box>
         <Box
@@ -91,7 +101,7 @@ const Profile = ({ openDrawer }) => {
           >
             Email
           </small>
-          <Typography variant="subtitle2">vdoe@gmail.com</Typography>
+          <Typography variant="subtitle2">{user?.user.email}</Typography>
         </Box>
         <Box
           sx={{
@@ -108,9 +118,9 @@ const Profile = ({ openDrawer }) => {
           >
             Username
           </small>
-          <Typography variant="subtitle2">vldoe@gmail.com</Typography>
+          <Typography variant="subtitle2">{user?.user.firstName}</Typography>
         </Box>
-        {/* <Box
+        <Box
           sx={{
             flex: "1 1 0",
             display: "flex",
@@ -123,18 +133,10 @@ const Profile = ({ openDrawer }) => {
               color: "rgb(125, 135, 156)",
             }}
           >
-            Birth Date
+            Phone Number
           </small>
-          <Typography variant="subtitle2">
-            {" "}
-            {user?.dob &&
-              new Date(user.dob).toLocaleDateString("en-US", {
-                day: "numeric",
-                month: "short",
-                year: "numeric",
-              })}
-          </Typography>
-        </Box> */}
+          <Typography variant="subtitle2">{user?.user.phone}</Typography>
+        </Box>
       </Paper>
     </Stack>
   );
