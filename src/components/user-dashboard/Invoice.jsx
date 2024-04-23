@@ -1,146 +1,55 @@
-import { useState, useEffect, useContext } from "react";
-import {
-  Typography,
-  Box,
-  Stack,
-  Paper,
-  Avatar,
-  Grid,
-  useMediaQuery,
-} from "@mui/material";
-import PersonIcon from "@mui/icons-material/Person";
-import { Receipt } from "@mui/icons-material";
-import Header from "./Header";
-import { useLocation, useParams } from "react-router-dom";
-import axios from "axios";
-import Loading from "../utils/Loading";
-import { AuthContext } from "../../context/AuthContext";
 
-const Invoice = () => {
-  const isNonMobile = useMediaQuery("(min-width:968px)");
-  const Mobile = useMediaQuery("(min-width:600px)");
-  const { user } = useContext(AuthContext);
-  const [invoiceData, setInvoiceData] = useState(null);
-  const [loading, setLoading] = useState(true);
+import { useState, useEffect } from "react";
+import { Box, Grid, Typography, Stack, CircularProgress } from "@mui/material";
+import { Description } from "@mui/icons-material";
+import Header from "./Header";
+import InvoiceDetails from "../Invoice/invoice-details";
+import axiosInstance from "../utils/axios";
+import { useParams } from "react-router-dom";
+
+const Invoices = ({ openDrawer }) => {
+  const { id } = useParams();
+  const [invoice, setInvoice] = useState(null);
 
   useEffect(() => {
-    const fetchInvoiceData = async () => {
+    const getInvoice = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/api/invoice");
-        setInvoiceData(response.data);
-        setLoading(false);
+        const res = await axiosInstance.get(`/api/invoice/${id}`);
+        setInvoice(res.data);
       } catch (error) {
-        console.error("Error fetching invoice data:", error);
-        setLoading(false);
+        console.log(error);
       }
     };
 
-    fetchInvoiceData();
-  }, []);
-
-  console.log(invoiceData);
-
-  if (loading) {
-    return <Loading />;
-  }
+    getInvoice();
+  }, [id]);
 
   return (
-    <Stack spacing={3}>
+    <Stack spacing={2}>
       <Header
-        Icon={Receipt}
-        title={"My Invoice"}
-        // openDrawer={openDrawer}
-        button="Edit Invoice"
-        link={`/user/profile/${user?._id}`}
+        Icon={Description}
+        title={"My Invoices"}
+        openDrawer={openDrawer}
       />
-      {invoiceData && (
-        <Paper
-          elevation={0}
+      {invoice ? (
+        <InvoiceDetails invoice={invoice} />
+      ) : (
+        <Box
           sx={{
-            paddingY: 2,
-            paddingX: Mobile ? 3 : 1.5,
-
+            height: "200px",
             display: "flex",
-            bgcolor: "white",
-            flexDirection: isNonMobile ? "row" : "column",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
-          <Box
-            sx={{
-              flex: "1 1 0",
-              display: "flex",
-              flexDirection: "column",
-              padding: "8px",
-            }}
-          >
-            <small
-              style={{
-                color: "rgb(125, 135, 156)",
-              }}
-            >
-              Invoice Number
-            </small>
-            <Typography variant="subtitle2" textTransform="capitalize">
-              {invoiceData?.invoiceNumber}
-            </Typography>
-          </Box>
-          <Box
-            sx={{
-              flex: "1 1 0",
-              display: "flex",
-              flexDirection: "column",
-              padding: "8px",
-            }}
-          >
-            <small
-              style={{
-                color: "rgb(125, 135, 156)",
-              }}
-            >
-              Created Date
-            </small>
-            <Typography variant="subtitle2" textTransform="capitalize">
-              {invoiceData?.createDate}
-            </Typography>
-          </Box>
-          <Box
-            sx={{
-              flex: "1 1 0",
-              display: "flex",
-              flexDirection: "column",
-              padding: "8px",
-            }}
-          >
-            <small
-              style={{
-                color: "rgb(125, 135, 156)",
-              }}
-            >
-              Due Date
-            </small>
-            <Typography variant="subtitle2">{invoiceData?.dueDate}</Typography>
-          </Box>
-          <Box
-            sx={{
-              flex: "1 1 0",
-              display: "flex",
-              flexDirection: "column",
-              padding: "8px",
-            }}
-          >
-            <small
-              style={{
-                color: "rgb(125, 135, 156)",
-              }}
-            >
-              Items
-            </small>
-            <Typography variant="subtitle2">{invoiceData?.items}</Typography>
-          </Box>
-        </Paper>
+          <CircularProgress />
+        </Box>
+
       )}
     </Stack>
   );
 };
 
-export default Invoice;
+
+export default Invoices;
+

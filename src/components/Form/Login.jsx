@@ -60,9 +60,6 @@ const Login = () => {
     setShowPassword(!showPassword);
   };
 
-  // http://localhost:8080/api/auth/login
-  //   Object.values(formData).every((val) => val.trim() !== "")
-
   return (
     <Grid sx={{ margin: "25vh auto 10vh 0" }}>
       {loading && (

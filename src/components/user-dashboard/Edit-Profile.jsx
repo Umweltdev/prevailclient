@@ -1,18 +1,12 @@
-import { useEffect, useState } from "react";
-import CameraEnhanceIcon from "@mui/icons-material/CameraEnhance";
+import { useContext } from "react";
 import {
   Box,
   Button,
   Paper,
   Stack,
   TextField,
-  Typography,
-  Avatar,
-  IconButton,
   useMediaQuery,
 } from "@mui/material";
-import dayjs from "dayjs";
-import { DatePicker } from "@mui/x-date-pickers";
 import { Formik } from "formik";
 import * as yup from "yup";
 import PersonIcon from "@mui/icons-material/Person";
@@ -21,49 +15,39 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 // import { userRequest } from "../../requestMethods";
 import { useSelector, useDispatch } from "react-redux";
 // import { loginSuccess } from "../../redux/userRedux";
+import { AuthContext } from "../../context/AuthContext";
+import axiosInstance from "../utils/axios";
+import axios from "axios";
 
 const EditProfile = ({ openDrawer }) => {
-  const [profilePicture, setProfilePicture] = useState(null);
-  const [profilePictureFile, setProfilePictureFile] = useState(null);
   const { id } = useParams();
-  const dispatch = useDispatch()
-  const user = useSelector((state) => state.user.currentUser);
+  const { user, dispatch } = useContext(AuthContext);
 
   const isNonMobile = useMediaQuery("(min-width:968px)");
   const navigate = useNavigate();
 
   const handleEditProfile = async (data) => {
     try {
-      const res = await userRequest.put(`/users/${id}`, data);
-      const updatedUser = {
-        ...res.data,
-        accessToken: user.accessToken,
-      };
-      dispatch(loginSuccess(updatedUser));
-      navigate("/user/profile")
+      const res = await axios.put(`http://localhost:8080/api/user/${id}`, data, {
+        headers: {
+          Authorization: `Bearer ${user.token}`
+        },
+      });   
+      console.log(res.data)
+      dispatch({ type: "LOGIN_SUCCESS", payload: {user:{...res.data},token:user.token} });
+      navigate("/user/profile");
     } catch (error) {
       console.log(error);
     }
   };
 
-  const handleImageUpload = (event) => {
-    const file = event.target.files[0];
-    setProfilePictureFile(file);
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setProfilePicture(reader.result);
-      };
-      reader.readAsDataURL(file);
-    }
+  const initialValues = {
+    firstName: user?.user?.firstName,
+    lastName: user?.user?.lastName,
+    email: user?.user?.email,
+    phone: user?.user?.phone,
   };
 
-  const initialValues = {
-    firstName: user?.firstName,
-    lastName: user?.lastName,
-    email: user?.email,
-    username: user?.username,
-  };
   return (
     <Stack spacing={3}>
       <Header
@@ -85,7 +69,7 @@ const EditProfile = ({ openDrawer }) => {
         <Formik
           enableReinitialize={true}
           onSubmit={(values) => {
-            handleEditProfile(values)
+            handleEditProfile(values);
           }}
           initialValues={initialValues}
           validationSchema={editSchema}
@@ -102,47 +86,6 @@ const EditProfile = ({ openDrawer }) => {
             dirty,
           }) => (
             <form onSubmit={handleSubmit}>
-              {/* <Box
-                display="flex"
-                alignItems={{ xs: "center", md: "flex-end" }}
-                justifyContent={{ xs: "center", md: "flex-start" }}
-                mb={3}
-              >
-                <Avatar
-                  alt="profile-picture"
-                  src={profilePicture || user?.image}
-                  sx={{ width: 64, height: 64 }}
-                />
-                <Box ml="-15px">
-                  <input
-                    type="file"
-                    accept="image/*"
-                    onChange={handleImageUpload}
-                    style={{ display: "none" }}
-                    id="profilePictureInput"
-                  />
-                  <label htmlFor="profilePictureInput">
-                    <IconButton
-                      component="span"
-                      sx={{
-                        backgroundColor: "#e3e9ef !important",
-                        color: "#0F3460 !important",
-                        padding: "7px",
-                        "&:hover": {
-                          backgroundColor: "#0f34600a !important",
-                        },
-                      }}
-                    >
-                      <CameraEnhanceIcon
-                        sx={{
-                          fontSize: "1.2rem",
-                        }}
-                      />
-                    </IconButton>
-                  </label>
-                </Box>
-              </Box> */}
-
               <Box
                 display="grid"
                 gap="20px"
@@ -151,28 +94,6 @@ const EditProfile = ({ openDrawer }) => {
                   "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
                 }}
               >
-                <TextField
-                  fullWidth
-                  variant="outlined"
-                  type="text"
-                  label="Username"
-                  size="small"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  value={values.username}
-                  name="username"
-                  error={!!touched.username && !!errors.username}
-                  helperText={touched.username && errors.username}
-                  sx={{
-                    gridColumn: "span 2",
-                    "& .MuiInputBase-root": {
-                      fontSize: "15px",
-                    },
-                  }}
-                  InputLabelProps={{
-                    style: { fontSize: "14px" },
-                  }}
-                />
                 <TextField
                   fullWidth
                   variant="outlined"
@@ -217,6 +138,7 @@ const EditProfile = ({ openDrawer }) => {
                     style: { fontSize: "14px" },
                   }}
                 />
+
                 <TextField
                   fullWidth
                   variant="outlined"
@@ -239,6 +161,28 @@ const EditProfile = ({ openDrawer }) => {
                     style: { fontSize: "14px" },
                   }}
                 />
+                <TextField
+                  fullWidth
+                  variant="outlined"
+                  type="text"
+                  label="Phone Number"
+                  size="small"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  value={values.phone}
+                  name="phone"
+                  error={!!touched.phone && !!errors.phone}
+                  helperText={touched.phone && errors.phone}
+                  sx={{
+                    gridColumn: "span 2",
+                    "& .MuiInputBase-root": {
+                      fontSize: "15px",
+                    },
+                  }}
+                  InputLabelProps={{
+                    style: { fontSize: "14px" },
+                  }}
+                />
               </Box>
               <Button
                 type="submit"
@@ -246,10 +190,7 @@ const EditProfile = ({ openDrawer }) => {
                 sx={{
                   mt: 4,
                   textTransform: "none",
-                  bgcolor:
-                    !isValid 
-                      ? "#0000001f !important"
-                      : "primary.main",
+                  bgcolor: !isValid ? "#0000001f !important" : "primary.main",
                   color: "white",
                   fontSize: "14px",
                   paddingX: "20px",
@@ -276,7 +217,7 @@ const phoneRegExp =
 const editSchema = yup.object().shape({
   firstName: yup.string().required("required"),
   lastName: yup.string().required("required"),
-  username: yup.string().required("required"),
+  phone: yup.string().required("required"),
   email: yup.string().email("invalid email").required("required"),
 });
 export default EditProfile;

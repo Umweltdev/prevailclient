@@ -19,7 +19,10 @@ const Profile = () => {
   const isNonMobile = useMediaQuery("(min-width:968px)");
   const Mobile = useMediaQuery("(min-width:600px)");
   const location = useLocation();
-  const { user } = useContext(AuthContext);
+
+
+  const {user} =  useContext(AuthContext)
+
 
   if (!user) {
     return <Loading />;
@@ -32,7 +35,7 @@ const Profile = () => {
         title={"My Profile"}
         // openDrawer={openDrawer}
         button="Edit Profile"
-        link={`/user/profile/${user?._id}`}
+        link={`/user/profile/${user?.user._id}`}
       />
 
       <Paper
@@ -115,8 +118,27 @@ const Profile = () => {
             }}
           >
             Company
+
           </small>
           <Typography variant="subtitle2">{user?.user.company}</Typography>
+        </Box>
+        <Box
+          sx={{
+            flex: "1 1 0",
+            display: "flex",
+            flexDirection: "column",
+            padding: "8px",
+          }}
+        >
+          <small
+            style={{
+              color: "rgb(125, 135, 156)",
+            }}
+          >
+            Phone Number
+          </small>
+          <Typography variant="subtitle2">{user?.user.phone}</Typography>
+
         </Box>
       </Paper>
     </Stack>

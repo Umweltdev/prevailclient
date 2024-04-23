@@ -12,7 +12,8 @@ import Address from "../components/user-dashboard/Address";
 import SavedProperties from "../components/user-dashboard/SavedProperties";
 import FooterNew from "../components/Footer/FooterNew";
 import { AuthContext } from "../context/AuthContext";
-
+import Invoices from "../components/user-dashboard/Invoices";
+import Invoice from "../components/user-dashboard/Invoice";
 
 const UserDashBoard = (props) => {
   const [drawer, setDrawer] = useState(false);
@@ -87,6 +88,15 @@ const UserDashBoard = (props) => {
                 <Route
                   path="/saved"
                   element={<SavedProperties openDrawer={openDrawer} />}
+                />
+                <Route
+                  path="/invoices"
+                  element={<Invoices openDrawer={openDrawer} />}
+                />
+
+                <Route
+                  path="/invoices/:id"
+                  element={<Invoice openDrawer={openDrawer} />}
                 />
               </Routes>
             </Grid>
