@@ -464,15 +464,15 @@
 /* SECTION TWO MOBILE */
 @media only screen and (max-width: 700px) {
   .hero-container {
-    background-color: #884ed9;
+    /* background-color: #884ed9; */
     width: 100vw;
-    height: 50vh;
+    height: 100vh;
     top: 0;
     overflow: hidden;
   }
 
   .hero {
-    margin-top: 30vh;
+    margin-top: 20vh;
   }
 
   .hero-one {
@@ -1365,10 +1365,10 @@ FOOTER
   }
 
   .hero-two {
-    font-size: 10vw;
+    font-size: 8vw;
     width: 90vw;
     color: white;
-    margin-top: unset;
+    margin-top: 2vh;
   }
 
   .spinnerSplin {
@@ -1423,6 +1423,11 @@ FOOTER
 
   .mainDiv {
     display: none;
+  }
+
+  .hero-three {
+    margin-left: 5vw;
+    z-index: 999;
   }
 
   /* .sSevenRight {

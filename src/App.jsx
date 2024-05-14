@@ -21,12 +21,12 @@ import LoginForm from "./pages/Login";
 import Stepper from "./pages/Stepper";
 import MobStepper from "./pages/MobStepper";
 import UserDashBoard from "./pages/UserDashboard";
+import Profile from "./components/user-dashboard/Profile";
 
 
 function App() {
   return (
     <Routes>
-     
       <Route path="/" element={<Landing />} />
       <Route path="/About" element={<About />} />
       <Route path="/Portfolio" element={<Portfolio />} />
@@ -57,6 +57,7 @@ function App() {
       <Route path="/MobStepper" element={<MobStepper />} />
       <Route path="/UserDashboard" element={<UserDashBoard />} />
       <Route path="/user/*" element={<UserDashBoard />} />
+      {/* <Route path="/user/profile" element={<Profile/>} /> */}
     </Routes>
   );
 }

@@ -2,6 +2,7 @@ import * as React from "react";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
+import { Fab } from "@mui/material";
 
 function BasicButtons({ text, gradient, width }) {
   const navigate = useNavigate();
@@ -15,12 +16,13 @@ function BasicButtons({ text, gradient, width }) {
   };
   return (
     <Stack>
-      <Button
+      <Fab
         onClick={handleSignUp}
         variant="contained"
         sx={{
           background:
             gradient || "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
+          background: "#70A1E3",
           padding: "2vh 2vw",
           borderRadius: "5vw",
           color: "white",
@@ -31,17 +33,19 @@ function BasicButtons({ text, gradient, width }) {
 
           "@media (max-width: 600px)": {
             padding: "0.5vh 6vw",
-            borderRadius: "5vw",
+            borderRadius: "5vh",
             color: "white",
             fontWeight: "unset",
-            fontSize: "3vw",
+            fontSize: "4vw",
             boxShadow: "unset",
             textAlign: "center",
+            marginTop: "5vh",
+            width: "75vw",
           },
         }}
       >
         {text}
-      </Button>
+      </Fab>
     </Stack>
   );
 }

@@ -59,19 +59,19 @@ const DashboardBox = ({ closeDrawer }) => {
     dispatch(logout());
     navigate("/");
   };
-  // const dashboards = [
-  //   {
-  //     text: "Bookings",
-  //     Icon: <BookmarkBorderIcon />,
-  //     url: "bookings",
-  //   },
-  //   {
-  //     text: "Saved",
-  //     Icon: <FavoriteBorderIcon />,
-  //     url: "saved",
-  //   },
-  //   // { text: "Suppor Icon: <HeadsetMicIcon />, url: "support" },
-  // ];
+  const dashboards = [
+    {
+      text: "Bookings",
+      Icon: <BookmarkBorderIcon />,
+      url: "bookings",
+    },
+    // {
+    //   text: "Saved",
+    //   Icon: <FavoriteBorderIcon />,
+    //   url: "saved",
+    // },
+    // { text: "Suppor Icon: <HeadsetMicIcon />, url: "support" },
+  ];
 
   const account = [
     {
@@ -98,7 +98,7 @@ const DashboardBox = ({ closeDrawer }) => {
   return (
     <>
       <Stack spacing={5}>
-        {/* <Stack spacing={1.5}>
+        <Stack spacing={1.5}>
           <Typography pl={3.5} variant="subtitle2">
             DASHBOARD
           </Typography>
@@ -107,7 +107,7 @@ const DashboardBox = ({ closeDrawer }) => {
               <ILink key={index} {...dashboard} closeDrawer={closeDrawer} />
             ))}
           </Stack>
-        </Stack> */}
+        </Stack>
         <Stack spacing={1.5}>
           <Typography pl={3.5} variant="subtitle2">
             ACCOUNT SETTINGS

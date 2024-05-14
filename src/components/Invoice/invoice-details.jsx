@@ -17,7 +17,6 @@ import axiosInstance from "../utils/axios";
 import { fDate } from "../utils/format-time";
 import logo from "./pm2.png";
 
-
 import Label from "./label";
 import Scrollbar from "./scrollbar";
 
@@ -42,8 +41,8 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-export default function InvoiceDetails({invoice}) {
-  const [currentStatus, setCurrentStatus] = useState("");;
+export default function InvoiceDetails({ invoice }) {
+  const [currentStatus, setCurrentStatus] = useState("");
   const handleChangeStatus = useCallback(
     async (event) => {
       if (event.target.value) {
@@ -56,6 +55,8 @@ export default function InvoiceDetails({invoice}) {
     [invoice?._id]
   );
 
+  // console.log(invoice);
+
   useEffect(() => {
     if (invoice?.status) {
       setCurrentStatus(invoice?.status);
@@ -67,7 +68,7 @@ export default function InvoiceDetails({invoice}) {
         <TableCell colSpan={3} />
         <TableCell sx={{ typography: "subtitle1" }}>Total</TableCell>
         <TableCell width={140} sx={{ typography: "subtitle1" }}>
-        {`₦${invoice?.totalAmount.toLocaleString()}`}
+          {`₦${invoice?.totalAmount.toLocaleString()}`}
         </TableCell>
       </StyledTableRow>
     </>

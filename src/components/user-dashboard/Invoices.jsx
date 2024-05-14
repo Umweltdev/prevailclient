@@ -55,7 +55,7 @@ const Invoice = ({ _id, invoiceNumber, createDate, dueDate, status }) => {
       </Typography>
       <Stack direction="row" justifyContent="end">
         <Link
-          // to={`/user/invoices/${_id}`}
+          to={`/user/invoices/${_id}`}
           style={{
             textDecoration: "none",
           }}

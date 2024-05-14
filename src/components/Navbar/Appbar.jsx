@@ -68,6 +68,10 @@ function DrawerAppBarWhite() {
     navigate("/login");
   };
 
+  const handleUserDashboard = () => {
+    navigate("/user/profile");
+  };
+
   const handleServicesClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -107,7 +111,11 @@ function DrawerAppBarWhite() {
             "Portfolio",
             "Blog",
             "Contact",
-            { path: "/user/profile", label: "Dashboard" },
+            {
+              label: "Dashboard",
+              onClick: handleUserDashboard,
+              path: "/user/profile",
+            },
             { label: "Logout", onClick: handleLogout, path: "/login" },
           ]
         : [
@@ -131,6 +139,7 @@ function DrawerAppBarWhite() {
       sx={{
         textAlign: "center",
         color: "#884ed9",
+
         "@media (max-width: 600px)": { overflow: "hidden" },
       }}
     >
@@ -149,7 +158,7 @@ function DrawerAppBarWhite() {
       <Divider />
       <List>
         {navItems.map((item, index) => (
-          <ListItem key={index} disablePadding>
+          <ListItem sx={{ textAlign: "center" }} key={index} disablePadding>
             {typeof item === "string" ? (
               <Link
                 to={`/${item.toLowerCase()}`}
@@ -164,11 +173,7 @@ function DrawerAppBarWhite() {
                 </ListItemButton>
               </Link>
             ) : (
-              <ListItemButton
-                sx={{
-                  textAlign: "center",
-                }}
-              >
+              <ListItemButton>
                 <ListItemText primary={item.label} />
               </ListItemButton>
             )}
@@ -335,7 +340,11 @@ function DrawerAppBarWhite() {
         {servicesData.map((data, i) => (
           <MenuItem key={i} onClick={handleClose}>
             <Link
-              style={{ color: "#333", textDecoration: "none" }}
+              style={{
+                color: "#333",
+                textDecoration: "none",
+                textAlign: "left",
+              }}
               to={data.link}
             >
               {data.text}

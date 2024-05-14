@@ -61,7 +61,7 @@ const UserDashBoard = () => {
             <Grid item xs={12} md={12} lg={9}>
               <Routes>
                 <Route
-                  path="/profile"
+                  path="/user/profile"
                   element={<Profile openDrawer={openDrawer} />}
                 />
                 <Route
