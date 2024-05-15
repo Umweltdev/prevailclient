@@ -21,6 +21,7 @@ import LoginForm from "./pages/Login";
 import Stepper from "./pages/Stepper";
 import MobStepper from "./pages/MobStepper";
 import UserDashBoard from "./pages/UserDashboard";
+import Profile from "./components/user-dashboard/Profile";
 
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
@@ -64,6 +65,7 @@ function App() {
       <Route path="/MobStepper" element={<MobStepper />} />
       <Route path="/UserDashboard" element={<UserDashBoard />} />
       <Route path="/user/*" element={<UserDashBoard />} />
+      {/* <Route path="/user/profile" element={<Profile/>} /> */}
     </Routes>
     </Elements>
   );

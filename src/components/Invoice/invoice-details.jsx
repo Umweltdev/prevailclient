@@ -60,6 +60,8 @@ export default function InvoiceDetails({ invoice }) {
     [invoice?._id]
   );
 
+  // console.log(invoice);
+
   useEffect(() => {
     if (invoice?.status) {
       setCurrentStatus(invoice?.status);

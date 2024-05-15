@@ -121,6 +121,7 @@ const Hero = () => {
               text="Schedule a consultation"
               bgColor="#450fad"
               onClick={() => navigate("/consultation")}
+              
             />
           </motion.div>
         </motion.div>

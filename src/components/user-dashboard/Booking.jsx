@@ -15,8 +15,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import Carousel from "./Carousel";
 import PropertyDetails from "./PropertyDetails";
 import MenuIcon from "@mui/icons-material/Menu";
-// import { userRequest } from "../../requestMethods";
+import { userRequest } from "../../requestMethods";
 import { dateConverter } from "./utils";
+import axiosInstance from "../utils/axios";
+
 
 export const CustomDivider = styled(Divider)`
   margin: 16px 0px 24px;
@@ -32,15 +34,26 @@ const Booking = ({ openDrawer }) => {
   useEffect(() => {
     const getBooking = async () => {
       try {
-        const res = await userRequest.get(`/booking/${id}`);
+        const res = await axiosInstance.get(`/api/booking/${id}`);
         setBooking(res.data);
       } catch (error) {
         console.log(error);
       }
     };
 
+    
+
     getBooking();
   }, [id]);
+
+  console.log(booking);
+  // console.log(booking.location.type);
+
+  const isBookingDatePassed = () => {
+    const currentDate = new Date();
+    const bookingDate = new Date(booking.start_time);
+    return currentDate > bookingDate;
+  };
 
   return (
     <Box>
@@ -91,13 +104,16 @@ const Booking = ({ openDrawer }) => {
             <Stack spacing={2}>
               <Stack spacing={1}>
                 <Stack direction="row" spacing={1.5}>
-                  <Typography>BookingID: </Typography>
-                  <Typography color="#7D879C">{booking?.bookingId}</Typography>
+                  <Typography>Location: </Typography>
+                  <Typography color="#7D879C">
+                    {" "}
+                    LOCATION: {booking.location.type}
+                  </Typography>
                 </Stack>
                 <Stack direction="row" spacing={1.5}>
-                  <Typography> Book Date: </Typography>
+                  <Typography> Meeting Date: </Typography>
                   <Typography color="#7D879C">
-                    {dateConverter(booking?.bookDate)}
+                    {dateConverter(booking?.createdAt)}
                   </Typography>
                 </Stack>{" "}
                 <Stack direction="row" spacing={1.5}>
@@ -110,7 +126,7 @@ const Booking = ({ openDrawer }) => {
                 </Stack>
               </Stack>
 
-              <Typography variant="h5" >
+              <Typography variant="h5">
                 {booking?.product?.item?.title}
               </Typography>
 
@@ -129,10 +145,73 @@ const Booking = ({ openDrawer }) => {
             <Stack spacing={2}>
               <Stack spacing={1}>
                 <Stack direction="row" spacing={1.5}>
-                  <Typography>BookingID: </Typography>
-                  <Typography color="#7D879C">{booking?.bookingId}</Typography>
+                  <Typography>Location: </Typography>
+                  <Typography color="#7D879C">
+                    {booking?.location?.type}
+                  </Typography>
                 </Stack>
                 <Stack direction="row" spacing={1.5}>
+                  <Typography>Meeting Type: </Typography>
+                  <Typography color="#7D879C">{booking.name}</Typography>
+                </Stack>
+                <Stack direction="row" spacing={1.5}>
+                  <Typography>Meeting Date: </Typography>
+                  <Typography color="#7D879C">
+                    {new Date(booking.start_time).toLocaleString("en-US", {
+                      weekday: "long",
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                      hour: "numeric",
+                      minute: "numeric",
+                      second: "numeric",
+                      timeZone: "UTC",
+                    })}
+                  </Typography>
+                </Stack>
+                <Stack direction="row" spacing={1.5}>
+                  <Typography>Start Time: </Typography>
+                  <Typography color="#7D879C">
+                    {new Date(booking.start_time).toLocaleString("en-US", {
+                      // weekday: "long",
+                      // year: "numeric",
+                      // month: "long",
+                      // day: "numeric",
+                      hour: "numeric",
+                      minute: "numeric",
+                      second: "numeric",
+                      timeZone: "UTC",
+                    })}
+                  </Typography>
+                </Stack>
+                <Stack direction="row" spacing={1.5}>
+                  <Typography>End Time: </Typography>
+                  <Typography color="#7D879C">
+                    {new Date(booking.end_time).toLocaleString("en-US", {
+                      // weekday: "long",
+                      // year: "numeric",
+                      // month: "long",
+                      // day: "numeric",
+                      hour: "numeric",
+                      minute: "numeric",
+                      second: "numeric",
+                      timeZone: "UTC",
+                    })}
+                  </Typography>
+                </Stack>
+                <Stack direction="row" spacing={1.5}>
+                  <Typography>Host: </Typography>
+                  <Typography color="#7D879C">
+                    {booking?.event_memberships?.user_name}
+                  </Typography>
+                </Stack>
+                <Stack direction="row" spacing={1.5}>
+                  <Typography>Status: </Typography>
+                  <Typography color="#7D879C">
+                    {isBookingDatePassed() ? "Completed" : booking?.status}
+                  </Typography>
+                </Stack>
+                {/* <Stack direction="row" spacing={1.5}>
                   <Typography> Book Date: </Typography>
                   <Typography color="#7D879C">
                     {dateConverter(booking?.bookDate)}
@@ -145,14 +224,14 @@ const Booking = ({ openDrawer }) => {
                       ? dateConverter(booking?.viewDate)
                       : "Pending"}
                   </Typography>
-                </Stack>
+                </Stack> */}
               </Stack>
 
               <Typography variant="h5">
                 {booking?.product?.item?.title}
               </Typography>
 
-              <Carousel images={booking?.product?.item?.img} />
+              {/* <Carousel images={booking?.product?.item?.img} /> */}
             </Stack>
           </>
         )}
