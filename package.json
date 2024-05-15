@@ -20,6 +20,8 @@
     "@mui/styles": "^5.15.12",
     "@mui/x-date-pickers": "^7.1.0",
     "@react-pdf/renderer": "^3.4.2",
+    "@stripe/react-stripe-js": "^2.7.0",
+    "@stripe/stripe-js": "^3.3.0",
     "axios": "^1.6.8",
     "cors": "^2.8.5",
     "dayjs": "^1.11.10",

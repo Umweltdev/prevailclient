@@ -22,11 +22,18 @@ import Stepper from "./pages/Stepper";
 import MobStepper from "./pages/MobStepper";
 import UserDashBoard from "./pages/UserDashboard";
 
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+const stripePromise = loadStripe(
+  "pk_test_51OsCJ5P1A39VkufThp1PVDexesvf2XAY8faTyK0uucC1qRl9NW9QkpBdwXQDyjCAjzL166zjMWNn5Zr25ZkaQJVi00vurq61mj"
+);
+
 
 function App() {
   return (
+    <Elements stripe={stripePromise}>
+    
     <Routes>
-     
       <Route path="/" element={<Landing />} />
       <Route path="/About" element={<About />} />
       <Route path="/Portfolio" element={<Portfolio />} />
@@ -58,6 +65,7 @@ function App() {
       <Route path="/UserDashboard" element={<UserDashBoard />} />
       <Route path="/user/*" element={<UserDashBoard />} />
     </Routes>
+    </Elements>
   );
 }
 

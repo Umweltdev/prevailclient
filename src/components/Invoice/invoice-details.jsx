@@ -11,12 +11,13 @@ import TableHead from "@mui/material/TableHead";
 import TableCell from "@mui/material/TableCell";
 import TableBody from "@mui/material/TableBody";
 import Grid from "@mui/material/Unstable_Grid2";
+import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import TableContainer from "@mui/material/TableContainer";
 import axiosInstance from "../utils/axios";
 import { fDate } from "../utils/format-time";
 import logo from "./pm2.png";
-
+import { useStripe } from "@stripe/react-stripe-js";
 
 import Label from "./label";
 import Scrollbar from "./scrollbar";
@@ -42,8 +43,11 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-export default function InvoiceDetails({invoice}) {
-  const [currentStatus, setCurrentStatus] = useState("");;
+export default function InvoiceDetails({ invoice }) {
+  const [currentStatus, setCurrentStatus] = useState("");
+  const [loading, setLoading] = useState(false)
+  const stripe = useStripe();
+
   const handleChangeStatus = useCallback(
     async (event) => {
       if (event.target.value) {
@@ -61,13 +65,27 @@ export default function InvoiceDetails({invoice}) {
       setCurrentStatus(invoice?.status);
     }
   }, [invoice?.status]);
+
+  const handleCheckout = async () => {
+    setLoading(true)
+    const res = await axiosInstance.post(`/api/booking/pay-stripe`, {
+      amount: invoice?.totalAmount,
+      invoiceId: invoice?._id
+    });
+    setLoading(false)
+
+    await stripe.redirectToCheckout({
+      sessionId: res.data.id,
+    });
+  };
+
   const renderTotal = (
     <>
       <StyledTableRow>
         <TableCell colSpan={3} />
         <TableCell sx={{ typography: "subtitle1" }}>Total</TableCell>
         <TableCell width={140} sx={{ typography: "subtitle1" }}>
-        {`₦${invoice?.totalAmount.toLocaleString()}`}
+          {`₦${invoice?.totalAmount.toLocaleString()}`}
         </TableCell>
       </StyledTableRow>
     </>
@@ -89,7 +107,20 @@ export default function InvoiceDetails({invoice}) {
 
         <Typography variant="body2">support@minimals.cc</Typography>
       </Grid>
-      <Grid xs={12}></Grid>
+      <Grid xs={12} sx={{ py: 3, textAlign: "right" }}>
+        <Button
+          variant="outlined"
+          sx={{
+            textTransform:"none",
+            fontSize: 14,
+            fontWeight:"600",
+            lineHeight: 1.5
+          }}
+          onClick={handleCheckout}
+        >{ loading ? "Loading..." :
+          'Pay with stripe'}
+        </Button>
+      </Grid>
     </Grid>
   );
 
