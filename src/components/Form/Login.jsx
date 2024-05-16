@@ -41,7 +41,7 @@ const Login = () => {
       dispatch({ type: "LOGIN_START" });
 
       const response = await axios.post(
-        "http://localhost:8080/api/auth/login",
+        "https://prevailserver-4b3c670a5496.herokuapp.com/api/auth/login",
         {
           email,
           password,

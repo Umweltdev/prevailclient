@@ -1,5 +1,7 @@
 import axios from 'axios';
-const axiosInstance = axios.create({ baseURL: "http://localhost:8080/"});
+const axiosInstance = axios.create({
+  baseURL: "https://prevailserver-4b3c670a5496.herokuapp.com/",
+});
 
 axiosInstance.interceptors.response.use(
   (res) => res,

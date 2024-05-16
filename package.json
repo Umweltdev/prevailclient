@@ -55,5 +55,5 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "vite": "^4.4.5"
   },
-  "proxy": "http://localhost:8080/api/"
+  "proxy": "https://prevailserver-4b3c670a5496.herokuapp.com/api/"
 }
