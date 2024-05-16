@@ -8,15 +8,18 @@
 
 # npm run build
 
-heroku create prevaildigitalmart
+# heroku create prevaildigitalmart
 
-rm -rf node_modules 
+# rm -rf node_modules 
 
-rm -rf package-lock.json
+# rm -rf package-lock.json
 
-heroku git:remote -a prevaildigitalmart
+heroku git:remote -a prevaildigitalmarketing
 
-npm install
+git add .
+
+git commit -m "latest push"
 
 git push heroku main
+
 
