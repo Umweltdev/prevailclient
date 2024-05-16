@@ -82,15 +82,15 @@ export default function InvoiceToolbar({
           rootElement={document.getElementById("root")}
           text={`Schedule a Meeting`}
           styles={{
-            color: "white",
-            backgroundColor: "#884ed9",
+            color: "#804de9",
+            backgroundColor: "#fbfbfb",
             padding: "1vh 0.5vw",
-            fontFamily: "inherit",
-            fontSize: "0.8vw",
-            border: "none",
-            borderRadius: "6vw",
+            fontSize: "1.1vw",
+            border: "1px solid #804de9",
+            borderRadius: "5px",
             cursor: "pointer",
-            width: "20vw"
+            fontFamily: "Sarabun",
+            width: "18vw",
           }}
         />
       </Stack>

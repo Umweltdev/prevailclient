@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { Typography, Box, Stack, Button, Link as MuiLink } from "@mui/material";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
@@ -54,11 +54,14 @@ const ILink = ({ text, Icon, url, closeDrawer }) => {
 
 const DashboardBox = ({ closeDrawer }) => {
   const navigate = useNavigate();
+  const { dispatch } = React.useContext(AuthContext);
   // const dispatch = useDispatch();
+
   const handleLogout = () => {
-    dispatch(logout());
-    navigate("/");
+    dispatch({ type: "LOGOUT" });
+    navigate("/login");
   };
+  
   const dashboards = [
     {
       text: "Bookings",
