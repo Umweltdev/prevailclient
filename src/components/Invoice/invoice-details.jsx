@@ -77,8 +77,8 @@ export default function InvoiceDetails({ invoice }) {
   }, [invoice?.status]);
 
   const handleCheckout = async () => {
-    setLoading(true);
-    const res = await axiosInstance.post(`/api/booking/pay-stripe`, {
+    setLoading(true)
+    const res = await axiosInstance.post(`/api/payment/pay-stripe`, {
       amount: invoice?.totalAmount,
       invoiceId: invoice?._id,
     });
