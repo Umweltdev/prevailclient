@@ -17,8 +17,7 @@ import { dateConverter } from "../user-dashboard/utils";
 import { Navigation, Receipt } from "@mui/icons-material";
 import { useCalendlyEventListener, PopupButton } from "react-calendly";
 import axiosInstance from "../utils/axios";
-
-
+import Calendly from "./Calendly";
 
 const Booking = ({ _id, name, start_time, end_time }) => {
   // const handleBooking = {
@@ -43,8 +42,6 @@ const Booking = ({ _id, name, start_time, end_time }) => {
     minute: "2-digit",
     hour12: true,
   });
-
-
 
   return (
     <Link
@@ -128,10 +125,15 @@ const Bookings = ({ openDrawer }) => {
     };
     getBookings();
   }, []);
-  console.log(bookings);
+  // console.log(bookings);
   return (
     <Stack spacing={2}>
-      <Header Icon={Bookmark} title={"My Bookings"} openDrawer={openDrawer} />
+      <Header
+        Icon={Bookmark}
+        title={"My Bookings"}
+        openDrawer={openDrawer}
+        button={<Calendly />}
+      />
 
       {loading ? (
         <Box

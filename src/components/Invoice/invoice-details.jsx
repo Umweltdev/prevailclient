@@ -18,6 +18,7 @@ import axiosInstance from "../utils/axios";
 import { fDate } from "../utils/format-time";
 import logo from "./pm2.png";
 import { useStripe } from "@stripe/react-stripe-js";
+import { useCalendlyEventListener, PopupButton } from "react-calendly";
 
 import Label from "./label";
 import Scrollbar from "./scrollbar";
@@ -45,8 +46,15 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 export default function InvoiceDetails({ invoice }) {
   const [currentStatus, setCurrentStatus] = useState("");
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const stripe = useStripe();
+
+  useCalendlyEventListener({
+    onProfilePageViewed: () => console.log("onProfilePageViewed"),
+    onDateAndTimeSelected: () => console.log("onDateAndTimeSelected"),
+    onEventTypeViewed: () => console.log("onEventTypeViewed"),
+    onEventScheduled: (e) => console.log(e.data.payload),
+  });
 
   const handleChangeStatus = useCallback(
     async (event) => {
@@ -69,12 +77,12 @@ export default function InvoiceDetails({ invoice }) {
   }, [invoice?.status]);
 
   const handleCheckout = async () => {
-    setLoading(true)
+    setLoading(true);
     const res = await axiosInstance.post(`/api/booking/pay-stripe`, {
       amount: invoice?.totalAmount,
-      invoiceId: invoice?._id
+      invoiceId: invoice?._id,
     });
-    setLoading(false)
+    setLoading(false);
 
     await stripe.redirectToCheckout({
       sessionId: res.data.id,
@@ -109,18 +117,43 @@ export default function InvoiceDetails({ invoice }) {
 
         <Typography variant="body2">support@minimals.cc</Typography>
       </Grid>
-      <Grid xs={12} sx={{ py: 3, textAlign: "right" }}>
+      <Grid
+        xs={12}
+        sx={{ py: 3, display: "flex", justifyContent: "space-between" }}
+      >
+        <PopupButton
+          url="https://calendly.com/prevailagency"
+          rootElement={document.getElementById("root")}
+          text={`Schedule a Meeting`}
+          styles={{
+            color: "#804de9",
+            backgroundColor: "inherit",
+            padding: "0.9vh 1vw",
+            fontSize: 14,
+            border: "1px solid rgba(128, 77, 233, 0.4)",
+            borderRadius: "5px",
+            cursor: "pointer",
+            fontFamily: "Sarabun",
+            fontWeight: "600",
+          }}
+        />
         <Button
           variant="outlined"
           sx={{
-            textTransform:"none",
+            textTransform: "none",
             fontSize: 14,
-            fontWeight:"600",
-            lineHeight: 1.5
+            fontWeight: "600",
+            lineHeight: 1.5,
+            backgroundColor: "#804de9",
+            color: "white",
+            "&:hover": {
+              backgroundColor: "#804de9",
+              color: "white",
+            },
           }}
           onClick={handleCheckout}
-        >{ loading ? "Loading..." :
-          'Pay with stripe'}
+        >
+          {loading ? "Loading..." : "Pay with stripe"}
         </Button>
       </Grid>
     </Grid>
