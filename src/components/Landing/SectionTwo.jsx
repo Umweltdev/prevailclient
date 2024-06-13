@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useInView } from "react-intersection-observer";
 import styles from "./animation.module.css"
+import img from "./assets/image100.png"
 
 const SectionTwo = () => {
   const { ref: myRef, inView: myElementVisible } = useInView();
@@ -33,6 +34,25 @@ const SectionTwo = () => {
         },
       }}
     >
+       <CardMedia
+        ref={styles.imageStyle}
+        sx={{
+          width: "37vw",
+          height: "60vh",
+          borderRadius: "1vw",
+          objectFit: "cover",
+          boxShadow:
+            "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
+          "@media (max-width: 600px)": {
+            width: "95vw",
+            height: "unset",
+            borderRadius: "5vw",
+          },
+        }}
+        component="img"
+        image={img}
+        alt="Paella dish"
+      />
       <Grid>
         <Typography
           sx={{
@@ -50,7 +70,7 @@ const SectionTwo = () => {
             },
           }}
         >
-          Introduction
+          About Us
         </Typography>
 
         <Typography
@@ -67,8 +87,7 @@ const SectionTwo = () => {
             },
           }}
         >
-          Our Mission is to empower you with innovative solutions that drive
-          long-term success
+         Our Mission is to empower you with innovative solutions that drive long-term success. 
         </Typography>
 
         <Typography
@@ -85,14 +104,7 @@ const SectionTwo = () => {
             },
           }}
         >
-          {/* <Typography>{myElementVisible ? "YES" : "NO"}</Typography> */}
-          Prevail is a cutting-edge marketing agency specialising in redefining
-          the way businesses navigate the digital landscape. At PMM, we
-          recognise that the modern economy presents unique challenges for local
-          businesses and small-to-medium-sized enterprises (SMEs). That is why
-          “Our Mission” is to empower you with innovative solutions that drive
-          long-term success. PMM is not just a marketing agency; it is a
-          strategic partner for businesses in the digital age.
+          Prevail is a cutting-edge marketing agency specialising in redefining how businesses navigate the digital landscape. Prevail is not just a marketing agency but a strategic partner for businesses in the digital age. We aim to help businesses thrive, regardless of economic challenges, by providing innovative and holistic solutions.
         </Typography>
         <Link to={"/about"}>
           <Button
@@ -126,25 +138,6 @@ const SectionTwo = () => {
         src="https://img.freepik.com/free-photo/workaholics-businesspeople-brainstorming-financial-company-ideas-analyzing-strategy-paperwork-late-night-business-office-meeting-room_482257-2170.jpg?t=st=1711367344~exp=1711370944~hmac=0f874dbfc9940b27d646b00f88a6bc6149cb22fecdbcd4941c08f352868aa65f&w=740"
         alt=""
       /> */}
-      <CardMedia
-        ref={styles.imageStyle}
-        sx={{
-          width: "37vw",
-          height: "60vh",
-          borderRadius: "1vw",
-          objectFit: "cover",
-          boxShadow:
-            "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
-          "@media (max-width: 600px)": {
-            width: "95vw",
-            height: "unset",
-            borderRadius: "5vw",
-          },
-        }}
-        component="img"
-        image="https://img.freepik.com/free-photo/workaholics-businesspeople-brainstorming-financial-company-ideas-analyzing-strategy-paperwork-late-night-business-office-meeting-room_482257-2170.jpg?t=st=1711367344~exp=1711370944~hmac=0f874dbfc9940b27d646b00f88a6bc6149cb22fecdbcd4941c08f352868aa65f&w=740"
-        alt="Paella dish"
-      />
     </Grid>
   );
 };
