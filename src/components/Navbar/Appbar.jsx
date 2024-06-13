@@ -13,18 +13,16 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import logo from "./pm2.png";
-import { Grid, Menu, MenuItem } from "@mui/material";
+import { Link, useNavigate } from "react-router-dom";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import logo from "./newlogo.svg";
 import { AuthContext } from "../../context/AuthContext";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const drawerWidth = 240;
 
 const servicesData = [
-  {
-    text: "Services",
-    link: "/Services",
-  },
   {
     text: "Brand Identity",
     link: "/Services/brand",
@@ -34,7 +32,7 @@ const servicesData = [
     link: "/Services/website",
   },
   {
-    text: "Website Developement & Management",
+    text: "Website Development & Management",
     link: "/Services/webmanagement",
   },
   {
@@ -53,9 +51,8 @@ const servicesData = [
 
 function DrawerAppBarWhite() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const [showNavbar, setShowNavbar] = React.useState(true);
-  const { isLoggedIn, dispatch } = React.useContext(AuthContext);
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const { isLoggedIn, dispatch } = React.useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleDrawerToggle = () => {
@@ -80,37 +77,18 @@ function DrawerAppBarWhite() {
     setAnchorEl(null);
   };
 
-  React.useEffect(() => {
-    let prevScrollPos = window.pageYOffset;
-
-    const handleScroll = () => {
-      const currentScrollPos = window.pageYOffset;
-      const isVisible =
-        prevScrollPos > currentScrollPos || currentScrollPos <= 100;
-
-      setShowNavbar(isVisible);
-      prevScrollPos = currentScrollPos;
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   const navItems = React.useMemo(
     () =>
       isLoggedIn
         ? [
-            "About",
+            { label: "Explore", link: "/explore" },
             {
               label: "Services",
               onClick: handleServicesClick,
             },
-            "Portfolio",
-            "Blog",
-            "Contact",
+            { label: "Blog", link: "/blog" },
+            { label: "About Us", link: "/about" },
+            { label: "Contact Us", link: "/contact" },
             {
               label: "Dashboard",
               onClick: handleUserDashboard,
@@ -119,16 +97,16 @@ function DrawerAppBarWhite() {
             { label: "Logout", onClick: handleLogout, path: "/login" },
           ]
         : [
-            "About",
+            { label: "Explore", link: "/explore" },
             {
               label: "Services",
               onClick: handleServicesClick,
             },
-            "Portfolio",
-            "Blog",
-            "Contact",
-            "SignUp",
-            "Login",
+            { label: "Blog", link: "/blog" },
+            { label: "About Us", link: "/about" },
+            { label: "Contact Us", link: "/contact" },
+            { label: "Login", link: "/login" },
+            { label: "Sign Up", link: "/signup" },
           ],
     [isLoggedIn, handleLogout]
   );
@@ -139,18 +117,9 @@ function DrawerAppBarWhite() {
       sx={{
         textAlign: "center",
         color: "#884ed9",
-
-        "@media (max-width: 600px)": { overflow: "hidden" },
       }}
     >
-      <Typography
-        variant="h6"
-        sx={{
-          my: 2,
-          marginRight: "10vw",
-          fontFamily: `"Sarabun","sans-serif"`,
-        }}
-      >
+      <Typography variant="h6" sx={{ my: 2, fontFamily: `"Sarabun","sans-serif"` }}>
         <Link to={`/`} style={{ textDecoration: "none" }}>
           <img style={{ height: "10vh" }} src={logo} alt="logo" />
         </Link>
@@ -159,9 +128,9 @@ function DrawerAppBarWhite() {
       <List>
         {navItems.map((item, index) => (
           <ListItem sx={{ textAlign: "center" }} key={index} disablePadding>
-            {typeof item === "string" ? (
+            {item.link ? (
               <Link
-                to={`/${item.toLowerCase()}`}
+                to={item.link}
                 style={{
                   textDecoration: "none",
                   color: "#884ed9",
@@ -169,11 +138,11 @@ function DrawerAppBarWhite() {
                 }}
               >
                 <ListItemButton sx={{ textAlign: "center" }}>
-                  <ListItemText primary={item} />
+                  <ListItemText primary={item.label} />
                 </ListItemButton>
               </Link>
             ) : (
-              <ListItemButton>
+              <ListItemButton onClick={item.onClick}>
                 <ListItemText primary={item.label} />
               </ListItemButton>
             )}
@@ -186,138 +155,114 @@ function DrawerAppBarWhite() {
   return (
     <Box>
       <CssBaseline />
-      {showNavbar && (
-        <AppBar
-          component="nav"
-          sx={{
-            background: "rgba(255, 255, 255, 0.2)",
-            fontFamily: `"Sarabun","sans-serif"`,
-            height: "15vh",
-            display: "flex",
-            justifyContent: "center",
-            padding: "0 4vw",
-            "@media (max-width: 600px)": {
-              background: "rgba(255, 255, 255, 0.2)",
-              height: "10vh",
-              display: "flex",
-              justifyContent: "center",
-              padding: "0 4vw",
-              overflow: "hidden",
-            },
-          }}
-        >
-          <Toolbar>
-            <Grid
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                gap: "59vw",
-                "@media (max-width: 600px)": { overflow: "hidden" },
-              }}
-            >
-              <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                onClick={handleDrawerToggle}
-                sx={{ display: { sm: "none" } }}
+      <AppBar
+        component="nav"
+        sx={{
+          background: "white",
+          boxShadow: "none",
+          borderBottom: "1px solid #E5E5E5",
+        }}
+      >
+        <Toolbar sx={{ justifyContent: "space-between" }}>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerToggle}
+            edge="start"
+            sx={{ display: { sm: "none" }, color: "black" }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{ display: { xs: "block", sm: "block" } }}
+          >
+            <Link to={`/`} style={{ textDecoration: "none" }}>
+              <img style={{ height: "50px" }} src={logo} alt="logo" />
+            </Link>
+          </Typography>
+          <Box sx={{ display: { xs: "none", sm: "flex" }, flexGrow: 1, justifyContent: "center" }}>
+            {navItems.slice(0, -2).map((item, index) => (
+              <Button
+                key={index}
+                sx={{ color: "black", textTransform: "none", margin: "0 10px", display: "flex", alignItems: "center" }}
+                onClick={item.onClick ? item.onClick : null}
+                component={item.link ? Link : "div"}
+                to={item.link ? item.link : null}
               >
-                <MenuIcon
+                {item.label}
+                {(item.label === "Explore" || item.label === "Services") && (
+                  <ExpandMoreIcon sx={{ marginLeft: "5px" }} />
+                )}
+              </Button>
+            ))}
+          </Box>
+          <Box sx={{ display: { xs: "none", sm: "flex" }, alignItems: "center" }}>
+            {isLoggedIn ? (
+              <>
+                <Button
+                  variant="outlined"
                   sx={{
-                    color: "#333",
-                    background: "white",
-                    padding: "1.5vw",
-                    fontSize: "4vh",
-                    borderRadius: "50%",
-                  }}
-                />
-              </IconButton>
-              <Typography
-                variant="h6"
-                component="div"
-                sx={{ flexGrow: 1, display: { xs: "block", sm: "none" } }}
-              >
-                <Link
-                  to={`/`}
-                  style={{
-                    textDecoration: "none",
+                    marginRight: "10px",
+                    borderColor: "#884ed9",
                     color: "#884ed9",
-                    fontFamily: `"Sarabun","sans-serif"`,
+                    textTransform: "none",
+                    borderRadius: "20px",
                   }}
+                  onClick={handleLogout}
                 >
-                  <img style={{ width: "14vw" }} src={logo} alt="logo" />
-                </Link>
-              </Typography>
-            </Grid>
-            <Typography
-              variant="h6"
-              component="div"
-              sx={{
-                flexGrow: 1,
-                display: { xs: "none", sm: "block" },
-                fontFamily: `"Sarabun","sans-serif"`,
-              }}
-            >
-              <Link
-                to={`/`}
-                style={{
-                  textDecoration: "none",
-                  color: "#884ed9",
-                }}
-              >
-                <img style={{ height: "10vh" }} src={logo} alt="logo" />
-              </Link>
-            </Typography>
-            <Box sx={{ display: { xs: "none", sm: "block" } }}>
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "center",
-                }}
-              >
-                {navItems.map((item, index) => (
-                  <ListItem key={index}>
-                    {typeof item === "string" ? (
-                      <Button
-                        key={item}
-                        sx={{
-                          color: "#884ed9",
-                          fontWeight: "900",
-                        }}
-                      >
-                        <Link
-                          to={`/${item.toLowerCase()}`}
-                          style={{
-                            textDecoration: "none",
-                            color: "#884ed9",
-                            fontFamily: `"Sarabun","sans-serif"`,
-                          }}
-                        >
-                          {item}
-                        </Link>
-                      </Button>
-                    ) : (
-                      <Button
-                        key={item.label}
-                        sx={{
-                          color: "#884ed9",
-                          fontWeight: "900",
-                          fontFamily: `"Sarabun","sans-serif"`,
-                        }}
-                        onClick={item.onClick}
-                      >
-                        {item.label}
-                      </Button>
-                    )}
-                  </ListItem>
-                ))}
-              </Box>
-            </Box>
-          </Toolbar>
-        </AppBar>
-      )}
-      <nav>
+                  Logout
+                </Button>
+                <Button
+                  variant="contained"
+                  sx={{
+                    backgroundColor: "#884ed9",
+                    color: "white",
+                    textTransform: "none",
+                    borderRadius: "20px",
+                  }}
+                  onClick={handleUserDashboard}
+                >
+                  Dashboard
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button
+                  variant="outlined"
+                  sx={{
+                    marginRight: "10px",
+                    borderColor: "#884ed9",
+                    color: "#884ed9",
+                    textTransform: "none",
+                    borderRadius: "20px",
+                  }}
+                  component={Link}
+                  to="/login"
+                >
+                  Login
+                </Button>
+                <Button
+                  variant="contained"
+                  sx={{
+                    backgroundColor: "#884ed9",
+                    color: "white",
+                    textTransform: "none",
+                    borderRadius: "20px",
+                  }}
+                  component={Link}
+                  to="/signup"
+                >
+                  Sign Up
+                </Button>
+              </>
+            )}
+          </Box>
+        </Toolbar>
+      </AppBar>
+      <Box component="nav">
         <Drawer
           variant="temporary"
           open={mobileOpen}
@@ -327,15 +272,12 @@ function DrawerAppBarWhite() {
           }}
           sx={{
             display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
+            "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
           }}
         >
           {drawer}
         </Drawer>
-      </nav>
+      </Box>
       <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
         {servicesData.map((data, i) => (
           <MenuItem key={i} onClick={handleClose}>
