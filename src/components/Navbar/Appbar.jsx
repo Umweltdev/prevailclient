@@ -19,6 +19,7 @@ import MenuItem from "@mui/material/MenuItem";
 import logo from "./newlogo.svg";
 import { AuthContext } from "../../context/AuthContext";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Container from '@mui/material/Container';
 
 const drawerWidth = 240;
 
@@ -153,7 +154,7 @@ function DrawerAppBarWhite() {
   );
 
   return (
-    <Box>
+    <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar
         component="nav"
@@ -163,104 +164,106 @@ function DrawerAppBarWhite() {
           borderBottom: "1px solid #E5E5E5",
         }}
       >
-        <Toolbar sx={{ justifyContent: "space-between" }}>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerToggle}
-            edge="start"
-            sx={{ display: { sm: "none" }, color: "black" }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: "block", sm: "block" } }}
-          >
-            <Link to={`/`} style={{ textDecoration: "none" }}>
-              <img style={{ height: "50px" }} src={logo} alt="logo" />
-            </Link>
-          </Typography>
-          <Box sx={{ display: { xs: "none", sm: "flex" }, flexGrow: 1, justifyContent: "center" }}>
-            {navItems.slice(0, -2).map((item, index) => (
-              <Button
-                key={index}
-                sx={{ color: "black", textTransform: "none", margin: "0 10px", display: "flex", alignItems: "center" }}
-                onClick={item.onClick ? item.onClick : null}
-                component={item.link ? Link : "div"}
-                to={item.link ? item.link : null}
-              >
-                {item.label}
-                {(item.label === "Explore" || item.label === "Services") && (
-                  <ExpandMoreIcon sx={{ marginLeft: "5px" }} />
-                )}
-              </Button>
-            ))}
-          </Box>
-          <Box sx={{ display: { xs: "none", sm: "flex" }, alignItems: "center" }}>
-            {isLoggedIn ? (
-              <>
+        <Container sx={{ px: { xs: 1, sm: 1, md: 1 } }}> 
+          <Toolbar sx={{ justifyContent: "space-between" }}>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleDrawerToggle}
+              edge="start"
+              sx={{ display: { sm: "none" }, color: "black" }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{ display: { xs: "block", sm: "block" } }}
+            >
+              <Link to={`/`} style={{ textDecoration: "none" }}>
+                <img style={{ height: "50px" }} src={logo} alt="logo" />
+              </Link>
+            </Typography>
+            <Box sx={{ display: { xs: "none", sm: "flex" }, flexGrow: 1, justifyContent: "center" }}>
+              {navItems.slice(0, -2).map((item, index) => (
                 <Button
-                  variant="outlined"
-                  sx={{
-                    marginRight: "10px",
-                    borderColor: "#884ed9",
-                    color: "#884ed9",
-                    textTransform: "none",
-                    borderRadius: "20px",
-                  }}
-                  onClick={handleLogout}
+                  key={index}
+                  sx={{ color: "black", textTransform: "none", margin: "0 10px", display: "flex", alignItems: "center" }}
+                  onClick={item.onClick ? item.onClick : null}
+                  component={item.link ? Link : "div"}
+                  to={item.link ? item.link : null}
                 >
-                  Logout
+                  {item.label}
+                  {(item.label === "Explore" || item.label === "Services") && (
+                    <ExpandMoreIcon sx={{ marginLeft: "5px" }} />
+                  )}
                 </Button>
-                <Button
-                  variant="contained"
-                  sx={{
-                    backgroundColor: "#884ed9",
-                    color: "white",
-                    textTransform: "none",
-                    borderRadius: "20px",
-                  }}
-                  onClick={handleUserDashboard}
-                >
-                  Dashboard
-                </Button>
-              </>
-            ) : (
-              <>
-                <Button
-                  variant="outlined"
-                  sx={{
-                    marginRight: "10px",
-                    borderColor: "#884ed9",
-                    color: "#884ed9",
-                    textTransform: "none",
-                    borderRadius: "20px",
-                  }}
-                  component={Link}
-                  to="/login"
-                >
-                  Login
-                </Button>
-                <Button
-                  variant="contained"
-                  sx={{
-                    backgroundColor: "#884ed9",
-                    color: "white",
-                    textTransform: "none",
-                    borderRadius: "20px",
-                  }}
-                  component={Link}
-                  to="/signup"
-                >
-                  Sign Up
-                </Button>
-              </>
-            )}
-          </Box>
-        </Toolbar>
+              ))}
+            </Box>
+            <Box sx={{ display: { xs: "none", sm: "flex" }, alignItems: "center" }}>
+              {isLoggedIn ? (
+                <>
+                  <Button
+                    variant="outlined"
+                    sx={{
+                      marginRight: "10px",
+                      borderColor: "#884ed9",
+                      color: "#884ed9",
+                      textTransform: "none",
+                      borderRadius: "20px",
+                    }}
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </Button>
+                  <Button
+                    variant="contained"
+                    sx={{
+                      backgroundColor: "#884ed9",
+                      color: "white",
+                      textTransform: "none",
+                      borderRadius: "20px",
+                    }}
+                    onClick={handleUserDashboard}
+                  >
+                    Dashboard
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Button
+                    variant="outlined"
+                    sx={{
+                      marginRight: "15px",
+                      borderColor: "#884ed9",
+                      color: "black",
+                      textTransform: "none",
+                      borderRadius: "20px",
+                    }}
+                    component={Link}
+                    to="/login"
+                  >
+                    Login
+                  </Button>
+                  <Button
+                    variant="contained"
+                    sx={{
+                      backgroundColor: "#884ed9",
+                      color: "white",
+                      textTransform: "none",
+                      borderRadius: "20px",
+                    }}
+                    component={Link}
+                    to="/signup"
+                  >
+                    Sign Up
+                  </Button>
+                </>
+              )}
+            </Box>
+          </Toolbar>
+        </Container>
       </AppBar>
       <Box component="nav">
         <Drawer
