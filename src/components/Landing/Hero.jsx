@@ -1,132 +1,78 @@
-import Navbar from "../Navbar/Navbar";
-import BasicButtons from "../ReusedComponents/Button";
-import "./assets/landing.css";
-import { motion } from "framer-motion";
-// import theme from "../../theme";
-import { useNavigate } from "react-router-dom";
-
-let easing = [0.6, -0.05, 0.01, 0.99];
-const transition = { duration: 1, ease: [0.6, 0.01, -0.05, 0.9] };
-
-const stagger = {
-  animate: {
-    transition: {
-      delayChildren: 0.4,
-      staggerChildren: 0.2,
-      staggerDirection: 1,
-    },
-  },
-};
-
-const fadeInUp = {
-  initial: {
-    opacity: 0,
-  },
-  animate: {
-    opacity: 1,
-    transition: {
-      delay: 2.5,
-      duration: 0.3,
-    },
-  },
-};
-
-const header = {
-  initial: {
-    y: -60,
-    opacity: 0,
-    transition: { duration: 0.05, ease: easing },
-  },
-  animate: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      delay: 1.8,
-      duration: 1.6,
-      ease: easing,
-    },
-  },
-};
-
-const letter = {
-  initial: {
-    opacity: 0,
-    x: -400,
-    transition: { duration: 0.55, ease: easing },
-  },
-  animate: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      delay: 1,
-      duration: 2.6,
-      ease: easing,
-    },
-  },
-};
-
-const letter2 = {
-  initial: {
-    opacity: 0,
-    x: -400,
-  },
-  animate: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      delay: 2.5,
-      duration: 2,
-      ease: easing,
-    },
-  },
-};
+import React from 'react';
+import { Container, Grid, Typography, Box, Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import face1 from './assets/dm.png'; 
+import face2 from './assets/dm.png'; 
+import face3 from './assets/pos.png'; 
+import face4 from './assets/dm.png'; 
+import face5 from './assets/dm.png'; 
+import face6 from './assets/dm.png';
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   return (
-    <>
-      <div className="spline-container">
-        <spline-viewer
-          style={{width: "100vw"}}
-          loading-anim-type="spinner-small-light"
-          url="https://prod.spline.design/Nb2I5a6X-Kr8fdit/scene.splinecode"
-        ></spline-viewer>
-      </div>
-      <motion.div
-        initial={{ opacity: 0, height: 0 }}
-        animate={{
-          opacity: 1,
-          height: "100vh",
-          "@media (max-width: 600px)": { height: "50vh" },
-        }}
-        transition={{ duration: 1, ease: easing }}
-        className="hero-container"
-      >
-        <motion.div
-          className="hero"
-          initial="initial"
-          animate="animate"
-          variants={stagger}
-        >
-          <motion.h1 variants={header} className="hero-one">
-            {/* Prevail Marketing */}
-          </motion.h1>
-          <motion.h1 variants={letter} className="hero-two">
-            HOW CAN WE BE
-          </motion.h1>
-          <motion.h1 variants={letter2} className="hero-two">
-            YOUR PARTNER IN SUCCESS?
-          </motion.h1>
-          <motion.div className="hero-three">
-            <BasicButtons
-              text="Schedule a consultation"
-              bgColor="#450fad"
-              onClick={() => navigate("/consultation")}
-              
-            />
-          </motion.div>
-        </motion.div>
-      </motion.div>
-    </>
+    <Box
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '100vh',
+        background: 'linear-gradient(135deg, #eef2f6, #e2e8f0)',
+        padding: '2rem',
+      }}
+    >
+      <Container maxWidth="lg" sx={{ padding: '2rem' }}>
+        <Grid container spacing={4} alignItems="center">
+          <Grid item xs={12} md={6}>
+            <Typography variant="h1" component="h1" sx={{ fontSize: '3rem', lineHeight: 1.2, marginBottom: '1rem' }}>
+              Your Partner in <br />
+              Accelerating the <br />
+              <span style={{ color: '#a889e1' }}>Digital space.</span>
+            </Typography>
+            <Typography variant="body1" sx={{ margin: '1rem 0', fontSize: '1.25rem', lineHeight: 1.5 }}>
+              Prevail is a cutting-edge marketing agency specialising in redefining the way businesses.
+            </Typography>
+            <Button
+              variant="contained"
+              sx={{ 
+                backgroundColor: '#450fad', 
+                color: 'white', 
+                textTransform: 'none',
+                borderRadius: '50px',
+                padding: '0.5rem 2rem',
+                '&:hover': {
+                  backgroundColor: '#3a0d96',
+                },
+              }}
+              onClick={() => navigate('/get-started')}
+            >
+              Get started
+            </Button>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', width: '200px' }}>
+              {[face1, face2, face3, face4, face5, face6].map((face, index) => (
+                <Box
+                  key={index}
+                  sx={{
+                    width: '100px',
+                    height: '100px',
+                    borderRadius: '50%',
+                    overflow: 'hidden',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}
+                >
+                  <img src={face} alt={`Face ${index + 1}`} style={{ width: '100%', height: '100%' }} />
+                </Box>
+              ))}
+            </Box>
+          </Grid>
+        </Grid>
+      </Container>
+    </Box>
   );
 };
 
