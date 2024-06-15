@@ -42,7 +42,12 @@ const ServiceCard = styled(Card)(({ theme }) => ({
 
 const OurCore = () => {
   return (
-    <Box sx={{ padding: "50px 0", backgroundColor: "#F3E5F5" }}>
+    <Box
+      sx={{
+        padding: "50px 0",
+        backgroundImage: `linear-gradient(135deg, #FFFFFF 0%, #F3E5F5 50%, #FFFFFF 100%)`,
+      }}
+    >
       <Container>
         <Typography variant="h6" sx={{ color: "#6A1B9A", marginBottom: "20px", textAlign: "center" }}>
           Services
@@ -54,7 +59,7 @@ const OurCore = () => {
           Prevail is a cutting-edge marketing agency specialising in redefining how businesses navigate the digital landscape.
         </Typography>
         <Box sx={{ textAlign: "center", marginBottom: "40px" }}>
-          <Button variant="contained" color="primary">
+          <Button variant="contained" color="primary" sx={{ borderRadius: "20px", textTransform: "none" }}>
             Learn more
           </Button>
         </Box>
@@ -72,7 +77,7 @@ const OurCore = () => {
                   </Typography>
                 </CardContent>
                 <CardActions sx={{ justifyContent: "flex-start", paddingLeft: "16px" }}>
-                  <Button variant="contained" sx={{ backgroundColor: "#6A1B9A", color: "#fff" }}>
+                  <Button variant="contained" sx={{ backgroundColor: "primary", color: "#fff", borderRadius: "20px", textTransform: "none" }}>
                     Learn more
                   </Button>
                 </CardActions>
