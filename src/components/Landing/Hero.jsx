@@ -1,8 +1,8 @@
 import React from 'react';
 import { Container, Grid, Typography, Box, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import face1 from './assets/dm.png'; 
-import face2 from './assets/dm.png'; 
+import face1 from './assets/Rectangle_196.png'; 
+import face2 from './assets/Rectangle_200.png'; 
 import face3 from './assets/pos.png'; 
 import face4 from './assets/dm.png'; 
 import face5 from './assets/dm.png'; 
@@ -58,7 +58,7 @@ const Hero = () => {
                   sx={{
                     width: '100px',
                     height: '100px',
-                    borderRadius: '50%',
+                    borderRadius: index === 0 ? '25px' : '50%',
                     overflow: 'hidden',
                     display: 'flex',
                     justifyContent: 'center',
