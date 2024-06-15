@@ -24,12 +24,13 @@ const Landing = (props) => {
       <br /><br />
       <Hero />
       <SectionTwo />
-      {/* <SectionThree /> */}
+      
       <YourTools />
       <OurCore />
 
       <SectionSeven />
       <SectionFour />
+      <SectionThree />
       <FooterNew />
     </div>
   );
