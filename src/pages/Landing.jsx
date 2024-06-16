@@ -24,10 +24,8 @@ const Landing = (props) => {
       <br /><br />
       <Hero />
       <SectionTwo />
-      
       <YourTools />
       <OurCore />
-
       <SectionSeven />
       <SectionFour />
       <SectionThree />

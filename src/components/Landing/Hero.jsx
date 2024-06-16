@@ -18,7 +18,7 @@ const Hero = () => {
         alignItems: 'center',
         justifyContent: 'center',
         height: '100vh',
-        background: 'linear-gradient(135deg, #eef2f6, #e2e8f0)',
+        background: 'linear-gradient(135deg, #d1c4e9, #ffffff, #bbdefb)',
         padding: '2rem',
       }}
     >
