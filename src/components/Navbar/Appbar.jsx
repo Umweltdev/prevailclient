@@ -159,7 +159,7 @@ function DrawerAppBarWhite() {
       <AppBar
         component="nav"
         sx={{
-          background: "white",
+          background: 'linear-gradient(135deg, #d1c4e9, #ffffff, #e3f2fd)', // Adjusted color here
           boxShadow: "none",
           borderBottom: "1px solid #E5E5E5",
         }}
