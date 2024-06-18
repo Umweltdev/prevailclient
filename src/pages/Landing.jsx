@@ -23,6 +23,7 @@ const Landing = (props) => {
       {/* <DrawerAppBarWhite {...props} isLoggedIn={isLoggedIn} /> */}
       <br /><br />
       <Hero />
+      <br /><br />
       <SectionTwo />
       <YourTools />
       <OurCore />
