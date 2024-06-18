@@ -7,6 +7,7 @@ import {
   Typography,
   Paper,
   IconButton,
+  Link as MuiLink,
 } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import { styled } from "@mui/system";
@@ -14,6 +15,7 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
 import Loading from "../utils/Loading";
+import loginImage from '../Form/pmmlogo.png';
 
 const CustomTextField = styled(TextField)({
   "& .MuiOutlinedInput-root": {
@@ -33,10 +35,8 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [success, setSuccess] = useState("");
-
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
       dispatch({ type: "LOGIN_START" });
 
@@ -49,7 +49,6 @@ const Login = () => {
       );
       const user = response.data;
       dispatch({ type: "LOGIN_SUCCESS", payload: user });
-      // console.log(user);
       navigate("/user/profile", { state: { user: user } });
     } catch (error) {
       dispatch({ type: "LOGIN_FAILURE", payload: error.response.data });
@@ -61,130 +60,116 @@ const Login = () => {
   };
 
   return (
-    <Grid sx={{ margin: "25vh auto 10vh 0" }}>
-      {loading && (
-        <div>
-          <Loading/>
-        </div>
-      )}
+    <Grid container sx={{ height: '100vh' }}>
+      {loading && <Loading />}
 
-      <Grid
-        xs
-        container
-        spacing={2}
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          margin: "0 auto",
-          width: 500,
-          "@media (max-width: 600px)": {
-            width: "95vw",
-            flexDirection: "column",
-          },
-        }}
-      >
-        {!loading && (
-          <Paper
-            elevation={3}
+      {!loading && (
+        <Grid container sx={{ width: '100%' }}>
+          <Grid
+            item
+            xs={12}
+            md={6}
             sx={{
-              padding: "2rem",
-              width: "100%",
-              maxWidth: 500,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              padding: '2rem',
             }}
           >
-            <Typography
-              variant="h4"
-              align="center"
+            <Paper
+              elevation={3}
               sx={{
-                fontSize: "3vw",
-                fontWeight: "bold",
-                "@media (max-width: 600px)": {
-                  fontSize: "4.5vh",
-                },
+                padding: '2rem',
+                width: '100%',
+                maxWidth: 400,
+                margin: '0 auto',
               }}
             >
-              Login
-            </Typography>
-            {error && <span style={{ color: "red" }}>{error.message}!</span>}{" "}
-            <Box
-              component="form"
-              sx={{
-                marginY: "2rem",
-                display: "flex",
-                flexDirection: "column",
-                gap: "2vw",
-              }}
-              noValidate
-              autoComplete="on"
-            >
-              <CustomTextField
-                fullWidth
-                label="Email"
-                variant="outlined"
+              <img src="/path-to-your-logo.png" alt="Prevail Agency Logo" style={{ width: '150px', marginBottom: '2rem' }} /> {/* Replace with your logo */}
+              <Typography variant="h4" align="center" sx={{ fontWeight: 'bold', marginBottom: '1rem' }}>
+                Welcome back
+              </Typography>
+              <Typography variant="body1" align="center" sx={{ marginBottom: '2rem' }}>
+                Welcome back! Please enter your details.
+              </Typography>
+              {error && <span style={{ color: 'red' }}>{error.message}!</span>}
+              <Box
+                component="form"
+                onSubmit={handleSubmit}
                 sx={{
-                  width: "100%",
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '1rem',
                 }}
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <Box sx={{ position: "relative" }}>
+                noValidate
+                autoComplete="on"
+              >
                 <CustomTextField
                   fullWidth
-                  label="Password"
+                  label="Email"
                   variant="outlined"
-                  type={showPassword ? "text" : "password"}
-                  sx={{
-                    width: "100%",
-                  }}
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
-                <IconButton
-                  onClick={handleTogglePassword}
+                <Box sx={{ position: 'relative' }}>
+                  <CustomTextField
+                    fullWidth
+                    label="Password"
+                    variant="outlined"
+                    type={showPassword ? "text" : "password"}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <IconButton
+                    onClick={handleTogglePassword}
+                    sx={{
+                      position: 'absolute',
+                      right: '10px',
+                      top: '50%',
+                      transform: 'translateY(-50%)',
+                    }}
+                  >
+                    {showPassword ? <Visibility /> : <VisibilityOff />}
+                  </IconButton>
+                </Box>
+                <MuiLink href="#" underline="hover" sx={{ alignSelf: 'flex-start', marginBottom: '1rem' }}>
+                  Forgot Password?
+                </MuiLink>
+                <Button
+                  variant="contained"
+                  type="submit"
+                  fullWidth
                   sx={{
-                    position: "absolute",
-                    right: "10px",
-                    top: "50%",
-                    transform: "translateY(-50%)",
+                    backgroundColor: '#450fad',
+                    color: 'white',
+                    textTransform: 'none',
+                    marginBottom: '1rem',
+                    '&:hover': {
+                      backgroundColor: '#3a0d96',
+                    },
                   }}
                 >
-                  {showPassword ? <Visibility /> : <VisibilityOff />}
-                </IconButton>
+                  Login
+                </Button>
+                <Button
+                  variant="outlined"
+                  fullWidth
+                  sx={{ textTransform: 'none' }}
+                  startIcon={<img src="https://developers.google.com/identity/images/g-logo.png" alt="Google Logo" style={{ width: '20px', height: '20px' }} />}
+                >
+                  Continue with Google
+                </Button>
+                <Typography variant="body2" align="center" sx={{ marginTop: '1rem' }}>
+                  Don't have an account? <Link to="/signup" style={{ fontWeight: 'bold', textDecoration: 'none' }}>Sign up for free</Link>
+                </Typography>
               </Box>
-            </Box>
-            <Typography align="center">
-              Don't have an account?{" "}
-              <Link
-                to="/Signup"
-                style={{
-                  fontWeight: "bold",
-                  textDecoration: "none",
-                  margin: "1vh 0",
-                }}
-              >
-                Sign Up
-              </Link>
-            </Typography>
-            <Button
-              variant="contained"
-              onClick={handleSubmit}
-              // disabled={!isFormFilled}
-              fullWidth
-              sx={{
-                width: "100%",
-                marginTop: "2vh",
-                backgroundColor: "#884ED9",
-                "&:hover": {
-                  backgroundColor: "#6b38fb",
-                },
-              }}
-            >
-              Login
-            </Button>
-          </Paper>
-        )}
-      </Grid>
+            </Paper>
+          </Grid>
+          <Grid item xs={12} md={6} sx={{ display: { xs: 'none', md: 'block' } }}>
+            <img src={loginImage} alt="Login" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          </Grid>
+        </Grid>
+      )}
     </Grid>
   );
 };
