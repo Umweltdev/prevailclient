@@ -5,12 +5,14 @@ import imgBrand from "../assets/imagebrand1.png";
 const ElevateYourPresence = () => {
   return (
     <Box sx={{ display: "flex", width: "100vw" }}>
-      <CardMedia component={"img"} image={imgBrand} sx={{ width: "50vw" }} />
+      <CardMedia component={"img"} image={imgBrand} sx={{ width: "47vw" }} />
       <Grid
         sx={{
           display: "flex",
           flexDirection: "column",
-          margin: "auto",
+          alignItems: "center",
+          justifyContent: "center",
+          ml: "3.5vw",
           gap: "20px",
           width: "468px",
         }}

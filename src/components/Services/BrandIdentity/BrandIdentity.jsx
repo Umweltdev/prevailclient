@@ -12,6 +12,7 @@ import FooterNew from "../../Footer/FooterNew";
 import AppBarOne from "../../Navbar/AppbarOne";
 import ElevateYourPresence from "./ElevateYourPresence";
 import Addressing from "./Addressing";
+import TailoredApproach from "./TailoredApproach";
 
 const BrandIdentity = () => {
   return (
@@ -20,8 +21,9 @@ const BrandIdentity = () => {
       <HeroSection />
       <ElevateYourPresence />
       <Addressing />
-      <ServiceDetails2 />
-      <ServiceDetails3 />
+      <TailoredApproach/>
+      {/* <ServiceDetails2 /> */}
+      {/* <ServiceDetails3 /> */}
       <Packages />
       <FooterNew />
     </div>

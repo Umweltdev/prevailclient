@@ -1,16 +1,20 @@
 import React from "react";
 import PackagesLayout from "./PackagesLayout";
 import { Grid, Typography } from "@mui/material";
+import PremiumPackageLayout from "./PremiumPackageLayout";
+import ElitePackageLayout from "./ElitePackageLayout";
 
 const Packages = () => {
   return (
     <div
       style={{
-        margin: "5vh auto 20vh auto",
+        margin: "30px auto 0 auto",
+        padding: "30px 0 50px 0",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        background: "#F9FAFC",
         "@media (max-width: 600px)": {
           margin: "1vh auto 0 auto",
         },
@@ -18,9 +22,9 @@ const Packages = () => {
     >
       <Typography
         sx={{
-          fontSize: "4vw",
+          fontSize: "48px",
           fontWeight: "bold",
-          color: "#333",
+          color: "45px",
           margin: "5vh 0",
           fontFamily: `"Sarabun", sans-serif`,
           "@media (max-width: 600px)": {
@@ -31,39 +35,32 @@ const Packages = () => {
           },
         }}
       >
-        Packages
+        Choose Your Package
       </Typography>
       <Grid
         sx={{
           display: "flex",
-          gap: "2vw",
+          // gap: "2vw",
           "@media (max-width: 600px)": {
             display: "unset",
           },
         }}
       >
         <PackagesLayout
-          packages="Brand Identity Starter Package"
-          amount="Original €700 once-off"
-          first="Logo design concept (up to 2 proposals)"
-          second="Business card concept"
-          third={"Colour scheme"}
-          fourth={"Typography"}
-          fifth={"Letterhead design or invoice design"}
-          sixth={"Subscribe Now"}
+          packages="Starter Brand Identity Package"
+          info="Forever free, even after the launch"
+          amount="700"
+          // Add more props as needed
         />
-        <PackagesLayout
-          packages="Brand Identity Elite Package"
-          amount="Original €1,000 once-off"
-          first="Everything in the “Brand Identity Starter Package”"
-          second="Logo design concept (up to 4 proposals)"
-          third={"Business card concept (up to 2 proposals)"}
-          fourth={"Sd design concept (up to 2 proposals)"}
-          //fifth={"Letterhead design or invoice design"}
-          sixth={"Subscribe Now"}
-          // seventh={"brochure design concept (up to 2 proposals)"}
-          // eigth={"Package or envelope design"}
-          //seventeen={"Subscribe Now"}
+        <PremiumPackageLayout
+          packages="Premium Brand Identity Package"
+          amount="500"
+          info="Forever free, even after the launch"
+        />
+        <ElitePackageLayout
+          packages="Premium Brand Identity Package"
+          amount="500"
+          info="Forever free, even after the launch"
         />
       </Grid>
     </div>

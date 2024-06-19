@@ -1,16 +1,10 @@
-import React from "react";
-import {
-  Card,
-  CardContent,
-  Button,
-  Typography,
-  Box,
-  Grid,
-} from "@mui/material";
-import { Check } from "@mui/icons-material";
-import { StarterBrandIdentity } from "../assets/serviceData";
+import React from 'react'
+import { PremiumBrandIdentity } from '../assets/serviceData';
+import { Box, Button, Card, CardContent, Grid, Typography } from '@mui/material';
+import { Check } from '@mui/icons-material';
 
-const PackagesLayout = ({
+const PremiumPackageLayout = ({
+
   packages,
   amount,
   info,
@@ -19,7 +13,7 @@ const PackagesLayout = ({
     <Card
       sx={{
         width: "23vw",
-        height: "650px",
+        // height: "50vh",
         // minHeight: "55vh",
         borderRadius: 4,
         boxShadow: "2",
@@ -101,7 +95,7 @@ const PackagesLayout = ({
             mt: "30px",
           }}
         >
-          {StarterBrandIdentity.map((item, i) => (
+          {PremiumBrandIdentity.map((item, i) => (
             <Box
               key={i}
               sx={{
@@ -128,5 +122,5 @@ const PackagesLayout = ({
   );
 };
 
-export default PackagesLayout;
 
+export default PremiumPackageLayout

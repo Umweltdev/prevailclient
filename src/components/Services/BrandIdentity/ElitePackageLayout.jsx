@@ -1,28 +1,25 @@
 import React from "react";
+import { PremiumBrandIdentity } from "../assets/serviceData";
 import {
+  Box,
+  Button,
   Card,
   CardContent,
-  Button,
-  Typography,
-  Box,
   Grid,
+  Typography,
 } from "@mui/material";
 import { Check } from "@mui/icons-material";
-import { StarterBrandIdentity } from "../assets/serviceData";
 
-const PackagesLayout = ({
-  packages,
-  amount,
-  info,
-}) => {
+const ElitePackageLayout = ({ packages, amount, info }) => {
   return (
     <Card
       sx={{
         width: "23vw",
-        height: "650px",
-        // minHeight: "55vh",
         borderRadius: 4,
         boxShadow: "2",
+        background: "#6E3EF4",
+        color: "white",
+        height: "650px",
         "@media (max-width: 600px)": {
           marginTop: "1vh",
           height: "40vh",
@@ -38,6 +35,7 @@ const PackagesLayout = ({
           flexDirection: "column",
           gap: "1vh",
           padding: "3vw 0 ",
+
           "@media (max-width: 600px)": {
             padding: "5vh 2vh",
           },
@@ -52,7 +50,7 @@ const PackagesLayout = ({
             {packages}
           </Typography>
           <Typography
-            sx={{ color: "#656565;", fontSize: "16px", textAlign: "center" }}
+            sx={{ color: "#ffff", fontSize: "16px", textAlign: "center" }}
           >
             {info}
           </Typography>
@@ -67,25 +65,25 @@ const PackagesLayout = ({
           }}
         >
           <Typography
-            sx={{ color: "#000", fontSize: "40px", fontWeight: "700" }}
+            sx={{ color: "#fff", fontSize: "40px", fontWeight: "700" }}
           >
-            €{amount}
+            Contact Us
           </Typography>
-          <Typography sx={{ width: "88px", fontSize: "14px" }}>
+          {/* <Typography sx={{ width: "88px", fontSize: "14px" }}>
             One Of Payment
-          </Typography>
+          </Typography> */}
         </Box>
         <Button
           sx={{
-            background: "#6E3EF4",
+            background: "#ffff",
             borderRadius: "5px",
-            color: "#fff",
+            color: "#6E3EF4",
             width: "220px",
             margin: "auto",
             "&:hover": {
-              background: "#6E3EF4",
+              background: "#ffff",
               borderRadius: "5px",
-              color: "#fff",
+              color: "#6E3EF4",
             },
           }}
         >
@@ -101,7 +99,7 @@ const PackagesLayout = ({
             mt: "30px",
           }}
         >
-          {StarterBrandIdentity.map((item, i) => (
+          {PremiumBrandIdentity.map((item, i) => (
             <Box
               key={i}
               sx={{
@@ -115,7 +113,7 @@ const PackagesLayout = ({
               <Typography
                 textAlign="left"
                 variant="body2"
-                color="text.secondary"
+                color="white"
                 width={"222px"}
               >
                 {item.text}
@@ -128,5 +126,4 @@ const PackagesLayout = ({
   );
 };
 
-export default PackagesLayout;
-
+export default ElitePackageLayout;
