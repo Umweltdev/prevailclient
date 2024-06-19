@@ -29,7 +29,7 @@ const useStyles = makeStyles({
   },
 });
 
-const HeroSection = () => {
+const HeroComponent = ({ title }) => {
   const classes = useStyles();
 
   return (
@@ -58,13 +58,13 @@ const HeroSection = () => {
           fontSize: "38px",
           fontWeight: "500",
           color: "#6E3EF4",
-          mt: "176px"
+          mt: "176px",
         }}
       >
-        Brand Identity Package
+        {title}
       </Typography>
     </Grid>
   );
 };
 
-export default HeroSection;
+export default HeroComponent;

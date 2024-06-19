@@ -1,8 +1,7 @@
 import React from "react";
-import PackagesLayout from "./PackagesLayout";
 import { Grid, Typography } from "@mui/material";
-import PremiumPackageLayout from "./PremiumPackageLayout";
-import ElitePackageLayout from "./ElitePackageLayout";
+import WhitePackageLayout from "../ReusedComponenets/WhitePackageLayout";
+import PurplePackageLayout from "../ReusedComponenets/PurplePackageLayout";
 
 const Packages = () => {
   return (
@@ -46,13 +45,18 @@ const Packages = () => {
           },
         }}
       >
-        <PackagesLayout
+        <WhitePackageLayout
           packages="Starter Brand Identity Package"
           info="Forever free, even after the launch"
-          amount="700"
-          // Add more props as needed
+          button="Contact us"
+          height="650px"
         />
-        
+        <PurplePackageLayout
+          packages="SEM Platinum Package"
+          info="Forever free, even after the launch"
+          button="Contact us"
+          height="750px"
+        />
       </Grid>
     </div>
   );
