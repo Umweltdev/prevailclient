@@ -19,40 +19,36 @@ import MenuItem from "@mui/material/MenuItem";
 import logo from "./newlogo.svg";
 import { AuthContext } from "../../context/AuthContext";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Container from '@mui/material/Container';
+import Container from "@mui/material/Container";
 
 const drawerWidth = 240;
 
 const servicesData = [
-  {
-    text: "Brand Identity",
-    link: "/Services/brand",
-  },
-  {
-    text: "Custom Website & Management",
-    link: "/Services/website",
-  },
-  {
-    text: "Website Development & Management",
-    link: "/Services/webmanagement",
-  },
-  {
-    text: "Search Engine Marketing (SEM)",
-    link: "/Services/sem",
-  },
-  {
-    text: "Marketing Price Displacement (MPD)",
-    link: "/Services/mpd",
-  },
-  {
-    text: "Digital Accelerator",
-    link: "/Services/digitalaccelerator",
-  },
+  { text: "Services", link: "/Services" },
+  { text: "Brand Identity", link: "/Services/brand" },
+  { text: "Custom Website & Management", link: "/Services/website" },
+  { text: "Website Development & Management", link: "/Services/webmanagement" },
+  { text: "Search Engine Marketing (SEM)", link: "/Services/sem" },
+  { text: "Marketing Price Displacement (MPD)", link: "/Services/mpd" },
+  { text: "Digital Accelerator", link: "/Services/digitalaccelerator" },
+];
+
+const exploreData = [
+  { text: "Explore", link: "/explore" },
+  { text: "Digital Landscape", link: "/Explore/digitallandscape" },
+  { text: "Brand Awareness", link: "/Explore/branndawareness" },
+  { text: "Competitor Analysis", link: "/Explore/competitoranalysis" },
+  { text: "Keyword Ranking", link: "/Explore/keywordranking" },
+  { text: "Targeted Advertising", link: "/Explore/targetedadvertising" },
+  { text: "Higher Visibility", link: "/Explore/highervisibility" },
+  { text: "Optimization", link: "/Explore/optimization" },
+  { text: "Reporting", link: "/Explore/reporting" },
 ];
 
 function DrawerAppBarWhite() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [servicesAnchorEl, setServicesAnchorEl] = React.useState(null);
+  const [exploreAnchorEl, setExploreAnchorEl] = React.useState(null);
   const { isLoggedIn, dispatch } = React.useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -71,38 +67,33 @@ function DrawerAppBarWhite() {
   };
 
   const handleServicesClick = (event) => {
-    setAnchorEl(event.currentTarget);
+    setServicesAnchorEl(event.currentTarget);
+  };
+
+  const handleExploreClick = (event) => {
+    setExploreAnchorEl(event.currentTarget);
   };
 
   const handleClose = () => {
-    setAnchorEl(null);
+    setServicesAnchorEl(null);
+    setExploreAnchorEl(null);
   };
 
   const navItems = React.useMemo(
     () =>
       isLoggedIn
         ? [
-            { label: "Explore", link: "/explore" },
-            {
-              label: "Services",
-              onClick: handleServicesClick,
-            },
+            { label: "Explore", onClick: handleExploreClick },
+            { label: "Services", onClick: handleServicesClick },
             { label: "Blog", link: "/blog" },
             { label: "About Us", link: "/about" },
             { label: "Contact Us", link: "/contact" },
-            {
-              label: "Dashboard",
-              onClick: handleUserDashboard,
-              path: "/user/profile",
-            },
-            { label: "Logout", onClick: handleLogout, path: "/login" },
+            { label: "Dashboard", onClick: handleUserDashboard },
+            { label: "Logout", onClick: handleLogout },
           ]
         : [
-            { label: "Explore", link: "/explore" },
-            {
-              label: "Services",
-              onClick: handleServicesClick,
-            },
+            { label: "Explore", onClick: handleExploreClick },
+            { label: "Services", onClick: handleServicesClick },
             { label: "Blog", link: "/blog" },
             { label: "About Us", link: "/about" },
             { label: "Contact Us", link: "/contact" },
@@ -120,7 +111,10 @@ function DrawerAppBarWhite() {
         color: "#884ed9",
       }}
     >
-      <Typography variant="h6" sx={{ my: 2, fontFamily: `"Sarabun","sans-serif"` }}>
+      <Typography
+        variant="h6"
+        sx={{ my: 5, fontFamily: `"Sarabun","sans-serif"` }}
+      >
         <Link to={`/`} style={{ textDecoration: "none" }}>
           <img style={{ height: "10vh" }} src={logo} alt="logo" />
         </Link>
@@ -154,17 +148,19 @@ function DrawerAppBarWhite() {
   );
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar
         component="nav"
         sx={{
-          background: 'linear-gradient(135deg, #d1c4e9, #ffffff, #e3f2fd)', // Adjusted color here
+          background: "rgba(0,0,0,0)",
           boxShadow: "none",
           borderBottom: "1px solid #E5E5E5",
+          border: "none",
+          pt: "20px",
         }}
       >
-        <Container sx={{ px: { xs: 1, sm: 1, md: 1 } }}> 
+        <Container sx={{ px: { xs: 1, sm: 1, md: 1 } }}>
           <Toolbar sx={{ justifyContent: "space-between" }}>
             <IconButton
               color="inherit"
@@ -185,11 +181,23 @@ function DrawerAppBarWhite() {
                 <img style={{ height: "50px" }} src={logo} alt="logo" />
               </Link>
             </Typography>
-            <Box sx={{ display: { xs: "none", sm: "flex" }, flexGrow: 1, justifyContent: "center" }}>
+            <Box
+              sx={{
+                display: { xs: "none", sm: "flex" },
+                flexGrow: 1,
+                justifyContent: "center",
+              }}
+            >
               {navItems.slice(0, -2).map((item, index) => (
                 <Button
                   key={index}
-                  sx={{ color: "black", textTransform: "none", margin: "0 10px", display: "flex", alignItems: "center" }}
+                  sx={{
+                    color: "black",
+                    textTransform: "none",
+                    margin: "0 10px",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
                   onClick={item.onClick ? item.onClick : null}
                   component={item.link ? Link : "div"}
                   to={item.link ? item.link : null}
@@ -201,7 +209,9 @@ function DrawerAppBarWhite() {
                 </Button>
               ))}
             </Box>
-            <Box sx={{ display: { xs: "none", sm: "flex" }, alignItems: "center" }}>
+            <Box
+              sx={{ display: { xs: "none", sm: "flex" }, alignItems: "center" }}
+            >
               {isLoggedIn ? (
                 <>
                   <Button
@@ -275,14 +285,41 @@ function DrawerAppBarWhite() {
           }}
           sx={{
             display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
           }}
         >
           {drawer}
         </Drawer>
       </Box>
-      <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
+      <Menu
+        anchorEl={servicesAnchorEl}
+        open={Boolean(servicesAnchorEl)}
+        onClose={handleClose}
+      >
         {servicesData.map((data, i) => (
+          <MenuItem key={i} onClick={handleClose}>
+            <Link
+              style={{
+                color: "#333",
+                textDecoration: "none",
+                textAlign: "left",
+              }}
+              to={data.link}
+            >
+              {data.text}
+            </Link>
+          </MenuItem>
+        ))}
+      </Menu>
+      <Menu
+        anchorEl={exploreAnchorEl}
+        open={Boolean(exploreAnchorEl)}
+        onClose={handleClose}
+      >
+        {exploreData.map((data, i) => (
           <MenuItem key={i} onClick={handleClose}>
             <Link
               style={{

@@ -23,6 +23,7 @@ const Hero = () => {
         height: '100vh',
         background: 'linear-gradient(135deg, #d1c4e9, #ffffff, #bbdefb)',
         padding: '2rem',
+        mt: "-50px"
       }}
     >
       <Container maxWidth="lg" sx={{ padding: '3rem' }}>

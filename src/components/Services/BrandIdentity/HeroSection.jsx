@@ -35,14 +35,11 @@ const HeroSection = () => {
   return (
     <Grid
       sx={{
-        width: "80vw",
+        width: "100vw",
         display: "flex",
-        // margin: "15vh auto",
-        margin: "10vh auto 0 auto",
-        justifyContent: "space-between",
-        alignItems: "center",
-        gap: "7vw",
-        height: "100vh",
+        height: "298px",
+        margin: "auto",
+        background: "#F9FAFC",
         "@media (max-width: 600px)": {
           width: "95vw",
           height: "60vh",
@@ -55,57 +52,17 @@ const HeroSection = () => {
         },
       }}
     >
-      <Grid
+      <Typography
         sx={{
-          width: "40vw",
-          "@media (max-width: 600px)": {
-            width: "95vw",
-          },
+          margin: "auto",
+          fontSize: "38px",
+          fontWeight: "500",
+          color: "#6E3EF4",
+          mt: "176px"
         }}
       >
-        <Typography
-          sx={{
-            display: "flex",
-            fontSize: "3vw",
-            fontWeight: "bold",
-            color: "#494848",
-            marginBottom: "3vh",
-            "@media (max-width: 600px)": {
-              fontSize: "6vw",
-              margin: "2vh 0",
-            },
-          }}
-        >
-          Brand Identity
-        </Typography>
-        <Typography
-          sx={{
-            fontSize: "1.5vw",
-            color: "#636363",
-            marginBottom: "3vh",
-            // textAlign: "justify",
-            width: "37vw",
-            "@media (max-width: 600px)": {
-              fontSize: "4vw",
-              textAlign: "justify",
-              width: "95vw",
-            },
-          }}
-        >
-          Creating a cohesive brand identity is crucial in today's crowded
-          digital and physical landscape. Our "Brand Identity Package" service
-          lays the foundation for a lasting impression. We closely collaborate
-          with you to define your unique brand identity, crafting eye-catching
-          logos and compelling marketing materials, ensuring a harmonious visual
-          identity that resonates across all marketing touchpoints.
-        </Typography>
-      </Grid>
-      <img
-        className={classes.imageInit}
-        style={{}}
-        src="https://img.freepik.com/free-photo/branding-copyright-design-spaceship-graphic-concept_53876-120958.jpg?t=st=1711555001~exp=1711558601~hmac=c54c37982c470779a7ae2199528e2eb23a79f299252e10885c6df5ef128cb4c7&w=740"
-        alt=""
-      />
+        Brand Identity Package
+      </Typography>
     </Grid>
   );
 };

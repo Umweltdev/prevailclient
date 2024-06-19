@@ -10,16 +10,16 @@ import Packages from "./Packages";
 import Footer from "../../Footer/Footer";
 import FooterNew from "../../Footer/FooterNew";
 import AppBarOne from "../../Navbar/AppbarOne";
+import ElevateYourPresence from "./ElevateYourPresence";
+import Addressing from "./Addressing";
 
 const BrandIdentity = () => {
   return (
     <div style={{ width: "100%", overflow: "hidden" }}>
-      <DrawerAppBarWhite />
+      {/* <DrawerAppBarWhite /> */}
       <HeroSection />
-      {/* <br />
-      <br />
-      <br />
-      <br /> */}
+      <ElevateYourPresence />
+      <Addressing />
       <ServiceDetails2 />
       <ServiceDetails3 />
       <Packages />

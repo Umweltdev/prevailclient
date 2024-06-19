@@ -10,19 +10,20 @@ import FooterNew from "../components/Footer/FooterNew";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import DrawerAppBarWhite from "../components/Navbar/Appbar";
-
+import MainPage from "../components/Contact/MainPage";
 
 const Contact = (props) => {
   const { isLoggedIn } = useContext(AuthContext);
 
   return (
-    <div style={{ width: "100%", overflow: "hidden" }}>
+    <div style={{ width: "100%", overflowX: "hidden" }}>
       {/* <DrawerAppBarWhite {...props} isLoggedIn={isLoggedIn} /> */}
       {/* <SectionOne /> */}
-      <br />
-      <br />
-      <SectionTwo />
-      <ContactInput />
+      {/* <br />
+      <br /> */}
+      {/* <SectionTwo /> */}
+      <MainPage />
+      {/* <ContactInput /> */}
       {/* <SectionThree /> */}
       {/* <SectionFive /> */}
       <FooterNew />
