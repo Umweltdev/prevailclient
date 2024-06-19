@@ -18,23 +18,16 @@ import MainPage from "../components/Services/MainPage";
 //import Reduce from "../components/Services/Reduce";
 
 const Services = (props) => {
-   const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn } = useContext(AuthContext);
   return (
     <div
       style={{
         width: "100%",
         overflow: "hidden",
-        
       }}
     >
-      {/* <Carousel /> */}
       <MainPage />
-      {/* <SectionTwo />
-      <Platform />
-      <PlatformTwo />
-      <br /> <br /> <br />
-      <AutomationSection />
-      <br /> <hr /> <br />*/}
+
       <FooterNew />
     </div>
   );

@@ -16,7 +16,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <DrawerAppBarWhite />
         <ThemeProvider theme={theme}>
         <App />
-
         </ThemeProvider>
       </BrowserRouter>
     </AuthContextProvider>

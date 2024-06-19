@@ -16,8 +16,9 @@ const Sem = () => {
     <div style={{ width: "100%", overflow: "hidden" }}>
       <HeroComponent title={"Search Engine Marketing"} />
       <MainPage />
-      <OfferSection/>  
-      <Packages/>    
+      <OfferSection />
+      <Packages />
+      {/* <Carousel /> */}
       <FooterNew />
     </div>
   );

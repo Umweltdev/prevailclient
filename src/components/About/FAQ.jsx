@@ -13,6 +13,7 @@ const FAQ = () => {
         background: "#F9FAFC",
         padding: "143px 0",
       }}
+      id="faqs"
     >
       <Grid sx={{ pl: "5vw" }}>
         <Typography

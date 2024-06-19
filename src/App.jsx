@@ -25,6 +25,7 @@ import Profile from "./components/user-dashboard/Profile";
 
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 const stripePromise = loadStripe(
   "pk_test_51OsCJ5P1A39VkufThp1PVDexesvf2XAY8faTyK0uucC1qRl9NW9QkpBdwXQDyjCAjzL166zjMWNn5Zr25ZkaQJVi00vurq61mj"
 );
@@ -33,40 +34,39 @@ const stripePromise = loadStripe(
 function App() {
   return (
     <Elements stripe={stripePromise}>
-    
-    <Routes>
-      <Route path="/" element={<Landing />} />
-      <Route path="/About" element={<About />} />
-      <Route path="/Portfolio" element={<Portfolio />} />
-      <Route path="/Blog" element={<Blog />} />
-      <Route path="/Contact" element={<Contact />} />
-      <Route path="/Blog/:index" element={<BlogDetails />} />
-      <Route path="/Services" element={<Services />} />
-      <Route path="/Services/brand" element={<BrandIdentity />} />
-      <Route path="/Services/website" element={<WebsiteDevelopment />} />
-      <Route path="/Services/webmanagement" element={<WebManagement />} />
-      <Route path="/Services/sem" element={<Sem />} />
-      <Route path="/Services/mpd" element={<Mpd />} />
-      <Route
-        path="/Services/digitalaccelerator"
-        element={<DigitalAccelerator />}
-      />
-      <Route path="/Portfolio/:index" element={<CaseDetails />} />
-      {/* <Route
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/Portfolio" element={<Portfolio />} />
+        <Route path="/Blog" element={<Blog />} />
+        <Route path="/Contact" element={<Contact />} />
+        <Route path="/Blog/:index" element={<BlogDetails />} />
+        <Route path="/Services" element={<Services />} />
+        <Route path="/Services/brand" element={<BrandIdentity />} />
+        <Route path="/Services/website" element={<WebsiteDevelopment />} />
+        <Route path="/Services/webmanagement" element={<WebManagement />} />
+        <Route path="/Services/sem" element={<Sem />} />
+        <Route path="/Services/mpd" element={<Mpd />} />
+        <Route path="/Services/privacypolicy" element={<PrivacyPolicy />} />
+        <Route
+          path="/Services/digitalaccelerator"
+          element={<DigitalAccelerator />}
+        />
+        <Route path="/Portfolio/:index" element={<CaseDetails />} />
+        {/* <Route
         path="/Services/digitalaccelerator"
         element={<DigitalAccelerator />}
       /> */}
-      <Route path="/about/ourWhy" element={<AboutOurWhy />} />
-      <Route path="/about/ourSolution" element={<AboutOurSolution />} />
-      <Route path="/SignUp" element={<SignUpForm />} />
-      <Route path="/Login" element={<LoginForm />} />
-      {/* <Route path="/Logout" element={< />} /> */}
-      <Route path="/Stepper" element={<Stepper />} />
-      <Route path="/MobStepper" element={<MobStepper />} />
-      <Route path="/UserDashboard" element={<UserDashBoard />} />
-      <Route path="/user/*" element={<UserDashBoard />} />
-      {/* <Route path="/user/profile" element={<Profile/>} /> */}
-    </Routes>
+        <Route path="/about/ourWhy" element={<AboutOurWhy />} />
+        <Route path="/about/ourSolution" element={<AboutOurSolution />} />
+        <Route path="/SignUp" element={<SignUpForm />} />
+        <Route path="/Login" element={<LoginForm />} />
+        {/* <Route path="/Logout" element={< />} /> */}
+        <Route path="/Stepper" element={<Stepper />} />
+        <Route path="/MobStepper" element={<MobStepper />} />
+        <Route path="/UserDashboard" element={<UserDashBoard />} />
+        <Route path="/user/*" element={<UserDashBoard />} />
+      </Routes>
     </Elements>
   );
 }

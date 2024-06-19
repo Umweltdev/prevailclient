@@ -31,24 +31,12 @@ const servicesData = [
   { text: "Search Engine Marketing (SEM)", link: "/Services/sem" },
   { text: "Marketing Price Displacement (MPD)", link: "/Services/mpd" },
   { text: "Digital Accelerator", link: "/Services/digitalaccelerator" },
-];
-
-const exploreData = [
-  { text: "Explore", link: "/explore" },
-  { text: "Digital Landscape", link: "/Explore/digitallandscape" },
-  { text: "Brand Awareness", link: "/Explore/branndawareness" },
-  { text: "Competitor Analysis", link: "/Explore/competitoranalysis" },
-  { text: "Keyword Ranking", link: "/Explore/keywordranking" },
-  { text: "Targeted Advertising", link: "/Explore/targetedadvertising" },
-  { text: "Higher Visibility", link: "/Explore/highervisibility" },
-  { text: "Optimization", link: "/Explore/optimization" },
-  { text: "Reporting", link: "/Explore/reporting" },
+  { text: "Privacy Policy", link: "/Services/privacypolicy" },
 ];
 
 function DrawerAppBarWhite() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [servicesAnchorEl, setServicesAnchorEl] = React.useState(null);
-  const [exploreAnchorEl, setExploreAnchorEl] = React.useState(null);
   const { isLoggedIn, dispatch } = React.useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -70,20 +58,15 @@ function DrawerAppBarWhite() {
     setServicesAnchorEl(event.currentTarget);
   };
 
-  const handleExploreClick = (event) => {
-    setExploreAnchorEl(event.currentTarget);
-  };
-
   const handleClose = () => {
     setServicesAnchorEl(null);
-    setExploreAnchorEl(null);
   };
 
   const navItems = React.useMemo(
     () =>
       isLoggedIn
         ? [
-            { label: "Explore", onClick: handleExploreClick },
+            { label: "Explore", link: "/explore" },
             { label: "Services", onClick: handleServicesClick },
             { label: "Blog", link: "/blog" },
             { label: "About Us", link: "/about" },
@@ -92,7 +75,7 @@ function DrawerAppBarWhite() {
             { label: "Logout", onClick: handleLogout },
           ]
         : [
-            { label: "Explore", onClick: handleExploreClick },
+            { label: "Explore", link: "/explore" },
             { label: "Services", onClick: handleServicesClick },
             { label: "Blog", link: "/blog" },
             { label: "About Us", link: "/about" },
@@ -123,24 +106,14 @@ function DrawerAppBarWhite() {
       <List>
         {navItems.map((item, index) => (
           <ListItem sx={{ textAlign: "center" }} key={index} disablePadding>
-            {item.link ? (
-              <Link
-                to={item.link}
-                style={{
-                  textDecoration: "none",
-                  color: "#884ed9",
-                  fontFamily: `"Sarabun","sans-serif"`,
-                }}
-              >
-                <ListItemButton sx={{ textAlign: "center" }}>
-                  <ListItemText primary={item.label} />
-                </ListItemButton>
-              </Link>
-            ) : (
-              <ListItemButton onClick={item.onClick}>
-                <ListItemText primary={item.label} />
-              </ListItemButton>
-            )}
+            <ListItemButton
+              component={item.link ? Link : "div"}
+              to={item.link ? item.link : null}
+              onClick={item.onClick ? item.onClick : null}
+              sx={{ textAlign: "center" }}
+            >
+              <ListItemText primary={item.label} />
+            </ListItemButton>
           </ListItem>
         ))}
       </List>
@@ -198,12 +171,12 @@ function DrawerAppBarWhite() {
                     display: "flex",
                     alignItems: "center",
                   }}
-                  onClick={item.onClick ? item.onClick : null}
                   component={item.link ? Link : "div"}
                   to={item.link ? item.link : null}
+                  onClick={item.onClick ? item.onClick : null}
                 >
                   {item.label}
-                  {(item.label === "Explore" || item.label === "Services") && (
+                  {item.label === "Services" && (
                     <ExpandMoreIcon sx={{ marginLeft: "5px" }} />
                   )}
                 </Button>
@@ -300,26 +273,6 @@ function DrawerAppBarWhite() {
         onClose={handleClose}
       >
         {servicesData.map((data, i) => (
-          <MenuItem key={i} onClick={handleClose}>
-            <Link
-              style={{
-                color: "#333",
-                textDecoration: "none",
-                textAlign: "left",
-              }}
-              to={data.link}
-            >
-              {data.text}
-            </Link>
-          </MenuItem>
-        ))}
-      </Menu>
-      <Menu
-        anchorEl={exploreAnchorEl}
-        open={Boolean(exploreAnchorEl)}
-        onClose={handleClose}
-      >
-        {exploreData.map((data, i) => (
           <MenuItem key={i} onClick={handleClose}>
             <Link
               style={{

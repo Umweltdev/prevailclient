@@ -14,6 +14,7 @@ import KeyBenefits from "./KeyBenefits";
 import ImageTextComponent from "../ReusedComponenets/ImageTextComponent";
 import imago from "../assets/image 142.png";
 import TakeAction from "./TakeAction";
+import Carousel from "./Carousel";
 
 const Mpd = () => {
   return (
@@ -28,6 +29,7 @@ const Mpd = () => {
         text={`Embrace the future of digital marketing by incorporating Prevail’s MPD API into your business strategy. This tool not only simplifies complex pricing strategies but also ensures that your marketing efforts are as effective and efficient as possible. By choosing Prevail, you open your business to increased market share and proportional income growth. `}
       />
       <TakeAction />
+      {/* <Solution/> */}
       <FooterNew />
     </div>
   );
