@@ -215,7 +215,7 @@ const SectionOne = () => {
           </Grid>
         </Grid>
       </Grid>
-     
+
     </>
   );
 };
