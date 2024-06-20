@@ -29,7 +29,7 @@ const useStyles = makeStyles({
   },
 });
 
-const HeroSection = ({header}) => {
+const HeroComponent = ({ title }) => {
   const classes = useStyles();
 
   return (
@@ -41,11 +41,11 @@ const HeroSection = ({header}) => {
         margin: "auto",
         background: "#F9FAFC",
         "@media (max-width: 600px)": {
-          width: "95vw",
-          height: "60vh",
+          width: "100vw",
+          height: "265px",
           flexDirection: "column",
           marginBottom: "unset",
-          margin: "15vh auto 0 auto",
+          margin: "0 auto 0 auto",
           justifyContent: "space-between",
           alignItems: "center",
           gap: "1vw",
@@ -58,13 +58,19 @@ const HeroSection = ({header}) => {
           fontSize: "38px",
           fontWeight: "600",
           color: "#6E3EF4",
-          mt: "176px"
+          mt: "176px",
+          "@media (max-width: 600px)": {
+            mt: "168px",
+            fontSize: "24px",
+            width: "90vw",
+            textAlign: "center",
+          },
         }}
       >
-        {header}
+        {title}
       </Typography>
     </Grid>
   );
 };
 
-export default HeroSection;
+export default HeroComponent;

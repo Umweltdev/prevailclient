@@ -1,6 +1,7 @@
 import React from "react";
 import FooterNew from "../../Footer/FooterNew";
-import HeroSection from "../BrandIdentity/HeroSection";
+import HeroComponent from "../ReusedComponenets/HeroComponent";
+import AppBarNav from "../../Navbar/Appbar";
 import { Container, Grid, Typography, Stack, Box, Button } from "@mui/material";
 import image1 from "./assets/image1.png";
 import image2 from "./assets/image2.png";
@@ -11,7 +12,9 @@ import AccordionUsage from "./Accordion";
 const DigitalAccelerator = () => {
   return (
     <div style={{ width: "100%", overflow: "hidden" }}>
-      <HeroSection header="Digital Accelerator Bundle Page " />
+      {/* <HeroSection header="Digital Accelerator Bundle Page " /> */}
+      <AppBarNav color="#000" />
+      <HeroComponent title={"Digital Accelerator Bundle Page"} />
       <Stack>
         <Stack
           direction="row"

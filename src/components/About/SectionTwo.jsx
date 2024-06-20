@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
 import { makeStyles } from "@mui/styles";
 import imago from "./assets/image125.png";
@@ -59,7 +59,7 @@ const SectionTwo = () => {
           maxWidth: "468px",
           flexGrow: 1,
           "@media (max-width: 600px)": {
-            width: "100%",
+            width: "90vw",
           },
         }}
       >
@@ -88,7 +88,7 @@ const SectionTwo = () => {
             "@media (max-width: 600px)": {
               fontSize: "4vw",
               textAlign: "justify",
-              width: "100%",
+              width: "90vw",
             },
           }}
         >
@@ -112,20 +112,24 @@ const SectionTwo = () => {
           justifyContent: "center",
           alignItems: "center",
           "@media (max-width: 600px)": {
-            width: "100%",
+            width: "90vw",
             height: "auto",
           },
         }}
       >
-        <img
-          style={{
+        <CardMedia
+          component={"img"}
+          image={imago}
+          sx={{
             maxWidth: "330px",
             maxHeight: "250px",
             width: "100%",
             height: "auto",
+            "@media (max-width: 600px)": {
+              maxWidth: "90vw",
+              width: "90vw",
+            },
           }}
-          src={imago}
-          alt=""
         />
       </Box>
     </Grid>

@@ -47,6 +47,7 @@ const ContactInfo = () => {
         flexDirection: "column",
         "@media (max-width: 600px)": {
           m: "30px auto 60px auto",
+          width: "90vw",
         },
       }}
     >
@@ -77,6 +78,9 @@ const ContactInfo = () => {
                 fontSize: "16px",
                 fontWeight: "400",
                 lineHeight: "160%",
+                "@media (max-width: 600px)": {
+                  width: "75vw",
+                },
               }}
             >
               {data.detail}

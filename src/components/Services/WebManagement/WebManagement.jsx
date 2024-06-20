@@ -1,5 +1,4 @@
 import React from "react";
-import HeroSection from "../BrandIdentity/HeroSection";
 import DrawerAppBarWhite from "../../Navbar/Appbar";
 import PainPoint from "./PainPoint";
 import Offering from "./Offering";
@@ -37,12 +36,15 @@ import Storage from "./assets/storage.svg?react";
 import Speaker from "./assets/speaker.svg?react";
 
 import Search from "../DigitalAccelerator/assets/search.svg?react";
+import HeroComponent from "../ReusedComponenets/HeroComponent";
+import AppBarNav from "../../Navbar/Appbar";
 
 const WebManagement = () => {
   return (
     <div style={{ width: "100%", overflow: "hidden" }}>
       {/* <DrawerAppBarWhite /> */}
-      <HeroSection header="Website Development" />
+      <AppBarNav color="#000" />
+      <HeroComponent  title="Website Development" />
       <Box>
         <Container maxWidth="lg">
           <Stack>

@@ -5,7 +5,8 @@ import Advantages from "./Advantages";
 import Benefits from "./Benefits";
 import Footer from "../../Footer/Footer";
 import FooterNew from "../../Footer/FooterNew";
-import HeroSection from "../BrandIdentity/HeroSection";
+import HeroComponent from "../ReusedComponenets/HeroComponent";
+import AppBarNav from "../../Navbar/Appbar";
 import { Container, Grid, Typography, Stack, Box, Button } from "@mui/material";
 import image1 from "./assets/image1.png";
 import image2 from "./assets/image2.png";
@@ -60,7 +61,9 @@ const data = [
 const WebsiteDevelopment = () => {
   return (
     <div style={{ width: "100%", overflow: "hidden" }}>
-      <HeroSection header="Custom Website Development" />
+            <AppBarNav color="#000" />
+
+      <HeroComponent  title="Custom Website Development" />
       <Container
         maxWidth="lg"
         sx={{

@@ -12,9 +12,23 @@ const FAQ = () => {
         gap: "70px",
         background: "#F9FAFC",
         padding: "143px 0",
+        "@media (max-width: 600px)": {
+          width: "90vw",
+          margin: "auto",
+          padding: "50px 0",
+          flexDirection: "column",
+        },
       }}
+      id="faqs"
     >
-      <Grid sx={{ pl: "5vw" }}>
+      <Grid
+        sx={{
+          pl: "5vw",
+          "@media (max-width: 600px)": {
+            pl: "unset",
+          },
+        }}
+      >
         <Typography
           sx={{
             fontSize: "38px",
@@ -28,7 +42,16 @@ const FAQ = () => {
         <AccordionUsage />
       </Grid>
       <Grid>
-        <CardMedia component={"img"} image={imago} sx={{ width: "50vw" }} />
+        <CardMedia
+          component={"img"}
+          image={imago}
+          sx={{
+            width: "50vw",
+            "@media (max-width: 600px)": {
+              width: "90vw",
+            },
+          }}
+        />
       </Grid>
     </Box>
   );

@@ -14,8 +14,10 @@ const MainPage = () => {
     <Grid
       sx={{
         pt: "176px",
-        background:
-          "linear-gradient(135deg, #DDD4EF, #F9FAFC, white)",
+        background: "linear-gradient(135deg, #DDD4EF, #F9FAFC, white)",
+        "@media (max-width: 767px)": {
+          pt: "168px",
+        },
       }}
     >
       <Box
@@ -26,6 +28,10 @@ const MainPage = () => {
           textAlign: "center",
           width: "591px",
           margin: "0 auto",
+          "@media (max-width: 767px)": {
+            width: "90vw",
+            height: "unset",
+          },
         }}
       >
         <Typography
@@ -39,7 +45,15 @@ const MainPage = () => {
           The Ultimate products we serve
         </Typography>
         <Typography
-          sx={{ fontSize: "18px;", fontWeight: "400", color: "505660" }}
+          sx={{
+            fontSize: "18px;",
+            fontWeight: "400",
+            color: "505660",
+            gap: "44px",
+            "@media (max-width: 600px)": {
+              width: "90vw"
+            },
+          }}
         >
           Prevail is a cutting-edge marketing agency specialising in redefining
           how businesses navigate the digital landscape.
@@ -51,6 +65,10 @@ const MainPage = () => {
           display: "flex",
           flexDirection: "column",
           gap: "44px",
+          "@media (max-width: 600px)": {
+            padding: "131px 0",
+            gap: "1vh",
+          },
         }}
       >
         <ImageTextService

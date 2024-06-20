@@ -1,6 +1,5 @@
 import React from "react";
 import DrawerAppBarWhite from "../../Navbar/Appbar";
-import HeroSection from "./HeroSection";
 import { serviceCard } from "../assets/ServicesData";
 import { useParams } from "react-router-dom";
 import ServiceDetails2 from "./ServiceDetails2";
@@ -12,16 +11,20 @@ import FooterNew from "../../Footer/FooterNew";
 import AppBarOne from "../../Navbar/AppbarOne";
 import ElevateYourPresence from "./ElevateYourPresence";
 import Addressing from "./Addressing";
+import TailoredApproach from "./TailoredApproach";
+import HeroComponent from "../ReusedComponenets/HeroComponent";
+import AppBarNav from "../../Navbar/Appbar";
 
 const BrandIdentity = () => {
   return (
     <div style={{ width: "100%", overflow: "hidden" }}>
-      {/* <DrawerAppBarWhite /> */}
-      <HeroSection header="Brand Identity Package"/>
+      <AppBarNav color="#000" />
+      <HeroComponent title={"Brand Identity Package"} />
       <ElevateYourPresence />
       <Addressing />
-      <ServiceDetails2 />
-      <ServiceDetails3 />
+      <TailoredApproach />
+      {/* <ServiceDetails2 /> */}
+      {/* <ServiceDetails3 /> */}
       <Packages />
       <FooterNew />
     </div>

@@ -1,11 +1,22 @@
-import { Box, Grid, Typography } from '@mui/material'
-import React from 'react'
-// import imagebrand2 from "../"
+import { Box, CardMedia, Grid, Typography } from "@mui/material";
+import React from "react";
+import imagebrand2 from "../assets/imagebrand2.png";
 
 const Addressing = () => {
   return (
-    <Box sx={{ display: "flex", width: "100vw" }}>
-      {/* <CardMedia component={"img"} image={imgBrand} sx={{ width: "50vw" }} /> */}
+    <Box
+      sx={{
+        display: "flex",
+        width: "100vw",
+        "@media (max-width: 600px)": {
+          flexDirection: "column",
+          justifyContent: "center",
+          alignContent: "center",
+          alignItems: "center",
+          margin: "40px auto",
+        },
+      }}
+    >
       <Grid
         sx={{
           display: "flex",
@@ -13,6 +24,9 @@ const Addressing = () => {
           margin: "auto",
           gap: "20px",
           width: "468px",
+          "@media (max-width: 600px)": {
+            width: "90vw",
+          },
         }}
       >
         <Typography
@@ -21,33 +35,48 @@ const Addressing = () => {
             color: "#1D0D40",
             fontSize: "28px",
             fontWeight: " 500",
+            "@media (max-width: 600px)": {
+              width: "90vw",
+            },
           }}
         >
-          Elevate Your Presence with Prevail’s Brand Identity Package. 
+          Addressing Today’s Branding Challenges 
         </Typography>
         <Typography
           sx={{
-            width: "385px;",
+            width: "468px",
             color: "#505660;",
             fontSize: "16px",
             fontWeight: "400",
             lineHeight: "150%",
+            "@media (max-width: 600px)": {
+              width: "90vw",
+            },
           }}
         >
-          In today’s competitive digital and physical markets, establishing a
-          distinctive brand identity is more crucial than ever. Prevail’s “Brand
-          Identity Package” service is designed to lay a robust foundation for
-          your business, ensuring you make a lasting impression whenever your
-          brand appears. <br /> <br /> We partner with you to meticulously
-          define and craft your unique brand identity, creating eye-catching
-          logos and compelling marketing materials that ensure consistency and
-          harmony across all marketing touchpoints. Our goal is to build brand
-          identity that not only stands out but builds trust and resonance with
-          your target audience. 
+          In the fast-paced and crowded marketplace of today, merely having a
+          good product or service is not enough. SMEs and local businesses, in
+          particular, face the daunting challenge of standing out. Without a
+          strong brand identity, your business might get lost in the digital
+          noise, overlooked by potential customers who are bombarded with
+          choices. This lack of distinction can prevent you from achieving the
+          recognition your brand deserves. 
         </Typography>
       </Grid>
+      <CardMedia
+        component={"img"}
+        image={imagebrand2}
+        sx={{
+          width: "47vw",
+          "@media (max-width: 600px)": {
+            width: "90vw",
+            borderRadius: "14px",
+            m: "40px 0"
+          },
+        }}
+      />
     </Box>
   );
-}
+};
 
-export default Addressing
+export default Addressing;

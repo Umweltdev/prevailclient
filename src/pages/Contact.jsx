@@ -11,17 +11,14 @@ import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import DrawerAppBarWhite from "../components/Navbar/Appbar";
 import MainPage from "../components/Contact/MainPage";
+import AppBarNav from "../components/Navbar/Appbar";
 
 const Contact = (props) => {
   const { isLoggedIn } = useContext(AuthContext);
 
   return (
     <div style={{ width: "100%", overflowX: "hidden" }}>
-      {/* <DrawerAppBarWhite {...props} isLoggedIn={isLoggedIn} /> */}
-      {/* <SectionOne /> */}
-      {/* <br />
-      <br /> */}
-      {/* <SectionTwo /> */}
+      <AppBarNav color="#000" />
       <MainPage />
       {/* <ContactInput /> */}
       {/* <SectionThree /> */}
