@@ -12,6 +12,8 @@ import WebManagement from "./components/Services/WebManagement/WebManagement";
 import Sem from "./components/Services/Sem/Sem";
 import Mpd from "./components/Services/Mpd/Mpd";
 import DigitalAccelerator from "./components/Services/DigitalAccelerator/DigitalAccelerator";
+import DigitalEcosystem from "./components/Explore/DigitalEcosystem/DigitalEcosystem";
+import CustomerJourney from "./components/Explore/CustomerJourney/CustomerJourney";
 import AboutOurWhy from "./components/About/AboutOurWhy";
 import AboutOurSolution from "./components/About/AboutOurSolution";
 import CaseDetails from "./components/Portfolio/CaseDetails";
@@ -34,29 +36,28 @@ const stripePromise = loadStripe(
 function App() {
   return (
     <Elements stripe={stripePromise}>
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/About" element={<About />} />
-        <Route path="/Portfolio" element={<Portfolio />} />
-        <Route path="/Blog" element={<Blog />} />
-        <Route path="/Contact" element={<Contact />} />
-        <Route path="/Blog/:index" element={<BlogDetails />} />
-        <Route path="/Services" element={<Services />} />
-        <Route path="/Services/brand" element={<BrandIdentity />} />
-        <Route path="/Services/website" element={<WebsiteDevelopment />} />
-        <Route path="/Services/webmanagement" element={<WebManagement />} />
-        <Route path="/Services/sem" element={<Sem />} />
-        <Route path="/Services/mpd" element={<Mpd />} />
-        <Route path="/Services/privacypolicy" element={<PrivacyPolicy />} />
-        <Route
-          path="/Services/digitalaccelerator"
-          element={<DigitalAccelerator />}
-        />
-        <Route path="/Portfolio/:index" element={<CaseDetails />} />
-        {/* <Route
+    
+    <Routes>
+      <Route path="/" element={<Landing />} />
+      <Route path="/About" element={<About />} />
+      <Route path="/Portfolio" element={<Portfolio />} />
+      <Route path="/Blog" element={<Blog />} />
+      <Route path="/Contact" element={<Contact />} />
+      <Route path="/Blog/:index" element={<BlogDetails />} />
+      <Route path="/Services" element={<Services />} />
+      <Route path="/Services/brand" element={<BrandIdentity />} />
+      <Route path="/Services/website" element={<WebsiteDevelopment />} />
+      <Route path="/explore/digitalecosystem" element={<DigitalEcosystem />} />
+      <Route path="/explore/customerjourney" element={<CustomerJourney />} />
+      <Route path="/Services/webmanagement" element={<WebManagement />} />
+       <Route path="/Services/privacypolicy" element={<PrivacyPolicy />} />
+      <Route path="/Services/sem" element={<Sem />} />
+      <Route path="/Services/mpd" element={<Mpd />} />
+      <Route
         path="/Services/digitalaccelerator"
         element={<DigitalAccelerator />}
-      /> */}
+      />
+      <Route path="/Portfolio/:index" element={<CaseDetails />} />
         <Route path="/about/ourWhy" element={<AboutOurWhy />} />
         <Route path="/about/ourSolution" element={<AboutOurSolution />} />
         <Route path="/SignUp" element={<SignUpForm />} />
