@@ -29,7 +29,7 @@ const useStyles = makeStyles({
   },
 });
 
-const HeroSection = () => {
+const HeroSection = ({header}) => {
   const classes = useStyles();
 
   return (
@@ -56,12 +56,12 @@ const HeroSection = () => {
         sx={{
           margin: "auto",
           fontSize: "38px",
-          fontWeight: "500",
+          fontWeight: "600",
           color: "#6E3EF4",
           mt: "176px"
         }}
       >
-        Brand Identity Package
+        {header}
       </Typography>
     </Grid>
   );

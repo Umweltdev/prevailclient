@@ -8,7 +8,7 @@ export const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: ["Sarabun", "sans-serif"].join(","),
+    fontFamily: ["Poppins", "sans-serif"].join(","),
     fontSize: 14,
     h5: {
       fontWeight: 700,
