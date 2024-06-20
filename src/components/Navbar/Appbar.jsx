@@ -19,36 +19,21 @@ import MenuItem from "@mui/material/MenuItem";
 import logo from "./newlogo.svg";
 import { AuthContext } from "../../context/AuthContext";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Container from '@mui/material/Container';
+import Container from "@mui/material/Container";
 
 const drawerWidth = 240;
 
 const servicesData = [
-  {
-    text: "Brand Identity",
-    link: "/Services/brand",
-  },
-  {
-    text: "Custom Website & Management",
-    link: "/Services/website",
-  },
-  {
-    text: "Website Development & Management",
-    link: "/Services/webmanagement",
-  },
-  {
-    text: "Search Engine Marketing (SEM)",
-    link: "/Services/sem",
-  },
-  {
-    text: "Marketing Price Displacement (MPD)",
-    link: "/Services/mpd",
-  },
-  {
-    text: "Digital Accelerator",
-    link: "/Services/digitalaccelerator",
-  },
+  { text: "Services", link: "/Services" },
+  { text: "Brand Identity", link: "/Services/brand" },
+  { text: "Custom Website & Management", link: "/Services/website" },
+  { text: "Website Development & Management", link: "/Services/webmanagement" },
+  { text: "Search Engine Marketing (SEM)", link: "/Services/sem" },
+  { text: "Marketing Price Displacement (MPD)", link: "/Services/mpd" },
+  { text: "Digital Accelerator", link: "/Services/digitalaccelerator" },
+  // { text: "Privacy Policy", link: "/Services/privacypolicy" },
 ];
+
 
 const exploreData = [
   {
@@ -61,10 +46,10 @@ const exploreData = [
   },
 ];
 
-function DrawerAppBarWhite() {
+
+function AppBarNav(color) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const [anchorElServices, setAnchorElServices] = React.useState(null);
-  const [anchorElExplore, setAnchorElExplore] = React.useState(null);
+  const [servicesAnchorEl, setServicesAnchorEl] = React.useState(null);
   const { isLoggedIn, dispatch } = React.useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -95,6 +80,7 @@ function DrawerAppBarWhite() {
     setAnchorElExplore(null);
   };
 
+
   const navItems = React.useMemo(
     () =>
       isLoggedIn
@@ -109,6 +95,10 @@ function DrawerAppBarWhite() {
           ]
         : [
             { label: "Explore", onClick: handleExploreClick },
+            { label: "Dashboard", onClick: handleUserDashboard },
+            { label: "Logout", onClick: handleLogout },
+          ]
+        : [
             { label: "Services", onClick: handleServicesClick },
             { label: "Blog", link: "/blog" },
             { label: "About Us", link: "/about" },
@@ -127,7 +117,10 @@ function DrawerAppBarWhite() {
         color: "#884ed9",
       }}
     >
-      <Typography variant="h6" sx={{ my: 2, fontFamily: `"Sarabun","sans-serif"` }}>
+      <Typography
+        variant="h6"
+        sx={{ my: 5, fontFamily: `"Sarabun","sans-serif"` }}
+      >
         <Link to={`/`} style={{ textDecoration: "none" }}>
           <img style={{ height: "10vh" }} src={logo} alt="logo" />
         </Link>
@@ -136,24 +129,14 @@ function DrawerAppBarWhite() {
       <List>
         {navItems.map((item, index) => (
           <ListItem sx={{ textAlign: "center" }} key={index} disablePadding>
-            {item.link ? (
-              <Link
-                to={item.link}
-                style={{
-                  textDecoration: "none",
-                  color: "#884ed9",
-                  fontFamily: `"Sarabun","sans-serif"`,
-                }}
-              >
-                <ListItemButton sx={{ textAlign: "center" }}>
-                  <ListItemText primary={item.label} />
-                </ListItemButton>
-              </Link>
-            ) : (
-              <ListItemButton onClick={item.onClick}>
-                <ListItemText primary={item.label} />
-              </ListItemButton>
-            )}
+            <ListItemButton
+              component={item.link ? Link : "div"}
+              to={item.link ? item.link : null}
+              onClick={item.onClick ? item.onClick : null}
+              sx={{ textAlign: "center" }}
+            >
+              <ListItemText primary={item.label} />
+            </ListItemButton>
           </ListItem>
         ))}
       </List>
@@ -161,24 +144,26 @@ function DrawerAppBarWhite() {
   );
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar
         component="nav"
         sx={{
-          background: 'linear-gradient(135deg, #d1c4e9, #ffffff, #e3f2fd)', // Adjusted color here
+          background: "rgba(0,0,0,0)",
           boxShadow: "none",
           borderBottom: "1px solid #E5E5E5",
+          border: "none",
+          pt: "20px",
         }}
       >
-        <Container sx={{ px: { xs: 1, sm: 1, md: 1 } }}> 
+        <Container sx={{ px: { xs: 1, sm: 1, md: 1 } }}>
           <Toolbar sx={{ justifyContent: "space-between" }}>
             <IconButton
               color="inherit"
               aria-label="open drawer"
               onClick={handleDrawerToggle}
               edge="start"
-              sx={{ display: { sm: "none" }, color: "black" }}
+              sx={{ display: { sm: "none" }, color: color }}
             >
               <MenuIcon />
             </IconButton>
@@ -192,23 +177,37 @@ function DrawerAppBarWhite() {
                 <img style={{ height: "50px" }} src={logo} alt="logo" />
               </Link>
             </Typography>
-            <Box sx={{ display: { xs: "none", sm: "flex" }, flexGrow: 1, justifyContent: "center" }}>
+            <Box
+              sx={{
+                display: { xs: "none", sm: "flex" },
+                flexGrow: 1,
+                justifyContent: "center",
+              }}
+            >
               {navItems.slice(0, -2).map((item, index) => (
                 <Button
                   key={index}
-                  sx={{ color: "black", textTransform: "none", margin: "0 10px", display: "flex", alignItems: "center" }}
-                  onClick={item.onClick ? item.onClick : null}
+                  sx={{
+                    color: color,
+                    textTransform: "none",
+                    margin: "0 10px",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
                   component={item.link ? Link : "div"}
                   to={item.link ? item.link : null}
+                  onClick={item.onClick ? item.onClick : null}
                 >
                   {item.label}
-                  {(item.label === "Explore" || item.label === "Services") && (
+                  {item.label === "Services" && (
                     <ExpandMoreIcon sx={{ marginLeft: "5px" }} />
                   )}
                 </Button>
               ))}
             </Box>
-            <Box sx={{ display: { xs: "none", sm: "flex" }, alignItems: "center" }}>
+            <Box
+              sx={{ display: { xs: "none", sm: "flex" }, alignItems: "center" }}
+            >
               {isLoggedIn ? (
                 <>
                   <Button
@@ -244,7 +243,7 @@ function DrawerAppBarWhite() {
                     sx={{
                       marginRight: "15px",
                       borderColor: "#884ed9",
-                      color: "black",
+                      color: color,
                       textTransform: "none",
                       borderRadius: "20px",
                     }}
@@ -282,7 +281,10 @@ function DrawerAppBarWhite() {
           }}
           sx={{
             display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
           }}
         >
           {drawer}
@@ -324,4 +326,4 @@ function DrawerAppBarWhite() {
   );
 }
 
-export default DrawerAppBarWhite;
+export default AppBarNav;

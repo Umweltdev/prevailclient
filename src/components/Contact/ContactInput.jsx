@@ -14,7 +14,7 @@ export default function ContactInput() {
         width: "70vw",
         padding: "3vw",
         borderRadius: "1.5vw",
-       
+
         boxShadow:
           "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px",
         "@media (max-width: 600px)": {
@@ -149,7 +149,7 @@ export default function ContactInput() {
             width: "730px",
             marginTop: "2vh",
             marginBottom: "15vh",
-            backgroundColor: "#884ED9",
+            backgroundColor: "#6E3EF4;",
             "@media (max-width: 600px)": { width: "90vw" },
           }}
         >

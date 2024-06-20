@@ -1,7 +1,7 @@
-import { Grid, Typography } from "@mui/material";
+import { Box, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
 import { makeStyles } from "@mui/styles";
-//import landingImage1 from "../assets/brandd.png";
+import imago from "./assets/image157.png";
 
 const useStyles = makeStyles({
   imagePlaform: {
@@ -33,79 +33,87 @@ const SectionFour = () => {
 
   return (
     <Grid
+      container
       sx={{
-        width: "80vw",
+        // width: "80vw",
         display: "flex",
-        // margin: "15vh auto",
-        margin: "5vh auto 10vh auto",
-        justifyContent: "space-between",
+        flexDirection: "row",
+        margin: "100px auto 0 auto",
+        justifyContent: "center",
         alignItems: "center",
-        gap: "7vw",
+        gap: "239px",
         "@media (max-width: 600px)": {
-          margin: "0 auto",
-          width: "95vw",
-          flexDirection: "column",
+          width: "90vw",
+          flexDirection: "column-reverse",
+          margin: "13vh auto 0 auto",
           marginBottom: "1vh",
-          // gap: "5vw",
+          gap: "20px",
           justifyContent: "space-between",
           alignItems: "center",
-          gap: "1vw",
         },
       }}
     >
-      <img
-        className={classes.imageInit}
-        style={{}}
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaDu3kkFF00jEXnh7hoioYHH_74oK5Lfn22eBytczPouJudRWqzNumfNDOrQxCZrXkQMc&usqp=CAU"
-        alt=""
-      />
-      <Grid
+      <CardMedia
+        component={"img"}
+        image={imago}
         sx={{
-          width: "40vw",
+          width: "487px",
+          height: "290px",
+          borderRadius: "14px",
           "@media (max-width: 600px)": {
-            width: "95vw",
+            maxWidth: "90vw",
+            width: "90vw",
+          },
+        }}
+      />
+      
+      <Grid
+        item
+        sx={{
+          maxWidth: "468px",
+          flexGrow: 1,
+          "@media (max-width: 600px)": {
+            width: "100%",
           },
         }}
       >
-        {/* <Typography
+        <Typography
           sx={{
             display: "flex",
-            fontSize: "3vw",
-            fontWeight: "bold",
-            color: "#494848",
-            marginBottom: "3vh",
+            fontSize: "28px",
+            fontWeight: "500",
+            color: "#1D0D40",
+            marginBottom: "20px",
+            lineHeight: "110%",
+            letterSpacing: "-0.28px",
             "@media (max-width: 600px)": {
               fontSize: "6vw",
               margin: "2vh 0",
             },
           }}
         >
-          Our Why
-        </Typography> */}
+          What We Do
+        </Typography>
         <Typography
           sx={{
-            fontSize: "1.2vw",
-            color: "#636363",
+            fontSize: "16px",
+            color: "#505660",
             marginBottom: "3vh",
-            // textAlign: "justify",
-            width: "37vw",
             "@media (max-width: 600px)": {
               fontSize: "4vw",
               textAlign: "justify",
-              width: "95vw",
-              marginTop: "2vh"
+              width: "100%",
             },
           }}
         >
-          Our paramount concern is the current trend where large enterprises
-          tend to dominate the digital landscape. They often do so by employing
-          full-time programmers and have the financial capacity to invest in a
-          plethora of SaaS solutions. Regrettably, this trend leads to a rapid
-          erosion of market share for local businesses and SMEs, often catching
-          them in financial distress before they even realise it. The stark
-          reality is that local businesses and SMEs find it challenging to
-          outcompete these industry giants and are losing their market share
-          within their respective sectors.
+          Prevail is not just a marketing firm; we are architects of bespoke
+          solutions that fuse cutting-edge automation technology, profound
+          consumer insights, and state-of-the-art marketing tactics. <br />
+          <br /> Our approach transcends mere automation by integrating it with
+          robust data analytics and creative flair, crafting marketing
+          strategies that truly resonate with your target demographics. Our
+          holistic strategy ensures sustained growth, even amongst the most
+          challenging.
         </Typography>
       </Grid>
     </Grid>

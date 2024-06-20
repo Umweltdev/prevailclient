@@ -13,6 +13,7 @@ import YourTools from "../components/Landing/YourTools";
 import DrawerAppBarWhite from "../components/Navbar/Appbar";
 import AppBarOne from "../components/Navbar/AppbarOne";
 import { AuthContext } from "../context/AuthContext";
+import AppBarNav from "../components/Navbar/Appbar";
 // import DrawerAppBarWhite from "../components/Navbar/DrawerAppBarWhite";
 // import Follower from "../components/MouseAnimation";
 
@@ -20,10 +21,12 @@ const Landing = (props) => {
    const { isLoggedIn } = useContext(AuthContext);
   return (
     <div style={{ width: "100%", overflow: "hidden" }}>
-      {/* <DrawerAppBarWhite {...props} isLoggedIn={isLoggedIn} /> */}
-      <br /><br />
+      <AppBarNav color="#000" />
+      <br />
+      <br />
       <Hero />
-      <br /><br />
+      <br />
+      <br />
       <SectionTwo />
       <YourTools />
       <OurCore />

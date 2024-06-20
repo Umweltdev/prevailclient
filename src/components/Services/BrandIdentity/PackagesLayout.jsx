@@ -1,39 +1,27 @@
 import React from "react";
-import { Card, CardContent, Button, Typography } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  Button,
+  Typography,
+  Box,
+  Grid,
+} from "@mui/material";
+import { Check } from "@mui/icons-material";
+import { StarterBrandIdentity } from "../assets/serviceData";
 
-const PackagesLayout = ({
-  packages,
-  amount,
-  first,
-  second,
-  third,
-  fourth,
-  fifth,
-  sixth,
-  seventh,
-  eigth,
-  ninth,
-  tenth,
-  eleven,
-  twelve,
-  thirtheen,
-  fourteen,
-  fifteen,
-  sixteen,
-  seventeen,
-}) => {
+const PackagesLayout = ({ packages, amount, info }) => {
   return (
     <Card
       sx={{
-        width: "25vw",
-        height: "50vh",
-        minHeight: "55vh",
+        width: "23vw",
+        height: "530px",
         borderRadius: 4,
-        boxShadow: "rgba(0, 0, 0, 0.1) 0px 10px 50px;",
+        boxShadow: "2",
         "@media (max-width: 600px)": {
           marginTop: "1vh",
-          height: "40vh",
-          width: "85vw",
+          height: "530px",
+          width: "90vw",
           boxShadow:
             "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
         },
@@ -43,92 +31,93 @@ const PackagesLayout = ({
         sx={{
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: "2vh",
+          gap: "1vh",
           padding: "3vw 0 ",
           "@media (max-width: 600px)": {
             padding: "5vh 2vh",
           },
         }}
       >
-        <Typography textAlign="center" fontWeight="bold">
-          {packages}
-        </Typography>
-        <Typography variant="body1" gutterBottom>
-          {amount}
-        </Typography>
-        <Typography textAlign="center" variant="body2" color="text.secondary">
-          {first}
-        </Typography>
-        <Typography textAlign="center" variant="body2" color="text.secondary">
-          {second}
-        </Typography>
-        <Typography textAlign="center" variant="body2" color="text.secondary">
-          {third}
-        </Typography>
-        <Typography textAlign="center" variant="body2" color="text.secondary">
-          {fourth}
-        </Typography>
-        <Typography textAlign="center" variant="body2" color="text.secondary">
-          {fifth}
-        </Typography>
-        <Button
-          disableElevation
+        <Box>
+          <Typography
+            textAlign="center"
+            fontWeight="bold"
+            sx={{ fontSize: "18px" }}
+          >
+            {packages}
+          </Typography>
+          <Typography
+            sx={{ color: "#656565;", fontSize: "16px", textAlign: "center" }}
+          >
+            {info}
+          </Typography>
+        </Box>
+        <Box
           sx={{
-            borderRadius: 7,
-            backgroundColor: "#884ed9",
-            textTransform: "capitalize",
-            fontSize: "1vw",
-            padding: "1vh 2vw",
-
-            "@media (max-width: 600px)": {
-              fontSize: "4vw",
-              padding: "1vh 2vh",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+            lineHeight: "-10",
+          }}
+        >
+          <Typography
+            sx={{ color: "#000", fontSize: "40px", fontWeight: "700" }}
+          >
+            €{amount}
+          </Typography>
+          <Typography sx={{ width: "88px", fontSize: "14px" }}>
+            One Of Payment
+          </Typography>
+        </Box>
+        <Button
+          sx={{
+            background: "#6E3EF4",
+            borderRadius: "5px",
+            color: "#fff",
+            width: "220px",
+            margin: "auto",
+            "&:hover": {
+              background: "#6E3EF4",
+              borderRadius: "5px",
+              color: "#fff",
             },
           }}
-          variant="contained"
-          color="primary"
         >
-          {sixth}
+          Make Payments
         </Button>
-        <Typography textAlign="center" variant="body2" color="text.secondary">
-          {seventh}
-        </Typography>
-        <Typography textAlign="center" variant="body2" color="text.secondary">
-          {eigth}
-        </Typography>
-        <Typography textAlign="center" variant="body2" color="text.secondary">
-          {ninth}
-        </Typography>
-        <Typography textAlign="center" variant="body2" color="text.secondary">
-          {tenth}
-        </Typography>
-        <Typography textAlign="center" variant="body2" color="text.secondary">
-          {eleven}
-        </Typography>
-        <Typography textAlign="center" variant="body2" color="text.secondary">
-          {twelve}
-        </Typography>
-        <Typography textAlign="center" variant="body2" color="text.secondary">
-          {thirtheen}
-        </Typography>
-        <Typography textAlign="center" variant="body2" color="text.secondary">
-          {fourteen}
-        </Typography>
-        <Typography textAlign="center" variant="body2" color="text.secondary">
-          {fifteen}
-        </Typography>
-        <Typography textAlign="center" variant="body2" color="text.secondary">
-          {sixteen}
-        </Typography>
-        <Typography textAlign="center" variant="body2" color="text.secondary">
-          {seventeen}
-        </Typography>
 
-        {/* <Button variant="contained" color="primary" fullWidth>
-          Subscribe Now
-        </Button> */}
+        {/* Render the StarterBrandIdentity items */}
+        <Grid
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "left",
+            mt: "30px",
+          }}
+        >
+          {StarterBrandIdentity.map((item, i) => (
+            <Box
+              key={i}
+              sx={{
+                display: "flex",
+                gap: "10px",
+                marginLeft: "10px",
+                justifyContent: "center",
+              }}
+            >
+              <Check sx={{ color: "green" }} />
+              <Typography
+                textAlign="left"
+                variant="body2"
+                color="text.secondary"
+                width={"222px"}
+              >
+                {item.text}
+              </Typography>
+            </Box>
+          ))}
+        </Grid>
       </CardContent>
     </Card>
   );

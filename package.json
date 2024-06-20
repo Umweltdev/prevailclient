@@ -44,9 +44,12 @@
     "sass": "^1.70.0",
     "serve": "^14.2.1",
     "simplebar-react": "^3.2.4",
+    "slick-carousel": "^1.8.1",
+    "vite-plugin-svgr": "^4.2.0",
     "yup": "^1.4.0"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.3",
