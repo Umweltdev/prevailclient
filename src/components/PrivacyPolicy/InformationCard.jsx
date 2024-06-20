@@ -23,6 +23,9 @@ const InformationCard = () => {
         justifyContent: "center",
         alignItems: "center",
         padding: "35px 0",
+        "@media (max-width: 767px)": {
+          display: "none",
+        },
       }}
     >
       <Typography

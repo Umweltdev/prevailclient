@@ -1,10 +1,22 @@
-import { Box, CardMedia, Grid, Typography } from '@mui/material'
-import React from 'react'
-import imagebrand2 from "../assets/imagebrand2.png"
+import { Box, CardMedia, Grid, Typography } from "@mui/material";
+import React from "react";
+import imagebrand2 from "../assets/imagebrand2.png";
 
 const Addressing = () => {
   return (
-    <Box sx={{ display: "flex", width: "100vw" }}>
+    <Box
+      sx={{
+        display: "flex",
+        width: "100vw",
+        "@media (max-width: 600px)": {
+          flexDirection: "column",
+          justifyContent: "center",
+          alignContent: "center",
+          alignItems: "center",
+          margin: "40px auto",
+        },
+      }}
+    >
       <Grid
         sx={{
           display: "flex",
@@ -12,6 +24,9 @@ const Addressing = () => {
           margin: "auto",
           gap: "20px",
           width: "468px",
+          "@media (max-width: 600px)": {
+            width: "90vw",
+          },
         }}
       >
         <Typography
@@ -20,6 +35,9 @@ const Addressing = () => {
             color: "#1D0D40",
             fontSize: "28px",
             fontWeight: " 500",
+            "@media (max-width: 600px)": {
+              width: "90vw",
+            },
           }}
         >
           Addressing Today’s Branding Challenges 
@@ -31,6 +49,9 @@ const Addressing = () => {
             fontSize: "16px",
             fontWeight: "400",
             lineHeight: "150%",
+            "@media (max-width: 600px)": {
+              width: "90vw",
+            },
           }}
         >
           In the fast-paced and crowded marketplace of today, merely having a
@@ -42,9 +63,20 @@ const Addressing = () => {
           recognition your brand deserves. 
         </Typography>
       </Grid>
-      <CardMedia component={"img"} image={imagebrand2} sx={{ width: "47vw" }} />
+      <CardMedia
+        component={"img"}
+        image={imagebrand2}
+        sx={{
+          width: "47vw",
+          "@media (max-width: 600px)": {
+            width: "90vw",
+            borderRadius: "14px",
+            m: "40px 0"
+          },
+        }}
+      />
     </Box>
   );
-}
+};
 
-export default Addressing
+export default Addressing;

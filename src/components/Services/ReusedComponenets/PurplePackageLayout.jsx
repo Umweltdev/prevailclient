@@ -11,7 +11,14 @@ import { Check } from "@mui/icons-material";
 import { StarterBrandIdentity } from "../assets/serviceData";
 import { SEMPremiumPackage, SEMSilverPackage } from "../Sem/semData";
 
-const PurplePackageLayout = ({ packages, amount, info, button, height }) => {
+const PurplePackageLayout = ({
+  packages,
+  amount,
+  info,
+  button,
+  height,
+  mobileHeight,
+}) => {
   return (
     <Card
       sx={{
@@ -24,8 +31,8 @@ const PurplePackageLayout = ({ packages, amount, info, button, height }) => {
         color: "#fff",
         "@media (max-width: 600px)": {
           marginTop: "1vh",
-          height: "40vh",
-          width: "85vw",
+          height: mobileHeight,
+          width: "90vw",
           boxShadow:
             "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
         },

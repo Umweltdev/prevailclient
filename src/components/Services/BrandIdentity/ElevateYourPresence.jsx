@@ -4,8 +4,30 @@ import imgBrand from "../assets/imagebrand1.png";
 
 const ElevateYourPresence = () => {
   return (
-    <Box sx={{ display: "flex", width: "100vw" }}>
-      <CardMedia component={"img"} image={imgBrand} sx={{ width: "47vw" }} />
+    <Box
+      sx={{
+        display: "flex",
+        width: "100vw",
+        "@media (max-width: 600px)": {
+          flexDirection: "column-reverse",
+          justifyContent: "center",
+          alignContent: "center",
+          alignItems: "center",
+          margin: "14px auto",
+        },
+      }}
+    >
+      <CardMedia
+        component={"img"}
+        image={imgBrand}
+        sx={{
+          width: "47vw",
+          "@media (max-width: 600px)": {
+            width: "90vw",
+            borderRadius: "14px",
+          },
+        }}
+      />
       <Grid
         sx={{
           display: "flex",
@@ -15,6 +37,10 @@ const ElevateYourPresence = () => {
           ml: "3.5vw",
           gap: "20px",
           width: "468px",
+          "@media (max-width: 600px)": {
+            ml: "unset",
+            width: "90vw",
+          },
         }}
       >
         <Typography
@@ -23,6 +49,9 @@ const ElevateYourPresence = () => {
             color: "#1D0D40",
             fontSize: "28px",
             fontWeight: " 500",
+            "@media (max-width: 600px)": {
+              width: "90vw",
+            },
           }}
         >
           Elevate Your Presence with Prevail’s Brand Identity Package. 
@@ -34,6 +63,9 @@ const ElevateYourPresence = () => {
             fontSize: "16px",
             fontWeight: "400",
             lineHeight: "150%",
+            "@media (max-width: 600px)": {
+              width: "90vw",
+            },
           }}
         >
           In today’s competitive digital and physical markets, establishing a

@@ -13,6 +13,10 @@ const Header = () => {
         justifyContent: "center",
         alignContent: "center",
         textAlign: "center",
+        "@media (max-width: 767px)": {
+          width: "100vw",
+          height: "100vh",
+        },
       }}
     >
       <Box
@@ -23,6 +27,9 @@ const Header = () => {
           flexDirection: "column",
           gap: "24px",
           mt: "188px",
+          "@media (max-width: 767px)": {
+            width: "90vw",
+          },
         }}
       >
         <Typography
@@ -72,6 +79,9 @@ const Header = () => {
           bottom: "-10vh",
           position: "relative",
           borderRadius: "14px",
+          "@media (max-width: 767px)": {
+            bottom: "-3vh",
+          },
         }}
         component={"img"}
         image="https://img.freepik.com/free-photo/excited-business-colleagues_74855-1825.jpg?t=st=1718867497~exp=1718871097~hmac=dfc4fb0f91d7ce371a9513fb2127a9df2c9a07ded3f5e5e058f920f68de7f92f&w=900"

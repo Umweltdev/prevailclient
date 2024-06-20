@@ -15,6 +15,13 @@ const PrevailMPDApi = () => {
         alignItems: "center",
         // justifyContent: "center",
         justifyContent: "space-between",
+        "@media (max-width: 600px)": {
+          width: "100vw",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "space-between",
+          mt: "40px",
+        },
       }}
     >
       <Grid
@@ -26,6 +33,10 @@ const PrevailMPDApi = () => {
           gap: "20px",
           ml: "10vw",
           width: "468px",
+          "@media (max-width: 600px)": {
+            ml: "unset",
+            width: "90vw",
+          },
         }}
       >
         <Typography
@@ -52,7 +63,7 @@ const PrevailMPDApi = () => {
         <Box>
           <Box sx={{ display: "flex", gap: "10px", flexDirection: "column" }}>
             {mpdDataApi.map((item, i) => (
-              <Box key={i} sx={{display: "flex", gap: "16px"}}>
+              <Box key={i} sx={{ display: "flex", gap: "16px" }}>
                 <CardMedia
                   component={"img"}
                   image={item.icon}
@@ -74,7 +85,18 @@ const PrevailMPDApi = () => {
           </Box>
         </Box>
       </Grid>
-      <CardMedia component={"img"} image={img} sx={{ width: "45vw" }} />
+      <CardMedia
+        component={"img"}
+        image={img}
+        sx={{
+          width: "45vw",
+          "@media (max-width: 600px)": {
+            width: "90vw",
+            mt: "40px",
+            borderRadius: "14px"
+          },
+        }}
+      />
     </Box>
   );
 };

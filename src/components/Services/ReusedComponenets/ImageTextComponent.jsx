@@ -9,9 +9,29 @@ const ImageTextComponent = ({ img, header, text }) => {
         width: "100vw",
         alignItems: "center",
         justifyContent: "space-between",
+        "@media (max-width: 600px)": {
+          display: "flex",
+          width: "100vw",
+          alignItems: "center",
+          justifyContent: "space-between",
+          flexDirection: "column-reverse",
+          mt: "40px",
+          mb: "20px",
+        },
       }}
     >
-      <CardMedia component={"img"} image={img} sx={{ width: "47vw" }} />
+      <CardMedia
+        component={"img"}
+        image={img}
+        sx={{
+          width: "47vw",
+          "@media (max-width: 600px)": {
+            width: "90vw",
+            borderRadius: "14px",
+            mt: "4vh",
+          },
+        }}
+      />
       <Grid
         sx={{
           display: "flex",
@@ -21,6 +41,11 @@ const ImageTextComponent = ({ img, header, text }) => {
           mr: "15vw",
           gap: "20px",
           width: "468px",
+          "@media (max-width: 600px)": {
+            width: "90vw",
+            borderRadius: "14px",
+            mr: "unset",
+          },
         }}
       >
         <Typography

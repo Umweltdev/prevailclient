@@ -140,7 +140,7 @@ function AppBarNav(color) {
               aria-label="open drawer"
               onClick={handleDrawerToggle}
               edge="start"
-              sx={{ display: { sm: "none" }, color: "black" }}
+              sx={{ display: { sm: "none" }, color: color }}
             >
               <MenuIcon />
             </IconButton>

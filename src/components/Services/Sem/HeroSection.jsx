@@ -41,8 +41,8 @@ const HeroSection = () => {
         margin: "auto",
         background: "#F9FAFC",
         "@media (max-width: 600px)": {
-          width: "95vw",
-          height: "60vh",
+          width: "100vw",
+          height: "265px",
           flexDirection: "column",
           marginBottom: "unset",
           margin: "15vh auto 0 auto",
@@ -55,7 +55,7 @@ const HeroSection = () => {
       <Typography
         sx={{
           margin: "auto",
-          fontSize: "38px",
+          fontSize: "24px",
           fontWeight: "500",
           color: "#6E3EF4",
           mt: "176px",

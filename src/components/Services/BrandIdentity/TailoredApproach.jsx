@@ -5,8 +5,29 @@ import { TailoredApproachData } from "../assets/serviceData";
 
 const TailoredApproach = () => {
   return (
-    <Box sx={{ display: "flex", width: "100vw" }}>
-      <CardMedia component={"img"} image={imgBrand} sx={{ width: "47vw" }} />
+    <Box
+      sx={{
+        display: "flex",
+        width: "100vw",
+        "@media (max-width: 600px)": {
+          flexDirection: "column",
+          justifyContent: "center",
+          alignContent: "center",
+          alignItems: "center",
+          margin: "40px auto",
+        },
+      }}
+    >
+      <CardMedia
+        component={"img"}
+        image={imgBrand}
+        sx={{
+          width: "47vw",
+          "@media (max-width: 600px)": {
+            display: "none",
+          },
+        }}
+      />
       <Grid
         sx={{
           display: "flex",
@@ -16,6 +37,10 @@ const TailoredApproach = () => {
           ml: "5vw",
           gap: "20px",
           width: "47vw",
+          "@media (max-width: 600px)": {
+            width: "90vw",
+            ml: "unset",
+          },
         }}
       >
         <Typography
@@ -24,6 +49,9 @@ const TailoredApproach = () => {
             color: "#1D0D40",
             fontSize: "28px",
             fontWeight: "500",
+            "@media (max-width: 600px)": {
+              width: "90vw",
+            },
           }}
         >
           Our Tailored Approach to Your Brand Needs 
@@ -35,6 +63,9 @@ const TailoredApproach = () => {
             fontWeight: "400",
             lineHeight: "150%",
             width: "543px",
+            "@media (max-width: 600px)": {
+              width: "90vw",
+            },
           }}
         >
           Recognising these challenges, our “Brand Identity Package” service is
@@ -95,6 +126,11 @@ const TailoredApproach = () => {
                 mt: "45px",
                 fontSize: "16px",
                 fontWeight: "500",
+                "@media (max-width: 600px)": {
+                  width: "80vw",
+                  mt: "20px",
+                  
+                },
               }}
             >
               At Prevail, we understand the power of a well-crafted brand

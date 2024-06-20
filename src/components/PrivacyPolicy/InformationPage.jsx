@@ -9,6 +9,11 @@ const InformationPage = () => {
         display: "flex",
         flexDirection: "column",
         gap: "24px",
+        "@media (max-width: 767px)": {
+          width: "85vw",
+          alignItems: "center",
+          mt: "-30px"
+        },
       }}
     >
       <Box id="information-we-collect">
@@ -17,7 +22,13 @@ const InformationPage = () => {
         >
           Information We Collect
         </Typography>
-        <ul style={{ color: "#505660", fontSize: "16px", fontWeight: "400" }}>
+        <ul
+          style={{
+            color: "#505660",
+            fontSize: "16px",
+            fontWeight: "400",
+          }}
+        >
           <Typography
             sx={{ color: "#505660", fontSize: "16px", fontWeight: "500" }}
           >

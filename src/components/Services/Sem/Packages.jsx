@@ -50,12 +50,14 @@ const Packages = () => {
           info="Forever free, even after the launch"
           button="Contact us"
           height="650px"
+          mobileHeight={"600px"}
         />
         <PurplePackageLayout
           packages="SEM Platinum Package"
           info="Forever free, even after the launch"
           button="Contact us"
           height="750px"
+          mobileHeight={"750px"}
         />
       </Grid>
     </div>

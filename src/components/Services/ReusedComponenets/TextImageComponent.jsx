@@ -1,26 +1,34 @@
 import React from "react";
 import { Card, CardMedia, Grid, Typography, Box } from "@mui/material";
 
-const TextImageComponent = ({header, text, img}) => {
+const TextImageComponent = ({ header, text, img }) => {
   return (
     <Box
       sx={{
         display: "flex",
         width: "100vw",
         alignItems: "center",
-        justifyContent: "center",
         justifyContent: "space-between",
+        "@media (max-width: 600px)": {
+          display: "flex",
+          width: "100vw",
+          flexDirection: "column",
+        },
       }}
     >
       <Grid
         sx={{
           display: "flex",
           flexDirection: "column",
-          // alignItems: "center",
-          // justifyContent: "center",
           gap: "20px",
           ml: "10vw",
           width: "468px",
+          "@media (max-width: 600px)": {
+            width: "90vw",
+            flexDirection: "column",
+            ml: "unset",
+            mt: "40px",
+          },
         }}
       >
         <Typography
@@ -42,7 +50,18 @@ const TextImageComponent = ({header, text, img}) => {
           dangerouslySetInnerHTML={{ __html: text }}
         ></Typography>
       </Grid>
-      <CardMedia component={"img"} image={img} sx={{ width: "45vw" }} />
+      <CardMedia
+        component={"img"}
+        image={img}
+        sx={{
+          width: "45vw",
+          "@media (max-width: 600px)": {
+            width: "90vw",
+            mt: "5vh",
+            borderRadius: "14px"
+          },
+        }}
+      />
     </Box>
   );
 };

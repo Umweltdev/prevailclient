@@ -11,7 +11,14 @@ import { Check } from "@mui/icons-material";
 import { StarterBrandIdentity } from "../assets/serviceData";
 import { SEMSilverPackage } from "../Sem/semData";
 
-const WhitePackageLayout = ({ packages, amount, info, button, height }) => {
+const WhitePackageLayout = ({
+  packages,
+  amount,
+  info,
+  button,
+  height,
+  mobileHeight,
+}) => {
   return (
     <Card
       sx={{
@@ -22,8 +29,8 @@ const WhitePackageLayout = ({ packages, amount, info, button, height }) => {
         boxShadow: "2",
         "@media (max-width: 600px)": {
           marginTop: "1vh",
-          height: "40vh",
-          width: "85vw",
+          height: mobileHeight,
+          width: "90vw",
           boxShadow:
             "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
         },
@@ -86,7 +93,7 @@ const WhitePackageLayout = ({ packages, amount, info, button, height }) => {
             },
           }}
         >
-         {button || "Make Payments"}
+          {button || "Make Payments"}
         </Button>
 
         {/* Render the StarterBrandIdentity items */}
@@ -96,7 +103,7 @@ const WhitePackageLayout = ({ packages, amount, info, button, height }) => {
             flexDirection: "column",
             justifyContent: "left",
             mt: "30px",
-            gap: "15px"
+            gap: "15px",
           }}
         >
           {SEMSilverPackage.map((item, i) => (

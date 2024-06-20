@@ -18,6 +18,9 @@ const Header = () => {
           textAlign: "center",
           width: "817px",
           margin: "0 auto",
+          "@media (max-width: 767px)": {
+            width: "90vw",
+          },
         }}
       >
         <Typography
@@ -43,7 +46,6 @@ const Header = () => {
           services, interact with us, or visit our websites. 
         </Typography>
       </Box>
-      
     </Grid>
   );
 };

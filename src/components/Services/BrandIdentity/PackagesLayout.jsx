@@ -10,23 +10,18 @@ import {
 import { Check } from "@mui/icons-material";
 import { StarterBrandIdentity } from "../assets/serviceData";
 
-const PackagesLayout = ({
-  packages,
-  amount,
-  info,
-}) => {
+const PackagesLayout = ({ packages, amount, info }) => {
   return (
     <Card
       sx={{
         width: "23vw",
-        height: "650px",
-        // minHeight: "55vh",
+        height: "530px",
         borderRadius: 4,
         boxShadow: "2",
         "@media (max-width: 600px)": {
           marginTop: "1vh",
-          height: "40vh",
-          width: "85vw",
+          height: "530px",
+          width: "90vw",
           boxShadow:
             "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
         },
@@ -129,4 +124,3 @@ const PackagesLayout = ({
 };
 
 export default PackagesLayout;
-

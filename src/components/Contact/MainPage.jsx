@@ -19,6 +19,10 @@ const MainPage = () => {
           textAlign: "center",
           width: "817px",
           margin: "0 auto",
+          "@media (max-width: 767px)": {
+            width: "90vw",
+            alignItems: "center",
+          },
         }}
       >
         <Typography
@@ -43,8 +47,6 @@ const MainPage = () => {
       </Box>
       <Box
         sx={{
-          //   height: "150vh",
-        //   background: "#fff",
           py: "108px",
           display: "flex",
           justifyContent: "center",

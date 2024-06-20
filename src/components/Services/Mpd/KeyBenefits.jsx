@@ -20,6 +20,11 @@ const useStyles = makeStyles({
     justifyContent: "space-between",
     width: "75vw",
     margin: "10vh auto",
+    "@media (max-width: 600px)": {
+      width: "100vw",
+      mt: "40px",
+      flexDirection: "column",
+    },
   },
   card: {
     width: "25vw",
@@ -33,22 +38,41 @@ const useStyles = makeStyles({
     borderRadius: "none",
     margin: "auto",
     gap: "16px",
+    "@media (max-width: 600px)": {
+      width: "90vw",
+      height: "265px",
+    },
   },
   roundedTopLeft: {
     borderRadius: "10px 0 0 0",
+    "@media (max-width: 600px)": {
+      borderRadius: "unset",
+    },
   },
   roundedTopRight: {
     borderRadius: "0 10px 0 0",
+    "@media (max-width: 600px)": {
+      borderRadius: "unset",
+    },
   },
   roundedBottomLeft: {
     borderRadius: "0 0 0 10px",
+    "@media (max-width: 600px)": {
+      borderRadius: "unset",
+    },
   },
   roundedBottomRight: {
     borderRadius: "0 0 10px 0",
+    "@media (max-width: 600px)": {
+      borderRadius: "unset",
+    },
   },
   icon: {
     fontSize: "40px",
     marginBottom: "8px",
+    "@media (max-width: 600px)": {
+      borderRadius: "unset",
+    },
   },
 });
 
@@ -74,14 +98,35 @@ const Card = ({ icon: IconComponent, header, text, className }) => {
 const SixCards = () => {
   const classes = useStyles();
   return (
-    <Grid>
+    <Grid
+      sx={{
+        color: "#1D0D40",
+        fontSize: "28px",
+        fontWeight: 500,
+        textAlign: "center",
+        m: "10vh 0",
+        "@media (max-width: 600px)": {
+          width: "90vw",
+          m: "40px 0 0 0",
+          textAlign: "unset",
+          alignItems: "center",
+        },
+      }}
+    >
       <Typography
         sx={{
           color: "#1D0D40",
           fontSize: "28px",
           fontWeight: 500,
           textAlign: "center",
-          m: "10vh 0"
+          m: "10vh 0",
+          "@media (max-width: 600px)": {
+            width: "90vw",
+            alignItems: "center",
+            textAlign: "unset",
+            m: "30px 0 -50px 0",
+            ml: "5vw",
+          },
         }}
       >
         Key Benefits of Using MPD API

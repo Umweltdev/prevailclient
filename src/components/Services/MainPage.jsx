@@ -29,7 +29,7 @@ const MainPage = () => {
           width: "591px",
           margin: "0 auto",
           "@media (max-width: 767px)": {
-            width: "100vw",
+            width: "90vw",
             height: "unset",
           },
         }}

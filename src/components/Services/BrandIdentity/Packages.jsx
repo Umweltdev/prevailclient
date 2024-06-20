@@ -49,10 +49,18 @@ const Packages = () => {
         <PackagesLayout
           packages="Starter Brand Identity Package"
           info="Forever free, even after the launch"
-          amount="700"
-          // Add more props as needed
+          amount="250"
         />
-        
+        <PremiumPackageLayout
+          packages="Premium Brand Identity Package"
+          info="Forever free, even after the launch"
+          amount="500"
+        />
+        <ElitePackageLayout
+          packages="Starter Brand Identity Package"
+          info="Forever free, even after the launch"
+          amount="1000"
+        />
       </Grid>
     </div>
   );

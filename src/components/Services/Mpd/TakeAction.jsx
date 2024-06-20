@@ -18,6 +18,7 @@ const TakeAction = () => {
         "@media (max-width: 900px)": {
           flexDirection: "column",
           alignItems: "center",
+          py: "107px",
         },
       }}
     >
@@ -29,9 +30,7 @@ const TakeAction = () => {
           position: "relative",
           top: "-160px",
           "@media (max-width: 900px)": {
-            width: "80%",
-            top: "0",
-            marginBottom: "20px",
+            display: "none",
           },
         }}
       />
@@ -43,7 +42,8 @@ const TakeAction = () => {
           left: "24vw",
           position: "absolute",
           "@media (max-width: 900px)": {
-            width: "100%",
+            width: "90vw",
+            position: "unset",
           },
         }}
       >
@@ -86,7 +86,7 @@ const TakeAction = () => {
             fontSize: "16px",
             borderRadius: "25px",
             "@media (max-width: 900px)": {
-              width: "80%",
+              width: "50%",
               fontSize: "4vw",
             },
           }}
@@ -103,9 +103,7 @@ const TakeAction = () => {
           top: "147px",
           right: "-100px",
           "@media (max-width: 900px)": {
-            width: "80%",
-            top: "0",
-            marginTop: "20px",
+            display: "none",
           },
         }}
       />

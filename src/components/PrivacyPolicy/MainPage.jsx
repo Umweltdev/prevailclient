@@ -13,6 +13,7 @@ const MainPage = () => {
         alignItems: "top",
         margin: "15vh 0",
         gap: "75px",
+        
       }}
     >
       <InformationCard />
