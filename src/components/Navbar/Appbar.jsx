@@ -31,10 +31,10 @@ const servicesData = [
   { text: "Search Engine Marketing (SEM)", link: "/Services/sem" },
   { text: "Marketing Price Displacement (MPD)", link: "/Services/mpd" },
   { text: "Digital Accelerator", link: "/Services/digitalaccelerator" },
-  { text: "Privacy Policy", link: "/Services/privacypolicy" },
+  // { text: "Privacy Policy", link: "/Services/privacypolicy" },
 ];
 
-function DrawerAppBarWhite() {
+function AppBarNav(color) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [servicesAnchorEl, setServicesAnchorEl] = React.useState(null);
   const { isLoggedIn, dispatch } = React.useContext(AuthContext);
@@ -165,7 +165,7 @@ function DrawerAppBarWhite() {
                 <Button
                   key={index}
                   sx={{
-                    color: "black",
+                    color: color,
                     textTransform: "none",
                     margin: "0 10px",
                     display: "flex",
@@ -220,7 +220,7 @@ function DrawerAppBarWhite() {
                     sx={{
                       marginRight: "15px",
                       borderColor: "#884ed9",
-                      color: "black",
+                      color: color,
                       textTransform: "none",
                       borderRadius: "20px",
                     }}
@@ -291,4 +291,4 @@ function DrawerAppBarWhite() {
   );
 }
 
-export default DrawerAppBarWhite;
+export default AppBarNav;

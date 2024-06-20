@@ -10,10 +10,12 @@ import HeroComponent from "../ReusedComponenets/HeroComponent";
 import MainPage from "./MainPage";
 import OfferSection from "./OfferSection";
 import Packages from "./Packages";
+import AppBarNav from "../../Navbar/Appbar";
 
 const Sem = () => {
   return (
     <div style={{ width: "100%", overflow: "hidden" }}>
+      <AppBarNav color="#000" />
       <HeroComponent title={"Search Engine Marketing"} />
       <MainPage />
       <OfferSection />

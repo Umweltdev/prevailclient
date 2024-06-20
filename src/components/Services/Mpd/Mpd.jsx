@@ -15,10 +15,12 @@ import ImageTextComponent from "../ReusedComponenets/ImageTextComponent";
 import imago from "../assets/image 142.png";
 import TakeAction from "./TakeAction";
 import Carousel from "./Carousel";
+import AppBarNav from "../../Navbar/Appbar";
 
 const Mpd = () => {
   return (
     <div style={{ width: "100%", overflow: "hidden" }}>
+      <AppBarNav color="#000" />
       <HeroComponent title={"Marketing Price Displacement (MPD) API’s"} />
       <MainPage />
       <PrevailMPDApi />

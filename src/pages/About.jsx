@@ -17,6 +17,7 @@ import WhyItMatters from "../components/About/WhyItMatters.jsx";
 import Sliders from "../components/About/Slider.jsx";
 import FAQ from "../components/About/FAQ.jsx";
 import JoinOurCustomer from "../components/About/JoinOurCustomer.jsx";
+import AppBarNav from "../components/Navbar/Appbar.jsx";
 //import { Grid, Box } from "@mui/material";
 
 const About = (props) => {
@@ -31,6 +32,7 @@ const About = (props) => {
           "linear-gradient(135deg, #DDD4EF 0%, #F9FAFC 50%, white 100%);",
       }}
     >
+      <AppBarNav color="#000" />
       <AboutUs />
       <SectionTwo />
       <SectionFour />

@@ -15,6 +15,7 @@ import AutomationSection from "../components/Services/AutomationSection";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import MainPage from "../components/Services/MainPage";
+import AppBarNav from "../components/Navbar/Appbar";
 //import Reduce from "../components/Services/Reduce";
 
 const Services = (props) => {
@@ -26,8 +27,8 @@ const Services = (props) => {
         overflow: "hidden",
       }}
     >
+      <AppBarNav color="#000" />
       <MainPage />
-
       <FooterNew />
     </div>
   );

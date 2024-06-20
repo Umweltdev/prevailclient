@@ -105,7 +105,7 @@ const SectionOne = () => {
         }}
       >
         {/* <Navbar /> */}
-        <h1 className="sOneBlogHero">Blog</h1>
+        <h1 className="sOneBlogHero"></h1>
         <Grid>
           <Grid>
             <ul className={classes.CaseNavlist}>
@@ -215,7 +215,7 @@ const SectionOne = () => {
           </Grid>
         </Grid>
       </Grid>
-      <FooterNew />
+     
     </>
   );
 };

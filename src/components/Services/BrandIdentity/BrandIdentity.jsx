@@ -13,11 +13,12 @@ import ElevateYourPresence from "./ElevateYourPresence";
 import Addressing from "./Addressing";
 import TailoredApproach from "./TailoredApproach";
 import HeroComponent from "../ReusedComponenets/HeroComponent";
+import AppBarNav from "../../Navbar/Appbar";
 
 const BrandIdentity = () => {
   return (
     <div style={{ width: "100%", overflow: "hidden" }}>
-      {/* <DrawerAppBarWhite /> */}
+      <AppBarNav color="#000" />
       <HeroComponent title={"Brand Identity Package"} />
       <ElevateYourPresence />
       <Addressing />
