@@ -12,6 +12,8 @@ import WebManagement from "./components/Services/WebManagement/WebManagement";
 import Sem from "./components/Services/Sem/Sem";
 import Mpd from "./components/Services/Mpd/Mpd";
 import DigitalAccelerator from "./components/Services/DigitalAccelerator/DigitalAccelerator";
+import DigitalEcosystem from "./components/Explore/DigitalEcosystem/DigitalEcosystem";
+import CustomerJourney from "./components/Explore/CustomerJourney/CustomerJourney";
 import AboutOurWhy from "./components/About/AboutOurWhy";
 import AboutOurSolution from "./components/About/AboutOurSolution";
 import CaseDetails from "./components/Portfolio/CaseDetails";
@@ -44,6 +46,8 @@ function App() {
       <Route path="/Services" element={<Services />} />
       <Route path="/Services/brand" element={<BrandIdentity />} />
       <Route path="/Services/website" element={<WebsiteDevelopment />} />
+      <Route path="/explore/digitalecosystem" element={<DigitalEcosystem />} />
+      <Route path="/explore/customerjourney" element={<CustomerJourney />} />
       <Route path="/Services/webmanagement" element={<WebManagement />} />
       <Route path="/Services/sem" element={<Sem />} />
       <Route path="/Services/mpd" element={<Mpd />} />

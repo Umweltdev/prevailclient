@@ -21,7 +21,7 @@ const CustomTextField = styled(TextField)({
     fontSize: "14px",
     height: "45px",
     borderRadius: "10px",
-    backgroundColor: "#f0f0f0", // Light grey background for input boxes
+    backgroundColor: "#f0f0f0",
   },
 });
 
