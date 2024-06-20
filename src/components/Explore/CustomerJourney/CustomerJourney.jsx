@@ -12,7 +12,7 @@ const CustomerJourney = () => {
   return (
     <div style={{ width: "100%", overflow: "hidden" }}>
         <DrawerAppBarWhite />
-        <br /><br />
+        
         <Hero />
         <Trigger />
         <Presence />

@@ -14,38 +14,39 @@ import Icon8 from '../assets/image_122.png';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    background: 'linear-gradient(135deg, #d1c4e9, #ffffff, #bbdefb)',
-    padding: '2rem 0',
-    minHeight: '100vh', // Ensure full height of the viewport
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+    background: "linear-gradient(135deg, #d1c4e9, #ffffff, #bbdefb)",
+    padding: "2rem 0",
+    minHeight: "100vh", // Ensure full height of the viewport
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
   container: {
     padding: theme.spacing(4),
+    
   },
   card: {
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    background: '#f5f5f5',
-    '&:hover': {
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    background: "#f5f5f5",
+    "&:hover": {
       boxShadow: theme.shadows[8],
     },
   },
   mediaContainer: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '150px',
-    width: '30%', // Set width to 30%
-    background: '#e0e0e0', // Background color for the bottom half (Paper)
-    margin: 'auto', // Centering the Paper component
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "150px",
+    width: "30%", // Set width to 30%
+    background: "#e0e0e0", // Background color for the bottom half (Paper)
+    margin: "auto", // Centering the Paper component
   },
   media: {
-    maxWidth: '100%',
-    maxHeight: '100%',
+    maxWidth: "100%",
+    maxHeight: "100%",
   },
   content: {
     padding: theme.spacing(2),
@@ -69,7 +70,7 @@ const Digital = () => {
   return (
     <Box className={classes.root}>
       <Container className={classes.container}>
-        <Typography variant="h6" align="center" color="primary" gutterBottom>
+        <Typography variant="h6" align="center" pt="176px" color="primary" gutterBottom>
           Digital Ecosystem
         </Typography>
         <Typography variant="h4" align="center" gutterBottom>

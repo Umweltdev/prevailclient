@@ -34,7 +34,6 @@ const servicesData = [
   // { text: "Privacy Policy", link: "/Services/privacypolicy" },
 ];
 
-
 const exploreData = [
   {
     text: "Digital Ecosystem",
@@ -46,10 +45,11 @@ const exploreData = [
   },
 ];
 
-
 function AppBarNav(color) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [servicesAnchorEl, setServicesAnchorEl] = React.useState(null);
+  const [anchorElExplore, setAnchorElExplore] = React.useState(null);
+  const [anchorElServices, setAnchorElServices] = React.useState(null);
   const { isLoggedIn, dispatch } = React.useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -80,7 +80,6 @@ function AppBarNav(color) {
     setAnchorElExplore(null);
   };
 
-
   const navItems = React.useMemo(
     () =>
       isLoggedIn
@@ -90,15 +89,15 @@ function AppBarNav(color) {
             { label: "Blog", link: "/blog" },
             { label: "About Us", link: "/about" },
             { label: "Contact Us", link: "/contact" },
-            { label: "Dashboard", onClick: handleUserDashboard, path: "/user/profile" },
+            {
+              label: "Dashboard",
+              onClick: handleUserDashboard,
+              path: "/user/profile",
+            },
             { label: "Logout", onClick: handleLogout, path: "/login" },
           ]
         : [
             { label: "Explore", onClick: handleExploreClick },
-            { label: "Dashboard", onClick: handleUserDashboard },
-            { label: "Logout", onClick: handleLogout },
-          ]
-        : [
             { label: "Services", onClick: handleServicesClick },
             { label: "Blog", link: "/blog" },
             { label: "About Us", link: "/about" },
@@ -199,6 +198,9 @@ function AppBarNav(color) {
                   onClick={item.onClick ? item.onClick : null}
                 >
                   {item.label}
+                  {item.label === "Explore" && (
+                    <ExpandMoreIcon sx={{ marginLeft: "5px" }} />
+                  )}
                   {item.label === "Services" && (
                     <ExpandMoreIcon sx={{ marginLeft: "5px" }} />
                   )}
@@ -290,7 +292,11 @@ function AppBarNav(color) {
           {drawer}
         </Drawer>
       </Box>
-      <Menu anchorEl={anchorElServices} open={Boolean(anchorElServices)} onClose={handleClose}>
+      <Menu
+        anchorEl={anchorElServices}
+        open={Boolean(anchorElServices)}
+        onClose={handleClose}
+      >
         {servicesData.map((data, i) => (
           <MenuItem key={i} onClick={handleClose}>
             <Link
@@ -306,7 +312,11 @@ function AppBarNav(color) {
           </MenuItem>
         ))}
       </Menu>
-      <Menu anchorEl={anchorElExplore} open={Boolean(anchorElExplore)} onClose={handleClose}>
+      <Menu
+        anchorEl={anchorElExplore}
+        open={Boolean(anchorElExplore)}
+        onClose={handleClose}
+      >
         {exploreData.map((data, i) => (
           <MenuItem key={i} onClick={handleClose}>
             <Link
