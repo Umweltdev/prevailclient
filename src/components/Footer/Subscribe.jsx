@@ -26,7 +26,6 @@ const Subscribe = () => {
           flexDirection: "column",
           width: "100vw",
           height: "50vh",
-          mt: "-12vh",
         },
       }}
     >
@@ -103,7 +102,7 @@ const Subscribe = () => {
                       },
                     }}
                   >
-                    Sign Up
+                    Subscribe
                   </Button>
                 </IconButton>
               </InputAdornment>
@@ -137,7 +136,23 @@ const Subscribe = () => {
               },
             }}
           >
-            <Button sx={{ borderRadius: "25px" }}>Sign Up</Button>
+            <Button
+              sx={{
+                borderRadius: "25px",
+                textAlign: "center",
+                color: "white",
+                margin: "auto",
+                width: "90vw",
+                padding: "10px 0",
+                background: "#6E3EF4;",
+                "&:hover": {
+                  color: "#fff",
+                  background: "#6E3EF4;",
+                },
+              }}
+            >
+              Subscribe
+            </Button>
           </Grid>
         </FormControl>
       </Grid>

@@ -1,4 +1,4 @@
-import { Button, Grid, Typography } from "@mui/material";
+import { Button, CardMedia, Grid, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import React from "react";
 
@@ -49,8 +49,8 @@ const ImageTextService = ({ text, imageUrl, textHeader }) => {
         gap: "239px",
         "@media (max-width: 600px)": {
           width: "95vw",
-          flexDirection: "column",
-          margin: "13vh auto 0 auto",
+          flexDirection: "column-reverse",
+          margin: "auto",
           marginBottom: "1vh",
           gap: "20px",
           justifyContent: "space-between",
@@ -58,14 +58,21 @@ const ImageTextService = ({ text, imageUrl, textHeader }) => {
         },
       }}
     >
-      <img
-        style={{
+      <CardMedia
+        component={"img"}
+        image={imageUrl}
+        alt=""
+        sx={{
           width: "487px",
           height: "290px",
           borderRadius: "16px",
+
+          "@media (max-width: 600px)": {
+            width: "90vw",
+            height: "365.756px",
+            borderRadius: "16px",
+          },
         }}
-        src={imageUrl}
-        alt=""
       />
       <Grid
         item
@@ -89,6 +96,7 @@ const ImageTextService = ({ text, imageUrl, textHeader }) => {
             "@media (max-width: 600px)": {
               fontSize: "6vw",
               margin: "2vh 0",
+              width: "90vw"
             },
           }}
         >

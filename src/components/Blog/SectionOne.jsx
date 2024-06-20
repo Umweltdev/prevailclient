@@ -104,9 +104,8 @@ const SectionOne = () => {
           // margin: "0 auto"
         }}
       >
-        {/* <Navbar /> */}
-        <h1 className="sOneBlogHero"></h1>
-        <Grid>
+       
+        <Grid sx={{mt: "200px"}}>
           <Grid>
             <ul className={classes.CaseNavlist}>
               <li

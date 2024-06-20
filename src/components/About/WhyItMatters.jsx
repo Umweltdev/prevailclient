@@ -15,9 +15,9 @@ const WhyItMatters = () => {
         alignItems: "center",
         gap: "255px",
         "@media (max-width: 600px)": {
-          width: "95vw",
+          width: "90vw",
           flexDirection: "column",
-          margin: "13vh auto 0 auto",
+          margin: "5vh auto 0 auto",
           marginBottom: "1vh",
           gap: "20px",
           justifyContent: "space-between",

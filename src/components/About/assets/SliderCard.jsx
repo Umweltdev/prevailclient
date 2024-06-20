@@ -19,14 +19,15 @@ export default function SliderCard({ text, header, author, img }) {
         height: "373px",
         background: "#F9F9F9",
         boxShadow: 3,
-        margin: "0 auto 137px auto",
+        margin: "10px auto 137px auto",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
         "@media (max-width: 600px)": {
           width: "90vw",
-          height: "30vh",
+          height: "350",
+          margin: "1px auto 17px auto",
         },
       }}
     >
@@ -53,6 +54,11 @@ export default function SliderCard({ text, header, author, img }) {
             width: "70px",
             height: "70px",
             borderRadius: "50%",
+            "@media (max-width: 600px)": {
+              width: "50px",
+              height: "50px",
+              objectFit: "cover",
+            },
           }}
         >
           <CardMedia
@@ -62,8 +68,12 @@ export default function SliderCard({ text, header, author, img }) {
               width: "40px",
               height: "40px",
               objectFit: "cover",
-
               margin: "auto",
+              "@media (max-width: 600px)": {
+                width: "30px",
+                height: "30px",
+                objectFit: "cover",
+              },
             }}
           />
         </Grid>
@@ -93,7 +103,7 @@ export default function SliderCard({ text, header, author, img }) {
             color: "#505660",
             "@media (max-width: 600px)": {
               fontSize: "16px",
-              width: "75vw",
+              width: "65vw",
             },
           }}
         >

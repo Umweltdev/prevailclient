@@ -1,4 +1,4 @@
-import { Grid, Typography, Box } from "@mui/material";
+import { Grid, Typography, Box, CardMedia } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import React from "react";
 
@@ -99,15 +99,21 @@ const TextImageService = ({ text, imageUrl, textHeader }) => {
           {text}
         </Typography>
       </Grid>
-
-      <img
-        style={{
+      <CardMedia
+        component={"img"}
+        image={imageUrl}
+        alt=""
+        sx={{
           width: "487px",
           height: "290px",
           borderRadius: "16px",
+
+          "@media (max-width: 600px)": {
+            width: "90vw",
+            height: "365.756px",
+            borderRadius: "16px",
+          },
         }}
-        src={imageUrl}
-        alt=""
       />
     </Grid>
   );

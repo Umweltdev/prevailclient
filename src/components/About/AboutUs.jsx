@@ -14,7 +14,9 @@ const AboutUs = () => {
         gap: "24px",
         width: "501px",
         margin: "0 auto",
-        
+        "@media (max-width: 600px)": {
+          width: "90vw",
+        },
       }}
     >
       <Grid
@@ -35,6 +37,9 @@ const AboutUs = () => {
           fontWeight: "500;",
           letterSpacing: "-0.24px;",
           textAlign: "center",
+          "@media (max-width: 600px)": {
+            width: "80vw",
+          },
         }}
       >
         Great companies are made by great people
@@ -48,6 +53,9 @@ const AboutUs = () => {
           lineHeight: "150%",
           width: "917px",
           textAlign: "center",
+          "@media (max-width: 600px)": {
+            width: "90vw",
+          },
         }}
       >
         In a word where economic fluctuations often diminish the purchasing
@@ -67,6 +75,11 @@ const AboutUs = () => {
           height: "510px;",
           borderRadius: "15px",
           mt: "40px",
+          "@media (max-width: 600px)": {
+            width: "90vw",
+            height: "210px;",
+            objectFit: "fit"
+          },
         }}
       />
     </Grid>

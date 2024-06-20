@@ -16,8 +16,9 @@ const JoinOurCustomer = () => {
         alignItems: "center",
         position: "relative",
         "@media (max-width: 900px)": {
-          flexDirection: "column",
+          flexDirection: "row",
           alignItems: "center",
+          py: "100px",
         },
       }}
     >
@@ -27,9 +28,10 @@ const JoinOurCustomer = () => {
         sx={{
           width: "404px",
           position: "relative",
-          top: "160px", 
+          top: "160px",
           "@media (max-width: 900px)": {
-            width: "80%",
+            display: "none",
+            width: "64px",
             top: "0",
             marginBottom: "20px",
           },
@@ -41,7 +43,8 @@ const JoinOurCustomer = () => {
           textAlign: "center",
           width: "674px",
           "@media (max-width: 900px)": {
-            width: "100%",
+            width: "310px",
+            margin: "auto",
           },
         }}
       >
@@ -53,7 +56,7 @@ const JoinOurCustomer = () => {
             letterSpacing: "-0.48px",
             mb: "24px",
             "@media (max-width: 900px)": {
-              fontSize: "8vw",
+              fontSize: "32px",
             },
           }}
         >
@@ -81,7 +84,7 @@ const JoinOurCustomer = () => {
             fontSize: "16px",
             borderRadius: "25px",
             "@media (max-width: 900px)": {
-              width: "80%",
+              width: "60%",
               fontSize: "4vw",
             },
           }}
@@ -97,7 +100,8 @@ const JoinOurCustomer = () => {
           position: "relative",
           top: "-147px", // Adjusted to align with the left image
           "@media (max-width: 900px)": {
-            width: "80%",
+            display: "none",
+            width: "64px",
             top: "0",
             marginTop: "20px",
           },

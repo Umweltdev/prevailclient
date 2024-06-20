@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
 import { makeStyles } from "@mui/styles";
 import imago from "./assets/image157.png";
@@ -43,8 +43,8 @@ const SectionFour = () => {
         alignItems: "center",
         gap: "239px",
         "@media (max-width: 600px)": {
-          width: "95vw",
-          flexDirection: "column",
+          width: "90vw",
+          flexDirection: "column-reverse",
           margin: "13vh auto 0 auto",
           marginBottom: "1vh",
           gap: "20px",
@@ -53,15 +53,20 @@ const SectionFour = () => {
         },
       }}
     >
-      <img
-        style={{
+      <CardMedia
+        component={"img"}
+        image={imago}
+        sx={{
           width: "487px",
           height: "290px",
           borderRadius: "14px",
+          "@media (max-width: 600px)": {
+            maxWidth: "90vw",
+            width: "90vw",
+          },
         }}
-        src={imago}
-        alt=""
       />
+      
       <Grid
         item
         sx={{
@@ -87,7 +92,7 @@ const SectionFour = () => {
             },
           }}
         >
-          Our Mission
+          What We Do
         </Typography>
         <Typography
           sx={{

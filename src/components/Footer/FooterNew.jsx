@@ -17,7 +17,14 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import img1 from "./assets/newlogo.svg";
 import Subscribe from "./Subscribe";
-import { Facebook, Instagram, KeyboardArrowUp, LinkedIn, X, YouTube } from "@mui/icons-material";
+import {
+  Facebook,
+  Instagram,
+  KeyboardArrowUp,
+  LinkedIn,
+  X,
+  YouTube,
+} from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
 const CustomButton = styled(Button)(({ theme }) => ({
@@ -75,8 +82,6 @@ const FooterNew = () => {
     animateScroll();
   };
 
-
-
   return (
     <Box
       sx={{
@@ -94,7 +99,17 @@ const FooterNew = () => {
       >
         <Subscribe />
       </Box>
-      <Grid sx={{ margin: "auto", display: "flex", gap: "9vw" }}>
+      <Grid
+        sx={{
+          margin: "auto",
+          display: "flex",
+          gap: "9vw",
+          "@media (max-width: 600px)": {
+            flexWrap: "wrap",
+            ml: "10vw"
+          },
+        }}
+      >
         <Grid item xs={12} md={3}>
           <Box sx={{ textAlign: "flex-start", gap: "5px" }}>
             <img
