@@ -112,8 +112,7 @@ const SwipeCarousel = () => {
       </Box> */}
       <Stack
         position="absolute"
-        left={{  md: 120 }}
-
+        left={{ md: 120 }}
         top="70%"
         transform="translateY(-50%)"
       >
@@ -125,7 +124,11 @@ const SwipeCarousel = () => {
         >
           {data[currentIndex].topic}
         </Typography>
-        <Stack direction={"row"} spacing={5} justifyContent={{xs:"space-between", md: "left"}}>
+        <Stack
+          direction={"row"}
+          spacing={5}
+          justifyContent={{ xs: "space-between", md: "left" }}
+        >
           <IconButton
             onClick={goToPrevSlide}
             sx={{
