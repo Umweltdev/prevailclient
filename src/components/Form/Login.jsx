@@ -14,7 +14,7 @@ import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
 import Loading from "../utils/Loading";
 import loginImage from '../Form/image_130.png';
-import image2 from '../Form/Group_1410085960.png';
+import image2 from '../Form/Group_1.svg';
 
 const CustomTextField = styled(TextField)({
   "& .MuiOutlinedInput-root": {
@@ -135,7 +135,9 @@ const Login = () => {
               </Grid>
               <Grid item>
                 <MuiLink href="#" underline="hover" sx={{ alignSelf: 'flex-start', marginBottom: '1rem' }}>
+                  <Typography>
                   Forgot Password?
+                  </Typography>
                 </MuiLink>
               </Grid>
               <Grid item>
@@ -177,7 +179,14 @@ const Login = () => {
               </Grid>
               <Grid item>
                 <Typography variant="body2" align="center" sx={{ marginTop: '1rem' }}>
-                  Don't have an account? <Link to="/signup" style={{ fontWeight: 'bold', textDecoration: 'none' }}>Sign up for free</Link>
+                  Don't have an account?
+                  <span style={{ marginLeft: '5px' }}>
+                    <Link to="/signup" style={{ fontWeight: 'bold', textDecoration: 'none' }}>
+                      <Typography variant="body2" component="span">
+                        Sign up for free
+                      </Typography>
+                    </Link>
+                  </span>
                 </Typography>
               </Grid>
             </Grid>
@@ -191,17 +200,17 @@ const Login = () => {
               flexDirection: 'column',
               justifyContent: 'center',
               alignItems: 'center',
-              backgroundColor: '#e0e4e8', // Much lighter blue-grey background
+              backgroundColor: '#F7F7FD',
               padding: '2rem',
-              height: '100vh', // Ensure it takes the full height of the viewport
-              overflowY: 'auto', // Ensure content is scrollable if it overflows
+              height: '100vh',
+              overflowY: 'auto',
             }}
           >
-            <img src={loginImage} alt="Login" style={{ width: '80%', height: 'auto', marginBottom: '1rem' }} />
-            <Typography variant="h6" align="left" sx={{ width: '80%' }}>
+            <img src={loginImage} alt="Login" style={{ width: '100%', height: 'auto', marginBottom: '0.5rem' }} />
+            <Typography variant="h6" align="left" sx={{ width: '100%' }}>
               Powered by <img src={image2} alt="Prevail Logo" />
             </Typography>
-            <Typography align="left" sx={{ width: '80%', marginTop: '1rem' }}>
+            <Typography align="left" sx={{ width: '100%', marginTop: '1rem' }}>
               You agree to Prevail Agency's Terms of Use & Privacy Policy. You don't need to consent as a condition of renting any property, or buying any other goods or services. Message/data rates may apply.
             </Typography>
           </Grid>
