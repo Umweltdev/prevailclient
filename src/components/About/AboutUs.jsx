@@ -1,6 +1,6 @@
 import { CardMedia, Grid } from "@mui/material";
 import React from "react";
-import imageCard from "./assets/image 146.png";
+import image1 from "./assets/about1.svg";
 
 const AboutUs = () => {
   return (
@@ -69,7 +69,7 @@ const AboutUs = () => {
       </Grid>
       <CardMedia
         component={"img"}
-        image={imageCard}
+        image={image1}
         sx={{
           width: "1210px;",
           height: "510px;",

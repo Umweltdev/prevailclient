@@ -1,7 +1,7 @@
 import { Box, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
 import { makeStyles } from "@mui/styles";
-import imago from "./assets/image157.png";
+import imago from "./assets/about3.svg";
 
 const useStyles = makeStyles({
   imagePlaform: {

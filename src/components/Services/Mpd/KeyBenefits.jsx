@@ -86,7 +86,7 @@ const Card = ({ icon: IconComponent, header, text, className }) => {
         image={IconComponent}
         sx={{ width: "37px" }}
       />
-      <Typography variant="h6" sx={{ color: "#000" }}>
+      <Typography variant="h6" sx={{ color: "#0D0E30" }}>
         {header}
       </Typography>
       <Typography variant="body1" color={"330.073px"} width={"330.073px"}>
@@ -104,7 +104,7 @@ const SixCards = () => {
         color: "#fff",
         fontSize: "28px",
         fontWeight: 500,
-        background: "#0D0E30",
+        background: "linear-gradient(135deg, #d1c4e9, #ffffff, #bbdefb)",
         p: "10vh 0",
         "@media (max-width: 600px)": {
           width: "100vw",
@@ -116,9 +116,9 @@ const SixCards = () => {
     >
       <Typography
         sx={{
-          color: "#fff",
+          color: "#0D0E30",
           fontSize: "28px",
-          fontWeight: 500,
+          fontWeight: 700,
           textAlign: "center",
           // m: "10vh 0",
           "@media (max-width: 600px)": {

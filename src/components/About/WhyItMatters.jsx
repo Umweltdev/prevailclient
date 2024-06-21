@@ -1,6 +1,6 @@
 import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
-import imago from "./assets/img12.png";
+import imago from "./assets/about4.svg";
 
 const WhyItMatters = () => {
   return (

@@ -14,7 +14,8 @@ const MainPage = () => {
     <Grid
       sx={{
         pt: "176px",
-        background: "linear-gradient(135deg, #DDD4EF, #F9FAFC, white)",
+        // background: "linear-gradient(135deg, #DDD4EF, #F9FAFC, white)",
+        background: "linear-gradient(135deg, #d1c4e9, #ffffff, #bbdefb)",
         "@media (max-width: 767px)": {
           pt: "168px",
         },
@@ -26,7 +27,7 @@ const MainPage = () => {
           flexDirection: "column",
           gap: "24px",
           textAlign: "center",
-          width: "591px",
+          width: "600px",
           margin: "0 auto",
           "@media (max-width: 767px)": {
             width: "90vw",
@@ -51,7 +52,7 @@ const MainPage = () => {
             color: "505660",
             gap: "44px",
             "@media (max-width: 600px)": {
-              width: "90vw"
+              width: "90vw",
             },
           }}
         >

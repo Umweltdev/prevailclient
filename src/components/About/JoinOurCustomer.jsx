@@ -1,7 +1,7 @@
 import { Button, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
-import imago from "./assets/emojistar 1.png";
-import imago2 from "./assets/Visual.png";
+import imago from "./assets/aboutT.svg";
+import imago2 from "./assets/aboutTT.svg";
 
 const JoinOurCustomer = () => {
   return (

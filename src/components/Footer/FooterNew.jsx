@@ -21,9 +21,6 @@ import {
   YouTube,
 } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-import ChatBot from "react-chatbotify";
-import { flow } from "./ChatFlow";
-
 
 const CustomButton = styled(Button)(({ theme }) => ({
   backgroundColor: "#6A1B9A",
@@ -50,9 +47,6 @@ const CustomTextField = styled(TextField)(({ theme }) => ({
     color: "#fff", // Set input text color to white
   },
 }));
-
-
-
 
 const FooterNew = () => {
   const scrollToTop = () => {
@@ -96,7 +90,7 @@ const FooterNew = () => {
       }}
     >
       {/* =============================== Chat Box ================= */}
-      {/* <ChatBot flow={flow} /> */}
+
       <Box
         sx={{ textAlign: "flex-start", marginBottom: "40px", margin: "auto" }}
       >
@@ -282,7 +276,6 @@ const FooterNew = () => {
           </Link>
         </Grid>
       </Grid>
-
       <Grid
         sx={{
           position: "relative",
