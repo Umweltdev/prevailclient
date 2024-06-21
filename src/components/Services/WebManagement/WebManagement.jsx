@@ -69,7 +69,7 @@ const WebManagement = () => {
               <Stack
                 spacing={2}
                 textAlign={"center"}
-                fontSize={{ xs: "100%", md: "65%" }}
+                width={{ xs: "100%", md: "75%" }}
                 sx={{
                   // width: "65%",
                   margin: "0 auto",
