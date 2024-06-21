@@ -66,8 +66,8 @@ export default function AccordionUsage() {
                 <img src={data.svg} />
               </Box>
               <Typography
+              fontSize={{xs:"20px", md:"24px"}}
                 sx={{
-                  fontSize: "24px",
                   fontWeight: "600",
                   color: "#1D0D40",
                 }}

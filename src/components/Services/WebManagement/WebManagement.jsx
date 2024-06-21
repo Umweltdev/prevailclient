@@ -17,6 +17,7 @@ import {
 import image1 from "./assets/image1.png";
 import image2 from "./assets/image2.png";
 import nurse from "./assets/nurse.png";
+import office from "./assets/office.png";
 
 import Browse from "./assets/basket.svg?react";
 import Hospital from "./assets/hospital.svg?react";
@@ -35,16 +36,31 @@ import Apartment_Small from "./assets/apartment_small.svg?react";
 import Storage from "./assets/storage.svg?react";
 import Speaker from "./assets/speaker.svg?react";
 
+import Color from "./assets/color-palette.svg?react";
+import Money from "./assets/increase-money.svg?react";
+import Tag from "./assets/tag.svg?react";
+import User from "./assets/users.svg?react";
+import Web from "./assets/web.svg?react";
+
 import Search from "../DigitalAccelerator/assets/search.svg?react";
 import HeroComponent from "../ReusedComponenets/HeroComponent";
 import AppBarNav from "../../Navbar/Appbar";
+import Solution from "./Slides";
 
 const WebManagement = () => {
   return (
     <div style={{ width: "100%", overflow: "hidden" }}>
       {/* <DrawerAppBarWhite /> */}
       <AppBarNav color="#000" />
-      <HeroComponent  title="Website Development" />
+      <HeroComponent title="Website Development" />
+      <Container
+        maxWidth="lg"
+        sx={{
+          py: 4,
+        }}
+      >
+        <Solution />
+      </Container>
       <Box>
         <Container maxWidth="lg">
           <Stack>
@@ -53,8 +69,9 @@ const WebManagement = () => {
               <Stack
                 spacing={2}
                 textAlign={"center"}
+                fontSize={{ xs: "100%", md: "65%" }}
                 sx={{
-                  width: "65%",
+                  // width: "65%",
                   margin: "0 auto",
                   py: 8,
                 }}
@@ -79,8 +96,8 @@ const WebManagement = () => {
               </Stack>
             </Box>
 
-            <Grid container justifyContent={"space-between"}>
-              <Grid item xs={12} md={7}>
+            <Grid container justifyContent={"space-between"} spacing={3}>
+              <Grid item xs={12} md={7.3}>
                 <Box
                   sx={{
                     width: "100%",
@@ -99,7 +116,7 @@ const WebManagement = () => {
 
               <Grid item xs={12} md={4.2}>
                 <Stack spacing={2.5}>
-                  <Stack spacing={1} pr={10}>
+                  <Stack spacing={1} pr={{ xs: 0, md: 10 }}>
                     <Browse />
                     <Typography sx={{ fontWeight: "600" }}>
                       E-commerce Powerhouse
@@ -110,7 +127,7 @@ const WebManagement = () => {
                       development.
                     </Typography>
                   </Stack>
-                  <Stack spacing={1} pr={10}>
+                  <Stack spacing={1} pr={{ xs: 0, md: 10 }}>
                     <Hospital />
                     <Typography sx={{ fontWeight: "600" }}>
                       Hospitality Haven
@@ -120,7 +137,7 @@ const WebManagement = () => {
                       online presence into a powerful booking engine.
                     </Typography>
                   </Stack>
-                  <Stack spacing={1} pr={10}>
+                  <Stack spacing={1} pr={{ xs: 0, md: 10 }}>
                     <House />
                     <Typography sx={{ fontWeight: "600" }}>
                       Real Estate Authority
@@ -140,8 +157,7 @@ const WebManagement = () => {
 
       {/* secondSectio */}
       <Box
-        mt={10}
-        py={5}
+        py={10}
         sx={{
           backgroundImage:
             "linear-gradient(to bottom, #ffffff, rgba(238,249,255, 0.2))",
@@ -150,8 +166,8 @@ const WebManagement = () => {
         <Container maxWidth="lg">
           <Stack color="#1D0D40" spacing={4}>
             <Typography
+              fontSize={{ xs: "26px", md: "32px" }}
               sx={{
-                fontSize: "32px",
                 fontWeight: "600",
                 textAlign: "center",
               }}
@@ -167,7 +183,10 @@ const WebManagement = () => {
               <Grid item xs={12} md={6}>
                 <Stack>
                   <Stack spacing={1.5} mb={3}>
-                    <Typography sx={{ fontSize: "24px", fontWeight: "600" }}>
+                    <Typography
+                      fontSize={{ xs: "20px", md: "24px" }}
+                      sx={{ fontWeight: "600" }}
+                    >
                       E-commerce Powerhouse: Shopify Web Design Service 
                     </Typography>
                     <Typography>
@@ -221,7 +240,7 @@ const WebManagement = () => {
                 </Stack>
               </Grid>
 
-              <Grid item xs={12} md={5}>
+              <Grid item xs={12} md={5} marginTop={{ xs: 4, md: 0 }}>
                 <Box
                   sx={{
                     width: "100%",
@@ -322,9 +341,7 @@ const WebManagement = () => {
 
       {/* thirdSection */}
       <Box
-        mt={10}
-        py={5}
-        pb={10}
+        py={10}
         sx={{
           backgroundImage:
             "linear-gradient(to bottom, #ffffff, rgba(110, 62, 244, 0.1))",
@@ -337,7 +354,7 @@ const WebManagement = () => {
               justifyContent={"space-between"}
               alignItems={"center"}
             >
-              <Grid item xs={12} md={5.5}>
+              <Grid item xs={12} md={5.7}>
                 <Box
                   sx={{
                     width: "100%",
@@ -353,7 +370,7 @@ const WebManagement = () => {
                   />
                 </Box>
               </Grid>
-              <Grid item xs={12} md={5.5}>
+              <Grid item xs={12} md={5.7}>
                 <Stack>
                   <Stack spacing={1.5} mb={3}>
                     <Typography sx={{ fontSize: "24px", fontWeight: "600" }}>
@@ -488,6 +505,196 @@ const WebManagement = () => {
             </Stack>
           </Stack>
         </Container>
+      </Box>
+
+      <Box py={10} sx={{ backgroundColor: "#F9FAFC" }}>
+        <Container maxWidth="lg">
+          <Stack color="#1D0D40" spacing={4}>
+            <Grid
+              container
+              justifyContent={"space-between"}
+              alignItems={"center"}
+            >
+              <Grid item xs={12} md={5.7}>
+                <Box
+                  sx={{
+                    width: "100%",
+                  }}
+                >
+                  <img
+                    src={office}
+                    style={{
+                      width: "100%",
+                      objectFit: "cover",
+                      borderRadius: "8px",
+                    }}
+                  />
+                </Box>
+              </Grid>
+              <Grid item xs={12} md={5.7}>
+                <Stack>
+                  <Stack spacing={1.5} mb={3}>
+                    <Typography sx={{ fontSize: "24px", fontWeight: "600" }}>
+                      Hospitality Haven: Hotel E-commerce Platform Development 
+                    </Typography>
+                    <Typography>
+                      Is your hotel website struggling to maximize bookings and
+                      drive direct reservations? Our “Hotel E-commerce Platform
+                      Development” package provides the tools necessary to
+                      transform your website into a powerful booking engine.
+                      This package is designed to enhance online visibility,
+                      simplify the booking process, and maximize revenue through
+                      direct reservations. 
+                    </Typography>
+                  </Stack>
+                  <Grid container spacing={2}>
+                    <Grid item xs={12} md={6}>
+                      <Stack spacing={1}>
+                        <Web />
+                        <Typography sx={{ fontWeight: "600" }}>
+                          Transform Your Online Presence
+                        </Typography>
+                        <Typography>
+                          Turn your hotel's website into a powerful booking
+                          engine that increases reservations and revenue.
+                        </Typography>
+                      </Stack>
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                      <Stack spacing={1}>
+                        <User />
+                        <Typography sx={{ fontWeight: "600" }}>
+                          Immerse Guests
+                        </Typography>
+                        <Typography>
+                          Showcase your hotel's ambiance and amenities with
+                          captivating photos and virtual tours that entice
+                          potential guests.
+                        </Typography>
+                      </Stack>
+                    </Grid>{" "}
+                    <Grid item xs={12} md={6}>
+                      <Stack spacing={1}>
+                        <Mobile />
+                        <Typography sx={{ fontWeight: "600" }}>
+                          Effortless Booking System
+                        </Typography>
+                        <Typography>
+                          Allow guests to book their stay with ease through a
+                          secure and user-friendly online platform, eliminating
+                          the need for third-party booking sites. 
+                        </Typography>
+                      </Stack>
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                      <Stack spacing={1}>
+                        <Money />
+                        <Typography sx={{ fontWeight: "600" }}>
+                          Maximise Revenue
+                        </Typography>
+                        <Typography>
+                          Create dynamic pricing packages and upselling
+                          opportunities to maximise revenue from direct
+                          bookings.
+                        </Typography>
+                      </Stack>
+                    </Grid>
+                  </Grid>
+                </Stack>
+              </Grid>
+            </Grid>
+
+            <Stack>
+              <Typography
+                sx={{
+                  fontSize: "24px",
+                  fontWeight: "600",
+                  mb: 3,
+                }}
+              >
+                What's Included
+              </Typography>
+              <Grid container spacing={5}>
+                <Grid item xs={12} md={4} sx={{}}>
+                  <Stack spacing={1}>
+                    <Color />
+                    <Typography sx={{ fontWeight: "600" }}>
+                      Stunning Visual Design
+                    </Typography>
+                    <Typography>
+                      Immerse potential guests in your hotel experience with
+                      captivating photos and virtual tours that showcase your
+                      amenities and ambiance.
+                    </Typography>
+                  </Stack>
+                </Grid>
+                <Grid item xs={12} md={4} sx={{}}>
+                  <Stack spacing={1}>
+                    <Mobile />
+                    <Typography sx={{ fontWeight: "600" }}>
+                      Real-Time Booking System
+                    </Typography>
+                    <Typography>
+                      Allow guests to book their stay with ease through a secure
+                      and user-friendly online platform, eliminating the need
+                      for third-party booking sites. 
+                    </Typography>
+                  </Stack>
+                </Grid>{" "}
+                <Grid item xs={12} md={4} sx={{}}>
+                  <Stack spacing={1}>
+                    <Tag />
+                    <Typography sx={{ fontWeight: "600" }}>
+                      Package Management
+                    </Typography>
+                    <Typography>
+                      Create enticing packages with dynamic pricing options to
+                      attract different types of guests.  
+                    </Typography>
+                  </Stack>
+                </Grid>{" "}
+              </Grid>
+            </Stack>
+          </Stack>
+        </Container>
+      </Box>
+
+      <Box
+        py={10}
+        sx={{
+          backgroundImage:
+            "linear-gradient(to bottom, #ffffff, rgba(110, 62, 244, 0.3))",
+        }}
+      >
+        <Box
+          py={{ xs: 8, md: 11 }}
+          px={{ xs: 5, md: 10 }}
+          sx={{
+            backgroundImage:
+              "linear-gradient(349deg, #350079 11.15%, #904AEA 92.99%)",
+            width: "80%",
+            margin: "0 auto",
+            textAlign: "center",
+            color: "white",
+            borderRadius: "10px",
+          }}
+        >
+          <Typography
+            fontSize={{ xs: "30px", md: "38px" }}
+            sx={{ fontWeight: "600" }}
+          >
+            Ready to unleash your brand's potential?
+          </Typography>
+          <Typography
+            fontSize={"20px"}
+            width={{ xs: "100%", md: "70%" }}
+            margin={"0 auto"}
+            mt={1}
+          >
+            Contact Prevail today for a free consultation and embark on a
+            journey towards digital excellence. 
+          </Typography>
+        </Box>
       </Box>
 
       <FooterNew />

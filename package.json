@@ -36,6 +36,7 @@
     "react-router-dom": "^6.19.0",
     "react-slick": "^0.30.2",
     "react-spring": "^9.7.3",
+    "react-swipeable": "^7.0.1",
     "react-swipeable-views": "^0.14.0",
     "react-swipeable-views-utils": "^0.14.0",
     "react-transition-group": "^4.4.5",

@@ -61,16 +61,16 @@ const data = [
 const WebsiteDevelopment = () => {
   return (
     <div style={{ width: "100%", overflow: "hidden" }}>
-            <AppBarNav color="#000" />
+      <AppBarNav color="#000" />
 
-      <HeroComponent  title="Custom Website Development" />
+      <HeroComponent title="Custom Website Development" />
       <Container
         maxWidth="lg"
         sx={{
-          py: 12,
+          py: 5,
         }}
       >
-        <Stack spacing={12}>
+        <Stack spacing={{ xs: 7, md: 12 }}>
           <Grid
             container
             justifyContent={"space-between"}
@@ -79,6 +79,7 @@ const WebsiteDevelopment = () => {
             <Grid item xs={12} md={6}>
               <Stack spacing={3} color={"#505660"}>
                 <Typography
+                  fontSize={{ xs: "24px", md: "28px" }}
                   sx={{
                     fontSize: "28px",
                     color: "#1D0D40",
@@ -107,9 +108,9 @@ const WebsiteDevelopment = () => {
 
             <Grid item xs={12} md={5}>
               <Box
+                mt={{ xs: 4, md: 0 }}
                 sx={{
                   width: "100%",
-                  // height: "100%",
                 }}
               >
                 <img
@@ -119,6 +120,7 @@ const WebsiteDevelopment = () => {
                     // height: "100%",
                     objectFit: "cover",
                   }}
+                  className="imagee"
                 />
               </Box>
             </Grid>
@@ -129,8 +131,9 @@ const WebsiteDevelopment = () => {
             justifyContent={"space-between"}
             alignItems={"center"}
           >
-            <Grid item xs={12} md={5}>
+            <Grid item xs={12} md={5} order={{ xs: 2, md: 1 }}>
               <Box
+                mt={{ xs: 4, md: 0 }}
                 sx={{
                   width: "100%",
                   // height: "100%",
@@ -143,14 +146,15 @@ const WebsiteDevelopment = () => {
                     // height: "100%",
                     objectFit: "cover",
                   }}
+                  className="imagee"
                 />
               </Box>
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} md={6} order={{ xs: 1, md: 2 }}>
               <Stack spacing={3} color={"#505660"}>
                 <Typography
+                  fontSize={{ xs: "24px", md: "28px" }}
                   sx={{
-                    fontSize: "28px",
                     color: "#1D0D40",
                     fontWeight: "600",
                   }}
@@ -183,11 +187,11 @@ const WebsiteDevelopment = () => {
             justifyContent={"space-between"}
             alignItems={"center"}
           >
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} md={5}>
               <Stack spacing={3} color={"#505660"}>
                 <Typography
+                  fontSize={{ xs: "24px", md: "28px" }}
                   sx={{
-                    fontSize: "28px",
                     color: "#1D0D40",
                     fontWeight: "600",
                   }}
@@ -205,8 +209,9 @@ const WebsiteDevelopment = () => {
               </Stack>
             </Grid>
 
-            <Grid item xs={12} md={5}>
+            <Grid item xs={12} md={6}>
               <Box
+                mt={{ xs: 4, md: 0 }}
                 sx={{
                   width: "100%",
                   // height: "100%",
@@ -219,14 +224,19 @@ const WebsiteDevelopment = () => {
                     // height: "100%",
                     objectFit: "cover",
                   }}
+                  className="imagee"
                 />
               </Box>
             </Grid>
           </Grid>
         </Stack>
 
-        <Stack mt={10}>
-          <Typography fontSize="27.7px" fontWeight="600" mb={4}>
+        <Stack mt={{ xs: 6, md: 10 }}>
+          <Typography
+            fontSize={{ xs: "25px", md: "27.7px" }}
+            fontWeight="600"
+            mb={4}
+          >
             What You Get and What to Expect  
           </Typography>
 
@@ -238,11 +248,7 @@ const WebsiteDevelopment = () => {
                     <img src={item.svg} />
                   </Box>
                   <Stack spacing={1} color={"#505660"}>
-                    <Typography
-                      fontSize="20px"
-                      fontWeight="600"
-                      color="#1D0D40"
-                    >
+                    <Typography fontWeight="600" color="#1D0D40">
                       {item.title}
                     </Typography>
                     <Typography>{item.desc}</Typography>
@@ -263,13 +269,13 @@ const WebsiteDevelopment = () => {
         <Container
           maxWidth="lg"
           sx={{
-            py: 6,
+            py: 5,
           }}
         >
           <Box
+            px={{ xs: 6, md: 16 }}
             sx={{
               backgroundColor: "#FCFCFC",
-              px: 16,
               py: 8,
               borderRadius: "8px",
             }}
