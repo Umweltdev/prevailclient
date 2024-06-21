@@ -12,122 +12,126 @@ const SectionTwo = () => {
   const { ref: sectionRef, inView: rocketIsVisible } = useInView();
 
   return (
-    <Container sx={{ marginY: "10vh" }}> {/* Added Container here */}
+    <Grid
+      sx={{
+        display: "flex",
+        height: "100vh",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: "88px",
+        margin: "auto",
+        "@media (max-width: 600px)": {
+          flexDirection: "column",
+          marginBottom: "1vh",
+          gap: "1vw",
+          margin: "1vh auto",
+          height: "unset",
+          width: "100vw",
+        },
+      }}
+    >
+      <CardMedia
+        sx={{
+          width: "603.677px",
+          height: "402.351px",
+          borderRadius: "14px",
+          objectFit: "cover",
+          "@media (max-width: 600px)": {
+            width: "90vw",
+            height: "unset",
+            borderRadius: "5vw",
+          },
+        }}
+        component="img"
+        image={img}
+        alt="Paella dish"
+      />
       <Grid
         sx={{
-          width: "100%",
-          display: "flex",
-          height: "100vh",
-          justifyContent: "space-between",
-          alignItems: "center",
-          gap: "10vw",
+          width: "548.266px",
           "@media (max-width: 600px)": {
-            flexDirection: "column",
-            marginBottom: "1vh",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: "1vw",
-            margin: "1vh auto",
+            width: "90vw",
+            height: "unset",
+            borderRadius: "5vw",
+            mt: "55px"
           },
         }}
       >
-        <CardMedia
-          ref={styles.imageStyle}
+        <Typography
           sx={{
-            width: "37vw",
-            height: "60vh",
-            borderRadius: "1vw",
-            objectFit: "cover",
-            boxShadow:
-              "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
+            fontSize: "1.5vw",
+            color: "#884ed9",
+            marginBottom: "2vh",
+            textAlign: "justify",
+            fontWeight: "bold",
+            width: "40vw",
             "@media (max-width: 600px)": {
+              fontSize: "4vw",
+              textAlign: "justify",
               width: "95vw",
-              height: "unset",
-              borderRadius: "5vw",
+              margin: "2vh auto",
             },
           }}
-          component="img"
-          image={img}
-          alt="Paella dish"
-        />
-        <Grid>
-          <Typography
-            sx={{
-              fontSize: "1.5vw",
-              color: "#884ed9",
-              marginBottom: "2vh",
-              textAlign: "justify",
-              fontWeight: "bold",
-              width: "40vw",
-              "@media (max-width: 600px)": {
-                fontSize: "4vw",
-                textAlign: "justify",
-                width: "95vw",
-                margin: "2vh auto",
-              },
-            }}
-          >
-            About Us
-          </Typography>
+        >
+          About Us
+        </Typography>
 
-          <Typography
-            sx={{
-              fontSize: "2vw",
-              color: "#333",
+        <Typography
+          sx={{
+            fontSize: "38px",
+            color: "#1D0D40",
+            marginBottom: "24px",
+            fontWeight: "500",
+            width: "40vw",
+            "@media (max-width: 600px)": {
+              fontSize: "7vw",
+              width: "95vw",
+            },
+          }}
+        >
+          Our Mission is to empower you with innovative solutions that drive
+          long-term success.
+        </Typography>
+
+        <Typography
+          sx={{
+            fontSize: "16px",
+            color: "#505660",
+            marginBottom: "4vh",
+            "@media (max-width: 600px)": {
+              fontSize: "4vw",
+              width: "95vw",
               marginBottom: "1vh",
-              fontWeight: "bold",
-              width: "40vw",
-              "@media (max-width: 600px)": {
-                fontSize: "7vw",
-                width: "95vw",
-              },
-            }}
-          >
-            Our Mission is to empower you with innovative solutions that drive long-term success.
-          </Typography>
-
-          <Typography
+            },
+          }}
+        >
+          Prevail is a cutting-edge marketing agency specialising in redefining
+          how businesses navigate the digital landscape. Prevail is not just a
+          marketing agency but a strategic partner for businesses in the digital
+          age. We aim to help businesses thrive, regardless of economic
+          challenges, by providing innovative and holistic solutions.
+        </Typography>
+        <Link to={"/about"}>
+          <Button
             sx={{
-              fontSize: "1.2vw",
-              color: "#636363",
-              marginBottom: "4vh",
-              "@media (max-width: 600px)": {
-                fontSize: "4vw",
-                width: "95vw",
-                marginBottom: "1vh",
+              textTransform: "capitalize",
+              backgroundColor: "#884ed9",
+              color: "white",
+              fontSize: "16px",
+              borderRadius: "5vw",
+              width: "144px",
+              "@media (max-width: 600px)": { borderRadius: "5vh", mt: "20px" },
+              "&:hover": {
+                color: "#884ed9",
+                border: "1px solid #884ed9",
               },
             }}
           >
-            Prevail is a cutting-edge marketing agency specialising in redefining how businesses navigate the digital landscape. Prevail is not just a marketing agency but a strategic partner for businesses in the digital age. We aim to help businesses thrive, regardless of economic challenges, by providing innovative and holistic solutions.
-          </Typography>
-          <Link to={"/about"}>
-            <Button
-              sx={{
-                textTransform: "capitalize",
-                backgroundColor: "#884ed9",
-                color: "white",
-                fontSize: "1.2vw",
-                borderRadius: "3vw",
-                padding: "0.5vw 5vw",
-                border: "1px solid #884ed9",
-                "@media (max-width: 600px)": {
-                  fontSize: "4.5vw",
-                  width: "95vw",
-                  margin: "0 0 4vh 0",
-                  borderRadius: "5vw",
-                },
-                "&:hover": {
-                  color: "#884ed9",
-                  border: "1px solid #884ed9",
-                },
-              }}
-            >
-              Learn More
-            </Button>
-          </Link>
-        </Grid>
+            Learn More
+          </Button>
+        </Link>
       </Grid>
-    </Container>
+    </Grid>
   );
 };
 

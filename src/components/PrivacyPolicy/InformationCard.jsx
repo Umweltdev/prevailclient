@@ -23,7 +23,7 @@ const InformationCard = () => {
         justifyContent: "center",
         alignItems: "left",
         padding: "35px 1vw",
-        position: "-webkit-sticky",
+        // position: "-webkit-sticky",
         top: "100px",
         position: "sticky",
         "@media (max-width: 767px)": {

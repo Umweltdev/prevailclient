@@ -1,4 +1,21 @@
-import { AdsClick, Devices, Label, QueryStats } from "@mui/icons-material";
+import {
+  Addchart,
+  AdsClick,
+  Devices,
+  Label,
+  QueryStats,
+  SsidChart,
+  Storage,
+  Storefront,
+} from "@mui/icons-material";
+import pencil from "../assets/pencil.svg"
+import timer from "../assets/timer.svg";
+import circle from "../assets/circle.svg";
+import img1 from "../assets/u1.png";
+import img2 from "../assets/u2.png";
+import img3 from "../assets/u3.png";
+import img4 from "../assets/u4.png";
+import img5 from "../assets/u2.png";
 
 export const slides = [
   {
@@ -79,7 +96,6 @@ export const slides = [
 
 export const images = [
   {
-   
     icon: (
       <Label
         sx={{
@@ -100,7 +116,7 @@ export const images = [
         }}
       />
     ),
-    
+
     link: "brand",
     title: "Empowering Local Businesses",
     subTitle: `Recognise the struggle of local SMEs in the current economic climate. Prevail is committed to empowering these businesses, providing them with the tools and resources to compete effectively against larger enterprises.`,
@@ -189,3 +205,79 @@ export const images = [
       "https://images.unsplash.com/photo-1484807352052-23338990c6c6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
 ];
+
+export const OurCoreData = [
+  {
+    header: "Empowering Local Businesses",
+    text: "At Prevail, we recognise the unique challenges that local SMEs face in the current economic climate. We are deeply committed to empowering these businesses by equipping them with the tools and resources needed to compete against larger enterprises effectively. Our tailored strategies and innovative solutions are designed to level the playing field, providing local businesses with the opportunity to thrive and grow in a highly competitive market.",
+    icon: <Storefront sx={{ color: "#673AA3" }} />,
+  },
+  {
+    header: "Innovative and Accessible Technology",
+    text: "At Prevail, we recognise the unique challenges that local SMEs face in the current economic climate. We are deeply committed to empowering these businesses by equipping them with the tools and resources needed to compete against larger enterprises effectively. Our tailored strategies and innovative solutions are designed to level the playing field, providing local businesses with the opportunity to thrive and grow in a highly competitive market.",
+    icon: <Storage sx={{ color: "#673AA3" }} />,
+  },
+  {
+    header: "Adaptive Bussiness Strategies",
+    text: "At Prevail, we recognise the unique challenges that local SMEs face in the current economic climate. We are deeply committed to empowering these businesses by equipping them with the tools and resources needed to compete against larger enterprises effectively. Our tailored strategies and innovative solutions are designed to level the playing field, providing local businesses with the opportunity to thrive and grow in a highly competitive market.",
+    icon: <Addchart sx={{ color: "#673AA3" }} />,
+  },
+  {
+    header: "Market Equity and Fair Competetion",
+    text: "At Prevail, we recognise the unique challenges that local SMEs face in the current economic climate. We are deeply committed to empowering these businesses by equipping them with the tools and resources needed to compete against larger enterprises effectively. Our tailored strategies and innovative solutions are designed to level the playing field, providing local businesses with the opportunity to thrive and grow in a highly competitive market.",
+    icon: <SsidChart sx={{ color: "#673AA3" }} />,
+  },
+];
+
+export const DigitalAcelerator = [
+  {
+    header: "Unified Brand Presence",
+    text: "Achieve a seamless and powerful brand image. We synchronise the aesthetics of your website with your brand identity and SEO strategies, ensuring every component works together to maximise your online impact.",
+    icon: pencil,
+  },
+  {
+    header: "Time & Resource Efficiency",
+    text: "Consolidate your digital strategy with our integrated approach. Combining website development, branding, and marketing into one efficient package frees up your time and resources, letting you concentrate on what’s essential—your business’s growth.",
+    icon: timer,
+  },
+  {
+    header: "Strategic Synergy",
+    text: "Harness the power of combined efforts. Our package melds website design, brand messaging, and targeted SEO into a unified strategy, enhancing the coherence and effectiveness of your digital presence. We deliver sustainable, impactful results that support your long-term success.",
+    icon: circle,
+  },
+];
+
+
+export const TestimonialData = [
+  {
+    text: "Amazing experience! The hotel staff was incredibly friendly, and the room was comfortable and clean. I will definitely stay here again.",
+    author: "Okafor Smith",
+    position: "Co-Founder, Heroes Digital",
+    img: img1,
+  },
+  {
+    text: "A delightful stay! The view from my room was breathtaking, and the breakfast buffet was delicious. Highly recommend this place.",
+    author: "Aisha Thompson",
+    position: "CEO, Green Solutions",
+    img: img2,
+  },
+  {
+    text: "The perfect getaway! The spa services were top-notch, and the location was ideal for exploring the city. I'll be back for sure.",
+    author: "Carlos Martinez",
+    position: "Marketing Director, Tech Innovators",
+    img: img3,
+  },
+  {
+    text: "Outstanding hospitality! The staff went above and beyond to make our stay enjoyable, and the amenities were excellent. A wonderful experience.",
+    author: "Emily Johnson",
+    position: "HR Manager, Creative Minds",
+    img: img4,
+  },
+  {
+    text: "An exceptional stay! The room was luxurious, and the hotel's ambiance was superb. Can't wait to return.",
+    author: "David Lee",
+    position: "Product Manager, Visionary Ventures",
+    img: img5,
+  },
+];
+

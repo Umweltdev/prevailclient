@@ -46,6 +46,9 @@ const PrevailMPDApi = () => {
             fontSize: "28px",
             fontWeight: " 500",
             width: "385px",
+            "@media (max-width: 600px)": {
+              width: "90vw",
+            },
           }}
         >
           Prevail MPD API 

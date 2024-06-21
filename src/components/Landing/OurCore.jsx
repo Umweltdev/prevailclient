@@ -44,7 +44,7 @@ const OurCore = () => {
   return (
     <Box
       sx={{
-        padding: "50px 0",
+        padding: "100px 0",
         backgroundImage: `linear-gradient(135deg, #FFFFFF 0%, #F3E5F5 50%, #FFFFFF 100%)`,
       }}
     >

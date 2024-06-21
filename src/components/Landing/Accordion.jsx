@@ -7,8 +7,8 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Button from "@mui/material/Button";
 import { Box, Typography, Stack } from "@mui/material";
-import { FAQs } from "./SliderData";
 import { Check } from "@mui/icons-material";
+import { OurCoreData } from "./assets/LandingData";
 
 export default function AccordionUsage() {
   // State to manage which accordion is expanded
@@ -20,7 +20,7 @@ export default function AccordionUsage() {
 
   return (
     <Box>
-      {FAQs.map((data, index) => (
+      {OurCoreData.map((data, index) => (
         <Accordion
           key={index}
           expanded={expanded === index}
@@ -44,7 +44,7 @@ export default function AccordionUsage() {
                 sx={{
                   background: "#B2B1FF",
                   height: "50px",
-                  width: "50px !important",
+                  width: "50px",
                   borderRadius: "50%",
                   display: "flex",
                   justifyContent: "center",
