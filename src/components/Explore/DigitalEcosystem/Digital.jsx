@@ -26,22 +26,20 @@ const useStyles = makeStyles((theme) => ({
     
   },
   card: {
-    height: "100%",
+    height: "470px",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
-    background: "#f5f5f5",
-    "&:hover": {
-      boxShadow: theme.shadows[8],
-    },
+    background: "white",
+    borderRadius: "20px",
   },
   mediaContainer: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    height: "150px",
-    width: "30%", // Set width to 30%
-    background: "#e0e0e0", // Background color for the bottom half (Paper)
+    height: "200px",
+    width: "60%",
+    background: "white",
     margin: "auto", // Centering the Paper component
   },
   media: {
@@ -70,7 +68,7 @@ const Digital = () => {
   return (
     <Box className={classes.root}>
       <Container className={classes.container}>
-        <Typography variant="h6" align="center" pt="176px" color="primary" gutterBottom>
+        <Typography variant="h6" align="center" pt="100px" color="primary" gutterBottom>
           Digital Ecosystem
         </Typography>
         <Typography variant="h4" align="center" gutterBottom>
@@ -89,12 +87,14 @@ const Digital = () => {
                   </Typography>
                 </CardContent>
                 <Box sx={{
-                  background: "#D3D3D3",
+                  background: "#F7F8FA",
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
-                  width: '100%', // Ensure the Box takes full width of Card
-                  height: '100%', // Ensure the Box takes full height of Card
+                  margin: "10px",
+                  borderRadius: "10px", 
+                  width: '96.5%', 
+                  height: '100%',
                 }}>
                   <Paper className={classes.mediaContainer} elevation={3}>
                     <img src={item.icon} alt={item.title} className={classes.media} />
