@@ -77,10 +77,10 @@ const SwipeCarousel = () => {
         backgroundImage: `url(${data[currentIndex].image})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        borderRadius: "10px",
+        // borderRadius: "10px",
       }}
     >
-      <Box
+      {/* <Box
         position="absolute"
         bottom={80}
         width="100%"
@@ -109,7 +109,7 @@ const SwipeCarousel = () => {
             </Grid>
           ))}
         </Grid>
-      </Box>
+      </Box> */}
       <Stack
         position="absolute"
         left={{  md: 120 }}

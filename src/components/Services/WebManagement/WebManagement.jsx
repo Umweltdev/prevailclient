@@ -53,14 +53,10 @@ const WebManagement = () => {
       {/* <DrawerAppBarWhite /> */}
       <AppBarNav color="#000" />
       <HeroComponent title="Website Development" />
-      <Container
-        maxWidth="lg"
-        sx={{
-          py: 4,
-        }}
+      <Box
       >
         <Solution />
-      </Container>
+      </Box>
       <Box>
         <Container maxWidth="lg">
           <Stack>

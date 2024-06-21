@@ -64,20 +64,17 @@ const WebsiteDevelopment = () => {
       <AppBarNav color="#000" />
 
       <HeroComponent title="Custom Website Development" />
-      <Container
-        maxWidth="lg"
-        sx={{
-          py: 5,
-        }}
+      <Stack
+        
       >
-        <Stack spacing={{ xs: 7, md: 12 }}>
+        <Stack spacing={{ xs: 7, md: 0 }} p={{xs:2, md:0}}>
           <Grid
             container
             justifyContent={"space-between"}
             alignItems={"center"}
           >
-            <Grid item xs={12} md={6}>
-              <Stack spacing={3} color={"#505660"}>
+            <Grid item xs={12} md={5.7}>
+              <Stack spacing={3} color={"#505660"} pl={{xs:0, md:8}}>
                 <Typography
                   fontSize={{ xs: "24px", md: "28px" }}
                   sx={{
@@ -106,7 +103,7 @@ const WebsiteDevelopment = () => {
               </Stack>
             </Grid>
 
-            <Grid item xs={12} md={5}>
+            <Grid item xs={12} md={5.7}>
               <Box
                 mt={{ xs: 4, md: 0 }}
                 sx={{
@@ -131,7 +128,7 @@ const WebsiteDevelopment = () => {
             justifyContent={"space-between"}
             alignItems={"center"}
           >
-            <Grid item xs={12} md={5} order={{ xs: 2, md: 1 }}>
+            <Grid item xs={12} md={5.7} order={{ xs: 2, md: 1 }}>
               <Box
                 mt={{ xs: 4, md: 0 }}
                 sx={{
@@ -150,8 +147,8 @@ const WebsiteDevelopment = () => {
                 />
               </Box>
             </Grid>
-            <Grid item xs={12} md={6} order={{ xs: 1, md: 2 }}>
-              <Stack spacing={3} color={"#505660"}>
+            <Grid item xs={12} md={5.7} order={{ xs: 1, md: 2 }}>
+              <Stack spacing={3} color={"#505660"} pr={{xs:0, md:8}}>
                 <Typography
                   fontSize={{ xs: "24px", md: "28px" }}
                   sx={{
@@ -187,8 +184,8 @@ const WebsiteDevelopment = () => {
             justifyContent={"space-between"}
             alignItems={"center"}
           >
-            <Grid item xs={12} md={5}>
-              <Stack spacing={3} color={"#505660"}>
+            <Grid item xs={12} md={5.7}>
+              <Stack spacing={3} color={"#505660"} pl={{xs:0, md:8}}>
                 <Typography
                   fontSize={{ xs: "24px", md: "28px" }}
                   sx={{
@@ -209,7 +206,7 @@ const WebsiteDevelopment = () => {
               </Stack>
             </Grid>
 
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} md={5.7}>
               <Box
                 mt={{ xs: 4, md: 0 }}
                 sx={{
@@ -231,7 +228,7 @@ const WebsiteDevelopment = () => {
           </Grid>
         </Stack>
 
-        <Stack mt={{ xs: 6, md: 10 }}>
+        <Stack mt={{ xs: 6, md: 10 }} px={{xs:2, md:6}}>
           <Typography
             fontSize={{ xs: "25px", md: "27.7px" }}
             fontWeight="600"
@@ -258,7 +255,7 @@ const WebsiteDevelopment = () => {
             ))}
           </Grid>
         </Stack>
-      </Container>
+      </Stack>
 
       <Box
         sx={{

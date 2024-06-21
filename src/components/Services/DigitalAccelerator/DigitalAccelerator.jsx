@@ -241,12 +241,12 @@ const DigitalAccelerator = () => {
             <Grid item xs={12} md={7} sx={{ paddingTop: "0 !important" }}>
               <Stack spacing={4} py={8}>
                 <Box
-                  sx={{ backgroundColor: "#6E3EF4", borderRadius: "5px" }}
-                  px={2}
+                  sx={{ borderRadius: "5px" }}
+                  // px={2}
                   py={1}
                   alignSelf={"start"}
                 >
-                  <Typography color={"#FFFFFF"} textAlign={{xs:"center", md:"left"}}>
+                  <Typography color={"#6E3EF4"} textAlign={{xs:"center", md:"left"}} fontSize={"18px"} >
                     Don't miss out on the opportunity to transform your
                     business!
                   </Typography>
