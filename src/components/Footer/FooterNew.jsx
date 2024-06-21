@@ -10,11 +10,6 @@ import {
   Fab,
 } from "@mui/material";
 import { styled } from "@mui/system";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import YouTubeIcon from "@mui/icons-material/YouTube";
 import img1 from "./assets/newlogo.svg";
 import Subscribe from "./Subscribe";
 import {
@@ -26,6 +21,9 @@ import {
   YouTube,
 } from "@mui/icons-material";
 import { Link } from "react-router-dom";
+import ChatBot from "react-chatbotify";
+import { flow } from "./ChatFlow";
+
 
 const CustomButton = styled(Button)(({ theme }) => ({
   backgroundColor: "#6A1B9A",
@@ -52,6 +50,9 @@ const CustomTextField = styled(TextField)(({ theme }) => ({
     color: "#fff", // Set input text color to white
   },
 }));
+
+
+
 
 const FooterNew = () => {
   const scrollToTop = () => {
@@ -94,6 +95,8 @@ const FooterNew = () => {
         overflowX: "hidden",
       }}
     >
+      {/* =============================== Chat Box ================= */}
+      {/* <ChatBot flow={flow} /> */}
       <Box
         sx={{ textAlign: "flex-start", marginBottom: "40px", margin: "auto" }}
       >
@@ -103,10 +106,10 @@ const FooterNew = () => {
         sx={{
           margin: "auto",
           display: "flex",
-          gap: "9vw",
+          gap: "7vw",
           "@media (max-width: 600px)": {
             flexWrap: "wrap",
-            ml: "10vw"
+            ml: "10vw",
           },
         }}
       >
@@ -279,6 +282,7 @@ const FooterNew = () => {
           </Link>
         </Grid>
       </Grid>
+
       <Grid
         sx={{
           position: "relative",

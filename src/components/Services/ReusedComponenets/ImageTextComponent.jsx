@@ -24,7 +24,7 @@ const ImageTextComponent = ({ img, header, text }) => {
         component={"img"}
         image={img}
         sx={{
-          width: "47vw",
+          width: "50vw",
           "@media (max-width: 600px)": {
             width: "90vw",
             borderRadius: "14px",
@@ -36,15 +36,16 @@ const ImageTextComponent = ({ img, header, text }) => {
         sx={{
           display: "flex",
           flexDirection: "column",
-          // alignItems: "center",
-          // justifyContent: "center",
-          mr: "15vw",
+          alignItems: "left",
+          justifyContent: "left",
+          margin: "auto",
           gap: "20px",
-          width: "468px",
+          width: "30vw",
           "@media (max-width: 600px)": {
             width: "90vw",
             borderRadius: "14px",
             mr: "unset",
+            margin: "40px auto 0 auto",
           },
         }}
       >
@@ -53,6 +54,7 @@ const ImageTextComponent = ({ img, header, text }) => {
             color: "#1D0D40",
             fontSize: "28px",
             fontWeight: " 500",
+            width: "385px",
           }}
         >
           {header}
@@ -63,6 +65,9 @@ const ImageTextComponent = ({ img, header, text }) => {
             fontSize: "16px",
             fontWeight: "400",
             lineHeight: "150%",
+            "@media (max-width: 600px)": {
+              width: "90vw",
+            },
           }}
           dangerouslySetInnerHTML={{ __html: text }}
         ></Typography>

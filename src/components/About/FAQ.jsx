@@ -11,7 +11,7 @@ const FAQ = () => {
         display: "flex",
         gap: "70px",
         background: "#F9FAFC",
-        padding: "143px 0",
+
         "@media (max-width: 600px)": {
           width: "90vw",
           margin: "auto",
@@ -24,8 +24,10 @@ const FAQ = () => {
       <Grid
         sx={{
           pl: "5vw",
+          pt: "5vh",
           "@media (max-width: 600px)": {
             pl: "unset",
+            pt: "unset",
           },
         }}
       >

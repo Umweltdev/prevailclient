@@ -22,7 +22,7 @@ const TailoredApproach = () => {
         component={"img"}
         image={imgBrand}
         sx={{
-          width: "47vw",
+          width: "50vw",
           "@media (max-width: 600px)": {
             display: "none",
           },
@@ -34,12 +34,13 @@ const TailoredApproach = () => {
           flexDirection: "column",
           //   alignItems: "center",
           justifyContent: "center",
-          ml: "5vw",
+          pl: "5vw",
           gap: "20px",
           width: "47vw",
           "@media (max-width: 600px)": {
             width: "90vw",
-            ml: "unset",
+            pl: "unset",
+            margin: 'auto'
           },
         }}
       >

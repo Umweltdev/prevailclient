@@ -8,10 +8,8 @@ import AppBarNav from "../components/Navbar/Appbar";
 
 const PrivacyPolicy = () => {
   return (
-    <Grid
-      sx={{ background: "linear-gradient(135deg, #DDD4EF, #F9FAFC, white)" }}
-    >
-      <AppBarNav color="#000"/>
+    <Grid sx={{ background: "#fff" }}>
+      <AppBarNav color="#000" />
       <Header />
       <MainPage />
       <FooterNew />

@@ -14,6 +14,7 @@ import Addressing from "./Addressing";
 import TailoredApproach from "./TailoredApproach";
 import HeroComponent from "../ReusedComponenets/HeroComponent";
 import AppBarNav from "../../Navbar/Appbar";
+import MainPage from "./MainPage";
 
 const BrandIdentity = () => {
   return (
@@ -23,8 +24,6 @@ const BrandIdentity = () => {
       <ElevateYourPresence />
       <Addressing />
       <TailoredApproach />
-      {/* <ServiceDetails2 /> */}
-      {/* <ServiceDetails3 /> */}
       <Packages />
       <FooterNew />
     </div>

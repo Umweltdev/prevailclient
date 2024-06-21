@@ -13,14 +13,11 @@ const PrevailMPDApi = () => {
         display: "flex",
         width: "100vw",
         alignItems: "center",
-        // justifyContent: "center",
         justifyContent: "space-between",
         "@media (max-width: 600px)": {
+          display: "flex",
           width: "100vw",
           flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "space-between",
-          mt: "40px",
         },
       }}
     >
@@ -28,14 +25,18 @@ const PrevailMPDApi = () => {
         sx={{
           display: "flex",
           flexDirection: "column",
-          // alignItems: "center",
-          // justifyContent: "center",
+          alignItems: "left",
+          justifyContent: "left",
+          margin: "auto",
+          // mr: "15vw",
           gap: "20px",
-          ml: "10vw",
-          width: "468px",
+          width: "30vw",
           "@media (max-width: 600px)": {
-            ml: "unset",
             width: "90vw",
+            flexDirection: "column",
+            ml: "unset",
+            mt: "40px",
+            margin: "40px auto 0 auto",
           },
         }}
       >
@@ -44,6 +45,7 @@ const PrevailMPDApi = () => {
             color: "#1D0D40",
             fontSize: "28px",
             fontWeight: " 500",
+            width: "385px",
           }}
         >
           Prevail MPD API 
@@ -54,6 +56,9 @@ const PrevailMPDApi = () => {
             fontSize: "16px",
             fontWeight: "400",
             lineHeight: "150%",
+            "@media (max-width: 600px)": {
+              width: "90vw",
+            },
           }}
         >
           If these challenges resonate with you, you’re not alone. Prevail’s MPD
@@ -89,11 +94,11 @@ const PrevailMPDApi = () => {
         component={"img"}
         image={img}
         sx={{
-          width: "45vw",
+          width: "50vw",
           "@media (max-width: 600px)": {
             width: "90vw",
-            mt: "40px",
-            borderRadius: "14px"
+            mt: "5vh",
+            borderRadius: "14px",
           },
         }}
       />

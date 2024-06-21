@@ -20,6 +20,7 @@ const useStyles = makeStyles({
     justifyContent: "space-between",
     width: "75vw",
     margin: "10vh auto",
+
     "@media (max-width: 600px)": {
       width: "100vw",
       mt: "40px",
@@ -28,12 +29,12 @@ const useStyles = makeStyles({
   },
   card: {
     width: "25vw",
-    height: "16vw",
-    padding: "16px",
+    height: "17vw",
+    padding: "36px 16px",
     display: "flex",
     flexDirection: "column",
     // textAlign: "center",
-    justifyContent: "center",
+    justifyContent: "top",
     border: "1px solid #EFF3F7",
     borderRadius: "none",
     margin: "auto",
@@ -100,26 +101,26 @@ const SixCards = () => {
   return (
     <Grid
       sx={{
-        color: "#1D0D40",
+        color: "#fff",
         fontSize: "28px",
         fontWeight: 500,
-        textAlign: "center",
-        m: "10vh 0",
+        background: "#0D0E30",
+        p: "10vh 0",
         "@media (max-width: 600px)": {
-          width: "90vw",
-          m: "40px 0 0 0",
+          width: "100vw",
+          p: "40px 0 20px 0",
           textAlign: "unset",
-          alignItems: "center",
+          // alignItems: "center",
         },
       }}
     >
       <Typography
         sx={{
-          color: "#1D0D40",
+          color: "#fff",
           fontSize: "28px",
           fontWeight: 500,
           textAlign: "center",
-          m: "10vh 0",
+          // m: "10vh 0",
           "@media (max-width: 600px)": {
             width: "90vw",
             alignItems: "center",

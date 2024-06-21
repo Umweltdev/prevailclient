@@ -12,7 +12,7 @@ const MainPage = () => {
     <Grid
       sx={{
         background: "#fff",
-        padding: "40px 0",
+        padding: "0",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",

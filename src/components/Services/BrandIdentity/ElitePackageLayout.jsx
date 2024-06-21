@@ -1,5 +1,5 @@
 import React from "react";
-import { PremiumBrandIdentity } from "../assets/serviceData";
+import { EliteBrandIdentity, PremiumBrandIdentity } from "../assets/serviceData";
 import {
   Box,
   Button,
@@ -19,10 +19,10 @@ const ElitePackageLayout = ({ packages, amount, info }) => {
         boxShadow: "2",
         background: "#6E3EF4",
         color: "white",
-        height: "650px",
+        height: "800px",
         "@media (max-width: 600px)": {
           marginTop: "1vh",
-          height: "650px",
+          height: "810px",
           width: "90vw",
           boxShadow:
             "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
@@ -99,7 +99,7 @@ const ElitePackageLayout = ({ packages, amount, info }) => {
             mt: "30px",
           }}
         >
-          {PremiumBrandIdentity.map((item, i) => (
+          {EliteBrandIdentity.map((item, i) => (
             <Box
               key={i}
               sx={{

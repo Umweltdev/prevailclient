@@ -1,70 +1,72 @@
 import * as React from "react";
+import { useState } from "react";
 import Accordion from "@mui/material/Accordion";
 import AccordionActions from "@mui/material/AccordionActions";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Button from "@mui/material/Button";
-import { Box } from "@mui/material";
+import { Box, Typography, Stack } from "@mui/material";
 import { FAQs } from "./SliderData";
+import { Check } from "@mui/icons-material";
 
 export default function AccordionUsage() {
+  // State to manage which accordion is expanded
+  const [expanded, setExpanded] = useState(0);
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+
   return (
-    <Box
-      sx={{
-        width: "42vw",
-        backgroundColor: "#F9FAFC",
-        "@media (max-width: 600px)": {
-          width: "90vw",
-          margin: "20px auto",
-        },
-      }}
-    >
-      {FAQs.map((data, i) => (
+    <Box>
+      {FAQs.map((data, index) => (
         <Accordion
-          key={i}
-          defaultExpanded={i === 0}
+          key={index}
+          expanded={expanded === index}
+          onChange={handleChange(index)}
           sx={{
-            backgroundColor: "#F9FAFC",
-            width: "100%", // Ensures it takes up full width of its parent Box
-            "@media (max-width: 600px)": {
-              width: "85vw",
-              margin: "auto",
+            backgroundColor: "#F8F6FF",
+            borderRadius: "10px",
+            marginBottom: "10px",
+            boxShadow: "none",
+            "& .MuiButtonBase-root": {
+              padding: "0 30px",
+            },
+            "&::before": {
+              display: "none",
             },
           }}
         >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls={`panel${i}-content`}
-            id={`panel${i}-header`}
-            sx={{
-              fontSize: "24px",
-              fontWeight: "400",
-              height: "118px",
-              width: "100%",
-              "@media (max-width: 600px)": {
-                width: "85vw",
-                fontSize: "16px",
-                height: "unset",
-                margin: "auto",
-              },
-            }}
-          >
-            {data.header}
+          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+            <Stack direction={"row"} spacing={2} alignItems={"center"}>
+              <Box
+                sx={{
+                  background: "#B2B1FF",
+                  height: "50px",
+                  width: "50px !important",
+                  borderRadius: "50%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                {data.icon}
+              </Box>
+              <Typography
+                sx={{
+                  fontSize: "20px",
+                  fontWeight: "600",
+                  color: "#1D0D40",
+                  width: "450px",
+                }}
+              >
+                {data.header}
+              </Typography>
+            </Stack>
           </AccordionSummary>
-          <AccordionDetails
-            sx={{
-              fontSize: "16px",
-              fontWeight: "400",
-              "@media (max-width: 600px)": {
-                width: "85vw",
-                fontSize: "16px",
-                height: "unset",
-                margin: "auto",
-              },
-            }}
-          >
-            {data.text}
+          <AccordionDetails sx={{ px: 4, pb: 4 }}>
+            <Typography color={"#5E5472"}>{data.text}</Typography>
           </AccordionDetails>
         </Accordion>
       ))}

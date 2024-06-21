@@ -14,6 +14,7 @@ import FooterNew from "../components/Footer/FooterNew";
 import { AuthContext } from "../context/AuthContext";
 import Invoices from "../components/user-dashboard/Invoices";
 import Invoice from "../components/user-dashboard/Invoice";
+import AppBarNav from "../components/Navbar/Appbar";
 
 const UserDashBoard = (props) => {
   const [drawer, setDrawer] = useState(false);
@@ -29,6 +30,7 @@ const UserDashBoard = (props) => {
     <div style={{ width: "100%", overflow: "hidden" }}>
       {/* <Announcement /> */}
       {/* <DrawerAppBarWhite {...props} isLoggedIn={isLoggedIn} /> */}
+      <AppBarNav color="#333" />
       <Box
         sx={{
           bgcolor: "#fbfbfb",

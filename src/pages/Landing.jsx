@@ -18,23 +18,26 @@ import AppBarNav from "../components/Navbar/Appbar";
 // import Follower from "../components/MouseAnimation";
 
 const Landing = (props) => {
-   const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn } = useContext(AuthContext);
   return (
-    <div style={{ width: "100%", overflow: "hidden" }}>
-      <AppBarNav color="#000" />
-      <br />
-      <br />
-      <Hero />
-      <br />
-      <br />
-      <SectionTwo />
-      <YourTools />
-      <OurCore />
-      <SectionSeven />
-      <SectionFour />
-      <SectionThree />
-      <FooterNew />
-    </div>
+    <>
+      
+      <div style={{ width: "100%", overflow: "hidden" }}>
+        <AppBarNav color="#000" />
+        <br />
+        <br />
+        <Hero />
+        <br />
+        <br />
+        <SectionTwo />
+        <YourTools />
+        <OurCore />
+        <SectionSeven />
+        <SectionFour />
+        <SectionThree />
+        <FooterNew />
+      </div>
+    </>
   );
 };
 

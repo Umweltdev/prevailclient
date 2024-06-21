@@ -8,12 +8,16 @@ const ElevateYourPresence = () => {
       sx={{
         display: "flex",
         width: "100vw",
+        alignItems: "center",
+        justifyContent: "space-between",
         "@media (max-width: 600px)": {
-          flexDirection: "column-reverse",
-          justifyContent: "center",
-          alignContent: "center",
+          display: "flex",
+          width: "100vw",
           alignItems: "center",
-          margin: "14px auto",
+          justifyContent: "space-between",
+          flexDirection: "column-reverse",
+          mt: "40px",
+          mb: "20px",
         },
       }}
     >
@@ -21,10 +25,11 @@ const ElevateYourPresence = () => {
         component={"img"}
         image={imgBrand}
         sx={{
-          width: "47vw",
+          width: "50vw",
           "@media (max-width: 600px)": {
             width: "90vw",
             borderRadius: "14px",
+            mt: "4vh",
           },
         }}
       />
@@ -32,23 +37,25 @@ const ElevateYourPresence = () => {
         sx={{
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          ml: "3.5vw",
+          alignItems: "left",
+          justifyContent: "left",
+          margin: "auto",
           gap: "20px",
-          width: "468px",
+          width: "30vw",
           "@media (max-width: 600px)": {
-            ml: "unset",
             width: "90vw",
+            borderRadius: "14px",
+            mr: "unset",
+            margin: "40px auto 0 auto",
           },
         }}
       >
         <Typography
           sx={{
-            width: "385px",
             color: "#1D0D40",
             fontSize: "28px",
             fontWeight: " 500",
+            width: "385px",
             "@media (max-width: 600px)": {
               width: "90vw",
             },
@@ -58,7 +65,7 @@ const ElevateYourPresence = () => {
         </Typography>
         <Typography
           sx={{
-            width: "385px;",
+            width: "30vw",
             color: "#505660;",
             fontSize: "16px",
             fontWeight: "400",

@@ -8,12 +8,12 @@ const Addressing = () => {
       sx={{
         display: "flex",
         width: "100vw",
+        alignItems: "center",
+        justifyContent: "space-between",
         "@media (max-width: 600px)": {
+          display: "flex",
+          width: "100vw",
           flexDirection: "column",
-          justifyContent: "center",
-          alignContent: "center",
-          alignItems: "center",
-          margin: "40px auto",
         },
       }}
     >
@@ -21,23 +21,27 @@ const Addressing = () => {
         sx={{
           display: "flex",
           flexDirection: "column",
+          alignItems: "left",
+          justifyContent: "left",
           margin: "auto",
+          // mr: "15vw",
           gap: "20px",
-          width: "468px",
+          width: "30vw",
           "@media (max-width: 600px)": {
             width: "90vw",
+            flexDirection: "column",
+            ml: "unset",
+            mt: "40px",
+            margin: "40px auto 0 auto",
           },
         }}
       >
         <Typography
           sx={{
-            width: "385px",
             color: "#1D0D40",
             fontSize: "28px",
             fontWeight: " 500",
-            "@media (max-width: 600px)": {
-              width: "90vw",
-            },
+            width: "385px",
           }}
         >
           Addressing Today’s Branding Challenges 
@@ -67,11 +71,11 @@ const Addressing = () => {
         component={"img"}
         image={imagebrand2}
         sx={{
-          width: "47vw",
+          width: "50vw",
           "@media (max-width: 600px)": {
             width: "90vw",
+            mt: "5vh",
             borderRadius: "14px",
-            m: "40px 0"
           },
         }}
       />

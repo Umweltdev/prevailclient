@@ -49,15 +49,15 @@ const Packages = () => {
           packages="Starter Brand Identity Package"
           info="Forever free, even after the launch"
           button="Contact us"
-          height="650px"
-          mobileHeight={"600px"}
+          height="700px"
+          mobileHeight={"670px"}
         />
         <PurplePackageLayout
           packages="SEM Platinum Package"
           info="Forever free, even after the launch"
           button="Contact us"
-          height="750px"
-          mobileHeight={"750px"}
+          height="800px"
+          mobileHeight={"790px"}
         />
       </Grid>
     </div>

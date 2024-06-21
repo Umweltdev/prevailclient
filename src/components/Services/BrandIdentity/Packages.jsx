@@ -8,7 +8,7 @@ const Packages = () => {
   return (
     <div
       style={{
-        margin: "30px auto 0 auto",
+        margin: "0px auto 0 auto",
         padding: "30px 0 50px 0",
         display: "flex",
         flexDirection: "column",
