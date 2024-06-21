@@ -3,10 +3,11 @@ import DrawerAppBarWhite from "../../Navbar/Appbar";
 import FooterNew from '../../Footer/FooterNew';
 import Hero from './Hero';
 import Trigger from './Trigger';
-import Presence from './Presence';
-import Evaluation from './Evaluation';
-import Purchase from './Purchase';
-import SpecialOffer from './SpecialOffer';
+//import Presence from './Presence';
+//import Evaluation from './Evaluation';
+//import Purchase from './Purchase';
+//import SpecialOffer from './SpecialOffer';
+import Last from './Last';
 
 const CustomerJourney = () => {
   return (
@@ -15,10 +16,11 @@ const CustomerJourney = () => {
         
         <Hero />
         <Trigger />
-        <Presence />
+        {/* <Presence />
         <Evaluation />
         <Purchase />
-        <SpecialOffer />
+        <SpecialOffer /> */}
+        <Last />
         <FooterNew />
     </div>
   )
