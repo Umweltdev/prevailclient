@@ -51,7 +51,7 @@ const InformationCard = () => {
         }}
       ></Box>
       <Typography
-        onClick={() => scrollToSection("use-of-information")}
+        onClick={() => scrollToSection("information-we-collect")}
         sx={{
           color: "#1D0D40",
           fontSize: "16px",
@@ -70,7 +70,7 @@ const InformationCard = () => {
         }}
       ></Box>
       <Typography
-        onClick={() => scrollToSection("client-expectations")}
+        onClick={() => scrollToSection("use-of-information")}
         sx={{
           color: "#1D0D40",
           fontSize: "16px",
@@ -89,7 +89,7 @@ const InformationCard = () => {
         }}
       ></Box>
       <Typography
-        onClick={() => scrollToSection("revisions-and-substantive-changes")}
+        onClick={() => scrollToSection("client-expectations")}
         sx={{
           color: "#1D0D40",
           fontSize: "16px",
@@ -108,7 +108,7 @@ const InformationCard = () => {
         }}
       ></Box>
       <Typography
-        onClick={() => scrollToSection("cancellation-policy")}
+        onClick={() => scrollToSection("revisions-and-substantive-changes")}
         sx={{
           color: "#1D0D40",
           fontSize: "16px",
@@ -127,7 +127,7 @@ const InformationCard = () => {
         }}
       ></Box>
       <Typography
-        onClick={() => scrollToSection("confidentiality")}
+        onClick={() => scrollToSection("cancellation-policy")}
         sx={{
           color: "#1D0D40",
           fontSize: "16px",
@@ -146,7 +146,7 @@ const InformationCard = () => {
         }}
       ></Box>
       <Typography
-        onClick={() => scrollToSection("copyright-ownership")}
+        onClick={() => scrollToSection("confidentiality")}
         sx={{
           color: "#1D0D40",
           fontSize: "16px",
@@ -165,7 +165,7 @@ const InformationCard = () => {
         }}
       ></Box>
       <Typography
-        onClick={() => scrollToSection("sharing-of-information")}
+        onClick={() => scrollToSection("copyright-ownership")}
         sx={{
           color: "#1D0D40",
           fontSize: "16px",
@@ -184,7 +184,7 @@ const InformationCard = () => {
         }}
       ></Box>
       <Typography
-        onClick={() => scrollToSection("data-security")}
+        onClick={() => scrollToSection("sharing-of-information")}
         sx={{
           color: "#1D0D40",
           fontSize: "16px",
@@ -203,7 +203,7 @@ const InformationCard = () => {
         }}
       ></Box>
       <Typography
-        onClick={() => scrollToSection("acceptance-of-terms")}
+        onClick={() => scrollToSection("data-security")}
         sx={{
           color: "#1D0D40",
           fontSize: "16px",
@@ -222,7 +222,7 @@ const InformationCard = () => {
         }}
       ></Box>
       <Typography
-        onClick={() => scrollToSection("contact-us")}
+        onClick={() => scrollToSection("acceptance-of-terms")}
         sx={{
           color: "#1D0D40",
           fontSize: "16px",

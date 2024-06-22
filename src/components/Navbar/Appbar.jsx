@@ -312,7 +312,7 @@ function AppBarNav({ color }) {
           <MenuItem key={i} onClick={handleClose}>
             <Link
               style={{
-                color: isScrolled ? "#000" : color,
+                color: "#000",
                 textDecoration: "none",
                 textAlign: "left",
               }}
@@ -332,7 +332,7 @@ function AppBarNav({ color }) {
           <MenuItem key={i} onClick={handleClose}>
             <Link
               style={{
-                color: isScrolled ? "#000" : color,
+                color: "#000",
                 textDecoration: "none",
                 textAlign: "left",
               }}
