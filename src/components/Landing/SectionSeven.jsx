@@ -6,7 +6,14 @@ import { DigitalAcelerator } from "./assets/LandingData";
 
 const FAQ = () => {
   return (
-    <Box sx={{ p: "100px 0 0 0" }}>
+    <Box
+      sx={{
+        p: "100px 0 0 0",
+        "@media (max-width: 600px)": {
+          p: "40px 0 0 0",
+        },
+      }}
+    >
       <Box
         sx={{
           display: "flex",
@@ -15,7 +22,10 @@ const FAQ = () => {
           justifyContent: "center",
           alignItems: "center",
           margin: "auto",
-          mb: "66px"
+          mb: "66px",
+          "@media (max-width: 600px)": {
+            width: "90vw",
+          },
         }}
       >
         <Typography
@@ -30,6 +40,10 @@ const FAQ = () => {
             fontSize: "48px",
             fontWeight: "500",
             textAlign: "center",
+            "@media (max-width: 600px)": {
+              width: "90vw",
+              fontSize: "32px",
+            },
           }}
         >
           Digital Accelerator bringing agility to your enterprise
@@ -41,6 +55,10 @@ const FAQ = () => {
             fontSize: "16px",
             fontWeight: "400",
             textAlign: "center",
+            "@media (max-width: 600px)": {
+              width: "90vw",
+              fontSize: "16px",
+            },
           }}
         >
           Discover how our Digital Accelerator Bundle package serves as your
@@ -50,7 +68,14 @@ const FAQ = () => {
           Search Engine Optimisation (SEO).  
         </Typography>
 
-        <Button sx={{ color: "#fff", background: "#6E3EF4", width: "144px", borderRadius: "5vw" }}>
+        <Button
+          sx={{
+            color: "#fff",
+            background: "#6E3EF4",
+            width: "144px",
+            borderRadius: "5vw",
+          }}
+        >
           Learn More
         </Button>
       </Box>
@@ -90,6 +115,7 @@ const FAQ = () => {
               width: "553px",
               "@media (max-width: 600px)": {
                 width: "90vw",
+                fontSize: "24px",
               },
             }}
           >

@@ -22,7 +22,7 @@ function BasicButtons({ text, gradient, width }) {
         sx={{
           background:
             gradient || "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)",
-          background: "#70A1E3",
+          // background: "#70A1E3",
           padding: "2vh 2vw",
           borderRadius: "5vw",
           color: "white",

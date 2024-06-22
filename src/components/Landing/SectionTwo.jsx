@@ -24,7 +24,7 @@ const SectionTwo = () => {
           flexDirection: "column",
           marginBottom: "1vh",
           gap: "1vw",
-          margin: "1vh auto",
+          margin: "85px auto",
           height: "unset",
           width: "100vw",
         },
@@ -40,6 +40,7 @@ const SectionTwo = () => {
             width: "90vw",
             height: "unset",
             borderRadius: "5vw",
+           
           },
         }}
         component="img"

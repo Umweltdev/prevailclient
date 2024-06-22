@@ -14,9 +14,22 @@ const CardNoBorder = ({ text, header, icon }) => {
         flexDirection: "column",
         background: "inherit",
         width: "438px",
+        "@media (max-width: 600px)": {
+          width: "85vw",
+          margin: "auto"
+        },
       }}
     >
-      <CardMedia component={"img"} sx={{ width: "56px" }} image={icon} />
+      <CardMedia
+        component={"img"}
+        sx={{
+          width: "56px",
+          "@media (max-width: 600px)": {
+            width: "42px",
+          },
+        }}
+        image={icon}
+      />
       <Typography
         sx={{ fontSize: "28px", fontWeight: "500", color: "#1D0D40" }}
       >

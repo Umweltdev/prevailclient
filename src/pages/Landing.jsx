@@ -14,9 +14,9 @@ import DrawerAppBarWhite from "../components/Navbar/Appbar";
 import AppBarOne from "../components/Navbar/AppbarOne";
 import { AuthContext } from "../context/AuthContext";
 import AppBarNav from "../components/Navbar/Appbar";
-import Testimonials from "../components/Landing/TestimonialCard";
-// import DrawerAppBarWhite from "../components/Navbar/DrawerAppBarWhite";
-// import Follower from "../components/MouseAnimation";
+import Testimonials from "../components/Landing/Testimonials";
+// import Testimonials from "../components/Landing/TestimonialCard";
+import JoinCustomers from "../components/About/JoinOurCustomer"
 
 const Landing = (props) => {
   const { isLoggedIn } = useContext(AuthContext);
@@ -32,7 +32,7 @@ const Landing = (props) => {
         <SectionSeven />
         {/* <SectionFour /> */}
         <Testimonials />
-        <SectionThree />
+        <JoinCustomers />
         <FooterNew />
       </div>
     </>

@@ -21,7 +21,7 @@ import {
   YouTube,
 } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-// import ChatBotLauncher from "./ChatbotLauncher";
+import ChatBotLauncher from "./ChatbotLauncher";
 
 const CustomButton = styled(Button)(({ theme }) => ({
   backgroundColor: "#6A1B9A",
@@ -290,7 +290,7 @@ const FooterNew = () => {
           },
         }}
       >
-        {/* <ChatBotLauncher /> */}
+        <ChatBotLauncher />
         <Fab
           sx={{
             background: "#6E3EF4",

@@ -1,67 +1,148 @@
-import React from "react";
-import TestimonialCard from "./TestimonialCard";
-import { Grid } from "@mui/material";
-import { TestimonialData } from "./assets/LandingData";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import { Star } from "@mui/icons-material";
+import { CardMedia, Grid } from "@mui/material";
 
-const Testimonials = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 700,
-    slidesToShow: 2,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 4000,
-    arrows: false,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          dots: false,
-        },
-      },
-    ],
-  };
+const bull = <Star sx={{ color: "#FFBE4E", fontSize: "16px" }} />;
 
+export default function TestimonialCard({ text, position, author, img }) {
   return (
-    <Grid
+    <Card
       sx={{
-        background: "#F7F7F7",
-        height: "100vh",
+        width: "550px",
+        height: "361px",
+        background: "#FFF",
+        boxShadow: 3,
+        margin: "2vh auto 137px auto",
         display: "flex",
+        flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
         "@media (max-width: 600px)": {
-          height: "65vh",
+          width: "90vw",
+          height: "30vh",
         },
       }}
     >
-      <Slider {...settings} style={{ width: "85%" }}>
-        {TestimonialData.map((data, i) => (
-          <div key={i} style={{ padding: "5vh" }}>
-            <TestimonialCard
-              img={data.img}
-              text={data.text}
-              author={data.author}
-              position={data.position}
-            />
-          </div>
-        ))}
-      </Slider>
-    </Grid>
-  );
-};
+      <CardContent
+        sx={{
+          display: "flex",
+          gap: "31px",
+          flexDirection: "column",
+          "@media (max-width: 600px)": {
+            gap: "20px",
+            width: "80vw",
+            height: "35vh",
+            pt: "15px",
+          },
+        }}
+      >
+        <Grid
+          sx={{
+            display: "flex",
+            "@media (max-width: 600px)": {
+              pt: "25px",
+            },
+          }}
+        >
+          {bull}
+          {bull}
+          {bull}
+          {bull}
+          {bull}
+          <Typography
+            sx={{
+              color: "var(--grey, #A6A6A6);",
+              fontFamily: "Aeonik Pro",
+              fontSize: "14px;",
+              fontStyle: "normal;",
+              fontWeight: "400;",
+              lineHeight: "137%;" /* 19.18px */,
+              letterSpacing: "-0.14px;",
+              ml: "5px",
+            }}
+          >
+            4.5
+          </Typography>
+        </Grid>
+        <Typography
+          sx={{
+            fontSize: "20px",
+            fontWeight: 400,
+            lineHeight: "140%" /* 28px */,
+            letterSpacing: "-0.2px",
+            width: "466px",
+            "@media (max-width: 600px)": {
+              fontSize: "16px",
+              width: "75vw",
+            },
+          }}
+        >
+          “{text}”
+        </Typography>
+        <Grid
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            gap: "16px",
+          }}
+        >
+          <CardMedia
+            component="img"
+            image={img}
+            sx={{
+              width: "50px",
+              height: "50px",
+              objectFit: "cover",
+              borderRadius: "50%",
+            }}
+          />
 
-export default Testimonials;
+          <Grid>
+            <Typography
+              sx={{
+                color: "#000",
+                fontFamily: "Aeonik Pro",
+                fontSize: "16px",
+                fontStyle: "normal",
+                fontWeight: "400",
+                lineHeight: "137%",
+                letterSpacing: "-0.16px",
+                "@media (max-width: 600px)": {
+                  fontSize: "14px",
+                  width: "75vw",
+                },
+              }}
+            >
+              {author}
+            </Typography>
+            <Typography
+              sx={{
+                color: "var(--grey, #A6A6A6);",
+                fontFamily: "Aeonik Pro",
+                fontSize: "14px;",
+                fontStyle: "normal;",
+                fontWeight: "400;",
+                lineHeight: "137%;" /* 19.18px */,
+                letterSpacing: "-0.14px;",
+                mt: "5px",
+                "@media (max-width: 600px)": {
+                  fontSize: "14px",
+                  width: "55vw",
+                },
+              }}
+            >
+              {position}
+            </Typography>
+          </Grid>
+        </Grid>
+      </CardContent>
+    </Card>
+  );
+}
