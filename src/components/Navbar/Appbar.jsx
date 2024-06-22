@@ -158,7 +158,7 @@ function AppBarNav({ color }) {
         sx={{
           background: isScrolled ? "#fff" : "rgba(0,0,0,0)",
           transition: "background-color 0.3s",
-          boxShadow: "none",
+          boxShadow: isScrolled ? "1" : "0",
           borderBottom: "0 solid #E5E5E5",
           py: "20px",
         }}
