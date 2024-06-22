@@ -65,7 +65,7 @@ const SwipeCarousel = () => {
   return (
     <Box
       {...handlers}
-      position="relative"
+      position="relative" 
       width="100%"
       height="100vh"
       display="flex"
