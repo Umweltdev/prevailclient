@@ -17,6 +17,7 @@ import face6 from "./assets/face6.svg";
 import face7 from "./assets/face7.svg";
 import face8 from "./assets/globe.png";
 import face9 from "./assets/pencil.png";
+import face10 from "./assets/face10.svg";
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -57,7 +58,6 @@ const Hero = () => {
               marginBottom: "unset",
               fontWeight: "500",
               alignItems: "center",
-              
             },
           }}
         >
@@ -177,6 +177,9 @@ const Hero = () => {
               <CardMedia
                 sx={{
                   width: "80px",
+                  "@media (max-width: 767px)": {
+                    width: "50px",
+                  },
                 }}
                 component={"img"}
                 image={face9}

@@ -31,27 +31,35 @@ const servicesData = [
   { text: "Search Engine Marketing (SEM)", link: "/Services/sem" },
   { text: "Marketing Price Displacement (MPD)", link: "/Services/mpd" },
   { text: "Digital Accelerator", link: "/Services/digitalaccelerator" },
-  // { text: "Privacy Policy", link: "/Services/privacypolicy" },
 ];
 
 const exploreData = [
-  {
-    text: "Digital Ecosystem",
-    link: "/explore/digitalecosystem",
-  },
-  {
-    text: "Customer Journey",
-    link: "/explore/customerjourney",
-  },
+  { text: "Digital Ecosystem", link: "/explore/digitalecosystem" },
+  { text: "Customer Journey", link: "/explore/customerjourney" },
 ];
 
-function AppBarNav(color) {
+function AppBarNav({ color }) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [servicesAnchorEl, setServicesAnchorEl] = React.useState(null);
   const [anchorElExplore, setAnchorElExplore] = React.useState(null);
   const [anchorElServices, setAnchorElServices] = React.useState(null);
   const { isLoggedIn, dispatch } = React.useContext(AuthContext);
   const navigate = useNavigate();
+
+  const [isScrolled, setIsScrolled] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      setIsScrolled(scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -148,11 +156,11 @@ function AppBarNav(color) {
       <AppBar
         component="nav"
         sx={{
-          background: "rgba(0,0,0,0)",
+          background: isScrolled ? "#fff" : "rgba(0,0,0,0)",
+          transition: "background-color 0.3s",
           boxShadow: "none",
-          borderBottom: "1px solid #E5E5E5",
-          border: "none",
-          pt: "20px",
+          borderBottom: "0 solid #E5E5E5",
+          py: "20px",
         }}
       >
         <Container sx={{ px: { xs: 1, sm: 1, md: 1 } }}>
@@ -162,7 +170,10 @@ function AppBarNav(color) {
               aria-label="open drawer"
               onClick={handleDrawerToggle}
               edge="start"
-              sx={{ display: { sm: "none" }, color: color }}
+              sx={{
+                display: { sm: "none" },
+                color: isScrolled ? "#000" : color,
+              }}
             >
               <MenuIcon />
             </IconButton>
@@ -187,7 +198,7 @@ function AppBarNav(color) {
                 <Button
                   key={index}
                   sx={{
-                    color: color,
+                    color: isScrolled ? "#000" : color,
                     textTransform: "none",
                     margin: "0 10px",
                     display: "flex",
@@ -217,7 +228,7 @@ function AppBarNav(color) {
                     sx={{
                       marginRight: "10px",
                       borderColor: "#884ed9",
-                      color: "#884ed9",
+                      color: isScrolled ? "#000" : color,
                       textTransform: "none",
                       borderRadius: "20px",
                     }}
@@ -245,7 +256,7 @@ function AppBarNav(color) {
                     sx={{
                       marginRight: "15px",
                       borderColor: "#884ed9",
-                      color: color,
+                      color: isScrolled ? "#000" : color,
                       textTransform: "none",
                       borderRadius: "20px",
                     }}
@@ -301,7 +312,7 @@ function AppBarNav(color) {
           <MenuItem key={i} onClick={handleClose}>
             <Link
               style={{
-                color: "#333",
+                color: isScrolled ? "#000" : color,
                 textDecoration: "none",
                 textAlign: "left",
               }}
@@ -321,7 +332,7 @@ function AppBarNav(color) {
           <MenuItem key={i} onClick={handleClose}>
             <Link
               style={{
-                color: "#333",
+                color: isScrolled ? "#000" : color,
                 textDecoration: "none",
                 textAlign: "left",
               }}

@@ -25,7 +25,7 @@ export default function TestimonialCard({ text, position, author, img }) {
         alignItems: "center",
         "@media (max-width: 600px)": {
           width: "90vw",
-          height: "30vh",
+          height: "35vh",
         },
       }}
     >

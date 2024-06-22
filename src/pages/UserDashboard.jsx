@@ -28,8 +28,6 @@ const UserDashBoard = (props) => {
   };
   return (
     <div style={{ width: "100%", overflow: "hidden" }}>
-      {/* <Announcement /> */}
-      {/* <DrawerAppBarWhite {...props} isLoggedIn={isLoggedIn} /> */}
       <AppBarNav color="#333" />
       <Box
         sx={{

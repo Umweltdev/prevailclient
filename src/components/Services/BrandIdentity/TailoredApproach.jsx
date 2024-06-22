@@ -40,7 +40,7 @@ const TailoredApproach = () => {
           "@media (max-width: 600px)": {
             width: "90vw",
             pl: "unset",
-            margin: 'auto'
+            margin: "auto",
           },
         }}
       >
@@ -118,6 +118,10 @@ const TailoredApproach = () => {
                 "linear-gradient(349deg, #350079 11.15%, #904AEA 92.99%)",
               mt: "43px",
               borderRadius: "10px",
+              "@media (max-width: 600px)": {
+                height: "216px",
+                margin: "auto"
+              },
             }}
           >
             <Typography
@@ -130,7 +134,7 @@ const TailoredApproach = () => {
                 "@media (max-width: 600px)": {
                   width: "80vw",
                   mt: "20px",
-                  
+                  fontSize: "16px",
                 },
               }}
             >

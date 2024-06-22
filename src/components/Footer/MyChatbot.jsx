@@ -3,6 +3,8 @@ import React from "react";
 import ChatBot from "react-chatbotify";
 
 const MyChatBot = ({ onClose }) => {
+  const helpOptions = ["Schedule Meeting", "About Us", "Checkout Our Services"];
+
   const [form, setForm] = React.useState({});
   const formStyle = {
     marginTop: 10,
@@ -18,12 +20,13 @@ const MyChatBot = ({ onClose }) => {
 
   const flow = {
     start: {
-      message: "Hi! Welcome to Prevail, What is your name?",
+      message: "Hi! Welcome to Prevail, What is your name/company name?",
       function: (params) => setForm({ ...form, name: params.userInput }),
       path: "ask_service",
     },
     ask_service: {
-      message: "What service do you want from us?",
+      message: (params) =>
+        `Nice to meet you ${params.userInput}, What service do you want from us?`,
       checkboxes: {
         items: [
           "All Services",
@@ -42,13 +45,36 @@ const MyChatBot = ({ onClose }) => {
       path: "ask_meeting",
     },
     ask_meeting: {
-      message: (params) =>
-        `We can schedule a meeting based on service selected`,
-      options: ["Schedule A Meeting", "No"],
-      function: (params) => setForm({ ...form, age: params.userInput }),
-      path: "end",
+      message:
+        "Schedule a meeting with us based on services selected, or you can checkout our services",
+      options: helpOptions,
+      path: "process_options",
     },
-
+    process_options: {
+      transition: { duration: 0 },
+      chatDisabled: true,
+      path: async (params) => {
+        let link = "";
+        switch (params.userInput) {
+          case "Schedule Meeting":
+            link = "/";
+            break;
+          case "About Us":
+            link = "/About";
+            break;
+          case "Our Services":
+            link = "/Services";
+            break;
+          default:
+            return "unknown_input";
+        }
+        await params.injectMessage("Sit tight! I'll send you right there!");
+        setTimeout(() => {
+          window.open(link);
+        }, 1000);
+        return "repeat";
+      },
+    },
     end: {
       message:
         "Thank you for you for contacting Prevail, we will get back to you within the next 48hrs. Note that if you have scheduled a meeting, we will be very much available for it",

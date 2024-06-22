@@ -4,7 +4,14 @@ import "./Loading.css";
 
 const Loading = () => {
   return (
-    <div style={{ margin: "auto 50vw" }}>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        margin: "auto",
+      }}
+    >
       <img className="blink" src={logo} alt="" />
     </div>
   );

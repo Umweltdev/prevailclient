@@ -13,10 +13,10 @@ const CoreValues = () => {
         background: "#F9FAFC",
         flexDirection: "row-reverse",
         "@media (max-width: 600px)": {
-          width: "90vw",
+          width: "100vw",
           margin: "auto",
           padding: "50px 0",
-          flexDirection: "column",
+          flexDirection: "column-reverse",
         },
       }}
       id="faqs"
@@ -27,7 +27,7 @@ const CoreValues = () => {
           pt: "15vh",
           width: "50vw",
           "@media (max-width: 600px)": {
-            pl: "unset",
+            pl: "5vw",
             pt: "unset",
             width: "90vw",
           },
@@ -94,7 +94,8 @@ const CoreValues = () => {
           sx={{
             width: "50vw",
             "@media (max-width: 600px)": {
-              width: "90vw",
+              width: "100vw",
+              pl: "unset"
             },
           }}
         />
