@@ -10,7 +10,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import face1 from "./assets/face1.svg";
 import face2 from "./assets/face2.svg";
-import face3 from "./assets/face3.svg";
+import face3 from "./assets/Union.png";
 import face4 from "./assets/face4.svg";
 import face5 from "./assets/face5.svg";
 import face6 from "./assets/face6.svg";
@@ -25,13 +25,11 @@ const Hero = () => {
   return (
     <Grid
       sx={{
-        // padding: "3rem",
         display: "flex",
         background: "linear-gradient(135deg, #d1c4e9, #ffffff, #bbdefb)",
         flexDirection: "row",
         pt: "256px",
         pb: "100px",
-        // height: "100vh",
         justifyContent: "center",
         alignItems: "top",
         "@media (max-width: 767px)": {
@@ -42,7 +40,6 @@ const Hero = () => {
         },
       }}
     >
-      {/* <Grid alignItems="center"> */}
       <Grid>
         <Typography
           sx={{
@@ -129,6 +126,7 @@ const Hero = () => {
           <Box
             sx={{
               display: "flex",
+              position: "relative",
               "@media (max-width: 767px)": {
                 width: "90vw",
               },
@@ -146,17 +144,38 @@ const Hero = () => {
               component={"img"}
               image={face1}
             />
-            <CardMedia
+            <Box
               sx={{
+                position: "relative",
                 width: "241px",
                 "@media (max-width: 767px)": {
                   width: "35vw",
                   height: "35vw",
                 },
               }}
-              component={"img"}
-              image={face2}
-            />
+            >
+              <CardMedia
+                sx={{
+                  width: "100%",
+                  height: "100%",
+                }}
+                component={"img"}
+                image={face2}
+              />
+              <CardMedia
+                sx={{
+                  position: "absolute",
+                  top: "-60px",
+                  left: "-60px",
+                  width: "50%",
+                  "@media (max-width: 767px)": {
+                    width: "70%",
+                  },
+                }}
+                component={"img"}
+                image={face3}
+              />
+            </Box>
           </Box>
           <Box sx={{ display: "flex" }}>
             <Box
@@ -185,11 +204,6 @@ const Hero = () => {
                 image={face9}
               />
             </Box>
-            {/* <CardMedia
-              sx={{ width: "367px" }}
-              component={"img"}
-              image={face3}
-            /> */}
             <CardMedia
               sx={{
                 width: "425px",
@@ -220,7 +234,6 @@ const Hero = () => {
             component={"img"}
             image={face5}
           />
-
           <CardMedia
             sx={{
               width: "205px",
@@ -248,65 +261,7 @@ const Hero = () => {
             image={face7}
           />
         </Box>
-        <Box></Box>
       </Grid>
-      {/* <Grid item xs={12} md={4.5}>
-        <Box
-          sx={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            width: "280px",
-            "@media (max-width: 767px)": {
-              margin: "auto",
-            },
-          }}
-        >
-          {[face1, face2, face3, face4, face5, face6, face7].map(
-            (face, index) => (
-              <Box
-                key={index}
-                sx={{
-                  //👩🏻‍💻
-                  width:
-                    index === 0
-                      ? "170px"
-                      : index === 1
-                      ? "110px"
-                      : index === 2
-                      ? "125px"
-                      : index === 3
-                      ? "155px"
-                      : index === 4
-                      ? "110px"
-                      : index === 5
-                      ? "85px"
-                      : index === 6
-                      ? "85px"
-                      : "140px",
-                  height: "110px",
-                  borderRadius:
-                    index === 0 || index === 2 || index === 3
-                      ? "25px"
-                      : index === 5 || index === 6
-                      ? "50% / 25%"
-                      : "50%", // Vertical ellipse for face6 and face7
-                  overflow: "hidden",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <img
-                  src={face}
-                  alt={`Face ${index + 1}`}
-                  style={{ width: "100%", height: "100%" }}
-                />
-              </Box>
-            )
-          )}
-        </Box>
-      </Grid> */}
     </Grid>
   );
 };
