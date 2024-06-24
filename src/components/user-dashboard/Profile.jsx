@@ -20,11 +20,13 @@ const Profile = () => {
   const Mobile = useMediaQuery("(min-width:600px)");
   const location = useLocation();
 
-  const {user} =  useContext(AuthContext)
-
+  const { user } = useContext(AuthContext);
+  
   if (!user) {
     return <Loading />;
   }
+
+  console.log(user);
 
   return (
     <Stack spacing={3}>
@@ -63,7 +65,7 @@ const Profile = () => {
             First Name
           </small>
           <Typography variant="subtitle2" textTransform="capitalize">
-            {user.user.firstName}
+            {user.user.name}
           </Typography>
         </Box>
         <Box

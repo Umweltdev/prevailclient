@@ -40,8 +40,9 @@ const AuthReducer = (state, action) => {
 };
 
 export const AuthContextProvider = ({ children }) => {
-   const [state, dispatch] = useReducer(AuthReducer, INITIAL_STATE);
-   const isLoggedIn = !!state.user;
+  const [state, dispatch] = useReducer(AuthReducer, INITIAL_STATE);
+  const isLoggedIn = !!state.user;
+  const isAdmin = state.user?.user?.isAdmin || false;
 
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(state.user));
@@ -52,6 +53,7 @@ export const AuthContextProvider = ({ children }) => {
       value={{
         user: state.user,
         isLoggedIn,
+        isAdmin,
         loading: state.loading,
         error: state.error,
         dispatch,
