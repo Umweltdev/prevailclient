@@ -10,7 +10,6 @@ const LoginForm = (props) => {
 
   return (
     <>
-      
       <Login />
     </>
   );

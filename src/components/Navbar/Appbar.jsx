@@ -43,9 +43,8 @@ function AppBarNav({ color }) {
   const [servicesAnchorEl, setServicesAnchorEl] = React.useState(null);
   const [anchorElExplore, setAnchorElExplore] = React.useState(null);
   const [anchorElServices, setAnchorElServices] = React.useState(null);
-  const { isLoggedIn, dispatch } = React.useContext(AuthContext);
+  const { isLoggedIn, isAdmin, dispatch, user } = React.useContext(AuthContext);
   const navigate = useNavigate();
-
   const [isScrolled, setIsScrolled] = React.useState(false);
 
   React.useEffect(() => {
@@ -75,6 +74,10 @@ function AppBarNav({ color }) {
     navigate("/user/profile");
   };
 
+  const handleAdminPanel = () => {
+    navigate("/admin");
+  };
+
   const handleServicesClick = (event) => {
     setAnchorElServices(event.currentTarget);
   };
@@ -87,6 +90,11 @@ function AppBarNav({ color }) {
     setAnchorElServices(null);
     setAnchorElExplore(null);
   };
+
+  React.useEffect(() => {
+    console.log("isLoggedIn: ", isLoggedIn);
+    console.log("isAdmin: ", isAdmin);
+  }, [isLoggedIn, isAdmin]);
 
   const navItems = React.useMemo(
     () =>
@@ -102,6 +110,15 @@ function AppBarNav({ color }) {
               onClick: handleUserDashboard,
               path: "/user/profile",
             },
+            ...(isAdmin
+              ? [
+                  {
+                    label: "Admin Panel",
+                    onClick: handleAdminPanel,
+                    path: "/admin",
+                  },
+                ]
+              : []),
             { label: "Logout", onClick: handleLogout, path: "/login" },
           ]
         : [
@@ -113,16 +130,13 @@ function AppBarNav({ color }) {
             { label: "Login", link: "/login" },
             { label: "Sign Up", link: "/signup" },
           ],
-    [isLoggedIn, handleLogout]
+    [isLoggedIn, isAdmin, handleLogout]
   );
 
   const drawer = (
     <Box
       onClick={handleDrawerToggle}
-      sx={{
-        textAlign: "center",
-        color: "#884ed9",
-      }}
+      sx={{ textAlign: "center", color: "#884ed9" }}
     >
       <Typography
         variant="h6"
@@ -149,6 +163,9 @@ function AppBarNav({ color }) {
       </List>
     </Box>
   );
+
+  console.log("isLoggedIn: ", isLoggedIn);
+  console.log("isAdmin: ", isAdmin);
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -243,11 +260,26 @@ function AppBarNav({ color }) {
                       color: "white",
                       textTransform: "none",
                       borderRadius: "20px",
+                      marginRight: "10px",
                     }}
                     onClick={handleUserDashboard}
                   >
                     Dashboard
                   </Button>
+                  {isAdmin && (
+                    <Button
+                      variant="contained"
+                      sx={{
+                        backgroundColor: "#ff5722",
+                        color: "white",
+                        textTransform: "none",
+                        borderRadius: "20px",
+                      }}
+                      onClick={handleAdminPanel}
+                    >
+                      Admin Panel
+                    </Button>
+                  )}
                 </>
               ) : (
                 <>

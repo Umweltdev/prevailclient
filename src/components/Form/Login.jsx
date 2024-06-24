@@ -6,6 +6,8 @@ import {
   Typography,
   IconButton,
   Link as MuiLink,
+  CardMedia,
+  CircularProgress,
 } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import { styled } from "@mui/system";
@@ -13,8 +15,9 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
 import Loading from "../utils/Loading";
-import loginImage from '../Form/image_130.png';
-import image2 from '../Form/Group_1.svg';
+import loginImage from "../Form/image_130.png";
+import image2 from "../Form/Group_1.svg";
+import { PasswordInput, TextInput } from "./Textfileds";
 
 const CustomTextField = styled(TextField)({
   "& .MuiOutlinedInput-root": {
@@ -31,11 +34,13 @@ const Login = () => {
   const { user, loading, error, dispatch } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isButtonLoading, setIsButtonLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       dispatch({ type: "LOGIN_START" });
+      setIsButtonLoading(true);
 
       const response = await axios.post(
         "https://prevailserver-4b3c670a5496.herokuapp.com/api/auth/login",
@@ -49,6 +54,8 @@ const Login = () => {
       navigate("/user/profile", { state: { user: user } });
     } catch (error) {
       dispatch({ type: "LOGIN_FAILURE", payload: error.response.data });
+    } finally {
+      setIsButtonLoading(false);
     }
   };
 
@@ -56,166 +63,230 @@ const Login = () => {
     setShowPassword(!showPassword);
   };
 
-  return (
-    <Grid container sx={{ minHeight: '100vh' }}>
-      {loading && <Loading />}
+  // console.log("user", user.user);
 
-      {!loading && (
-        <Grid container sx={{ width: '100%' }}>
-          <Grid
-            item
-            xs={12}
-            md={6}
+  return (
+    <Grid
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        width: "100vw",
+        "@media (max-width: 900px)": {
+          flexDirection: "column",
+          alignItems: "center",
+          margin: "auto",
+          overflowX: "hidden",
+        },
+      }}
+    >
+      <Grid
+        component="form"
+        onSubmit={handleSubmit}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
+          width: "50vw",
+          "@media (max-width: 900px)": {
+            flexDirection: "column",
+            width: "90vw",
+            alignItems: "center",
+            margin: "auto",
+          },
+        }}
+      >
+        <Grid item>
+          <Typography
+            variant="h4"
+            align="center"
             sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              padding: '2rem',
+              fontWeight: "bold",
+              marginBottom: "1rem",
+              "@media (max-width: 900px)": {
+                flexDirection: "column",
+                width: "80vw",
+                alignItems: "center",
+              },
+              mt: {
+                xs: "5rem",
+                md: "0",
+              }, // Add top margin for small screens
             }}
           >
-            <Grid
-              container
-              direction="column"
-              spacing={2}
-              sx={{
-                maxWidth: 400,
-                width: '100%',
-              }}
-              component="form"
-              onSubmit={handleSubmit}
-              noValidate
-              autoComplete="on"
-            >
-              <Grid item>
-                <Typography
-                  variant="h4"
-                  align="center"
-                  sx={{
-                    fontWeight: 'bold',
-                    marginBottom: '1rem',
-                    mt: { xs: '2rem', md: '0' } // Add top margin for small screens
-                  }}
-                >
-                  Welcome back
-                </Typography>
-                <Typography variant="body1" align="center" sx={{ marginBottom: '2rem' }}>
-                  Welcome back! Please enter your details.
-                </Typography>
-                {error && <span style={{ color: 'red' }}>{error.message}!</span>}
-              </Grid>
-              <Grid item>
-                <Typography variant="body2" sx={{ marginBottom: '0.5rem' }}>Email</Typography>
-                <CustomTextField
-                  fullWidth
-                  placeholder="hi@example.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </Grid>
-              <Grid item sx={{ position: 'relative' }}>
-                <Typography variant="body2" sx={{ marginBottom: '0.5rem' }}>Password</Typography>
-                <CustomTextField
-                  fullWidth
-                  placeholder="Enter Password"
-                  type={showPassword ? "text" : "password"}
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                <IconButton
-                  onClick={handleTogglePassword}
-                  sx={{
-                    position: 'absolute',
-                    right: '10px',
-                    top: '50%',
-                    transform: 'translateY(10%)', // Adjust the translateY value to align the icon
-                  }}
-                >
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </Grid>
-              <Grid item>
-                <MuiLink href="#" underline="hover" sx={{ alignSelf: 'flex-start', marginBottom: '1rem' }}>
-                  <Typography>
-                  Forgot Password?
-                  </Typography>
-                </MuiLink>
-              </Grid>
-              <Grid item>
-                <Button
-                  variant="contained"
-                  type="submit"
-                  fullWidth
-                  sx={{
-                    backgroundColor: '#7a4fd4', // A bit more purple
-                    color: 'white',
-                    textTransform: 'none',
-                    marginBottom: '1rem',
-                    borderRadius: '10px', // Add border-radius
-                    '&:hover': {
-                      backgroundColor: '#9370db',
-                    },
-                  }}
-                >
-                  Login
-                </Button>
-              </Grid>
-              <Grid item>
-                <Button
-                  variant="outlined"
-                  fullWidth
-                  sx={{
-                    textTransform: 'none',
-                    borderRadius: '10px', // Add border-radius
-                    borderColor: 'black', // Black border color
-                    color: 'black',
-                    '&:hover': {
-                      borderColor: 'black',
-                    }
-                  }}
-                  startIcon={<img src="https://developers.google.com/identity/images/g-logo.png" alt="Google Logo" style={{ width: '20px', height: '20px' }} />}
-                >
-                 Continue with Google
-                </Button>
-              </Grid>
-              <Grid item>
-                <Typography variant="body2" align="center" sx={{ marginTop: '1rem' }}>
-                  Don't have an account?
-                  <span style={{ marginLeft: '5px' }}>
-                    <Link to="/signup" style={{ fontWeight: 'bold', textDecoration: 'none' }}>
-                      <Typography variant="body2" component="span">
-                        Sign up for free
-                      </Typography>
-                    </Link>
-                  </span>
-                </Typography>
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            md={6}
+            Welcome back
+          </Typography>
+          <Typography
+            variant="body1"
+            align="center"
             sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              backgroundColor: '#F7F7FD',
-              padding: '2rem',
-              height: '100vh',
-              overflowY: 'auto',
+              marginBottom: "2rem",
+              "@media (max-width: 900px)": {
+                width: "80vw",
+              },
             }}
           >
-            <img src={loginImage} alt="Login" style={{ width: '100%', height: 'auto', marginBottom: '0.5rem' }} />
-            <Typography variant="h6" align="left" sx={{ width: '100%' }}>
-              Powered by <img src={image2} alt="Prevail Logo" />
-            </Typography>
-            <Typography align="left" sx={{ width: '100%', marginTop: '1rem' }}>
-              You agree to Prevail Agency's Terms of Use & Privacy Policy. You don't need to consent as a condition of renting any property, or buying any other goods or services. Message/data rates may apply.
-            </Typography>
-          </Grid>
+            Welcome back! Please enter your details.
+          </Typography>
+          {error && (
+            <span style={{ color: "red", textAlign: "center" }}>
+              {error.message}!
+            </span>
+          )}
         </Grid>
-      )}
+
+        {/* <Typography variant="body2" sx={{ marginBottom: '0.5rem' }}>Email</Typography> */}
+        <TextInput
+          width={"30vw"}
+          mobileWidth={"80vw"}
+          placeholder="hi@example.com"
+          label="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+
+        <PasswordInput
+          width={"30vw"}
+          mobileWidth={"80vw"}
+          placeholder="Enter Password"
+          label="Password"
+          type={showPassword ? "text" : "password"}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+
+        <Grid item>
+          <MuiLink
+            href="#"
+            underline="hover"
+            sx={{ alignSelf: "flex-start", marginBottom: "1rem" }}
+          >
+            <Typography sx={{ textAlign: "left", mb: "10px" }}>
+              Forgot Password?
+            </Typography>
+          </MuiLink>
+        </Grid>
+        <Grid item>
+          <Button
+            variant="contained"
+            type="submit"
+            disabled={isButtonLoading}
+            sx={{
+              backgroundColor: "#7a4fd4",
+              color: "white",
+              textTransform: "none",
+              marginBottom: "10px",
+              fontSize: "16px",
+              width: "31vw",
+              padding: "12px 0",
+              "@media (max-width: 900px)": {
+                width: "80vw",
+              },
+              "&:hover": {
+                backgroundColor: "#9370db",
+              },
+            }}
+          >
+            {isButtonLoading ? (
+              <Typography
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <CircularProgress size={24} /> Loading...
+              </Typography>
+            ) : (
+              "Login"
+            )}
+          </Button>
+        </Grid>
+
+        <Grid item>
+          <Typography
+            variant="body2"
+            align="center"
+            sx={{
+              marginTop: "1rem",
+              "@media (max-width: 900px)": {
+                mb: "50px",
+                width: "80vw",
+              },
+            }}
+          >
+            Don't have an account?
+            <span style={{ marginLeft: "5px" }}>
+              <Link
+                to="/signup"
+                style={{ fontWeight: "bold", textDecoration: "none" }}
+              >
+                <Typography variant="body2" component="span">
+                  Sign up for free
+                </Typography>
+              </Link>
+            </span>
+          </Typography>
+        </Grid>
+      </Grid>
+      <Grid
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "top",
+          alignItems: "center",
+          backgroundColor: "#F7F7FD",
+          height: "100vh",
+          overflowY: "auto",
+          width: "50vw",
+          "@media (max-width: 900px)": {
+            width: "100vw",
+            height: "unset",
+          },
+        }}
+      >
+        <CardMedia
+          component={"img"}
+          image={loginImage}
+          sx={{
+            height: "75vh",
+            marginBottom: "20px",
+            width: "50vw",
+            objectFit: "cover",
+            "@media (max-width: 900px)": {
+              width: "80vw",
+              height: "auto",
+            },
+          }}
+        />
+        <Typography
+          variant="h6"
+          align="left"
+          sx={{
+            width: "45vw",
+            "@media (max-width: 900px)": {
+              width: "80vw",
+            },
+          }}
+        >
+          Powered by <img src={image2} alt="Prevail Logo" />
+        </Typography>
+        <Typography
+          align="left"
+          sx={{
+            width: "45vw",
+            marginTop: "1rem",
+            "@media (max-width: 900px)": {
+              width: "80vw",
+            },
+          }}
+        >
+          You agree to Prevail Agency's Terms of Use & Privacy Policy. You don't
+          need to consent as a condition of renting any property, or buying any
+          other goods or services. Message/data rates may apply.
+        </Typography>
+      </Grid>
     </Grid>
   );
 };
