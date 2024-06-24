@@ -12,11 +12,11 @@ const JoinOurCustomer = () => {
         color: "white",
         py: "147px",
         display: "flex",
-        justifyContent: "space-between",
+        justifyContent: "center",
         alignItems: "center",
         position: "relative",
         "@media (max-width: 900px)": {
-          flexDirection: "row",
+          flexDirection: "column",
           alignItems: "center",
           py: "100px",
         },
@@ -27,13 +27,11 @@ const JoinOurCustomer = () => {
         image={imago}
         sx={{
           width: "404px",
-          position: "relative",
-          top: "160px",
+          position: "absolute",
+          bottom: "0",
+          left: "0",
           "@media (max-width: 900px)": {
             display: "none",
-            width: "64px",
-            top: "0",
-            marginBottom: "20px",
           },
         }}
       />
@@ -97,13 +95,11 @@ const JoinOurCustomer = () => {
         image={imago2}
         sx={{
           width: "404px",
-          position: "relative",
-          top: "-147px", // Adjusted to align with the left image
+          position: "absolute",
+          top: "0",
+          right: "0",
           "@media (max-width: 900px)": {
             display: "none",
-            width: "64px",
-            top: "0",
-            marginTop: "20px",
           },
         }}
       />
