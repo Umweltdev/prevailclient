@@ -53,8 +53,7 @@ const WebManagement = () => {
       {/* <DrawerAppBarWhite /> */}
       <AppBarNav color="#000" />
       <HeroComponent title="Website Development" />
-      <Box
-      >
+      <Box display={{xs:"none",md:"block"}}>
         <Solution />
       </Box>
       <Box>
@@ -66,10 +65,10 @@ const WebManagement = () => {
                 spacing={2}
                 textAlign={"center"}
                 width={{ xs: "100%", md: "75%" }}
+                py={{xs: 3,md:8}}
                 sx={{
                   // width: "65%",
                   margin: "0 auto",
-                  py: 8,
                 }}
               >
                 <Typography
@@ -656,7 +655,7 @@ const WebManagement = () => {
       </Box>
 
       <Box
-        py={10}
+        py={7}
         sx={{
           backgroundImage:
             "linear-gradient(to bottom, #ffffff, rgba(110, 62, 244, 0.3))",
@@ -664,11 +663,12 @@ const WebManagement = () => {
       >
         <Box
           py={{ xs: 8, md: 11 }}
-          px={{ xs: 5, md: 10 }}
+          px={{ xs: 2, md: 10 }}
+          width={{xs:"90%", md:"80%"}}
           sx={{
             backgroundImage:
               "linear-gradient(349deg, #350079 11.15%, #904AEA 92.99%)",
-            width: "80%",
+            // width: "80%",
             margin: "0 auto",
             textAlign: "center",
             color: "white",

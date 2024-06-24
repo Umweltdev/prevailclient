@@ -270,7 +270,8 @@ const WebsiteDevelopment = () => {
           }}
         >
           <Box
-            px={{ xs: 6, md: 16 }}
+            px={{ xs: 3, md: 16 }}
+            py={{xs: 3, md: 8}}
             sx={{
               backgroundColor: "#FCFCFC",
               py: 8,

@@ -6,11 +6,14 @@ import { Container, Grid, Typography, Stack, Box, Button } from "@mui/material";
 import image1 from "./assets/image1.png";
 import image2 from "./assets/image2.png";
 import rocket from "./assets/rocket.png";
-import "./styles.css"
+import "./styles.css";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 import AccordionUsage from "./Accordion";
 
 const DigitalAccelerator = () => {
+  const Mobile = useMediaQuery("(min-width:1249px)");
+
   return (
     <div style={{ width: "100%", overflow: "hidden" }}>
       {/* <HeroSection header="Digital Accelerator Bundle Page " /> */}
@@ -19,14 +22,18 @@ const DigitalAccelerator = () => {
       <Stack>
         <Stack
           direction={{ xs: "column", lg: "row" }}
-          spacing={{xs:5,lg:10}}
+          spacing={{ xs: 3.5, lg: 10 }}
           justifyContent={"space-between"}
           alignItems={"center"}
-          py={{xs:4, lg:0}}
-          px={{xs:2, lg:0}}
-
+          py={{ xs: 3, lg: 0 }}
+          px={{ xs: 2, lg: 0 }}
         >
-          <Stack pl={{xs:0, lg:16}} pr={{xs:0, lg:6}} spacing={2} width={{ xs: "100%", lg: "50%" }}>
+          <Stack
+            pl={{ xs: 0, lg: 16 }}
+            pr={{ xs: 0, lg: 6 }}
+            spacing={2}
+            width={{ xs: "100%", lg: "50%" }}
+          >
             <Typography
               sx={{
                 fontSize: "28px",
@@ -78,14 +85,14 @@ const DigitalAccelerator = () => {
         </Stack>
 
         <Stack
-         
           direction={{ xs: "column", lg: "row" }}
-          spacing={{xs:5,lg:10}}
+          spacing={{ xs: 3, lg: 10 }}
           justifyContent={"space-between"}
           alignItems={"center"}
-          px={{xs:2, lg:0}}
+          px={{ xs: 2, lg: 0 }}
+          
         >
-          <Box width={{ xs: "100%", lg: "50%" }} order={{xs: 2, lg: 1}}>
+          <Box width={{ xs: "100%", lg: "50%" }} order={{ xs: 2, lg: 1 }} mt={{ xs:4, lg:0}}>
             <Box
               sx={{
                 width: "100%",
@@ -102,10 +109,11 @@ const DigitalAccelerator = () => {
             </Box>
           </Box>
           <Stack
-          
-            pl={{xs:0, lg:6}} pr={{xs:0, lg:16}} spacing={2}
+            pl={{ xs: 0, lg: 6 }}
+            pr={{ xs: 0, lg: 16 }}
+            spacing={2}
             width={{ xs: "100%", lg: "50%" }}
-            order={{xs: 1, lg: 2}}
+            order={{ xs: 1, lg: 2 }}
           >
             <Typography
               sx={{
@@ -140,23 +148,22 @@ const DigitalAccelerator = () => {
       <Container
         maxWidth="lg"
         sx={{
-          py: 8,
+          py: 5,
         }}
       >
-        <Grid container spacing={10}>
+        <Grid container spacing={{ xs: 4, md: 10 }}>
           <Grid item xs={12} md={5.5}>
             <Box
-            px={{xs: 4, md:6}}
+              px={{ xs: 2, md: 6 }}
+              py={{ xs: 5, md: 8 }}
               sx={{
                 backgroundColor: "#0D0E30",
                 borderRadius: "7px",
-                py: 8,
               }}
             >
               <Typography
-              fontSize={{xs:"30px", md:"32px"}}
+                fontSize={{ xs: "28px", md: "32px" }}
                 sx={{
-                  lineHeight: "48px",
                   color: "white",
                 }}
               >
@@ -176,9 +183,8 @@ const DigitalAccelerator = () => {
         sx={{
           backgroundImage:
             "linear-gradient(to bottom, #ffffff, rgba(110, 62, 244, 0.3))",
-
-          py: 9,
         }}
+        py={{ xs: 5, md: 9 }}
       >
         <Container maxWidth="lg" sx={{}}>
           <Box
@@ -188,23 +194,24 @@ const DigitalAccelerator = () => {
             }}
           >
             <Stack
-              spacing={2.5}
-              width={{xs:"100%", md:"65%"}}
+              spacing={{ xs: 1.8, md: 2.5 }}
+              width={{ xs: "100%", md: "65%" }}
               sx={{
-                p: 6,
                 textAlign: "center",
                 margin: "0 auto",
                 color: "#2A5369",
                 fontSize: "16px",
               }}
+              p={{ xs: 2, md: 6 }}
+              py={{ xs: 1, md: 6 }}
             >
               <Typography
                 sx={{
-                  fontSize: "38px",
                   color: "#1D0D40",
                   lineHeight: "39px",
                   fontWeight: "600",
                 }}
+                fontSize={{ xs: "28px", md: "38px" }}
               >
                 Why Choose Prevail’s Digital Accelerator Bundle? 
               </Typography>
@@ -246,7 +253,11 @@ const DigitalAccelerator = () => {
                   py={1}
                   alignSelf={"start"}
                 >
-                  <Typography color={"#6E3EF4"} textAlign={{xs:"center", md:"left"}} fontSize={"18px"} >
+                  <Typography
+                    color={"#6E3EF4"}
+                    textAlign={{ xs: "center", md: "left" }}
+                    fontSize={"18px"}
+                  >
                     Don't miss out on the opportunity to transform your
                     business!
                   </Typography>
