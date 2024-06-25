@@ -20,10 +20,8 @@ import face9 from "./assets/pencil.png";
 import face10 from "./assets/face10.svg";
 import face11 from "./assets/eye.png";
 import face12 from "./assets/Unions.svg";
-<<<<<<< HEAD
 import face13 from "./assets/hands-new.png";
-=======
->>>>>>> a307df9 (FIX)
+
 
 const Hero = () => {
   const navigate = useNavigate();
