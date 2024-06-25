@@ -75,8 +75,9 @@ function AppBarNav({ color }) {
   };
 
   const handleAdminPanel = () => {
-    navigate("/admin");
+    window.location.href = "https://marvelous-muffin-8a8584.netlify.app";
   };
+
 
   const handleServicesClick = (event) => {
     setAnchorElServices(event.currentTarget);
@@ -101,12 +102,47 @@ function AppBarNav({ color }) {
             { label: "About Us", link: "/about" },
             { label: "Contact Us", link: "/contact" },
 
+            // ...(isAdmin
+            //   ? [
+            //       {
+            //         label: "Admin Panel",
+            //         onClick: handleAdminPanel,
+            //         path: "https://667a6e03fc92ceb5b5ec2751--marvelous-muffin-8a8584.netlify.app/auth/jwt/login?returnTo=%2Fdashboard",
+            //       },
+            //     ]
+            //   : []),
+            { label: "Dashboard", link: "/contact" },
+
+            { label: "Logout", onClick: handleLogout, path: "/login" },
+          ]
+        : [
+            { label: "Explore", onClick: handleExploreClick },
+            { label: "Services", onClick: handleServicesClick },
+            { label: "Blog", link: "/blog" },
+            { label: "About Us", link: "/about" },
+            { label: "Contact Us", link: "/contact" },
+            { label: "Login", link: "/login" },
+            { label: "Sign Up", link: "/signup" },
+          ],
+    [isLoggedIn, isAdmin, handleLogout]
+  );
+
+  const DrawerNavItems = React.useMemo(
+    () =>
+      isLoggedIn
+        ? [
+            { label: "Explore", onClick: handleExploreClick },
+            { label: "Services", onClick: handleServicesClick },
+            { label: "Blog", link: "/blog" },
+            { label: "About Us", link: "/about" },
+            { label: "Contact Us", link: "/contact" },
+
             ...(isAdmin
               ? [
                   {
                     label: "Admin Panel",
                     onClick: handleAdminPanel,
-                    path: "/admin",
+                    path: "https://marvelous-muffin-8a8584.netlify.app",
                   },
                 ]
               : []),
@@ -141,7 +177,7 @@ function AppBarNav({ color }) {
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item, index) => (
+        {DrawerNavItems.map((item, index) => (
           <ListItem sx={{ textAlign: "center" }} key={index} disablePadding>
             <ListItemButton
               component={item.link ? Link : "div"}
