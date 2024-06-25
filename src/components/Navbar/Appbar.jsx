@@ -91,11 +91,6 @@ function AppBarNav({ color }) {
     setAnchorElExplore(null);
   };
 
-  React.useEffect(() => {
-    console.log("isLoggedIn: ", isLoggedIn);
-    console.log("isAdmin: ", isAdmin);
-  }, [isLoggedIn, isAdmin]);
-
   const navItems = React.useMemo(
     () =>
       isLoggedIn
@@ -105,11 +100,7 @@ function AppBarNav({ color }) {
             { label: "Blog", link: "/blog" },
             { label: "About Us", link: "/about" },
             { label: "Contact Us", link: "/contact" },
-            {
-              label: "Dashboard",
-              onClick: handleUserDashboard,
-              path: "/user/profile",
-            },
+
             ...(isAdmin
               ? [
                   {
@@ -119,6 +110,8 @@ function AppBarNav({ color }) {
                   },
                 ]
               : []),
+            { label: "Dashboard", link: "/contact" },
+
             { label: "Logout", onClick: handleLogout, path: "/login" },
           ]
         : [
@@ -164,8 +157,8 @@ function AppBarNav({ color }) {
     </Box>
   );
 
-  console.log("isLoggedIn: ", isLoggedIn);
-  console.log("isAdmin: ", isAdmin);
+  // console.log("isLoggedIn: ", isLoggedIn);
+  // console.log("isAdmin: ", isAdmin);
 
   return (
     <Box sx={{ display: "flex" }}>
