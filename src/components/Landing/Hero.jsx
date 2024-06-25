@@ -19,7 +19,7 @@ import face8 from "./assets/globe.png";
 import face9 from "./assets/pencil.png";
 import face10 from "./assets/face10.svg";
 import face11 from "./assets/eye.png";
-import face12 from "./assets/unions.svg";
+import face12 from "./assets/Unions.svg";
 
 const Hero = () => {
   const navigate = useNavigate();
