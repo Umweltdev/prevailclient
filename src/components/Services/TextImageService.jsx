@@ -2,47 +2,13 @@ import { Grid, Typography, Box, CardMedia } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import React from "react";
 
-const useStyles = makeStyles((theme) => ({
-  container: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    maxWidth: "90vw",
-    marginTop: "4vh",
-    "@media (max-width: 600px)": {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      width: "95vw",
-      marginTop: "2vh",
-    },
-  },
-
-  textContainer: {
-    width: "50vw",
-    "@media (max-width: 600px)": {
-      width: "100%",
-    },
-  },
-  image: {
-    width: 200,
-    "@media (max-width: 600px)": {
-      display: "none",
-    },
-  },
-}));
-
 const TextImageService = ({ text, imageUrl, textHeader }) => {
-  const classes = useStyles();
-
   return (
     <Grid
-      container
       sx={{
-        // width: "80vw",
+        width: "100vw",
         display: "flex",
         flexDirection: "row",
-        margin: "0px auto 0 auto",
         justifyContent: "center",
         alignItems: "center",
         gap: "239px",
@@ -60,8 +26,7 @@ const TextImageService = ({ text, imageUrl, textHeader }) => {
       <Grid
         item
         sx={{
-          maxWidth: "468px",
-          flexGrow: 1,
+          width: "34vw",
           "@media (max-width: 600px)": {
             width: "100%",
           },
@@ -76,6 +41,7 @@ const TextImageService = ({ text, imageUrl, textHeader }) => {
             marginBottom: "20px",
             lineHeight: "110%",
             letterSpacing: "-0.28px",
+
             "@media (max-width: 600px)": {
               fontSize: "6vw",
               margin: "2vh 0",
@@ -89,6 +55,7 @@ const TextImageService = ({ text, imageUrl, textHeader }) => {
             fontSize: "16px",
             color: "#505660",
             marginBottom: "3vh",
+            width: "34vw",
             "@media (max-width: 600px)": {
               fontSize: "4vw",
               textAlign: "justify",
@@ -104,10 +71,9 @@ const TextImageService = ({ text, imageUrl, textHeader }) => {
         image={imageUrl}
         alt=""
         sx={{
-          width: "487px",
-          height: "290px",
+          width: "34vw",
+          height: "300px",
           borderRadius: "16px",
-
           "@media (max-width: 600px)": {
             width: "90vw",
             height: "365.756px",

@@ -1,19 +1,19 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
 import imago from "./assets/about4.svg";
 
 const WhyItMatters = () => {
   return (
     <Grid
-      container
       sx={{
-        // width: "80vw",
+        width: "100vw",
         display: "flex",
         flexDirection: "row",
         margin: "100px auto 0 auto",
         justifyContent: "center",
         alignItems: "center",
-        gap: "255px",
+        gap: "px",
+        gap: "239px",
         "@media (max-width: 600px)": {
           width: "90vw",
           flexDirection: "column",
@@ -29,8 +29,7 @@ const WhyItMatters = () => {
         <Grid
           item
           sx={{
-            maxWidth: "468px",
-            flexGrow: 1,
+            width: "485px",
             "@media (max-width: 600px)": {
               width: "100%",
             },
@@ -78,7 +77,6 @@ const WhyItMatters = () => {
           item
           sx={{
             maxWidth: "468px",
-            flexGrow: 1,
             "@media (max-width: 600px)": {
               width: "100%",
             },
@@ -122,16 +120,14 @@ const WhyItMatters = () => {
           </Typography>
         </Grid>
       </Box>
-
-      <img
-        style={{
-          maxWidth: "487px",
+      <CardMedia
+        component={"img"}
+        image={imago}
+        sx={{
+          width: "485px",
           maxHeight: "636px",
-          width: "100%",
           height: "auto",
         }}
-        src={imago}
-        alt=""
       />
     </Grid>
   );
