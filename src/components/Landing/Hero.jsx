@@ -18,6 +18,8 @@ import face7 from "./assets/face7.svg";
 import face8 from "./assets/globe.png";
 import face9 from "./assets/pencil.png";
 import face10 from "./assets/face10.svg";
+import face11 from "./assets/eye.png";
+import face12 from "./assets/unions.svg";
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -162,7 +164,7 @@ const Hero = () => {
                 component={"img"}
                 image={face2}
               />
-              <CardMedia
+              <Box
                 sx={{
                   position: "absolute",
                   top: "-60px",
@@ -172,9 +174,31 @@ const Hero = () => {
                     width: "70%",
                   },
                 }}
-                component={"img"}
-                image={face3}
-              />
+              >
+                <CardMedia
+                  sx={{
+                    width: "100%",
+                    height: "100%",
+                    position: "relative",
+                  }}
+                  component={"img"}
+                  image={face3}
+                />
+                <CardMedia
+                  sx={{
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    width: "50%",
+                    "@media (max-width: 767px)": {
+                      width: "70%",
+                    },
+                  }}
+                  component={"img"}
+                  image={face11}
+                />
+              </Box>
             </Box>
           </Box>
           <Box sx={{ display: "flex" }}>
@@ -221,8 +245,9 @@ const Hero = () => {
           </Box>
         </Box>
         <Box sx={{ display: "flex" }}>
-          <CardMedia
+          <Box
             sx={{
+              position: "relative",
               width: "205px",
               height: "205px",
               borderRadius: "50%",
@@ -231,9 +256,31 @@ const Hero = () => {
                 height: "30vw",
               },
             }}
-            component={"img"}
-            image={face5}
-          />
+          >
+            <CardMedia
+              sx={{
+                width: "100%",
+                height: "100%",
+                borderRadius: "50%",
+              }}
+              component={"img"}
+              image={face5}
+            />
+            <CardMedia
+              sx={{
+                position: "absolute",
+                top: "-5%",
+                left: "85%",
+                transform: "translate(-50%, -50%)",
+                width: "50%",
+                "@media (max-width: 767px)": {
+                  width: "60%",
+                },
+              }}
+              component={"img"}
+              image={face12}
+            />
+          </Box>
           <CardMedia
             sx={{
               width: "205px",
