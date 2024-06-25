@@ -17,14 +17,15 @@ export default function TestimonialCard({ text, position, author, img }) {
         width: "550px",
         height: "361px",
         background: "#FFF",
-        boxShadow: 3,
+        boxShadow: 1,
         margin: "2vh auto 137px auto",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        borderRadius: "13px",
         "@media (max-width: 600px)": {
-          width: "90vw",
+          width: "85vw",
           height: "35vh",
         },
       }}

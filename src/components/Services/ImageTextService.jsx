@@ -1,7 +1,8 @@
 import { Button, CardMedia, Grid, Stack, Typography } from "@mui/material";
 import React from "react";
+import { Link } from "react-router-dom";
 
-const ImageTextService = ({ text, imageUrl, textHeader }) => {
+const ImageTextService = ({ text, imageUrl, textHeader, url }) => {
   return (
     <Stack
       sx={{
@@ -42,7 +43,7 @@ const ImageTextService = ({ text, imageUrl, textHeader }) => {
         sx={{
           width: "34vw",
           "@media (max-width: 600px)": {
-            width: "100%",
+            width: "90vw",
           },
         }}
       >
@@ -59,7 +60,6 @@ const ImageTextService = ({ text, imageUrl, textHeader }) => {
               fontSize: "6vw",
               margin: "2vh 0",
               width: "90vw",
-              textAlign: "center", // Center text on small screens
             },
           }}
         >
@@ -72,27 +72,33 @@ const ImageTextService = ({ text, imageUrl, textHeader }) => {
             marginBottom: "3vh",
             "@media (max-width: 600px)": {
               fontSize: "4vw",
-              textAlign: "center", // Center text on small screens
             },
           }}
         >
           {text}
         </Typography>
-        <Button
-          sx={{
-            color: "#1D0D40",
-            background: "rgba(0,0,0,0)",
-            border: "1px solid #1D0D40",
-            width: "144px",
-            borderRadius: "25px",
-            alignSelf: "center", // Center button
-            "@media (max-width: 600px)": {
-              margin: "0 auto", // Center button on small screens
-            },
-          }}
-        >
-          Learn more
-        </Button>
+        <Link to={url}>
+          <Button
+            sx={{
+              color: "#fff",
+              background: "#1D0D40",
+              border: "1px solid #1D0D40",
+              width: "144px",
+              borderRadius: "25px",
+              alignSelf: "center", // Center button
+              "&:hover": {
+                color: "#fff",
+                background: "#1D0D40",
+              },
+              "@media (max-width: 600px)": {
+                margin: "0 auto",
+                justifyContent: "center",
+              },
+            }}
+          >
+            Learn more
+          </Button>
+        </Link>
       </Grid>
     </Stack>
   );

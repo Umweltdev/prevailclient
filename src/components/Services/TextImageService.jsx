@@ -1,8 +1,9 @@
-import { Grid, Typography, Box, CardMedia } from "@mui/material";
+import { Grid, Typography, Box, CardMedia, Button } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import React from "react";
+import { Link } from "react-router-dom";
 
-const TextImageService = ({ text, imageUrl, textHeader }) => {
+const TextImageService = ({ text, imageUrl, textHeader, url }) => {
   return (
     <Grid
       sx={{
@@ -15,7 +16,7 @@ const TextImageService = ({ text, imageUrl, textHeader }) => {
         "@media (max-width: 600px)": {
           width: "95vw",
           flexDirection: "column",
-          margin: "13vh auto 0 auto",
+          margin: "auto",
           marginBottom: "1vh",
           gap: "20px",
           justifyContent: "space-between",
@@ -28,7 +29,7 @@ const TextImageService = ({ text, imageUrl, textHeader }) => {
         sx={{
           width: "34vw",
           "@media (max-width: 600px)": {
-            width: "100%",
+            width: "90vw",
           },
         }}
       >
@@ -65,6 +66,27 @@ const TextImageService = ({ text, imageUrl, textHeader }) => {
         >
           {text}
         </Typography>
+        <Link to={url}>
+          <Button
+            sx={{
+              color: "#fff",
+              background: "#1D0D40",
+              border: "1px solid #1D0D40",
+              width: "144px",
+              borderRadius: "25px",
+              alignSelf: "center", // Center button
+              "&:hover": {
+                color: "#fff",
+                background: "#1D0D40",
+              },
+              "@media (max-width: 600px)": {
+                margin: "0 auto", // Center button on small screens
+              },
+            }}
+          >
+            Learn more
+          </Button>
+        </Link>
       </Grid>
       <CardMedia
         component={"img"}

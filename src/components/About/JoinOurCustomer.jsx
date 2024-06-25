@@ -20,6 +20,9 @@ const JoinOurCustomer = () => {
           flexDirection: "column",
           alignItems: "center",
           py: "100px",
+          width: "100vw",
+          position: "unset",
+          height: "70vh",
         },
       }}
     >
@@ -42,7 +45,7 @@ const JoinOurCustomer = () => {
           textAlign: "center",
           width: "674px",
           "@media (max-width: 900px)": {
-            width: "310px",
+            width: "90vw",
             margin: "auto",
           },
         }}
@@ -71,6 +74,8 @@ const JoinOurCustomer = () => {
             margin: "auto",
             "@media (max-width: 900px)": {
               fontSize: "4.5vw",
+              margin: "auto",
+              width: "90vw",
             },
           }}
         >

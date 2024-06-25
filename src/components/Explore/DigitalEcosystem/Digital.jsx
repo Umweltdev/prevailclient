@@ -19,6 +19,9 @@ import Icon5 from "../assets/image_119.png";
 import Icon6 from "../assets/image_120.png";
 import Icon7 from "../assets/image_121.png";
 import Icon8 from "../assets/image_122.png";
+import SmallCard from "./SmallCard";
+import LargeCard from "./LargeCard";
+import MediumCard from "./MediumCard";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -64,56 +67,49 @@ const Digital = () => {
   const data = [
     {
       title: "Digital Landscape",
-      width: "35vw",
+
       description:
         'The term "digital landscape" refers to the entire digital environment where your brand operates. This includes various online platforms, digital trends, consumer behavior online, and the evolution of digital marketing strategies.',
       icon: Icon1,
     },
     {
       title: "Brand Awareness",
-      width: "40vw",
       description:
         "Brand awareness strategies are to introduce your brand and its products or services to your target audience. The goal is to create a long-lasting impression in the minds of potential customers so that when they are ready to make a purchase, they think of your brand.",
       icon: Icon2,
     },
     {
       title: "Competitor Analysis",
-      width: "",
       description:
         "To succeed in the market, it is essential to research and understand your competitors’ strategies, strengths, weaknesses, and market positioning. Examining your competitors can aid you in identifying market gaps, learning from their successes or mistakes, and differentiating your brand.",
       icon: Icon3,
     },
     {
       title: "Keyword Ranking",
-      width: "",
       description:
         "A high keyword ranking can lead to organic traffic being directed to your site, improve visibility, and enhance brand credibility. SEO (Search Engine Optimization) strategies such as optimizing website content, building backlinks, and improving site performance are used to improve keyword rankings.",
       icon: Icon4,
     },
     {
       title: "Targeted Advertising",
-      width: "",
       description:
         "A strategy in which you direct your advertising efforts to a specific audience based on demographics, interests, behaviors, or other criteria. This approach aims to spend your marketing budget more efficiently by reaching people more likely to be interested in your products or services.",
       icon: Icon5,
     },
     {
       title: "Higher Visibility",
-      width: "",
       description:
         "This goal aims to enhance your business’s online presence to become more noticeable to prospective customers. This objective can be achieved through various means, such as improving search engine rankings, engaging on social media, and content marketing. The more visible your brand is online and offline, the more likely it is to be considered by potential customers.",
       icon: Icon6,
     },
     {
       title: "Optimization",
-      width: "",
       description:
         "This refers to continuously improving your digital marketing strategies to achieve better results. It can involve website optimization for better user experience and SEO ranking, improving ad campaigns, data analysis, and making informed adjustments to stay ahead of the competition and achieve your marketing goals.",
       icon: Icon7,
     },
     {
       title: "Reporting",
-      width: "",
       description:
         "This involves collecting and analyzing data to evaluate the performance of your digital marketing activities. Reporting provides valuable insights into campaign effectiveness, audience behavior, and overall return on investment. It informs decisions to improve your marketing strategy.",
       icon: Icon8,
@@ -152,50 +148,46 @@ const Digital = () => {
             gap: "25px",
           }}
         >
-          {data.map((item, index) => (
-            <Grid key={index}>
-              <Card width={item.width} sx={{ height: "530px" }}>
-                <CardContent className={classes.content}>
-                  <Typography
-                    sx={{ fontSize: "23px", fontWeight: "500", mb: "13px" }}
-                    gutterBottom
-                  >
-                    {item.title}
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontSize: "16px",
-                      width: "30vw",
-                      color: "#505660",
-                      fontWeight: "400",
-                    }}
-                  >
-                    {item.description}
-                  </Typography>
-                </CardContent>
-                <Box
-                  sx={{
-                    background: "#F7F8FA",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    margin: "10px",
-                    borderRadius: "10px",
-                    width: "96.5%",
-                    height: "100%",
-                  }}
-                >
-                  <Paper className={classes.mediaContainer} elevation={3}>
-                    <img
-                      src={item.icon}
-                      alt={item.title}
-                      className={classes.media}
-                    />
-                  </Paper>
-                </Box>
-              </Card>
-            </Grid>
-          ))}
+          <SmallCard
+            icon={Icon1}
+            header={"Digital Landscape"}
+            text={`The term "digital landscape" refers to the entire digital environment where your brand operates. This includes various online platforms, digital trends, consumer behavior online, and the evolution of digital marketing strategies.`}
+          />
+          <LargeCard
+            icon={Icon2}
+            header={"Brand Awareness"}
+            text={`Brand awareness strategies are to introduce your brand and its products or services to your target audience. The goal is to create a long-lasting impression in the minds of potential customers so that when they are ready to make a purchase, they think of your brand.`}
+          />
+          <MediumCard
+            icon={Icon3}
+            header={"Competitor Analysis"}
+            text={`To succeed in the market, it is essential to research and understand your competitors’ strategies, strengths, weaknesses, and market positioning. Examining your competitors can aid you in identifying market gaps, learning from their successes or mistakes, and differentiating your brand.`}
+          />
+          <MediumCard
+            icon={Icon4}
+            header={"Keyword Ranking"}
+            text={`A high keyword ranking can lead to organic traffic being directed to your site, improve visibility, and enhance brand credibility. SEO (Search Engine Optimization) strategies such as optimizing website content, building backlinks, and improving site performance are used to improve keyword rankings.`}
+          />
+          <SmallCard
+            icon={Icon5}
+            header={"Targeted Advertising"}
+            text={`A strategy in which you direct your advertising efforts to a specific audience based on demographics, interests, behaviors, or other criteria. This approach aims to spend your marketing budget more efficiently by reaching people more likely to be interested in your products or services.`}
+          />
+          <LargeCard
+            icon={Icon6}
+            header={"Higher Visibility"}
+            text={`This goal aims to enhance your business’s online presence to become more noticeable to prospective customers. This objective can be achieved through various means, such as improving search engine rankings, engaging on social media, and content marketing. The more visible your brand is online and offline, the more likely it is to be considered by potential customers.`}
+          />
+          <LargeCard
+            icon={Icon7}
+            header={"Optimization"}
+            text={`This refers to continuously improving your digital marketing strategies to achieve better results. It can involve website optimization for better user experience and SEO ranking, improving ad campaigns, data analysis, and making informed adjustments to stay ahead of the competition and achieve your marketing goals.`}
+          />
+          <SmallCard
+            icon={Icon8}
+            header={"Reporting"}
+            text={`This involves collecting and analyzing data to evaluate the performance of your digital marketing activities. Reporting provides valuable insights into campaign effectiveness, audience behavior, and overall return on investment. It informs decisions to improve your marketing strategy.`}
+          />
         </Grid>
       </Container>
     </Box>
