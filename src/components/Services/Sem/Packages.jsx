@@ -42,6 +42,7 @@ const Packages = () => {
           // gap: "2vw",
           "@media (max-width: 600px)": {
             display: "unset",
+            gap: "5vw",
           },
         }}
       >
@@ -50,14 +51,14 @@ const Packages = () => {
           info="Forever free, even after the launch"
           button="Contact us"
           height="700px"
-          mobileHeight={"670px"}
+          mobileHeight={"750px"}
         />
         <PurplePackageLayout
           packages="SEM Platinum Package"
           info="Forever free, even after the launch"
           button="Contact us"
           height="800px"
-          mobileHeight={"790px"}
+          mobileHeight={"850px"}
         />
       </Grid>
     </div>

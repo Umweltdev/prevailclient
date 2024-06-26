@@ -24,10 +24,12 @@ export default function SliderCard({ text, header, author, img }) {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        borderRadius: "12px",
         "@media (max-width: 600px)": {
           width: "90vw",
           height: "350",
           margin: "1px auto 17px auto",
+          borderRadius: "24px",
         },
       }}
     >

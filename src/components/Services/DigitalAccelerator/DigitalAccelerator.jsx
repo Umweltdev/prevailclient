@@ -8,8 +8,10 @@ import image2 from "./assets/image2.png";
 import rocket from "./assets/rocket.png";
 import "./styles.css";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import TextImageComponent from "../ReusedComponenets/TextImageComponent";
 
 import AccordionUsage from "./Accordion";
+import ImageTextComponent from "../ReusedComponenets/ImageTextComponent";
 
 const DigitalAccelerator = () => {
   const Mobile = useMediaQuery("(min-width:1249px)");
@@ -19,131 +21,29 @@ const DigitalAccelerator = () => {
       {/* <HeroSection header="Digital Accelerator Bundle Page " /> */}
       <AppBarNav color="#000" />
       <HeroComponent title={"Digital Accelerator Bundle Page"} />
-      <Stack>
-        <Stack
-          direction={{ xs: "column", lg: "row" }}
-          spacing={{ xs: 3.5, lg: 10 }}
-          justifyContent={"space-between"}
-          alignItems={"center"}
-          py={{ xs: 3, lg: 0 }}
-          px={{ xs: 2, lg: 0 }}
-        >
-          <Stack
-            pl={{ xs: 0, lg: 16 }}
-            pr={{ xs: 0, lg: 6 }}
-            spacing={2}
-            width={{ xs: "100%", lg: "50%" }}
-          >
-            <Typography
-              sx={{
-                fontSize: "28px",
-                color: "#1D0D40",
-                fontWeight: "600",
-                lineHeight: "30px",
-              }}
-            >
-              Propel Your Business with Prevail’s Digital Accelerator Bundle 
-            </Typography>
-            <Typography
-              sx={{
-                color: "#505660",
-              }}
-            >
-              Attention SMEs and local businesses: in the rapidly evolving
+      <TextImageComponent
+        img={image1}
+        header={
+          "Propel Your Business with Prevail’s Digital Accelerator Bundle "
+        }
+        text={`Attention SMEs and local businesses: in the rapidly evolving
               digital landscape, establishing a competitive edge is not just
               beneficial – it's essential. Imagine propelling your business to
               the forefront with a cutting-edge website, a brand identity that
               captivates your audience, and a search engine strategy that puts
-              you in front of your audience.  
-            </Typography>
-            <Typography>
-              With Prevail’s “Digital Accelerator” bundle, this scenario
-              transforms from aspiration to actuality. This package isn’t just a
-              collection of services – it's your strategic gateway to a
-              cohesive, impactful and cost-effective digital presence.  
-            </Typography>
-          </Stack>
-
-          <Box width={{ xs: "100%", lg: "50%" }}>
-            <Box
-              sx={{
-                width: "100%",
-                height: "100%",
-              }}
-            >
-              <img
-                src={image1}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                }}
-                className="imagee"
-              />
-            </Box>
-          </Box>
-        </Stack>
-
-        <Stack
-          direction={{ xs: "column", lg: "row" }}
-          spacing={{ xs: 3, lg: 10 }}
-          justifyContent={"space-between"}
-          alignItems={"center"}
-          px={{ xs: 2, lg: 0 }}
-          
-        >
-          <Box width={{ xs: "100%", lg: "50%" }} order={{ xs: 2, lg: 1 }} mt={{ xs:4, lg:0}}>
-            <Box
-              sx={{
-                width: "100%",
-              }}
-            >
-              <img
-                src={image2}
-                style={{
-                  width: "100%",
-                  objectFit: "cover",
-                }}
-                className="imagee"
-              />
-            </Box>
-          </Box>
-          <Stack
-            pl={{ xs: 0, lg: 6 }}
-            pr={{ xs: 0, lg: 16 }}
-            spacing={2}
-            width={{ xs: "100%", lg: "50%" }}
-            order={{ xs: 1, lg: 2 }}
-          >
-            <Typography
-              sx={{
-                fontSize: "28px",
-                color: "#1D0D40",
-                fontWeight: "600",
-                lineHeight: "30px",
-              }}
-            >
-              Understanding Your Challenges
-            </Typography>
-            <Typography
-              sx={{
-                color: "#505660",
-              }}
-            >
-              We recognise the obstacles you face in a highly competitive
+              you in front of your audience.`}
+      />
+      <ImageTextComponent
+        img={image2}
+        header={"Understanding Your Challenges"}
+        text={`We recognise the obstacles you face in a highly competitive
               digital marketplace. Despite your hard work and dedication, your
               digital presence might not mirror the passion you pour into your
               business, much like a stunning storefront tucked away in a
-              secluded alley, unseen by potential customers.  
-            </Typography>
-            <Typography>
-              Perhaps you’re grappling with an outdated website, or your brand
+              secluded alley, unseen by potential customers. <br/><br/>Perhaps you’re grappling with an outdated website, or your brand
               doesn’t resonate with your intended audience, causing you to miss
-              crucial opportunities to connect and engage.
-            </Typography>
-          </Stack>
-        </Stack>
-      </Stack>
+              crucial opportunities to connect and engage.`}
+      />
 
       <Container
         maxWidth="lg"

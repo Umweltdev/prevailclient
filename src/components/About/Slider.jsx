@@ -44,12 +44,12 @@ const Sliders = () => {
         justifyContent: "center",
         alignItems: "center",
         "@media (max-width: 600px)": {
-          height: "unset",
+          height: "70vh",
           padding: "5vh 0",
         },
       }}
     >
-      <Slider {...settings} style={{ width: "85%" }}>
+      <Slider {...settings} style={{ width: "90%" }}>
         {sliderData.map((data, i) => (
           <Grid key={i} style={{ padding: "5vh" }}>
             <SliderCard

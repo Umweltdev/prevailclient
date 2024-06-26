@@ -1,18 +1,19 @@
-import { Box, CardMedia, Typography } from "@mui/material";
+import { Box, CardMedia, Stack, Typography } from "@mui/material";
 import React from "react";
 import { semData } from "./semData";
 
 const OfferSection = () => {
   return (
-    <Box
+    <Stack
+      direction="row"
       sx={{
         display: "flex",
         margin: "auto",
         justifyContent: "center",
         alignItems: "center",
-        width: "80vw",
+        width: "100vw",
         flexWrap: "wrap",
-        gap: "35px",
+        gap: "5vw",
         p: "50px 0",
       }}
     >
@@ -66,7 +67,7 @@ const OfferSection = () => {
           </Typography>
         </Box>
       ))}
-    </Box>
+    </Stack>
   );
 };
 

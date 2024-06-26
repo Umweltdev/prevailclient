@@ -1,6 +1,6 @@
 import Landing from "./pages/Landing";
 import About from "./pages/About";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Portfolio from "./pages/Portfolio";
 import Blog from "./pages/Blog";
 import Services from "./pages/Services";
@@ -29,11 +29,16 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import ScrollToTop from "./ScrollToTop";
+import { AuthContext } from "./context/AuthContext";
+import { useContext } from "react";
+
 const stripePromise = loadStripe(
   "pk_test_51OsCJ5P1A39VkufThp1PVDexesvf2XAY8faTyK0uucC1qRl9NW9QkpBdwXQDyjCAjzL166zjMWNn5Zr25ZkaQJVi00vurq61mj"
 );
 
 function App() {
+  const { user } = useContext(AuthContext);
+
   return (
     <Elements stripe={stripePromise}>
       <ScrollToTop />
@@ -68,8 +73,14 @@ function App() {
         {/* <Route path="/Logout" element={< />} /> */}
         <Route path="/Stepper" element={<Stepper />} />
         <Route path="/MobStepper" element={<MobStepper />} />
-        <Route path="/UserDashboard" element={<UserDashBoard />} />
-        <Route path="/user/*" element={<UserDashBoard />} />
+        <Route
+          path="/UserDashboard"
+          element={user ? <UserDashBoard /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/user/*"
+          element={user ? <UserDashBoard /> : <Navigate to="/" />}
+        />
       </Routes>
     </Elements>
   );

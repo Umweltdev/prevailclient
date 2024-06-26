@@ -3,39 +3,14 @@ import React from "react";
 import { makeStyles } from "@mui/styles";
 import imago from "./assets/about3.svg";
 
-const useStyles = makeStyles({
-  imagePlaform: {
-    width: "80vw",
-    height: "50vh",
-    objectFit: "cover",
-    borderRadius: "5px",
-    boxShadow:
-      "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
-
-    "@media (max-width: 600px)": {
-      width: "unset",
-      height: "unset",
-    },
-  },
-  imageInit: {
-    width: "37vw",
-    borderRadius: "1vw",
-    boxShadow:
-      "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
-    "@media (max-width: 600px)": {
-      display: "none",
-    },
-  },
-});
 
 const SectionFour = () => {
-  const classes = useStyles();
-
+  
   return (
     <Grid
       container
       sx={{
-        // width: "80vw",
+        width: "100vw",
         display: "flex",
         flexDirection: "row",
         margin: "100px auto 0 auto",
@@ -57,7 +32,7 @@ const SectionFour = () => {
         component={"img"}
         image={imago}
         sx={{
-          width: "487px",
+          width: "485px",
           height: "290px",
           borderRadius: "14px",
           "@media (max-width: 600px)": {
@@ -66,12 +41,11 @@ const SectionFour = () => {
           },
         }}
       />
-      
+
       <Grid
         item
         sx={{
-          maxWidth: "468px",
-          flexGrow: 1,
+          width: "485px",
           "@media (max-width: 600px)": {
             width: "100%",
           },

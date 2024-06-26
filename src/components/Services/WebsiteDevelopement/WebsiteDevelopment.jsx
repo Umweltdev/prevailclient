@@ -18,6 +18,8 @@ import WebSvg from "./assets/web.svg";
 import LockSvg from "./assets/lock.svg";
 import StartUpSvg from "./assets/startup.svg";
 import BulbSvg from "./assets/bulb.svg";
+import TextImageComponent from "../ReusedComponenets/TextImageComponent";
+import ImageTextComponent from "../ReusedComponenets/ImageTextComponent";
 
 const data = [
   {
@@ -64,171 +66,50 @@ const WebsiteDevelopment = () => {
       <AppBarNav color="#000" />
 
       <HeroComponent title="Custom Website Development" />
-      <Stack
-        
-      >
-        <Stack spacing={{ xs: 7, md: 0 }} p={{xs:2, md:0}}>
-          <Grid
-            container
-            justifyContent={"space-between"}
-            alignItems={"center"}
-          >
-            <Grid item xs={12} md={5.7}>
-              <Stack spacing={3} color={"#505660"} pl={{xs:0, md:8}}>
-                <Typography
-                  fontSize={{ xs: "24px", md: "28px" }}
-                  sx={{
-                    fontSize: "28px",
-                    color: "#1D0D40",
-                    fontWeight: "600",
-                  }}
-                >
-                  Why Custom Web Development?  
-                </Typography>
-                <Typography>
-                  In the digital era, establishing a distinct digital presence
+      <Stack>
+        <TextImageComponent
+          img={image1}
+          header={"Why Custom Web Development?"}
+          text={`In the digital era, establishing a distinct digital presence
                   is more crucial than ever. If you’re looking to craft a
                   digital identity that truly embodies your brand and narrates
                   your story with precision, the “custom website development”
-                  service is your go-to solution.{" "}
-                </Typography>
-                <Typography>
-                  Unlike standard web builder platforms that might suffice for
-                  simpler, small-scale projects – custom development allows for
-                  a limitless array of API integrations, frontend
-                  customisations, and aesthetic enhancements. This approach is
-                  tailored for visionary businesses aiming to carve out a
-                  significant digital presence.   
-                </Typography>
-              </Stack>
-            </Grid>
-
-            <Grid item xs={12} md={5.7}>
-              <Box
-                mt={{ xs: 4, md: 0 }}
-                sx={{
-                  width: "100%",
-                }}
-              >
-                <img
-                  src={image1}
-                  style={{
-                    width: "100%",
-                    // height: "100%",
-                    objectFit: "cover",
-                  }}
-                  className="imagee"
-                />
-              </Box>
-            </Grid>
-          </Grid>
-
-          <Grid
-            container
-            justifyContent={"space-between"}
-            alignItems={"center"}
-          >
-            <Grid item xs={12} md={5.7} order={{ xs: 2, md: 1 }}>
-              <Box
-                mt={{ xs: 4, md: 0 }}
-                sx={{
-                  width: "100%",
-                  // height: "100%",
-                }}
-              >
-                <img
-                  src={image2}
-                  style={{
-                    width: "100%",
-                    // height: "100%",
-                    objectFit: "cover",
-                  }}
-                  className="imagee"
-                />
-              </Box>
-            </Grid>
-            <Grid item xs={12} md={5.7} order={{ xs: 1, md: 2 }}>
-              <Stack spacing={3} color={"#505660"} pr={{xs:0, md:8}}>
-                <Typography
-                  fontSize={{ xs: "24px", md: "28px" }}
-                  sx={{
-                    color: "#1D0D40",
-                    fontWeight: "600",
-                  }}
-                >
-                  The Limitations of Standard Solutions  
-                </Typography>
-                <Typography>
-                  Many businesses encounter significant challenges on their
+                  service is your go-to solution.`}
+        />
+        <ImageTextComponent
+          img={image2}
+          header={"The Limitations of Standard Solutions "}
+          text={`Many businesses encounter significant challenges on their
                   digital journey, including performance issues where heavy,
                   costly images and design elements slow down websites,
                   adversely affecting user experience. High hosting charges and
                   the risk of overspending on poorly optimised digital assets
-                  pose major cost concerns.   
-                </Typography>
-                <Typography>
-                  Additionally, generic web builder platforms often lack the
+                  pose major cost concerns.<br/><br/> Additionally, generic web builder platforms often lack the
                   flexibility needed to truly distinguish a brand or meet
                   specific business requirements, and there are frequent
                   communication gaps that make it difficult to bridge the divide
                   between a business's vision and what is technologically
                   feasible, adding to the complexity and frustration of creating
-                  an effective digital presence.  
-                </Typography>
-              </Stack>
-            </Grid>
-          </Grid>
+                  an effective digital presence.`}
+        />
+        <TextImageComponent
+          img={image3}
+          header={"The Limitations of Standard Solutions "}
+          text={`Many businesses encounter significant challenges on their
+                  digital journey, including performance issues where heavy,
+                  costly images and design elements slow down websites,
+                  adversely affecting user experience. High hosting charges and
+                  the risk of overspending on poorly optimised digital assets
+                  pose major cost concerns.<br/><br/> Additionally, generic web builder platforms often lack the
+                  flexibility needed to truly distinguish a brand or meet
+                  specific business requirements, and there are frequent
+                  communication gaps that make it difficult to bridge the divide
+                  between a business's vision and what is technologically
+                  feasible, adding to the complexity and frustration of creating
+                  an effective digital presence.`}
+        />
 
-          <Grid
-            container
-            justifyContent={"space-between"}
-            alignItems={"center"}
-          >
-            <Grid item xs={12} md={5.7}>
-              <Stack spacing={3} color={"#505660"} pl={{xs:0, md:8}}>
-                <Typography
-                  fontSize={{ xs: "24px", md: "28px" }}
-                  sx={{
-                    color: "#1D0D40",
-                    fontWeight: "600",
-                  }}
-                >
-                  Why Choose Prevail for Your Digital Development Journey?  
-                </Typography>
-                <Typography>
-                  Are you an e-commerce business struggling with low conversions
-                  and a generic online store? Our “Shopify Web Design” Service
-                  offers a comprehensive solution. This service focuses on
-                  converting visitors into loyal customers through a
-                  captivating, user-friendly online store optimized for maximum
-                  engagement and sales. 
-                </Typography>
-              </Stack>
-            </Grid>
-
-            <Grid item xs={12} md={5.7}>
-              <Box
-                mt={{ xs: 4, md: 0 }}
-                sx={{
-                  width: "100%",
-                  // height: "100%",
-                }}
-              >
-                <img
-                  src={image3}
-                  style={{
-                    width: "100%",
-                    // height: "100%",
-                    objectFit: "cover",
-                  }}
-                  className="imagee"
-                />
-              </Box>
-            </Grid>
-          </Grid>
-        </Stack>
-
-        <Stack mt={{ xs: 6, md: 10 }} px={{xs:2, md:6}}>
+        <Stack mt={{ xs: 6, md: 10 }} px={{ xs: 2, md: 6 }}>
           <Typography
             fontSize={{ xs: "25px", md: "27.7px" }}
             fontWeight="600"
@@ -271,7 +152,7 @@ const WebsiteDevelopment = () => {
         >
           <Box
             px={{ xs: 3, md: 16 }}
-            py={{xs: 3, md: 8}}
+            py={{ xs: 3, md: 8 }}
             sx={{
               backgroundColor: "#FCFCFC",
               py: 8,

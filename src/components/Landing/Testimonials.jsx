@@ -119,16 +119,15 @@ const Testimonials = () => {
           },
         }}
       >
-        <Slider {...settings} style={{ width: "85%" }}>
+        <Slider {...settings} style={{ width: "90%", boxShadow: "none" }}>
           {TestimonialData.map((data, i) => (
-            <div key={i} style={{ padding: "5vh" }}>
-              <TestimonialCard
-                img={data.img}
-                text={data.text}
-                author={data.author}
-                position={data.position}
-              />
-            </div>
+            <TestimonialCard
+              img={data.img}
+              text={data.text}
+              author={data.author}
+              position={data.position}
+              key={i}
+            />
           ))}
         </Slider>
       </Grid>

@@ -35,7 +35,7 @@ const SectionTwo = () => {
     <Grid
       container
       sx={{
-        // width: "80vw",
+        width: "100vw",
         display: "flex",
         flexDirection: "row",
         margin: "100px auto 0 auto",
@@ -54,10 +54,8 @@ const SectionTwo = () => {
       }}
     >
       <Grid
-        item
         sx={{
-          maxWidth: "468px",
-          flexGrow: 1,
+          width: "485px",
           "@media (max-width: 600px)": {
             width: "90vw",
           },
@@ -105,7 +103,7 @@ const SectionTwo = () => {
       <Box
         sx={{
           background: "#ECF1FA",
-          width: "487px",
+          width: "485px",
           height: "290px",
           borderRadius: "14px",
           display: "flex",

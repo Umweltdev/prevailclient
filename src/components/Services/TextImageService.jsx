@@ -1,55 +1,22 @@
-import { Grid, Typography, Box, CardMedia } from "@mui/material";
+import { Grid, Typography, Box, CardMedia, Button } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import React from "react";
+import { Link } from "react-router-dom";
 
-const useStyles = makeStyles((theme) => ({
-  container: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    maxWidth: "90vw",
-    marginTop: "4vh",
-    "@media (max-width: 600px)": {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      width: "95vw",
-      marginTop: "2vh",
-    },
-  },
-
-  textContainer: {
-    width: "50vw",
-    "@media (max-width: 600px)": {
-      width: "100%",
-    },
-  },
-  image: {
-    width: 200,
-    "@media (max-width: 600px)": {
-      display: "none",
-    },
-  },
-}));
-
-const TextImageService = ({ text, imageUrl, textHeader }) => {
-  const classes = useStyles();
-
+const TextImageService = ({ text, imageUrl, textHeader, url }) => {
   return (
     <Grid
-      container
       sx={{
-        // width: "80vw",
+        width: "100vw",
         display: "flex",
         flexDirection: "row",
-        margin: "0px auto 0 auto",
         justifyContent: "center",
         alignItems: "center",
         gap: "239px",
         "@media (max-width: 600px)": {
           width: "95vw",
           flexDirection: "column",
-          margin: "13vh auto 0 auto",
+          margin: "auto",
           marginBottom: "1vh",
           gap: "20px",
           justifyContent: "space-between",
@@ -60,10 +27,9 @@ const TextImageService = ({ text, imageUrl, textHeader }) => {
       <Grid
         item
         sx={{
-          maxWidth: "468px",
-          flexGrow: 1,
+          width: "34vw",
           "@media (max-width: 600px)": {
-            width: "100%",
+            width: "90vw",
           },
         }}
       >
@@ -76,6 +42,7 @@ const TextImageService = ({ text, imageUrl, textHeader }) => {
             marginBottom: "20px",
             lineHeight: "110%",
             letterSpacing: "-0.28px",
+
             "@media (max-width: 600px)": {
               fontSize: "6vw",
               margin: "2vh 0",
@@ -89,6 +56,7 @@ const TextImageService = ({ text, imageUrl, textHeader }) => {
             fontSize: "16px",
             color: "#505660",
             marginBottom: "3vh",
+            width: "34vw",
             "@media (max-width: 600px)": {
               fontSize: "4vw",
               textAlign: "justify",
@@ -98,16 +66,36 @@ const TextImageService = ({ text, imageUrl, textHeader }) => {
         >
           {text}
         </Typography>
+        <Link to={url}>
+          <Button
+            sx={{
+              color: "#fff",
+              background: "#1D0D40",
+              border: "1px solid #1D0D40",
+              width: "144px",
+              borderRadius: "25px",
+              alignSelf: "center", // Center button
+              "&:hover": {
+                color: "#fff",
+                background: "#1D0D40",
+              },
+              "@media (max-width: 600px)": {
+                margin: "0 auto", // Center button on small screens
+              },
+            }}
+          >
+            Learn more
+          </Button>
+        </Link>
       </Grid>
       <CardMedia
         component={"img"}
         image={imageUrl}
         alt=""
         sx={{
-          width: "487px",
-          height: "290px",
+          width: "34vw",
+          height: "300px",
           borderRadius: "16px",
-
           "@media (max-width: 600px)": {
             width: "90vw",
             height: "365.756px",
