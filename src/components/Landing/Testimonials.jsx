@@ -119,7 +119,7 @@ const Testimonials = () => {
           },
         }}
       >
-        <Slider {...settings} style={{ width: "90%", boxShadow: "none" }}>
+        <Slider {...settings} style={{ width: "90%", boxShadow: "none", gap: "2vw" }}>
           {TestimonialData.map((data, i) => (
             <TestimonialCard
               img={data.img}

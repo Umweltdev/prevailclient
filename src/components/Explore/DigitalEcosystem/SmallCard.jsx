@@ -16,11 +16,24 @@ const SmallCard = ({ header, text, icon }) => {
         borderRadius: "20px",
         padding: "20px",
         width: "497px",
+        "@media (max-width: 600px)": {
+          width: "90vw",
+          padding: "10px",
+          height: "unset",
+        },
       }}
     >
       <CardContent>
         <Typography
-          sx={{ fontSize: "23px", fontWeight: "500", mb: "13px" }}
+          sx={{
+            fontSize: "23px",
+            fontWeight: "500",
+            mb: "13px",
+            "@media (max-width: 600px)": {
+              width: "unset",
+              textAlign: "center",
+            },
+          }}
           gutterBottom
         >
           {header}
@@ -32,6 +45,10 @@ const SmallCard = ({ header, text, icon }) => {
             color: "#505660",
             fontWeight: "400",
             lineHeight: "150%",
+            "@media (max-width: 600px)": {
+              width: "unset",
+              textAlign: "center",
+            },
           }}
         >
           {text}

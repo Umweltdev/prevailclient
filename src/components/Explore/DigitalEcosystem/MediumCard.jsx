@@ -1,4 +1,11 @@
-import { Box, Card, CardContent, CardMedia, Paper, Typography } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardContent,
+  CardMedia,
+  Paper,
+  Typography,
+} from "@mui/material";
 import React from "react";
 
 const MediumCard = ({ header, text, icon }) => {
@@ -9,11 +16,24 @@ const MediumCard = ({ header, text, icon }) => {
         borderRadius: "20px",
         padding: "20px",
         width: "568.719px",
+        "@media (max-width: 600px)": {
+          width: "90vw",
+          padding: "10px",
+          height: "unset",
+        },
       }}
     >
       <CardContent>
         <Typography
-          sx={{ fontSize: "23px", fontWeight: "500", mb: "13px" }}
+          sx={{
+            fontSize: "23px",
+            fontWeight: "500",
+            mb: "13px",
+            "@media (max-width: 600px)": {
+              width: "unset",
+              textAlign: "center",
+            },
+          }}
           gutterBottom
         >
           {header}
@@ -25,6 +45,10 @@ const MediumCard = ({ header, text, icon }) => {
             color: "#505660",
             fontWeight: "400",
             mt: "23px",
+            "@media (max-width: 600px)": {
+              width: "unset",
+              textAlign: "center",
+            },
           }}
         >
           {text}
