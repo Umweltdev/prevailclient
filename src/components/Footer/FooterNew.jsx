@@ -94,6 +94,7 @@ const FooterNew = () => {
 
       <Box
         sx={{ textAlign: "flex-start", marginBottom: "40px", margin: "auto" }}
+        id={"email_subscription"}
       >
         <Subscribe />
       </Box>

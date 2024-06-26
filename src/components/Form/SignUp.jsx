@@ -126,6 +126,7 @@ const SignUp = () => {
           onSubmit={handleSubmit}
           noValidate
           autoComplete="on"
+          id="sign-up"
         >
           <Grid item>
             <Typography
@@ -371,7 +372,7 @@ const SignUp = () => {
             "@media (max-width: 900px)": {
               width: "80vw",
               height: "unset",
-              mb: "5vh"
+              mb: "5vh",
             },
           }}
         >

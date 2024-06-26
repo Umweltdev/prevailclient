@@ -56,6 +56,7 @@ const Form = () => {
           height: "unset",
         },
       }}
+      id="generate_lead"
     >
       <Grid sx={{}}>
         <Typography
@@ -70,7 +71,7 @@ const Form = () => {
             pb: "25px",
             "@media (max-width: 600px)": {
               pl: "3vw",
-              width: "80vw"
+              width: "80vw",
             },
           }}
         >
