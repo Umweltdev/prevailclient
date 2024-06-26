@@ -2,6 +2,7 @@ import { Grid, Typography, Box, CardMedia, Button } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import React from "react";
 import { Link } from "react-router-dom";
+import ReusedButton from "../ReusedComponents/ReusedButton";
 
 const TextImageService = ({ text, imageUrl, textHeader, url }) => {
   return (
@@ -67,25 +68,9 @@ const TextImageService = ({ text, imageUrl, textHeader, url }) => {
           {text}
         </Typography>
         <Link to={url}>
-          <Button
-            sx={{
-              color: "#fff",
-              background: "#1D0D40",
-              border: "1px solid #1D0D40",
-              width: "144px",
-              borderRadius: "25px",
-              alignSelf: "center", // Center button
-              "&:hover": {
-                color: "#fff",
-                background: "#1D0D40",
-              },
-              "@media (max-width: 600px)": {
-                margin: "0 auto", // Center button on small screens
-              },
-            }}
-          >
-            Learn more
-          </Button>
+          <Link to={url}>
+            <ReusedButton text="Learn More" />
+          </Link>
         </Link>
       </Grid>
       <CardMedia
