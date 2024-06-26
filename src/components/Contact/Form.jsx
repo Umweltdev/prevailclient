@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import MultipleSelect from "./assets/MultipleSelect";
 import emailjs from "@emailjs/browser";
+import MultiSelect from "./assets/MultiSelect";
 
 const Form = () => {
   const form = useRef();
@@ -114,7 +115,8 @@ const Form = () => {
             },
           }}
         />
-        <MultipleSelect name={"services"} />
+        <MultiSelect name={"services"} />
+        {/* <MultipleSelect name={"services"} /> */}
       </Grid>
       <Grid
         sx={{
