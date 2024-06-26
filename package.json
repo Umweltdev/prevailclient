@@ -11,6 +11,7 @@
     "start": "serve -s dist"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.3.3",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@iconify/react": "^4.1.1",

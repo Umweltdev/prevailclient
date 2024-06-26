@@ -1,9 +1,9 @@
 import { Box, TextField } from "@mui/material";
 
-export const TextArea = ({ label }) => {
+export const TextArea = ({ label, name }) => {
   return (
     <Box
-      component="form"
+      name={name}
       sx={{
         "& .MuiTextField-root": {
           m: 1,
@@ -23,6 +23,7 @@ export const TextArea = ({ label }) => {
           multiline
           rows={5}
           variant="outlined"
+          name={name}
           InputProps={{
             sx: {
               backgroundColor: "white", // Set input background to white

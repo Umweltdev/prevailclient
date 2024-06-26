@@ -145,7 +145,7 @@ function AppBarNav({ color }) {
                   },
                 ]
               : []),
-            { label: "Dashboard", link: "/contact" },
+            { label: "Dashboard", link: "/user/profile" },
 
             { label: "Logout", onClick: handleLogout, path: "/login" },
           ]

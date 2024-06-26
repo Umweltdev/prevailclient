@@ -1,12 +1,50 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { InputDesign, LongInputDesign } from "./assets/InputDesign";
 import { TextArea } from "./assets/TextArea";
-import { Box, Fab, Grid, Typography } from "@mui/material";
+import {
+  Alert,
+  Box,
+  CircularProgress,
+  Fab,
+  Grid,
+  Typography,
+} from "@mui/material";
 import MultipleSelect from "./assets/MultipleSelect";
+import emailjs from "@emailjs/browser";
 
 const Form = () => {
+  const form = useRef();
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setSuccess(false);
+
+    emailjs
+      .sendForm("service_0epeded", "template_rr6j484", form.current, {
+        publicKey: "mBHyvMwaFOG9bwNUx",
+      })
+      .then(
+        () => {
+          console.log("SUCCESS!");
+          setLoading(false);
+          setSuccess(true);
+          form.current.reset(); // Reset the form
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+          setLoading(false);
+        }
+      );
+  };
+
   return (
     <Box
+      component={"form"}
+      ref={form}
+      onSubmit={sendEmail}
       sx={{
         background: "#FBF9FF",
         width: "692px",
@@ -21,7 +59,7 @@ const Form = () => {
       <Grid sx={{}}>
         <Typography
           sx={{
-            color: "1D0D40",
+            color: "#1D0D40",
             fontSize: "28px",
             fontWeight: "500",
             lineHeight: "110%",
@@ -33,6 +71,11 @@ const Form = () => {
         >
           Talk To Us
         </Typography>
+        {success && (
+          <Alert severity="success" sx={{ mx: 4 }}>
+            Your message has been sent successfully!
+          </Alert>
+        )}
       </Grid>
       <Grid
         sx={{
@@ -46,12 +89,12 @@ const Form = () => {
           },
         }}
       >
-        <InputDesign label={"First Name"} />
-        <InputDesign label={"Last Name"} />
-        <InputDesign label={"Email"} />
-        <InputDesign label={"Phone"} />
-        <InputDesign label={"Location"} />
-        <InputDesign label={"company Name"} />
+        <InputDesign name={"firstName"} label={"First Name"} />
+        <InputDesign name={"lastName"} label={"Last Name"} />
+        <InputDesign name={"email_id"} label={"Email"} />
+        <InputDesign name={"phone"} label={"Phone"} />
+        <InputDesign name={"location"} label={"Location"} />
+        <InputDesign name={"company"} label={"Company Name"} />
       </Grid>
       <Grid
         sx={{
@@ -60,16 +103,18 @@ const Form = () => {
           mt: "16px",
         }}
       >
-        <LongInputDesign label={"Website Link"} />
+        <LongInputDesign label={"Website Link"} name={"weblink"} />
+        <LongInputDesign label={"subject"} name={"subject"} />
         <TextArea
           label={"How Can We Help You"}
+          name={"message"}
           sx={{
             "@media (max-width: 600px)": {
               width: "90vw",
             },
           }}
         />
-        <MultipleSelect />
+        <MultipleSelect name={"services"} />
       </Grid>
       <Grid
         sx={{
@@ -82,6 +127,8 @@ const Form = () => {
         }}
       >
         <Fab
+          component="button"
+          type="submit"
           sx={{
             color: "#FFF",
             fontSize: "16px",
@@ -93,13 +140,12 @@ const Form = () => {
             "&:hover": { boxShadow: "0", color: "#fff", background: "#6E3EF4" },
             "@media (max-width: 600px)": {
               width: "85vw",
-              fontSiz: "10.992px",
+              fontSize: "10.992px",
             },
           }}
-          // onClick={onClick}
-          // disabled={disabled}
+          disabled={loading}
         >
-          Submit
+          {loading ? <CircularProgress size={24} color="inherit" /> : "Submit"}
         </Fab>
       </Grid>
     </Box>

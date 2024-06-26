@@ -2,10 +2,10 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 
-export const InputDesign = ({ label }) => {
+export const InputDesign = ({ label, name }) => {
   return (
     <Box
-      component="form"
+      name={name}
       sx={{
         "& > :not(style)": {
           m: 1,
@@ -22,6 +22,7 @@ export const InputDesign = ({ label }) => {
         id="outlined-basic"
         label={label}
         variant="outlined"
+        name={name}
         sx={{
           "& .MuiOutlinedInput-root": {
             backgroundColor: "white", // Input background color
@@ -47,10 +48,10 @@ export const InputDesign = ({ label }) => {
   );
 };
 
-export const LongInputDesign = ({ label }) => {
+export const LongInputDesign = ({ label, name }) => {
   return (
     <Box
-      component="form"
+      name={name}
       sx={{
         "& > :not(style)": {
           m: 1,
@@ -67,6 +68,7 @@ export const LongInputDesign = ({ label }) => {
         id="outlined-basic"
         label={label}
         variant="outlined"
+        name={name}
         sx={{
           "& .MuiOutlinedInput-root": {
             backgroundColor: "white", // Input background color
