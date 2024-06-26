@@ -48,7 +48,7 @@ const InputWrapper = styled("div")(
         ? "rgba(255,255,255,0.65)"
         : "rgba(0,0,0,.85)"
     };
-    height: 30px;
+    height: 55px;
     box-sizing: border-box;
     padding: 4px 6px;
     width: 0;
@@ -58,9 +58,12 @@ const InputWrapper = styled("div")(
     margin: 0;
     outline: 0;
   }
+
+  @media (max-width: 600px) {
+    width: 85vw;
+  }
 `
 );
-
 function Tag(props) {
   const { label, onDelete, ...other } = props;
   return (
@@ -154,6 +157,10 @@ const Listbox = styled("ul")(
     & svg {
       color: currentColor;
     }
+  }
+
+  @media (max-width: 600px) {
+    width: 85vw;
   }
 `
 );

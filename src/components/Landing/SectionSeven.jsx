@@ -3,6 +3,8 @@ import React from "react";
 import imago from "./assets/rocket.png";
 import CardNoBorder from "./assets/CardNoBorder";
 import { DigitalAcelerator } from "./assets/LandingData";
+import ReusedButton from "../ReusedComponents/ReusedButton";
+import { Link } from "react-router-dom";
 
 const FAQ = () => {
   return (
@@ -68,16 +70,9 @@ const FAQ = () => {
           Search Engine Optimisation (SEO).  
         </Typography>
 
-        <Button
-          sx={{
-            color: "#fff",
-            background: "#6E3EF4",
-            width: "144px",
-            borderRadius: "5vw",
-          }}
-        >
-          Learn More
-        </Button>
+        <Link to={"/services/digitalaccelerator"}>
+          <ReusedButton text={"Learn More"} />
+        </Link>
       </Box>
       <Box
         sx={{

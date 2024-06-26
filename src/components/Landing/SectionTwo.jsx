@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useInView } from "react-intersection-observer";
 import styles from "./animation.module.css";
 import img from "./assets/image100.png";
+import ReusedButton from "../ReusedComponents/ReusedButton";
 
 const SectionTwo = () => {
   const { ref: myRef, inView: myElementVisible } = useInView();
@@ -113,23 +114,7 @@ const SectionTwo = () => {
           challenges, by providing innovative and holistic solutions.
         </Typography>
         <Link to={"/about"}>
-          <Button
-            sx={{
-              textTransform: "capitalize",
-              backgroundColor: "#884ed9",
-              color: "white",
-              fontSize: "16px",
-              borderRadius: "5vw",
-              width: "144px",
-              "@media (max-width: 600px)": { borderRadius: "5vh", mt: "20px" },
-              "&:hover": {
-                color: "#884ed9",
-                border: "1px solid #884ed9",
-              },
-            }}
-          >
-            Learn More
-          </Button>
+          <ReusedButton text={"Learn More"}/>
         </Link>
       </Grid>
     </Grid>

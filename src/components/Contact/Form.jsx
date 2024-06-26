@@ -68,6 +68,10 @@ const Form = () => {
             pt: "58px",
             pl: "44px",
             pb: "25px",
+            "@media (max-width: 600px)": {
+              pl: "3vw",
+              width: "80vw"
+            },
           }}
         >
           Talk To Us
