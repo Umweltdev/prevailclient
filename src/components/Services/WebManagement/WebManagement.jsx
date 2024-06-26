@@ -45,7 +45,8 @@ import Web from "./assets/web.svg?react";
 import Search from "../DigitalAccelerator/assets/search.svg?react";
 import HeroComponent from "../ReusedComponenets/HeroComponent";
 import AppBarNav from "../../Navbar/Appbar";
-import Solution from "./Slides";
+// import Solution from "./Slides";
+import Solution from "../Mpd/Solution";
 
 const WebManagement = () => {
   return (
@@ -53,11 +54,11 @@ const WebManagement = () => {
       {/* <DrawerAppBarWhite /> */}
       <AppBarNav color="#000" />
       <HeroComponent title="Website Development" />
-      <Box display={{xs:"none",md:"block"}}>
+      <Box >
         <Solution />
       </Box>
       <Box>
-        <Container maxWidth="lg">
+        <Container  maxWidth="lg">
           <Stack>
             {/* first section */}
             <Box>
