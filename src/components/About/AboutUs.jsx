@@ -5,6 +5,7 @@ import image1 from "./assets/about1.svg";
 const AboutUs = () => {
   return (
     <Grid
+      container
       sx={{
         display: "flex",
         flexDirection: "column",
@@ -12,8 +13,10 @@ const AboutUs = () => {
         justifyContent: "center",
         alignItems: "center",
         gap: "24px",
-        width: "501px",
+        width: "100%",
+        minHeight: "100vh",
         margin: "0 auto",
+        background: "linear-gradient(135deg, #d1c4e9, #ffffff, #bbdefb)",
         "@media (max-width: 600px)": {
           width: "90vw",
         },
@@ -21,11 +24,11 @@ const AboutUs = () => {
     >
       <Grid
         sx={{
-          color: "#6E3EF4;",
-          fontSize: "24px;",
-          fontWeight: "400;",
-          lineHeight: "110%;",
-          letterSpacing: "-0.24px;",
+          color: "#6E3EF4",
+          fontSize: "24px",
+          fontWeight: "400",
+          lineHeight: "110%",
+          letterSpacing: "-0.24px",
         }}
       >
         About Us
@@ -33,9 +36,9 @@ const AboutUs = () => {
       <Grid
         sx={{
           color: "#1D0D40",
-          fontSize: "38px;",
-          fontWeight: "500;",
-          letterSpacing: "-0.24px;",
+          fontSize: "38px",
+          fontWeight: "500",
+          letterSpacing: "-0.24px",
           textAlign: "center",
           "@media (max-width: 600px)": {
             width: "80vw",
@@ -65,19 +68,19 @@ const AboutUs = () => {
         find themselves battling to maintain relevance in a marketplace where
         larger entities, armed with vast resources and advanced technological
         tools, dominate. This daunting scenario is the very challenge that fuels
-        Prevail’s commitment and innovative approach. 
+        Prevail’s commitment and innovative approach. 
       </Grid>
       <CardMedia
         component={"img"}
         image={image1}
         sx={{
-          width: "1210px;",
-          height: "510px;",
+          width: "1210px",
+          height: "510px",
           borderRadius: "15px",
           mt: "40px",
           "@media (max-width: 600px)": {
             width: "90vw",
-            height: "210px;",
+            height: "210px",
             objectFit: "fit"
           },
         }}

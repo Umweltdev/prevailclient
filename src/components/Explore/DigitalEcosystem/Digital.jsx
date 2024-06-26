@@ -21,6 +21,7 @@ import Icon7 from "../assets/image_121.png";
 import Icon8 from "../assets/image_122.png";
 import SmallCard from "./SmallCard";
 import LargeCard from "./LargeCard";
+import LargerCard from "./LargerCard";
 import MediumCard from "./MediumCard";
 
 const useStyles = makeStyles((theme) => ({
@@ -173,7 +174,7 @@ const Digital = () => {
             header={"Targeted Advertising"}
             text={`A strategy in which you direct your advertising efforts to a specific audience based on demographics, interests, behaviors, or other criteria. This approach aims to spend your marketing budget more efficiently by reaching people more likely to be interested in your products or services.`}
           />
-          <LargeCard
+          <LargerCard
             icon={Icon6}
             header={"Higher Visibility"}
             text={`This goal aims to enhance your business’s online presence to become more noticeable to prospective customers. This objective can be achieved through various means, such as improving search engine rankings, engaging on social media, and content marketing. The more visible your brand is online and offline, the more likely it is to be considered by potential customers.`}
