@@ -255,7 +255,7 @@ const Login = () => {
             width: "50vw",
             objectFit: "cover",
             "@media (max-width: 900px)": {
-              width: "80vw",
+              width: "100vw",
               height: "auto",
             },
           }}
@@ -279,6 +279,7 @@ const Login = () => {
             marginTop: "1rem",
             "@media (max-width: 900px)": {
               width: "80vw",
+              mb: '3vh'
             },
           }}
         >
@@ -287,6 +288,7 @@ const Login = () => {
           other goods or services. Message/data rates may apply.
         </Typography>
       </Grid>
+      
     </Grid>
   );
 };

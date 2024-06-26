@@ -78,7 +78,6 @@ function AppBarNav({ color }) {
     window.location.href = "https://marvelous-muffin-8a8584.netlify.app";
   };
 
-
   const handleServicesClick = (event) => {
     setAnchorElServices(event.currentTarget);
   };
@@ -368,20 +367,20 @@ function AppBarNav({ color }) {
         anchorEl={anchorElServices}
         open={Boolean(anchorElServices)}
         onClose={handleClose}
+        sx={{ borderRadius: "50px" }}
       >
         {servicesData.map((data, i) => (
-          <MenuItem key={i} onClick={handleClose}>
-            <Link
-              style={{
-                color: "#000",
-                textDecoration: "none",
-                textAlign: "left",
-              }}
-              to={data.link}
-            >
-              {data.text}
-            </Link>
-          </MenuItem>
+          <Link
+            style={{
+              color: "#6E3EF4",
+              textDecoration: "none",
+              textAlign: "left",
+            }}
+            key={i}
+            to={data.link}
+          >
+            <MenuItem onClick={handleClose}>{data.text}</MenuItem>
+          </Link>
         ))}
       </Menu>
       <Menu
@@ -390,18 +389,17 @@ function AppBarNav({ color }) {
         onClose={handleClose}
       >
         {exploreData.map((data, i) => (
-          <MenuItem key={i} onClick={handleClose}>
-            <Link
-              style={{
-                color: "#000",
-                textDecoration: "none",
-                textAlign: "left",
-              }}
-              to={data.link}
-            >
-              {data.text}
-            </Link>
-          </MenuItem>
+          <Link
+            style={{
+              color: "#6E3EF4",
+              textDecoration: "none",
+              textAlign: "left",
+            }}
+            key={i}
+            to={data.link}
+          >
+            <MenuItem onClick={handleClose}>{data.text}</MenuItem>
+          </Link>
         ))}
       </Menu>
     </Box>
