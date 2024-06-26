@@ -9,6 +9,11 @@ const ReusedButton = ({ text }) => {
         background: "#6E3EF4",
         width: "144px",
         borderRadius: "5vw",
+        "&:hover": {
+          color: "#fff",
+          background: "#6E3EF4",
+          width: "144px",
+        },
       }}
     >
       {text}

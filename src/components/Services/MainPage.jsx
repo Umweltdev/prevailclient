@@ -82,13 +82,13 @@ const MainPage = () => {
           imageUrl={image2}
           textHeader={"Website Development"}
           text="Discover the power of bespoke web solutions with Prevail and elevate your brand to new heights in the digital landscape. Transform, engage, and succeed effortlessly."
-          url="/Services/website"
+          url="/Services/webmanagement"
         />
         <ImageTextService
           imageUrl={image3}
           textHeader={"Custom Website Development"}
           text="Desire ownership over your digital identity and wish to convey your brand's story authentically and vividly, then our “custom website development” is perfect for you."
-          url="/Services/webmanagement"
+          url="/Services/website"
         />
         <TextImageService
           imageUrl={image4}
