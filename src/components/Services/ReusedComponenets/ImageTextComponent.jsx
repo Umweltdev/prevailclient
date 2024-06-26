@@ -36,11 +36,12 @@ const ImageTextComponent = ({ img, header, text }) => {
         sx={{
           display: "flex",
           flexDirection: "column",
-          alignItems: "left",
+          alignItems: "center",
           justifyContent: "left",
           margin: "auto",
           gap: "20px",
-          width: "30vw",
+          width: "50vw",
+          // pl: "5vw",
           "@media (max-width: 600px)": {
             width: "90vw",
             borderRadius: "14px",
@@ -52,9 +53,9 @@ const ImageTextComponent = ({ img, header, text }) => {
         <Typography
           sx={{
             color: "#1D0D40",
-            fontSize: "28px",
+            fontSize: "24px",
             fontWeight: " 500",
-            width: "385px",
+            width: "40vw",
             "@media (max-width: 600px)": {
               width: "90vw",
             },
@@ -68,6 +69,7 @@ const ImageTextComponent = ({ img, header, text }) => {
             fontSize: "16px",
             fontWeight: "400",
             lineHeight: "150%",
+            width: "40vw",
             "@media (max-width: 600px)": {
               width: "90vw",
             },

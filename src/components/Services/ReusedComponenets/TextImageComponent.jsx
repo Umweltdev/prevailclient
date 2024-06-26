@@ -20,12 +20,12 @@ const TextImageComponent = ({ header, text, img }) => {
         sx={{
           display: "flex",
           flexDirection: "column",
-          alignItems: "left",
+          alignItems: "center",
           justifyContent: "left",
           margin: "auto",
           // mr: "15vw",
           gap: "20px",
-          width: "30vw",
+          width: "50vw",
           "@media (max-width: 600px)": {
             width: "90vw",
             flexDirection: "column",
@@ -38,9 +38,9 @@ const TextImageComponent = ({ header, text, img }) => {
         <Typography
           sx={{
             color: "#1D0D40",
-            fontSize: "28px",
+            fontSize: "24px",
             fontWeight: " 500",
-            width: "385px",
+            width: "35vw",
           }}
         >
           {header}
@@ -51,6 +51,7 @@ const TextImageComponent = ({ header, text, img }) => {
             fontSize: "16px",
             fontWeight: "400",
             lineHeight: "150%",
+            width: "35vw",
             "@media (max-width: 600px)": {
               width: "90vw",
             },
