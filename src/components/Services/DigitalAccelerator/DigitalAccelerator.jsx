@@ -136,6 +136,7 @@ const DigitalAccelerator = () => {
         sx={{
           backgroundColor: "#14154C",
         }}
+        id='DAB_call_to_action'
       >
         <Container maxWidth="lg">
           <Grid
