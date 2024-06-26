@@ -36,7 +36,7 @@ const TailoredApproach = () => {
           justifyContent: "center",
           pl: "5vw",
           gap: "20px",
-          width: "47vw",
+          width: "50vw",
           "@media (max-width: 600px)": {
             width: "90vw",
             pl: "unset",
@@ -63,7 +63,7 @@ const TailoredApproach = () => {
             fontSize: "16px",
             fontWeight: "400",
             lineHeight: "150%",
-            width: "543px",
+            width: "40vw",
             "@media (max-width: 600px)": {
               width: "90vw",
             },
@@ -85,7 +85,7 @@ const TailoredApproach = () => {
           sx={{ display: "flex", flexWrap: "wrap", mt: "46px", gap: "36px" }}
         >
           {TailoredApproachData.map((data, i) => (
-            <Box sx={{ width: "268px", gap: "16px" }}>
+            <Box key={i} sx={{ width: "20vw", gap: "16px" }}>
               <CardMedia
                 component={"img"}
                 image={data.img}
@@ -120,7 +120,7 @@ const TailoredApproach = () => {
               borderRadius: "10px",
               "@media (max-width: 600px)": {
                 height: "216px",
-                margin: "auto"
+                margin: "auto",
               },
             }}
           >
