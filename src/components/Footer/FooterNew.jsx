@@ -125,7 +125,7 @@ const FooterNew = () => {
                 mb: "5px",
               }}
             >
-              Address: Glencullen House, Kylemore Rd, Dublin 10, D10 K729
+             Company Registration: 737779
             </Typography>
             <Typography
               sx={{
@@ -146,7 +146,7 @@ const FooterNew = () => {
                 fontWeight: " 400",
               }}
             >
-              Call Us: +2347-023-994-190
+              VAT Number: IE9484135G
             </Typography>
           </Box>
         </Grid>
@@ -157,25 +157,18 @@ const FooterNew = () => {
           >
             Explore Prevail
           </Typography>
-          <Typography
-            sx={{
-              color: "#C1B2D5",
-              fontSize: "16px",
-              fontWeight: " 400",
-              mb: "5px",
-            }}
+          <Link
+            style={{ textDecoration: "none", color: "#C1B2D5" }}
+            to={"/explore/digitalecosystem"}
           >
-            Digital space
-          </Typography>
-          <Typography
-            sx={{
-              color: "#C1B2D5",
-              fontSize: "16px",
-              fontWeight: " 400",
-            }}
+            <Typography>Digital Ecosystem</Typography>
+          </Link>
+          <Link
+            style={{ textDecoration: "none", color: "#C1B2D5" }}
+            to={"/explore/customerjourney"}
           >
-            Customer journey
-          </Typography>
+            <Typography>Customer Journey</Typography>
+          </Link>
         </Grid>
         <Grid item xs={12} md={3}>
           <Typography
@@ -184,66 +177,48 @@ const FooterNew = () => {
           >
             Services
           </Typography>
-          <Typography
-            sx={{
-              color: "#C1B2D5",
-              fontSize: "16px",
-              fontWeight: " 400",
-              mb: "5px",
-            }}
+          <Link
+            style={{ textDecoration: "none", color: "#C1B2D5" }}
+            to={"/Services"}
           >
-            Brand Identity
-          </Typography>
-          <Typography
-            sx={{
-              color: "#C1B2D5",
-              fontSize: "16px",
-              fontWeight: " 400",
-              mb: "5px",
-            }}
+            <Typography>Services</Typography>
+          </Link>
+          <Link
+            style={{ textDecoration: "none", color: "#C1B2D5" }}
+            to={"/Services/brand"}
           >
-            Custom Website & Management
-          </Typography>
-          <Typography
-            sx={{
-              color: "#C1B2D5",
-              fontSize: "16px",
-              fontWeight: " 400",
-              mb: "5px",
-            }}
+            <Typography>Brand Identity</Typography>
+          </Link>
+          <Link
+            style={{ textDecoration: "none", color: "#C1B2D5" }}
+            to={"/Services/website"}
           >
-            Website Development & Management
-          </Typography>
-          <Typography
-            sx={{
-              color: "#C1B2D5",
-              fontSize: "16px",
-              fontWeight: " 400",
-              mb: "5px",
-            }}
+            <Typography>Custom Website & Management</Typography>
+          </Link>
+          <Link
+            style={{ textDecoration: "none", color: "#C1B2D5" }}
+            to={"/Services/webmanagement"}
           >
-            Search Engine Marketing (SEM)
-          </Typography>
-          <Typography
-            sx={{
-              color: "#C1B2D5",
-              fontSize: "16px",
-              fontWeight: " 400",
-              mb: "5px",
-            }}
+            <Typography>Website Development & Management</Typography>
+          </Link>
+          <Link
+            style={{ textDecoration: "none", color: "#C1B2D5" }}
+            to={"/Services/sem"}
           >
-            Marketing Price Displacement (MPD)
-          </Typography>
-          <Typography
-            sx={{
-              color: "#C1B2D5",
-              fontSize: "16px",
-              fontWeight: " 400",
-              mb: "5px",
-            }}
+            <Typography>Search Engine Marketing (SEM)</Typography>
+          </Link>
+          <Link
+            style={{ textDecoration: "none", color: "#C1B2D5" }}
+            to={"/Services/mpd"}
           >
-            Digital Accelerator Bundle
-          </Typography>
+            <Typography>Marketing Price Displacement (MPD)</Typography>
+          </Link>
+          <Link
+            style={{ textDecoration: "none", color: "#C1B2D5" }}
+            to={"/Services/digitalaccelerator"}
+          >
+            <Typography>Digital Accelerator Bundle</Typography>
+          </Link>
         </Grid>
         <Grid item xs={12} md={3}>
           <Typography
