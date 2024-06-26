@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <Box
       sx={{
-        background: "#180D30",
+        background: "linear-gradient(135deg, #d1c4e9, #ffffff, #bbdefb)", // Updated background color
         height: "110vh",
         color: "#fff",
         display: "flex",
@@ -34,7 +34,7 @@ const Header = () => {
       >
         <Typography
           sx={{
-            color: "#C7B1F7",
+            color: "#6E3EF4",
             fontSize: "24px",
             fontWeight: "400",
             lineHeight: "110%",
@@ -49,6 +49,7 @@ const Header = () => {
             fontWeight: "500",
             lineHeight: "110%",
             letterSpacing: "-0.24px",
+            color: "#000",
           }}
         >
           Articles and resources on prevail
@@ -58,6 +59,7 @@ const Header = () => {
             fontSize: "18px",
             fontWeight: "400",
             letterSpacing: "-0.24px",
+            color: "#000",
           }}
         >
           In a word where economic fluctuations often diminish the purchasing
@@ -68,7 +70,7 @@ const Header = () => {
           marketplace where larger entities, armed with vast resources and
           advanced technological tools, dominate. This daunting scenario is the
           very challenge that fuels Prevail’s commitment and innovative
-          approach. 
+          approach. 
         </Typography>
       </Box>
       <CardMedia

@@ -1,21 +1,14 @@
-import {
-  Box,
-  Card,
-  CardContent,
-  CardMedia,
-  Paper,
-  Typography,
-} from "@mui/material";
-import React from "react";
+import { Box, Card, CardContent, CardMedia, Paper, Typography } from '@mui/material';
+import React from 'react'
 
-const MediumCard = ({ header, text, icon }) => {
+const LargerCard = ({text, header, icon}) => {
   return (
     <Card
       sx={{
-        height: "578.719px",
+        height: "530px",
         borderRadius: "20px",
         padding: "20px",
-        width: "568.719px",
+        width: "638px",
         "@media (max-width: 600px)": {
           width: "90vw",
           padding: "10px",
@@ -41,10 +34,9 @@ const MediumCard = ({ header, text, icon }) => {
         <Typography
           sx={{
             fontSize: "16px",
-            width: "500.022px",
+            width: "582.049px",
             color: "#505660",
             fontWeight: "400",
-            mt: "23px",
             "@media (max-width: 600px)": {
               width: "unset",
               textAlign: "center",
@@ -63,8 +55,7 @@ const MediumCard = ({ header, text, icon }) => {
           margin: "0px",
           borderRadius: "10px",
           width: "100%",
-          height: "278px",
-          mt: "23px",
+          height: "273px",
         }}
       >
         <Box
@@ -87,6 +78,6 @@ const MediumCard = ({ header, text, icon }) => {
       </Box>
     </Card>
   );
-};
+}
 
-export default MediumCard;
+export default LargerCard

@@ -52,16 +52,16 @@ const LargeCard = ({text, header, icon}) => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          margin: "10px",
+          margin: "0px",
           borderRadius: "10px",
-          width: "96.5%",
-          height: "249px",
+          width: "100%",
+          height: "300px",
         }}
       >
         <Box
           sx={{
             width: "60%",
-            height: "75%",
+            height: "80%",
             background: "#fff",
             borderRadius: "11px",
             display: "flex",
@@ -72,7 +72,7 @@ const LargeCard = ({text, header, icon}) => {
           <CardMedia
             component={"img"}
             image={icon}
-            sx={{ width: "140px", margin: "auto" }}
+            sx={{ width: "185px", margin: "auto" }}
           />
         </Box>
       </Box>
