@@ -6,6 +6,7 @@ import imag02 from "../assets/image 136.png";
 import imag03 from "../assets/image 140.png";
 import ImageTextComponent from "../ReusedComponenets/ImageTextComponent";
 import TextImageComponent from "../ReusedComponenets/TextImageComponent";
+import SpecialImageTextComponent from "../ReusedComponenets/SpecialImageTextComponent";
 
 const MainPage = () => {
   return (

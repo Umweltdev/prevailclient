@@ -41,6 +41,9 @@ const TextImageComponent = ({ header, text, img }) => {
             fontSize: "24px",
             fontWeight: " 500",
             width: "35vw",
+            "@media (max-width: 600px)": {
+              width: "90vw",
+            },
           }}
         >
           {header}
@@ -64,9 +67,11 @@ const TextImageComponent = ({ header, text, img }) => {
         image={img}
         sx={{
           width: "50vw",
+          height: "100vh",
           "@media (max-width: 600px)": {
             width: "90vw",
             mt: "5vh",
+            height: "unset",
             borderRadius: "14px",
           },
         }}
