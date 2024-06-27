@@ -222,11 +222,11 @@ export default function MultiSelect({ name, setSelectedServices }) {
 
 const services = [
   { title: "Brand Identity" },
-  { title: "Custom Website & Management" },
-  { title: "Website Developement & Management" },
+  { title: "Customer Website Developement" },
+  { title: "Website Developement" },
   { title: "Search Engine Marketing" },
   { title: "Marketing Price Displacement" },
-  { title: "Digital Accelerator" },
+  { title: "Accelerator Bundle" },
   { title: "Campaign Strategy" },
   { title: "Target Ads Strategy" },
 ];
