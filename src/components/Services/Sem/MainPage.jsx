@@ -24,7 +24,7 @@ const MainPage = () => {
       <ImageTextComponent
         img={imago}
         header={"Unleashing the Power of SEM for Local Businesses and SMEs "}
-        text={`At Prevail, we resonate deeply with the aspirations of local businesses and small-to-medium enterprises (SMEs) dreaming of growth, recognition, and success. In today's competitive digital marketplace, merely existing isn't enough—you need to stand out. That's where our Search Engine Marketing (SEM) service comes into play, a true game-changer for your business. <br/><br/>Our comprehensive approach not only enhances visibility but ensures your marketing efforts resonate with your core mission and objectives. Our SEM strategy encompasses target advertising, technical site audit, website optimisation, meticulous search engine optimisation, real-time performance tracking, and continual adjustments based on detailed reports. This holistic approach is designed to align perfectly with your business's goal, providing a clear path to increased visibility and success. `}
+        text={`At Prevail, we resonate deeply with the aspirations of local businesses and small-to-medium enterprises (SMEs) dreaming of growth, recognition, and success. In today's competitive digital marketplace, merely existing isn't enough—you need to stand out. That's where our Search Engine Marketing (SEM) service comes into play, a true game-changer for your business. Our comprehensive approach not only enhances visibility but ensures your marketing efforts resonate with your core mission and objectives.<br/><br/>Our SEM strategy encompasses target advertising, technical site audit, website optimisation, meticulous search engine optimisation, real-time performance tracking, and continual adjustments based on detailed reports. This holistic approach is designed to align perfectly with your business's goal, providing a clear path to increased visibility and success. `}
       />
       <TextImageComponent
         img={imag01}
@@ -39,7 +39,7 @@ const MainPage = () => {
       <TextImageComponent
         img={imag03}
         header={"Growth, Visibility and Success  "}
-        text={`Choose Prevail’s SEM services and take a significant step toward realising the vision of growth, recognition, and success for your business. Our commitment to precision, efficiency, and adaptability in digital marketing ensures that your voice is not just heard, but that it resonates where it counts. <br/><br/>Let us help you turn your dreams into reality by making your business a prominent contender in the digital marketplace. `}
+        text={`Choose Prevail’s SEM services and take a significant step toward realising the vision of growth, recognition, and success for your business. Our commitment to precision, efficiency, and adaptability in digital marketing ensures that your voice is not just heard, but that it resonates where it counts. Let us help you turn your dreams into reality by making your business a prominent contender in the digital marketplace. `}
       />
     </Grid>
   );

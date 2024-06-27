@@ -28,7 +28,7 @@ const Mpd = () => {
       <ImageTextComponent
         img={imago}
         header={"Why Choose Prevail’s MPD API? "}
-        text={`Embrace the future of digital marketing by incorporating Prevail’s MPD API into your business strategy. This tool not only simplifies complex pricing strategies but also ensures that your marketing efforts are as effective and efficient as possible. By choosing Prevail, you open your business to increased market share and proportional income growth. `}
+        text={`Embrace the future of digital marketing by incorporating Prevail’s MPD API into your business strategy. This tool simplifies complex pricing strategies and ensures that your marketing efforts are as effective and efficient as possible. Choosing Prevail opens your business to increased market share and proportional income growth.`}
       />
       <TakeAction />
       {/* <Solution/> */}

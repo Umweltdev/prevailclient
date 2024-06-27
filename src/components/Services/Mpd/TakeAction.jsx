@@ -2,8 +2,14 @@ import { Button, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
 import imago from "../assets/cube-helix 1.png";
 import imago2 from "../assets/cube-helix 2.png";
+import { useNavigate } from "react-router-dom";
 
 const TakeAction = () => {
+  const navigate = useNavigate();
+
+  const SignUp = () => {
+    navigate("/signup")
+  }
   return (
     <Grid
       container
@@ -90,6 +96,7 @@ const TakeAction = () => {
               fontSize: "4vw",
             },
           }}
+          onClick={SignUp}
         >
           Sign Up
         </Button>

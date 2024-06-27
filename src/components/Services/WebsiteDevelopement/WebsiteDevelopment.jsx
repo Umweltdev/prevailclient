@@ -70,11 +70,13 @@ const WebsiteDevelopment = () => {
         <TextImageComponent
           img={image1}
           header={"Why Custom Web Development?"}
-          text={`In the digital era, establishing a distinct digital presence
-                  is more crucial than ever. If you’re looking to craft a
-                  digital identity that truly embodies your brand and narrates
-                  your story with precision, the “custom website development”
-                  service is your go-to solution.`}
+          text={`Establishing a distinct digital presence is more crucial than ever in the digital era. 
+                  If you’re looking to craft a digital identity that embodies your brand and precisely 
+                  tells your story, the “custom website development” service is your go-to solution. 
+                  Unlike standard web builder platforms that might suffice for simpler, small-scale 
+                  projects – custom development allows for a limitless array of API integrations, 
+                  frontend customisations, and aesthetic enhancements. This approach is tailored for visionary 
+                  businesses aiming to carve out a significant digital presence. `}
         />
         <ImageTextComponent
           img={image2}
@@ -94,19 +96,16 @@ const WebsiteDevelopment = () => {
         />
         <TextImageComponent
           img={image3}
-          header={"The Limitations of Standard Solutions "}
-          text={`Many businesses encounter significant challenges on their
-                  digital journey, including performance issues where heavy,
-                  costly images and design elements slow down websites,
-                  adversely affecting user experience. High hosting charges and
-                  the risk of overspending on poorly optimised digital assets
-                  pose major cost concerns.<br/><br/> Additionally, generic web builder platforms often lack the
-                  flexibility needed to truly distinguish a brand or meet
-                  specific business requirements, and there are frequent
-                  communication gaps that make it difficult to bridge the divide
-                  between a business's vision and what is technologically
-                  feasible, adding to the complexity and frustration of creating
-                  an effective digital presence.`}
+          header={"Why Choose Prevail for Your Digital Development Journey?"}
+          text={`Prevail stands out due to our comprehensive, bespoke service offerings. 
+                  Our team, consisting of brand identity experts, UI/UX designers, full-stack MERN 
+                  developers, and marketing consultants, excels in crafting digital platforms that 
+                  are not only visually striking but also highly functional.<br/><br/> 
+                  We invest time to understand your unique business needs and vision, 
+                  ensuring the final product perfectly aligns with your goals. 
+                  Our process is thorough, involving detailed consultations to capture 
+                  all necessary content and design preferences to launch your digital 
+                  presence effectively.`}
         />
 
         <Stack mt={{ xs: 6, md: 10 }} px={{ xs: 2, md: 6 }}>
