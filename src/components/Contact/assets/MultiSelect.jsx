@@ -64,6 +64,7 @@ const InputWrapper = styled("div")(
   }
 `
 );
+
 function Tag(props) {
   const { label, onDelete, ...other } = props;
   return (
@@ -165,7 +166,7 @@ const Listbox = styled("ul")(
 `
 );
 
-export default function MultiSelect({ name }) {
+export default function MultiSelect({ name, setSelectedServices }) {
   const {
     getRootProps,
     getInputLabelProps,
@@ -183,6 +184,9 @@ export default function MultiSelect({ name }) {
     multiple: true,
     options: services,
     getOptionLabel: (option) => option.title,
+    onChange: (event, newValue) => {
+      setSelectedServices(newValue);
+    },
   });
 
   return (
@@ -191,21 +195,10 @@ export default function MultiSelect({ name }) {
         <Label {...getInputLabelProps()}>
           Which Services Are You Interested In
         </Label>
-        <InputWrapper
-          ref={setAnchorEl}
-          name={name}
-          className={focused ? "focused" : ""}
-        >
+        <InputWrapper ref={setAnchorEl} className={focused ? "focused" : ""}>
           {value.map((option, index) => {
             const { key, ...tagProps } = getTagProps({ index });
-            return (
-              <StyledTag
-                key={key}
-                {...tagProps}
-                label={option.title}
-                name={name}
-              />
-            );
+            return <StyledTag key={key} {...tagProps} label={option.title} />;
           })}
           <input {...getInputProps()} />
         </InputWrapper>
@@ -227,7 +220,6 @@ export default function MultiSelect({ name }) {
   );
 }
 
-// Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
 const services = [
   { title: "Brand Identity" },
   { title: "Custom Website & Management" },
