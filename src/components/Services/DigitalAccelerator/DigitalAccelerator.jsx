@@ -31,7 +31,10 @@ const DigitalAccelerator = () => {
               beneficial – it's essential. Imagine propelling your business to
               the forefront with a cutting-edge website, a brand identity that
               captivates your audience, and a search engine strategy that puts
-              you in front of your audience.`}
+              you in front of your audience. <br /><br /> This scenario transforms 
+              from aspiration to reality with Prevail’s “Digital Accelerator” bundle. 
+              This package isn’t just a collection of services – it's your strategic 
+              gateway to a cohesive, impactful and cost-effective digital presence.`}
       />
       <ImageTextComponent
         img={image2}
@@ -116,16 +119,11 @@ const DigitalAccelerator = () => {
                 Why Choose Prevail’s Digital Accelerator Bundle? 
               </Typography>
               <Typography>
-                By integrating these essential digital services into one
-                comprehensive package, Prevail not only simplifies the digital
-                transformation process but ensures that every aspect of your
-                online presence is synchronised and powerful.{" "}
-              </Typography>
-              <Typography>
-                This approach not only saves you time and resources but also
-                provides you with a competitive edge that is critical in today’s
-                digital age. Connect with us today to take the first step
-                towards digital excellence and business success. 
+              By integrating these essential digital services into one comprehensive package, 
+              Prevail not only simplifies the digital transformation process but ensures that 
+              every aspect of your online presence is synchronised and powerful. This approach 
+              saves you time and resources and provides you with a competitive edge that is 
+              critical in today’s digital age.
               </Typography>
             </Stack>
           </Box>
@@ -159,8 +157,7 @@ const DigitalAccelerator = () => {
                     textAlign={{ xs: "center", md: "left" }}
                     fontSize={"18px"}
                   >
-                    Don't miss out on the opportunity to transform your
-                    business!
+                    Take advantage of the opportunity to transform your business!
                   </Typography>
                 </Box>
 
