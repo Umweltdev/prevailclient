@@ -26,11 +26,11 @@ const drawerWidth = 240;
 const servicesData = [
   { text: "Services", link: "/Services" },
   { text: "Brand Identity", link: "/Services/brand" },
-  { text: "Custom Website & Management", link: "/Services/website" },
-  { text: "Website Development & Management", link: "/Services/webmanagement" },
+  { text: "Custom Website Development", link: "/Services/website" },
+  { text: "Website Development", link: "/Services/webmanagement" },
   { text: "Search Engine Marketing (SEM)", link: "/Services/sem" },
   { text: "Marketing Price Displacement (MPD)", link: "/Services/mpd" },
-  { text: "Digital Accelerator", link: "/Services/digitalaccelerator" },
+  { text: "Digital Accelerator Bundle", link: "/Services/digitalaccelerator" },
 ];
 
 const exploreData = [
