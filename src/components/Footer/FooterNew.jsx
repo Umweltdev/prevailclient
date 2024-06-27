@@ -193,13 +193,13 @@ const FooterNew = () => {
             style={{ textDecoration: "none", color: "#C1B2D5" }}
             to={"/Services/website"}
           >
-            <Typography>Custom Website & Management</Typography>
+            <Typography>Custom Website Development</Typography>
           </Link>
           <Link
             style={{ textDecoration: "none", color: "#C1B2D5" }}
             to={"/Services/webmanagement"}
           >
-            <Typography>Website Development & Management</Typography>
+            <Typography>Website Development</Typography>
           </Link>
           <Link
             style={{ textDecoration: "none", color: "#C1B2D5" }}

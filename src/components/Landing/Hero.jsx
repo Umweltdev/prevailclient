@@ -94,8 +94,9 @@ const Hero = () => {
             },
           }}
         >
-          Prevail is a cutting-edge marketing agency specialising in redefining
-          the way businesses.
+          Our goal is to help businesses thrive and create their unique online presence 
+          by providing innovative and holistic solutions.
+
         </Typography>
         <Button
           variant="contained"
