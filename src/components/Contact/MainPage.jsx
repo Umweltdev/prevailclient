@@ -31,11 +31,6 @@ const MainPage = () => {
           Contact Us
         </Typography>
         <Typography
-          sx={{ color: "#1D0D40", fontSize: "38px", fontWeight: 500 }}
-        >
-          Let You Brand Fly
-        </Typography>
-        <Typography
           sx={{ fontSize: "18px;", fontWeight: "400", color: "505660" }}
         >
           Fill out the form below and let us know how we can assist you. Whether

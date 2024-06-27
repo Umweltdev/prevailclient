@@ -79,8 +79,7 @@ const OurCore = () => {
             textAlign: "center",
           }}
         >
-          Prevail is a cutting-edge marketing agency specialising in redefining
-          how businesses navigate the digital landscape.
+          Prevail stands out by crafting tailored strategies and solutions that are data-driven and creatively inspired. 
         </Typography>
         <Box sx={{ textAlign: "center", marginBottom: "40px" }}>
           <Link to={"/Services"}>

@@ -27,19 +27,22 @@ export const semData = [
     text: "SEM requires relentless optimisation. We continuously refine campaigns and analyse PPC performance to keep your marketing efforts aligned with your evolving business goals.",
   },
   {
-    img: icon5,
-    header: "Local Dominance",
-    text: "We implement localised marketing strategies to boost your visibility in specific geographic areas, perfect for locally focused businesses.",
-  },
-  {
     img: icon6,
     header: "Comprehensive Analytics",
     text: "We equip you with deep insights into user behaviour, website performance and marketing efficacy. Allowing you to stay ahead of your competitors to maintain your edge in the digital landscape.",
+  },
+  {
+    img: icon5,
+    header: "Local Dominance",
+    text: "We implement localised marketing strategies to boost your visibility in specific geographic areas, perfect for locally focused businesses.",
   },
 ];
 
 
 export const SEMSilverPackage = [
+  {
+    text: "Target display marketing",
+  },
   {
     text: "Paid advertising campaigns",
   },

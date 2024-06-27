@@ -109,7 +109,7 @@ const Hero = () => {
               backgroundColor: "#3a0d96",
             },
           }}
-          onClick={() => navigate("/get-started")}
+          onClick={() => navigate("/Contact")}
         >
           Get started
         </Button>

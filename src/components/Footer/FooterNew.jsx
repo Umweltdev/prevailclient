@@ -136,7 +136,7 @@ const FooterNew = () => {
                 mb: "5px",
               }}
             >
-              Email: info@prevail.com
+              Email: info@prevailagency.ie
             </Typography>
             <Typography
               sx={{

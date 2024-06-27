@@ -61,14 +61,7 @@ const AboutUs = () => {
           },
         }}
       >
-        In a word where economic fluctuations often diminish the purchasing
-        power of individuals and small businesses alike, rising interest rates
-        and unpredictable consumer demands pose substantial challenges.
-        Small-to-medium-sized enterprises (SMEs) and local businesses frequently
-        find themselves battling to maintain relevance in a marketplace where
-        larger entities, armed with vast resources and advanced technological
-        tools, dominate. This daunting scenario is the very challenge that fuels
-        Prevail’s commitment and innovative approach. 
+        In a word where economic fluctuations often diminish the purchasing power of individuals and small businesses alike, rising interest rates and unpredictable consumer demands pose substantial challenges. Small-to-medium-sized enterprises (SMEs) and local businesses frequently find themselves battling to maintain relevance in a marketplace where larger entities, armed with vast resources and advanced technological tools, dominate. This daunting scenario is the very challenge that fuels Prevail’s commitment and innovative approach.
       </Grid>
       <CardMedia
         component={"img"}

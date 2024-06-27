@@ -81,8 +81,7 @@ const JoinOurCustomer = () => {
             },
           }}
         >
-          Connect the dots between Customer needs and your product delivery
-          workflows
+          Connect the dots between your vision and your customer’s needs. 
         </Typography>
         <Grid sx={{mt: '34px'}}>
           <Link to={"/signup"}>

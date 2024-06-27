@@ -13,7 +13,7 @@ import icon4 from "./assets/comment-alt-message.svg";
 const contactData = [
   {
     icon: icon1,
-    header: "Curiosity Drivens",
+    header: "Curiosity Driven",
     detail:
       "At Prevail, our curiosity pushes the boundaries of digital marketing, aiming to achieve transformative results.",
   },

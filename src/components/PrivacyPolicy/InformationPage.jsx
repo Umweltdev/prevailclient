@@ -272,7 +272,7 @@ const InformationPage = () => {
             sx={{ color: "#505660", fontSize: "16px", fontWeight: "500" }}
           >
             If you have any questions about this Privacy Policy, please contact
-            us at info@prevailagency.ie. 
+            us at vailagency.ie. 
           </Typography>
         </ul>
       </Box>

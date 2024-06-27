@@ -124,16 +124,6 @@ const WebManagement = () => {
                     </Typography>
                   </Stack>
                   <Stack spacing={1} pr={{ xs: 0, md: 10 }}>
-                    <Hospital />
-                    <Typography sx={{ fontWeight: "600" }}>
-                      Hospitality Haven
-                    </Typography>
-                    <Typography>
-                      Hotel E-commerce Platform Development Turn your hotel's
-                      online presence into a powerful booking engine.
-                    </Typography>
-                  </Stack>
-                  <Stack spacing={1} pr={{ xs: 0, md: 10 }}>
                     <House />
                     <Typography sx={{ fontWeight: "600" }}>
                       Real Estate Authority
@@ -142,6 +132,16 @@ const WebManagement = () => {
                       Tailored Web Development for Agencies Attract and convert
                       clients with a website that exudes professionalism and
                       trust.
+                    </Typography>
+                  </Stack>
+                  <Stack spacing={1} pr={{ xs: 0, md: 10 }}>
+                    <Hospital />
+                    <Typography sx={{ fontWeight: "600" }}>
+                      Hospitality Haven
+                    </Typography>
+                    <Typography>
+                      Hotel E-commerce Platform Development Turn your hotel's
+                      online presence into a powerful booking engine.
                     </Typography>
                   </Stack>
                 </Stack>
@@ -569,7 +569,7 @@ const WebManagement = () => {
                         </Typography>
                       </Stack>
                     </Grid>{" "}
-                    <Grid item xs={12} md={6}>
+                    {/*<Grid item xs={12} md={6}>
                       <Stack spacing={1}>
                         <Mobile />
                         <Typography sx={{ fontWeight: "600" }}>
@@ -581,7 +581,7 @@ const WebManagement = () => {
                           the need for third-party booking sites. 
                         </Typography>
                       </Stack>
-                    </Grid>
+                    </Grid>*/}
                     <Grid item xs={12} md={6}>
                       <Stack spacing={1}>
                         <Money />
