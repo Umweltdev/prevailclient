@@ -1,4 +1,4 @@
-import Footer from "../components/Footer/Footer.jsx";
+import { Helmet } from "react-helmet";
 import SectionOne from "../components/About/SectionOne";
 import SectionThree from "../components/About/SectionThree";
 import SectionTwo from "../components/About/SectionTwo.jsx";
@@ -24,6 +24,14 @@ const About = (props) => {
   const { isLoggedIn } = useContext(AuthContext);
 
   return (
+    <>
+    <Helmet>
+        <title>How Prevail Supports Local Businesses and SMEs</title>
+        <meta
+          name="description"
+          content="Supporting SMEs and Local Businesses with Custom Solutions"
+        />
+      </Helmet>
     <div
       style={{
         // width: "100%",
@@ -46,6 +54,7 @@ const About = (props) => {
       <JoinOurCustomer />
       <FooterNew />
     </div>
+    </>
   );
 };
 

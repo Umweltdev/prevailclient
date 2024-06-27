@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import React from "react";
 import FooterNew from "../../Footer/FooterNew";
 import HeroComponent from "../ReusedComponenets/HeroComponent";
@@ -17,6 +18,14 @@ const DigitalAccelerator = () => {
   const Mobile = useMediaQuery("(min-width:1249px)");
 
   return (
+    <>
+    <Helmet>
+        <title>Unlock Your Digital Potential with Prevail's Digital Accelerator Bundle</title>
+        <meta
+          name="description"
+          content="Prevail's Digital Accelerator Bundle Boosts Digital Visibility and Presige"
+        />
+      </Helmet>
     <div style={{ width: "100%", overflow: "hidden" }}>
       {/* <HeroSection header="Digital Accelerator Bundle Page " /> */}
       <AppBarNav color="#000" />
@@ -218,6 +227,7 @@ const DigitalAccelerator = () => {
 
       <FooterNew />
     </div>
+    </>
   );
 };
 

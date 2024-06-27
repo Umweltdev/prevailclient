@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import SectionOne from "../components/Contact/SectionOne";
 import SectionThree from "../components/Contact/SectionThree";
 import SectionTwo from "../components/Contact/SectionTwo";
@@ -17,6 +18,14 @@ const Contact = (props) => {
   const { isLoggedIn } = useContext(AuthContext);
 
   return (
+    <>
+    <Helmet>
+        <title>Let's Elevate Your Online Presence Together</title>
+        <meta
+          name="description"
+          content="Get in Touch with Prevail for Bespoke Marketing Solutions"
+        />
+      </Helmet>
     <div style={{ width: "100%", overflowX: "hidden" }}>
       <AppBarNav color="#000" />
       <MainPage />
@@ -25,6 +34,7 @@ const Contact = (props) => {
       {/* <SectionFive /> */}
       <FooterNew />
     </div>
+    </>
   );
 };
 

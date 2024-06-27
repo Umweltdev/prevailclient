@@ -1,4 +1,5 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
+import { Helmet } from "react-helmet";
 import Footer from "../components/Footer/Footer";
 import FooterNew from "../components/Footer/FooterNew";
 import CarouselOne from "../components/Landing/CarouselOne";
@@ -15,17 +16,22 @@ import AppBarOne from "../components/Navbar/AppbarOne";
 import { AuthContext } from "../context/AuthContext";
 import AppBarNav from "../components/Navbar/Appbar";
 import Testimonials from "../components/Landing/Testimonials";
-// import Testimonials from "../components/Landing/TestimonialCard";
-import JoinCustomers from "../components/About/JoinOurCustomer"
+import JoinCustomers from "../components/About/JoinOurCustomer";
 
 const Landing = (props) => {
   const { isLoggedIn } = useContext(AuthContext);
   return (
     <>
+      <Helmet>
+        <title>Prevail: Your Partner in Success</title>
+        <meta
+          name="description"
+          content="Prevail is a Strategic Partner for Businesses in the Digital Age."
+        />
+      </Helmet>
       <div style={{ width: "100%", overflow: "hidden" }}>
         <AppBarNav color="#000" />
         <Hero />
-
         <SectionTwo />
         <CoreValues />
         <OurCore />
