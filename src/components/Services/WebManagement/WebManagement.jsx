@@ -45,17 +45,23 @@ import Web from "./assets/web.svg?react";
 import Search from "../DigitalAccelerator/assets/search.svg?react";
 import HeroComponent from "../ReusedComponenets/HeroComponent";
 import AppBarNav from "../../Navbar/Appbar";
-// import Solution from "./Slides";
-import Solution from "../Mpd/Solution";
+import Slides from "./Slides";
+ import Solution from "../Mpd/Solution";
+import { useContext } from "react";
+import { AuthContext } from "../../../context/AuthContext";
 
 const WebManagement = () => {
+
   return (
     <div style={{ width: "100%", overflow: "hidden" }}>
       {/* <DrawerAppBarWhite /> */}
       <AppBarNav color="#000" />
       <HeroComponent title="Website Development" />
-      <Box >
+      <Box  display={{xs:"none", md:"block"}}>
         <Solution />
+      </Box>
+      <Box  display={{xs:"block", md:"none"}}>
+        <Slides />
       </Box>
       <Box>
         <Container  maxWidth="lg">
@@ -152,14 +158,17 @@ const WebManagement = () => {
       </Box>
 
       {/* secondSectio */}
+      <div id="shopify">
       <Box
+        
         py={10}
         sx={{
           backgroundImage:
             "linear-gradient(to bottom, #ffffff, rgba(238,249,255, 0.2))",
         }}
+        
       >
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" >
           <Stack color="#1D0D40" spacing={4}>
             <Typography
               fontSize={{ xs: "26px", md: "32px" }}
@@ -334,8 +343,12 @@ const WebManagement = () => {
           </Stack>
         </Container>
       </Box>
+      </div>
+      
 
       {/* thirdSection */}
+      <div id="real-estate">
+
       <Box
         py={10}
         sx={{
@@ -502,7 +515,9 @@ const WebManagement = () => {
           </Stack>
         </Container>
       </Box>
+      </div>
 
+     <div id="hospitality">
       <Box py={10} sx={{ backgroundColor: "#F9FAFC" }}>
         <Container maxWidth="lg">
           <Stack color="#1D0D40" spacing={4}>
@@ -654,6 +669,7 @@ const WebManagement = () => {
           </Stack>
         </Container>
       </Box>
+      </div>
 
       <Box
         py={7}

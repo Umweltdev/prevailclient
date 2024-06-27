@@ -13,8 +13,12 @@ import {
   Chip,
 } from "@mui/material";
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
+import { Link, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../../context/AuthContext";
 
 const Solution = () => {
+  const { user } = useContext(AuthContext);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slides, setSlides] = useState(initialSlides);
   const intervalRef = useRef(null);
@@ -89,15 +93,6 @@ const Solution = () => {
             key={index}
           >
             <img src={slides[currentSlide].image} alt={slide.title} />
-            {/* <Box className="content">
-              <p className="author">SOLUTION</p>
-              <Box className="topic">{slides[currentSlide].topic}</Box>
-              <Box className="des">{slides[currentSlide].description}</Box>
-              <Box className="buttons">
-                <button>SEE MORE</button>
-                <button>SUBSCRIBE</button>
-              </Box>
-            </Box> */}
           </Box>
         ))}
       </Box>
@@ -124,10 +119,10 @@ const Solution = () => {
                 }}
               />
             </Box>
-            <Box sx={{}}>
+            <Box sx={{ width: "100%" }}>
               <Typography
                 sx={{
-                  fontSize: "16px",
+                  fontSize: "17px",
                   fontWeight: "600",
                   color: "white",
                   textAlign: "center",
@@ -135,23 +130,52 @@ const Solution = () => {
               >
                 {slide.topic}
               </Typography>
-              <Stack direction={"row"} spacing={2} mt={2}>
-                {slide.data.map((item) => (
-                  <Chip
-                    label={item}
+              <Stack
+                direction={"row"}
+                spacing={{ xs: 0, md: 2 }}
+                mt={2}
+                justifyContent={{ xs: "space-between", md: "flex-start" }}
+              >
+                <a href={slide.link}>
+                  <Button
+                    variant="outlined"
                     sx={{
-                      bgcolor: "transparent",
-                      color: "white",
-                      border: "1px solid white",
-                      fontSize: "11px",
-                    }}
-                  />
-                ))}
-              </Stack>
+                      textTransform: "none",
+                      fontSize: "12px",
 
-              {/* <p className="normaltext">
-                {truncateDescription(slide.description)}
-              </p> */}
+                      borderRadius: "100px",
+                      borderColor: "white",
+                      color: "white",
+
+                      "&:hover": {
+                        borderColor: "white",
+                      },
+                    }}
+                  >
+                    Learn more
+                  </Button>
+                </a>
+
+                <Link to={user ? "/user/bookings" : "/contact"}>
+                  <Button
+                    variant="outlined"
+                    sx={{
+                      textTransform: "none",
+                      fontSize: "12px",
+
+                      borderRadius: "100px",
+                      borderColor: "white",
+                      color: "white",
+
+                      "&:hover": {
+                        borderColor: "white",
+                      },
+                    }}
+                  >
+                    Book now
+                  </Button>
+                </Link>
+              </Stack>
             </Box>
           </Stack>
         ))}
@@ -159,18 +183,14 @@ const Solution = () => {
 
       <Stack className="arrows">
         <Typography
-          fontSize={{ xs: "23px", md: "28px" }}
+          fontSize={{ xs: "30px", md: "42px" }}
           fontWeight={"600"}
           color={"white"}
           gutterBottom
         >
           {slides[currentSlide].topic}
         </Typography>
-        <Stack
-          direction={"row"}
-          spacing={5}
-          // justifyContent={{ xs: "space-between", md: "left" }}
-        >
+        <Stack direction={"row"} spacing={5}>
           <IconButton
             onClick={prevSlide}
             sx={{

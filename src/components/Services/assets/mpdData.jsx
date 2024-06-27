@@ -1,60 +1,28 @@
 export const slides = [
   {
-    topic: "Valuable Gains",
-    description:
-      "Bringing the magic of yield management and automated price adjustments based on models of elasticity.",
-    image:
-      "https://img.freepik.com/premium-photo/stack-coins-against-black-background_1048944-10931623.jpg?w=740",
-    data: ["Web Design", "Web Development"],
-  },
-
-  {
-    topic: "Labour Effect",
+    topic: "Hospitality",
     description:
       "Ability to increase efficiency, reduced cost, and enhance competitiveness.",
     image:
-      "https://img.freepik.com/free-photo/medium-shot-woman-working-as-lawyer_23-2151152387.jpg?w=740",
-    data: ["Branding", "Web Development"],
+      "https://s3-alpha-sig.figma.com/img/7579/d217/2943d0f5e4d00d50471beb2f909cf214?Expires=1720396800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Rbh5YSbPvrAhQFTpDrcoI0c-t9OOQmLToqsMRNkaVo2iBjLoSYgZ9upsSJcHqd-Zjeew~EGpA9HS1a0~GBFLrSSIT3PXmGjQkz7w8FKSnvXiLEF-dS4CQs~MRLEf24sK8iE5duY7qdFf9TpEJBuDKBFUYgXoq0s4aKyQPCaOgEArRioMtplnRBqtMeebsxi6FW1r7q0SmGRV36GhL8RlKXlM-M49JEKoBAXgr2~AwDJ2BvG~3ziQrKgv7cjxDU6ubcidFARMZu6rulJ-rQAx0po3ofM9-XI6W~9jbtw4yFfT-bPX-V5dzy4aZAhA3IVaNyy5hKsKWhemTzVEDwst6w__",
+    link: "#hospitality",
   },
   {
-    topic: "Tailored Redistribution Frequency",
+    topic: "Shopify",
     description:
       "Choose how often to adjust your marketing spend (daily, weekly, monthly, quarterly) for strategic flexibility.",
     image:
-      "https://img.freepik.com/premium-photo/overhead-view-young-woman-holding-pen-writing-notebook_35674-14486.jpg?w=740",
-    data: ["Advertising", "Marketing"],
+      "https://s3-alpha-sig.figma.com/img/a40e/4e04/c924e90fb938391951edca3c9066d10f?Expires=1720396800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Hr-T4scZMU19irWM0Ef4NuH2o3c0CixjnIntBn1fr3m8b7USjGj--mv1sa7rkWrEKk0gDeF~OVrQ1OFX2iCO6j7dnP0EJsS-jqOLa14wWxgeaiuLOWqHsGlZ7quGXXDIYrTjbFTTHVYRaNmI5jwvGOwE20HhIr4QApXzqT2xlfSy687fnat5vp5LlmbqflFKhqtRGlAi-wMqQCJfy5iaAPLnTP1mVUHXnV2JiJ8FwEzQDmZ8L68776O~18LLyqFQIiIkhud0J~N~3HWBY0QRIQ2Bw5uuk0aQRBFn9EIVGmedPuomDk7wXNXl9Nn8gDWIG~8i1~uaxlnadk2KlCgebg__",
+    link: "#shopify",
   },
   {
-    topic: "Digital Connection",
+    topic: "Real Estate",
     description:
       "Ability to connect to a digital Ads platform and database through an API.",
     image:
-      "https://img.freepik.com/premium-photo/group-people-talking-social-network-3d-render_1379-1783.jpg?w=900",
-    data: ["User Interface", "User Experience"],
-  },
-  {
-    topic: "Holistic Expense Tracking",
-    description:
-      "Gain a comprehensive understanding of all marketing expenses and their impact",
-    image:
-      "https://img.freepik.com/premium-photo/investor-is-looking-stock-charts-mobile-phones-tablets-he-is-stock-investor-he-trades-stocks-by-analyzing-charts-using-indicators-enter-trades-stock-investment-idea_528263-1849.jpg?w=740",
-    data: ["IT", "Networking"],
-  },
-  {
-    topic: "Price Estimator",
-    description:
-      "Gain insightful price estimator quotations on an admin frontend portal built by Prevail or sent as a spreadsheet pdf.",
-    image:
-      "https://img.freepik.com/premium-photo/male-businessman-works-with-business-reports-financial-charts-paperwork-late-night_361425-5147.jpg?w=740",
-    data: ["Branding", "Marketing"],
-  },
-  {
-    topic: "Version Update",
-    description:
-      "Customers who purchase version 1 will get first access to version 2",
-    image:
-      "https://img.freepik.com/free-photo/student-boy-using-laptop-learning-online-education_1150-16903.jpg?w=740",
-      data: ["Branding", "Marketing"],
-
+      "https://s3-alpha-sig.figma.com/img/4791/1b70/c848d1cae61924eb41fd79dca2d8e4cf?Expires=1720396800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=IKVw-zLqRLbGY9E2hcRNf5hLaD-0Q5gX3mOlHJppZmteQAWpc6XsWdLBc0rXy6gkiqnBah7FJS6gNQz9UkQIc~OJpoIKXfksq~Be40r8m5bmfKlhufCzcir5HNmW-p-rRVjup6giGQMM70cUjroU3T-sK92BapZB5mzZV7dVnoIbiIdyRgSu4CRg9RKrF~HS4E3RPyzYbn~uqZ2TPqGcyoyjsWoc4Bb79gR~m-NyuaZIigAZE6AcaH806kUGuP-G4CQr5a5pxQhseLO4zE-jtKfrc~0t0T5uQs9TPJrGSqlRH9NLhP01NkkpLmUGtgDtvuAqzaF-lbYAAiDza1OsYw__",
+    link: "#real-estate",
   },
 ];
+
+// learn more ... book

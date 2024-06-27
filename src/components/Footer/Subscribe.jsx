@@ -9,9 +9,32 @@ import {
   OutlinedInput,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, {useState} from "react";
+import axios from "axios";
 
 const Subscribe = () => {
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = async () => {
+    // try {
+    //   const response = await axios.post(
+    //     "https://us17.api.mailchimp.com/3.0/lists/c1ec5b1a7e/members",
+    //     {
+    //       email_address: email,
+    //       status: "subscribed",
+    //     },
+    //     {
+    //       headers: {
+    //         Authorization: `Bearer 2bb4da1cc9bde65a263bc95dfdb9f4bd`,
+    //         "Content-Type": "application/json",
+    //       },
+    //     }
+    //   );
+    //   console.log("Subscribed successfully!", response.data);
+    // } catch (error) {
+    //   console.error("Error subscribing:", error);
+    // }
+  };
   return (
     <Grid
       sx={{
@@ -101,6 +124,7 @@ const Subscribe = () => {
                         background: "#6E3EF4;",
                       },
                     }}
+                    onClick={handleSubmit}
                   >
                     Subscribe
                   </Button>
@@ -125,6 +149,9 @@ const Subscribe = () => {
                 borderColor: "#656565",
               },
             }}
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <Grid
             sx={{
@@ -150,8 +177,10 @@ const Subscribe = () => {
                   background: "#6E3EF4;",
                 },
               }}
+              onClick={handleSubmit}
+
             >
-              Subscribe
+              Subscribe!
             </Button>
           </Grid>
         </FormControl>

@@ -12,7 +12,7 @@ const WhyItMatters = () => {
         margin: "100px auto 0 auto",
         justifyContent: "center",
         alignItems: "center",
-        gap: "px",
+        // gap: "px",
         gap: "239px",
         "@media (max-width: 600px)": {
           width: "90vw",
