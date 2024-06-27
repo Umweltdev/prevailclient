@@ -91,8 +91,7 @@ const SectionTwo = () => {
             },
           }}
         >
-          Our Mission is to empower you with innovative solutions that drive
-          long-term success.
+          Our Mission is to empower you with innovative solutions that drive long-term success.
         </Typography>
 
         <Typography
@@ -107,11 +106,7 @@ const SectionTwo = () => {
             },
           }}
         >
-          Prevail is a cutting-edge marketing agency specialising in redefining
-          how businesses navigate the digital landscape. Prevail is not just a
-          marketing agency but a strategic partner for businesses in the digital
-          age. We aim to help businesses thrive, regardless of economic
-          challenges, by providing innovative and holistic solutions.
+          Prevail is a cutting-edge marketing agency specialising in redefining how businesses navigate the digital landscape. Prevail is not just a marketing agency but a strategic partner for businesses in the digital age. We aim to help businesses thrive, regardless of economic challenges, by providing innovative and holistic solutions.
         </Typography>
         <Link to={"/about"}>
           <ReusedButton text={"Learn More"}/>

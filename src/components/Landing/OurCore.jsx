@@ -10,13 +10,6 @@ import ReusedButton from "../ReusedComponents/ReusedButton";
 
 const services = [
   {
-    title: "Search Engine Marketing",
-    description:
-      "We offer more than just exposure; our holistic approach includes targeted advertising, refined SEO practices, and ongoing optimization to ensure you capture and keep the attention of your ideal audience.",
-    icon: <SearchIcon style={{ fontSize: 40, color: "#6A1B9A" }} />,
-    link: "/Services/sem",
-  },
-  {
     title: "Branding Excellence",
     description:
       "Dive into Prevail's exclusive 'Brand Identity Package'. We do more than just logo creation and marketing materials; we embark on a creative partnership to forge your distinctive brand identity that not only stands out but resonates deeply with your audience.",
@@ -31,9 +24,16 @@ const services = [
     link: "/Services/website",
   },
   {
+    title: "Search Engine Marketing",
+    description:
+      "We offer more than just exposure; our holistic approach includes targeted advertising, refined SEO practices, and ongoing optimization to ensure you capture and keep the attention of your ideal audience.",
+    icon: <SearchIcon style={{ fontSize: 40, color: "#6A1B9A" }} />,
+    link: "/Services/sem",
+  },
+  {
     title: "Marketing Price Displacement API",
     description:
-      "Our 'MPD' API transforms how you allocate your marketing budget. This tool isn't just about spending; it's about investing smartly through dynamic pricing and yield management, giving you control over your financial strategies and boosting your marketing efficiency.",
+      "Our 'Marketing Price Displacement (MPD)' API transforms how you allocate your marketing budget. This tool isn’t just about spending; it’s about investing smartly through dynamic pricing and yield management, giving you control over your financial strategies and boosting your marketing efficiency.",
     icon: <APIIcon style={{ fontSize: 40, color: "#6A1B9A" }} />,
     link: "/Services/mpd",
   },
