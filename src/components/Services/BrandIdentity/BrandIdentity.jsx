@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import React from "react";
 import DrawerAppBarWhite from "../../Navbar/Appbar";
 import { serviceCard } from "../assets/ServicesData";
@@ -18,6 +19,14 @@ import MainPage from "./MainPage";
 
 const BrandIdentity = () => {
   return (
+    <>
+    <Helmet>
+        <title>Distinctive Brand Identity Solutions by Prevail</title>
+        <meta
+          name="description"
+          content="Build Trust and Recognition with Prevail's Brand Identity"
+        />
+      </Helmet>
     <div style={{ width: "100%", overflow: "hidden" }}>
       <AppBarNav color="#000" />
       <HeroComponent title={"Brand Identity Package"} />
@@ -27,6 +36,7 @@ const BrandIdentity = () => {
       <Packages />
       <FooterNew />
     </div>
+    </>
   );
 };
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import DrawerAppBarWhite from "../../Navbar/Appbar";
 import PainPoint from "./PainPoints";
 import Advantages from "./Advantages";
@@ -62,6 +63,14 @@ const data = [
 
 const WebsiteDevelopment = () => {
   return (
+    <>
+    <Helmet>
+        <title>Craft a Distinct Online Presence with Your Dream Website</title>
+        <meta
+          name="description"
+          content="Craft a Distinct Online Presence with Your Dream Website"
+        />
+      </Helmet>
     <div style={{ width: "100%", overflow: "hidden" }}>
       <AppBarNav color="#000" />
 
@@ -176,6 +185,7 @@ const WebsiteDevelopment = () => {
       </Box>
       <FooterNew />
     </div>
+    </>
   );
 };
 

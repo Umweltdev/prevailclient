@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import DrawerAppBarWhite from "../../Navbar/Appbar";
 import PainPoint from "./PainPoint";
 import Offering from "./Offering";
@@ -50,6 +51,14 @@ import Solution from "../Mpd/Solution";
 
 const WebManagement = () => {
   return (
+    <>
+    <Helmet>
+        <title>Bespoke Website Solutions for Your Business</title>
+        <meta
+          name="description"
+          content="Tailored Website Solutions to Elevate Your Brand"
+        />
+      </Helmet>
     <div style={{ width: "100%", overflow: "hidden" }}>
       {/* <DrawerAppBarWhite /> */}
       <AppBarNav color="#000" />
@@ -696,6 +705,7 @@ const WebManagement = () => {
 
       <FooterNew />
     </div>
+    </>
   );
 };
 
