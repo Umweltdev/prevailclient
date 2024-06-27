@@ -49,7 +49,7 @@ const FAQ = () => {
             },
           }}
         >
-          Digital Accelerator bringing agility to your enterprise
+          Digital Accelerator Bundle bring Agility to Your Enterprise
         </Typography>
         <Typography
           sx={{
@@ -64,11 +64,10 @@ const FAQ = () => {
             },
           }}
         >
-          Discover how our Digital Accelerator Bundle package serves as your
-          strategic gateway to digital success. This exclusive, comprehensive
-          solution is crafted to enhance your online visibility and impact
-          through three key services: Website Production, Brand Identity, and
-          Search Engine Optimisation (SEO).  
+          Discover how our Digital Accelerator Bundle package serves as your strategic 
+          gateway to digital success. This exclusive, comprehensive solution is crafted 
+          to enhance your online visibility and impact through three essential services: 
+          Website Development, Brand Identity, and Search Engine Optimisation (SEO).
         </Typography>
 
         <Link to={"/services/digitalaccelerator"}>
@@ -115,7 +114,7 @@ const FAQ = () => {
               },
             }}
           >
-            Why Opt for Our Digital Accelerator Bundle Package? 
+            Why Opt for Our Digital Accelerator Bundle Package?
           </Typography>
           <Box
             sx={{
