@@ -9,7 +9,6 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import MultipleSelect from "./assets/MultipleSelect";
 import emailjs from "@emailjs/browser";
 import MultiSelect from "./assets/MultiSelect";
 
@@ -17,22 +16,38 @@ const Form = () => {
   const form = useRef();
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [selectedServices, setSelectedServices] = useState([]);
 
   const sendEmail = (e) => {
     e.preventDefault();
     setLoading(true);
     setSuccess(false);
 
+    // Collect form data
+    const formData = new FormData(form.current);
+
+    // Convert FormData to a plain object
+    const formObject = Object.fromEntries(formData.entries());
+
+    // Add selected services as a comma-separated string
+    formObject.services = selectedServices
+      .map((service) => service.title)
+      .join(", ");
+
     emailjs
-      .sendForm("service_0epeded", "template_rr6j484", form.current, {
-        publicKey: "mBHyvMwaFOG9bwNUx",
-      })
+      .send(
+        "service_0epeded",
+        "template_rr6j484",
+        formObject,
+        "mBHyvMwaFOG9bwNUx"
+      )
       .then(
         () => {
           console.log("SUCCESS!");
           setLoading(false);
           setSuccess(true);
           form.current.reset(); // Reset the form
+          setSelectedServices([]); // Clear selected services
         },
         (error) => {
           console.log("FAILED...", error.text);
@@ -120,7 +135,10 @@ const Form = () => {
             },
           }}
         />
-        <MultiSelect name={"services"} />
+        <MultiSelect
+          name={"services"}
+          setSelectedServices={setSelectedServices}
+        />
       </Grid>
       <Grid
         sx={{

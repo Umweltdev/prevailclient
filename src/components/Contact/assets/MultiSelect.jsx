@@ -227,4 +227,6 @@ const services = [
   { title: "Search Engine Marketing" },
   { title: "Marketing Price Displacement" },
   { title: "Digital Accelerator" },
+  { title: "Campaign Strategy" },
+  { title: "Target Ads Strategy" },
 ];

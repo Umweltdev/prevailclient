@@ -8,6 +8,9 @@ import {
   Link as MuiLink,
   CardMedia,
   CircularProgress,
+  Modal,
+  Fade,
+  Box,
 } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import { styled } from "@mui/system";
@@ -18,6 +21,8 @@ import Loading from "../utils/Loading";
 import loginImage from "../Form/image_130.png";
 import image2 from "../Form/Group_1.svg";
 import { PasswordInput, TextInput } from "./Textfileds";
+import Backdrop from "@mui/material/Backdrop";
+import ForgotPasswordForm from "./ForgotPassword/ForgotPasswordForm";
 
 const CustomTextField = styled(TextField)({
   "& .MuiOutlinedInput-root": {
@@ -28,6 +33,18 @@ const CustomTextField = styled(TextField)({
   },
 });
 
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
+
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
@@ -35,6 +52,9 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isButtonLoading, setIsButtonLoading] = useState(false);
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -157,15 +177,31 @@ const Login = () => {
         />
 
         <Grid item>
-          <MuiLink
-            href="#"
-            underline="hover"
-            sx={{ alignSelf: "flex-start", marginBottom: "1rem" }}
+          <Typography
+            onClick={handleOpen}
+            sx={{ textAlign: "left", mb: "10px", cursor: "pointer" }}
           >
-            <Typography sx={{ textAlign: "left", mb: "10px" }}>
-              Forgot Password?
-            </Typography>
-          </MuiLink>
+            Forgot Password?
+          </Typography>
+          <Modal
+            aria-labelledby="transition-modal-title"
+            aria-describedby="transition-modal-description"
+            open={open}
+            onClose={handleClose}
+            closeAfterTransition
+            slots={{ backdrop: Backdrop }}
+            slotProps={{
+              backdrop: {
+                timeout: 500,
+              },
+            }}
+          >
+            <Fade in={open}>
+              <Box sx={style}>
+                <ForgotPasswordForm />
+              </Box>
+            </Fade>
+          </Modal>
         </Grid>
         <Grid item>
           <Button
@@ -280,7 +316,7 @@ const Login = () => {
             marginTop: "1rem",
             "@media (max-width: 900px)": {
               width: "80vw",
-              mb: '3vh'
+              mb: "3vh",
             },
           }}
         >
@@ -289,7 +325,6 @@ const Login = () => {
           other goods or services. Message/data rates may apply.
         </Typography>
       </Grid>
-      
     </Grid>
   );
 };
