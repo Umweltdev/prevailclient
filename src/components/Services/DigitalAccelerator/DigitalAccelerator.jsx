@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import FooterNew from "../../Footer/FooterNew";
 import HeroComponent from "../ReusedComponenets/HeroComponent";
 import AppBarNav from "../../Navbar/Appbar";
@@ -17,6 +18,11 @@ import EmpowerBussiness from "./EmpowerBussiness";
 
 const DigitalAccelerator = () => {
   const Mobile = useMediaQuery("(min-width:1249px)");
+  const navigate = useNavigate();
+
+  const signup = () => {
+    navigate("/signup")
+  }
 
   return (
     <>
@@ -200,6 +206,7 @@ const DigitalAccelerator = () => {
                     py: 1,
                     px: 4,
                   }}
+                  onClick={signup}
                 >
                   Sign up
                 </Button>
