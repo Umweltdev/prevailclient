@@ -31,6 +31,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import ScrollToTop from "./ScrollToTop";
 import { AuthContext } from "./context/AuthContext";
 import { useContext } from "react";
+import ResetPasswordForm from "./components/Form/ForgotPassword/ResetPasswordForm";
 
 const stripePromise = loadStripe(
   "pk_test_51OsCJ5P1A39VkufThp1PVDexesvf2XAY8faTyK0uucC1qRl9NW9QkpBdwXQDyjCAjzL166zjMWNn5Zr25ZkaQJVi00vurq61mj"
@@ -45,6 +46,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/about-us" element={<About />} />
+        <Route path="/reset_password/:id/:token" element={<ResetPasswordForm />} />
         <Route path="/Portfolio" element={<Portfolio />} />
         <Route path="/Blog" element={<Blog />} />
         <Route path="/contact-us" element={<Contact />} />
@@ -70,7 +72,6 @@ function App() {
         <Route path="/about/ourSolution" element={<AboutOurSolution />} />
         <Route path="/SignUp" element={<SignUpForm />} />
         <Route path="/Login" element={<LoginForm />} />
-        {/* <Route path="/Logout" element={< />} /> */}
         <Route path="/Stepper" element={<Stepper />} />
         <Route path="/MobStepper" element={<MobStepper />} />
         <Route

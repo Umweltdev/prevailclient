@@ -135,7 +135,9 @@ function AppBarNav({ color }) {
             { label: "Blog", link: "/blog" },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
-
+            // { label: "Blog", link: "/blog" },
+            { label: "About Us", link: "/about" },
+            { label: "Contact Us", link: "/contact" },
             ...(isAdmin
               ? [
                   {

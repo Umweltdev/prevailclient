@@ -1,10 +1,37 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 
 const ForgotPasswordForm = () => {
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setSuccess(false);
+    try {
+      await axios.post(
+        "https://prevailserver-4b3c670a5496.herokuapp.com/api/auth/forgot-password",
+        {
+          email,
+        }
+      );
+      console.log("Password reset email sent");
+      setSuccess(true);
+      setLoading(false);
+    } catch (err) {
+      console.error(err);
+      setLoading(false);
+      setSuccess(err);
+    }
+  };
+
   return (
     <Box
       component="form"
+      onSubmit={handleSubmit}
       sx={{
         margin: "auto",
         display: "flex",
@@ -14,12 +41,31 @@ const ForgotPasswordForm = () => {
         flexDirection: "column",
       }}
     >
-      <Typography sx={{ textAlign: "center" }}>
-        Enter your email to receive a link to change your password
+      <Typography sx={{ color: "green", fontSize: "19px",}}>
+        {success ? `Password reset email sent!` : ""}
       </Typography>
-      <TextField variant="outlined" />
+      <Typography
+        sx={{
+          textAlign: "center",
+          width: "80%",
+          "@media (max-width: 900px)": {
+            width: "80vw",
+            fontWeight: "16px",
+          },
+        }}
+      >
+        Enter your email to receive change password link
+      </Typography>
+      <TextField
+        variant="outlined"
+        type="email"
+        value={email}
+        label="Enter your email"
+        onChange={(e) => setEmail(e.target.value)}
+      />
       <Button
-        component="btn"
+        component="button"
+        type="submit"
         sx={{
           color: "white",
           background: "#6E3EF4",
@@ -29,7 +75,7 @@ const ForgotPasswordForm = () => {
           },
         }}
       >
-        Send Email
+        {loading ? "Loading..." : "Send Email"}
       </Button>
     </Box>
   );

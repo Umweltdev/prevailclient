@@ -36,9 +36,12 @@ const Landing = (props) => {
         <CoreValues />
         <OurCore />
         <SectionSeven />
-        <br /><br />
+        <br />
+        <br />
         <SectionFour />
-        <Testimonials />
+        <br />
+        <br />
+        {/* <Testimonials /> */}
         <JoinCustomers />
         <FooterNew />
       </div>

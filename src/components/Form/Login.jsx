@@ -43,6 +43,10 @@ const style = {
   border: "2px solid #000",
   boxShadow: 24,
   p: 4,
+  "@media (max-width: 900px)": {
+    width: "80vw",
+    fontWeight: "16px",
+  },
 };
 
 const Login = () => {
