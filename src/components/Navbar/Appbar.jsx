@@ -24,18 +24,18 @@ import Container from "@mui/material/Container";
 const drawerWidth = 240;
 
 const servicesData = [
-  { text: "Services", link: "/Services" },
-  { text: "Brand Identity", link: "/Services/brand" },
-  { text: "Custom Website Development", link: "/Services/website" },
-  { text: "Website Development", link: "/Services/webmanagement" },
-  { text: "Search Engine Marketing (SEM)", link: "/Services/sem" },
-  { text: "Marketing Price Displacement (MPD)", link: "/Services/mpd" },
-  { text: "Digital Accelerator Bundle", link: "/Services/digitalaccelerator" },
+  { text: "Services", link: "/service-landing-page" },
+  { text: "Brand Identity", link: "/brand-identity-package" },
+  { text: "Custom Website Development", link: "/custom-website-development" },
+  { text: "Website Development", link: "/website-development" },
+  { text: "Search Engine Marketing (SEM)", link: "/search-engine-marketing" },
+  { text: "Marketing Price Displacement (MPD)", link: "/marketing-pricing-displacement" },
+  { text: "Digital Accelerator Bundle", link: "/digital-accelerator-bundle" },
 ];
 
 const exploreData = [
-  { text: "Digital Ecosystem", link: "/explore/digitalecosystem" },
-  { text: "Customer Journey", link: "/explore/customerjourney" },
+  { text: "Digital Ecosystem", link: "/digital-ecosystem" },
+  { text: "Customer Journey", link: "/customer-journey" },
 ];
 
 function AppBarNav({ color }) {
@@ -98,8 +98,8 @@ function AppBarNav({ color }) {
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
             { label: "Blog", link: "/blog" },
-            { label: "About Us", link: "/about" },
-            { label: "Contact Us", link: "/contact" },
+            { label: "About Us", link: "/about-us" },
+            { label: "Contact Us", link: "/contact-us" },
 
             // ...(isAdmin
             //   ? [
@@ -110,16 +110,16 @@ function AppBarNav({ color }) {
             //       },
             //     ]
             //   : []),
-            { label: "Dashboard", link: "/contact" },
+            { label: "Dashboard", link: "/contact-us" },
 
             { label: "Logout", onClick: handleLogout, path: "/login" },
           ]
         : [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
-            // { label: "Blog", link: "/blog" },
-            { label: "About Us", link: "/about" },
-            { label: "Contact Us", link: "/contact" },
+            { label: "Blog", link: "/blog" },
+            { label: "About Us", link: "/about-us" },
+            { label: "Contact Us", link: "/contact-us" },
             { label: "Login", link: "/login" },
             { label: "Sign Up", link: "/signup" },
           ],
@@ -132,10 +132,12 @@ function AppBarNav({ color }) {
         ? [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
+            { label: "Blog", link: "/blog" },
+            { label: "About Us", link: "/about-us" },
+            { label: "Contact Us", link: "/contact-us" },
             // { label: "Blog", link: "/blog" },
             { label: "About Us", link: "/about" },
             { label: "Contact Us", link: "/contact" },
-
             ...(isAdmin
               ? [
                   {
@@ -153,8 +155,8 @@ function AppBarNav({ color }) {
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
             { label: "Blog", link: "/blog" },
-            { label: "About Us", link: "/about" },
-            { label: "Contact Us", link: "/contact" },
+            { label: "About Us", link: "/about-us" },
+            { label: "Contact Us", link: "/contact-us" },
             { label: "Login", link: "/login" },
             { label: "Sign Up", link: "/signup" },
           ],

@@ -78,16 +78,13 @@ export const PremiumBrandIdentity = [
     text: "style scope",
   },
   {
-    text: "X1 revision",
-  },
-  {
     text: "dos and don’ts",
   },
   {
     text: "up to X3 marketing material",
   },
   {
-    text: "X2 revision (up to 2 proposals)",
+    text: "X2 revision",
   },
 ];
 
@@ -114,19 +111,16 @@ export const EliteBrandIdentity = [
     text: "style scope",
   },
   {
-    text: "X1 revision",
-  },
-  {
     text: "dos and don’ts",
   },
   {
-    text: "up to X3 marketing material",
-  },
-  {
-    text: "X2 revision (up to 2 proposals)",
+    text: "up to X5 marketing material",
   },
   {
     text: "X4 revision (up to proposals) brand personality overview",
+  },
+  {
+    text: "printing guide",
   },
   {
     text: "digital asset guide",
