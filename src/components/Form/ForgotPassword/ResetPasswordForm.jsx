@@ -79,9 +79,10 @@ const ResetPasswordForm = () => {
             boxShadow: "4",
             "@media (max-width: 900px)": {
               flexDirection: "column",
-              width: "100vw",
+              width: "90vw",
               alignItems: "center",
               margin: "auto",
+              overflow: "hidden",
             },
           },
         }}
