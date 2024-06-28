@@ -37,7 +37,7 @@ function getStyles(name, personName, theme) {
   };
 }
 
-export default function MultipleSelect() {
+export default function MultipleSelect({ name }) {
   const theme = useTheme();
   const [personName, setPersonName] = React.useState([]);
 
@@ -73,6 +73,7 @@ export default function MultipleSelect() {
           multiple
           value={personName}
           onChange={handleChange}
+          name={name}
           input={
             <OutlinedInput
               id="select-multiple-chip"

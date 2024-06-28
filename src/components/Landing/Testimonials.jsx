@@ -5,6 +5,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import TestimonialCard from "./TestimonialCard";
+import { Link } from "react-router-dom";
+import ReusedButton from "../ReusedComponents/ReusedButton";
 
 const Testimonials = () => {
   const settings = {
@@ -96,16 +98,9 @@ const Testimonials = () => {
           straight from those who've experienced remarkable growth with Prevail.
         </Typography>
 
-        <Button
-          sx={{
-            color: "#fff",
-            background: "#6E3EF4",
-            width: "144px",
-            borderRadius: "5vw",
-          }}
-        >
-          Learn More
-        </Button>
+        <Link to={"/About"}>
+          <ReusedButton text={"Learn More"} />
+        </Link>
       </Box>
       <Grid
         sx={{
@@ -119,7 +114,10 @@ const Testimonials = () => {
           },
         }}
       >
-        <Slider {...settings} style={{ width: "90%", boxShadow: "none" }}>
+        <Slider
+          {...settings}
+          style={{ width: "90%", boxShadow: "none", gap: "2vw" }}
+        >
           {TestimonialData.map((data, i) => (
             <TestimonialCard
               img={data.img}

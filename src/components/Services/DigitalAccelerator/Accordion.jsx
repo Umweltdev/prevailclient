@@ -18,14 +18,14 @@ const advantages = [
     svg: PenSvg
   },
   {
-    header: "Website Production & Management",
-    text: "Get a state-of-the-art website that is not only visually stunning but also user-friendly and optimised for search engines. This means higher visibility, more traffic, and better engagement. Leverage technical expertise in innovative technologies like MERN Stack, Material UI, Microfrontend, and Microservice Architecture for a website at the forefront of innovation. Leave the technicalities to us; from content updates to security monitoring, we ensure your website runs smoothly, allowing you to focus on your core business operations. For more information check out our “Website Product & Management” page.",
+    header: "Website Production",
+    text: "Launch a state-of-the-art website that marries stunning visual design with exceptional user-friendliness, optimised for top search engine performance. This translates to heightened visibility, increased traffic, and superior engagement. Our technical expertise spans cutting-edge technologies like MERN Stack, Material UI, Micro-frontend, and Microservice Architecture, placing your website at the forefront of innovation. Leave the complexities to us; from continuous content updates to security monitoring, we ensure your website operates flawlessly so you can focus on your core business activities.",
     svg: WebsiteSvg
 
   },
   {
-    header: "Search Engine Marketing (SEM)",
-    text: " Craft targeted and personalised advertising campaigns to enhance your brand's visibility across major search engines directing your target audiences to your digital presence. Prevail takes a comprehensive approach to Search Engine Optimisation (SEO). From regular SEO audits and keyword optimisation. In addition, we provide valuable insights into consumer behaviour, website, and marketing performance. Backlink monitoring, competitor research, and gap analysis contribute towards maintaining a competitive edge in the digital landscape. ",
+    header: "Search Engine Optimisation",
+    text: "Elevate your website’s visibility and enhance user experience with Prevail’s comprehensive SEO services. We meticulously optimise essential elements such as page titles, meta descriptions, and content structuring, alongside refining your website’s architecture with strategic linking and clear section labelling. Out offerings include tailored keyword optimisation, complete setup of essential Google tools, and detailed competitor analysis to deliver actionable insights. By marrying technical expertise with creative strategies, we aim to boost your search rankings, enrich user experiences, and convert visitors into loyal customers.",
     svg: SearchSvg
 
   },

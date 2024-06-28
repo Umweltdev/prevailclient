@@ -2,6 +2,8 @@ import { Button, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
 import imago from "./assets/aboutT.svg";
 import imago2 from "./assets/aboutTT.svg";
+import ReusedButton from "../ReusedComponents/ReusedButton";
+import { Link } from "react-router-dom";
 
 const JoinOurCustomer = () => {
   return (
@@ -79,25 +81,13 @@ const JoinOurCustomer = () => {
             },
           }}
         >
-          Connect the dots between Customer needs and your product delivery
-          workflows
+          Connect the dots between your vision and your customer’s needs. 
         </Typography>
-        <Button
-          sx={{
-            color: "#fff",
-            background: "#6E3EF4",
-            width: "144px",
-            fontSize: "16px",
-            borderRadius: "25px",
-            mt: "24px",
-            "@media (max-width: 900px)": {
-              width: "60%",
-              fontSize: "4vw",
-            },
-          }}
-        >
-          Sign Up
-        </Button>
+        <Grid sx={{mt: '34px'}}>
+          <Link to={"/signup"}>
+            <ReusedButton text={"Learn More"} />
+          </Link>
+        </Grid>
       </Grid>
       <CardMedia
         component={"img"}

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import React from "react";
 import FooterNew from "../../Footer/FooterNew";
 import HeroComponent from "../ReusedComponenets/HeroComponent";
@@ -9,14 +10,28 @@ import rocket from "./assets/rocket.png";
 import "./styles.css";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import TextImageComponent from "../ReusedComponenets/TextImageComponent";
-
+import { useNavigate } from "react-router-dom";
 import AccordionUsage from "./Accordion";
 import ImageTextComponent from "../ReusedComponenets/ImageTextComponent";
+import EmpowerBussiness from "./EmpowerBussiness";
 
 const DigitalAccelerator = () => {
+  const navigate = useNavigate();
   const Mobile = useMediaQuery("(min-width:1249px)");
 
+  const signup = () => {
+    navigate("/signup")
+  }
+
   return (
+    <>
+    <Helmet>
+        <title>Unlock Your Digital Potential with Prevail's Digital Accelerator Bundle</title>
+        <meta
+          name="description"
+          content="Prevail's Digital Accelerator Bundle Boosts Digital Visibility and Presige"
+        />
+      </Helmet>
     <div style={{ width: "100%", overflow: "hidden" }}>
       {/* <HeroSection header="Digital Accelerator Bundle Page " /> */}
       <AppBarNav color="#000" />
@@ -31,7 +46,10 @@ const DigitalAccelerator = () => {
               beneficial – it's essential. Imagine propelling your business to
               the forefront with a cutting-edge website, a brand identity that
               captivates your audience, and a search engine strategy that puts
-              you in front of your audience.`}
+              you in front of your audience. <br /><br /> This scenario transforms 
+              from aspiration to reality with Prevail’s “Digital Accelerator” bundle. 
+              This package isn’t just a collection of services – it's your strategic 
+              gateway to a cohesive, impactful and cost-effective digital presence.`}
       />
       <ImageTextComponent
         img={image2}
@@ -78,6 +96,7 @@ const DigitalAccelerator = () => {
           </Grid>
         </Grid>
       </Container>
+      <EmpowerBussiness/>
 
       <Box
         sx={{
@@ -116,16 +135,11 @@ const DigitalAccelerator = () => {
                 Why Choose Prevail’s Digital Accelerator Bundle? 
               </Typography>
               <Typography>
-                By integrating these essential digital services into one
-                comprehensive package, Prevail not only simplifies the digital
-                transformation process but ensures that every aspect of your
-                online presence is synchronised and powerful.{" "}
-              </Typography>
-              <Typography>
-                This approach not only saves you time and resources but also
-                provides you with a competitive edge that is critical in today’s
-                digital age. Connect with us today to take the first step
-                towards digital excellence and business success. 
+              By integrating these essential digital services into one comprehensive package, 
+              Prevail not only simplifies the digital transformation process but ensures that 
+              every aspect of your online presence is synchronised and powerful. This approach 
+              saves you time and resources and provides you with a competitive edge that is 
+              critical in today’s digital age.
               </Typography>
             </Stack>
           </Box>
@@ -136,6 +150,7 @@ const DigitalAccelerator = () => {
         sx={{
           backgroundColor: "#14154C",
         }}
+        id='DAB_call_to_action'
       >
         <Container maxWidth="lg">
           <Grid
@@ -158,8 +173,7 @@ const DigitalAccelerator = () => {
                     textAlign={{ xs: "center", md: "left" }}
                     fontSize={"18px"}
                   >
-                    Don't miss out on the opportunity to transform your
-                    business!
+                    Take advantage of the opportunity to transform your business!
                   </Typography>
                 </Box>
 
@@ -191,6 +205,7 @@ const DigitalAccelerator = () => {
                     py: 1,
                     px: 4,
                   }}
+                  onClick={signup}
                 >
                   Sign up
                 </Button>
@@ -220,6 +235,7 @@ const DigitalAccelerator = () => {
 
       <FooterNew />
     </div>
+    </>
   );
 };
 

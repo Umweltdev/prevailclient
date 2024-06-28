@@ -214,17 +214,17 @@ export const OurCoreData = [
   },
   {
     header: "Innovative and Accessible Technology",
-    text: "At Prevail, we recognise the unique challenges that local SMEs face in the current economic climate. We are deeply committed to empowering these businesses by equipping them with the tools and resources needed to compete against larger enterprises effectively. Our tailored strategies and innovative solutions are designed to level the playing field, providing local businesses with the opportunity to thrive and grow in a highly competitive market.",
+    text: "Prevail is dedicated to bridging the technology gap between large corporations and SMEs. We focus on delivering innovative, affordable tech solutions that enable local businesses to embrace automation and other technological advancements without the need for full-time programmers. Our goal is to make cutting-edge technology accessible to all, allowing SMEs to improve efficiency, increase productivity, and expand their market reach.",
     icon: <Storage sx={{ color: "#673AA3" }} />,
   },
   {
     header: "Adaptive Bussiness Strategies",
-    text: "At Prevail, we recognise the unique challenges that local SMEs face in the current economic climate. We are deeply committed to empowering these businesses by equipping them with the tools and resources needed to compete against larger enterprises effectively. Our tailored strategies and innovative solutions are designed to level the playing field, providing local businesses with the opportunity to thrive and grow in a highly competitive market.",
+    text: "The market is ever-evolving, influenced by changes in consumer demands and behaviors. Understanding this, Prevail offers not just solutions but strategic insights that help businesses swiftly adapt to these fluctuations. Our tools and expertise ensure that local businesses remain agile, competitive, and always aligned with consumer needs. This adaptability is crucial for staying relevant and successful in a dynamic market.",
     icon: <Addchart sx={{ color: "#673AA3" }} />,
   },
   {
     header: "Market Equity and Fair Competetion",
-    text: "At Prevail, we recognise the unique challenges that local SMEs face in the current economic climate. We are deeply committed to empowering these businesses by equipping them with the tools and resources needed to compete against larger enterprises effectively. Our tailored strategies and innovative solutions are designed to level the playing field, providing local businesses with the opportunity to thrive and grow in a highly competitive market.",
+    text: "Prevail is committed to fair competition and market equity. We strive to address and counteract the challenges faced by local businesses regarding market share decline. Our initiatives are designed to create a more equitable marketplace where local businesses can compete on a fair footing with larger enterprises. This commitment to equity ensures a diverse, vibrant market that offers more choices and opportunities for consumers and businesses alike.",
     icon: <SsidChart sx={{ color: "#673AA3" }} />,
   },
 ];

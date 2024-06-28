@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import DrawerAppBarWhite from "../../Navbar/Appbar";
 import PainPoint from "./PainPoint";
 import Solutions from "./Solutions";
@@ -14,6 +15,14 @@ import AppBarNav from "../../Navbar/Appbar";
 
 const Sem = () => {
   return (
+    <>
+    <Helmet>
+        <title>Unlock Precise Targeting and Digital Growth</title>
+        <meta
+          name="description"
+          content="Previal's SEM Helps Boost Visibility and Target the Right Audience"
+        />
+      </Helmet>
     <div style={{ width: "100%", overflow: "hidden" }}>
       <AppBarNav color="#000" />
       <HeroComponent title={"Search Engine Marketing"} />
@@ -23,6 +32,7 @@ const Sem = () => {
       {/* <Carousel /> */}
       <FooterNew />
     </div>
+    </>
   );
 };
 

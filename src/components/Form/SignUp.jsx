@@ -126,6 +126,7 @@ const SignUp = () => {
           onSubmit={handleSubmit}
           noValidate
           autoComplete="on"
+          id="sign-up"
         >
           <Grid item>
             <Typography
@@ -331,6 +332,7 @@ const SignUp = () => {
           overflowY: "auto",
           "@media (max-width: 900px)": {
             width: "100vw",
+            height: "unset",
           },
         }}
       >
@@ -343,8 +345,8 @@ const SignUp = () => {
             width: "50vw",
             objectFit: "cover",
             "@media (max-width: 900px)": {
-              width: "80vw",
-              height: "auto",
+              width: "100vw",
+              height: "unset",
               mt: "30px",
             },
           }}
@@ -356,7 +358,7 @@ const SignUp = () => {
             width: "90%",
             "@media (max-width: 900px)": {
               width: "80vw",
-              height: "auto",
+              height: "unset",
             },
           }}
         >
@@ -369,7 +371,8 @@ const SignUp = () => {
             marginTop: "1rem",
             "@media (max-width: 900px)": {
               width: "80vw",
-              height: "auto",
+              height: "unset",
+              mb: "5vh",
             },
           }}
         >

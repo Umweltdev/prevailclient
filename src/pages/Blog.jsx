@@ -15,7 +15,7 @@ const Blog = (props) => {
 
   return (
     <div style={{ width: "100%", overflow: "hidden" }}>
-      <AppBarNav color="#fff" />
+      <AppBarNav color="#000" />
       <Header />
       <SectionOne />
       <JoinOurCustomer />

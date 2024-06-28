@@ -67,11 +67,10 @@ const CoreValues = () => {
               },
             }}
           >
-            At Prevail, our commitment to redefining the digital landscape for
-            small-to-medium-sized enterprises (SMEs) is deeply embedded in our
-            core values. These values not only guide our strategies and
-            decisions but also help us build meaningful relationships with the
-            businesses we serve.
+            At Prevail, our commitment to redefining the digital landscape for 
+            small-to-medium-sized enterprises (SMEs) is deeply embedded in our core values. 
+            These values not only guide our strategies and decisions but also help us build 
+            meaningful relationships with the businesses we serve.
           </Typography>
         </Box>
         <Box

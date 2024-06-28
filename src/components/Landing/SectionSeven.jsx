@@ -3,6 +3,8 @@ import React from "react";
 import imago from "./assets/rocket.png";
 import CardNoBorder from "./assets/CardNoBorder";
 import { DigitalAcelerator } from "./assets/LandingData";
+import ReusedButton from "../ReusedComponents/ReusedButton";
+import { Link } from "react-router-dom";
 
 const FAQ = () => {
   return (
@@ -13,6 +15,7 @@ const FAQ = () => {
           p: "40px 0 0 0",
         },
       }}
+      id={"DAB_call_to_action"}
     >
       <Box
         sx={{
@@ -46,7 +49,7 @@ const FAQ = () => {
             },
           }}
         >
-          Digital Accelerator bringing agility to your enterprise
+          Digital Accelerator Bundle bring Agility to Your Enterprise
         </Typography>
         <Typography
           sx={{
@@ -61,23 +64,15 @@ const FAQ = () => {
             },
           }}
         >
-          Discover how our Digital Accelerator Bundle package serves as your
-          strategic gateway to digital success. This exclusive, comprehensive
-          solution is crafted to enhance your online visibility and impact
-          through three key services: Website Production, Brand Identity, and
-          Search Engine Optimisation (SEO).  
+          Discover how our Digital Accelerator Bundle package serves as your strategic 
+          gateway to digital success. This exclusive, comprehensive solution is crafted 
+          to enhance your online visibility and impact through three essential services: 
+          Website Development, Brand Identity, and Search Engine Optimisation (SEO).
         </Typography>
 
-        <Button
-          sx={{
-            color: "#fff",
-            background: "#6E3EF4",
-            width: "144px",
-            borderRadius: "5vw",
-          }}
-        >
-          Learn More
-        </Button>
+        <Link to={"/services/digitalaccelerator"}>
+          <ReusedButton text={"Learn More"} />
+        </Link>
       </Box>
       <Box
         sx={{
@@ -119,7 +114,7 @@ const FAQ = () => {
               },
             }}
           >
-            Why Opt for Our Digital Accelerator Bundle Package? 
+            Why Opt for Our Digital Accelerator Bundle Package?
           </Typography>
           <Box
             sx={{

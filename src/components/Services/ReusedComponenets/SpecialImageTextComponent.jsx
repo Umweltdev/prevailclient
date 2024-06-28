@@ -1,7 +1,8 @@
-import { Card, CardMedia, Grid, Typography, Box } from "@mui/material";
+import { Box, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
+import imago from "../assets/image 154.png";
 
-const ImageTextComponent = ({ img, header, text }) => {
+const SpecialImageTextComponent = () => {
   return (
     <Box
       sx={{
@@ -9,6 +10,7 @@ const ImageTextComponent = ({ img, header, text }) => {
         width: "100vw",
         alignItems: "center",
         justifyContent: "space-between",
+        
         "@media (max-width: 600px)": {
           display: "flex",
           width: "100vw",
@@ -22,12 +24,11 @@ const ImageTextComponent = ({ img, header, text }) => {
     >
       <CardMedia
         component={"img"}
-        image={img}
+        image={imago}
         sx={{
           width: "50vw",
           height: "100vh",
           "@media (max-width: 600px)": {
-            height: "unset",
             width: "90vw",
             borderRadius: "14px",
             mt: "4vh",
@@ -63,7 +64,7 @@ const ImageTextComponent = ({ img, header, text }) => {
             },
           }}
         >
-          {header}
+          Unleashing the Power of SEM for Local Businesses and SMEs
         </Typography>
         <Typography
           sx={{
@@ -76,11 +77,26 @@ const ImageTextComponent = ({ img, header, text }) => {
               width: "90vw",
             },
           }}
-          dangerouslySetInnerHTML={{ __html: text }}
-        ></Typography>
+        >
+          At Prevail, we resonate deeply with the aspirations of local
+          businesses and small-to-medium enterprises (SMEs) dreaming of growth,
+          recognition, and success. In today's competitive digital marketplace,
+          merely existing isn't enough—you need to stand out. That's where our
+          Search Engine Marketing (SEM) service comes into play, a true
+          game-changer for your business. <br />
+          <br />
+          Our comprehensive approach not only enhances visibility but ensures
+          your marketing efforts resonate with your core mission and
+          objectives. Our SEM strategy encompasses target advertising, technical
+          site audit, website optimisation, meticulous search engine
+          optimisation, real-time performance tracking, and continual
+          adjustments based on detailed reports. This holistic approach is
+          designed to align perfectly with your business's goal, providing a
+          clear path to increased visibility and success. 
+        </Typography>
       </Grid>
     </Box>
   );
 };
 
-export default ImageTextComponent;
+export default SpecialImageTextComponent;

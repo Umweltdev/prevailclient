@@ -74,37 +74,37 @@ const MainPage = () => {
       >
         <ImageTextService
           imageUrl={image1}
-          textHeader={"Branding"}
+          textHeader={"Brand Identity"}
           text="Our “Brand Identity Package” service is the foundation for creating a lasting impression. We collaborate closely with you to define their unique brand identity, crafting eye-catching logos and compelling marketing collateral."
           url="/Services/brand"
         />
         <TextImageService
-          imageUrl={image2}
-          textHeader={"Website Development"}
-          text="Discover the power of bespoke web solutions with Prevail and elevate your brand to new heights in the digital landscape. Transform, engage, and succeed effortlessly."
-          url="/Services/website"
-        />
-        <ImageTextService
-          imageUrl={image3}
-          textHeader={"Custom Website Development"}
-          text="Desire ownership over your digital identity and wish to convey your brand's story authentically and vividly, then our “custom website development” is perfect for you."
-          url="/Services/webmanagement"
-        />
-        <TextImageService
           imageUrl={image4}
-          textHeader={"Search Engine Marketing (SEM)"}
+          textHeader={"Search Engine Marketing"}
           text="Our “Search Engine Marketing” service offer tailored solutions to boost online visibility and engagement to support you throughout the dynamic digital realm."
           url="/Services/sem"
         />
         <ImageTextService
+          imageUrl={image2}
+          textHeader={"Website Development"}
+          text="Discover the power of bespoke web solutions with Prevail and elevate your brand to new heights in the digital landscape. Transform, engage, and succeed effortlessly."
+          url="/Services/webmanagement"
+        />
+        <TextImageService
+          imageUrl={image3}
+          textHeader={"Custom Website Development"}
+          text="Desire ownership over your digital identity and wish to convey your brand's story authentically and vividly, then our “custom website development” is perfect for you."
+          url="/Services/website"
+        />
+        <ImageTextService
           imageUrl={image5}
-          textHeader={"Marketing Price Displacement (MPD)"}
+          textHeader={"Marketing Price Displacement"}
           text="Unlock your business’s potential with our “Marketing Price Displacement” API. Harness advanced pricing strategies and yield management to optimise marketing spend, automate adjustments, and boost ROI.  "
           url="/Services/mpd"
         />
         <TextImageService
           imageUrl={image6}
-          textHeader={"Digital Accelerator"}
+          textHeader={"Digital Accelerator Bundle"}
           text="Our “Digital Accelerator” bundle integrate cutting-edge website design, bespoke brand identity, and strategic SEO services to boost visibility engage customers, and enhance your digital footprint."
           url="/Services/digitalaccelerator"
         />

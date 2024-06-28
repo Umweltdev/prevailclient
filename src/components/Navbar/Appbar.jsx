@@ -24,18 +24,21 @@ import Container from "@mui/material/Container";
 const drawerWidth = 240;
 
 const servicesData = [
-  { text: "Services", link: "/Services" },
-  { text: "Brand Identity", link: "/Services/brand" },
-  { text: "Custom Website & Management", link: "/Services/website" },
-  { text: "Website Development & Management", link: "/Services/webmanagement" },
-  { text: "Search Engine Marketing (SEM)", link: "/Services/sem" },
-  { text: "Marketing Price Displacement (MPD)", link: "/Services/mpd" },
-  { text: "Digital Accelerator", link: "/Services/digitalaccelerator" },
+  { text: "Services", link: "/service-landing-page" },
+  { text: "Brand Identity", link: "/brand-identity-package" },
+  { text: "Custom Website Development", link: "/custom-website-development" },
+  { text: "Website Development", link: "/website-development" },
+  { text: "Search Engine Marketing (SEM)", link: "/search-engine-marketing" },
+  {
+    text: "Marketing Price Displacement (MPD)",
+    link: "/marketing-pricing-displacement",
+  },
+  { text: "Digital Accelerator Bundle", link: "/digital-accelerator-bundle" },
 ];
 
 const exploreData = [
-  { text: "Digital Ecosystem", link: "/explore/digitalecosystem" },
-  { text: "Customer Journey", link: "/explore/customerjourney" },
+  { text: "Digital Ecosystem", link: "/digital-ecosystem" },
+  { text: "Customer Journey", link: "/customer-journey" },
 ];
 
 function AppBarNav({ color }) {
@@ -78,7 +81,6 @@ function AppBarNav({ color }) {
     window.location.href = "https://marvelous-muffin-8a8584.netlify.app";
   };
 
-
   const handleServicesClick = (event) => {
     setAnchorElServices(event.currentTarget);
   };
@@ -98,9 +100,9 @@ function AppBarNav({ color }) {
         ? [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
-            { label: "Blog", link: "/blog" },
-            { label: "About Us", link: "/about" },
-            { label: "Contact Us", link: "/contact" },
+            // { label: "Blog", link: "/blog" },
+            { label: "About Us", link: "/about-us" },
+            { label: "Contact Us", link: "/contact-us" },
 
             // ...(isAdmin
             //   ? [
@@ -111,16 +113,16 @@ function AppBarNav({ color }) {
             //       },
             //     ]
             //   : []),
-            { label: "Dashboard", link: "/contact" },
+            { label: "Dashboard", link: "/contact-us" },
 
             { label: "Logout", onClick: handleLogout, path: "/login" },
           ]
         : [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
-            { label: "Blog", link: "/blog" },
-            { label: "About Us", link: "/about" },
-            { label: "Contact Us", link: "/contact" },
+            // { label: "Blog", link: "/blog" },
+            { label: "About Us", link: "/about-us" },
+            { label: "Contact Us", link: "/contact-us" },
             { label: "Login", link: "/login" },
             { label: "Sign Up", link: "/signup" },
           ],
@@ -133,10 +135,9 @@ function AppBarNav({ color }) {
         ? [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
-            { label: "Blog", link: "/blog" },
-            { label: "About Us", link: "/about" },
-            { label: "Contact Us", link: "/contact" },
-
+            // { label: "Blog", link: "/blog" },
+            { label: "About Us", link: "/about-us" },
+            { label: "Contact Us", link: "/contact-us" },
             ...(isAdmin
               ? [
                   {
@@ -146,16 +147,16 @@ function AppBarNav({ color }) {
                   },
                 ]
               : []),
-            { label: "Dashboard", link: "/contact" },
+            { label: "Dashboard", link: "/user/profile" },
 
             { label: "Logout", onClick: handleLogout, path: "/login" },
           ]
         : [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
-            { label: "Blog", link: "/blog" },
-            { label: "About Us", link: "/about" },
-            { label: "Contact Us", link: "/contact" },
+            // { label: "Blog", link: "/blog" },
+            { label: "About Us", link: "/about-us" },
+            { label: "Contact Us", link: "/contact-us" },
             { label: "Login", link: "/login" },
             { label: "Sign Up", link: "/signup" },
           ],
@@ -368,20 +369,20 @@ function AppBarNav({ color }) {
         anchorEl={anchorElServices}
         open={Boolean(anchorElServices)}
         onClose={handleClose}
+        sx={{ borderRadius: "50px" }}
       >
         {servicesData.map((data, i) => (
-          <MenuItem key={i} onClick={handleClose}>
-            <Link
-              style={{
-                color: "#000",
-                textDecoration: "none",
-                textAlign: "left",
-              }}
-              to={data.link}
-            >
-              {data.text}
-            </Link>
-          </MenuItem>
+          <Link
+            style={{
+              color: "#6E3EF4",
+              textDecoration: "none",
+              textAlign: "left",
+            }}
+            key={i}
+            to={data.link}
+          >
+            <MenuItem onClick={handleClose}>{data.text}</MenuItem>
+          </Link>
         ))}
       </Menu>
       <Menu
@@ -390,18 +391,17 @@ function AppBarNav({ color }) {
         onClose={handleClose}
       >
         {exploreData.map((data, i) => (
-          <MenuItem key={i} onClick={handleClose}>
-            <Link
-              style={{
-                color: "#000",
-                textDecoration: "none",
-                textAlign: "left",
-              }}
-              to={data.link}
-            >
-              {data.text}
-            </Link>
-          </MenuItem>
+          <Link
+            style={{
+              color: "#6E3EF4",
+              textDecoration: "none",
+              textAlign: "left",
+            }}
+            key={i}
+            to={data.link}
+          >
+            <MenuItem onClick={handleClose}>{data.text}</MenuItem>
+          </Link>
         ))}
       </Menu>
     </Box>
