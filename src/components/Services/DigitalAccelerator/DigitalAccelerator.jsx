@@ -13,6 +13,7 @@ import TextImageComponent from "../ReusedComponenets/TextImageComponent";
 
 import AccordionUsage from "./Accordion";
 import ImageTextComponent from "../ReusedComponenets/ImageTextComponent";
+import EmpowerBussiness from "./EmpowerBussiness";
 
 const DigitalAccelerator = () => {
   const Mobile = useMediaQuery("(min-width:1249px)");
@@ -90,6 +91,7 @@ const DigitalAccelerator = () => {
           </Grid>
         </Grid>
       </Container>
+      <EmpowerBussiness/>
 
       <Box
         sx={{

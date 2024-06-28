@@ -117,7 +117,7 @@ function AppBarNav({ color }) {
         : [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
-            { label: "Blog", link: "/blog" },
+            // { label: "Blog", link: "/blog" },
             { label: "About Us", link: "/about" },
             { label: "Contact Us", link: "/contact" },
             { label: "Login", link: "/login" },
@@ -132,7 +132,7 @@ function AppBarNav({ color }) {
         ? [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
-            { label: "Blog", link: "/blog" },
+            // { label: "Blog", link: "/blog" },
             { label: "About Us", link: "/about" },
             { label: "Contact Us", link: "/contact" },
 
