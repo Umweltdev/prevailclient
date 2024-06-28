@@ -29,7 +29,10 @@ const servicesData = [
   { text: "Custom Website Development", link: "/custom-website-development" },
   { text: "Website Development", link: "/website-development" },
   { text: "Search Engine Marketing (SEM)", link: "/search-engine-marketing" },
-  { text: "Marketing Price Displacement (MPD)", link: "/marketing-pricing-displacement" },
+  {
+    text: "Marketing Price Displacement (MPD)",
+    link: "/marketing-pricing-displacement",
+  },
   { text: "Digital Accelerator Bundle", link: "/digital-accelerator-bundle" },
 ];
 
@@ -135,9 +138,6 @@ function AppBarNav({ color }) {
             // { label: "Blog", link: "/blog" },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
-            // { label: "Blog", link: "/blog" },
-            { label: "About Us", link: "/about" },
-            { label: "Contact Us", link: "/contact" },
             ...(isAdmin
               ? [
                   {
