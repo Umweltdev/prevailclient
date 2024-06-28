@@ -10,13 +10,18 @@ import rocket from "./assets/rocket.png";
 import "./styles.css";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import TextImageComponent from "../ReusedComponenets/TextImageComponent";
-
+import { useNavigate } from "react-router-dom";
 import AccordionUsage from "./Accordion";
 import ImageTextComponent from "../ReusedComponenets/ImageTextComponent";
 import EmpowerBussiness from "./EmpowerBussiness";
 
 const DigitalAccelerator = () => {
+  const navigate = useNavigate();
   const Mobile = useMediaQuery("(min-width:1249px)");
+
+  const signup = () => {
+    navigate("/signup")
+  }
 
   return (
     <>
@@ -200,6 +205,7 @@ const DigitalAccelerator = () => {
                     py: 1,
                     px: 4,
                   }}
+                  onClick={signup}
                 >
                   Sign up
                 </Button>
