@@ -69,28 +69,25 @@ function App() {
             path="/reset_password/:id/:token"
             element={<ResetPasswordForm />}
           />
-          <Route path="/about-us" element={<About />} />
+          <Route path="/About" element={<About />} />
           <Route path="/Portfolio" element={<Portfolio />} />
           <Route path="/Blog" element={<Blog />} />
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/Blog/:index" element={<BlogDetails />} />
-          <Route path="/Services" element={<Services />} />
-          <Route path="/Services/brand" element={<BrandIdentity />} />
-          <Route path="/Services/website" element={<WebsiteDevelopment />} />
+          <Route path="/service-landing-page" element={<Services />} />
+          <Route path="/brand-identity-package" element={<BrandIdentity />} />
           <Route
-            path="/explore/digitalecosystem"
-            element={<DigitalEcosystem />}
+            path="/custom-website-development"
+            element={<WebsiteDevelopment />}
           />
-          <Route
-            path="/explore/customerjourney"
-            element={<CustomerJourney />}
-          />
-          <Route path="/Services/webmanagement" element={<WebManagement />} />
+          <Route path="/digital-ecosystem" element={<DigitalEcosystem />} />
+          <Route path="/customer-journey" element={<CustomerJourney />} />
+          <Route path="/website-development" element={<WebManagement />} />
           <Route path="/Services/privacypolicy" element={<PrivacyPolicy />} />
-          <Route path="/Services/sem" element={<Sem />} />
-          <Route path="/Services/mpd" element={<Mpd />} />
+          <Route path="/search-engine-marketing" element={<Sem />} />
+          <Route path="/marketing-pricing-displacement" element={<Mpd />} />
           <Route
-            path="/Services/digitalaccelerator"
+            path="/digital-accelerator-bundle"
             element={<DigitalAccelerator />}
           />
           <Route path="/Portfolio/:index" element={<CaseDetails />} />
