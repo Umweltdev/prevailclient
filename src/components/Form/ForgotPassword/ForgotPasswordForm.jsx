@@ -5,20 +5,26 @@ import React, { useState } from "react";
 const ForgotPasswordForm = () => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setSuccess(false);
     try {
-      await axios.post("http://localhost:8080/api/auth/forgot-password", {
-        email,
-      });
+      await axios.post(
+        "https://prevailserver-4b3c670a5496.herokuapp.com/api/auth/forgot-password",
+        {
+          email,
+        }
+      );
       console.log("Password reset email sent");
+      setSuccess(true);
       setLoading(false);
     } catch (err) {
       console.error(err);
       setLoading(false);
-      // console.log("Error sending email", err);
+      setSuccess(err);
     }
   };
 
@@ -35,10 +41,13 @@ const ForgotPasswordForm = () => {
         flexDirection: "column",
       }}
     >
+      <Typography sx={{ color: "green", fontSize: "19px",}}>
+        {success ? `Password reset email sent!` : ""}
+      </Typography>
       <Typography
         sx={{
           textAlign: "center",
-          width: "20vw",
+          width: "80%",
           "@media (max-width: 900px)": {
             width: "80vw",
             fontWeight: "16px",
@@ -66,7 +75,7 @@ const ForgotPasswordForm = () => {
           },
         }}
       >
-        {loading ? "Loading" : "Send Email"}
+        {loading ? "Loading..." : "Send Email"}
       </Button>
     </Box>
   );

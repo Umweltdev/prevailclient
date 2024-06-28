@@ -45,10 +45,7 @@ function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route
-          path="/reset-password/:id/:token"
-          element={<ResetPasswordForm />}
-        />
+        <Route path="/reset_password/:id/:token" element={<ResetPasswordForm />} />
         <Route path="/About" element={<About />} />
         <Route path="/Portfolio" element={<Portfolio />} />
         <Route path="/Blog" element={<Blog />} />
@@ -75,7 +72,6 @@ function App() {
         <Route path="/about/ourSolution" element={<AboutOurSolution />} />
         <Route path="/SignUp" element={<SignUpForm />} />
         <Route path="/Login" element={<LoginForm />} />
-        {/* <Route path="/Logout" element={< />} /> */}
         <Route path="/Stepper" element={<Stepper />} />
         <Route path="/MobStepper" element={<MobStepper />} />
         <Route
