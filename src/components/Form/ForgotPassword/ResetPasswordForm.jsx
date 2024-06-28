@@ -132,6 +132,7 @@ const ResetPasswordForm = () => {
             gap: "1vw",
             "@media (max-width: 900px)": {
               flexDirection: "column",
+              gap: "2vw",
             },
           }}
         >
@@ -142,6 +143,7 @@ const ResetPasswordForm = () => {
               background: "#6E3EF4",
               "@media (max-width: 900px)": {
                 width: "80vw",
+                padding: "10px 0",
               },
               "&:hover": {
                 color: "white",
@@ -159,6 +161,7 @@ const ResetPasswordForm = () => {
               border: "1px solid #6E3EF4",
               "@media (max-width: 900px)": {
                 width: "80vw",
+                padding: "10px 0",
               },
               "&:hover": {
                 color: "#6E3EF4",
