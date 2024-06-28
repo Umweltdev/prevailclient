@@ -22,7 +22,6 @@ import face11 from "./assets/eye.png";
 import face12 from "./assets/Unions.svg";
 import face13 from "./assets/hands-new.png";
 
-
 const Hero = () => {
   const navigate = useNavigate();
 
