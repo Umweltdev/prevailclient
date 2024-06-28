@@ -77,6 +77,12 @@ const ResetPasswordForm = () => {
             justifyContent: "center",
             alignItems: "center",
             boxShadow: "4",
+            "@media (max-width: 900px)": {
+              flexDirection: "column",
+              width: "90vw",
+              alignItems: "center",
+              margin: "auto",
+            },
           },
         }}
         noValidate
