@@ -83,7 +83,14 @@ const ResetPasswordForm = () => {
         autoComplete="off"
       >
         <FormControl
-          sx={{ mt: "30vh", mb: "10px", width: "45ch" }}
+          sx={{
+            mt: "30vh",
+            mb: "10px",
+            width: "45ch",
+            "@media (max-width: 900px)": {
+              width: "80vw",
+            },
+          }}
           variant="outlined"
         >
           <InputLabel htmlFor="outlined-adornment-password">
@@ -111,12 +118,24 @@ const ResetPasswordForm = () => {
             label="Enter New Password"
           />
         </FormControl>
-        <Box sx={{ display: "flex", justifyContent: "center", gap: "1vw" }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            gap: "1vw",
+            "@media (max-width: 900px)": {
+              flexDirection: "column",
+            },
+          }}
+        >
           <Button
             type="submit"
             sx={{
               color: "white",
               background: "#6E3EF4",
+              "@media (max-width: 900px)": {
+                width: "80vw",
+              },
               "&:hover": {
                 color: "white",
                 background: "#6E3EF4",
@@ -131,6 +150,9 @@ const ResetPasswordForm = () => {
               color: "#6E3EF4",
               background: "#fff",
               border: "1px solid #6E3EF4",
+              "@media (max-width: 900px)": {
+                width: "80vw",
+              },
               "&:hover": {
                 color: "#6E3EF4",
                 background: "#fff",
