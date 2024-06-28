@@ -1,7 +1,8 @@
 .blink {
-   animation: blink 2s linear infinite;
+  animation: blink 2s linear infinite;
   -webkit-animation: blink 2s linear infinite;
-  width: 10vw;
+  width: 7vw;
+  margin-top: 40vh;
 }
 @keyframes blink {
   0% {
@@ -15,7 +16,7 @@
   }
 }
 @-webkit-keyframes blink {
- 0% {
+  0% {
     opacity: 0;
   }
   50% {
