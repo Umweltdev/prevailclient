@@ -63,13 +63,14 @@ function App() {
     <Elements stripe={stripePromise}>
       <ScrollToTop />
       <Suspense fallback={<Loading />}>
-        <Routes>
+
+      <Routes>
           <Route path="/" element={<Landing />} />
           <Route
             path="/reset_password/:id/:token"
             element={<ResetPasswordForm />}
           />
-          <Route path="/About" element={<About />} />
+          <Route path="/about-us" element={<About />} />
           <Route path="/Portfolio" element={<Portfolio />} />
           <Route path="/Blog" element={<Blog />} />
           <Route path="/contact-us" element={<Contact />} />
