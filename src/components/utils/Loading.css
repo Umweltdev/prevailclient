@@ -2,14 +2,14 @@
   animation: blink 2s linear infinite;
   -webkit-animation: blink 2s linear infinite;
   width: 7vw;
-  margin-top: 40vh;
+  /* margin-top: 50%; */
 }
 @keyframes blink {
   0% {
     opacity: 0;
   }
   50% {
-    opacity: 0.5;
+    opacity: 0.2;
   }
   100% {
     opacity: 1;
@@ -20,7 +20,7 @@
     opacity: 0;
   }
   50% {
-    opacity: 0.5;
+    opacity: 0.2;
   }
   100% {
     opacity: 1;
@@ -29,10 +29,10 @@
 
 @media (max-width: 600px) {
   .blink {
-  animation: blink 2s linear infinite;
-  -webkit-animation: blink 2s linear infinite;
-  width: 20vw;
-  margin-top: 40vh;
+  animation: blink 1s linear infinite;
+  -webkit-animation: blink 1s linear infinite;
+  width: 30vw;
+  /* margin-top: 40vh; */
 }
 }
 /* 
