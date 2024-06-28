@@ -26,6 +26,15 @@
     opacity: 1;
   }
 }
+
+@media (max-width: 600px) {
+  .blink {
+  animation: blink 2s linear infinite;
+  -webkit-animation: blink 2s linear infinite;
+  width: 20vw;
+  margin-top: 40vh;
+}
+}
 /* 
 .blink {
   width: 220px;

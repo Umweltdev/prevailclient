@@ -18,7 +18,7 @@ const AboutUs = () => {
         margin: "0 auto",
         background: "linear-gradient(135deg, #d1c4e9, #ffffff, #bbdefb)",
         "@media (max-width: 600px)": {
-          width: "90vw",
+          width: "100vw",
         },
       }}
     >

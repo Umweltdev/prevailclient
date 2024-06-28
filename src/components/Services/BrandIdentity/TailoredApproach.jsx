@@ -82,14 +82,41 @@ const TailoredApproach = () => {
           target audience.  
         </Typography>
         <Box
-          sx={{ display: "flex", flexWrap: "wrap", mt: "46px", gap: "36px" }}
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            mt: "46px",
+            gap: "36px",
+            "@media (max-width: 600px)": {
+              width: "100vw",
+              flexDirection: "column",
+            },
+          }}
         >
           {TailoredApproachData.map((data, i) => (
-            <Box key={i} sx={{ width: "20vw", gap: "16px" }}>
+            <Box
+              key={i}
+              sx={{
+                width: "20vw",
+                gap: "16px",
+                "@media (max-width: 600px)": {
+                  width: "90vw",
+                  gap: "14px",
+                },
+              }}
+            >
               <CardMedia
                 component={"img"}
                 image={data.img}
-                sx={{ width: "34px", height: "34px", mb: "18px" }}
+                sx={{
+                  width: "34px",
+                  height: "34px",
+                  mb: "18px",
+                  "@media (max-width: 600px)": {
+                    width: "15vw",
+                    height: "15vw",
+                  },
+                }}
               />
               <Typography
                 sx={{
@@ -121,6 +148,8 @@ const TailoredApproach = () => {
               "@media (max-width: 600px)": {
                 height: "216px",
                 margin: "auto",
+                width: "90vw",
+                ml: "unset",
               },
             }}
           >
@@ -134,7 +163,7 @@ const TailoredApproach = () => {
                 "@media (max-width: 600px)": {
                   width: "80vw",
                   mt: "20px",
-                  fontSize: "16px",
+                  fontSize: "4vw",
                 },
               }}
             >
