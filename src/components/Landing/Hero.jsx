@@ -22,7 +22,6 @@ import face11 from "./assets/eye.png";
 import face12 from "./assets/Unions.svg";
 import face13 from "./assets/hands-new.png";
 
-
 const Hero = () => {
   const navigate = useNavigate();
 
@@ -95,9 +94,8 @@ const Hero = () => {
             },
           }}
         >
-          Our goal is to help businesses thrive and create their unique online presence 
-          by providing innovative and holistic solutions.
-
+          Our goal is to help businesses thrive and create their unique online
+          presence by providing innovative and holistic solutions.
         </Typography>
         <Button
           variant="contained"
