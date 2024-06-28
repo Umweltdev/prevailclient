@@ -70,7 +70,7 @@ const ElitePackageLayout = ({ packages, amount, info }) => {
             Contact Us
           </Typography>
           {/* <Typography sx={{ width: "88px", fontSize: "14px" }}>
-            One Of Payment
+            One Off Payment
           </Typography> */}
         </Box>
         <Button

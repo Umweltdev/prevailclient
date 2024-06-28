@@ -159,13 +159,13 @@ const FooterNew = () => {
           </Typography>
           <Link
             style={{ textDecoration: "none", color: "#C1B2D5" }}
-            to={"/explore/digitalecosystem"}
+            to={"/digital-ecosystem"}
           >
             <Typography>Digital Ecosystem</Typography>
           </Link>
           <Link
             style={{ textDecoration: "none", color: "#C1B2D5" }}
-            to={"/explore/customerjourney"}
+            to={"/customer-journey"}
           >
             <Typography>Customer Journey</Typography>
           </Link>
@@ -179,43 +179,43 @@ const FooterNew = () => {
           </Typography>
           <Link
             style={{ textDecoration: "none", color: "#C1B2D5" }}
-            to={"/Services"}
+            to={"/service-landing-page"}
           >
             <Typography>Services</Typography>
           </Link>
           <Link
             style={{ textDecoration: "none", color: "#C1B2D5" }}
-            to={"/Services/brand"}
+            to={"/brand-identity-package"}
           >
             <Typography>Brand Identity</Typography>
           </Link>
           <Link
             style={{ textDecoration: "none", color: "#C1B2D5" }}
-            to={"/Services/website"}
+            to={"/custom-website-development"}
           >
             <Typography>Custom Website Development</Typography>
           </Link>
           <Link
             style={{ textDecoration: "none", color: "#C1B2D5" }}
-            to={"/Services/webmanagement"}
+            to={"/website-development"}
           >
             <Typography>Website Development</Typography>
           </Link>
           <Link
             style={{ textDecoration: "none", color: "#C1B2D5" }}
-            to={"/Services/sem"}
+            to={"/search-engine-marketing"}
           >
             <Typography>Search Engine Marketing (SEM)</Typography>
           </Link>
           <Link
             style={{ textDecoration: "none", color: "#C1B2D5" }}
-            to={"/Services/mpd"}
+            to={"/marketing-pricing-displacement"}
           >
             <Typography>Marketing Price Displacement (MPD)</Typography>
           </Link>
           <Link
             style={{ textDecoration: "none", color: "#C1B2D5" }}
-            to={"/Services/digitalaccelerator"}
+            to={"/digital-accelerator-bundle"}
           >
             <Typography>Digital Accelerator Bundle</Typography>
           </Link>
@@ -229,7 +229,7 @@ const FooterNew = () => {
           </Typography>
           <Link
             style={{ textDecoration: "none", color: "#C1B2D5" }}
-            to={"/About"}
+            to={"/about-us"}
           >
             <Typography>About Us</Typography>
           </Link>
@@ -241,7 +241,7 @@ const FooterNew = () => {
           </Link>
           <Link
             style={{ textDecoration: "none", color: "#C1B2D5" }}
-            to={"/Contact"}
+            to={"/contact-us"}
           >
             <Typography>Contact Us</Typography>
           </Link>

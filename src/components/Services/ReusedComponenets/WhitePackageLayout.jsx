@@ -76,7 +76,7 @@ const WhitePackageLayout = ({
             €{amount}
           </Typography> */}
           {/* <Typography sx={{ width: "88px", fontSize: "14px" }}>
-            One Of Payment
+            One Off Payment
           </Typography> */}
         </Box>
         <Button
