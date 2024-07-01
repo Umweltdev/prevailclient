@@ -90,6 +90,7 @@ const CoreValues = () => {
         <CardMedia
           component={"img"}
           image={imago}
+          alt="Core-Values"
           sx={{
             width: "50vw",
             "@media (max-width: 600px)": {

@@ -46,7 +46,7 @@ const SectionTwo = () => {
         }}
         component="img"
         image={img}
-        alt="Paella dish"
+        alt="Empowering-Others"
       />
       <Grid
         sx={{

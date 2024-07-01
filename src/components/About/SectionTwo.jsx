@@ -1,7 +1,7 @@
 import { Box, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
 import { makeStyles } from "@mui/styles";
-import imago from "./assets/image125.png";
+import imago from "./About_Us/Our-Mission.webp";
 
 const useStyles = makeStyles({
   imagePlaform: {
@@ -118,6 +118,7 @@ const SectionTwo = () => {
         <CardMedia
           component={"img"}
           image={imago}
+          alt="Our-Mission"
           sx={{
             maxWidth: "330px",
             maxHeight: "250px",

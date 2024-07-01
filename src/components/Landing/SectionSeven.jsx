@@ -138,6 +138,7 @@ const FAQ = () => {
           <CardMedia
             component={"img"}
             image={imago}
+            alt="DAB-Rocket"
             sx={{
               width: "50vw",
               "@media (max-width: 600px)": {

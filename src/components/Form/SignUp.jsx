@@ -15,7 +15,7 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
 import Loading from "../utils/Loading";
-import signupImage from "../Form/image_130.png";
+import signupImage from "../Form/Login-Signup.webp";
 import image2 from "../Form/Group_1.svg";
 import { PasswordInput, TextInput } from "./Textfileds";
 
@@ -339,6 +339,7 @@ const SignUp = () => {
         <CardMedia
           component={"img"}
           image={signupImage}
+          alt="Login-Signup"
           sx={{
             height: "75vh",
             marginBottom: "20px",
