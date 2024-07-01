@@ -1,6 +1,6 @@
 import { Box, Button, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
-import imago from "./assets/rocket.png";
+import imago from "./home/DAB-Rocket.webp"
 import CardNoBorder from "./assets/CardNoBorder";
 import { DigitalAcelerator } from "./assets/LandingData";
 import ReusedButton from "../ReusedComponents/ReusedButton";
