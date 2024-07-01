@@ -146,7 +146,7 @@ const SingleCarousel = () => {
                       </Button>
                     </a>
 
-                    <Link to={user ? "/user/bookings" : "/contact"}>
+                    <Link to={user ? "/user/bookings" : "/contact-us"}>
                       <Button
                         variant="outlined"
                         sx={{
