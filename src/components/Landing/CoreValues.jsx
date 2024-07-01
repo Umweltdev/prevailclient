@@ -2,7 +2,7 @@ import { Box, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
 import Accordion from "./Accordion";
 import AccordionUsage from "./Accordion";
-import imago from "./assets/image_137.png";
+import imago from "./home/Core-Values.webp";
 
 const CoreValues = () => {
   return (
