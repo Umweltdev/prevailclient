@@ -8,11 +8,11 @@ import React from "react";
 //import HeroComponent from "../ReusedComponenets/HeroComponent";
 import AppBarNav from "../../Navbar/Appbar";
 import { Container, Grid, Typography, Stack, Box, Button } from "@mui/material";
-import image1 from "../assets/image_138.png";
-import image2 from "../assets/image_112.png";
-import image3 from "../assets/image_113.png";
-import image4 from "../assets/image_114.png";
-import image5 from "../assets/image_123.png";
+import image1 from "../CJ/Trigger-Phase.webp";
+import image2 from "../CJ/Initial-Consideration.webp";
+import image3 from "../CJ/Active-Evaluation.webp";
+import image4 from "../CJ/Purchasing.webp";
+import image5 from "../CJ/Special-Offer.webp";
 
 const Trigger = () => {
   return (
@@ -63,6 +63,7 @@ const Trigger = () => {
               >
                 <img
                   src={image1}
+                  alt="Trigger-Phase"
                   style={{
                     width: "100%",
                     borderRadius: "10px",
@@ -90,6 +91,7 @@ const Trigger = () => {
               >
                 <img
                   src={image2}
+                  alt="Initial-Consideration"
                   style={{
                     width: "100%",
                     // height: "100%",
@@ -166,6 +168,7 @@ const Trigger = () => {
               >
                 <img
                   src={image3}
+                  alt="Active-Evaluation"
                   style={{
                     width: "100%",
                     borderRadius: "10px",
@@ -192,6 +195,7 @@ const Trigger = () => {
               >
                 <img
                   src={image4}
+                  alt="Purchasing"
                   style={{
                     width: "100%",
                     // height: "100%",
@@ -260,6 +264,7 @@ const Trigger = () => {
               >
                 <img
                   src={image5}
+                  alt="Special-Offer"
                   style={{
                     width: "100%",
                     borderRadius: "10px",

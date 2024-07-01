@@ -1,7 +1,7 @@
 import { Grid, Typography } from "@mui/material";
 import React from "react";
 import { makeStyles } from "@mui/styles";
-import img1 from "../CJ/Special-Offer.webp"
+import img1 from "../CJ/Special-Offer.svg"
 
 const useStyles = makeStyles({
   imagePlaform: {

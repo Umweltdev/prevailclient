@@ -147,6 +147,7 @@ const Hero = () => {
               }}
               component={"img"}
               image={face1}
+              alt="Landing-View-1"
             />
             <Box
               sx={{
@@ -165,6 +166,7 @@ const Hero = () => {
                 }}
                 component={"img"}
                 image={face2}
+                alt="Landing-View-2"
               />
               <Box
                 sx={{
@@ -185,6 +187,7 @@ const Hero = () => {
                   }}
                   component={"img"}
                   image={face3}
+                  alt="Union"
                 />
                 <CardMedia
                   sx={{
@@ -199,6 +202,7 @@ const Hero = () => {
                   }}
                   component={"img"}
                   image={face11}
+                  alt="eye"
                 />
               </Box>
             </Box>
@@ -228,6 +232,7 @@ const Hero = () => {
                 }}
                 component={"img"}
                 image={face9}
+                alt="pencil"
               />
             </Box>
             <CardMedia
@@ -243,6 +248,7 @@ const Hero = () => {
               }}
               component={"img"}
               image={face4}
+              alt="Landing-View-3"
             />
           </Box>
         </Box>
@@ -267,6 +273,7 @@ const Hero = () => {
               }}
               component={"img"}
               image={face5}
+              alt="Landing-View-4"
             />
             <CardMedia
               sx={{
@@ -281,6 +288,7 @@ const Hero = () => {
               }}
               component={"img"}
               image={face12}
+              alt="Unions"
             />
             <CardMedia
               sx={{
@@ -295,6 +303,7 @@ const Hero = () => {
               }}
               component={"img"}
               image={face13}
+              alt="hands-new"
             />
           </Box>
           <CardMedia
@@ -309,6 +318,7 @@ const Hero = () => {
             }}
             component={"img"}
             image={face8}
+            alt="globe"
           />
           <CardMedia
             sx={{
@@ -322,6 +332,7 @@ const Hero = () => {
             }}
             component={"img"}
             image={face7}
+            alt="Landing-View-5"
           />
         </Box>
       </Grid>
