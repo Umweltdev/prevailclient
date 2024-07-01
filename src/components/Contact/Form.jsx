@@ -112,7 +112,7 @@ const Form = () => {
       >
         <InputDesign name={"firstName"} label={"First Name"} />
         <InputDesign name={"lastName"} label={"Last Name"} />
-        <InputDesign name={"email_id"} label={"Email"} />
+        <InputDesign name={"email"} label={"Email"} />
         <InputDesign name={"phone"} label={"Phone"} />
         <InputDesign name={"location"} label={"Location"} />
         <InputDesign name={"company"} label={"Company Name"} />

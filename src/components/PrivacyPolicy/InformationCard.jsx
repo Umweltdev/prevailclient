@@ -24,7 +24,7 @@ const InformationCard = () => {
         alignItems: "left",
         padding: "35px 1vw",
         // position: "-webkit-sticky",
-        top: "100px",
+        top: "150px",
         position: "sticky",
         "@media (max-width: 767px)": {
           display: "none",

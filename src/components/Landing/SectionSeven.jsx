@@ -1,6 +1,6 @@
 import { Box, Button, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
-import imago from "./assets/rocket.png";
+import imago from "./home/DAB-Rocket.webp"
 import CardNoBorder from "./assets/CardNoBorder";
 import { DigitalAcelerator } from "./assets/LandingData";
 import ReusedButton from "../ReusedComponents/ReusedButton";
@@ -138,6 +138,7 @@ const FAQ = () => {
           <CardMedia
             component={"img"}
             image={imago}
+            alt="DAB-Rocket"
             sx={{
               width: "50vw",
               "@media (max-width: 600px)": {

@@ -18,13 +18,13 @@ const ForgotPasswordForm = () => {
           email,
         }
       );
-      console.log("Password reset email sent");
-      setSuccess(true);
+      // console.log("Password reset email sent");
+      setSuccess("Password reset email sent");
       setLoading(false);
     } catch (err) {
       console.error(err);
       setLoading(false);
-      setSuccess(err);
+      setSuccess(`Email does not exist!`);
     }
   };
 
@@ -41,8 +41,8 @@ const ForgotPasswordForm = () => {
         flexDirection: "column",
       }}
     >
-      <Typography sx={{ color: "green", fontSize: "19px",}}>
-        {success ? `Password reset email sent!` : ""}
+      <Typography sx={{ color: "#333", fontSize: "19px" }}>
+        {success && <p dangerouslySetInnerHTML={{ __html: success }} />}
       </Typography>
       <Typography
         sx={{

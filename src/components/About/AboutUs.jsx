@@ -1,6 +1,6 @@
 import { CardMedia, Grid } from "@mui/material";
 import React from "react";
-import image1 from "./assets/about1.svg";
+import image1 from "./About_Us/Working-Together.webp";
 
 const AboutUs = () => {
   return (
@@ -66,6 +66,7 @@ const AboutUs = () => {
       <CardMedia
         component={"img"}
         image={image1}
+        alt="Working-Together"
         sx={{
           width: "1210px",
           height: "510px",

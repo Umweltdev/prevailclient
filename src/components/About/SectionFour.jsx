@@ -1,7 +1,7 @@
 import { Box, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
 import { makeStyles } from "@mui/styles";
-import imago from "./assets/about3.svg";
+import imago from "./About_Us/What-We-Do.webp";
 
 
 const SectionFour = () => {
@@ -31,6 +31,7 @@ const SectionFour = () => {
       <CardMedia
         component={"img"}
         image={imago}
+        alt="What-We-Do"
         sx={{
           width: "485px",
           height: "290px",

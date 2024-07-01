@@ -8,16 +8,16 @@ import {
   CardMedia,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import face1 from "./assets/face1.svg";
-import face2 from "./assets/face2.svg";
+import face1 from "./home/Landing-View-1.webp";
+import face2 from "./home/Landing-View-2.webp";
 import face3 from "./assets/Union.png";
-import face4 from "./assets/face4.svg";
-import face5 from "./assets/face5.svg";
-import face6 from "./assets/face6.svg";
-import face7 from "./assets/face7.svg";
+import face4 from "./home/Landing-View-3.webp";
+import face5 from "./home/Landing-View-4.webp";
+//import face6 from "./assets/face6.svg";
+import face7 from "./home/Landing-View-5.webp";
 import face8 from "./assets/globe.png";
 import face9 from "./assets/pencil.png";
-import face10 from "./assets/face10.svg";
+//import face10 from "./assets/face10.svg";
 import face11 from "./assets/eye.png";
 import face12 from "./assets/Unions.svg";
 import face13 from "./assets/hands-new.png";
@@ -62,6 +62,7 @@ const Hero = () => {
           }}
         >
           Your Partner in Accelerating the
+
         </Typography>
         <Typography
           sx={{
@@ -146,6 +147,7 @@ const Hero = () => {
               }}
               component={"img"}
               image={face1}
+              alt="Landing-View-1"
             />
             <Box
               sx={{
@@ -164,6 +166,7 @@ const Hero = () => {
                 }}
                 component={"img"}
                 image={face2}
+                alt="Landing-View-2"
               />
               <Box
                 sx={{
@@ -184,6 +187,7 @@ const Hero = () => {
                   }}
                   component={"img"}
                   image={face3}
+                  alt="Union"
                 />
                 <CardMedia
                   sx={{
@@ -198,6 +202,7 @@ const Hero = () => {
                   }}
                   component={"img"}
                   image={face11}
+                  alt="eye"
                 />
               </Box>
             </Box>
@@ -227,6 +232,7 @@ const Hero = () => {
                 }}
                 component={"img"}
                 image={face9}
+                alt="pencil"
               />
             </Box>
             <CardMedia
@@ -242,6 +248,7 @@ const Hero = () => {
               }}
               component={"img"}
               image={face4}
+              alt="Landing-View-3"
             />
           </Box>
         </Box>
@@ -266,6 +273,7 @@ const Hero = () => {
               }}
               component={"img"}
               image={face5}
+              alt="Landing-View-4"
             />
             <CardMedia
               sx={{
@@ -280,6 +288,7 @@ const Hero = () => {
               }}
               component={"img"}
               image={face12}
+              alt="Unions"
             />
             <CardMedia
               sx={{
@@ -294,6 +303,7 @@ const Hero = () => {
               }}
               component={"img"}
               image={face13}
+              alt="hands-new"
             />
           </Box>
           <CardMedia
@@ -308,6 +318,7 @@ const Hero = () => {
             }}
             component={"img"}
             image={face8}
+            alt="globe"
           />
           <CardMedia
             sx={{
@@ -321,6 +332,7 @@ const Hero = () => {
             }}
             component={"img"}
             image={face7}
+            alt="Landing-View-5"
           />
         </Box>
       </Grid>

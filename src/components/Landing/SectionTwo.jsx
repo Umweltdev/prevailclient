@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useInView } from "react-intersection-observer";
 import styles from "./animation.module.css";
-import img from "./assets/image100.png";
+import img from "./home/Empowering-Others.webp"
 import ReusedButton from "../ReusedComponents/ReusedButton";
 
 const SectionTwo = () => {
@@ -46,7 +46,7 @@ const SectionTwo = () => {
         }}
         component="img"
         image={img}
-        alt="Paella dish"
+        alt="Empowering-Others"
       />
       <Grid
         sx={{

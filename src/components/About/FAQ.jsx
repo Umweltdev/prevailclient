@@ -2,7 +2,7 @@ import { Box, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
 import Accordion from "./assets/Accordion";
 import AccordionUsage from "./assets/Accordion";
-import imago from "./assets/about5.svg";
+import imago from "./About_Us/FAQ.webp";
 
 const FAQ = () => {
   return (
@@ -47,6 +47,7 @@ const FAQ = () => {
         <CardMedia
           component={"img"}
           image={imago}
+          alt="FAQ"
           sx={{
             width: "50vw",
             "@media (max-width: 600px)": {

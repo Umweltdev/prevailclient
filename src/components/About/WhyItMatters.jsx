@@ -1,6 +1,6 @@
 import { Box, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
-import imago from "./assets/about4.svg";
+import imago from "./About_Us/Why-It-Matters.webp";
 
 const WhyItMatters = () => {
   return (
@@ -123,6 +123,7 @@ const WhyItMatters = () => {
       <CardMedia
         component={"img"}
         image={imago}
+        alt="Why-It-Matters"
         sx={{
           width: "485px",
           maxHeight: "636px",

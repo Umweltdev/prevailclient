@@ -11,7 +11,7 @@ const Loading = () => {
         alignItems: "center",
         margin: "auto",
         background: "linear-gradient(135deg, #d1c4e9, #ffffff, #bbdefb)",
-        height: "100vh"
+        height: "100vh",
       }}
     >
       <img className="blink" src={logo} alt="" />
