@@ -36,7 +36,7 @@ const Subscribe = () => {
         makeToast("success", "Successfully subscribed to our newsletters");
         resetForm();
       } catch (error) {
-        makeToast("error", error?.message?.title || "Something went wrong, Please try again");
+        makeToast("error", error?.message?.title || "Something went wrong, Please try again later");
         console.log(error);
       }
     },
