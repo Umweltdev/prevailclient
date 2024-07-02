@@ -34,7 +34,7 @@
     "react-chatbotify": "^1.7.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
-    "react-intersection-observer": "^9.8.2",
+    "react-intersection-observer": "^9.10.3",
     "react-material-ui-carousel": "^3.4.2",
     "react-redux": "^9.1.1",
     "react-router-dom": "^6.19.0",
