@@ -1,6 +1,6 @@
 import { Box, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
-import imagebrand2 from "../assets/imagebrand2.png";
+import imagebrand2 from "../assets/Addressing-Branding-Challenges-.webp";
 
 const Addressing = () => {
   return (
@@ -70,6 +70,7 @@ const Addressing = () => {
       <CardMedia
         component={"img"}
         image={imagebrand2}
+        alt="Addressing-Branding-Challenges-"
         sx={{
           width: "50vw",
           "@media (max-width: 600px)": {
