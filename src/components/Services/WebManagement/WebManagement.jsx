@@ -15,10 +15,10 @@ import {
   Button,
   SvgIcon,
 } from "@mui/material";
-import image1 from "./assets/image1.png";
-import image2 from "./assets/image2.png";
-import nurse from "./assets/nurse.png";
-import office from "./assets/office.png";
+import image1 from "./assets/Web-Development-Solutions.webp";
+import image2 from "./assets/Shopify-Web-Design.webp";
+import nurse from "./assets/Real-Estate-Authority.webp";
+import office from "./assets/Hotel-Platform-Development-.webp";
 
 import Browse from "./assets/basket.svg?react";
 import Hospital from "./assets/hospital.svg?react";
@@ -116,6 +116,7 @@ const WebManagement = () => {
                 >
                   <img
                     src={image1}
+                    alt="Web-Development-Solutions"
                     style={{
                       width: "100%",
                       objectFit: "cover",
@@ -262,6 +263,7 @@ const WebManagement = () => {
                 >
                   <img
                     src={image2}
+                    alt="Shopify-Web-Design"
                     style={{
                       width: "100%",
                       objectFit: "cover",
@@ -380,6 +382,7 @@ const WebManagement = () => {
                 >
                   <img
                     src={nurse}
+                    alt="Real-Estate-Authority"
                     style={{
                       width: "100%",
                       objectFit: "cover",
@@ -543,6 +546,7 @@ const WebManagement = () => {
                 >
                   <img
                     src={office}
+                    alt="Hotel-Platform-Development-"
                     style={{
                       width: "100%",
                       objectFit: "cover",
