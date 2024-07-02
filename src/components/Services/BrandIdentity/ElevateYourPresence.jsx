@@ -1,6 +1,6 @@
 import { CardMedia, Grid, Typography, Box } from "@mui/material";
 import React from "react";
-import imgBrand from "../assets/imagebrand1.png";
+import imgBrand from "../assets/Elevate-Your-Presence.webp";
 
 const ElevateYourPresence = () => {
   return (
@@ -24,6 +24,7 @@ const ElevateYourPresence = () => {
       <CardMedia
         component={"img"}
         image={imgBrand}
+        alt="Elevate-Your-Presence"
         sx={{
           width: "50vw",
           "@media (max-width: 600px)": {
