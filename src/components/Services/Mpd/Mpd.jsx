@@ -13,7 +13,7 @@ import MainPage from "./MainPage";
 import PrevailMPDApi from "./PrevailMPDApi";
 import KeyBenefits from "./KeyBenefits";
 import ImageTextComponent from "../ReusedComponenets/ImageTextComponent";
-import imago from "../assets/image 142.png";
+import imago from "../assets/Why-Choose-Prevail’s-MPD.webp";
 import TakeAction from "./TakeAction";
 import Carousel from "./Carousel";
 import AppBarNav from "../../Navbar/Appbar";
