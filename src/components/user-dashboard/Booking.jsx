@@ -15,7 +15,7 @@ const BookingDetails = () => {
       setLoading(true);
       try {
         const backendRes = await axios.get(
-          `http://localhost:8080/api/booking/${id}`
+          `https://prevailserver-4b3c670a5496.herokuapp.com/api/booking/${id}`
         );
         setBackendDetails(backendRes.data);
         setLoading(false);
@@ -42,7 +42,7 @@ const BookingDetails = () => {
     };
 
     fetchExternalDetails();
-  }, [backendDetails]); 
+  }, [backendDetails]);
 
   if (loading) {
     return (

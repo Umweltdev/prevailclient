@@ -101,7 +101,9 @@ const Bookings = ({ openDrawer }) => {
     const getBookings = async () => {
       setLoading(true);
       try {
-        const res = await axios.get(`http://localhost:8080/api/booking`);
+        const res = await axios.get(
+          `https://prevailserver-4b3c670a5496.herokuapp.com/api/booking`
+        );
         // Filter bookings by user email
         const userBookings = res.data.filter(
           (booking) => booking.email === user?.user.email
