@@ -4,9 +4,9 @@ import FooterNew from "../../Footer/FooterNew";
 import HeroComponent from "../ReusedComponenets/HeroComponent";
 import AppBarNav from "../../Navbar/Appbar";
 import { Container, Grid, Typography, Stack, Box, Button } from "@mui/material";
-import image1 from "./assets/image1.png";
-import image2 from "./assets/image2.png";
-import rocket from "./assets/rocket.png";
+import image1 from "./assets/Propel-Your-Business.webp";
+import image2 from "./assets/Understanding-Your-Challenges.webp";
+import rocket from "./assets/DAB-Promotion.webp";
 import "./styles.css";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import TextImageComponent from "../ReusedComponenets/TextImageComponent";
@@ -38,6 +38,7 @@ const DigitalAccelerator = () => {
       <HeroComponent title={"Digital Accelerator Bundle Page"} />
       <TextImageComponent
         img={image1}
+        alt="Propel-Your-Business"
         header={
           "Propel Your Business with Prevail’s Digital Accelerator Bundle "
         }
@@ -53,6 +54,7 @@ const DigitalAccelerator = () => {
       />
       <ImageTextComponent
         img={image2}
+        alt="Understanding-Your-Challenges"
         header={"Understanding Your Challenges"}
         text={`We recognise the obstacles you face in a highly competitive
               digital marketplace. Despite your hard work and dedication, your
@@ -221,6 +223,7 @@ const DigitalAccelerator = () => {
               >
                 <img
                   src={rocket}
+                  alt="DAB-Promotion"
                   style={{
                     width: "100%",
                     // height: "100%",
