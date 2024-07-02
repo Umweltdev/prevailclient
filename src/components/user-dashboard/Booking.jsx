@@ -35,6 +35,7 @@ const BookingDetails = () => {
         try {
           const eventRes = await axios.get(backendDetails.event);
           setExternalDetails(eventRes.data);
+          console.log(eventRes);
         } catch (error) {
           console.error("Error fetching external details:", error);
         }

@@ -23,7 +23,7 @@ const Booking = ({
   status,
   created_at,
   timezone,
-  id
+  id,
 }) => {
   useCalendlyEventListener({
     onProfilePageViewed: () => console.log("onProfilePageViewed"),
