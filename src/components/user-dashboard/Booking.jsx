@@ -1,243 +1,115 @@
-import { useState, useEffect, useRef } from "react";
-import {
-  Typography,
-  Box,
-  Stack,
-  Button,
-  IconButton,
-  Divider,
-  styled,
-  Grid,
-  useMediaQuery,
-} from "@mui/material";
-import Bookmark from "@mui/icons-material/Bookmark";
-import { useNavigate, useParams } from "react-router-dom";
-import Carousel from "./Carousel";
-import PropertyDetails from "./PropertyDetails";
-import MenuIcon from "@mui/icons-material/Menu";
-import { userRequest } from "../../requestMethods";
-import { dateConverter } from "./utils";
-import axiosInstance from "../utils/axios";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { CircularProgress, Box, Typography, Paper, Fab } from "@mui/material";
+import axios from "axios";
 
+const BookingDetails = () => {
+  const { id } = useParams(); // Get the booking ID from URL parameters
+  const [backendDetails, setBackendDetails] = useState(null);
+  const [externalDetails, setExternalDetails] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-export const CustomDivider = styled(Divider)`
-  margin: 16px 0px 24px;
-  border-width: 0px 0px thin;
-  border-style: solid;
-  border-color: #7d879c;
-`;
-const Booking = ({ openDrawer }) => {
-  const isNonMobile = useMediaQuery("(min-width:968px)");
-  const navigate = useNavigate();
-  const { id } = useParams();
-  const [booking, setBooking] = useState({});
+  // Fetch from backend
   useEffect(() => {
-    const getBooking = async () => {
+    const fetchBackendDetails = async () => {
+      setLoading(true);
       try {
-        const res = await axiosInstance.get(`/api/booking/${id}`);
-        setBooking(res.data);
+        const backendRes = await axios.get(
+          `http://localhost:8080/api/booking/${id}`
+        );
+        setBackendDetails(backendRes.data);
+        setLoading(false);
       } catch (error) {
-        console.log(error);
+        console.error("Error fetching backend details:", error);
+        setLoading(false);
       }
     };
 
-    
-
-    getBooking();
+    fetchBackendDetails();
   }, [id]);
 
-  console.log(booking);
-  // console.log(booking.location.type);
+  // Fetch from external URI
+  useEffect(() => {
+    const fetchExternalDetails = async () => {
+      if (backendDetails && backendDetails.uri) {
+        try {
+          const eventRes = await axios.get(backendDetails.event);
+          setExternalDetails(eventRes.data);
+        } catch (error) {
+          console.error("Error fetching external details:", error);
+        }
+      }
+    };
 
-  const isBookingDatePassed = () => {
-    const currentDate = new Date();
-    const bookingDate = new Date(booking.start_time);
-    return currentDate > bookingDate;
-  };
+    fetchExternalDetails();
+  }, [backendDetails]); 
+
+  if (loading) {
+    return (
+      <Box
+        sx={{
+          height: "200px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <CircularProgress />
+      </Box>
+    );
+  }
 
   return (
-    <Box>
-      <Stack flex={1} spacing={3}>
-        <Stack
-          direction="row"
-          justifyContent="space-between"
-          alignItems="start"
-        >
-          <Stack
-            direction={{ xs: "column", md: "row" }}
-            justifyContent="space-between"
-            alignItems={{ xs: "start", md: "center" }}
-            width={{ xs: "auto", md: "100%" }}
-          >
-            <Stack
-              direction="row"
-              spacing={{ xs: 1, md: 2 }}
-              alignItems="center"
-              mb={{ xs: 1.5, md: 0 }}
+    <Box p={2}>
+      <Typography variant="h4">Booking Details</Typography>
+
+      {backendDetails && (
+        <Paper sx={{ padding: 2, marginTop: 2 }}>
+          <Typography sx={{ mb: "10px" }}>
+            <strong>ID:</strong> {backendDetails._id}
+          </Typography>
+          <Typography sx={{ mb: "10px" }}>
+            <strong>Email:</strong> {backendDetails.email}
+          </Typography>
+          {/* <Typography sx={{ mb: "10px" }}>
+            <strong>Event:</strong> {backendDetails.event}
+          </Typography> */}
+          <Typography sx={{ mb: "10px" }}>
+            <strong>Created At:</strong>{" "}
+            {new Date(backendDetails.created_at).toLocaleString()}
+          </Typography>
+          <Typography sx={{ mb: "10px" }}>
+            <strong>Status:</strong> {backendDetails.status}
+          </Typography>
+          <Typography sx={{ mb: "10px" }}>
+            <strong>Reschedule URL:</strong>{" "}
+            <a
+              href={backendDetails.reschedule_url}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <Bookmark
-                sx={{
-                  color: "primary.main",
-                }}
-              />
-              <Typography
-                variant="h5"
-                color="text.primary"
-                fontSize={{ xs: "20px", md: "25px" }}
-              >
-                Booking Details
-              </Typography>
-            </Stack>
-          </Stack>
-          <IconButton
-            onClick={openDrawer}
-            sx={{
-              display: isNonMobile ? "none" : "inline-flex",
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-        </Stack>
+              {backendDetails.reschedule_url}
+            </a>
+          </Typography>
+          <Typography sx={{ mb: "10px" }}>
+            <strong>Timezone:</strong> {backendDetails.timezone}
+          </Typography>
+          {/* Add other fields from backendDetails as needed */}
+        </Paper>
+      )}
 
-        {booking?.product?.type === "Product" ? (
-          <>
-            <Stack spacing={2}>
-              <Stack spacing={1}>
-                <Stack direction="row" spacing={1.5}>
-                  <Typography>Location: </Typography>
-                  <Typography color="#7D879C">
-                    {" "}
-                    LOCATION: {booking.location.type}
-                  </Typography>
-                </Stack>
-                <Stack direction="row" spacing={1.5}>
-                  <Typography> Meeting Date: </Typography>
-                  <Typography color="#7D879C">
-                    {dateConverter(booking?.createdAt)}
-                  </Typography>
-                </Stack>{" "}
-                <Stack direction="row" spacing={1.5}>
-                  <Typography>View Date: </Typography>
-                  <Typography color="#7D879C">
-                    {booking?.viewDate
-                      ? dateConverter(booking?.viewDate)
-                      : "Pending"}
-                  </Typography>
-                </Stack>
-              </Stack>
-
-              <Typography variant="h5">
-                {booking?.product?.item?.title}
-              </Typography>
-
-              <Typography variant="h5" color="primary.main">
-                {`₦ ${booking?.product?.item?.price.toLocaleString()}`}
-              </Typography>
-
-              <Carousel images={booking?.product?.item?.img} />
-            </Stack>
-
-            <PropertyDetails product={booking?.product?.item} />
-          </>
-        ) : (
-          <>
-            {" "}
-            <Stack spacing={2}>
-              <Stack spacing={1}>
-                <Stack direction="row" spacing={1.5}>
-                  <Typography>Location: </Typography>
-                  <Typography color="#7D879C">
-                    {booking?.location?.type}
-                  </Typography>
-                </Stack>
-                <Stack direction="row" spacing={1.5}>
-                  <Typography>Meeting Type: </Typography>
-                  <Typography color="#7D879C">{booking.name}</Typography>
-                </Stack>
-                <Stack direction="row" spacing={1.5}>
-                  <Typography>Meeting Date: </Typography>
-                  <Typography color="#7D879C">
-                    {new Date(booking.start_time).toLocaleString("en-US", {
-                      weekday: "long",
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                      hour: "numeric",
-                      minute: "numeric",
-                      second: "numeric",
-                      timeZone: "UTC",
-                    })}
-                  </Typography>
-                </Stack>
-                <Stack direction="row" spacing={1.5}>
-                  <Typography>Start Time: </Typography>
-                  <Typography color="#7D879C">
-                    {new Date(booking.start_time).toLocaleString("en-US", {
-                      // weekday: "long",
-                      // year: "numeric",
-                      // month: "long",
-                      // day: "numeric",
-                      hour: "numeric",
-                      minute: "numeric",
-                      second: "numeric",
-                      timeZone: "UTC",
-                    })}
-                  </Typography>
-                </Stack>
-                <Stack direction="row" spacing={1.5}>
-                  <Typography>End Time: </Typography>
-                  <Typography color="#7D879C">
-                    {new Date(booking.end_time).toLocaleString("en-US", {
-                      // weekday: "long",
-                      // year: "numeric",
-                      // month: "long",
-                      // day: "numeric",
-                      hour: "numeric",
-                      minute: "numeric",
-                      second: "numeric",
-                      timeZone: "UTC",
-                    })}
-                  </Typography>
-                </Stack>
-                <Stack direction="row" spacing={1.5}>
-                  <Typography>Host: </Typography>
-                  <Typography color="#7D879C">
-                    {booking?.event_memberships?.user_name}
-                  </Typography>
-                </Stack>
-                <Stack direction="row" spacing={1.5}>
-                  <Typography>Status: </Typography>
-                  <Typography color="#7D879C">
-                    {isBookingDatePassed() ? "Completed" : booking?.status}
-                  </Typography>
-                </Stack>
-                {/* <Stack direction="row" spacing={1.5}>
-                  <Typography> Book Date: </Typography>
-                  <Typography color="#7D879C">
-                    {dateConverter(booking?.bookDate)}
-                  </Typography>
-                </Stack>{" "}
-                <Stack direction="row" spacing={1.5}>
-                  <Typography>View Date: </Typography>
-                  <Typography color="#7D879C">
-                    {booking?.viewDate
-                      ? dateConverter(booking?.viewDate)
-                      : "Pending"}
-                  </Typography>
-                </Stack> */}
-              </Stack>
-
-              <Typography variant="h5">
-                {booking?.product?.item?.title}
-              </Typography>
-
-              {/* <Carousel images={booking?.product?.item?.img} /> */}
-            </Stack>
-          </>
-        )}
-      </Stack>
+      {externalDetails && (
+        <Paper elevation={3} sx={{ padding: 2, marginTop: 2 }}>
+          <Typography variant="h6">External Data</Typography>
+          {/* Display the external data based on your structure */}
+          <Typography>
+            <strong>External Info:</strong> {externalDetails.end_time}
+          </Typography>
+          {/* Add other fields from externalDetails as needed */}
+        </Paper>
+      )}
     </Box>
   );
 };
 
-export default Booking;
+export default BookingDetails;
