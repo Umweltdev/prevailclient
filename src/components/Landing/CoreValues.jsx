@@ -1,10 +1,21 @@
 import { Box, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
-import Accordion from "./Accordion";
 import AccordionUsage from "./Accordion";
 import imago from "./home/Core-Values.webp";
+import styles from "./assets/animation.module.css"; // Import the new CSS module
+import { useInView } from "react-intersection-observer";
 
 const CoreValues = () => {
+  const { ref: imageRef, inView: imageInView } = useInView({
+    triggerOnce: true,
+    threshold: 0,
+  });
+
+  const { ref: textRef, inView: textInView } = useInView({
+    triggerOnce: true,
+    threshold: 0,
+  });
+
   return (
     <Box
       sx={{
@@ -22,6 +33,8 @@ const CoreValues = () => {
       id="faqs"
     >
       <Grid
+        ref={textRef}
+        className={textInView ? styles.slideInScale : ""}
         sx={{
           pl: "0",
           pt: "15vh",
@@ -67,10 +80,11 @@ const CoreValues = () => {
               },
             }}
           >
-            At Prevail, our commitment to redefining the digital landscape for 
-            small-to-medium-sized enterprises (SMEs) is deeply embedded in our core values. 
-            These values not only guide our strategies and decisions but also help us build 
-            meaningful relationships with the businesses we serve.
+            At Prevail, our commitment to redefining the digital landscape for
+            small-to-medium-sized enterprises (SMEs) is deeply embedded in our
+            core values. These values not only guide our strategies and
+            decisions but also help us build meaningful relationships with the
+            businesses we serve.
           </Typography>
         </Box>
         <Box
@@ -86,16 +100,17 @@ const CoreValues = () => {
           <AccordionUsage />
         </Box>
       </Grid>
-      <Grid>
+      <Grid ref={imageRef}>
         <CardMedia
           component={"img"}
+          className={imageInView ? styles.rotateIn : ""}
           image={imago}
           alt="Core-Values"
           sx={{
             width: "50vw",
             "@media (max-width: 600px)": {
               width: "100vw",
-              pl: "unset"
+              pl: "unset",
             },
           }}
         />

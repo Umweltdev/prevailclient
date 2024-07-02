@@ -8,22 +8,37 @@ import {
   CardMedia,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { useInView } from "react-intersection-observer";
 import face1 from "./home/Landing-View-1.webp";
 import face2 from "./home/Landing-View-2.webp";
 import face3 from "./assets/Union.png";
 import face4 from "./home/Landing-View-3.webp";
 import face5 from "./home/Landing-View-4.webp";
-//import face6 from "./assets/face6.svg";
 import face7 from "./home/Landing-View-5.webp";
 import face8 from "./assets/globe.png";
 import face9 from "./assets/pencil.png";
-//import face10 from "./assets/face10.svg";
 import face11 from "./assets/eye.png";
 import face12 from "./assets/Unions.svg";
 import face13 from "./assets/hands-new.png";
+import styles from "./assets/animation.module.css"; // Import the new CSS module
 
 const Hero = () => {
   const navigate = useNavigate();
+
+  const { ref: headingRef, inView: headingInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const { ref: subTextRef, inView: subTextInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const { ref: imageGroupRef, inView: imageGroupInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
   return (
     <Grid
@@ -34,7 +49,7 @@ const Hero = () => {
         pt: "256px",
         pb: "100px",
         justifyContent: "center",
-        alignItems: "top",
+        alignItems: "flex-start",
         "@media (max-width: 767px)": {
           flexDirection: "column",
           width: "100vw",
@@ -45,6 +60,8 @@ const Hero = () => {
     >
       <Grid>
         <Typography
+          ref={headingRef}
+          className={headingInView ? styles.zoomFadeIn : ""}
           sx={{
             fontSize: "64px",
             color: "#1D0D40",
@@ -62,7 +79,6 @@ const Hero = () => {
           }}
         >
           Your Partner in Accelerating the
-
         </Typography>
         <Typography
           sx={{
@@ -83,8 +99,9 @@ const Hero = () => {
         >
           Digital Space
         </Typography>
-
         <Typography
+          ref={subTextRef}
+          className={subTextInView ? styles.slideInLeft : ""}
           sx={{
             margin: "1rem 0",
             fontSize: "1.25rem",
@@ -115,8 +132,9 @@ const Hero = () => {
           Get started
         </Button>
       </Grid>
-
       <Grid
+        ref={imageGroupRef}
+        className={imageGroupInView ? styles.slideInRight : ""}
         sx={{
           "@media (max-width: 767px)": {
             width: "90vw",

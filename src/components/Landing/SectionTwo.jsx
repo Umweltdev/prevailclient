@@ -1,19 +1,19 @@
-import "./assets/landing.css";
-import { useRef, useEffect, useState } from "react";
-import { Button, CardMedia, Grid, Typography, Container } from "@mui/material";
-import { motion } from "framer-motion";
+import { CardMedia, Grid, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-import { useInView } from "react-intersection-observer";
-import styles from "./animation.module.css";
-import img from "./home/Empowering-Others.webp"
+import styles from "./assets/animation.module.css"; // Import animation styles
+import img from "./home/Empowering-Others.webp";
 import ReusedButton from "../ReusedComponents/ReusedButton";
+import { useInView } from "react-intersection-observer";
 
 const SectionTwo = () => {
-  const { ref: myRef, inView: myElementVisible } = useInView();
-  const { ref: sectionRef, inView: rocketIsVisible } = useInView();
+  const { ref, inView, entry } = useInView({
+    triggerOnce: true, // Only trigger once
+    threshold: 0.1, // Adjust as needed
+  });
 
   return (
     <Grid
+      ref={ref}
       sx={{
         display: "flex",
         height: "100vh",
@@ -32,6 +32,7 @@ const SectionTwo = () => {
       }}
     >
       <CardMedia
+        className={inView ? styles.imageFadeIn : ""}
         sx={{
           width: "603.677px",
           height: "402.351px",
@@ -41,7 +42,6 @@ const SectionTwo = () => {
             width: "90vw",
             height: "unset",
             borderRadius: "5vw",
-           
           },
         }}
         component="img"
@@ -49,13 +49,14 @@ const SectionTwo = () => {
         alt="Empowering-Others"
       />
       <Grid
+        className={inView ? styles.textSlideIn : ""}
         sx={{
           width: "548.266px",
           "@media (max-width: 600px)": {
             width: "90vw",
             height: "unset",
             borderRadius: "5vw",
-            mt: "55px"
+            mt: "55px",
           },
         }}
       >
@@ -91,7 +92,8 @@ const SectionTwo = () => {
             },
           }}
         >
-          Our Mission is to empower you with innovative solutions that drive long-term success.
+          Our Mission is to empower you with innovative solutions that drive
+          long-term success.
         </Typography>
 
         <Typography
@@ -106,10 +108,14 @@ const SectionTwo = () => {
             },
           }}
         >
-          Prevail is a cutting-edge marketing agency specialising in redefining how businesses navigate the digital landscape. Prevail is not just a marketing agency but a strategic partner for businesses in the digital age. We aim to help businesses thrive, regardless of economic challenges, by providing innovative and holistic solutions.
+          Prevail is a cutting-edge marketing agency specialising in redefining
+          how businesses navigate the digital landscape. Prevail is not just a
+          marketing agency but a strategic partner for businesses in the digital
+          age. We aim to help businesses thrive, regardless of economic
+          challenges, by providing innovative and holistic solutions.
         </Typography>
         <Link to={"/about"}>
-          <ReusedButton text={"Learn More"}/>
+          <ReusedButton text={"Learn More"} />
         </Link>
       </Grid>
     </Grid>
