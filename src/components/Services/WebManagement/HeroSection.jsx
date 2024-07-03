@@ -1,7 +1,7 @@
 import { Grid, Typography } from "@mui/material";
 import React from "react";
 import { makeStyles } from "@mui/styles";
-import landingImage1 from "../assets/web.png";
+//import landingImage1 from "../assets/web.png";
 
 const useStyles = makeStyles({
   // imagePlaform: {

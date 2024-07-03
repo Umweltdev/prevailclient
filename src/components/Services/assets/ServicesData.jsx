@@ -1,9 +1,9 @@
-import firstImage from "./collaboration.png";
+//import firstImage from "./collaboration.png";
 import secondImage from "./d2.png";
 import thirdImage from "./customerJ.png";
-import fourthImage from "./multiplat.png";
-import fifthImage from "./practCollat.png";
-import sixthImage from "./d1.png";
+//import fourthImage from "./multiplat.png";
+//import fifthImage from "./practCollat.png";
+//import sixthImage from "./d1.png";
 import landingImage1 from "./brandd.png";
 
 export const serviceCard = [
