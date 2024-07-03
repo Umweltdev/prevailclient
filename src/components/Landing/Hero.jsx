@@ -120,7 +120,7 @@ const Hero = () => {
               backgroundColor: "#3a0d96",
             },
           }}
-          onClick={() => navigate("/Contact")}
+          onClick={() => navigate("/contact-us")}
         >
           Get started
         </Button>
