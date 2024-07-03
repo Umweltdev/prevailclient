@@ -235,7 +235,7 @@ const FooterNew = () => {
           </Link>
           <Link
             style={{ textDecoration: "none", color: "#C1B2D5" }}
-            to={"/about-us/#faqs"}
+            to={"/about-us/#faq"}
           >
             <Typography>FAQ</Typography>
           </Link>
