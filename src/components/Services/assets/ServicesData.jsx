@@ -131,34 +131,33 @@ export const brandIdentityCard = [
   },
 ];
 
-
 export const brandManagementCard = [
   {
     header: "Shopify Platform",
-    text: "We specialise in crafting customised websites on Shopify, offering a range of services for enhancing online presence including website development, online sales, and business management tools."
+    text: "We specialise in crafting customised websites on Shopify, offering a range of services for enhancing online presence including website development, online sales, and business management tools.",
   },
   {
     header: "Real Estate Platform",
-    text: "Prevail recognises the challenges SMEs and local businesses in the real estate industry face, especially when competing with larger entities in the digital space."
+    text: "Prevail recognises the challenges SMEs and local businesses in the real estate industry face, especially when competing with larger entities in the digital space.",
   },
   {
     header: "Holistic Website Development",
-    text: "We do not just build websites; we create digital experiences. Our partnership approach ensures that every website is not only visually stunning but also functionally superior, reflecting the unique ethos of your business."
+    text: "We do not just build websites; we create digital experiences. Our partnership approach ensures that every website is not only visually stunning but also functionally superior, reflecting the unique ethos of your business.",
   },
   {
     header: "Technical Expertise",
-    text: "With advanced technologies like MERN Stack and Microservice Architecture, we guarantee that your website stays ahead in innovation, offering a seamless experience to your users."
+    text: "With advanced technologies like MERN Stack and Microservice Architecture, we guarantee that your website stays ahead in innovation, offering a seamless experience to your users.",
   },
   {
     header: "Comprehensive Features",
-    text: "Our service includes all essentials from SSL certificates to dynamic UI & React, ensuring a fully functional, secure, and engaging website that caters to all your business needs."
+    text: "Our service includes all essentials from SSL certificates to dynamic UI & React, ensuring a fully functional, secure, and engaging website that caters to all your business needs.",
   },
   {
     header: "Website Excellence",
-    text: "We go beyond basics by incorporating features like property listing pages, a calendar booking system, and an intuitive properties filter component, enhancing the user experience manifold (customer login, review, and rating)."
+    text: "We go beyond basics by incorporating features like property listing pages, a calendar booking system, and an intuitive properties filter component, enhancing the user experience manifold (customer login, review, and rating).",
   },
   {
     header: "Maintenance and Scurity",
-    text: "Our commitment does not end with development. We take care of everything from content updates to security monitoring and technical support, which allow our clients to focus on their core business operations."
+    text: "Our commitment does not end with development. We take care of everything from content updates to security monitoring and technical support, which allow our clients to focus on their core business operations.",
   },
-]
+];
