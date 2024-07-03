@@ -45,7 +45,6 @@
   animation: slideInRight 1.5s ease-out forwards;
 }
 
-
 /* FIRST SECTION */
 @keyframes fadeIn {
   from {
@@ -77,43 +76,65 @@
   animation: slideIn 2s forwards;
 }
 
-
 /* SECOND SECTION */
-@keyframes rotateIn {
+/* Define keyframes for slide-in animations */
+@keyframes slideInLeft {
   0% {
     opacity: 0;
-    transform: rotateY(90deg) scale(0.5);
+    transform: translateX(-100%);
   }
   100% {
     opacity: 1;
-    transform: rotateY(0deg) scale(1);
+    transform: translateX(0);
   }
 }
 
-@keyframes slideInScale {
+@keyframes slideInRight {
   0% {
     opacity: 0;
-    transform: translateX(-100%) scale(0.8);
+    transform: translateX(100%);
   }
   100% {
     opacity: 1;
-    transform: translateX(0) scale(1);
+    transform: translateX(0);
   }
 }
 
-.rotateIn {
-  animation: rotateIn 2s ease-out forwards;
+/* Ensure hidden elements are invisible initially */
+.hidden {
+  visibility: hidden;
+  opacity: 0;
 }
 
-.slideInScale {
-  animation: slideInScale 2s ease-out forwards;
+/* Apply slide-in animations with smooth transition */
+.slideInLeft {
+  animation: slideInLeft 1s ease-out forwards; /* Adjust duration for smoothness */
+  visibility: visible !important; /* Ensure visibility when animated */
+}
+
+.slideInRight {
+  animation: slideInRight 1s ease-out forwards; /* Adjust duration for smoothness */
+  visibility: visible !important; /* Ensure visibility when animated */
+}
+
+/* SERVICES */
+.serviceCard {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.serviceCard.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* FAQS */
+/* Define keyframes for fade-in animation */
 @keyframes fadeInUp {
   0% {
     opacity: 0;
-    transform: translateY(50%);
+    transform: translateY(20px);
   }
   100% {
     opacity: 1;
@@ -121,21 +142,61 @@
   }
 }
 
-@keyframes fadeInDown {
+/* Define keyframes for slide-in animations */
+@keyframes slideInLeft {
   0% {
     opacity: 0;
-    transform: translateY(-50%);
+    transform: translateX(-50%);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 
-.fadeInUp {
-  animation: fadeInUp 1s ease-out forwards;
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-.fadeInDown {
-  animation: fadeInDown 1s ease-out forwards;
+/* Apply fade-in animation with smooth transition */
+.fadeInUp {
+  animation: fadeInUp 1.5s ease-out forwards; /* Increased duration for smoothness */
+  visibility: visible !important;
 }
+
+/* Apply slide-in animations with smooth transition */
+.hidden {
+  visibility: hidden;
+}
+
+.slideInLeft {
+  animation: slideInLeft 1.5s ease-in-out forwards;
+  visibility: visible !important; /* Ensure visibility when animated */
+}
+
+.slideInRight {
+  animation: slideInRight 1.5s ease-in-out forwards;
+  visibility: visible !important; /* Ensure visibility when animated */
+}
+
+/* Apply delay for cascading effect */
+.delay-0 {
+  animation-delay: 0s;
+}
+
+.delay-1 {
+  animation-delay: 0.3s;
+}
+
+.delay-2 {
+  animation-delay: 0.6s;
+}
+
+

@@ -1,14 +1,25 @@
-import { Button, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
+import { Grid, Typography, CardMedia } from "@mui/material";
+import { Link } from "react-router-dom";
+import ReusedButton from "../ReusedComponents/ReusedButton";
 import imago from "./assets/aboutT.svg";
 import imago2 from "./assets/aboutTT.svg";
-import ReusedButton from "../ReusedComponents/ReusedButton";
-import { Link } from "react-router-dom";
+import { useInView } from "react-intersection-observer";
+import styles from "./assets/about.module.css"; // Import the animation CSS
 
 const JoinOurCustomer = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1, // Visibility threshold
+  });
+
   return (
     <Grid
       container
+      ref={ref} // Reference for the whole section
+      className={`${styles.joinCustomerSection} ${
+        inView ? styles.visible : ""
+      }`}
       sx={{
         background: "#0D0E30",
         color: "white",
@@ -40,6 +51,9 @@ const JoinOurCustomer = () => {
             display: "none",
           },
         }}
+        className={`${styles.customerImageLeft} ${
+          inView ? styles.visible : ""
+        }`}
       />
       <Grid
         item
@@ -63,6 +77,7 @@ const JoinOurCustomer = () => {
               fontSize: "32px",
             },
           }}
+          className={`${styles.customerText} ${inView ? styles.visible : ""}`}
         >
           Join Happy Customers Who Already Trust Us
         </Typography>
@@ -80,10 +95,11 @@ const JoinOurCustomer = () => {
               width: "90vw",
             },
           }}
+          className={`${styles.customerText} ${inView ? styles.visible : ""}`}
         >
-          Connect the dots between your vision and your customer’s needs. 
+          Connect the dots between your vision and your customer’s needs.
         </Typography>
-        <Grid sx={{mt: '34px'}}>
+        <Grid sx={{ mt: "34px" }}>
           <Link to={"/signup"}>
             <ReusedButton text={"Learn More"} />
           </Link>
@@ -101,6 +117,9 @@ const JoinOurCustomer = () => {
             display: "none",
           },
         }}
+        className={`${styles.customerImageRight} ${
+          inView ? styles.visible : ""
+        }`}
       />
     </Grid>
   );

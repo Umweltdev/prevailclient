@@ -8,12 +8,12 @@ import { useInView } from "react-intersection-observer";
 const CoreValues = () => {
   const { ref: imageRef, inView: imageInView } = useInView({
     triggerOnce: true,
-    threshold: 0,
+    threshold: 0.1, // Visibility threshold for the image
   });
 
   const { ref: textRef, inView: textInView } = useInView({
     triggerOnce: true,
-    threshold: 0,
+    threshold: 0.1, // Visibility threshold for the text
   });
 
   return (
@@ -34,7 +34,7 @@ const CoreValues = () => {
     >
       <Grid
         ref={textRef}
-        className={textInView ? styles.slideInScale : ""}
+        className={textInView ? styles.slideInRight : styles.hidden}
         sx={{
           pl: "0",
           pt: "15vh",
@@ -100,10 +100,12 @@ const CoreValues = () => {
           <AccordionUsage />
         </Box>
       </Grid>
-      <Grid ref={imageRef}>
+      <Grid
+        ref={imageRef}
+        className={imageInView ? styles.slideInLeft : styles.hidden}
+      >
         <CardMedia
           component={"img"}
-          className={imageInView ? styles.rotateIn : ""}
           image={imago}
           alt="Core-Values"
           sx={{

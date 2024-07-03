@@ -1,5 +1,5 @@
 import { Box, CardMedia, Grid, Typography } from "@mui/material";
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import imago from "./home/DAB-Rocket.webp";
 import CardNoBorder from "./assets/CardNoBorder";
 import { DigitalAcelerator } from "./assets/LandingData";
@@ -23,6 +23,33 @@ const FAQ = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  // Create refs and state for each card
+  const cardRefs = useRef(DigitalAcelerator.map(() => React.createRef()));
+  const [cardInView, setCardInView] = useState(
+    DigitalAcelerator.map(() => false)
+  );
+
+  useEffect(() => {
+    cardRefs.current.forEach((ref, index) => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setCardInView((prev) => {
+              const newInView = [...prev];
+              newInView[index] = true;
+              return newInView;
+            });
+            observer.disconnect();
+          }
+        },
+        { threshold: 0.1 }
+      );
+      if (ref.current) {
+        observer.observe(ref.current);
+      }
+    });
+  }, []);
 
   return (
     <Box
@@ -51,7 +78,7 @@ const FAQ = () => {
         <Typography
           sx={{ color: "#6E3EF4", fontSize: "24px", fontWeight: "400" }}
           ref={titleRef}
-          className={titleInView ? styles.fadeInUp : ""}
+          className={titleInView ? styles.fadeInUp : styles.hidden}
         >
           Product
         </Typography>
@@ -68,7 +95,7 @@ const FAQ = () => {
             },
           }}
           ref={textRef}
-          className={textInView ? styles.fadeInUp : ""}
+          className={textInView ? styles.fadeInUp : styles.hidden}
         >
           Digital Accelerator Bundle brings Agility to Your Enterprise
         </Typography>
@@ -85,7 +112,7 @@ const FAQ = () => {
             },
           }}
           ref={textRef}
-          className={textInView ? styles.fadeInUp : ""}
+          className={textInView ? styles.fadeInUp : styles.hidden}
         >
           Discover how our Digital Accelerator Bundle package serves as your
           strategic gateway to digital success. This exclusive, comprehensive
@@ -136,7 +163,7 @@ const FAQ = () => {
               },
             }}
             ref={textRef}
-            className={textInView ? styles.fadeInUp : ""}
+            className={textInView ? styles.fadeInUp : styles.hidden}
           >
             Why Opt for Our Digital Accelerator Bundle Package?
           </Typography>
@@ -154,13 +181,18 @@ const FAQ = () => {
                 text={data.text}
                 icon={data.icon}
                 key={i}
-                ref={textRef}
-                className={textInView ? styles.fadeInUp : ""}
+                ref={cardRefs.current[i]}
+                className={`${
+                  cardInView[i] ? styles.slideInLeft : styles.hidden
+                } ${styles[`delay-${i}`]}`}
               />
             ))}
           </Box>
         </Grid>
-        <Grid ref={imageRef} className={imageInView ? styles.fadeInDown : ""}>
+        <Grid
+          ref={imageRef}
+          className={imageInView ? styles.slideInRight : styles.hidden}
+        >
           <CardMedia
             component={"img"}
             image={imago}
