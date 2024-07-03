@@ -1,5 +1,12 @@
 import React from "react";
-import { Box, Container, Grid, Typography, Button, Card, CardContent, CardActions } from "@mui/material";
+import {
+  Box,
+  Container,
+  Grid,
+  Typography,
+  CardContent,
+  CardActions,
+} from "@mui/material";
 import { styled } from "@mui/system";
 import SearchIcon from "@mui/icons-material/Search";
 import BrandingIcon from "@mui/icons-material/Brush";
@@ -7,6 +14,8 @@ import WebsiteIcon from "@mui/icons-material/Language";
 import APIIcon from "@mui/icons-material/Settings";
 import { Link } from "react-router-dom";
 import ReusedButton from "../ReusedComponents/ReusedButton";
+import { useInView } from "react-intersection-observer";
+import styles from "./animation.module.css"; // Import the animation CSS
 
 const services = [
   {
@@ -39,7 +48,7 @@ const services = [
   },
 ];
 
-const ServiceCard = styled(Card)(({ theme }) => ({
+const ServiceCard = styled("div")(({ theme }) => ({
   backgroundColor: "#fff",
   padding: "20px",
   borderRadius: "10px",
@@ -48,15 +57,43 @@ const ServiceCard = styled(Card)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
+  marginBottom: "20px",
 }));
 
 const OurCore = () => {
+  const [refs, setRefs] = React.useState([]);
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  React.useEffect(() => {
+    setRefs((elRefs) =>
+      Array(services.length)
+        .fill()
+        .map((_, i) => elRefs[i] || React.createRef())
+    );
+  }, [services.length]);
+
+  React.useEffect(() => {
+    if (inView) {
+      refs.forEach((ref, i) => {
+        if (ref.current) {
+          setTimeout(() => {
+            ref.current.classList.add(styles.visible); // Add visible class for animation
+          }, i * 200);
+        }
+      });
+    }
+  }, [inView, refs]);
+
   return (
     <Box
       sx={{
         padding: "100px 0",
         backgroundImage: `linear-gradient(135deg, #FFFFFF 0%, #F3E5F5 50%, #FFFFFF 100%)`,
       }}
+      ref={ref} // Reference for the whole section
     >
       <Container>
         <Typography
@@ -79,7 +116,8 @@ const OurCore = () => {
             textAlign: "center",
           }}
         >
-          Prevail stands out by crafting tailored strategies and solutions that are data-driven and creatively inspired. 
+          Prevail stands out by crafting tailored strategies and solutions that
+          are data-driven and creatively inspired.
         </Typography>
         <Box sx={{ textAlign: "center", marginBottom: "40px" }}>
           <Link to={"/Services"}>
@@ -88,8 +126,8 @@ const OurCore = () => {
         </Box>
         <Grid container spacing={4} justifyContent="center">
           {services.map((service, index) => (
-            <Grid item xs={12} sm={6} md={6} key={index}>
-              <ServiceCard>
+            <Grid item xs={12} sm={6} md={6} key={index} ref={refs[index]}>
+              <ServiceCard className={styles.serviceCard}>
                 <CardContent sx={{ textAlign: "left" }}>
                   {service.icon}
                   <Typography

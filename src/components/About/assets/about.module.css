@@ -1,0 +1,33 @@
+/* JOIN CUSTOMER */
+.customerText {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.customerText.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.customerImageLeft {
+  opacity: 0;
+  transform: translateX(-70px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.customerImageLeft.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.customerImageRight {
+  opacity: 0;
+  transform: translateX(70px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.customerImageRight.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
