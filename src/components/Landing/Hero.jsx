@@ -13,7 +13,7 @@ import face9 from "./assets/pencil.png";
 import face11 from "./assets/eye.png";
 import face12 from "./assets/Unions.svg";
 import face13 from "./assets/hands-new.png";
-import styles from "./assets/animation.module.css"; // Import the new CSS module
+import styles from "./assets/animation.module.css"; 
 
 const Hero = () => {
   const navigate = useNavigate();

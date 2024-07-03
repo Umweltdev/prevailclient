@@ -1,10 +1,32 @@
 import { Box, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
+import { useInView } from "react-intersection-observer";
 import imago from "./About_Us/Why-It-Matters.webp";
+import styles from "./assets/about.module.css"; // Import the animation CSS
 
 const WhyItMatters = () => {
+  const { ref: sectionRef, inView: sectionInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const { ref: textRef, inView: textInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const { ref: imageRef, inView: imageInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
     <Grid
+      container
+      ref={sectionRef}
+      className={`${styles.whyItMatters} ${
+        sectionInView ? styles.visible : ""
+      }`}
       sx={{
         width: "100vw",
         display: "flex",
@@ -12,7 +34,6 @@ const WhyItMatters = () => {
         margin: "100px auto 0 auto",
         justifyContent: "center",
         alignItems: "center",
-        // gap: "px",
         gap: "239px",
         "@media (max-width: 600px)": {
           width: "90vw",
@@ -27,6 +48,10 @@ const WhyItMatters = () => {
     >
       <Box>
         <Grid
+          ref={textRef}
+          className={`${styles.textSlideIn} ${
+            textInView ? styles.visible : ""
+          }`}
           item
           sx={{
             width: "485px",
@@ -114,13 +139,17 @@ const WhyItMatters = () => {
             Collaboration sits at the core of our operations. By fostering close
             partnerships with our clients, we delve deep into their unique
             challenges and opportunities. <br /> <br />
-            Our team of seasoned experts leverages this imitate knowledge along
+            Our team of seasoned experts leverages this intimate knowledge along
             with our prowess in digital strategy and consumer behaviour, to
             devise customised solutions that deliver tangible results.
           </Typography>
         </Grid>
       </Box>
       <CardMedia
+        ref={imageRef}
+        className={`${styles.imageSlideIn} ${
+          imageInView ? styles.visible : ""
+        }`}
         component={"img"}
         image={imago}
         alt="Why-It-Matters"
