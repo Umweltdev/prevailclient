@@ -9,8 +9,14 @@ import {
 } from "@mui/material";
 import { Check } from "@mui/icons-material";
 import { StarterBrandIdentity } from "../assets/serviceData";
+import { AuthContext } from "../../../context/AuthContext";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+
 
 const PackagesLayout = ({ packages, amount, info }) => {
+  const { user } = useContext(AuthContext);
+
   return (
     <Card
       sx={{
@@ -33,6 +39,8 @@ const PackagesLayout = ({ packages, amount, info }) => {
           flexDirection: "column",
           gap: "1vh",
           padding: "3vw 0 ",
+          alignItems:"center",
+
           "@media (max-width: 600px)": {
             padding: "5vh 2vh",
           },
@@ -70,6 +78,7 @@ const PackagesLayout = ({ packages, amount, info }) => {
             One Off Payment
           </Typography>
         </Box>
+        <Link to={user ? "/user/bookings" : "/contact-us"}>
         <Button
           sx={{
             background: "#6E3EF4",
@@ -86,6 +95,8 @@ const PackagesLayout = ({ packages, amount, info }) => {
         >
           Make Payments
         </Button>
+        </Link>
+        
 
         {/* Render the StarterBrandIdentity items */}
         <Grid

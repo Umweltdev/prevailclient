@@ -2,6 +2,9 @@ import React from 'react'
 import { PremiumBrandIdentity } from '../assets/serviceData';
 import { Box, Button, Card, CardContent, Grid, Typography } from '@mui/material';
 import { Check } from '@mui/icons-material';
+import { AuthContext } from "../../../context/AuthContext";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 const PremiumPackageLayout = ({
 
@@ -9,6 +12,8 @@ const PremiumPackageLayout = ({
   amount,
   info,
 }) => {
+  const { user } = useContext(AuthContext);
+
   return (
     <Card
       sx={{
@@ -32,6 +37,7 @@ const PremiumPackageLayout = ({
           flexDirection: "column",
           gap: "1vh",
           padding: "3vw 0 ",
+          alignItems:"center",
           "@media (max-width: 600px)": {
             padding: "5vh 2vh",
           },
@@ -69,6 +75,8 @@ const PremiumPackageLayout = ({
             One Off Payment
           </Typography>
         </Box>
+        <Link to={user ? "/user/bookings" : "/contact-us"}>
+
         <Button
           sx={{
             background: "#6E3EF4",
@@ -85,7 +93,7 @@ const PremiumPackageLayout = ({
         >
           Make Payments
         </Button>
-
+        </Link>
         {/* Render the StarterBrandIdentity items */}
         <Grid
           sx={{
