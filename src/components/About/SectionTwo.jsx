@@ -1,39 +1,30 @@
 import { Box, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
-import { makeStyles } from "@mui/styles";
+import { useInView } from "react-intersection-observer";
 import imago from "./About_Us/Our-Mission.webp";
-
-const useStyles = makeStyles({
-  imagePlaform: {
-    width: "80vw",
-    height: "50vh",
-    objectFit: "cover",
-    borderRadius: "5px",
-    boxShadow:
-      "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
-    "@media (max-width: 600px)": {
-      width: "unset",
-      height: "unset",
-    },
-  },
-  imageInit: {
-    width: "37vw",
-    borderRadius: "1vw",
-    boxShadow:
-      "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
-    "@media (max-width: 600px)": {
-      width: "95vw",
-      height: "unset",
-    },
-  },
-});
+import styles from "./assets/about.module.css"; // Import the animation CSS
 
 const SectionTwo = () => {
-  const classes = useStyles();
+  const { ref: sectionRef, inView: sectionInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const { ref: textRef, inView: textInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const { ref: imageRef, inView: imageInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
   return (
     <Grid
       container
+      ref={sectionRef}
+      className={`${styles.sectionTwo} ${sectionInView ? styles.visible : ""}`}
       sx={{
         width: "100vw",
         display: "flex",
@@ -54,6 +45,8 @@ const SectionTwo = () => {
       }}
     >
       <Grid
+        ref={textRef}
+        className={`${styles.textSlideIn} ${textInView ? styles.visible : ""}`}
         sx={{
           width: "485px",
           "@media (max-width: 600px)": {
@@ -101,6 +94,10 @@ const SectionTwo = () => {
         </Typography>
       </Grid>
       <Box
+        ref={imageRef}
+        className={`${styles.imageSlideIn} ${
+          imageInView ? styles.visible : ""
+        }`}
         sx={{
           background: "#ECF1FA",
           width: "485px",

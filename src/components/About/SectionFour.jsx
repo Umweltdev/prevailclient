@@ -1,14 +1,30 @@
 import { Box, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
-import { makeStyles } from "@mui/styles";
+import { useInView } from "react-intersection-observer";
 import imago from "./About_Us/What-We-Do.webp";
-
+import styles from "./assets/about.module.css"; // Import the animation CSS
 
 const SectionFour = () => {
-  
+  const { ref: sectionRef, inView: sectionInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const { ref: textRef, inView: textInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const { ref: imageRef, inView: imageInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
     <Grid
       container
+      ref={sectionRef}
+      className={`${styles.sectionFour} ${sectionInView ? styles.visible : ""}`}
       sx={{
         width: "100vw",
         display: "flex",
@@ -29,6 +45,10 @@ const SectionFour = () => {
       }}
     >
       <CardMedia
+        ref={imageRef}
+        className={`${styles.imageSlideIn} ${
+          imageInView ? styles.visible : ""
+        }`}
         component={"img"}
         image={imago}
         alt="What-We-Do"
@@ -44,6 +64,8 @@ const SectionFour = () => {
       />
 
       <Grid
+        ref={textRef}
+        className={`${styles.textSlideIn} ${textInView ? styles.visible : ""}`}
         item
         sx={{
           width: "485px",

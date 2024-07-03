@@ -1,17 +1,34 @@
 import { Box, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
-import Accordion from "./assets/Accordion";
+import { useInView } from "react-intersection-observer";
 import AccordionUsage from "./assets/Accordion";
 import imago from "./About_Us/FAQ.webp";
+import styles from "./assets/about.module.css"; // Import the animation CSS
 
 const FAQ = () => {
+  const { ref: sectionRef, inView: sectionInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const { ref: textRef, inView: textInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const { ref: imageRef, inView: imageInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
     <Box
+      ref={sectionRef}
+      className={`${styles.faq} ${sectionInView ? styles.visible : ""}`}
       sx={{
         display: "flex",
         gap: "70px",
         background: "#F9FAFC",
-
         "@media (max-width: 600px)": {
           width: "90vw",
           margin: "auto",
@@ -22,6 +39,8 @@ const FAQ = () => {
       id="faqs"
     >
       <Grid
+        ref={textRef}
+        className={`${styles.textSlideIn} ${textInView ? styles.visible : ""}`}
         sx={{
           pl: "5vw",
           pt: "5vh",
@@ -43,7 +62,12 @@ const FAQ = () => {
         </Typography>
         <AccordionUsage />
       </Grid>
-      <Grid>
+      <Grid
+        ref={imageRef}
+        className={`${styles.imageSlideIn} ${
+          imageInView ? styles.visible : ""
+        }`}
+      >
         <CardMedia
           component={"img"}
           image={imago}
