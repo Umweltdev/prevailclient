@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Container,
-  Grid,
-  Typography,
-  Box,
-  Button,
-  CardMedia,
-} from "@mui/material";
+import { Grid, Typography, Box, Button, CardMedia } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useInView } from "react-intersection-observer";
 import face1 from "./home/Landing-View-1.webp";
