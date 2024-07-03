@@ -8,7 +8,7 @@ import {
   Grid,
 } from "@mui/material";
 import { Check } from "@mui/icons-material";
-import { StarterBrandIdentity } from "../assets/serviceData";
+import { StarterBrandIdentity } from "../assets/ServicesData";
 
 const PackagesLayout = ({ packages, amount, info }) => {
   return (
