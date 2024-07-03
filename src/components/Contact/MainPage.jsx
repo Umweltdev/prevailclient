@@ -1,17 +1,43 @@
 import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
+import { useInView } from "react-intersection-observer";
 import Form from "./Form";
 import ContactInfo from "./ContactInfo";
+import styles from "./assets/contact.module.css"; // Import the animation CSS
 
 const MainPage = () => {
+  const { ref: sectionRef, inView: sectionInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const { ref: textRef, inView: textInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const { ref: formRef, inView: formInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const { ref: infoRef, inView: infoInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
     <Grid
+      ref={sectionRef}
+      className={`${styles.contact} ${sectionInView ? styles.visible : ""}`}
       sx={{
         pt: "158px",
         background: "linear-gradient(135deg, #F9FAFC, white);",
       }}
     >
       <Box
+        ref={textRef}
+        className={`${styles.textSlideIn} ${textInView ? styles.visible : ""}`}
         sx={{
           display: "flex",
           flexDirection: "column",
@@ -53,8 +79,22 @@ const MainPage = () => {
           },
         }}
       >
-        <Form />
-        <ContactInfo />
+        <Box
+          ref={formRef}
+          className={`${styles.formSlideIn} ${
+            formInView ? styles.visible : ""
+          }`}
+        >
+          <Form />
+        </Box>
+        <Box
+          ref={infoRef}
+          className={`${styles.infoSlideIn} ${
+            infoInView ? styles.visible : ""
+          }`}
+        >
+          <ContactInfo />
+        </Box>
       </Box>
     </Grid>
   );
