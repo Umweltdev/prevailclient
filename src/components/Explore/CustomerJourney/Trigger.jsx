@@ -2,12 +2,7 @@ import React from "react";
 import AppBarNav from "../../Navbar/Appbar";
 import { Container, Grid, Typography, Stack, Box } from "@mui/material";
 import { useInView } from "react-intersection-observer";
-import styles from "../assets/explore.module.css"; // Import the animation CSS
-import image1 from "../CJ/Trigger-Phase.webp";
-import image2 from "../CJ/Initial-Consideration.webp";
-import image3 from "../CJ/Active-Evaluation.webp";
-import image4 from "../CJ/Purchasing.webp";
-import image5 from "../CJ/Special-Offer.webp";
+import styles from "../assets/explore.module.css";
 
 const Trigger = () => {
   const { ref: triggerTextRef, inView: triggerTextInView } = useInView({
@@ -125,7 +120,7 @@ const Trigger = () => {
                   }}
                 >
                   <img
-                    src={image1}
+                    src="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720080173/Trigger-Phase_y7zbwx.webp"
                     alt="Trigger-Phase"
                     style={{
                       width: "100%",
@@ -158,7 +153,7 @@ const Trigger = () => {
                   }}
                 >
                   <img
-                    src={image2}
+                    src="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720080401/Initial-Consideration_zprf3v.webp"
                     alt="Initial-Consideration"
                     style={{
                       width: "100%",
@@ -255,7 +250,7 @@ const Trigger = () => {
                   }}
                 >
                   <img
-                    src={image3}
+                    src="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720080401/Active-Evaluation_wqqxq5.webp"
                     alt="Active-Evaluation"
                     style={{
                       width: "100%",
@@ -288,7 +283,7 @@ const Trigger = () => {
                   }}
                 >
                   <img
-                    src={image4}
+                    src="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720080401/Purchasing_xclvcd.webp"
                     alt="Purchasing"
                     style={{
                       width: "100%",
@@ -385,7 +380,7 @@ const Trigger = () => {
                   }}
                 >
                   <img
-                    src={image5}
+                    src="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720080401/Special-Offer_a3ok5g.webp"
                     alt="Special-Offer"
                     style={{
                       width: "100%",
