@@ -1,17 +1,10 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import DrawerAppBarWhite from "../../Navbar/Appbar";
-import PainPoint from "./PainPoints";
-import Advantages from "./Advantages";
-import Benefits from "./Benefits";
-import Footer from "../../Footer/Footer";
+//import Footer from "../../Footer/Footer";
 import FooterNew from "../../Footer/FooterNew";
 import HeroComponent from "../ReusedComponenets/HeroComponent";
 import AppBarNav from "../../Navbar/Appbar";
 import { Container, Grid, Typography, Stack, Box, Button } from "@mui/material";
-import image1 from "./assets/Why-Custom-Web-Development.webp";
-import image2 from "./assets/Limitations-of-Standard-Solutions.webp";
-import image3 from "./assets/Your-Digital-Development-Journey.webp";
 import PalleteSvg from "./assets/pallete.svg";
 import ChipSvg from "./assets/chip.svg";
 import DocSvg from "./assets/doc.svg";
@@ -77,7 +70,7 @@ const WebsiteDevelopment = () => {
       <HeroComponent title="Custom Website Development" />
       <Stack>
         <TextImageComponent
-          img={image1}
+          img="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720086386/Why-Custom-Web-Development_zdrms9.avif"
           alt="Why-Custom-Web-Development"
           header={"Why Custom Web Development?"}
           text={`Establishing a distinct digital presence is more crucial than ever in the digital era. 
@@ -89,7 +82,7 @@ const WebsiteDevelopment = () => {
                   businesses aiming to carve out a significant digital presence. `}
         />
         <ImageTextComponent
-          img={image2}
+          img="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720086386/Limitations-of-Standard-Solutions_pw74ga.avif"
           alt="Limitations-of-Standard-Solutions"
           header={"The Limitations of Standard Solutions "}
           text={`Many businesses encounter significant challenges on their
@@ -106,7 +99,7 @@ const WebsiteDevelopment = () => {
                   an effective digital presence.`}
         />
         <TextImageComponent
-          img={image3}
+          img="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720086386/Your-Digital-Development-Journey_m82lfs.avif"
           alt="Your-Digital-Development-Journey"
           header={"Why Choose Prevail for Your Digital Development Journey?"}
           text={`Prevail stands out due to our comprehensive, bespoke service offerings. 

@@ -15,11 +15,6 @@ import {
   Button,
   SvgIcon,
 } from "@mui/material";
-import image1 from "./assets/Web-Development-Solutions.webp";
-import image2 from "./assets/Shopify-Web-Design.webp";
-import nurse from "./assets/Real-Estate-Authority.webp";
-import office from "./assets/Hotel-Platform-Development-.webp";
-
 import Browse from "./assets/basket.svg?react";
 import Hospital from "./assets/hospital.svg?react";
 import House from "./assets/house.svg?react";
@@ -115,7 +110,7 @@ const WebManagement = () => {
                   }}
                 >
                   <img
-                    src={image1}
+                    src="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720087060/Web-Development-Solutions_el6hcg.avif"
                     alt="Web-Development-Solutions"
                     style={{
                       width: "100%",
@@ -262,7 +257,7 @@ const WebManagement = () => {
                   }}
                 >
                   <img
-                    src={image2}
+                    src="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720087060/Shopify-Web-Design_zfi35h.avif"
                     alt="Shopify-Web-Design"
                     style={{
                       width: "100%",
@@ -381,7 +376,7 @@ const WebManagement = () => {
                   }}
                 >
                   <img
-                    src={nurse}
+                    src="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720087059/Real-Estate-Authority_akxsy5.avif"
                     alt="Real-Estate-Authority"
                     style={{
                       width: "100%",
@@ -545,7 +540,7 @@ const WebManagement = () => {
                   }}
                 >
                   <img
-                    src={office}
+                    src="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720087059/Hotel-Platform-Development-_yodr5a.avif"
                     alt="Hotel-Platform-Development-"
                     style={{
                       width: "100%",
