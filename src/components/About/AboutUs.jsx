@@ -98,7 +98,9 @@ const AboutUs = () => {
       <CardMedia
         ref={imageRef}
         component={"img"}
-        image={image1}
+        image={
+          "https://res.cloudinary.com/dw7khzaml/image/upload/v1720077009/Working-Together_l4ien2.avif"
+        }
         alt="Working-Together"
         className={`${styles.aboutUsImage} ${
           imageInView ? styles.visible : ""

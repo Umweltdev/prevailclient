@@ -151,7 +151,9 @@ const WhyItMatters = () => {
           imageInView ? styles.visible : ""
         }`}
         component={"img"}
-        image={imago}
+        image={
+          "https://res.cloudinary.com/dw7khzaml/image/upload/v1720077009/Why-It-Matters_xv343q.avif"
+        }
         alt="Why-It-Matters"
         sx={{
           width: "485px",

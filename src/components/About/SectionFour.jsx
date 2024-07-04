@@ -50,7 +50,9 @@ const SectionFour = () => {
           imageInView ? styles.visible : ""
         }`}
         component={"img"}
-        image={imago}
+        image={
+          "https://res.cloudinary.com/dw7khzaml/image/upload/v1720077009/What-We-Do_qakjad.avif"
+        }
         alt="What-We-Do"
         sx={{
           width: "485px",

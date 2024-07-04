@@ -70,7 +70,9 @@ const FAQ = () => {
       >
         <CardMedia
           component={"img"}
-          image={imago}
+          image={
+            "https://res.cloudinary.com/dw7khzaml/image/upload/v1720077011/FAQ_uci5mg.avif"
+          }
           alt="FAQ"
           sx={{
             width: "50vw",
