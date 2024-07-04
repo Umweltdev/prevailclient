@@ -118,8 +118,6 @@ const Bookings = ({ openDrawer }) => {
     getBookings();
   }, [user]);
 
-  // console.log(bookings);
-
   return (
     <Stack spacing={2}>
       <Header

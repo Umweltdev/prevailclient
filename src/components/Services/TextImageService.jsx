@@ -4,7 +4,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import ReusedButton from "../ReusedComponents/ReusedButton";
 
-const TextImageService = ({ text, imageUrl, textHeader, url }) => {
+const TextImageService = ({ text, imageUrl, textHeader, url, alt }) => {
   return (
     <Grid
       sx={{
@@ -76,7 +76,7 @@ const TextImageService = ({ text, imageUrl, textHeader, url }) => {
       <CardMedia
         component={"img"}
         image={imageUrl}
-        alt=""
+        alt={alt}
         sx={{
           width: "34vw",
           height: "300px",

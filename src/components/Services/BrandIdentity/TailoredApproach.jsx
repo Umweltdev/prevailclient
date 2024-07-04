@@ -1,6 +1,5 @@
 import { CardMedia, Grid, Typography, Box, Card } from "@mui/material";
 import React from "react";
-import imgBrand from "../assets/Approach-to-Brand-Needs-.webp";
 import { TailoredApproachData } from "../assets/serviceData";
 
 const TailoredApproach = () => {
@@ -20,7 +19,7 @@ const TailoredApproach = () => {
     >
       <CardMedia
         component={"img"}
-        image={imgBrand}
+        image="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720084560/Approach-to-Brand-Needs-_vuyvaf.avif"
         alt="Approach-to-Brand-Needs-"
         sx={{
           width: "50vw",

@@ -14,16 +14,13 @@ import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../../context/AuthContext";
-import image1 from "./assets/Hospitality-Carousel.webp";
-import image2 from "./assets/Shopify-Carousel.webp";
-import image3 from "./assets/Real-Estate-Authority.webp";
 
 const data = [
   {
     topic: "Hospitality",
     description:
       "Ability to increase efficiency, reduced cost, and enhance competitiveness.",
-      image: {image1},
+      image: "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720087059/Hospitality-Carousel_xqw1xh.avif",
     alt: "Hospitality-Carousel",
     link: "/website-development#hospitality",
   },
@@ -31,7 +28,7 @@ const data = [
     topic: "Shopify",
     description:
       "Choose how often to adjust your marketing spend (daily, weekly, monthly, quarterly) for strategic flexibility.",
-    image: {image2},
+    image: "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720087059/Shopify-Carousel_yza6pk.avif",
     alt: "Shopify-Carousel",
     link: "/website-development#shopify",
   },
@@ -39,7 +36,7 @@ const data = [
     topic: "Real Estate",
     description:
       "Ability to connect to a digital Ads platform and database through an API.",
-      image: {image3},
+      image: "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720087059/Real-Estate-Authority_akxsy5.avif",
       alt: "Real-Estate-Authority",
       link: "/website-development#real-estate",
   },
