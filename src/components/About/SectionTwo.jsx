@@ -1,5 +1,5 @@
-import { Box, CardMedia, Grid, Typography } from "@mui/material";
-import React from "react";
+import { Box, CardMedia, Grid, Skeleton, Typography } from "@mui/material";
+import React, { useState } from "react";
 import { useInView } from "react-intersection-observer";
 import styles from "./assets/about.module.css";
 
@@ -18,6 +18,8 @@ const SectionTwo = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
     <Grid
@@ -111,17 +113,33 @@ const SectionTwo = () => {
           },
         }}
       >
+        {!imageLoaded && (
+          <Skeleton
+            variant="rectangular"
+            width={330}
+            height={250}
+            sx={{
+              borderRadius: "14px",
+              "@media (max-width: 600px)": {
+                width: "90vw",
+                height: "auto",
+              },
+            }}
+          />
+        )}
         <CardMedia
           component={"img"}
           image={
             "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720082297/Our-Mission_o3ls1q.webp"
           }
           alt="Our-Mission"
+          onLoad={() => setImageLoaded(true)}
           sx={{
             maxWidth: "330px",
             maxHeight: "250px",
             width: "100%",
             height: "auto",
+            display: imageLoaded ? "block" : "none",
             "@media (max-width: 600px)": {
               maxWidth: "90vw",
               width: "90vw",

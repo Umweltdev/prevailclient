@@ -1,7 +1,7 @@
-import { Box, CardMedia, Grid, Typography } from "@mui/material";
-import React from "react";
+import { Box, CardMedia, Grid, Skeleton, Typography } from "@mui/material";
+import React, { useState } from "react";
 import { useInView } from "react-intersection-observer";
-import styles from "./assets/about.module.css"; 
+import styles from "./assets/about.module.css";
 
 const WhyItMatters = () => {
   const { ref: sectionRef, inView: sectionInView } = useInView({
@@ -18,6 +18,9 @@ const WhyItMatters = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   return (
     <Grid
@@ -94,7 +97,7 @@ const WhyItMatters = () => {
             <br /> <br /> We equip these businesses with the tools to harness
             the full potential of digital technology and strategic marketing,
             building a durable competitive edge. Together, we can ensure that
-            your business doesn’t just survive; it prevails. 
+            your business doesn’t just survive; it prevails.
           </Typography>
         </Grid>
         <Grid
@@ -144,22 +147,75 @@ const WhyItMatters = () => {
           </Typography>
         </Grid>
       </Box>
-      <CardMedia
+      <Box
         ref={imageRef}
         className={`${styles.imageSlideIn} ${
           imageInView ? styles.visible : ""
         }`}
-        component={"img"}
-        image={
-          "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720110083/Why-It-Matters_kijum4.avif"
-        }
-        alt="Why-It-Matters"
         sx={{
           width: "485px",
           maxHeight: "636px",
           height: "auto",
+          borderRadius: "14px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor:
+            imageLoaded || imageError ? "transparent" : "#ECF1FA",
+          "@media (max-width: 600px)": {
+            width: "90vw",
+            height: "auto",
+          },
         }}
-      />
+      >
+        {!imageLoaded && !imageError && (
+          <Skeleton
+            variant="rectangular"
+            width={485}
+            height={636}
+            sx={{
+              borderRadius: "14px",
+              "@media (max-width: 600px)": {
+                width: "90vw",
+                height: "auto",
+              },
+            }}
+          />
+        )}
+        <CardMedia
+          component={"img"}
+          image={
+            "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720110083/Why-It-Matters_kijum4.avif"
+          }
+          alt="Why-It-Matters"
+          onLoad={() => setImageLoaded(true)}
+          onError={() => setImageError(true)}
+          sx={{
+            width: "485px",
+            maxHeight: "636px",
+            height: "auto",
+            borderRadius: "14px",
+            display: imageLoaded ? "block" : "none",
+            "@media (max-width: 600px)": {
+              width: "90vw",
+            },
+          }}
+        />
+        {imageError && (
+          <Typography
+            variant="body1"
+            color="error"
+            sx={{
+              position: "absolute",
+              textAlign: "center",
+              width: "100%",
+              padding: "20px",
+            }}
+          >
+            Error loading image.
+          </Typography>
+        )}
+      </Box>
     </Grid>
   );
 };

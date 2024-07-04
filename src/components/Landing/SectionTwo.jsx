@@ -1,4 +1,5 @@
-import { CardMedia, Grid, Typography } from "@mui/material";
+import { useState } from "react";
+import { CardMedia, Grid, Typography, Skeleton } from "@mui/material";
 import { Link } from "react-router-dom";
 import styles from "./assets/animation.module.css"; // Import animation styles
 import ReusedButton from "../ReusedComponents/ReusedButton";
@@ -9,6 +10,8 @@ const SectionTwo = () => {
     triggerOnce: true, // Only trigger once
     threshold: 0.1, // Adjust as needed
   });
+
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
     <Grid
@@ -30,22 +33,38 @@ const SectionTwo = () => {
         },
       }}
     >
+      {!imageLoaded && (
+        <Skeleton
+          variant="rectangular"
+          width={603.677}
+          height={402.351}
+          sx={{
+            borderRadius: "14px",
+            "@media (max-width: 600px)": {
+              width: "90vw",
+              borderRadius: "5vw",
+            },
+          }}
+        />
+      )}
       <CardMedia
+        component="img"
         className={inView ? styles.imageFadeIn : ""}
         sx={{
           width: "603.677px",
           height: "402.351px",
           borderRadius: "14px",
           objectFit: "cover",
+          display: imageLoaded ? "block" : "none",
           "@media (max-width: 600px)": {
             width: "90vw",
             height: "unset",
             borderRadius: "5vw",
           },
         }}
-        component="img"
         image="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720109209/Empowering-Others_bh2qxl.avif"
         alt="Empowering-Others"
+        onLoad={() => setImageLoaded(true)}
       />
       <Grid
         className={inView ? styles.textSlideIn : ""}

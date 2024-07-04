@@ -1,4 +1,5 @@
-import { CardMedia, Grid } from "@mui/material";
+import { useState } from "react";
+import { CardMedia, Grid, Skeleton } from "@mui/material";
 import React from "react";
 import { useInView } from "react-intersection-observer";
 import styles from "./assets/about.module.css";
@@ -18,6 +19,8 @@ const AboutUs = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
     <Grid
@@ -94,6 +97,21 @@ const AboutUs = () => {
         tools, dominate. This daunting scenario is the very challenge that fuels
         Prevail’s commitment and innovative approach.
       </Grid>
+      {!imageLoaded && (
+        <Skeleton
+          variant="rectangular"
+          width={1210}
+          height={510}
+          sx={{
+            borderRadius: "15px",
+            mt: "40px",
+            "@media (max-width: 600px)": {
+              width: "90vw",
+              height: "210px",
+            },
+          }}
+        />
+      )}
       <CardMedia
         ref={imageRef}
         component={"img"}
@@ -109,12 +127,14 @@ const AboutUs = () => {
           height: "510px",
           borderRadius: "15px",
           mt: "40px",
+          display: imageLoaded ? "block" : "none",
           "@media (max-width: 600px)": {
             width: "90vw",
             height: "210px",
-            objectFit: "fit",
+            objectFit: "cover",
           },
         }}
+        onLoad={() => setImageLoaded(true)}
       />
     </Grid>
   );
