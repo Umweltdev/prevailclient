@@ -45,7 +45,7 @@ const SectionTwo = () => {
           },
         }}
         component="img"
-        image={img}
+        image="https://res.cloudinary.com/dw7khzaml/image/upload/v1720048729/Empowering-Others_xfr8vn.avif"
         alt="Empowering-Others"
       />
       <Grid

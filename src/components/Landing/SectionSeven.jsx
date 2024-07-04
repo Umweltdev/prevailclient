@@ -95,7 +95,7 @@ const FAQ = () => {
             },
           }}
           ref={textRef}
-          className={textInView ? styles.fadeInUp : styles.hidden}
+          // className={textInView ? styles.fadeInUp : styles.hidden}
         >
           Digital Accelerator Bundle brings Agility to Your Enterprise
         </Typography>
@@ -112,7 +112,7 @@ const FAQ = () => {
             },
           }}
           ref={textRef}
-          className={textInView ? styles.fadeInUp : styles.hidden}
+          // className={textInView ? styles.fadeInUp : styles.hidden}
         >
           Discover how our Digital Accelerator Bundle package serves as your
           strategic gateway to digital success. This exclusive, comprehensive
@@ -195,7 +195,7 @@ const FAQ = () => {
         >
           <CardMedia
             component={"img"}
-            image={imago}
+            image="https://res.cloudinary.com/dw7khzaml/image/upload/v1720047683/DAB-Rocket_e3ywlh.avif"
             alt="DAB-Rocket"
             sx={{
               width: "50vw",

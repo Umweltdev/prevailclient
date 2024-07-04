@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Container,
@@ -15,7 +15,7 @@ import APIIcon from "@mui/icons-material/Settings";
 import { Link } from "react-router-dom";
 import ReusedButton from "../ReusedComponents/ReusedButton";
 import { useInView } from "react-intersection-observer";
-import styles from "./animation.module.css"; // Import the animation CSS
+import styles from "./animation.module.css";
 
 const services = [
   {
@@ -61,31 +61,15 @@ const ServiceCard = styled("div")(({ theme }) => ({
 }));
 
 const OurCore = () => {
-  const [refs, setRefs] = React.useState([]);
-  const { ref, inView } = useInView({
+  const { ref: sectionRef, inView: sectionInView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
-  React.useEffect(() => {
-    setRefs((elRefs) =>
-      Array(services.length)
-        .fill()
-        .map((_, i) => elRefs[i] || React.createRef())
-    );
-  }, [services.length]);
-
-  React.useEffect(() => {
-    if (inView) {
-      refs.forEach((ref, i) => {
-        if (ref.current) {
-          setTimeout(() => {
-            ref.current.classList.add(styles.visible); // Add visible class for animation
-          }, i * 200);
-        }
-      });
-    }
-  }, [inView, refs]);
+  const { ref: headerRef, inView: headerInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
   return (
     <Box
@@ -93,63 +77,169 @@ const OurCore = () => {
         padding: "100px 0",
         backgroundImage: `linear-gradient(135deg, #FFFFFF 0%, #F3E5F5 50%, #FFFFFF 100%)`,
       }}
-      ref={ref} // Reference for the whole section
+      ref={sectionRef} // Reference for the whole section
     >
       <Container>
-        <Typography
-          variant="h6"
-          sx={{ color: "#6A1B9A", marginBottom: "20px", textAlign: "center" }}
+        <div
+          className={`${styles.headerFade} ${
+            headerInView ? styles.headerVisible : ""
+          }`}
+          ref={headerRef}
         >
-          Services
-        </Typography>
-        <Typography
-          variant="h4"
-          sx={{ fontWeight: "bold", marginBottom: "20px", textAlign: "center" }}
-        >
-          The Ultimate products we serve
-        </Typography>
-        <Typography
-          sx={{
-            maxWidth: "600px",
-            margin: "0 auto",
-            marginBottom: "40px",
-            textAlign: "center",
-          }}
-        >
-          Prevail stands out by crafting tailored strategies and solutions that
-          are data-driven and creatively inspired.
-        </Typography>
-        <Box sx={{ textAlign: "center", marginBottom: "40px" }}>
-          <Link to={"/Services"}>
-            <ReusedButton text={"Learn More"} />
-          </Link>
-        </Box>
+          <Typography
+            variant="h6"
+            sx={{ color: "#6A1B9A", marginBottom: "20px", textAlign: "center" }}
+          >
+            Services
+          </Typography>
+          <Typography
+            variant="h4"
+            sx={{
+              fontWeight: "bold",
+              marginBottom: "20px",
+              textAlign: "center",
+            }}
+          >
+            The Ultimate Products We Serve
+          </Typography>
+          <Typography
+            sx={{
+              maxWidth: "600px",
+              margin: "0 auto",
+              marginBottom: "40px",
+              textAlign: "center",
+            }}
+          >
+            Prevail stands out by crafting tailored strategies and solutions
+            that are data-driven and creatively inspired.
+          </Typography>
+          <Box sx={{ textAlign: "center", marginBottom: "40px" }}>
+            <Link to={"/Services"}>
+              <ReusedButton text={"Learn More"} />
+            </Link>
+          </Box>
+        </div>
         <Grid container spacing={4} justifyContent="center">
-          {services.map((service, index) => (
-            <Grid item xs={12} sm={6} md={6} key={index} ref={refs[index]}>
-              <ServiceCard className={styles.serviceCard}>
+          <Grid item xs={12} sm={6} md={6}>
+            <div
+              className={`${styles.serviceCard} ${
+                sectionInView ? styles.visible : ""
+              }`}
+              style={{ transitionDelay: "0ms" }}
+            >
+              <ServiceCard>
                 <CardContent sx={{ textAlign: "left" }}>
-                  {service.icon}
+                  {services[0].icon}
                   <Typography
                     variant="h6"
                     sx={{ fontWeight: "bold", marginTop: "10px" }}
                   >
-                    {service.title}
+                    {services[0].title}
                   </Typography>
                   <Typography sx={{ marginTop: "10px", fontSize: "14px" }}>
-                    {service.description}
+                    {services[0].description}
                   </Typography>
                 </CardContent>
                 <CardActions
                   sx={{ justifyContent: "flex-start", paddingLeft: "16px" }}
                 >
-                  <Link to={service.link}>
+                  <Link to={services[0].link}>
                     <ReusedButton text={"Learn More"} />
                   </Link>
                 </CardActions>
               </ServiceCard>
-            </Grid>
-          ))}
+            </div>
+          </Grid>
+          <Grid item xs={12} sm={6} md={6}>
+            <div
+              className={`${styles.serviceCard} ${
+                sectionInView ? styles.visible : ""
+              }`}
+              style={{ transitionDelay: "200ms" }}
+            >
+              <ServiceCard>
+                <CardContent sx={{ textAlign: "left" }}>
+                  {services[1].icon}
+                  <Typography
+                    variant="h6"
+                    sx={{ fontWeight: "bold", marginTop: "10px" }}
+                  >
+                    {services[1].title}
+                  </Typography>
+                  <Typography sx={{ marginTop: "10px", fontSize: "14px" }}>
+                    {services[1].description}
+                  </Typography>
+                </CardContent>
+                <CardActions
+                  sx={{ justifyContent: "flex-start", paddingLeft: "16px" }}
+                >
+                  <Link to={services[1].link}>
+                    <ReusedButton text={"Learn More"} />
+                  </Link>
+                </CardActions>
+              </ServiceCard>
+            </div>
+          </Grid>
+          <Grid item xs={12} sm={6} md={6}>
+            <div
+              className={`${styles.serviceCard} ${
+                sectionInView ? styles.visible : ""
+              }`}
+              style={{ transitionDelay: "400ms" }}
+            >
+              <ServiceCard>
+                <CardContent sx={{ textAlign: "left" }}>
+                  {services[2].icon}
+                  <Typography
+                    variant="h6"
+                    sx={{ fontWeight: "bold", marginTop: "10px" }}
+                  >
+                    {services[2].title}
+                  </Typography>
+                  <Typography sx={{ marginTop: "10px", fontSize: "14px" }}>
+                    {services[2].description}
+                  </Typography>
+                </CardContent>
+                <CardActions
+                  sx={{ justifyContent: "flex-start", paddingLeft: "16px" }}
+                >
+                  <Link to={services[2].link}>
+                    <ReusedButton text={"Learn More"} />
+                  </Link>
+                </CardActions>
+              </ServiceCard>
+            </div>
+          </Grid>
+          <Grid item xs={12} sm={6} md={6}>
+            <div
+              className={`${styles.serviceCard} ${
+                sectionInView ? styles.visible : ""
+              }`}
+              style={{ transitionDelay: "600ms" }}
+            >
+              <ServiceCard>
+                <CardContent sx={{ textAlign: "left" }}>
+                  {services[3].icon}
+                  <Typography
+                    variant="h6"
+                    sx={{ fontWeight: "bold", marginTop: "10px" }}
+                  >
+                    {services[3].title}
+                  </Typography>
+                  <Typography sx={{ marginTop: "10px", fontSize: "14px" }}>
+                    {services[3].description}
+                  </Typography>
+                </CardContent>
+                <CardActions
+                  sx={{ justifyContent: "flex-start", paddingLeft: "16px" }}
+                >
+                  <Link to={services[3].link}>
+                    <ReusedButton text={"Learn More"} />
+                  </Link>
+                </CardActions>
+              </ServiceCard>
+            </div>
+          </Grid>
         </Grid>
       </Container>
     </Box>
