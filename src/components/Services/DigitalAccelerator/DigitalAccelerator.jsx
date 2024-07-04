@@ -219,7 +219,9 @@ const DigitalAccelerator = () => {
                 }}
               >
                 <img
+
                   src="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720091819/DAB-Promotion_uqsqit.avif"
+
                   alt="DAB-Promotion"
                   style={{
                     width: "100%",

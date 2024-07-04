@@ -74,6 +74,7 @@ const MainPage = () => {
           url="/brand-identity-package"
         />
         <TextImageService
+
           imageUrl="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720088563/Search-Engine-Marketing_m1ebvn.avif"
           alt="Search-Engine-Marketing"
           textHeader={"Search Engine Marketing"}

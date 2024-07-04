@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import {
   Typography,
   Stack,
@@ -8,7 +8,7 @@ import {
   IconButton,
   useMediaQuery,
 } from "@mui/material";
-
+import { AuthContext } from "../../context/AuthContext";
 import { RemoveRedEye, Description } from "@mui/icons-material";
 
 import { Link, useNavigate } from "react-router-dom";
@@ -43,11 +43,7 @@ const Invoice = ({ _id, invoiceNumber, createDate, dueDate, status }) => {
         {fDate(dueDate)}
       </Typography>
 
-      <Typography
-        variant="subtitle2"
-        flex={{ xs: "1 1 0"}}
-        whiteSpace="pre"
-      >
+      <Typography variant="subtitle2" flex={{ xs: "1 1 0" }} whiteSpace="pre">
         {fDate(createDate)}
       </Typography>
       <Typography variant="subtitle2" flex="1 1 0">
@@ -55,7 +51,7 @@ const Invoice = ({ _id, invoiceNumber, createDate, dueDate, status }) => {
       </Typography>
       <Stack direction="row" justifyContent="end">
         <Link
-           to={`/user/invoices/${_id}`}
+          to={`/user/invoices/${_id}`}
           style={{
             textDecoration: "none",
           }}
@@ -71,11 +67,15 @@ const Invoice = ({ _id, invoiceNumber, createDate, dueDate, status }) => {
 
 const Invoices = ({ openDrawer }) => {
   const [invoices, setInvoices] = useState([]);
+  const { user } = useContext(AuthContext);
 
+  const phone = user?.user.phone;
   useEffect(() => {
     const getAddresses = async () => {
       try {
-        const res = await axiosInstance.get("/api/invoice");
+        const res = await axiosInstance.get(
+          `/api/invoice?phoneNumber=${phone}`
+        );
         setInvoices(res.data);
       } catch (error) {
         console.log(error);
