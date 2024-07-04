@@ -50,7 +50,7 @@ const SectionFour = () => {
         }`}
         component={"img"}
         image={
-          "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720082298/What-We-Do_suubct.webp"
+          "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720110083/What-We-Do_gn0opz.avif"
         }
         alt="What-We-Do"
         sx={{

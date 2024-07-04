@@ -194,7 +194,7 @@ const FAQ = () => {
         >
           <CardMedia
             component={"img"}
-            image="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720079323/DAB-Rocket_ueflyn.webp"
+            image="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720109209/DAB-Rocket_f6h8ic.avif"
             alt="DAB-Rocket"
             sx={{
               width: "50vw",

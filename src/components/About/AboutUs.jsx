@@ -98,7 +98,7 @@ const AboutUs = () => {
         ref={imageRef}
         component={"img"}
         image={
-          "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720082304/Working-Together_eatzpf.webp"
+          "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720110085/Working-Together_cvbkzp.avif"
         }
         alt="Working-Together"
         className={`${styles.aboutUsImage} ${

@@ -44,7 +44,7 @@ const SectionTwo = () => {
           },
         }}
         component="img"
-        image="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720079313/Empowering-Others_klc1aj.webp"
+        image="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720109209/Empowering-Others_bh2qxl.avif"
         alt="Empowering-Others"
       />
       <Grid

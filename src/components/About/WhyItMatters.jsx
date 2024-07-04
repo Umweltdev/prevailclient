@@ -151,7 +151,7 @@ const WhyItMatters = () => {
         }`}
         component={"img"}
         image={
-          "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720082308/Why-It-Matters_uz4g5d.webp"
+          "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720110083/Why-It-Matters_kijum4.avif"
         }
         alt="Why-It-Matters"
         sx={{

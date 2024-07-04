@@ -70,7 +70,7 @@ const FAQ = () => {
         <CardMedia
           component={"img"}
           image={
-            "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720082313/FAQ_gim2k6.webp"
+            "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720110084/FAQ_fcfcuc.avif"
           }
           alt="FAQ"
           sx={{

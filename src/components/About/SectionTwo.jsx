@@ -1,7 +1,7 @@
 import { Box, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
 import { useInView } from "react-intersection-observer";
-import styles from "./assets/about.module.css"; 
+import styles from "./assets/about.module.css";
 
 const SectionTwo = () => {
   const { ref: sectionRef, inView: sectionInView } = useInView({
