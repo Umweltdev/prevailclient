@@ -13,7 +13,6 @@ import MainPage from "./MainPage";
 import PrevailMPDApi from "./PrevailMPDApi";
 import KeyBenefits from "./KeyBenefits";
 import ImageTextComponent from "../ReusedComponenets/ImageTextComponent";
-import imago from "../assets/Why-Choose-Prevail’s-MPD.webp";
 import TakeAction from "./TakeAction";
 import Carousel from "./Carousel";
 import AppBarNav from "../../Navbar/Appbar";
@@ -35,7 +34,8 @@ const Mpd = () => {
       <PrevailMPDApi />
       <KeyBenefits />
       <ImageTextComponent
-        img={imago}
+        img="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720090509/Why-Choose-Prevail_s-MPD_i60dan.avif"
+        alt={"Why-Choose-Prevail’s-MPD"}
         header={"Why Choose Prevail’s MPD API? "}
         text={`Embrace the future of digital marketing by incorporating Prevail’s MPD API into your business strategy. This tool simplifies complex pricing strategies and ensures that your marketing efforts are as effective and efficient as possible. Choosing Prevail opens your business to increased market share and proportional income growth.`}
       />
