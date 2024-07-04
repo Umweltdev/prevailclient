@@ -1,7 +1,6 @@
 import { Box, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
 import AccordionUsage from "./Accordion";
-import imago from "./home/Core-Values.webp";
 import styles from "./assets/animation.module.css"; // Import the new CSS module
 import { useInView } from "react-intersection-observer";
 
@@ -106,7 +105,7 @@ const CoreValues = () => {
       >
         <CardMedia
           component={"img"}
-          image="https://res.cloudinary.com/dw7khzaml/image/upload/v1720048733/Core-Values_qitqqc.avif"
+          image="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720079308/Core-Values_id6x07.webp"
           alt="Core-Values"
           sx={{
             width: "50vw",

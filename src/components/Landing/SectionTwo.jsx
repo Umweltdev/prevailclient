@@ -1,7 +1,6 @@
 import { CardMedia, Grid, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import styles from "./assets/animation.module.css"; // Import animation styles
-import img from "./home/Empowering-Others.webp";
 import ReusedButton from "../ReusedComponents/ReusedButton";
 import { useInView } from "react-intersection-observer";
 
@@ -45,7 +44,7 @@ const SectionTwo = () => {
           },
         }}
         component="img"
-        image="https://res.cloudinary.com/dw7khzaml/image/upload/v1720048729/Empowering-Others_xfr8vn.avif"
+        image="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720079313/Empowering-Others_klc1aj.webp"
         alt="Empowering-Others"
       />
       <Grid

@@ -1,6 +1,5 @@
 import { Box, CardMedia, Grid, Typography } from "@mui/material";
 import React, { useState, useEffect, useRef } from "react";
-import imago from "./home/DAB-Rocket.webp";
 import CardNoBorder from "./assets/CardNoBorder";
 import { DigitalAcelerator } from "./assets/LandingData";
 import ReusedButton from "../ReusedComponents/ReusedButton";
@@ -195,7 +194,7 @@ const FAQ = () => {
         >
           <CardMedia
             component={"img"}
-            image="https://res.cloudinary.com/dw7khzaml/image/upload/v1720047683/DAB-Rocket_e3ywlh.avif"
+            image="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720079323/DAB-Rocket_ueflyn.webp"
             alt="DAB-Rocket"
             sx={{
               width: "50vw",
