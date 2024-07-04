@@ -1,13 +1,12 @@
 import { CardMedia, Grid } from "@mui/material";
 import React from "react";
-import image1 from "./About_Us/Working-Together.webp";
 import { useInView } from "react-intersection-observer";
-import styles from "./assets/about.module.css"; // Import the animation CSS
+import styles from "./assets/about.module.css"; 
 
 const AboutUs = () => {
   const { ref: sectionRef, inView: sectionInView } = useInView({
     triggerOnce: true,
-    threshold: 0.1, // Visibility threshold
+    threshold: 0.1, 
   });
 
   const { ref: textRef, inView: textInView } = useInView({
@@ -99,7 +98,7 @@ const AboutUs = () => {
         ref={imageRef}
         component={"img"}
         image={
-          "https://res.cloudinary.com/dw7khzaml/image/upload/v1720077009/Working-Together_l4ien2.avif"
+          "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720082304/Working-Together_eatzpf.webp"
         }
         alt="Working-Together"
         className={`${styles.aboutUsImage} ${

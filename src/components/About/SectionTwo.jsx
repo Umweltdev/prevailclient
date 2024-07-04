@@ -1,8 +1,7 @@
 import { Box, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
 import { useInView } from "react-intersection-observer";
-import imago from "./About_Us/Our-Mission.webp";
-import styles from "./assets/about.module.css"; // Import the animation CSS
+import styles from "./assets/about.module.css"; 
 
 const SectionTwo = () => {
   const { ref: sectionRef, inView: sectionInView } = useInView({
@@ -114,7 +113,9 @@ const SectionTwo = () => {
       >
         <CardMedia
           component={"img"}
-          image={imago}
+          image={
+            "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720082297/Our-Mission_o3ls1q.webp"
+          }
           alt="Our-Mission"
           sx={{
             maxWidth: "330px",
