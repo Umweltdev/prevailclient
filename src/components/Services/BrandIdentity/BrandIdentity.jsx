@@ -9,13 +9,13 @@ import PackagesLayout from "./PackagesLayout";
 import Packages from "./Packages";
 import Footer from "../../Footer/Footer";
 import FooterNew from "../../Footer/FooterNew";
-import AppBarOne from "../../Navbar/AppbarOne";
+//import AppBarOne from "../../Navbar/AppbarOne";
 import ElevateYourPresence from "./ElevateYourPresence";
 import Addressing from "./Addressing";
 import TailoredApproach from "./TailoredApproach";
 import HeroComponent from "../ReusedComponenets/HeroComponent";
 import AppBarNav from "../../Navbar/Appbar";
-import MainPage from "./MainPage";
+//import MainPage from "./MainPage";
 
 const BrandIdentity = () => {
   return (
