@@ -128,6 +128,7 @@ const AboutUs = () => {
           borderRadius: "15px",
           mt: "40px",
           display: imageLoaded ? "block" : "none",
+          mb: "20px",
           "@media (max-width: 600px)": {
             width: "90vw",
             height: "210px",
