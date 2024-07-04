@@ -2,7 +2,6 @@ import { Box, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
 import { useInView } from "react-intersection-observer";
 import AccordionUsage from "./assets/Accordion";
-import imago from "./About_Us/FAQ.webp";
 import styles from "./assets/about.module.css"; // Import the animation CSS
 
 const FAQ = () => {
@@ -71,7 +70,7 @@ const FAQ = () => {
         <CardMedia
           component={"img"}
           image={
-            "https://res.cloudinary.com/dw7khzaml/image/upload/v1720077011/FAQ_uci5mg.avif"
+            "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720082313/FAQ_gim2k6.webp"
           }
           alt="FAQ"
           sx={{

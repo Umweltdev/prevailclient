@@ -1,8 +1,7 @@
 import { Box, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
 import { useInView } from "react-intersection-observer";
-import imago from "./About_Us/Why-It-Matters.webp";
-import styles from "./assets/about.module.css"; // Import the animation CSS
+import styles from "./assets/about.module.css"; 
 
 const WhyItMatters = () => {
   const { ref: sectionRef, inView: sectionInView } = useInView({
@@ -152,7 +151,7 @@ const WhyItMatters = () => {
         }`}
         component={"img"}
         image={
-          "https://res.cloudinary.com/dw7khzaml/image/upload/v1720077009/Why-It-Matters_xv343q.avif"
+          "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720082308/Why-It-Matters_uz4g5d.webp"
         }
         alt="Why-It-Matters"
         sx={{
