@@ -4,9 +4,6 @@ import FooterNew from "../../Footer/FooterNew";
 import HeroComponent from "../ReusedComponenets/HeroComponent";
 import AppBarNav from "../../Navbar/Appbar";
 import { Container, Grid, Typography, Stack, Box, Button } from "@mui/material";
-import image1 from "./assets/Propel-Your-Business.webp";
-import image2 from "./assets/Understanding-Your-Challenges.webp";
-import rocket from "./assets/DAB-Promotion.webp";
 import "./styles.css";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import TextImageComponent from "../ReusedComponenets/TextImageComponent";
@@ -37,7 +34,7 @@ const DigitalAccelerator = () => {
       <AppBarNav color="#000" />
       <HeroComponent title={"Digital Accelerator Bundle Page"} />
       <TextImageComponent
-        img={image1}
+        img="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720091821/Propel-Your-Business_ne4pnm.avif"
         alt="Propel-Your-Business"
         header={
           "Propel Your Business with Prevail’s Digital Accelerator Bundle "
@@ -53,7 +50,7 @@ const DigitalAccelerator = () => {
               gateway to a cohesive, impactful and cost-effective digital presence.`}
       />
       <ImageTextComponent
-        img={image2}
+        img="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720091821/Understanding-Your-Challenges_imkqrh.avif"
         alt="Understanding-Your-Challenges"
         header={"Understanding Your Challenges"}
         text={`We recognise the obstacles you face in a highly competitive
@@ -222,7 +219,7 @@ const DigitalAccelerator = () => {
                 }}
               >
                 <img
-                  src={rocket}
+                  src="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720091819/DAB-Promotion_uqsqit.avif"
                   alt="DAB-Promotion"
                   style={{
                     width: "100%",
