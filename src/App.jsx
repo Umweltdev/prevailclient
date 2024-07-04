@@ -6,7 +6,7 @@ import ScrollToTop from "./ScrollToTop";
 import { AuthContext } from "./context/AuthContext";
 import Loading from "./components/utils/Loading";
 
-// Lazy load pages and components
+// Lazy load pages and componentss
 const Landing = React.lazy(() => import("./pages/Landing"));
 const About = React.lazy(() => import("./pages/About"));
 const Portfolio = React.lazy(() => import("./pages/Portfolio"));
