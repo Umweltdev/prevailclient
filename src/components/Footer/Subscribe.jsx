@@ -36,8 +36,12 @@ const Subscribe = () => {
         makeToast("success", "Successfully subscribed to our newsletters");
         resetForm();
       } catch (error) {
-        makeToast("error", error?.message?.title || "Something went wrong, Please try again later");
-        console.log(error);
+        makeToast(
+          "error",
+          error?.message?.title ||
+            "Something went wrong, Please try again later"
+        );
+        // console.log(error);
       }
     },
   });
@@ -98,7 +102,7 @@ const Subscribe = () => {
               m: 1,
               width: "607.299px",
               height: "60px",
-              color: "#656565",
+              color: "#fff",
               borderRadius: "25px",
               "@media (max-width: 600px)": {
                 width: "90vw",
@@ -127,7 +131,7 @@ const Subscribe = () => {
                       type="submit"
                       sx={{
                         color: "#fff",
-                        background: "#6E3EF4",
+                        // background: "#6E3EF4",
                         width: "144px",
                         borderRadius: "25px",
                         "@media (max-width: 600px)": {
@@ -135,7 +139,7 @@ const Subscribe = () => {
                         },
                         "&:hover": {
                           color: "#fff",
-                          background: "#6E3EF4",
+                          // background: "#6E3EF4",
                         },
                       }}
                       disabled={!(formik.isValid && formik.dirty)}
@@ -151,16 +155,20 @@ const Subscribe = () => {
                 "& .MuiOutlinedInput-input": {
                   color: "#656565",
                   borderRadius: "30px",
+                  width: "90vw",
                 },
                 "& .MuiOutlinedInput-notchedOutline": {
                   borderRadius: "30px",
                   borderColor: "#656565",
+                  width: "90vw",
                 },
                 "&:hover .MuiOutlinedInput-notchedOutline": {
                   borderColor: "#656565",
+                  width: "90vw",
                 },
                 "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
                   borderColor: "#656565",
+                  width: "90vw",
                 },
               }}
             />
@@ -175,6 +183,7 @@ const Subscribe = () => {
               "@media (max-width: 600px)": {
                 display: "block",
                 margin: "10px 0 55px 0",
+                textAlign: "center",
               },
             }}
           >

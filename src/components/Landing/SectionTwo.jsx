@@ -42,6 +42,7 @@ const SectionTwo = () => {
             borderRadius: "14px",
             "@media (max-width: 600px)": {
               width: "90vw",
+              height: "unset",
               borderRadius: "5vw",
             },
           }}
