@@ -125,13 +125,13 @@ const Subscribe = () => {
               onBlur={formik.handleBlur}
               error={formik.touched.email && Boolean(formik.errors.email)}
               endAdornment={
-                <InputAdornment position="end">
-                  <IconButton aria-label="subscribe" edge="end">
+                <InputAdornment position="end" color={"white"}>
+                  <IconButton aria-label="subscribe" edge="end" color={"white"}>
                     <Button
                       type="submit"
                       sx={{
                         color: "#fff",
-                        // background: "#6E3EF4",
+                        background: "#6E3EF4",
                         width: "144px",
                         borderRadius: "25px",
                         "@media (max-width: 600px)": {
@@ -139,7 +139,7 @@ const Subscribe = () => {
                         },
                         "&:hover": {
                           color: "#fff",
-                          // background: "#6E3EF4",
+                          background: "#6E3EF4",
                         },
                       }}
                       disabled={!(formik.isValid && formik.dirty)}
@@ -155,20 +155,20 @@ const Subscribe = () => {
                 "& .MuiOutlinedInput-input": {
                   color: "#656565",
                   borderRadius: "30px",
-                  width: "90vw",
+                  // width: "90vw",
                 },
                 "& .MuiOutlinedInput-notchedOutline": {
                   borderRadius: "30px",
                   borderColor: "#656565",
-                  width: "90vw",
+                  // width: "90vw",
                 },
                 "&:hover .MuiOutlinedInput-notchedOutline": {
                   borderColor: "#656565",
-                  width: "90vw",
+                  // width: "90vw",
                 },
                 "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
                   borderColor: "#656565",
-                  width: "90vw",
+                  // width: "90vw",
                 },
               }}
             />
