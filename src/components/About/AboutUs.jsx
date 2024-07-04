@@ -1,12 +1,12 @@
 import { CardMedia, Grid } from "@mui/material";
 import React from "react";
 import { useInView } from "react-intersection-observer";
-import styles from "./assets/about.module.css"; 
+import styles from "./assets/about.module.css";
 
 const AboutUs = () => {
   const { ref: sectionRef, inView: sectionInView } = useInView({
     triggerOnce: true,
-    threshold: 0.1, 
+    threshold: 0.1,
   });
 
   const { ref: textRef, inView: textInView } = useInView({
