@@ -106,7 +106,7 @@ const CoreValues = () => {
       >
         <CardMedia
           component={"img"}
-          image={imago}
+          image="https://res.cloudinary.com/dw7khzaml/image/upload/v1720048733/Core-Values_qitqqc.avif"
           alt="Core-Values"
           sx={{
             width: "50vw",

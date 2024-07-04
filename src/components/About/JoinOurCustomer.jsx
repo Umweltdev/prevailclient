@@ -41,7 +41,7 @@ const JoinOurCustomer = () => {
     >
       <CardMedia
         component={"img"}
-        image={imago}
+        image="https://res.cloudinary.com/dw7khzaml/image/upload/v1720053638/aboutT_wjld08.svg"
         sx={{
           width: "374px",
           position: "absolute",
@@ -107,7 +107,7 @@ const JoinOurCustomer = () => {
       </Grid>
       <CardMedia
         component={"img"}
-        image={imago2}
+        image="https://res.cloudinary.com/dw7khzaml/image/upload/v1720053641/aboutTT_bzymff.svg"
         sx={{
           width: "324px",
           position: "absolute",
