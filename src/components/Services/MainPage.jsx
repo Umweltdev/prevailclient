@@ -79,7 +79,7 @@ const MainPage = () => {
           alt="Search-Engine-Marketing"
           textHeader={"Search Engine Marketing"}
           text="Our “Search Engine Marketing” service offer tailored solutions to boost online visibility and engagement to support you throughout the dynamic digital realm."
-          url="/custom-website-development" //exe
+          url="/search-engine-marketing" //exe
         />
         <ImageTextService
           imageUrl="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720088569/Website-Development_gxpjci.avif"
@@ -93,7 +93,7 @@ const MainPage = () => {
           alt="Custom-Website-Development"
           textHeader={"Custom Website Development"}
           text="Desire ownership over your digital identity and wish to convey your brand's story authentically and vividly, then our “custom website development” is perfect for you."
-          url="/search-engine-marketing"
+          url="/custom-website-development"
         />
         <ImageTextService
           imageUrl="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720088563/Marketing-Price-Displacement_omscxs.avif"
