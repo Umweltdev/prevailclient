@@ -93,7 +93,7 @@ const PackagesLayout = ({ packages, amount, info }) => {
             },
           }}
         >
-          Make Payments
+          Book now
         </Button>
         </Link>
         

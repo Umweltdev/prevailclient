@@ -49,14 +49,14 @@ const Packages = () => {
         <WhitePackageLayout
           packages="SEM Silver Package"
           //info="Forever free, even after the launch"
-          button="Contact Us Now"
+          button="Book now"
           height="700px"
           mobileHeight={"750px"}
         />
         <PurplePackageLayout
           packages="SEM Platinum Package"
           //info="Forever free, even after the launch"
-          button="Contact Us Now"
+          button="Book now"
           height="800px"
           mobileHeight={"850px"}
         />

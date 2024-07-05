@@ -95,7 +95,7 @@ const ElitePackageLayout = ({ packages, amount, info }) => {
             },
           }}
         >
-          Make Payments
+          Book now
         </Button>
        </Link>
         {/* Render the StarterBrandIdentity items */}

@@ -69,6 +69,11 @@ const DashboardBox = ({ closeDrawer }) => {
       url: "bookings",
     },
     // {
+    //   text: "Message",
+    //   Icon: <BookmarkBorderIcon />,
+    //   url: "message",
+    // },
+    // {
     //   text: "Saved",
     //   Icon: <FavoriteBorderIcon />,
     //   url: "saved",
