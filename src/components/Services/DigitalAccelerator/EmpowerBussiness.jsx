@@ -22,14 +22,17 @@ const EmpowerBussiness = () => {
         width: "100vw",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
+        backgroundPosition: "center",
         height: "160vh",
         position: "relative",
+        overflow: "hidden", // Ensure the cropped areas are not visible
+        clipPath: "inset(20vh 0)",
         "@media (max-width: 600px)": {
-          backgroundImage:
-            "url(https://res.cloudinary.com/dtzuqacg3/image/upload/v1720212269/Screenshot_from_2024-07-05_21-43-15_gevfwa.png)",
-          width: "100vw",
+          // backgroundImage:
+          //   "url(https://res.cloudinary.com/dtzuqacg3/image/upload/v1720212269/Screenshot_from_2024-07-05_21-43-15_gevfwa.png)",
+          // width: "100vw",
           height: "100vh",
-          
+          clipPath: "inset(10vh 0)",
         },
       }}
     >
@@ -49,8 +52,8 @@ const EmpowerBussiness = () => {
           alignItems: "center",
           justifyContent: "center",
           "@media (max-width: 600px)": {
-            top: "80%",
-            left: "26%",
+            top: "75%",
+            left: "23%",
           },
         }}
         onClick={(e) => {
