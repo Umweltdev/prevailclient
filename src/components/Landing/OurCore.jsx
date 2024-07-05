@@ -23,28 +23,28 @@ const services = [
     description:
       "Dive into Prevail's exclusive 'Brand Identity Package'. We do more than just logo creation and marketing materials; we embark on a creative partnership to forge your distinctive brand identity that not only stands out but resonates deeply with your audience.",
     icon: <BrandingIcon style={{ fontSize: 40, color: "#6A1B9A" }} />,
-    link: "/Services/brand",
+    link: "/brand-identity-package",
   },
   {
     title: "Website Mastery",
     description:
       "With our innovative 'Website Production' service, we craft captivating online platforms for SMEs and local enterprises. Our strategic approach ensures your website not only looks great but functions seamlessly, engaging your visitors and converting them into loyal customers.",
     icon: <WebsiteIcon style={{ fontSize: 40, color: "#6A1B9A" }} />,
-    link: "/Services/website",
+    link: "/website-development",
   },
   {
     title: "Search Engine Marketing",
     description:
       "We offer more than just exposure; our holistic approach includes targeted advertising, refined SEO practices, and ongoing optimization to ensure you capture and keep the attention of your ideal audience.",
     icon: <SearchIcon style={{ fontSize: 40, color: "#6A1B9A" }} />,
-    link: "/Services/sem",
+    link: "/Ssearch-engine-marketing",
   },
   {
     title: "Marketing Price Displacement API",
     description:
       "Our 'Marketing Price Displacement (MPD)' API transforms how you allocate your marketing budget. This tool isn’t just about spending; it’s about investing smartly through dynamic pricing and yield management, giving you control over your financial strategies and boosting your marketing efficiency.",
     icon: <APIIcon style={{ fontSize: 40, color: "#6A1B9A" }} />,
-    link: "/Services/mpd",
+    link: "/marketing-pricing-displacement",
   },
 ];
 
