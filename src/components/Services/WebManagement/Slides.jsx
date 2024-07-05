@@ -94,7 +94,7 @@ const SingleCarousel = () => {
               >
                 <img
                   src={slide.image}
-                  alt={slide.topic}
+                  alt={slide.alt}
                   style={{
                     objectFit: "cover",
                     width: "100%",

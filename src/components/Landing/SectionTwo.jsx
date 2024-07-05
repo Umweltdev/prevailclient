@@ -133,7 +133,7 @@ const SectionTwo = () => {
           age. We aim to help businesses thrive, regardless of economic
           challenges, by providing innovative and holistic solutions.
         </Typography>
-        <Link to={"/about"}>
+        <Link to={"/about-us"}>
           <ReusedButton text={"Learn More"} />
         </Link>
       </Grid>
