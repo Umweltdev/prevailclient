@@ -23,6 +23,7 @@ const validationSchema = yup.object().shape({
 });
 
 const Subscribe = () => {
+
   const [isLoading, setIsLoading] = useState(false);
   const formik = useFormik({
     initialValues: {
@@ -31,12 +32,14 @@ const Subscribe = () => {
     validationSchema: validationSchema,
     onSubmit: async (values, { resetForm }) => {
       setIsLoading(true);
+
       try {
         await axiosInstance.post(`/api/auth/addSubscriber`, {
           email: values.email,
         });
         makeToast("success", "Successfully subscribed to our newsletters");
         setIsLoading(false);
+    
         resetForm();
       } catch (error) {
         makeToast(
@@ -147,7 +150,7 @@ const Subscribe = () => {
                           background: "#6E3EF4",
                         },
                       }}
-                      disabled={!formik.isValid || !formik.dirty || isLoading}
+                      disabled={!formik.isValid || formik.dirty || isLoading}
                     >
                       Subscribe
                     </Button>
@@ -207,7 +210,7 @@ const Subscribe = () => {
                   background: "#6E3EF4",
                 },
               }}
-              disabled={!formik.isValid || !formik.dirty || isLoading}
+              disabled={!formik.isValid || formik.dirty || isLoading}
             >
               Subscribe
             </Button>
