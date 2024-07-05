@@ -1,6 +1,7 @@
 import { CardMedia, Grid, Typography, Box, Card } from "@mui/material";
 import React from "react";
 import { TailoredApproachData } from "../assets/serviceData";
+import mugs from "../assets/mug.png";
 
 const TailoredApproach = () => {
   return (
@@ -174,6 +175,11 @@ const TailoredApproach = () => {
               of time. 
             </Typography>
           </Card>
+          <CardMedia
+            component={"img"}
+            image={mugs}
+            sx={{ width: "585px", borderRadius: "5px" }}
+          />
         </Box>
       </Grid>
     </Box>
