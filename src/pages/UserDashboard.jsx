@@ -15,6 +15,8 @@ import { AuthContext } from "../context/AuthContext";
 import Invoices from "../components/user-dashboard/Invoices";
 import Invoice from "../components/user-dashboard/Invoice";
 import AppBarNav from "../components/Navbar/Appbar";
+import Message from "../components/user-dashboard/Message";
+import CreateMessage from "../components/user-dashboard/Create-Message";
 
 const UserDashBoard = (props) => {
   const [drawer, setDrawer] = useState(false);
@@ -98,6 +100,14 @@ const UserDashBoard = (props) => {
                   path="/invoices/:id"
                   element={<Invoice openDrawer={openDrawer} />}
                 />
+                {/* <Route
+                  path="/message"
+                  element={<Message openDrawer={openDrawer} />}
+                />
+                <Route
+                  path="/message/:id"
+                  element={<CreateMessage openDrawer={openDrawer} />}
+                /> */}
               </Routes>
             </Grid>
           </Grid>

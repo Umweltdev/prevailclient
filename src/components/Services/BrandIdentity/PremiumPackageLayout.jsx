@@ -91,7 +91,7 @@ const PremiumPackageLayout = ({
             },
           }}
         >
-          Make Payments
+          Book now
         </Button>
         </Link>
         {/* Render the StarterBrandIdentity items */}
