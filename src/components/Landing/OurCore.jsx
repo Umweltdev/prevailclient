@@ -37,7 +37,7 @@ const services = [
     description:
       "We offer more than just exposure; our holistic approach includes targeted advertising, refined SEO practices, and ongoing optimization to ensure you capture and keep the attention of your ideal audience.",
     icon: <SearchIcon style={{ fontSize: 40, color: "#6A1B9A" }} />,
-    link: "/Ssearch-engine-marketing",
+    link: "/search-engine-marketing",
   },
   {
     title: "Marketing Price Displacement API",
@@ -114,7 +114,7 @@ const OurCore = () => {
             that are data-driven and creatively inspired.
           </Typography>
           <Box sx={{ textAlign: "center", marginBottom: "40px" }}>
-            <Link to={"/Services"}>
+            <Link to={"/service-landing-page"}>
               <ReusedButton text={"Learn More"} />
             </Link>
           </Box>
