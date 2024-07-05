@@ -147,7 +147,7 @@ const Subscribe = () => {
                           background: "#6E3EF4",
                         },
                       }}
-                      disabled={!formik.isValid || formik.dirty || isLoading}
+                      disabled={!formik.isValid || !formik.dirty || isLoading}
                     >
                       Subscribe
                     </Button>
@@ -207,7 +207,7 @@ const Subscribe = () => {
                   background: "#6E3EF4",
                 },
               }}
-              disabled={!formik.isValid || formik.dirty || isLoading}
+              disabled={!formik.isValid || !formik.dirty || isLoading}
             >
               Subscribe
             </Button>
