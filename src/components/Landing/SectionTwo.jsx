@@ -1,19 +1,21 @@
-import "./assets/landing.css";
-import { useRef, useEffect, useState } from "react";
-import { Button, CardMedia, Grid, Typography, Container } from "@mui/material";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { CardMedia, Grid, Typography, Skeleton } from "@mui/material";
 import { Link } from "react-router-dom";
-import { useInView } from "react-intersection-observer";
-import styles from "./animation.module.css";
-import img from "./home/Empowering-Others.webp"
+import styles from "./assets/animation.module.css"; // Import animation styles
 import ReusedButton from "../ReusedComponents/ReusedButton";
+import { useInView } from "react-intersection-observer";
 
 const SectionTwo = () => {
-  const { ref: myRef, inView: myElementVisible } = useInView();
-  const { ref: sectionRef, inView: rocketIsVisible } = useInView();
+  const { ref, inView, entry } = useInView({
+    triggerOnce: true, // Only trigger once
+    threshold: 0.1, // Adjust as needed
+  });
+
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
     <Grid
+      ref={ref}
       sx={{
         display: "flex",
         height: "100vh",
@@ -31,31 +33,49 @@ const SectionTwo = () => {
         },
       }}
     >
+      {!imageLoaded && (
+        <Skeleton
+          variant="rectangular"
+          width={603.677}
+          height={402.351}
+          sx={{
+            borderRadius: "14px",
+            "@media (max-width: 600px)": {
+              width: "90vw",
+              height: "unset",
+              borderRadius: "5vw",
+            },
+          }}
+        />
+      )}
       <CardMedia
+        component="img"
+        className={inView ? styles.imageFadeIn : ""}
         sx={{
           width: "603.677px",
           height: "402.351px",
           borderRadius: "14px",
           objectFit: "cover",
+          display: imageLoaded ? "block" : "none",
           "@media (max-width: 600px)": {
             width: "90vw",
             height: "unset",
             borderRadius: "5vw",
-           
           },
         }}
-        component="img"
-        image={img}
+        image="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720109209/Empowering-Others_bh2qxl.avif"
         alt="Empowering-Others"
+        onLoad={() => setImageLoaded(true)}
       />
       <Grid
+        className={inView ? styles.textSlideIn : ""}
         sx={{
           width: "548.266px",
           "@media (max-width: 600px)": {
             width: "90vw",
             height: "unset",
             borderRadius: "5vw",
-            mt: "55px"
+            mt: "55px",
           },
         }}
       >
@@ -91,7 +111,8 @@ const SectionTwo = () => {
             },
           }}
         >
-          Our Mission is to empower you with innovative solutions that drive long-term success.
+          Our Mission is to empower you with innovative solutions that drive
+          long-term success.
         </Typography>
 
         <Typography
@@ -106,10 +127,14 @@ const SectionTwo = () => {
             },
           }}
         >
-          Prevail is a cutting-edge marketing agency specialising in redefining how businesses navigate the digital landscape. Prevail is not just a marketing agency but a strategic partner for businesses in the digital age. We aim to help businesses thrive, regardless of economic challenges, by providing innovative and holistic solutions.
+          Prevail is a cutting-edge marketing agency specialising in redefining
+          how businesses navigate the digital landscape. Prevail is not just a
+          marketing agency but a strategic partner for businesses in the digital
+          age. We aim to help businesses thrive, regardless of economic
+          challenges, by providing innovative and holistic solutions.
         </Typography>
-        <Link to={"/about"}>
-          <ReusedButton text={"Learn More"}/>
+        <Link to={"/about-us"}>
+          <ReusedButton text={"Learn More"} />
         </Link>
       </Grid>
     </Grid>

@@ -1,8 +1,35 @@
-.imageVisible {
+/* .imageVisible {
   opacity: 1;
   transition: opacity 1s ease-in-out;
 }
 
 #image {
   opacity: 0;
+} */
+
+/* animation.module.css */
+
+.serviceCard {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
+
+.serviceCard.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* animation.module.css */
+
+.headerFade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.headerVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+

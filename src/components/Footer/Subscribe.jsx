@@ -107,7 +107,7 @@ const Subscribe = () => {
               m: 1,
               width: "607.299px",
               height: "60px",
-              color: "#656565",
+              color: "#fff",
               borderRadius: "25px",
               "@media (max-width: 600px)": {
                 width: "90vw",
@@ -130,8 +130,8 @@ const Subscribe = () => {
               onBlur={formik.handleBlur}
               error={formik.touched.email && Boolean(formik.errors.email)}
               endAdornment={
-                <InputAdornment position="end">
-                  <IconButton aria-label="subscribe" edge="end">
+                <InputAdornment position="end" color={"white"}>
+                  <IconButton aria-label="subscribe" edge="end" color={"white"}>
                     <Button
                       type="submit"
                       sx={{
@@ -160,16 +160,20 @@ const Subscribe = () => {
                 "& .MuiOutlinedInput-input": {
                   color: "#656565",
                   borderRadius: "30px",
+                  // width: "90vw",
                 },
                 "& .MuiOutlinedInput-notchedOutline": {
                   borderRadius: "30px",
                   borderColor: "#656565",
+                  // width: "90vw",
                 },
                 "&:hover .MuiOutlinedInput-notchedOutline": {
                   borderColor: "#656565",
+                  // width: "90vw",
                 },
                 "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
                   borderColor: "#656565",
+                  // width: "90vw",
                 },
               }}
             />
@@ -184,6 +188,7 @@ const Subscribe = () => {
               "@media (max-width: 600px)": {
                 display: "block",
                 margin: "10px 0 55px 0",
+                textAlign: "center",
               },
             }}
           >

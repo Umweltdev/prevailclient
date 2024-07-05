@@ -1,11 +1,34 @@
-import { CardMedia, Grid } from "@mui/material";
+import { useState } from "react";
+import { CardMedia, Grid, Skeleton } from "@mui/material";
 import React from "react";
-import image1 from "./About_Us/Working-Together.webp";
+import { useInView } from "react-intersection-observer";
+import styles from "./assets/about.module.css";
 
 const AboutUs = () => {
+  const { ref: sectionRef, inView: sectionInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const { ref: textRef, inView: textInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const { ref: imageRef, inView: imageInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
     <Grid
       container
+      ref={sectionRef}
+      className={`${styles.aboutUsSection} ${
+        sectionInView ? styles.visible : ""
+      }`}
       sx={{
         display: "flex",
         flexDirection: "column",
@@ -23,6 +46,8 @@ const AboutUs = () => {
       }}
     >
       <Grid
+        ref={textRef}
+        className={`${styles.aboutUsText} ${textInView ? styles.visible : ""}`}
         sx={{
           color: "#6E3EF4",
           fontSize: "24px",
@@ -34,6 +59,7 @@ const AboutUs = () => {
         About Us
       </Grid>
       <Grid
+        className={`${styles.aboutUsText} ${textInView ? styles.visible : ""}`}
         sx={{
           color: "#1D0D40",
           fontSize: "38px",
@@ -48,6 +74,7 @@ const AboutUs = () => {
         Great companies are made by great people
       </Grid>
       <Grid
+        className={`${styles.aboutUsText} ${textInView ? styles.visible : ""}`}
         sx={{
           color: "#505660",
           fontSize: "18px",
@@ -61,23 +88,54 @@ const AboutUs = () => {
           },
         }}
       >
-        In a word where economic fluctuations often diminish the purchasing power of individuals and small businesses alike, rising interest rates and unpredictable consumer demands pose substantial challenges. Small-to-medium-sized enterprises (SMEs) and local businesses frequently find themselves battling to maintain relevance in a marketplace where larger entities, armed with vast resources and advanced technological tools, dominate. This daunting scenario is the very challenge that fuels Prevail’s commitment and innovative approach.
+        In a world where economic fluctuations often diminish the purchasing
+        power of individuals and small businesses alike, rising interest rates
+        and unpredictable consumer demands pose substantial challenges.
+        Small-to-medium-sized enterprises (SMEs) and local businesses frequently
+        find themselves battling to maintain relevance in a marketplace where
+        larger entities, armed with vast resources and advanced technological
+        tools, dominate. This daunting scenario is the very challenge that fuels
+        Prevail’s commitment and innovative approach.
       </Grid>
+      {!imageLoaded && (
+        <Skeleton
+          variant="rectangular"
+          width={1210}
+          height={510}
+          sx={{
+            borderRadius: "15px",
+            mt: "40px",
+            "@media (max-width: 600px)": {
+              width: "90vw",
+              height: "210px",
+            },
+          }}
+        />
+      )}
       <CardMedia
+        ref={imageRef}
         component={"img"}
-        image={image1}
+        image={
+          "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720110085/Working-Together_cvbkzp.avif"
+        }
         alt="Working-Together"
+        className={`${styles.aboutUsImage} ${
+          imageInView ? styles.visible : ""
+        }`}
         sx={{
           width: "1210px",
           height: "510px",
           borderRadius: "15px",
           mt: "40px",
+          display: imageLoaded ? "block" : "none",
+          mb: "20px",
           "@media (max-width: 600px)": {
             width: "90vw",
             height: "210px",
-            objectFit: "fit"
+            objectFit: "cover",
           },
         }}
+        onLoad={() => setImageLoaded(true)}
       />
     </Grid>
   );

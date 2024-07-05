@@ -1,7 +1,7 @@
 import { Card, CardMedia, Grid, Typography, Box } from "@mui/material";
 import React from "react";
 
-const ImageTextComponent = ({ img, header, text }) => {
+const ImageTextComponent = ({ img, header, text, alt }) => {
   return (
     <Box
       sx={{
@@ -23,6 +23,7 @@ const ImageTextComponent = ({ img, header, text }) => {
       <CardMedia
         component={"img"}
         image={img}
+        alt={alt}
         sx={{
           width: "50vw",
           height: "100vh",

@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import ReusedButton from "../ReusedComponents/ReusedButton";
 
-const ImageTextService = ({ text, imageUrl, textHeader, url }) => {
+const ImageTextService = ({ text, imageUrl, textHeader, url, alt }) => {
   return (
     <Stack
       sx={{
@@ -27,7 +27,7 @@ const ImageTextService = ({ text, imageUrl, textHeader, url }) => {
       <CardMedia
         component="img"
         image={imageUrl}
-        alt=""
+        alt={alt}
         sx={{
           width: "34vw",
           height: "300px",

@@ -1,39 +1,31 @@
-import { Box, CardMedia, Grid, Typography } from "@mui/material";
-import React from "react";
-import { makeStyles } from "@mui/styles";
-import imago from "./About_Us/Our-Mission.webp";
-
-const useStyles = makeStyles({
-  imagePlaform: {
-    width: "80vw",
-    height: "50vh",
-    objectFit: "cover",
-    borderRadius: "5px",
-    boxShadow:
-      "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
-    "@media (max-width: 600px)": {
-      width: "unset",
-      height: "unset",
-    },
-  },
-  imageInit: {
-    width: "37vw",
-    borderRadius: "1vw",
-    boxShadow:
-      "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
-    "@media (max-width: 600px)": {
-      width: "95vw",
-      height: "unset",
-    },
-  },
-});
+import { Box, CardMedia, Grid, Skeleton, Typography } from "@mui/material";
+import React, { useState } from "react";
+import { useInView } from "react-intersection-observer";
+import styles from "./assets/about.module.css";
 
 const SectionTwo = () => {
-  const classes = useStyles();
+  const { ref: sectionRef, inView: sectionInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const { ref: textRef, inView: textInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const { ref: imageRef, inView: imageInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
     <Grid
       container
+      ref={sectionRef}
+      className={`${styles.sectionTwo} ${sectionInView ? styles.visible : ""}`}
       sx={{
         width: "100vw",
         display: "flex",
@@ -54,6 +46,8 @@ const SectionTwo = () => {
       }}
     >
       <Grid
+        ref={textRef}
+        className={`${styles.textSlideIn} ${textInView ? styles.visible : ""}`}
         sx={{
           width: "485px",
           "@media (max-width: 600px)": {
@@ -101,6 +95,10 @@ const SectionTwo = () => {
         </Typography>
       </Grid>
       <Box
+        ref={imageRef}
+        className={`${styles.imageSlideIn} ${
+          imageInView ? styles.visible : ""
+        }`}
         sx={{
           background: "#ECF1FA",
           width: "485px",
@@ -115,15 +113,33 @@ const SectionTwo = () => {
           },
         }}
       >
+        {!imageLoaded && (
+          <Skeleton
+            variant="rectangular"
+            width={330}
+            height={250}
+            sx={{
+              borderRadius: "14px",
+              "@media (max-width: 600px)": {
+                width: "90vw",
+                height: "auto",
+              },
+            }}
+          />
+        )}
         <CardMedia
           component={"img"}
-          image={imago}
+          image={
+            "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720082297/Our-Mission_o3ls1q.webp"
+          }
           alt="Our-Mission"
+          onLoad={() => setImageLoaded(true)}
           sx={{
             maxWidth: "330px",
             maxHeight: "250px",
             width: "100%",
             height: "auto",
+            display: imageLoaded ? "block" : "none",
             "@media (max-width: 600px)": {
               maxWidth: "90vw",
               width: "90vw",

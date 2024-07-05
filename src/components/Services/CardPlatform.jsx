@@ -1,7 +1,7 @@
 import { Grid, Typography, Card, Button } from "@mui/material";
 import React from "react";
-import coke from "./assets/coke1.png";
-import sprite from "./assets/sprite1.png";
+//import coke from "./assets/coke1.png";
+//import sprite from "./assets/sprite1.png";
 import visa from "./assets/visa.png";
 import face from "./assets/face.png";
 import {

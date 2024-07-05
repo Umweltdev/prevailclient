@@ -1,6 +1,7 @@
 import { Box, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
-import imagebrand2 from "../assets/imagebrand2.png";
+
+
 
 const Addressing = () => {
   return (
@@ -69,7 +70,8 @@ const Addressing = () => {
       </Grid>
       <CardMedia
         component={"img"}
-        image={imagebrand2}
+        image="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720084559/Addressing-Branding-Challenges-_auzm2j.avif"
+        alt="Addressing-Branding-Challenges-"
         sx={{
           width: "50vw",
           "@media (max-width: 600px)": {

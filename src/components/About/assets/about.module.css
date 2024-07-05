@@ -1,0 +1,206 @@
+/* ABOUT US */
+.aboutUsSection {
+  opacity: 0;
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.aboutUsSection.visible {
+  opacity: 1;
+}
+
+.aboutUsText {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.aboutUsText.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.aboutUsImage {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.aboutUsImage.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+
+/* JOIN CUSTOMER */
+.customerText {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.customerText.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.customerImageLeft {
+  opacity: 0;
+  transform: translateX(-70px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.customerImageLeft.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.customerImageRight {
+  opacity: 0;
+  transform: translateX(70px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.customerImageRight.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* SECTION 2 */
+/* sectionTwo.module.css */
+
+.sectionTwo {
+  opacity: 0;
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.sectionTwo.visible {
+  opacity: 1;
+}
+
+.textSlideIn {
+  transform: translateX(-100px);
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.textSlideIn.visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.imageSlideIn {
+  transform: translateX(100px);
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.imageSlideIn.visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+
+/* SECTION FOUT */
+/* sectionFour.module.css */
+
+.sectionFour {
+  opacity: 0;
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.sectionFour.visible {
+  opacity: 1;
+}
+
+.textSlideIn {
+  transform: translateX(-100px);
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.textSlideIn.visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.imageSlideIn {
+  transform: translateX(100px);
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.imageSlideIn.visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+
+/* WHY IT MATTERS */
+/* whyItMatters.module.css */
+
+.whyItMatters {
+  opacity: 0;
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.whyItMatters.visible {
+  opacity: 1;
+}
+
+.textSlideIn {
+  transform: translateX(-100px);
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.textSlideIn.visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.imageSlideIn {
+  transform: translateX(100px);
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.imageSlideIn.visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+
+/* FAQS */
+/* faq.module.css */
+
+.faq {
+  opacity: 0;
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.faq.visible {
+  opacity: 1;
+}
+
+.textSlideIn {
+  transform: translateX(-100px);
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.textSlideIn.visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.imageSlideIn {
+  transform: translateX(100px);
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.imageSlideIn.visible {
+  transform: translateX(0);
+  opacity: 1;
+}

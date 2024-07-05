@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography, Grid, ThemeProvider, createTheme } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import landingImage1 from "../assets/pos.png";
+//import landingImage1 from "../assets/pos.png";
 
 const theme = createTheme();
 

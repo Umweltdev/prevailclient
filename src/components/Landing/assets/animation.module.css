@@ -1,0 +1,202 @@
+/* HERO */
+/* animation.module.css */
+@keyframes zoomFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.zoomFadeIn {
+  animation: zoomFadeIn 1.5s ease-out forwards;
+}
+
+.slideInLeft {
+  animation: slideInLeft 1.5s ease-out forwards;
+}
+
+.slideInRight {
+  animation: slideInRight 1.5s ease-out forwards;
+}
+
+/* FIRST SECTION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.imageFadeIn {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+.textSlideIn {
+  opacity: 0;
+  animation: slideIn 2s forwards;
+}
+
+/* SECOND SECTION */
+/* Define keyframes for slide-in animations */
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Ensure hidden elements are invisible initially */
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+/* Apply slide-in animations with smooth transition */
+.slideInLeft {
+  animation: slideInLeft 1s ease-out forwards; /* Adjust duration for smoothness */
+  visibility: visible !important; /* Ensure visibility when animated */
+}
+
+.slideInRight {
+  animation: slideInRight 1s ease-out forwards; /* Adjust duration for smoothness */
+  visibility: visible !important; /* Ensure visibility when animated */
+}
+
+/* SERVICES */
+.serviceCard {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.serviceCard.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* FAQS */
+/* Define keyframes for fade-in animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Define keyframes for slide-in animations */
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Apply fade-in animation with smooth transition */
+.fadeInUp {
+  animation: fadeInUp 1.5s ease-out forwards; /* Increased duration for smoothness */
+  visibility: visible !important;
+}
+
+/* Apply slide-in animations with smooth transition */
+.hidden {
+  visibility: hidden;
+}
+
+.slideInLeft {
+  animation: slideInLeft 1.5s ease-in-out forwards;
+  visibility: visible !important; /* Ensure visibility when animated */
+}
+
+.slideInRight {
+  animation: slideInRight 1.5s ease-in-out forwards;
+  visibility: visible !important; /* Ensure visibility when animated */
+}
+
+/* Apply delay for cascading effect */
+.delay-0 {
+  animation-delay: 0s;
+}
+
+.delay-1 {
+  animation-delay: 0.3s;
+}
+
+.delay-2 {
+  animation-delay: 0.6s;
+}
+
+

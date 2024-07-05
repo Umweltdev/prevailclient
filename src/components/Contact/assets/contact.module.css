@@ -1,0 +1,43 @@
+/* contact.module.css */
+
+.contact {
+  opacity: 0;
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.contact.visible {
+  opacity: 1;
+}
+
+.textSlideIn {
+  transform: translateY(-50px);
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.textSlideIn.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.formSlideIn {
+  transform: translateX(-100px);
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.formSlideIn.visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.infoSlideIn {
+  transform: translateX(100px);
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.infoSlideIn.visible {
+  transform: translateX(0);
+  opacity: 1;
+}

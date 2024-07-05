@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {
   Typography,
   Box,
@@ -6,24 +6,25 @@ import {
   IconButton,
   Paper,
   CircularProgress,
-  Fab,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import Bookmark from "@mui/icons-material/Bookmark";
 import EastIcon from "@mui/icons-material/East";
 import Header from "./Header";
-import { userRequest } from "../../requestMethods";
-import { dateConverter } from "../user-dashboard/utils";
-import { Navigation, Receipt } from "@mui/icons-material";
 import { useCalendlyEventListener, PopupButton } from "react-calendly";
-import axiosInstance from "../utils/axios";
-import Calendly from "./Calendly";
+import axios from "axios";
+import { AuthContext } from "../../context/AuthContext";
 
-const Booking = ({ _id, name, start_time, end_time }) => {
-  // const handleBooking = {
-  //   Calendly.initPopupWidget({url: 'https://calendly.com/prevailagency'});return false;
-  // }
-
+const Booking = ({
+  _id,
+  name,
+  start_time,
+  end_time,
+  status,
+  created_at,
+  timezone,
+  id,
+}) => {
   useCalendlyEventListener({
     onProfilePageViewed: () => console.log("onProfilePageViewed"),
     onDateAndTimeSelected: () => console.log("onDateAndTimeSelected"),
@@ -44,12 +45,7 @@ const Booking = ({ _id, name, start_time, end_time }) => {
   });
 
   return (
-    <Link
-      to={`/user/bookings/${_id}`}
-      style={{
-        textDecoration: "none",
-      }}
-    >
+    <Link to={`/user/bookings/${_id}`} style={{ textDecoration: "none" }}>
       <Paper
         elevation={0}
         sx={{
@@ -62,38 +58,28 @@ const Booking = ({ _id, name, start_time, end_time }) => {
           flexWrap: "wrap",
         }}
       >
-        <Typography variant="subtitle1" flex="1 1 0">
-          {name}
+        <Typography variant="subtitle1" flex="1.2 1 0">
+          {_id}
         </Typography>
 
-        <Typography
-          variant="subtitle2"
-          flex="1 1 0"
-          // marginLeft="40px"
-          whiteSpace={{ xs: "pre", sm: "normal" }}
-          sx={{
-            margin: "6px",
-          }}
-        >
-          {dateConverter(start_time)}
+        <Typography variant="subtitle2" flex="1 1 0" sx={{ margin: "6px" }}>
+          {new Date(created_at).toLocaleDateString()}
         </Typography>
         <Typography
           variant="subtitle2"
           flex="1 1 0"
           margin="6px"
-          whiteSpace={{ xs: "pre", sm: "normal" }}
           textAlign={{ xs: "center", sm: "left" }}
         >
-          {end_time ? formattedStartTime : "Pending"}
+          {timezone}
         </Typography>
         <Typography
           variant="subtitle2"
           flex="1 1 0"
           margin="6px"
-          whiteSpace={{ xs: "pre", sm: "normal" }}
           textAlign={{ xs: "center", sm: "left" }}
         >
-          {end_time ? formattedEndTime : "Pending"}
+          {status}
         </Typography>
 
         <Typography>
@@ -109,30 +95,52 @@ const Booking = ({ _id, name, start_time, end_time }) => {
 const Bookings = ({ openDrawer }) => {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(false);
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     const getBookings = async () => {
       setLoading(true);
       try {
-        const res = await axiosInstance.get(`/api/booking`);
-
+        const res = await axios.get(
+          `https://prevailserver-4b3c670a5496.herokuapp.com/api/booking`
+        );
+        // Filter bookings by user email
+        const userBookings = res.data.filter(
+          (booking) => booking.email === user?.user.email
+        );
+        setBookings(userBookings);
         setLoading(false);
-        setBookings(res.data);
       } catch (error) {
         setLoading(false);
         console.log(error);
       }
     };
     getBookings();
-  }, []);
-  // console.log(bookings);
+  }, [user]);
+
   return (
     <Stack spacing={2}>
       <Header
         Icon={Bookmark}
         title={"My Bookings"}
         openDrawer={openDrawer}
-        button={<Calendly />}
+        button={
+          <PopupButton
+            url="https://calendly.com/prevailagency"
+            rootElement={document.getElementById("root")}
+            text={`Click here to schedule!`}
+            styles={{
+              color: "#884ed9",
+              backgroundColor: "inherit",
+              padding: "1vh 0.1vw",
+              fontFamily: "Sarabun",
+              fontSize: "1.1vw",
+              border: "none",
+              borderRadius: "5vw",
+              cursor: "pointer",
+            }}
+          />
+        }
       />
 
       {loading ? (
@@ -148,26 +156,25 @@ const Bookings = ({ openDrawer }) => {
         </Box>
       ) : bookings.length > 0 ? (
         <>
-          {" "}
           <Box display="flex" px={2} color="#7d879c">
             <Typography variant="body2" flex="1 1 0">
-              Booking
+              Booking ID
             </Typography>
             <Typography variant="body2" flex="1 1 0">
-              Meeting Date
+              Date Booked
             </Typography>
             <Typography variant="body2" flex="1 1 0">
-              Start Time
+              Time Zone
             </Typography>
             <Typography variant="body2" flex="1 1 0">
-              End Time
+              Status
             </Typography>
           </Box>
           <Stack spacing={2}>
             {bookings.map((booking, index) => (
               <Booking {...booking} key={index} />
             ))}
-          </Stack>{" "}
+          </Stack>
         </>
       ) : (
         <Box
@@ -177,43 +184,7 @@ const Bookings = ({ openDrawer }) => {
           alignItems="center"
         >
           <Typography variant="h5" textAlign="center" mt={2}>
-            {/* <a
-              href="https://calendly.com/prevailagency"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Fab
-                sx={{
-                  color: "white",
-                  backgroundColor: "#884ed9",
-                  width: "25vw",
-                  // fontSize: "1vw",
-                  "&:hover": {
-                    backgroundColor: "#884ed9",
-                  },
-                }}
-                variant="extended"
-                color=""
-              >
-                <Receipt sx={{ mr: 1 }} />
-                Book A Session
-              </Fab>
-            </a> */}
-
-            <PopupButton
-              url="https://calendly.com/prevailagency"
-              rootElement={document.getElementById("root")}
-              text={`Click here to schedule!`}
-              styles={{
-                color: "white",
-                backgroundColor: "#884ed9",
-                padding: "1.4vh 3vw",
-                fontSize: "1.2vw",
-                border: "none",
-                borderRadius: "5vw",
-                cursor: "pointer",
-              }}
-            />
+            No bookings found.
           </Typography>
         </Box>
       )}

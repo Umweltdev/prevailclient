@@ -1,6 +1,5 @@
 import { CardMedia, Grid, Typography, Box } from "@mui/material";
 import React from "react";
-import imgBrand from "../assets/imagebrand1.png";
 
 const ElevateYourPresence = () => {
   return (
@@ -23,7 +22,8 @@ const ElevateYourPresence = () => {
     >
       <CardMedia
         component={"img"}
-        image={imgBrand}
+        image="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720084561/Elevate-Your-Presence_axb20s.avif"
+        alt="Elevate-Your-Presence"
         sx={{
           width: "50vw",
           "@media (max-width: 600px)": {

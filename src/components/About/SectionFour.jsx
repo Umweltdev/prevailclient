@@ -1,14 +1,31 @@
-import { Box, CardMedia, Grid, Typography } from "@mui/material";
-import React from "react";
-import { makeStyles } from "@mui/styles";
-import imago from "./About_Us/What-We-Do.webp";
-
+import { Box, CardMedia, Grid, Skeleton, Typography } from "@mui/material";
+import React, { useState } from "react";
+import { useInView } from "react-intersection-observer";
+import styles from "./assets/about.module.css"; // Import the animation CSS
 
 const SectionFour = () => {
-  
+  const { ref: sectionRef, inView: sectionInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const { ref: textRef, inView: textInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const { ref: imageRef, inView: imageInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
     <Grid
       container
+      ref={sectionRef}
+      className={`${styles.sectionFour} ${sectionInView ? styles.visible : ""}`}
       sx={{
         width: "100vw",
         display: "flex",
@@ -28,22 +45,63 @@ const SectionFour = () => {
         },
       }}
     >
-      <CardMedia
-        component={"img"}
-        image={imago}
-        alt="What-We-Do"
+      <Box
+        ref={imageRef}
+        className={`${styles.imageSlideIn} ${
+          imageInView ? styles.visible : ""
+        }`}
         sx={{
           width: "485px",
           height: "290px",
           borderRadius: "14px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: imageLoaded ? "transparent" : "#ECF1FA",
           "@media (max-width: 600px)": {
             maxWidth: "90vw",
             width: "90vw",
+            height: "auto",
           },
         }}
-      />
+      >
+        {!imageLoaded && (
+          <Skeleton
+            variant="rectangular"
+            width={485}
+            height={290}
+            sx={{
+              borderRadius: "14px",
+              "@media (max-width: 600px)": {
+                width: "90vw",
+                height: "auto",
+              },
+            }}
+          />
+        )}
+        <CardMedia
+          component={"img"}
+          image={
+            "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720110083/What-We-Do_gn0opz.avif"
+          }
+          alt="What-We-Do"
+          onLoad={() => setImageLoaded(true)}
+          sx={{
+            width: "485px",
+            height: "290px",
+            borderRadius: "14px",
+            display: imageLoaded ? "block" : "none",
+            "@media (max-width: 600px)": {
+              maxWidth: "90vw",
+              width: "90vw",
+            },
+          }}
+        />
+      </Box>
 
       <Grid
+        ref={textRef}
+        className={`${styles.textSlideIn} ${textInView ? styles.visible : ""}`}
         item
         sx={{
           width: "485px",

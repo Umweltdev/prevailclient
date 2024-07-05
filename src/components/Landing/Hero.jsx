@@ -1,29 +1,32 @@
 import React from "react";
-import {
-  Container,
-  Grid,
-  Typography,
-  Box,
-  Button,
-  CardMedia,
-} from "@mui/material";
+import { Grid, Typography, Box, Button, CardMedia } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import face1 from "./home/Landing-View-1.webp";
-import face2 from "./home/Landing-View-2.webp";
+import { useInView } from "react-intersection-observer";
 import face3 from "./assets/Union.png";
-import face4 from "./home/Landing-View-3.webp";
-import face5 from "./home/Landing-View-4.webp";
-//import face6 from "./assets/face6.svg";
-import face7 from "./home/Landing-View-5.webp";
 import face8 from "./assets/globe.png";
 import face9 from "./assets/pencil.png";
-//import face10 from "./assets/face10.svg";
 import face11 from "./assets/eye.png";
 import face12 from "./assets/Unions.svg";
 import face13 from "./assets/hands-new.png";
+import styles from "./assets/animation.module.css";
 
 const Hero = () => {
   const navigate = useNavigate();
+
+  const { ref: headingRef, inView: headingInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const { ref: subTextRef, inView: subTextInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const { ref: imageGroupRef, inView: imageGroupInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
   return (
     <Grid
@@ -34,7 +37,7 @@ const Hero = () => {
         pt: "256px",
         pb: "100px",
         justifyContent: "center",
-        alignItems: "top",
+        alignItems: "flex-start",
         "@media (max-width: 767px)": {
           flexDirection: "column",
           width: "100vw",
@@ -45,6 +48,8 @@ const Hero = () => {
     >
       <Grid>
         <Typography
+          ref={headingRef}
+          className={headingInView ? styles.zoomFadeIn : ""}
           sx={{
             fontSize: "64px",
             color: "#1D0D40",
@@ -62,7 +67,6 @@ const Hero = () => {
           }}
         >
           Your Partner in Accelerating the
-
         </Typography>
         <Typography
           sx={{
@@ -83,8 +87,9 @@ const Hero = () => {
         >
           Digital Space
         </Typography>
-
         <Typography
+          ref={subTextRef}
+          className={subTextInView ? styles.slideInLeft : ""}
           sx={{
             margin: "1rem 0",
             fontSize: "1.25rem",
@@ -110,13 +115,14 @@ const Hero = () => {
               backgroundColor: "#3a0d96",
             },
           }}
-          onClick={() => navigate("/Contact")}
+          onClick={() => navigate("/contact-us")}
         >
           Get started
         </Button>
       </Grid>
-
       <Grid
+        ref={imageGroupRef}
+        className={imageGroupInView ? styles.slideInRight : ""}
         sx={{
           "@media (max-width: 767px)": {
             width: "90vw",
@@ -146,7 +152,9 @@ const Hero = () => {
                 },
               }}
               component={"img"}
-              image={face1}
+              image={
+                "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720079292/Landing-View-1_ropr5f.webp"
+              }
               alt="Landing-View-1"
             />
             <Box
@@ -165,7 +173,9 @@ const Hero = () => {
                   height: "100%",
                 }}
                 component={"img"}
-                image={face2}
+                image={
+                  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720079290/Landing-View-2_xnoeyf.webp"
+                }
                 alt="Landing-View-2"
               />
               <Box
@@ -247,7 +257,9 @@ const Hero = () => {
                 },
               }}
               component={"img"}
-              image={face4}
+              image={
+                "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720079290/Landing-View-3_irfnkj.webp"
+              }
               alt="Landing-View-3"
             />
           </Box>
@@ -272,7 +284,9 @@ const Hero = () => {
                 borderRadius: "50%",
               }}
               component={"img"}
-              image={face5}
+              image={
+                "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720079289/Landing-View-4_n1jfb5.webp"
+              }
               alt="Landing-View-4"
             />
             <CardMedia
@@ -331,7 +345,9 @@ const Hero = () => {
               },
             }}
             component={"img"}
-            image={face7}
+            image={
+              "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720079287/Landing-View-5_idby0s.webp"
+            }
             alt="Landing-View-5"
           />
         </Box>

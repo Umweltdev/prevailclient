@@ -3,7 +3,7 @@ import { Card, CardMedia, Grid, Typography, Box } from "@mui/material";
 import icon1 from "../assets/dollar.svg";
 import icon2 from "../assets/invoice.svg";
 import icon3 from "../assets/presentation-board.svg";
-import img from "../assets/image 145.png";
+import img from "../assets/Prevail-MPD-API.webp";
 import { mpdDataApi } from "./mpdData";
 
 const PrevailMPDApi = () => {
@@ -74,6 +74,7 @@ const PrevailMPDApi = () => {
               <Box key={i} sx={{ display: "flex", gap: "16px" }}>
                 <CardMedia
                   component={"img"}
+                  alt="Prevail-MPD-API"
                   image={item.icon}
                   sx={{ width: "34px", height: "34px" }}
                 />

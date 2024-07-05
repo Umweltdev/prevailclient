@@ -1,10 +1,34 @@
-import { Box, CardMedia, Grid, Typography } from "@mui/material";
-import React from "react";
-import imago from "./About_Us/Why-It-Matters.webp";
+import { Box, CardMedia, Grid, Skeleton, Typography } from "@mui/material";
+import React, { useState } from "react";
+import { useInView } from "react-intersection-observer";
+import styles from "./assets/about.module.css";
 
 const WhyItMatters = () => {
+  const { ref: sectionRef, inView: sectionInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const { ref: textRef, inView: textInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const { ref: imageRef, inView: imageInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
+
   return (
     <Grid
+      container
+      ref={sectionRef}
+      className={`${styles.whyItMatters} ${
+        sectionInView ? styles.visible : ""
+      }`}
       sx={{
         width: "100vw",
         display: "flex",
@@ -12,7 +36,6 @@ const WhyItMatters = () => {
         margin: "100px auto 0 auto",
         justifyContent: "center",
         alignItems: "center",
-        // gap: "px",
         gap: "239px",
         "@media (max-width: 600px)": {
           width: "90vw",
@@ -27,6 +50,10 @@ const WhyItMatters = () => {
     >
       <Box>
         <Grid
+          ref={textRef}
+          className={`${styles.textSlideIn} ${
+            textInView ? styles.visible : ""
+          }`}
           item
           sx={{
             width: "485px",
@@ -70,7 +97,7 @@ const WhyItMatters = () => {
             <br /> <br /> We equip these businesses with the tools to harness
             the full potential of digital technology and strategic marketing,
             building a durable competitive edge. Together, we can ensure that
-            your business doesn’t just survive; it prevails. 
+            your business doesn’t just survive; it prevails.
           </Typography>
         </Grid>
         <Grid
@@ -114,22 +141,81 @@ const WhyItMatters = () => {
             Collaboration sits at the core of our operations. By fostering close
             partnerships with our clients, we delve deep into their unique
             challenges and opportunities. <br /> <br />
-            Our team of seasoned experts leverages this imitate knowledge along
+            Our team of seasoned experts leverages this intimate knowledge along
             with our prowess in digital strategy and consumer behaviour, to
             devise customised solutions that deliver tangible results.
           </Typography>
         </Grid>
       </Box>
-      <CardMedia
-        component={"img"}
-        image={imago}
-        alt="Why-It-Matters"
+      <Box
+        ref={imageRef}
+        className={`${styles.imageSlideIn} ${
+          imageInView ? styles.visible : ""
+        }`}
         sx={{
           width: "485px",
           maxHeight: "636px",
           height: "auto",
+          borderRadius: "14px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor:
+            imageLoaded || imageError ? "transparent" : "#ECF1FA",
+          "@media (max-width: 600px)": {
+            width: "90vw",
+            height: "auto",
+          },
         }}
-      />
+      >
+        {!imageLoaded && !imageError && (
+          <Skeleton
+            variant="rectangular"
+            width={485}
+            height={636}
+            sx={{
+              borderRadius: "14px",
+              "@media (max-width: 600px)": {
+                width: "90vw",
+                height: "auto",
+              },
+            }}
+          />
+        )}
+        <CardMedia
+          component={"img"}
+          image={
+            "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720110083/Why-It-Matters_kijum4.avif"
+          }
+          alt="Why-It-Matters"
+          onLoad={() => setImageLoaded(true)}
+          onError={() => setImageError(true)}
+          sx={{
+            width: "485px",
+            maxHeight: "636px",
+            height: "auto",
+            borderRadius: "14px",
+            display: imageLoaded ? "block" : "none",
+            "@media (max-width: 600px)": {
+              width: "90vw",
+            },
+          }}
+        />
+        {imageError && (
+          <Typography
+            variant="body1"
+            color="error"
+            sx={{
+              position: "absolute",
+              textAlign: "center",
+              width: "100%",
+              padding: "20px",
+            }}
+          >
+            Error loading image.
+          </Typography>
+        )}
+      </Box>
     </Grid>
   );
 };
