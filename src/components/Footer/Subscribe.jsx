@@ -9,7 +9,7 @@ import {
   OutlinedInput,
   Typography,
 } from "@mui/material";
-import React, { useState }from "react";
+import React, { useState } from "react";
 import axiosInstance from "../utils/axios";
 import makeToast from "../../makeToast";
 import * as yup from "yup";
@@ -30,14 +30,22 @@ const Subscribe = () => {
     },
     validationSchema: validationSchema,
     onSubmit: async (values, { resetForm }) => {
+      setIsLoading(true);
       try {
         await axiosInstance.post(`/api/auth/addSubscriber`, {
           email: values.email,
         });
         makeToast("success", "Successfully subscribed to our newsletters");
+        setIsLoading(false);
         resetForm();
       } catch (error) {
-        makeToast("error", error?.message?.title || "Something went wrong, Please try again later");
+        makeToast(
+          "error",
+          error?.message?.title ||
+            "Something went wrong, Please try again later"
+        );
+        setIsLoading(false);
+
         console.log(error);
       }
     },
@@ -139,7 +147,7 @@ const Subscribe = () => {
                           background: "#6E3EF4",
                         },
                       }}
-                      disabled={!(formik.isValid && formik.dirty)}
+                      disabled={!formik.isValid || formik.dirty || isLoading}
                     >
                       Subscribe
                     </Button>
@@ -199,9 +207,9 @@ const Subscribe = () => {
                   background: "#6E3EF4",
                 },
               }}
-              disabled={!(formik.isValid && formik.dirty)}
+              disabled={!formik.isValid || formik.dirty || isLoading}
             >
-              Subscribe!
+              Subscribe
             </Button>
           </Grid>
         </form>
