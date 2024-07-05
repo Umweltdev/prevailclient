@@ -14,6 +14,10 @@ import CookieConsent, {
   Cookies,
   getCookieConsentValue,
 } from "react-cookie-consent";
+import CookieConsent, {
+  Cookies,
+  getCookieConsentValue,
+} from "react-cookie-consent";
 
 
 const Landing = (props) => {
