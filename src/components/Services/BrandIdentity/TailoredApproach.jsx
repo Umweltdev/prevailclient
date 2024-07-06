@@ -142,12 +142,14 @@ const TailoredApproach = () => {
               color: "white",
               width: "585px",
               height: "206px",
-              background:
-                "linear-gradient(349deg, #350079 11.15%, #904AEA 92.99%)",
+              background: "#fff",
               mt: "43px",
               borderRadius: "10px",
+              boxShadow: "3",
               "@media (max-width: 600px)": {
-                height: "216px",
+                height: "auto",
+                mt: "unset",
+                padding: "20px",
                 margin: "auto",
                 width: "90vw",
                 ml: "unset",
@@ -161,9 +163,11 @@ const TailoredApproach = () => {
                 mt: "45px",
                 fontSize: "16px",
                 fontWeight: "500",
+                color: "#350079",
+
                 "@media (max-width: 600px)": {
                   width: "80vw",
-                  mt: "20px",
+                  mt: "unset",
                   fontSize: "4vw",
                 },
               }}
@@ -178,7 +182,14 @@ const TailoredApproach = () => {
           <CardMedia
             component={"img"}
             image={mugs}
-            sx={{ width: "585px", borderRadius: "5px" }}
+            sx={{
+              width: "585px",
+              borderRadius: "5px",
+              boxShadow: "3",
+              "@media (max-width: 600px)": {
+                width: "90vw",
+              },
+            }}
           />
         </Box>
       </Grid>
