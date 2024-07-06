@@ -36,7 +36,7 @@ const EmpowerBusiness = () => {
         },
       }}
     >
-      <Fab
+      {/* <Fab
         sx={{
           position: "absolute",
           top: "80%",
@@ -62,7 +62,7 @@ const EmpowerBusiness = () => {
         }}
       >
         Open PDF <FileCopy sx={{ ml: "10px" }} />
-      </Fab>
+      </Fab> */}
 
       <Modal
         open={isModalOpen}
