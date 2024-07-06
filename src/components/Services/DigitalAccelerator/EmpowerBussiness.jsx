@@ -1,16 +1,19 @@
-import { Box, Fab, Modal, Typography } from "@mui/material";
+import { Box, Fab, Modal, Typography, CircularProgress } from "@mui/material";
 import React, { useState } from "react";
 import { FileCopy } from "@mui/icons-material";
 
-const EmpowerBussiness = () => {
+const EmpowerBusiness = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleOpenModal = () => {
+    setIsLoading(true); // Start loading when the modal opens
     setIsModalOpen(true);
   };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
+    setIsLoading(false); // Reset loading state when the modal closes
   };
 
   return (
@@ -25,12 +28,9 @@ const EmpowerBussiness = () => {
         backgroundPosition: "center",
         height: "160vh",
         position: "relative",
-        overflow: "hidden", // Ensure the cropped areas are not visible
+        overflow: "hidden",
         clipPath: "inset(20vh 0)",
         "@media (max-width: 600px)": {
-          // backgroundImage:
-          //   "url(https://res.cloudinary.com/dtzuqacg3/image/upload/v1720212269/Screenshot_from_2024-07-05_21-43-15_gevfwa.png)",
-          // width: "100vw",
           height: "100vh",
           clipPath: "inset(10vh 0)",
         },
@@ -78,7 +78,7 @@ const EmpowerBussiness = () => {
             width: "70vw",
             bgcolor: "background.paper",
             boxShadow: 24,
-            p: 4,
+            p: 2,
             outline: "none",
             "@media (max-width: 600px)": {
               width: "95vw",
@@ -88,14 +88,29 @@ const EmpowerBussiness = () => {
           <Typography variant="h6" component="h2" gutterBottom>
             PDF Viewer
           </Typography>
+          {isLoading && (
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                height: "500px", // Adjust based on your design
+              }}
+            >
+              <CircularProgress />
+            </Box>
+          )}
           <iframe
-            src="https://www.dropbox.com/scl/fi/7idvjhtcj9wwftckn4xs0/Prevail-Brand-Identity.pdf?rlkey=kosev0nzvx6r2pja51nzaa8u3&st=zdhbu6pd&dl=0"
+            src="src/components/Services/DigitalAccelerator/assets/Prevail Brand Identity.pdf"
             width="100%"
             height="500px"
             title="PDF Viewer"
             style={{
               border: "none",
+              display: isLoading ? "none" : "block",
             }}
+            onLoad={() => setIsLoading(false)}
+            onError={() => setIsLoading(false)}
           ></iframe>
           <Fab
             onClick={handleCloseModal}
@@ -119,4 +134,4 @@ const EmpowerBussiness = () => {
   );
 };
 
-export default EmpowerBussiness;
+export default EmpowerBusiness;
