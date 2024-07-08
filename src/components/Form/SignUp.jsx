@@ -14,8 +14,8 @@ import { styled } from "@mui/system";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
-import Loading from "../utils/Loading";
-import signupImage from "../Form/Login-Signup.webp";
+//import Loading from "../utils/Loading";
+//import signupImage from "../Form/Login-Signup.webp";
 import image2 from "../Form/Group_1.svg";
 import { PasswordInput, TextInput } from "./Textfileds";
 
@@ -338,7 +338,7 @@ const SignUp = () => {
       >
         <CardMedia
           component={"img"}
-          image={signupImage}
+          image="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720440293/Login-Signup_kk5xao.avif"
           alt="Login-Signup"
           sx={{
             height: "75vh",

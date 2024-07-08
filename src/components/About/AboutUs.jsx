@@ -5,17 +5,7 @@ import { useInView } from "react-intersection-observer";
 import styles from "./assets/about.module.css";
 
 const AboutUs = () => {
-  const { ref: sectionRef, inView: sectionInView } = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
-  const { ref: textRef, inView: textInView } = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
-  const { ref: imageRef, inView: imageInView } = useInView({
+  const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
@@ -25,10 +15,8 @@ const AboutUs = () => {
   return (
     <Grid
       container
-      ref={sectionRef}
-      className={`${styles.aboutUsSection} ${
-        sectionInView ? styles.visible : ""
-      }`}
+      ref={ref}
+      className={`${styles.aboutUsSection} ${inView ? styles.visible : ""}`}
       sx={{
         display: "flex",
         flexDirection: "column",
@@ -46,8 +34,7 @@ const AboutUs = () => {
       }}
     >
       <Grid
-        ref={textRef}
-        className={`${styles.aboutUsText} ${textInView ? styles.visible : ""}`}
+        className={`${styles.aboutUsText} ${inView ? styles.visible : ""}`}
         sx={{
           color: "#6E3EF4",
           fontSize: "24px",
@@ -59,7 +46,7 @@ const AboutUs = () => {
         About Us
       </Grid>
       <Grid
-        className={`${styles.aboutUsText} ${textInView ? styles.visible : ""}`}
+        className={`${styles.aboutUsText} ${inView ? styles.visible : ""}`}
         sx={{
           color: "#1D0D40",
           fontSize: "38px",
@@ -74,7 +61,7 @@ const AboutUs = () => {
         Great companies are made by great people
       </Grid>
       <Grid
-        className={`${styles.aboutUsText} ${textInView ? styles.visible : ""}`}
+        className={`${styles.aboutUsText} ${inView ? styles.visible : ""}`}
         sx={{
           color: "#505660",
           fontSize: "18px",
@@ -113,14 +100,14 @@ const AboutUs = () => {
         />
       )}
       <CardMedia
-        ref={imageRef}
+        ref={ref}
         component={"img"}
         image={
           "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720110085/Working-Together_cvbkzp.avif"
         }
         alt="Working-Together"
         className={`${styles.aboutUsImage} ${
-          imageInView ? styles.visible : ""
+          inView ? styles.visible : ""
         }`}
         sx={{
           width: "1210px",
