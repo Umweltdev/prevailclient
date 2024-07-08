@@ -111,26 +111,27 @@ const EmpowerBusiness = () => {
 
   const downloadPdf = async () => {
     const doc = new jsPDF();
-
-    const fetchImageAsBase64 = async (url) => {
-      const response = await fetch(url, { mode: "cors" });
-      const blob = await response.blob();
+    const imagePromises = imageUrls.map((url) => {
       return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onloadend = () => resolve(reader.result);
-        reader.onerror = reject;
-        reader.readAsDataURL(blob);
+        const img = new Image();
+        img.src = url;
+        img.onload = () => resolve(img);
+        img.onerror = reject;
       });
-    };
-
-    const imagePromises = imageUrls.map((url) => fetchImageAsBase64(url));
+    });
 
     try {
-      const base64Images = await Promise.all(imagePromises);
-      base64Images.forEach((base64Img, index) => {
+      const images = await Promise.all(imagePromises);
+      images.forEach((img, index) => {
+        const canvas = document.createElement("canvas");
+        canvas.width = img.width;
+        canvas.height = img.height;
+        const ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0, img.width, img.height);
+        const imgData = canvas.toDataURL("image/jpeg");
         if (index > 0) doc.addPage();
         doc.addImage(
-          base64Img,
+          imgData,
           "JPEG",
           0,
           0,
@@ -138,7 +139,7 @@ const EmpowerBusiness = () => {
           doc.internal.pageSize.getHeight()
         );
       });
-      doc.save("Prevail Brand Identity.pdf");
+      doc.save("document.pdf");
     } catch (error) {
       console.error("Error loading images:", error);
     }
