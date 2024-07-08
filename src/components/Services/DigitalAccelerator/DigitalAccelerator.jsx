@@ -17,8 +17,8 @@ const DigitalAccelerator = () => {
   const Mobile = useMediaQuery("(min-width:1249px)");
 
   const signup = () => {
-    navigate("/signup")
-  }
+    navigate("/signup");
+  };
 
   return (
     <>
