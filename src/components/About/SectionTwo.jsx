@@ -4,17 +4,7 @@ import { useInView } from "react-intersection-observer";
 import styles from "./assets/about.module.css";
 
 const SectionTwo = () => {
-  const { ref: sectionRef, inView: sectionInView } = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
-  const { ref: textRef, inView: textInView } = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
-  const { ref: imageRef, inView: imageInView } = useInView({
+  const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
@@ -24,8 +14,8 @@ const SectionTwo = () => {
   return (
     <Grid
       container
-      ref={sectionRef}
-      className={`${styles.sectionTwo} ${sectionInView ? styles.visible : ""}`}
+      ref={ref}
+      className={`${styles.sectionTwo} ${inView ? styles.visible : ""}`}
       sx={{
         width: "100vw",
         display: "flex",
@@ -46,8 +36,7 @@ const SectionTwo = () => {
       }}
     >
       <Grid
-        ref={textRef}
-        className={`${styles.textSlideIn} ${textInView ? styles.visible : ""}`}
+        className={`${styles.textSlideIn} ${inView ? styles.visible : ""}`}
         sx={{
           width: "485px",
           "@media (max-width: 600px)": {
@@ -95,9 +84,8 @@ const SectionTwo = () => {
         </Typography>
       </Grid>
       <Box
-        ref={imageRef}
         className={`${styles.imageSlideIn} ${
-          imageInView ? styles.visible : ""
+          inView ? styles.visible : ""
         }`}
         sx={{
           background: "#ECF1FA",
