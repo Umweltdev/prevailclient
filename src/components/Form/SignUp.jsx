@@ -6,6 +6,7 @@ import {
   Typography,
   CircularProgress,
   CardMedia,
+  useMediaQuery,
 } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import { styled } from "@mui/system";
