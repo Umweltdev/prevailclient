@@ -9,75 +9,209 @@ import {
 import React, { useState } from "react";
 import { FileCopy } from "@mui/icons-material";
 import jsPDF from "jspdf";
+import img1 from "./assets/Brand Identity/Slide-1.avif";
+import img2 from "./assets/Brand Identity/Slide-2.avif";
+import img3 from "./assets/Brand Identity/Slide-3.avif";
+import img4 from "./assets/Brand Identity/Slide-4.avif";
+import img5 from "./assets/Brand Identity/Slide-5.avif";
+import img6 from "./assets/Brand Identity/Slide-6.avif";
+import img7 from "./assets/Brand Identity/Slide-7.avif";
+import img8 from "./assets/Brand Identity/Slide-8.avif";
+import img9 from "./assets/Brand Identity/Slide-9.avif";
+import img10 from "./assets/Brand Identity/Slide-10.avif";
+import img11 from "./assets/Brand Identity/Slide-11.avif";
+import img12 from "./assets/Brand Identity/Slide-12.avif";
+import img13 from "./assets/Brand Identity/Slide-13.avif";
+import img14 from "./assets/Brand Identity/Slide-14.avif";
+import img15 from "./assets/Brand Identity/Slide-15.avif";
+import img16 from "./assets/Brand Identity/Slide-16.avif";
+import img17 from "./assets/Brand Identity/Slide-17.avif";
+import img18 from "./assets/Brand Identity/Slide-18.avif";
+import img19 from "./assets/Brand Identity/Slide-19.avif";
+import img20 from "./assets/Brand Identity/Slide-20.avif";
+import img21 from "./assets/Brand Identity/Slide-21.avif";
+import img22 from "./assets/Brand Identity/Slide-22.avif";
+import img23 from "./assets/Brand Identity/Slide-23.avif";
+import img24 from "./assets/Brand Identity/Slide-24.avif";
+import img25 from "./assets/Brand Identity/Slide-25.avif";
+import img26 from "./assets/Brand Identity/Slide-26.avif";
+import img27 from "./assets/Brand Identity/Slide-27.avif";
+import img28 from "./assets/Brand Identity/Slide-28.avif";
+import img29 from "./assets/Brand Identity/Slide-29.avif";
+import img30 from "./assets/Brand Identity/Slide-30.avif";
+import img31 from "./assets/Brand Identity/Slide-31.avif";
+import img32 from "./assets/Brand Identity/Slide-32.avif";
+import img33 from "./assets/Brand Identity/Slide-33.avif";
+import img34 from "./assets/Brand Identity/Slide-34.avif";
+import img35 from "./assets/Brand Identity/Slide-35.avif";
+import img36 from "./assets/Brand Identity/Slide-36.avif";
+import img37 from "./assets/Brand Identity/Slide-37.avif";
+import img38 from "./assets/Brand Identity/Slide-38.avif";
+import img39 from "./assets/Brand Identity/Slide-39.avif";
+import img40 from "./assets/Brand Identity/Slide-40.avif";
+import img41 from "./assets/Brand Identity/Slide-41.avif";
+import img42 from "./assets/Brand Identity/Slide-42.avif";
+import img43 from "./assets/Brand Identity/Slide-43.avif";
+import img44 from "./assets/Brand Identity/Slide-44.avif";
+import img45 from "./assets/Brand Identity/Slide-45.avif";
+import img46 from "./assets/Brand Identity/Slide-46.avif";
+import img47 from "./assets/Brand Identity/Slide-47.avif";
+import img48 from "./assets/Brand Identity/Slide-48.avif";
+import img49 from "./assets/Brand Identity/Slide-49.avif";
+import img50 from "./assets/Brand Identity/Slide-50.avif";
+import img51 from "./assets/Brand Identity/Slide-51.avif";
+import img52 from "./assets/Brand Identity/Slide-52.avif";
+import img53 from "./assets/Brand Identity/Slide-53.avif";
+import img54 from "./assets/Brand Identity/Slide-54.avif";
+import img55 from "./assets/Brand Identity/Slide-55.avif";
+import img56 from "./assets/Brand Identity/Slide-56.avif";
+import img57 from "./assets/Brand Identity/Slide-57.avif";
+import img58 from "./assets/Brand Identity/Slide-58.avif";
+import img59 from "./assets/Brand Identity/Slide-59.avif";
+import img60 from "./assets/Brand Identity/Slide-60.avif";
+import img61 from "./assets/Brand Identity/Slide-61.avif";
+import img62 from "./assets/Brand Identity/Slide-62.avif";
+import img63 from "./assets/Brand Identity/Slide-63.avif";
+import img64 from "./assets/Brand Identity/Slide-64.avif";
+import img65 from "./assets/Brand Identity/Slide-65.avif";
+import img66 from "./assets/Brand Identity/Slide-66.avif";
+import img67 from "./assets/Brand Identity/Slide-67.avif";
 
 const imageUrls = [
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437623/Slide-1_bvdsfx.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437667/Slide-2_ureouk.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437634/Slide-3_t9crl0.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437626/Slide-4_kbrk9t.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437703/Slide-5_rfveef.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437684/Slide-6_xj6ef0.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437635/Slide-7_v6llyc.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437687/Slide-8_rsgddv.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437632/Slide-9_g9gium.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437632/Slide-10_k02761.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437631/Slide-11_h4uolo.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437667/Slide-12_iskqgj.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437668/Slide-13_cozrkl.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437648/Slide-14_qvvgpi.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437634/Slide-15_tvd2hu.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437686/Slide-16_a9alzb.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437685/Slide-17_itjjms.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437652/Slide-18_cphmio.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437629/Slide-19_uxoew7.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437649/Slide-20_fsclwb.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437630/Slide-21_zcjym9.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437632/Slide-22_knjlri.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437670/Slide-23_zoz1u4.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437628/Slide-24_mbhidx.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437683/Slide-25_mmhs1j.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437688/Slide-26_rqrmmb.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437671/Slide-27_cmp3kg.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437630/Slide-28_q8icow.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437685/Slide-29_lfp9gd.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437688/Slide-30_gg5yqt.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437686/Slide-31_msz2o5.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437627/Slide-32_dolrpr.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437624/Slide-33_d34sel.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437632/Slide-34_p7lmcq.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437652/Slide-35_eu93ua.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437651/Slide-36_tywtb1.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437626/Slide-37_xazfjt.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437634/Slide-38_cb3efx.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437688/Slide-39_n1wwle.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437653/Slide-40_zxvs5d.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437704/Slide-41_muhsbz.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437629/Slide-42_z887nm.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437635/Slide-43_fiold6.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437668/Slide-44_fnwhsf.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437671/Slide-45_n1eoc3.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437628/Slide-46_nk6rdj.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437650/Slide-47_i4anui.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437651/Slide-48_bb4eb0.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437702/Slide-49_aabfdp.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437704/Slide-50_xuexmm.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437650/Slide-51_yhhjze.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437703/Slide-52_khxt6c.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437670/Slide-53_s4o91w.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437685/Slide-54_vffxh9.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437669/Slide-55_timdqi.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437651/Slide-56_og9s2t.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437625/Slide-57_urpoeb.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437667/Slide-58_bayvnj.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437626/Slide-59_jupj1e.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437687/Slide-60_lno38l.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437624/Slide-61_iem3ne.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437654/Slide-62_buuj9x.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437669/Slide-63_vatz6d.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437654/Slide-64_ujzkud.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437623/Slide-65_jycs1e.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437684/Slide-66_nqjldk.avif",
-  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437629/Slide-67_whzqgt.avif",
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  img6,
+  img7,
+  img8,
+  img9,
+  img10,
+  img11,
+  img12,
+  img13,
+  img14,
+  img15,
+  img16,
+  img17,
+  img18,
+  img19,
+  img20,
+  img21,
+  img22,
+  img23,
+  img24,
+  img25,
+  img26,
+  img27,
+  img28,
+  img29,
+  img30,
+  img31,
+  img32,
+  img33,
+  img34,
+  img35,
+  img36,
+  img37,
+  img38,
+  img39,
+  img40,
+  img41,
+  img42,
+  img43,
+  img44,
+  img45,
+  img46,
+  img47,
+  img48,
+  img49,
+  img50,
+  img51,
+  img52,
+  img53,
+  img54,
+  img55,
+  img56,
+  img57,
+  img58,
+  img59,
+  img60,
+  img61,
+  img62,
+  img63,
+  img64,
+  img65,
+  img66,
+  img67,
+  // "./assets/Brand Identity/Slide-1.avif",
+  // "./assets/Brand Identity/Slide-2.avif",
+  // "./assets/Brand Identity/Slide-3.avif",
+  // "./assets/Brand Identity/Slide-4.avif",
+  // "./assets/Brand Identity/Slide-5.avif",
+  // "./assets/Brand Identity/Slide-6.avif",
+  // "./assets/Brand Identity/Slide-7.avif",
+  // "./assets/Brand Identity/Slide-8.avif",
+  // "./assets/Brand Identity/Slide-9.avif",
+  // "./assets/Brand Identity/Slide-10.avif",
+  // "./assets/Brand Identity/Slide-11.avif",
+  // "./assets/Brand Identity/Slide-12.avif",
+  // "./assets/Brand Identity/Slide-13.avif",
+  // "./assets/Brand Identity/Slide-14.avif",
+  // "./assets/Brand Identity/Slide-15.avif",
+  // "./assets/Brand Identity/Slide-16.avif",
+  // "./assets/Brand Identity/Slide-17.avif",
+  // "./assets/Brand Identity/Slide-18.avif",
+  // "./assets/Brand Identity/Slide-19.avif",
+  // "./assets/Brand Identity/Slide-20.avif",
+  // "./assets/Brand Identity/Slide-21.avif",
+  // "./assets/Brand Identity/Slide-22.avif",
+  // "./assets/Brand Identity/Slide-23.avif",
+  // "./assets/Brand Identity/Slide-24.avif",
+  // "./assets/Brand Identity/Slide-25.avif",
+  // "./assets/Brand Identity/Slide-26.avif",
+  // "./assets/Brand Identity/Slide-27.avif",
+  // "./assets/Brand Identity/Slide-28.avif",
+  // "./assets/Brand Identity/Slide-29.avif",
+  // "./assets/Brand Identity/Slide-30.avif",
+  // "./assets/Brand Identity/Slide-31.avif",
+  // "./assets/Brand Identity/Slide-32.avif",
+  // "./assets/Brand Identity/Slide-33.avif",
+  // "./assets/Brand Identity/Slide-34.avif",
+  // "./assets/Brand Identity/Slide-35.avif",
+  // "./assets/Brand Identity/Slide-36.avif",
+  // "./assets/Brand Identity/Slide-37.avif",
+  // "./assets/Brand Identity/Slide-38.avif",
+  // "./assets/Brand Identity/Slide-39.avif",
+  // "./assets/Brand Identity/Slide-40.avif",
+  // "./assets/Brand Identity/Slide-41.avif",
+  // "./assets/Brand Identity/Slide-42.avif",
+  // "./assets/Brand Identity/Slide-43.avif",
+  // "./assets/Brand Identity/Slide-44.avif",
+  // "./assets/Brand Identity/Slide-45.avif",
+  // "./assets/Brand Identity/Slide-46.avif",
+  // "./assets/Brand Identity/Slide-47.avif",
+  // "./assets/Brand Identity/Slide-48.avif",
+  // "./assets/Brand Identity/Slide-49.avif",
+  // "./assets/Brand Identity/Slide-50.avif",
+  // "./assets/Brand Identity/Slide-51.avif",
+  // "./assets/Brand Identity/Slide-52.avif",
+  // "./assets/Brand Identity/Slide-53.avif",
+  // "./assets/Brand Identity/Slide-54.avif",
+  // "./assets/Brand Identity/Slide-55.avif",
+  // "./assets/Brand Identity/Slide-56.avif",
+  // "./assets/Brand Identity/Slide-57.avif",
+  // "./assets/Brand Identity/Slide-58.avif",
+  // "./assets/Brand Identity/Slide-59.avif",
+  // "./assets/Brand Identity/Slide-60.avif",
+  // "./assets/Brand Identity/Slide-61.avif",
+  // "./assets/Brand Identity/Slide-62.avif",
+  // "./assets/Brand Identity/Slide-63.avif",
+  // "./assets/Brand Identity/Slide-64.avif",
+  // "./assets/Brand Identity/Slide-65.avif",
+  // "./assets/Brand Identity/Slide-66.avif",
+  // "./assets/Brand Identity/Slide-67.avif",
 ];
 
 const EmpowerBusiness = () => {
