@@ -8,9 +8,23 @@ const FormInputText = ({ label, name, labelInput, value, onChange }) => {
   };
   return (
     <Grid sx={{ margin: "0 auto", marginBottom: "3vh" }}>
-      <Typography sx={{ width: "50vw" }}>{label}</Typography>
+      <Typography
+        sx={{
+          width: "50vw",
+          "@media (max-width: 900px)": {
+            width: "90vw",
+          },
+        }}
+      >
+        {label}
+      </Typography>
       <TextField
-        sx={{ width: "50vw" }}
+        sx={{
+          width: "50vw",
+          "@media (max-width: 900px)": {
+            width: "90vw",
+          },
+        }}
         name={name}
         label={labelInput}
         value={value}

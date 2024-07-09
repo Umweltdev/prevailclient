@@ -1,6 +1,6 @@
 import { Grid, Typography } from "@mui/material";
 import React from "react";
-import Logo from "../pmmlogo.png";
+import Logo from "../logo.svg";
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
@@ -20,7 +20,7 @@ const SubmitStepper = () => {
   return (
     <Grid
       sx={{
-        margin: "auto",
+        // margin: "auto",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -35,7 +35,8 @@ const SubmitStepper = () => {
           "@media (max-width: 600px)": {
             width: "80vw",
             textAlign: "justify",
-            alignJustify: "distribute"
+            fontSize: "15px"
+            // alignJustify: "distribute",
           },
         }}
       >

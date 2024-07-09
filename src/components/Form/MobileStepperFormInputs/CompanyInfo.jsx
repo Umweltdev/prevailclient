@@ -19,28 +19,13 @@ const companyInfo = () => {
         <Typography
           sx={{ width: "80vw", marginTop: "1vh", fontSize: "4vw", mb: "1vh" }}
         >
-          What is the name of your establishment, and what is the
-          industry/sector?
-        </Typography>
-        <TextField
-          id="outlined-basic"
-          label="Your Company & Industry/Sector"
-          variant="outlined"
-          fullWidth
-        />
-      </Grid>
-      <Grid sx={{ width: "100%", marginBottom: "2vh" }}>
-        <Typography
-          sx={{ width: "80vw", marginTop: "1vh", fontSize: "4vw", mb: "1vh" }}
-        >
-          Can you describe your establishment in a few sentences?
+          Why was it founded? What is the story behind the business?
         </Typography>
         <TextField
           id="outlined-multiline-static"
-          label="Multiline"
+          label="Type here..."
           multiline
           rows={4}
-          defaultValue="Type here..."
           fullWidth
         />
       </Grid>
@@ -48,11 +33,11 @@ const companyInfo = () => {
         <Typography
           sx={{ width: "80vw", marginTop: "1vh", fontSize: "4vw", mb: "1vh" }}
         >
-          How long has your business been operating in Ireland?
+          What is the industry/sector?
         </Typography>
         <TextField
           id="outlined-basic"
-          label="e.g 2years"
+          label="industry/sector?"
           variant="outlined"
           fullWidth
         />
@@ -61,33 +46,56 @@ const companyInfo = () => {
         <Typography
           sx={{ width: "80vw", marginTop: "1vh", fontSize: "4vw", mb: "1vh" }}
         >
-          Do you have a mission statement or core values?
+          Does the company have a mission statement or core values?
         </Typography>
         <TextField
-          id="outlined-select-currency"
-          select
-          label="Select"
-          defaultValue="EUR"
-          helperText="Please select your currency"
+          id="outlined-multiline-static"
+          label="Type here..."
+          multiline
+          rows={4}
           fullWidth
-        >
-          {bool.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
+        />
       </Grid>
-
       <Grid sx={{ width: "100%", marginBottom: "2vh" }}>
         <Typography
           sx={{ width: "80vw", marginTop: "1vh", fontSize: "4vw", mb: "1vh" }}
         >
-          If yes, please provide them below.
+          Briefly describe the company in a few sentences.
         </Typography>
         <TextField
           id="outlined-multiline-static"
-          label="Multiline"
+          label="Type here..."
+          multiline
+          rows={4}
+          fullWidth
+        />
+      </Grid>
+      <Grid sx={{ width: "100%", marginBottom: "2vh" }}>
+        <Typography
+          sx={{ width: "80vw", marginTop: "1vh", fontSize: "4vw", mb: "1vh" }}
+        >
+          What are some of the goals/objectives? (increase revenue, increase
+          profit, improve my ROI, get more conversions, lower my acquisition
+          cost, other)
+        </Typography>
+        <TextField
+          id="outlined-multiline-static"
+          label="Type here..."
+          multiline
+          rows={4}
+          fullWidth
+        />
+      </Grid>
+      <Grid sx={{ width: "100%", marginBottom: "2vh" }}>
+        <Typography
+          sx={{ width: "80vw", marginTop: "1vh", fontSize: "4vw", mb: "1vh" }}
+        >
+          What is the vision for the company in the future? (For example, in 2
+          years+)
+        </Typography>
+        <TextField
+          id="outlined-multiline-static"
+          label="Business Overview"
           multiline
           rows={4}
           defaultValue="Type here..."

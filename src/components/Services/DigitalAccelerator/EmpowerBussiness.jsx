@@ -244,7 +244,15 @@ const EmpowerBusiness = () => {
   };
 
   const downloadPdf = async () => {
-    const doc = new jsPDF();
+    const pdfWidth = 210; // A4 width in mm
+    const pdfHeight = 148; // half of A4 height in mm
+
+    const doc = new jsPDF({
+      orientation: "portrait",
+      unit: "mm",
+      format: [pdfWidth, pdfHeight],
+    });
+
     const imagePromises = imageUrls.map((url) => {
       return new Promise((resolve, reject) => {
         const img = new Image();
@@ -264,16 +272,9 @@ const EmpowerBusiness = () => {
         ctx.drawImage(img, 0, 0, img.width, img.height);
         const imgData = canvas.toDataURL("image/jpeg");
         if (index > 0) doc.addPage();
-        doc.addImage(
-          imgData,
-          "JPEG",
-          0,
-          0,
-          doc.internal.pageSize.getWidth(),
-          doc.internal.pageSize.getHeight()
-        );
+        doc.addImage(imgData, "JPEG", 0, 0, pdfWidth, pdfHeight);
       });
-      doc.save("document.pdf");
+      doc.save("prevail.pdf");
     } catch (error) {
       console.error("Error loading images:", error);
     }
