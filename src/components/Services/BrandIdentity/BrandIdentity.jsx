@@ -15,6 +15,7 @@ import Addressing from "./Addressing";
 import TailoredApproach from "./TailoredApproach";
 import HeroComponent from "../ReusedComponenets/HeroComponent";
 import AppBarNav from "../../Navbar/Appbar";
+import PdfSection from "./PdfSection";
 //import MainPage from "./MainPage";
 
 const BrandIdentity = () => {
@@ -33,6 +34,7 @@ const BrandIdentity = () => {
       <ElevateYourPresence />
       <Addressing />
       <TailoredApproach />
+      <PdfSection/>
       <Packages />
       <FooterNew />
     </div>

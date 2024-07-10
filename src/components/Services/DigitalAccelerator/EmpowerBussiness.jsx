@@ -7,7 +7,7 @@ import {
   Button,
 } from "@mui/material";
 import React, { useState } from "react";
-import { FileCopy } from "@mui/icons-material";
+import { FileCopy, HomeMax, Minimize } from "@mui/icons-material";
 import jsPDF from "jspdf";
 import img1 from "./assets/Brand Identity/Slide-1.avif";
 import img2 from "./assets/Brand Identity/Slide-2.avif";
@@ -145,73 +145,6 @@ const imageUrls = [
   img65,
   img66,
   img67,
-  // "./assets/Brand Identity/Slide-1.avif",
-  // "./assets/Brand Identity/Slide-2.avif",
-  // "./assets/Brand Identity/Slide-3.avif",
-  // "./assets/Brand Identity/Slide-4.avif",
-  // "./assets/Brand Identity/Slide-5.avif",
-  // "./assets/Brand Identity/Slide-6.avif",
-  // "./assets/Brand Identity/Slide-7.avif",
-  // "./assets/Brand Identity/Slide-8.avif",
-  // "./assets/Brand Identity/Slide-9.avif",
-  // "./assets/Brand Identity/Slide-10.avif",
-  // "./assets/Brand Identity/Slide-11.avif",
-  // "./assets/Brand Identity/Slide-12.avif",
-  // "./assets/Brand Identity/Slide-13.avif",
-  // "./assets/Brand Identity/Slide-14.avif",
-  // "./assets/Brand Identity/Slide-15.avif",
-  // "./assets/Brand Identity/Slide-16.avif",
-  // "./assets/Brand Identity/Slide-17.avif",
-  // "./assets/Brand Identity/Slide-18.avif",
-  // "./assets/Brand Identity/Slide-19.avif",
-  // "./assets/Brand Identity/Slide-20.avif",
-  // "./assets/Brand Identity/Slide-21.avif",
-  // "./assets/Brand Identity/Slide-22.avif",
-  // "./assets/Brand Identity/Slide-23.avif",
-  // "./assets/Brand Identity/Slide-24.avif",
-  // "./assets/Brand Identity/Slide-25.avif",
-  // "./assets/Brand Identity/Slide-26.avif",
-  // "./assets/Brand Identity/Slide-27.avif",
-  // "./assets/Brand Identity/Slide-28.avif",
-  // "./assets/Brand Identity/Slide-29.avif",
-  // "./assets/Brand Identity/Slide-30.avif",
-  // "./assets/Brand Identity/Slide-31.avif",
-  // "./assets/Brand Identity/Slide-32.avif",
-  // "./assets/Brand Identity/Slide-33.avif",
-  // "./assets/Brand Identity/Slide-34.avif",
-  // "./assets/Brand Identity/Slide-35.avif",
-  // "./assets/Brand Identity/Slide-36.avif",
-  // "./assets/Brand Identity/Slide-37.avif",
-  // "./assets/Brand Identity/Slide-38.avif",
-  // "./assets/Brand Identity/Slide-39.avif",
-  // "./assets/Brand Identity/Slide-40.avif",
-  // "./assets/Brand Identity/Slide-41.avif",
-  // "./assets/Brand Identity/Slide-42.avif",
-  // "./assets/Brand Identity/Slide-43.avif",
-  // "./assets/Brand Identity/Slide-44.avif",
-  // "./assets/Brand Identity/Slide-45.avif",
-  // "./assets/Brand Identity/Slide-46.avif",
-  // "./assets/Brand Identity/Slide-47.avif",
-  // "./assets/Brand Identity/Slide-48.avif",
-  // "./assets/Brand Identity/Slide-49.avif",
-  // "./assets/Brand Identity/Slide-50.avif",
-  // "./assets/Brand Identity/Slide-51.avif",
-  // "./assets/Brand Identity/Slide-52.avif",
-  // "./assets/Brand Identity/Slide-53.avif",
-  // "./assets/Brand Identity/Slide-54.avif",
-  // "./assets/Brand Identity/Slide-55.avif",
-  // "./assets/Brand Identity/Slide-56.avif",
-  // "./assets/Brand Identity/Slide-57.avif",
-  // "./assets/Brand Identity/Slide-58.avif",
-  // "./assets/Brand Identity/Slide-59.avif",
-  // "./assets/Brand Identity/Slide-60.avif",
-  // "./assets/Brand Identity/Slide-61.avif",
-  // "./assets/Brand Identity/Slide-62.avif",
-  // "./assets/Brand Identity/Slide-63.avif",
-  // "./assets/Brand Identity/Slide-64.avif",
-  // "./assets/Brand Identity/Slide-65.avif",
-  // "./assets/Brand Identity/Slide-66.avif",
-  // "./assets/Brand Identity/Slide-67.avif",
 ];
 
 const EmpowerBusiness = () => {
@@ -220,6 +153,7 @@ const EmpowerBusiness = () => {
   const [imagesLoaded, setImagesLoaded] = useState(
     Array(imageUrls.length).fill(false)
   );
+  const [maximized, setMaximized] = useState(false);
 
   const handleOpenModal = () => {
     setIsLoading(true);
@@ -230,6 +164,7 @@ const EmpowerBusiness = () => {
     setIsModalOpen(false);
     setIsLoading(true);
     setImagesLoaded(Array(imageUrls.length).fill(false));
+    setMaximized(false); // Reset maximized state
   };
 
   const handleImageLoad = (index) => {
@@ -241,6 +176,10 @@ const EmpowerBusiness = () => {
       }
       return newLoaded;
     });
+  };
+
+  const toggleMaximize = () => {
+    setMaximized((prev) => !prev);
   };
 
   const downloadPdf = async () => {
@@ -339,19 +278,35 @@ const EmpowerBusiness = () => {
       >
         <Box
           sx={{
-            width: "70vw",
+            width: maximized ? "95vw" : "70vw",
+            height: maximized ? "95vh" : "auto",
             bgcolor: "background.paper",
             boxShadow: 24,
             p: 2,
             outline: "none",
             "@media (max-width: 600px)": {
               width: "95vw",
+              height: maximized ? "95vh" : "auto",
             },
           }}
         >
-          <Typography variant="h6" component="h2" gutterBottom>
-            PDF Viewer
-          </Typography>
+          <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+            <span onClick={toggleMaximize} variant="contained">
+              {maximized ? (
+                <Minimize sx={{ color: "#653BB5" }} />
+              ) : (
+                <HomeMax sx={{ color: "#653BB5" }} />
+              )}
+            </span>
+            <Typography
+              variant="h6"
+              component="h2"
+              gutterBottom
+              sx={{ textAlign: "right" }}
+            >
+              PDF Viewer
+            </Typography>
+          </Box>
           {isLoading && (
             <Box
               sx={{
@@ -367,7 +322,7 @@ const EmpowerBusiness = () => {
           <Box
             sx={{
               overflowY: "auto",
-              maxHeight: "500px",
+              maxHeight: maximized ? "80vh" : "500px",
               display: isLoading ? "none" : "block",
             }}
           >
@@ -393,6 +348,7 @@ const EmpowerBusiness = () => {
             >
               Download as PDF
             </Button>
+
             <Fab
               onClick={handleCloseModal}
               sx={{
