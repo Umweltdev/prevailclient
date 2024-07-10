@@ -98,7 +98,7 @@ const DigitalAccelerator = () => {
             </Grid>
           </Grid>
         </Container>
-        <EmpowerBussiness />
+        {/* <EmpowerBussiness /> */}
 
         <Box
           sx={{

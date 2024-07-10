@@ -34,7 +34,7 @@ const BrandIdentity = () => {
       <ElevateYourPresence />
       <Addressing />
       <TailoredApproach />
-      <PdfSection/>
+      {/* <PdfSection/> */}
       <Packages />
       <FooterNew />
     </div>
