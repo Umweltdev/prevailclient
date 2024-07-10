@@ -17,6 +17,7 @@ import Invoice from "../components/user-dashboard/Invoice";
 import AppBarNav from "../components/Navbar/Appbar";
 import Message from "../components/user-dashboard/Message";
 import CreateMessage from "../components/user-dashboard/Create-Message";
+import Question from "../components/user-dashboard/Question";
 
 const UserDashBoard = (props) => {
   const [drawer, setDrawer] = useState(false);
@@ -70,6 +71,10 @@ const UserDashBoard = (props) => {
                 <Route
                   path="/profile/:id"
                   element={<EditProfile openDrawer={openDrawer} />}
+                />
+                <Route
+                  path="/question"
+                  element={<Question openDrawer={openDrawer} />}
                 />
                 <Route
                   path="/bookings"

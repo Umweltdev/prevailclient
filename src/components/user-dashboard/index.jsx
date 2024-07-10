@@ -14,6 +14,8 @@ import Address from "./Address";
 import EditProfile from "./Edit-Profile";
 import SavedProperties from "./SavedProperties";
 import Invoice from "./Invoice";
+import Question from "./Question";
+
 
 const UserDashBoard = () => {
   const [drawer, setDrawer] = useState(false);
@@ -68,6 +70,11 @@ const UserDashBoard = () => {
                   path="/profile/:id"
                   element={<EditProfile openDrawer={openDrawer} />}
                 />
+
+                <Route
+                  path="/question"
+                  element={<Question openDrawer={openDrawer} />}
+                />
                 <Route
                   path="/bookings"
                   element={<Bookings openDrawer={openDrawer} />}
@@ -84,6 +91,7 @@ const UserDashBoard = () => {
                   path="/addresses/:id"
                   element={<Addresses openDrawer={openDrawer} />}
                 />
+
                 <Route
                   path="/addresses/:id"
                   element={<Address openDrawer={openDrawer} />}

@@ -44,7 +44,11 @@ export default function StepperForm() {
   const [loading, setLoading] = useState(false);
   const { dispatch } = useContext(AuthContext);
   const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
 
+  console.log(user.user);
+
+  const userId = user.user.id;
   const handleChange = (name, value) => {
     setFormData((prevFormData) => ({
       ...prevFormData,
@@ -55,8 +59,8 @@ export default function StepperForm() {
   const handleSubmit = async () => {
     try {
       setLoading(true);
-      const response = await axios.post(
-        "https://prevailserver-4b3c670a5496.herokuapp.com/api/stepper",
+      const response = await axios.put(
+        `https://prevailserver-4b3c670a5496.herokuapp.com/api/stepper/quest/${userId}`,
         formData
       );
 
