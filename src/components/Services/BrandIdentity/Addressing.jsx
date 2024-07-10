@@ -1,11 +1,18 @@
 import { Box, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
-
-
+import styles from "../BrandIdentity/assets/animation.module.css"
+import { useInView } from "react-intersection-observer";
 
 const Addressing = () => {
+  
+  const { ref, inView, entry } = useInView({
+    triggerOnce: true, 
+    threshold: 0.1,
+  });
+
   return (
     <Box
+      ref={ref}
       sx={{
         display: "flex",
         width: "100vw",
@@ -19,6 +26,7 @@ const Addressing = () => {
       }}
     >
       <Grid
+        className={inView ? styles.textSlideIn : ""}
         sx={{
           display: "flex",
           flexDirection: "column",
@@ -70,6 +78,7 @@ const Addressing = () => {
       </Grid>
       <CardMedia
         component={"img"}
+        className={inView ? styles.imageFadeIn : ""}
         image="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720084559/Addressing-Branding-Challenges-_auzm2j.avif"
         alt="Addressing-Branding-Challenges-"
         sx={{

@@ -2,10 +2,18 @@ import { CardMedia, Grid, Typography, Box, Card } from "@mui/material";
 import React from "react";
 import { TailoredApproachData } from "../assets/serviceData";
 import mugs from "../assets/mug.png";
+import styles from "../BrandIdentity/assets/animation.module.css"
+import { useInView } from "react-intersection-observer";
 
 const TailoredApproach = () => {
+  const { ref, inView, entry } = useInView({
+    triggerOnce: true, 
+    threshold: 0.1,
+  });
+
   return (
     <Box
+      ref={ref}
       sx={{
         display: "flex",
         width: "100vw",
@@ -21,6 +29,7 @@ const TailoredApproach = () => {
     >
       <CardMedia
         component={"img"}
+        className={inView ? styles.imageFadeIn : ""}
         image="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720084560/Approach-to-Brand-Needs-_vuyvaf.avif"
         alt="Approach-to-Brand-Needs-"
         sx={{
@@ -31,6 +40,7 @@ const TailoredApproach = () => {
         }}
       />
       <Grid
+        className={inView ? styles.textSlideIn : ""}
         sx={{
           display: "flex",
           flexDirection: "column",
