@@ -1,9 +1,18 @@
 import { CardMedia, Grid, Typography, Box } from "@mui/material";
 import React from "react";
+import styles from "../BrandIdentity/assets/animation.module.css"
+import { useInView } from "react-intersection-observer";
 
 const ElevateYourPresence = () => {
+
+  const { ref, inView, entry } = useInView({
+    triggerOnce: true, // Only trigger once
+    threshold: 0.1, // Adjust as needed
+  });
+
   return (
     <Box
+      ref={ref}
       sx={{
         display: "flex",
         width: "100vw",
@@ -22,6 +31,7 @@ const ElevateYourPresence = () => {
     >
       <CardMedia
         component={"img"}
+        className={inView ? styles.imageFadeIn : ""}
         image="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720084561/Elevate-Your-Presence_axb20s.avif"
         alt="Elevate-Your-Presence"
         sx={{
@@ -34,6 +44,7 @@ const ElevateYourPresence = () => {
         }}
       />
       <Grid
+        className={inView ? styles.textSlideIn : ""}
         sx={{
           display: "flex",
           flexDirection: "column",
