@@ -3,10 +3,19 @@ import { makeStyles } from "@mui/styles";
 import React from "react";
 import { Link } from "react-router-dom";
 import ReusedButton from "../ReusedComponents/ReusedButton";
+import styles from "../Landing/assets/animation.module.css"
+import { useInView } from "react-intersection-observer";
 
 const TextImageService = ({ text, imageUrl, textHeader, url, alt }) => {
+
+  const { ref, inView, entry } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
     <Grid
+      ref={ref}
       sx={{
         width: "100vw",
         display: "flex",
@@ -26,6 +35,7 @@ const TextImageService = ({ text, imageUrl, textHeader, url, alt }) => {
       }}
     >
       <Grid
+        className={inView ? styles.textSlideIn : ""}
         item
         sx={{
           width: "34vw",
@@ -75,6 +85,7 @@ const TextImageService = ({ text, imageUrl, textHeader, url, alt }) => {
       </Grid>
       <CardMedia
         component={"img"}
+        className={inView ? styles.imageFadeIn : ""}
         image={imageUrl}
         alt={alt}
         sx={{
