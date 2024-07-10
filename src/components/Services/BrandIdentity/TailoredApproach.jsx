@@ -9,6 +9,7 @@ const TailoredApproach = () => {
       sx={{
         display: "flex",
         width: "100vw",
+
         "@media (max-width: 600px)": {
           flexDirection: "column",
           justifyContent: "center",
@@ -38,6 +39,7 @@ const TailoredApproach = () => {
           pl: "5vw",
           gap: "20px",
           width: "50vw",
+          mt: "10px",
           "@media (max-width: 600px)": {
             width: "90vw",
             pl: "unset",
@@ -86,7 +88,7 @@ const TailoredApproach = () => {
           sx={{
             display: "flex",
             flexWrap: "wrap",
-            mt: "46px",
+            mt: "16px",
             gap: "36px",
             "@media (max-width: 600px)": {
               width: "100vw",
@@ -140,10 +142,11 @@ const TailoredApproach = () => {
           <Card
             sx={{
               color: "white",
-              width: "585px",
-              height: "206px",
+              width: "42vw",
+              // height: "206px",
               background: "#fff",
-              mt: "43px",
+              // mt: "43px",
+              padding: "20px",
               borderRadius: "10px",
               boxShadow: "3",
               "@media (max-width: 600px)": {
@@ -158,9 +161,9 @@ const TailoredApproach = () => {
           >
             <Typography
               sx={{
-                width: "519px",
+                width: "40vw",
                 margin: "auto",
-                mt: "45px",
+                // mt: "45px",
                 fontSize: "16px",
                 fontWeight: "500",
                 color: "#350079",
@@ -183,7 +186,7 @@ const TailoredApproach = () => {
             component={"img"}
             image={mugs}
             sx={{
-              width: "585px",
+              width: "42vw",
               borderRadius: "5px",
               boxShadow: "3",
               "@media (max-width: 600px)": {
