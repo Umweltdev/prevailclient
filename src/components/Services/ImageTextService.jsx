@@ -2,10 +2,19 @@ import { Button, CardMedia, Grid, Stack, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 import ReusedButton from "../ReusedComponents/ReusedButton";
+import styles from "../Landing/assets/animation.module.css"
+import { useInView } from "react-intersection-observer";
 
 const ImageTextService = ({ text, imageUrl, textHeader, url, alt }) => {
+
+  const { ref, inView, entry } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
     <Stack
+      ref={ref}
       sx={{
         width: "100vw",
         display: "flex",
@@ -26,6 +35,7 @@ const ImageTextService = ({ text, imageUrl, textHeader, url, alt }) => {
     >
       <CardMedia
         component="img"
+        className={inView ? styles.imageFadeIn : ""}
         image={imageUrl}
         alt={alt}
         sx={{
@@ -41,6 +51,7 @@ const ImageTextService = ({ text, imageUrl, textHeader, url, alt }) => {
       />
       <Grid
         item
+        className={inView ? styles.textSlideIn : ""}
         sx={{
           width: "34vw",
           "@media (max-width: 600px)": {

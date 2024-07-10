@@ -1,39 +1,21 @@
 import { Grid, Typography } from "@mui/material";
 import React from "react";
-import { makeStyles } from "@mui/styles";
+import { useInView } from "react-intersection-observer";
+import styles from "../../About/assets/about.module.css"
 //import landingImage1 from "../assets/brandd.png";
 
-const useStyles = makeStyles({
-  imagePlaform: {
-    width: "80vw",
-    height: "50vh",
-    objectFit: "cover",
-    borderRadius: "5px",
-    boxShadow:
-      "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
 
-    "@media (max-width: 600px)": {
-      width: "unset",
-      height: "unset",
-    },
-  },
-  imageInit: {
-    width: "37vw",
-    borderRadius: "1vw",
-    boxShadow:
-      "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
-    "@media (max-width: 600px)": {
-      width: "95vw",
-      height: "unset",
-    },
-  },
-});
 
 const HeroComponent = ({ title }) => {
-  const classes = useStyles();
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
   return (
     <Grid
+      ref={ref}
+      className={`${styles.aboutUsSection} ${inView ? styles.visible : ""}`}
       sx={{
         width: "100vw",
         display: "flex",
@@ -53,6 +35,7 @@ const HeroComponent = ({ title }) => {
       }}
     >
       <Typography
+        className={`${styles.aboutUsText} ${inView ? styles.visible : ""}`}
         sx={{
           margin: "auto",
           fontSize: "38px",
