@@ -1,10 +1,9 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-//import Footer from "../../Footer/Footer";
 import FooterNew from "../../Footer/FooterNew";
 import HeroComponent from "../ReusedComponenets/HeroComponent";
 import AppBarNav from "../../Navbar/Appbar";
-import { Container, Grid, Typography, Stack, Box, Button } from "@mui/material";
+import { Container, Grid, Typography, Stack, Box } from "@mui/material";
 import PalleteSvg from "./assets/pallete.svg";
 import ChipSvg from "./assets/chip.svg";
 import DocSvg from "./assets/doc.svg";
@@ -14,6 +13,21 @@ import StartUpSvg from "./assets/startup.svg";
 import BulbSvg from "./assets/bulb.svg";
 import TextImageComponent from "../ReusedComponenets/TextImageComponent";
 import ImageTextComponent from "../ReusedComponenets/ImageTextComponent";
+import { Transition } from 'react-transition-group';
+
+const duration = 300;
+
+const defaultStyle = {
+  transition: `opacity ${duration}ms ease-in-out`,
+  opacity: 0,
+};
+
+const transitionStyles = {
+  entering: { opacity: 0 },
+  entered: { opacity: 1 },
+  exiting: { opacity: 1 },
+  exited: { opacity: 0 },
+};
 
 const data = [
   {
@@ -46,7 +60,6 @@ const data = [
     svg: StartUpSvg,
     desc: "After thorough testing and final tweaks, we launch your website. Post-launch, we continue to monitor its performance and offer support to ensure it remains efficient, secure, and engaging for your audience. ",
   },
-
   {
     title: "Our Specialties",
     svg: BulbSvg,
@@ -57,35 +70,41 @@ const data = [
 const WebsiteDevelopment = () => {
   return (
     <>
-    <Helmet>
+      <Helmet>
         <title>Craft a Distinct Online Presence with Your Dream Website</title>
         <meta
           name="description"
           content="Craft a Distinct Online Presence with Your Dream Website"
         />
       </Helmet>
-    <div style={{ width: "100%", overflow: "hidden" }}>
-      <AppBarNav color="#000" />
-
-      <HeroComponent title="Custom Website Development" />
-      <Stack>
-        <TextImageComponent
-          img="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720086386/Why-Custom-Web-Development_zdrms9.avif"
-          alt="Why-Custom-Web-Development"
-          header={"Why Custom Web Development?"}
-          text={`Establishing a distinct digital presence is more crucial than ever in the digital era. 
+      <div style={{ width: "100%", overflow: "hidden" }}>
+        <AppBarNav color="#000" />
+        <HeroComponent title="Custom Website Development" />
+        <Transition in={true} timeout={duration} appear>
+          {state => (
+            <Stack
+              style={{
+                ...defaultStyle,
+                ...transitionStyles[state]
+              }}
+            >
+              <TextImageComponent
+                img="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720086386/Why-Custom-Web-Development_zdrms9.avif"
+                alt="Why-Custom-Web-Development"
+                header={"Why Custom Web Development?"}
+                text={`Establishing a distinct digital presence is more crucial than ever in the digital era. 
                   If you’re looking to craft a digital identity that embodies your brand and precisely 
                   tells your story, the “custom website development” service is your go-to solution. 
                   Unlike standard web builder platforms that might suffice for simpler, small-scale 
                   projects – custom development allows for a limitless array of API integrations, 
                   frontend customisations, and aesthetic enhancements. This approach is tailored for visionary 
-                  businesses aiming to carve out a significant digital presence. `}
-        />
-        <ImageTextComponent
-          img="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720086386/Limitations-of-Standard-Solutions_pw74ga.avif"
-          alt="Limitations-of-Standard-Solutions"
-          header={"The Limitations of Standard Solutions "}
-          text={`Many businesses encounter significant challenges on their
+                  businesses aiming to carve out a significant digital presence.`}
+              />
+              <ImageTextComponent
+                img="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720086386/Limitations-of-Standard-Solutions_pw74ga.avif"
+                alt="Limitations-of-Standard-Solutions"
+                header={"The Limitations of Standard Solutions "}
+                text={`Many businesses encounter significant challenges on their
                   digital journey, including performance issues where heavy,
                   costly images and design elements slow down websites,
                   adversely affecting user experience. High hosting charges and
@@ -97,12 +116,12 @@ const WebsiteDevelopment = () => {
                   between a business's vision and what is technologically
                   feasible, adding to the complexity and frustration of creating
                   an effective digital presence.`}
-        />
-        <TextImageComponent
-          img="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720086386/Your-Digital-Development-Journey_m82lfs.avif"
-          alt="Your-Digital-Development-Journey"
-          header={"Why Choose Prevail for Your Digital Development Journey?"}
-          text={`Prevail stands out due to our comprehensive, bespoke service offerings. 
+              />
+              <TextImageComponent
+                img="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720086386/Your-Digital-Development-Journey_m82lfs.avif"
+                alt="Your-Digital-Development-Journey"
+                header={"Why Choose Prevail for Your Digital Development Journey?"}
+                text={`Prevail stands out due to our comprehensive, bespoke service offerings. 
                   Our team, consisting of brand identity experts, UI/UX designers, full-stack MERN 
                   developers, and marketing consultants, excels in crafting digital platforms that 
                   are not only visually striking but also highly functional.<br/><br/> 
@@ -111,85 +130,77 @@ const WebsiteDevelopment = () => {
                   Our process is thorough, involving detailed consultations to capture 
                   all necessary content and design preferences to launch your digital 
                   presence effectively.`}
-        />
-
-        <Stack mt={{ xs: 6, md: 10 }} px={{ xs: 2, md: 6 }}>
-          <Typography
-            fontSize={{ xs: "25px", md: "27.7px" }}
-            fontWeight="600"
-            mb={4}
-          >
-            What You Get and What to Expect  
-          </Typography>
-
-          <Grid container spacing={3}>
-            {data.map((item, index) => (
-              <Grid key={index} item xs={12} md={4}>
-                <Stack direction="row" spacing={1}>
-                  <Box>
-                    <img src={item.svg} />
-                  </Box>
-                  <Stack spacing={1} color={"#505660"}>
-                    <Typography fontWeight="600" color="#1D0D40">
-                      {item.title}
-                    </Typography>
-                    <Typography>{item.desc}</Typography>
-                  </Stack>
-                </Stack>
-              </Grid>
-            ))}
-          </Grid>
-        </Stack>
-      </Stack>
-
-      <Box
-        sx={{
-          backgroundImage:
-            "linear-gradient(to bottom, #ffffff, rgba(110, 62, 244, 0.1))",
-        }}
-      >
-        <Container
-          maxWidth="lg"
+              />
+              <Stack mt={{ xs: 6, md: 10 }} px={{ xs: 2, md: 6 }}>
+                <Typography
+                  fontSize={{ xs: "25px", md: "27.7px" }}
+                  fontWeight="600"
+                  mb={4}
+                >
+                  What You Get and What to Expect  
+                </Typography>
+                <Grid container spacing={3}>
+                  {data.map((item, index) => (
+                    <Grid key={index} item xs={12} md={4}>
+                      <Stack direction="row" spacing={1}>
+                        <Box>
+                          <img src={item.svg} alt={item.title} />
+                        </Box>
+                        <Stack spacing={1} color={"#505660"}>
+                          <Typography fontWeight="600" color="#1D0D40">
+                            {item.title}
+                          </Typography>
+                          <Typography>{item.desc}</Typography>
+                        </Stack>
+                      </Stack>
+                    </Grid>
+                  ))}
+                </Grid>
+              </Stack>
+            </Stack>
+          )}
+        </Transition>
+        <Box
           sx={{
-            py: 5,
+            backgroundImage:
+              "linear-gradient(to bottom, #ffffff, rgba(110, 62, 244, 0.1))",
           }}
         >
-          <Box
-            px={{ xs: 3, md: 16 }}
-            py={{ xs: 3, md: 8 }}
+          <Container
+            maxWidth="lg"
             sx={{
-              backgroundColor: "#FCFCFC",
-              py: 8,
-              borderRadius: "8px",
+              py: 5,
             }}
           >
-            <Typography
+            <Box
+              px={{ xs: 3, md: 16 }}
+              py={{ xs: 3, md: 8 }}
               sx={{
-                fontSize: "26px",
-                color: "#34205F",
-                textAlign: "center",
-                fontWeight: "600",
+                backgroundColor: "#FCFCFC",
+                py: 8,
+                borderRadius: "8px",
               }}
             >
-              Choosing Prevail’s Custom Website Development means opting for a
-              tailored, effective, and secure digital presence. Ready to embark
-              on this transformative journey? Contact Prevail today to build a
-              website that not only meets but exceeds your digital aspirations. 
-            </Typography>
-          </Box>
-        </Container>
-      </Box>
-      <FooterNew />
-    </div>
+              <Typography
+                sx={{
+                  fontSize: "26px",
+                  color: "#34205F",
+                  textAlign: "center",
+                  fontWeight: "600",
+                }}
+              >
+                Choosing Prevail’s Custom Website Development means opting for a
+                tailored, effective, and secure digital presence. Ready to embark
+                on this transformative journey? Contact Prevail today to build a
+                website that not only meets but exceeds your digital aspirations. 
+              </Typography>
+            </Box>
+          </Container>
+        </Box>
+        <FooterNew />
+      </div>
     </>
   );
 };
 
 export default WebsiteDevelopment;
-
-{
-  /* <PainPoint />
-<Advantages /> 
-<Benefits />
-<FooterNew /> */
-}
