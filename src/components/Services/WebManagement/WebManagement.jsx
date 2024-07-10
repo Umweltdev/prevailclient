@@ -42,11 +42,17 @@ import Search from "../DigitalAccelerator/assets/search.svg?react";
 import HeroComponent from "../ReusedComponenets/HeroComponent";
 import AppBarNav from "../../Navbar/Appbar";
 import Slides from "./Slides";
- import Solution from "../Mpd/Solution";
+import Solution from "../Mpd/Solution";
 import { useContext } from "react";
-import { AuthContext } from "../../../context/AuthContext";
+import styles from "../BrandIdentity/assets/animation.module.css"
+import { useInView } from "react-intersection-observer";
 
 const WebManagement = () => {
+
+  const { ref, inView, entry } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
   return (
     <>
@@ -64,15 +70,16 @@ const WebManagement = () => {
       <Box  display={{xs:"none", md:"block"}}>
         <Solution />
       </Box>
-      <Box  display={{xs:"block", md:"none"}}>
+      <Box className={inView ? styles.textSlideIn : ""} display={{xs:"block", md:"none"}}>
         <Slides />
       </Box>
       <Box>
         <Container  maxWidth="lg">
           <Stack>
             {/* first section */}
-            <Box>
-              <Stack
+            <Box ref={ref}>
+              <Stack 
+                className={inView ? styles.textSlideIn : ""}
                 spacing={2}
                 textAlign={"center"}
                 width={{ xs: "100%", md: "75%" }}
@@ -102,8 +109,9 @@ const WebManagement = () => {
               </Stack>
             </Box>
 
-            <Grid container justifyContent={"space-between"} spacing={3}>
-              <Grid item xs={12} md={7.3}>
+            <Grid className={inView ? styles.imageFadeIn : ""} container justifyContent={"space-between"} spacing={3}>
+              <Grid
+                item xs={12} md={7.3}>
                 <Box
                   sx={{
                     width: "100%",
@@ -121,7 +129,9 @@ const WebManagement = () => {
                 </Box>
               </Grid>
 
-              <Grid item xs={12} md={4.2}>
+              <Grid
+                className={inView ? styles.textSlideIn : ""}
+                item xs={12} md={4.2}>
                 <Stack spacing={2.5}>
                   <Stack spacing={1} pr={{ xs: 0, md: 10 }}>
                     <Browse />
@@ -134,7 +144,7 @@ const WebManagement = () => {
                       development.
                     </Typography>
                   </Stack>
-                  <Stack spacing={1} pr={{ xs: 0, md: 10 }}>
+                  <Stack className={inView ? styles.textSlideIn : ""} spacing={1} pr={{ xs: 0, md: 10 }}>
                     <House />
                     <Typography sx={{ fontWeight: "600" }}>
                       Real Estate Authority
@@ -190,7 +200,7 @@ const WebManagement = () => {
               justifyContent={"space-between"}
               alignItems={"center"}
             >
-              <Grid item xs={12} md={6}>
+              <Grid className={inView ? styles.textSlideIn : ""} item xs={12} md={6}>
                 <Stack>
                   <Stack spacing={1.5} mb={3}>
                     <Typography
@@ -250,13 +260,14 @@ const WebManagement = () => {
                 </Stack>
               </Grid>
 
-              <Grid item xs={12} md={5} marginTop={{ xs: 4, md: 0 }}>
+              <Grid  item xs={12} md={5} marginTop={{ xs: 4, md: 0 }}>
                 <Box
                   sx={{
                     width: "100%",
                   }}
                 >
                   <img
+                    className={inView ? styles.imageFadeIn : ""}
                     src="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720087060/Shopify-Web-Design_zfi35h.avif"
                     alt="Shopify-Web-Design"
                     style={{
@@ -387,7 +398,7 @@ const WebManagement = () => {
                 </Box>
               </Grid>
               <Grid item xs={12} md={5.7}>
-                <Stack>
+                <Stack className={inView ? styles.textSlideIn : ""}>
                   <Stack spacing={1.5} mb={3}>
                     <Typography sx={{ fontSize: "24px", fontWeight: "600" }}>
                       Real Estate Authority: Tailored Web Development for

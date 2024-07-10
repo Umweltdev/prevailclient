@@ -5,10 +5,19 @@ import icon2 from "../assets/invoice.svg";
 import icon3 from "../assets/presentation-board.svg";
 import img from "../assets/Prevail-MPD-API.webp";
 import { mpdDataApi } from "./mpdData";
+import styles from "../BrandIdentity/assets/animation.module.css";
+import { useInView } from "react-intersection-observer";
 
 const PrevailMPDApi = () => {
+
+  const { ref, inView, entry } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
     <Box
+      ref={ref}
       sx={{
         display: "flex",
         width: "100vw",
@@ -22,6 +31,7 @@ const PrevailMPDApi = () => {
       }}
     >
       <Grid
+        className={inView ? styles.textSlideIn : ""}
         sx={{
           display: "flex",
           flexDirection: "column",
@@ -96,6 +106,7 @@ const PrevailMPDApi = () => {
       </Grid>
       <CardMedia
         component={"img"}
+        className={inView ? styles.imageFadeIn : ""}
         image={img}
         sx={{
           width: "50vw",

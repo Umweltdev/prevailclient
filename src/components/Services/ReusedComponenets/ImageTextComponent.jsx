@@ -1,9 +1,18 @@
 import { Card, CardMedia, Grid, Typography, Box } from "@mui/material";
 import React from "react";
+import styles from "../BrandIdentity/assets/animation.module.css";
+import { useInView } from "react-intersection-observer";
 
 const ImageTextComponent = ({ img, header, text, alt }) => {
+
+  const { ref, inView, entry } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
     <Box
+      ref={ref}
       sx={{
         display: "flex",
         width: "100vw",
@@ -22,6 +31,7 @@ const ImageTextComponent = ({ img, header, text, alt }) => {
     >
       <CardMedia
         component={"img"}
+        className={inView ? styles.imageFadeIn : ""}
         image={img}
         alt={alt}
         sx={{
@@ -36,6 +46,7 @@ const ImageTextComponent = ({ img, header, text, alt }) => {
         }}
       />
       <Grid
+        className={inView ? styles.textSlideIn : ""}
         sx={{
           display: "flex",
           flexDirection: "column",
