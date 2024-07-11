@@ -18,7 +18,7 @@ const MainPage = () => {
       className={`${styles.aboutUsSection} ${inView ? styles.visible : ""}`}
       sx={{
         pt: "176px",
-        // background: "linear-gradient(135deg, #DDD4EF, #F9FAFC, white)",
+        // background: "linear-gradient(135deg, #DDD4EF, #F9FAFC, white)", none
         background: "linear-gradient(135deg, #d1c4e9, #ffffff, #bbdefb)",
         "@media (max-width: 767px)": {
           pt: "168px",
@@ -49,7 +49,7 @@ const MainPage = () => {
         <Typography
           sx={{ color: "#1D0D40", fontSize: "38px", fontWeight: 500 }}
         >
-          The Ultimate products we serve
+          The Ultimate products we serve 
         </Typography>
         <Typography
           sx={{
