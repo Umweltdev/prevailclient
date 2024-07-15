@@ -6,6 +6,7 @@ import ScrollToTop from "./ScrollToTop";
 import { AuthContext } from "./context/AuthContext";
 import Loading from "./components/utils/Loading";
 
+
 // Lazy load pages and componentss
 const Landing = React.lazy(() => import("./pages/Landing"));
 const About = React.lazy(() => import("./pages/About"));
@@ -16,6 +17,9 @@ const Contact = React.lazy(() => import("./pages/Contact"));
 const BlogDetails = React.lazy(() => import("./components/Blog/BlogDetails"));
 const BrandIdentity = React.lazy(() =>
   import("./components/Services/BrandIdentity/BrandIdentity")
+);
+const VisualBrandIdentity = React.lazy(() =>
+  import("./components/Services/BrandIdentity/VisualBrandIdentity")
 );
 const WebsiteDevelopment = React.lazy(() =>
   import("./components/Services/WebsiteDevelopement/WebsiteDevelopment")
@@ -63,8 +67,7 @@ function App() {
     <Elements stripe={stripePromise}>
       <ScrollToTop />
       <Suspense fallback={<Loading />}>
-
-      <Routes>
+        <Routes>
           <Route path="/" element={<Landing />} />
           <Route
             path="/reset_password/:id/:token"
@@ -76,21 +79,41 @@ function App() {
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/Blog/:index" element={<BlogDetails />} />
           <Route path="/service-landing-page" element={<Services />} />
-          <Route path="/brand-identity-package" element={<BrandIdentity />} />
           <Route
-            path="/custom-website-development"
+            path="/service/brand-identity-package"
+            element={<BrandIdentity />}
+          />
+          <Route
+            path="/service/brand-identity-package/visual_brand_identity"
+            element={<VisualBrandIdentity />}
+          />
+          <Route
+            path="/service/custom-website-development"
             element={<WebsiteDevelopment />}
           />
-          <Route path="/digital-ecosystem" element={<DigitalEcosystem />} />
-          <Route path="/customer-journey" element={<CustomerJourney />} />
-          <Route path="/website-development" element={<WebManagement />} />
-          <Route path="/Services/privacypolicy" element={<PrivacyPolicy />} />
-          <Route path="/search-engine-marketing" element={<Sem />} />
-          <Route path="/marketing-pricing-displacement" element={<Mpd />} />
           <Route
-            path="/digital-accelerator-bundle"
+            path="/explore/digital-ecosystem"
+            element={<DigitalEcosystem />}
+          />
+          <Route
+            path="/explore/customer-journey"
+            element={<CustomerJourney />}
+          />
+          <Route
+            path="/service/website-development"
+            element={<WebManagement />}
+          />
+          <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+          <Route path="/service/search-engine-marketing" element={<Sem />} />
+          <Route
+            path="/service/marketing-pricing-displacement"
+            element={<Mpd />}
+          />
+          <Route
+            path="/service/digital-accelerator-bundle"
             element={<DigitalAccelerator />}
           />
+
           <Route path="/Portfolio/:index" element={<CaseDetails />} />
           <Route path="/about/ourWhy" element={<AboutOurWhy />} />
           <Route path="/about/ourSolution" element={<AboutOurSolution />} />
@@ -113,5 +136,3 @@ function App() {
 }
 
 export default App;
-
-

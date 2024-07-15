@@ -7,7 +7,7 @@ import {
   Button,
 } from "@mui/material";
 import React, { useState } from "react";
-import { FileCopy, HomeMax, Minimize } from "@mui/icons-material";
+import { FileCopy, HomeMax, Maximize, Minimize } from "@mui/icons-material";
 import jsPDF from "jspdf";
 import img1 from "./assets/Brand Identity/Slide-1.avif";
 import img2 from "./assets/Brand Identity/Slide-2.avif";
@@ -76,6 +76,7 @@ import img64 from "./assets/Brand Identity/Slide-64.avif";
 import img65 from "./assets/Brand Identity/Slide-65.avif";
 import img66 from "./assets/Brand Identity/Slide-66.avif";
 import img67 from "./assets/Brand Identity/Slide-67.avif";
+import { Link } from "react-router-dom";
 
 const imageUrls = [
   img1,
@@ -292,11 +293,9 @@ const EmpowerBusiness = () => {
         >
           <Box sx={{ display: "flex", justifyContent: "space-between" }}>
             <span onClick={toggleMaximize} variant="contained">
-              {maximized ? (
-                <Minimize sx={{ color: "#653BB5" }} />
-              ) : (
+              <Link to="visual_brand_identity">
                 <HomeMax sx={{ color: "#653BB5" }} />
-              )}
+              </Link>
             </span>
             <Typography
               variant="h6"

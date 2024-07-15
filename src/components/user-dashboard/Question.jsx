@@ -27,116 +27,140 @@ const Question = () => {
   }
 
   console.log(user);
-
+  const eachUser = user?.user;
   return (
     <Stack spacing={3}>
       <Header
         Icon={PersonIcon}
         title={"Questionnaire"}
         // openDrawer={openDrawer}
-        button="Edit Profile"
-        link={`/user/profile/${user?.user._id}`}
+        button="Edit Answers"
+        link={`/user/question/${user?.user._id}`}
       />
 
       <Paper
         elevation={0}
         sx={{
-          paddingY: 2,
+          paddingY: 4,
           paddingX: Mobile ? 3 : 1.5,
 
           display: "flex",
           bgcolor: "white",
           flexDirection: isNonMobile ? "row" : "column",
+          gap: "15px",
         }}
       >
         <Box
           sx={{
-            flex: "1 1 0",
-            display: "flex",
-            flexDirection: "column",
-            padding: "8px",
+            width: "47%",
+            "@media (max-width: 600px)": {
+              width: "90vw",
+            },
           }}
         >
-          <small
-            style={{
-              color: "rgb(125, 135, 156)",
-            }}
-          >
-            First Name
-          </small>
-          <Typography variant="subtitle2" textTransform="capitalize">
-            {user.user.name}
+          <Typography sx={{ fontWeight: "900", mb: "10px" }}>
+            Business Overview
           </Typography>
+          <hr />
+          {/* ++++++++++ */}
+          <Box sx={{ my: "10px" }}>
+            <Typography sx={{ fontWeight: "600", fontSize: "" }}>
+              Why was it founded? What is the story behind the business?
+            </Typography>
+            <Typography sx={{ fontSize: "16px" }}>{eachUser.q1}</Typography>
+          </Box>
+          <hr />
+          <Box sx={{ my: "10px" }}>
+            <Typography sx={{ fontWeight: "600", fontSize: "" }}>
+              What is the industry/sector?
+            </Typography>
+            <Typography sx={{ fontSize: "16px" }}>{eachUser.q2}</Typography>
+          </Box>
+          <hr />
+          <Box sx={{ my: "10px" }}>
+            <Typography sx={{ fontWeight: "600", fontSize: "" }}>
+              Does the company have a mission statement or core values?
+            </Typography>
+            <Typography sx={{ fontSize: "16px" }}>{eachUser.q3}</Typography>
+          </Box>
+          <hr />
+          <Box sx={{ my: "10px" }}>
+            <Typography sx={{ fontWeight: "600", fontSize: "" }}>
+              Briefly describe the company in a few sentences.
+            </Typography>
+            <Typography sx={{ fontSize: "16px" }}>{eachUser.q4}</Typography>
+          </Box>
+          <hr />
+          <Box sx={{ my: "10px" }}>
+            <Typography sx={{ fontWeight: "600", fontSize: "" }}>
+              What are some of the goals/objectives? (increase revenue, increase
+              profit, improve my ROI, get more conversions, lower my acquisition
+              cost, other)
+            </Typography>
+            <Typography sx={{ fontSize: "16px" }}>{eachUser.q5}</Typography>
+          </Box>
+          <hr />
+          <Box sx={{ my: "10px" }}>
+            <Typography sx={{ fontWeight: "600", fontSize: "" }}>
+              What is the vision for the company in the future? (For example, in
+              2 years+)
+            </Typography>
+            <Typography sx={{ fontSize: "16px" }}>{eachUser.q6}</Typography>
+          </Box>
+          <hr />
         </Box>
+        <hr />
+
+        {/* ++++++++++++++++++++++++++++++++++++++++++ */}
         <Box
           sx={{
-            flex: "1 1 0",
-            display: "flex",
-            flexDirection: "column",
-            padding: "8px",
+            width: "47%",
+            "@media (max-width: 600px)": {
+              width: "90vw",
+            },
           }}
         >
-          <small
-            style={{
-              color: "rgb(125, 135, 156)",
-            }}
-          >
-            Last Name
-          </small>
-          <Typography variant="subtitle2" textTransform="capitalize">
-            {user?.user.lastName}
+          <Typography sx={{ fontWeight: "900", mb: "10px" }}>
+            Market Overview:
+            <hr />
           </Typography>
-        </Box>
-        <Box
-          sx={{
-            flex: "1 1 0",
-            display: "flex",
-            flexDirection: "column",
-            padding: "8px",
-          }}
-        >
-          <small
-            style={{
-              color: "rgb(125, 135, 156)",
-            }}
-          >
-            Email
-          </small>
-          <Typography variant="subtitle2">{user?.user.email}</Typography>
-        </Box>
-        <Box
-          sx={{
-            flex: "1 1 0",
-            display: "flex",
-            flexDirection: "column",
-            padding: "8px",
-          }}
-        >
-          <small
-            style={{
-              color: "rgb(125, 135, 156)",
-            }}
-          >
-            Company
-          </small>
-          <Typography variant="subtitle2">{user?.user.company}</Typography>
-        </Box>
-        <Box
-          sx={{
-            flex: "1 1 0",
-            display: "flex",
-            flexDirection: "column",
-            padding: "8px",
-          }}
-        >
-          <small
-            style={{
-              color: "rgb(125, 135, 156)",
-            }}
-          >
-            Phone Number
-          </small>
-          <Typography variant="subtitle2">{user?.user.phone}</Typography>
+          <Box sx={{ my: "10px" }}>
+            <Typography sx={{ fontWeight: "600", fontSize: "" }}>
+              Can you provide a list of competitors?
+            </Typography>
+            <Typography sx={{ fontSize: "16px" }}>{eachUser.q7}</Typography>
+          </Box>
+          <hr />
+          <Box sx={{ my: "10px" }}>
+            <Typography sx={{ fontWeight: "600", fontSize: "" }}>
+              What sets the company apart from competitors?
+            </Typography>
+            <Typography sx={{ fontSize: "16px" }}>{eachUser.q8}</Typography>
+          </Box>
+          <hr />
+          <Box sx={{ my: "10px" }}>
+            <Typography sx={{ fontWeight: "600", fontSize: "" }}>
+              Can you describe your typical customer? (demographic, geographic,
+              psychographic, and behavioural traits)
+            </Typography>
+            <Typography sx={{ fontSize: "16px" }}>{eachUser.q9}</Typography>
+          </Box>
+          <hr />
+          <Box sx={{ my: "10px" }}>
+            <Typography sx={{ fontWeight: "600", fontSize: "" }}>
+              What problems does your business solve for prospects/customers?
+            </Typography>
+            <Typography sx={{ fontSize: "16px" }}>{eachUser.q10}</Typography>
+          </Box>
+          <hr />
+          <Box sx={{ my: "10px" }}>
+            <Typography sx={{ fontWeight: "600", fontSize: "" }}>
+              What is your unique selling point (USP) which sets you apart from
+              your competitors?
+            </Typography>
+            <Typography sx={{ fontSize: "16px" }}>{eachUser.q11}</Typography>
+          </Box>
+          <hr />
         </Box>
       </Paper>
     </Stack>

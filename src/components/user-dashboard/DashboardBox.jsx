@@ -67,11 +67,11 @@ const DashboardBox = ({ closeDrawer }) => {
       Icon: <BookmarkBorderIcon />,
       url: "bookings",
     },
-    // {
-    //   text: "Questionnaire",
-    //   Icon: <LiveHelp />,
-    //   url: "question",
-    // },
+    {
+      text: "Questionnaire",
+      Icon: <LiveHelp />,
+      url: "question",
+    },
     // {
     //   text: "Saved",
     //   Icon: <FavoriteBorderIcon />,

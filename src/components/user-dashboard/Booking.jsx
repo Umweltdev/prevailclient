@@ -92,6 +92,7 @@ const BookingDetails = () => {
               {backendDetails.reschedule_url}
             </a>
           </Typography>
+          
           <Typography sx={{ mb: "10px" }}>
             <strong>Timezone:</strong> {backendDetails.timezone}
           </Typography>

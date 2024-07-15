@@ -42,6 +42,7 @@ const ForgotPasswordForm = () => {
       }}
     >
       <Typography sx={{ color: "#333", fontSize: "19px" }}>
+        
         {success && <p dangerouslySetInnerHTML={{ __html: success }} />}
       </Typography>
       <Typography
