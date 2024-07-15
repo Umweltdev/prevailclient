@@ -52,7 +52,7 @@ const ContactInfo = () => {
       }}
     >
       {contactData.map((data, i) => (
-        <Grid sx={{ display: "flex", gap: "10px" }}>
+        <Grid key={i} sx={{ display: "flex", gap: "10px" }}>
           <Grid sx={{}}>
             <CardMedia
               component={"img"}

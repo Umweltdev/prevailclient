@@ -7,7 +7,7 @@ import {
   Button,
 } from "@mui/material";
 import React, { useState } from "react";
-import { FileCopy, HomeMax, Maximize, Minimize } from "@mui/icons-material";
+import { FileCopy, HomeMax } from "@mui/icons-material";
 import jsPDF from "jspdf";
 import img1 from "./assets/Brand Identity/Slide-1.avif";
 import img2 from "./assets/Brand Identity/Slide-2.avif";
@@ -292,7 +292,7 @@ const PdfSection = () => {
         >
           <Box sx={{ display: "flex", justifyContent: "space-between" }}>
             <span onClick={toggleMaximize} variant="contained">
-              <Link to="visual_brand_identity">
+              <Link to="visual-brand-identity">
                 <HomeMax sx={{ color: "#653BB5" }} />
               </Link>
             </span>

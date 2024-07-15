@@ -52,6 +52,7 @@ const DigitalAccelerator = () => {
               This package isn’t just a collection of services – it's your strategic 
               gateway to a cohesive, impactful and cost-effective digital presence.`}
         />
+        <EmpowerBussiness/>
         <ImageTextComponent
           img="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720091821/Understanding-Your-Challenges_imkqrh.avif"
           alt="Understanding-Your-Challenges"

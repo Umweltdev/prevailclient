@@ -50,34 +50,6 @@ const CustomTextField = styled(TextField)(({ theme }) => ({
 }));
 
 const FooterNew = () => {
-  const scrollToTop = () => {
-    const duration = 2000;
-    const start = window.pageYOffset;
-    const startTime =
-      "now" in window.performance ? performance.now() : new Date().getTime();
-
-    const easeInOutQuad = (t, b, c, d) => {
-      t /= d / 2;
-      if (t < 1) return (c / 2) * t * t + b;
-      t--;
-      return (-c / 2) * (t * (t - 2) - 1) + b;
-    };
-
-    const animateScroll = () => {
-      const currentTime =
-        "now" in window.performance ? performance.now() : new Date().getTime();
-      const elapsed = currentTime - startTime;
-
-      window.scrollTo(0, easeInOutQuad(elapsed, start, -start, duration));
-
-      if (elapsed < duration) {
-        requestAnimationFrame(animateScroll);
-      }
-    };
-
-    animateScroll();
-  };
-
   return (
     <Box
       sx={{
@@ -255,29 +227,8 @@ const FooterNew = () => {
       </Grid>
       {/* =================CHATBOT========================= */}
 
-      <Grid
-        sx={{
-          position: "relative",
-          left: "85vw",
-          bottom: "1vh",
+      {/* <ChatBotLauncher /> */}
 
-          "@media (max-width: 767px)": {
-            left: "80vw",
-          },
-        }}
-      >
-        <ChatBotLauncher />
-        <Fab
-          sx={{
-            background: "#6E3EF4",
-            color: "#fff",
-            "&:hover": { background: "#6E3EF4", color: "#fff" },
-          }}
-          onClick={scrollToTop}
-        >
-          <KeyboardArrowUp />
-        </Fab>
-      </Grid>
       <Grid
         sx={{
           backgroundColor: "#3E2162",

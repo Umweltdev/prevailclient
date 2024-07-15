@@ -5,7 +5,8 @@ import { loadStripe } from "@stripe/stripe-js";
 import ScrollToTop from "./ScrollToTop";
 import { AuthContext } from "./context/AuthContext";
 import Loading from "./components/utils/Loading";
-
+import { Fab, Grid } from "@mui/material";
+import { KeyboardArrowUp } from "@mui/icons-material";
 
 // Lazy load pages and componentss
 const Landing = React.lazy(() => import("./pages/Landing"));
@@ -31,6 +32,9 @@ const Sem = React.lazy(() => import("./components/Services/Sem/Sem"));
 const Mpd = React.lazy(() => import("./components/Services/Mpd/Mpd"));
 const DigitalAccelerator = React.lazy(() =>
   import("./components/Services/DigitalAccelerator/DigitalAccelerator")
+);
+const EmpowerYourBussiness = React.lazy(() =>
+  import("./components/Services/DigitalAccelerator/EmpowerYourBussiness")
 );
 const DigitalEcosystem = React.lazy(() =>
   import("./components/Explore/DigitalEcosystem/DigitalEcosystem")
@@ -63,6 +67,34 @@ const stripePromise = loadStripe(
 function App() {
   const { user } = useContext(AuthContext);
 
+  const scrollToTop = () => {
+    const duration = 2000;
+    const start = window.pageYOffset;
+    const startTime =
+      "now" in window.performance ? performance.now() : new Date().getTime();
+
+    const easeInOutQuad = (t, b, c, d) => {
+      t /= d / 2;
+      if (t < 1) return (c / 2) * t * t + b;
+      t--;
+      return (-c / 2) * (t * (t - 2) - 1) + b;
+    };
+
+    const animateScroll = () => {
+      const currentTime =
+        "now" in window.performance ? performance.now() : new Date().getTime();
+      const elapsed = currentTime - startTime;
+
+      window.scrollTo(0, easeInOutQuad(elapsed, start, -start, duration));
+
+      if (elapsed < duration) {
+        requestAnimationFrame(animateScroll);
+      }
+    };
+
+    animateScroll();
+  };
+
   return (
     <Elements stripe={stripePromise}>
       <ScrollToTop />
@@ -84,7 +116,7 @@ function App() {
             element={<BrandIdentity />}
           />
           <Route
-            path="/service/brand-identity-package/visual_brand_identity"
+            path="/service/brand-identity-package/visual-brand-identity"
             element={<VisualBrandIdentity />}
           />
           <Route
@@ -114,6 +146,11 @@ function App() {
             element={<DigitalAccelerator />}
           />
 
+          <Route
+            path="/service/digital-accelerator-bundle/empower-your-business"
+            element={<EmpowerYourBussiness />}
+          />
+
           <Route path="/Portfolio/:index" element={<CaseDetails />} />
           <Route path="/about/ourWhy" element={<AboutOurWhy />} />
           <Route path="/about/ourSolution" element={<AboutOurSolution />} />
@@ -130,6 +167,29 @@ function App() {
             element={user ? <UserDashBoard /> : <Navigate to="/" />}
           />
         </Routes>
+        {/* +++++++++Scroll up */}
+        <Grid
+          sx={{
+            position: "fixed",
+            left: "95vw",
+            bottom: "5vh",
+
+            "@media (max-width: 767px)": {
+              left: "80vw",
+            },
+          }}
+        >
+          <Fab
+            sx={{
+              background: "#6E3EF4",
+              color: "#fff",
+              "&:hover": { background: "#6E3EF4", color: "#fff" },
+            }}
+            onClick={scrollToTop}
+          >
+            <KeyboardArrowUp />
+          </Fab>
+        </Grid>
       </Suspense>
     </Elements>
   );
