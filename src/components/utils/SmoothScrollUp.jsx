@@ -35,11 +35,12 @@ const SmoothScrollUp = () => {
     <Grid
       sx={{
         position: "fixed",
-        left: "95vw",
+        left: "90vw",
         bottom: "10vh",
 
         "@media (max-width: 767px)": {
           left: "80vw",
+          bottom: "7vh",
         },
       }}
     >
