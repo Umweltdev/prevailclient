@@ -160,6 +160,7 @@ const EmpowerBusiness = () => {
         "@media (max-width: 600px)": {
           height: "100vh",
           clipPath: "inset(10vh 0)",
+          margin: "unset",
         },
       }}
     >
