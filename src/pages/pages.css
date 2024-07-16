@@ -1,0 +1,6 @@
+/* cookies */
+@media (max-width: 768px) {
+  .cookie-consent {
+    display: none !important;
+  }
+}

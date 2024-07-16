@@ -14,7 +14,7 @@ import CookieConsent, {
   Cookies,
   getCookieConsentValue,
 } from "react-cookie-consent";
-
+import "./pages.css";
 
 const Landing = (props) => {
   const { isLoggedIn } = useContext(AuthContext);
@@ -41,61 +41,59 @@ const Landing = (props) => {
         <br />
         <br />
         <JoinCustomers />
-
-        <CookieConsent
-          enableDeclineButton
-          style={{
-            background: "rgba(136, 78, 217, 0.9)",
-            height: "35vh",
-            width: "100vw",
-            display: "flex",
-
-            padding: "20px",
-            boxSizing: "border-box",
-          }}
-          location="bottom"
-          buttonText="Accept"
-          cookieName="prevailagency"
-          buttonStyle={{
-            color: "#884ED9",
-            fontSize: "18px",
-            width: "144px",
-            padding: "10px 0",
-            borderRadius: "25px",
-            background: "white",
-            border: "1px solid rgba(136, 78, 217)",
-            margin: "10px", // Margin between buttons
-          }}
-          declineButtonText="Decline"
-          declineButtonStyle={{
-            color: "white",
-            fontSize: "18px",
-            width: "144px",
-            padding: "10px 0",
-            borderRadius: "25px",
-            background: "rgba(136, 78, 217, 0.9)",
-            border: "1px solid white",
-            margin: "10px", // Margin between buttons
-          }}
-          expires={150}
-        >
-          <p style={{ fontSize: "18px" }}>
-            We collect cookies to analyze our website traffic and performance;
-            we never collect any personal data.
-          </p>
-          {(acceptedByScrolling) => {
-            if (acceptedByScrolling) {
-              alert("Accept was triggered by user scrolling");
-            } else {
-              alert("Accept was triggered by clicking the Accept button");
-            }
-          }}
-          {() => {
-            alert("Decline was triggered");
-          }}
-        </CookieConsent>
-
-
+        <div className="cookie-consent">
+          <CookieConsent
+            enableDeclineButton
+            style={{
+              background: "rgba(136, 78, 217, 0.9)",
+              height: "13vh",
+              width: "100vw",
+              display: "flex",
+              padding: "20px",
+              boxSizing: "border-box",
+            }}
+            location="bottom"
+            buttonText="Accept"
+            cookieName="prevailagency"
+            buttonStyle={{
+              color: "#884ED9",
+              fontSize: "18px",
+              width: "144px",
+              padding: "10px 0",
+              borderRadius: "25px",
+              background: "white",
+              border: "1px solid rgba(136, 78, 217)",
+              margin: "10px", // Margin between buttons
+            }}
+            declineButtonText="Decline"
+            declineButtonStyle={{
+              color: "white",
+              fontSize: "18px",
+              width: "144px",
+              padding: "10px 0",
+              borderRadius: "25px",
+              background: "rgba(136, 78, 217, 0.9)",
+              border: "1px solid white",
+              margin: "10px", // Margin between buttons
+            }}
+            expires={150}
+          >
+            <p style={{ fontSize: "16px" }}>
+              We collect cookies to analyze our website traffic and performance;
+              we never collect any personal data.
+            </p>
+            {(acceptedByScrolling) => {
+              if (acceptedByScrolling) {
+                alert("Accept was triggered by user scrolling");
+              } else {
+                alert("Accept was triggered by clicking the Accept button");
+              }
+            }}
+            {() => {
+              alert("Decline was triggered");
+            }}
+          </CookieConsent>
+        </div>
         <FooterNew />
       </div>
     </div>

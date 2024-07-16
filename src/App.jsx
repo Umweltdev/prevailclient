@@ -5,8 +5,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import ScrollToTop from "./ScrollToTop";
 import { AuthContext } from "./context/AuthContext";
 import Loading from "./components/utils/Loading";
-import { Fab, Grid } from "@mui/material";
-import { KeyboardArrowUp } from "@mui/icons-material";
+import SmoothScrollUp from "./components/utils/SmoothScrollUp";
 
 // Lazy load pages and componentss
 const Landing = React.lazy(() => import("./pages/Landing"));
@@ -67,131 +66,83 @@ const stripePromise = loadStripe(
 function App() {
   const { user } = useContext(AuthContext);
 
-  const scrollToTop = () => {
-    const duration = 2000;
-    const start = window.pageYOffset;
-    const startTime =
-      "now" in window.performance ? performance.now() : new Date().getTime();
-
-    const easeInOutQuad = (t, b, c, d) => {
-      t /= d / 2;
-      if (t < 1) return (c / 2) * t * t + b;
-      t--;
-      return (-c / 2) * (t * (t - 2) - 1) + b;
-    };
-
-    const animateScroll = () => {
-      const currentTime =
-        "now" in window.performance ? performance.now() : new Date().getTime();
-      const elapsed = currentTime - startTime;
-
-      window.scrollTo(0, easeInOutQuad(elapsed, start, -start, duration));
-
-      if (elapsed < duration) {
-        requestAnimationFrame(animateScroll);
-      }
-    };
-
-    animateScroll();
-  };
-
   return (
-    <Elements stripe={stripePromise}>
-      <ScrollToTop />
-      <Suspense fallback={<Loading />}>
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route
-            path="/reset_password/:id/:token"
-            element={<ResetPasswordForm />}
-          />
-          <Route path="/about-us" element={<About />} />
-          <Route path="/Portfolio" element={<Portfolio />} />
-          <Route path="/Blog" element={<Blog />} />
-          <Route path="/contact-us" element={<Contact />} />
-          <Route path="/Blog/:index" element={<BlogDetails />} />
-          <Route path="/service-landing-page" element={<Services />} />
-          <Route
-            path="/service/brand-identity-package"
-            element={<BrandIdentity />}
-          />
-          <Route
-            path="/service/brand-identity-package/visual-brand-identity"
-            element={<VisualBrandIdentity />}
-          />
-          <Route
-            path="/service/custom-website-development"
-            element={<WebsiteDevelopment />}
-          />
-          <Route
-            path="/explore/digital-ecosystem"
-            element={<DigitalEcosystem />}
-          />
-          <Route
-            path="/explore/customer-journey"
-            element={<CustomerJourney />}
-          />
-          <Route
-            path="/service/website-development"
-            element={<WebManagement />}
-          />
-          <Route path="/privacypolicy" element={<PrivacyPolicy />} />
-          <Route path="/service/search-engine-marketing" element={<Sem />} />
-          <Route
-            path="/service/marketing-pricing-displacement"
-            element={<Mpd />}
-          />
-          <Route
-            path="/service/digital-accelerator-bundle"
-            element={<DigitalAccelerator />}
-          />
+    <>
+      <Elements stripe={stripePromise}>
+        <ScrollToTop />
+        <Suspense fallback={<Loading />}>
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route
+              path="/reset_password/:id/:token"
+              element={<ResetPasswordForm />}
+            />
+            <Route path="/about-us" element={<About />} />
+            <Route path="/Portfolio" element={<Portfolio />} />
+            <Route path="/Blog" element={<Blog />} />
+            <Route path="/contact-us" element={<Contact />} />
+            <Route path="/Blog/:index" element={<BlogDetails />} />
+            <Route path="/service-landing-page" element={<Services />} />
+            <Route
+              path="/service/brand-identity-package"
+              element={<BrandIdentity />}
+            />
+            <Route
+              path="/service/brand-identity-package/visual-brand-identity"
+              element={<VisualBrandIdentity />}
+            />
+            <Route
+              path="/service/custom-website-development"
+              element={<WebsiteDevelopment />}
+            />
+            <Route
+              path="/explore/digital-ecosystem"
+              element={<DigitalEcosystem />}
+            />
+            <Route
+              path="/explore/customer-journey"
+              element={<CustomerJourney />}
+            />
+            <Route
+              path="/service/website-development"
+              element={<WebManagement />}
+            />
+            <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+            <Route path="/service/search-engine-marketing" element={<Sem />} />
+            <Route
+              path="/service/marketing-pricing-displacement"
+              element={<Mpd />}
+            />
+            <Route
+              path="/service/digital-accelerator-bundle"
+              element={<DigitalAccelerator />}
+            />
 
-          <Route
-            path="/service/digital-accelerator-bundle/empower-your-business"
-            element={<EmpowerYourBussiness />}
-          />
+            <Route
+              path="/service/digital-accelerator-bundle/empower-your-business"
+              element={<EmpowerYourBussiness />}
+            />
 
-          <Route path="/Portfolio/:index" element={<CaseDetails />} />
-          <Route path="/about/ourWhy" element={<AboutOurWhy />} />
-          <Route path="/about/ourSolution" element={<AboutOurSolution />} />
-          <Route path="/SignUp" element={<SignUpForm />} />
-          <Route path="/Login" element={<LoginForm />} />
-          <Route path="/Stepper" element={<Stepper />} />
-          <Route path="/MobStepper" element={<MobStepper />} />
-          <Route
-            path="/UserDashboard"
-            element={user ? <UserDashBoard /> : <Navigate to="/" />}
-          />
-          <Route
-            path="/user/*"
-            element={user ? <UserDashBoard /> : <Navigate to="/" />}
-          />
-        </Routes>
-        {/* +++++++++Scroll up */}
-        <Grid
-          sx={{
-            position: "fixed",
-            left: "95vw",
-            bottom: "5vh",
-
-            "@media (max-width: 767px)": {
-              left: "80vw",
-            },
-          }}
-        >
-          <Fab
-            sx={{
-              background: "#6E3EF4",
-              color: "#fff",
-              "&:hover": { background: "#6E3EF4", color: "#fff" },
-            }}
-            onClick={scrollToTop}
-          >
-            <KeyboardArrowUp />
-          </Fab>
-        </Grid>
-      </Suspense>
-    </Elements>
+            <Route path="/Portfolio/:index" element={<CaseDetails />} />
+            <Route path="/about/ourWhy" element={<AboutOurWhy />} />
+            <Route path="/about/ourSolution" element={<AboutOurSolution />} />
+            <Route path="/SignUp" element={<SignUpForm />} />
+            <Route path="/Login" element={<LoginForm />} />
+            <Route path="/Stepper" element={<Stepper />} />
+            <Route path="/MobStepper" element={<MobStepper />} />
+            <Route
+              path="/UserDashboard"
+              element={user ? <UserDashBoard /> : <Navigate to="/" />}
+            />
+            <Route
+              path="/user/*"
+              element={user ? <UserDashBoard /> : <Navigate to="/" />}
+            />
+          </Routes>
+        </Suspense>
+      </Elements>
+      <SmoothScrollUp />
+    </>
   );
 }
 

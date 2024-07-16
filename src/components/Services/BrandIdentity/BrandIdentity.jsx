@@ -32,9 +32,9 @@ const BrandIdentity = () => {
         <AppBarNav color="#000" />
         <HeroComponent title={"Brand Identity Package"} />
         <ElevateYourPresence />
+        <PdfSection />
         <Addressing />
         <TailoredApproach />
-        <PdfSection/>
         <Packages />
         <FooterNew />
       </div>

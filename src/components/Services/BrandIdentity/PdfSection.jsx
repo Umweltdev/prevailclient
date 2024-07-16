@@ -233,6 +233,7 @@ const PdfSection = () => {
         position: "relative",
         overflow: "hidden",
         clipPath: "inset(20vh 0)",
+        margin: "-20vh 0",
         "@media (max-width: 600px)": {
           height: "100vh",
           clipPath: "inset(10vh 0)",
