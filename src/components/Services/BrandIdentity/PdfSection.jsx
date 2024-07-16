@@ -5,8 +5,9 @@ import {
   Typography,
   CircularProgress,
   Button,
+  Skeleton,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FileCopy, HomeMax } from "@mui/icons-material";
 import jsPDF from "jspdf";
 import img1 from "./assets/Brand Identity/Slide-1.avif";
@@ -149,12 +150,20 @@ const imageUrls = [
 ];
 
 const PdfSection = () => {
+  const [bgImageLoading, setBgImageLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [imagesLoaded, setImagesLoaded] = useState(
     Array(imageUrls.length).fill(false)
   );
   const [maximized, setMaximized] = useState(false);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src =
+      "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720594339/Prevail-Bento-Grid-3_siqifw.avif";
+    img.onload = () => setBgImageLoading(false);
+  }, []);
 
   const handleOpenModal = () => {
     setIsLoading(true);
@@ -223,24 +232,39 @@ const PdfSection = () => {
   return (
     <Box
       sx={{
-        backgroundImage: `url(https://res.cloudinary.com/dtzuqacg3/image/upload/v1720594339/Prevail-Bento-Grid-3_siqifw.avif)`,
         display: "flex",
         width: "100vw",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
         height: "160vh",
         position: "relative",
         overflow: "hidden",
         clipPath: "inset(20vh 0)",
         margin: "-20vh 0",
         "@media (max-width: 600px)": {
-          height: "100vh",
-          clipPath: "inset(10vh 0)",
-          margin: "unset",
+          height: "90vw",
+          clipPath: "unset",
+          margin: "7vh 0",
         },
       }}
     >
+      {bgImageLoading ? (
+        <Skeleton variant="rectangular" width="100%" height="100%" />
+      ) : (
+        <Box
+          sx={{
+            backgroundImage: `url(https://res.cloudinary.com/dtzuqacg3/image/upload/v1720594339/Prevail-Bento-Grid-3_siqifw.avif)`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            width: "100%",
+            height: "100%",
+            "@media (max-width: 600px)": {
+              height: "100%",
+              clipPath: "unset",
+              margin: "unset",
+            },
+          }}
+        />
+      )}
       <Fab
         sx={{
           position: "absolute",

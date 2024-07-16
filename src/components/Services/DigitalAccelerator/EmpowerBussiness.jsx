@@ -5,8 +5,9 @@ import {
   Typography,
   CircularProgress,
   Button,
+  Skeleton,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FileCopy, HomeMax, Maximize, Minimize } from "@mui/icons-material";
 import jsPDF from "jspdf";
 import img1 from "./assets/dab/DAB_Whitepaper-_Slide-1_.avif";
@@ -77,6 +78,7 @@ const EmpowerBusiness = () => {
     Array(imageUrls.length).fill(false)
   );
   const [maximized, setMaximized] = useState(false);
+  const [bgImageLoading, setBgImageLoading] = useState(true);
 
   const handleOpenModal = () => {
     setIsLoading(true);
@@ -142,28 +144,49 @@ const EmpowerBusiness = () => {
     }
   };
 
+  useEffect(() => {
+    const img = new Image();
+    img.src =
+      "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720198481/DAB-Whitepaper-_Purple__kwkgdw.avif";
+    img.onload = () => setBgImageLoading(false);
+  }, []);
+
   return (
     <Box
       sx={{
-        backgroundImage:
-          "url(https://res.cloudinary.com/dtzuqacg3/image/upload/v1720198481/DAB-Whitepaper-_Purple__kwkgdw.avif)",
         display: "flex",
         width: "100vw",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
         height: "160vh",
         position: "relative",
         overflow: "hidden",
         clipPath: "inset(20vh 0)",
         margin: "-20vh 0",
         "@media (max-width: 600px)": {
-          height: "100vh",
-          clipPath: "inset(10vh 0)",
-          margin: "unset",
+          height: "90vw",
+          clipPath: "unset",
+          margin: "7vh 0",
         },
       }}
     >
+      {bgImageLoading ? (
+        <Skeleton variant="rectangular" width="100%" height="100%" />
+      ) : (
+        <Box
+          sx={{
+            backgroundImage: `url(https://res.cloudinary.com/dtzuqacg3/image/upload/v1720198481/DAB-Whitepaper-_Purple__kwkgdw.avif)`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            width: "100%",
+            height: "100%",
+            "@media (max-width: 600px)": {
+              height: "100%",
+              clipPath: "unset",
+              margin: "unset",
+            },
+          }}
+        />
+      )}
       <Fab
         sx={{
           position: "absolute",
