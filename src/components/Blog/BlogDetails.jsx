@@ -10,6 +10,7 @@ import { Grid, Typography } from "@mui/material";
 import BlogSideCard from "./BlogSideCard";
 import SideBarNews from "./SideBarNews";
 import CaseNavigation from "../Portfolio/cases/CaseNavigation";
+import SmoothScrollUp from "../utils/SmoothScrollUp";
 
 const BlogDetails = () => {
   const { index } = useParams();
@@ -243,7 +244,7 @@ const BlogDetails = () => {
             : ""
         }
       />
-
+      <SmoothScrollUp />
       <FooterNew />
     </div>
   );

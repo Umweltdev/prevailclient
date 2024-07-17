@@ -69,6 +69,7 @@ import img66 from "./assets/Brand Identity/Slide-66.avif";
 import img67 from "./assets/Brand Identity/Slide-67.avif";
 import { Box, Button, Card, CardMedia } from "@mui/material";
 import jsPDF from "jspdf";
+import SmoothScrollUp from "../../utils/SmoothScrollUp";
 
 const imageUrls = [
   img1,
@@ -245,6 +246,7 @@ const VisualBrandIdentity = () => {
           </Button>
         </Link>
       </Box>
+      {/* <SmoothScrollUp /> */}
     </div>
   );
 };

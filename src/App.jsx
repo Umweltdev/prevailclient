@@ -141,7 +141,7 @@ function App() {
           </Routes>
         </Suspense>
       </Elements>
-      <SmoothScrollUp />
+      
     </>
   );
 }

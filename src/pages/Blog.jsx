@@ -9,6 +9,7 @@ import Header from "../components/Blog/Header";
 import AppBarNav from "../components/Navbar/Appbar";
 import JoinOurCustomer from "../components/About/JoinOurCustomer";
 import FooterNew from "../components/Footer/FooterNew";
+import SmoothScrollUp from "../components/utils/SmoothScrollUp";
 
 const Blog = (props) => {
   const { isLoggedIn } = useContext(AuthContext);
@@ -20,6 +21,7 @@ const Blog = (props) => {
       <SectionOne />
       <JoinOurCustomer />
       <FooterNew />
+      <SmoothScrollUp />
     </div>
   );
 };

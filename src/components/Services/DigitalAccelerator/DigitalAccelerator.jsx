@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import AccordionUsage from "./Accordion";
 import ImageTextComponent from "../ReusedComponenets/ImageTextComponent";
 import EmpowerBussiness from "./EmpowerBussiness";
+import SmoothScrollUp from "../../utils/SmoothScrollUp";
 
 const DigitalAccelerator = () => {
   const navigate = useNavigate();
@@ -52,7 +53,7 @@ const DigitalAccelerator = () => {
               This package isn’t just a collection of services – it's your strategic 
               gateway to a cohesive, impactful and cost-effective digital presence.`}
         />
-        <EmpowerBussiness/>
+        <EmpowerBussiness />
         <ImageTextComponent
           img="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720091821/Understanding-Your-Challenges_imkqrh.avif"
           alt="Understanding-Your-Challenges"
@@ -238,7 +239,7 @@ const DigitalAccelerator = () => {
             </Grid>
           </Container>
         </Box>
-
+        <SmoothScrollUp />
         <FooterNew />
       </div>
     </>

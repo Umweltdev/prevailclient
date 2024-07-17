@@ -15,6 +15,7 @@ import CookieConsent, {
   getCookieConsentValue,
 } from "react-cookie-consent";
 import "./pages.css";
+import SmoothScrollUp from "../components/utils/SmoothScrollUp";
 
 const Landing = (props) => {
   const { isLoggedIn } = useContext(AuthContext);
@@ -94,6 +95,7 @@ const Landing = (props) => {
             }}
           </CookieConsent>
         </div>
+        <SmoothScrollUp />
         <FooterNew />
       </div>
     </div>

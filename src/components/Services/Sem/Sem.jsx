@@ -12,26 +12,28 @@ import MainPage from "./MainPage";
 import OfferSection from "./OfferSection";
 import Packages from "./Packages";
 import AppBarNav from "../../Navbar/Appbar";
+import SmoothScrollUp from "../../utils/SmoothScrollUp";
 
 const Sem = () => {
   return (
     <>
-    <Helmet>
+      <Helmet>
         <title>Unlock Precise Targeting and Digital Growth</title>
         <meta
           name="description"
           content="Previal's SEM Helps Boost Visibility and Target the Right Audience"
         />
       </Helmet>
-    <div style={{ width: "100%", overflow: "hidden" }}>
-      <AppBarNav color="#000" />
-      <HeroComponent title={"Search Engine Marketing"} />
-      <MainPage />
-      <OfferSection />
-      <Packages />
-      {/* <Carousel /> */}
-      <FooterNew />
-    </div>
+      <div style={{ width: "100%", overflow: "hidden" }}>
+        <AppBarNav color="#000" />
+        <HeroComponent title={"Search Engine Marketing"} />
+        <MainPage />
+        <OfferSection />
+        <Packages />
+        {/* <Carousel /> */}
+        <SmoothScrollUp />
+        <FooterNew />
+      </div>
     </>
   );
 };

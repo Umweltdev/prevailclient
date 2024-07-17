@@ -16,6 +16,7 @@ import TailoredApproach from "./TailoredApproach";
 import HeroComponent from "../ReusedComponenets/HeroComponent";
 import AppBarNav from "../../Navbar/Appbar";
 import PdfSection from "./PdfSection";
+import SmoothScrollUp from "../../utils/SmoothScrollUp";
 //import MainPage from "./MainPage";
 
 const BrandIdentity = () => {
@@ -36,6 +37,7 @@ const BrandIdentity = () => {
         <Addressing />
         <TailoredApproach />
         <Packages />
+        <SmoothScrollUp />
         <FooterNew />
       </div>
     </>

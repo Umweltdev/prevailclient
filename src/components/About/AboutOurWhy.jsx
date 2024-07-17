@@ -3,6 +3,7 @@ import DrawerAppBarWhite from "../Navbar/Appbar";
 import { Grid, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import FooterNew from "../Footer/FooterNew";
+import SmoothScrollUp from "../utils/SmoothScrollUp";
 
 const useStyle = makeStyles({
   mainContainer: {
@@ -114,6 +115,7 @@ const AboutOurWhy = () => {
           alt=""
         />
       </Grid>
+      <SmoothScrollUp />
       <FooterNew />
     </Grid>
   );

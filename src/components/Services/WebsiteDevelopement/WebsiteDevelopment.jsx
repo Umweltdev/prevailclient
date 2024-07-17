@@ -14,6 +14,7 @@ import BulbSvg from "./assets/bulb.svg";
 import TextImageComponent from "../ReusedComponenets/TextImageComponent";
 import ImageTextComponent from "../ReusedComponenets/ImageTextComponent";
 import { Transition } from 'react-transition-group';
+import SmoothScrollUp from "../../utils/SmoothScrollUp";
 
 const duration = 300;
 
@@ -81,11 +82,11 @@ const WebsiteDevelopment = () => {
         <AppBarNav color="#000" />
         <HeroComponent title="Custom Website Development" />
         <Transition in={true} timeout={duration} appear>
-          {state => (
+          {(state) => (
             <Stack
               style={{
                 ...defaultStyle,
-                ...transitionStyles[state]
+                ...transitionStyles[state],
               }}
             >
               <TextImageComponent
@@ -120,7 +121,9 @@ const WebsiteDevelopment = () => {
               <TextImageComponent
                 img="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720086386/Your-Digital-Development-Journey_m82lfs.avif"
                 alt="Your-Digital-Development-Journey"
-                header={"Why Choose Prevail for Your Digital Development Journey?"}
+                header={
+                  "Why Choose Prevail for Your Digital Development Journey?"
+                }
                 text={`Prevail stands out due to our comprehensive, bespoke service offerings. 
                   Our team, consisting of brand identity experts, UI/UX designers, full-stack MERN 
                   developers, and marketing consultants, excels in crafting digital platforms that 
@@ -190,13 +193,15 @@ const WebsiteDevelopment = () => {
                 }}
               >
                 Choosing Prevail’s Custom Website Development means opting for a
-                tailored, effective, and secure digital presence. Ready to embark
-                on this transformative journey? Contact Prevail today to build a
-                website that not only meets but exceeds your digital aspirations. 
+                tailored, effective, and secure digital presence. Ready to
+                embark on this transformative journey? Contact Prevail today to
+                build a website that not only meets but exceeds your digital
+                aspirations. 
               </Typography>
             </Box>
           </Container>
         </Box>
+        <SmoothScrollUp />
         <FooterNew />
       </div>
     </>

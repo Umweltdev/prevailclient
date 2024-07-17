@@ -30,6 +30,7 @@ import img27 from "./assets/dab/DAB_Whitepaper-_Slide-27_.avif";
 
 import { Box, Button, Card, CardMedia } from "@mui/material";
 import jsPDF from "jspdf";
+import SmoothScrollUp from "../../utils/SmoothScrollUp";
 
 const imageUrls = [
   img1,
@@ -167,6 +168,7 @@ const EmpowerYourBussiness = () => {
           </Button>
         </Link>
       </Box>
+      {/* <SmoothScrollUp /> */}
     </div>
   );
 };

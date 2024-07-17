@@ -3,12 +3,13 @@ import { Helmet } from "react-helmet";
 import DrawerAppBarWhite from "../../Navbar/Appbar";
 import FooterNew from "../../Footer/FooterNew";
 import Digital from './Digital';
+import SmoothScrollUp from '../../utils/SmoothScrollUp';
 
 
 const DigitalEcosystem = () => {
   return (
-  <>
-    <Helmet>
+    <>
+      <Helmet>
         <title>Enhance Your Digital Strategy for Lasting Impact</title>
         <meta
           name="description"
@@ -16,12 +17,13 @@ const DigitalEcosystem = () => {
         />
       </Helmet>
       <div style={{ width: "100%", overflow: "hidden" }}>
-      <DrawerAppBarWhite />
-      <Digital />
-      <FooterNew />  
-    </div>
-  </>
-  )
+        <DrawerAppBarWhite />
+        <Digital />
+        <SmoothScrollUp />
+        <FooterNew />
+      </div>
+    </>
+  );
 }
 
 export default DigitalEcosystem
