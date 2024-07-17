@@ -108,8 +108,8 @@ const EmpowerBusiness = () => {
   };
 
   const downloadPdf = async () => {
-    const pdfWidth = 210; // A4 width in mm
-    const pdfHeight = 148; // half of A4 height in mm
+    const pdfWidth = 210; 
+    const pdfHeight = 148;
 
     const doc = new jsPDF({
       orientation: "portrait",
@@ -176,6 +176,7 @@ const EmpowerBusiness = () => {
             backgroundImage: `url(https://res.cloudinary.com/dtzuqacg3/image/upload/v1720198481/DAB-Whitepaper-_Purple__kwkgdw.avif)`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
+            aspectRatio: "1.1778/1",
             backgroundPosition: "center",
             width: "100%",
             height: "100%",

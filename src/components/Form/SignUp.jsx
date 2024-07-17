@@ -15,7 +15,6 @@ import { AuthContext } from "../../context/AuthContext";
 import image2 from "../Form/Group_1.svg";
 import { PasswordInput, TextInput } from "./Textfileds";
 
-
 const CustomTextField = styled(TextField)({
   "& .MuiOutlinedInput-root": {
     fontSize: "14px",
@@ -30,7 +29,7 @@ const SignUp = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const navigate = useNavigate();
   const { loading, error, dispatch } = useContext(AuthContext);
-   const isMobile = useMediaQuery("(max-width:600px)");
+  const isMobile = useMediaQuery("(max-width:600px)");
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -63,7 +62,8 @@ const SignUp = () => {
       );
       const user = response.data;
       dispatch({ type: "LOGIN_SUCCESS", payload: user });
-       navigate("/Stepper");
+      navigate("/user/profile", { state: { user: user } });
+      // navigate("/Stepper");
     } catch (error) {
       dispatch({ type: "LOGIN_FAILURE", payload: error.response.data });
     } finally {

@@ -234,11 +234,9 @@ const PdfSection = () => {
       sx={{
         display: "flex",
         width: "100vw",
-        height: "160vh",
         position: "relative",
         overflow: "hidden",
-        clipPath: "inset(20vh 0)",
-        margin: "-20vh 0",
+        aspectRatio: "16/9",
         "@media (max-width: 600px)": {
           height: "90vw",
           clipPath: "unset",
@@ -253,10 +251,10 @@ const PdfSection = () => {
           sx={{
             backgroundImage: `url(https://res.cloudinary.com/dtzuqacg3/image/upload/v1720594339/Prevail-Bento-Grid-3_siqifw.avif)`,
             backgroundRepeat: "no-repeat",
+            aspectRatio: "16/9",
             backgroundSize: "cover",
             backgroundPosition: "center",
             width: "100%",
-            height: "100%",
             "@media (max-width: 600px)": {
               height: "100%",
               clipPath: "unset",
