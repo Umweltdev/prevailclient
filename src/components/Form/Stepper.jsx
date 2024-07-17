@@ -46,9 +46,8 @@ export default function StepperForm() {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
 
-  console.log(user.user);
-
   const userId = user.user.id;
+
   const handleChange = (name, value) => {
     setFormData((prevFormData) => ({
       ...prevFormData,
@@ -72,6 +71,27 @@ export default function StepperForm() {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleSave = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.put(
+        `https://prevailserver-4b3c670a5496.herokuapp.com/api/stepper/quest/${userId}`,
+        formData
+      );
+      const reg = response.data;
+      setSuccess("Data saved successfully!");
+      navigate("/dashboard");
+    } catch (err) {
+      setError(`Save failed. Please try again: ${err}`);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const skipBtn = async () => {
+    navigate("/dashboard");
   };
 
   const isStepOptional = (step) => {
@@ -110,6 +130,8 @@ export default function StepperForm() {
     });
   };
 
+ 
+
   const handleReset = () => {
     setActiveStep(0);
     setFormData({
@@ -145,11 +167,6 @@ export default function StepperForm() {
         {steps.map((label, index) => {
           const stepProps = {};
           const labelProps = {};
-          // if (isStepOptional(index)) {
-          //   labelProps.optional = (
-          //     <Typography variant="caption">Optional</Typography>
-          //   );
-          // }
           if (isStepSkipped(index)) {
             stepProps.completed = false;
           }
@@ -294,11 +311,7 @@ export default function StepperForm() {
                 Back
               </Button>
               <Box sx={{ flex: "1 1 auto" }} />
-              {isStepOptional(activeStep) && (
-                <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
-                  Skip
-                </Button>
-              )}
+
               <Button
                 onClick={
                   activeStep === steps.length - 1 ? handleSubmit : handleNext
@@ -306,6 +319,17 @@ export default function StepperForm() {
               >
                 {activeStep === steps.length - 1 ? `Finish` : "Next"}
               </Button>
+              {activeStep < steps.length - 1 && (
+                <>
+                  <Button onClick={handleSave} sx={{ ml: 1 }}>
+                    Save
+                  </Button>
+
+                  <Button onClick={handleSkip} sx={{ mr: 1 }}>
+                    Skip
+                  </Button>
+                </>
+              )}
             </Box>
           </Grid>
         )}
