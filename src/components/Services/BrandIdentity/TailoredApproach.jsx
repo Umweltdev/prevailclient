@@ -194,7 +194,9 @@ const TailoredApproach = () => {
           </Card>
           <CardMedia
             component={"img"}
-            image={mugs}
+            image={
+              "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437624/Slide-61_iem3ne.avif"
+            }
             sx={{
               width: "42vw",
               borderRadius: "5px",

@@ -62,8 +62,8 @@ const SignUp = () => {
       );
       const user = response.data;
       dispatch({ type: "LOGIN_SUCCESS", payload: user });
-      navigate("/user/profile", { state: { user: user } });
-      // navigate("/Stepper");
+      // navigate("/user/profile", { state: { user: user } });
+      navigate("/Stepper");
     } catch (error) {
       dispatch({ type: "LOGIN_FAILURE", payload: error.response.data });
     } finally {

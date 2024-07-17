@@ -13,7 +13,7 @@ import FormTextArea from "./StepperFormInputs/FormTextArea";
 import FormInputText from "./StepperFormInputs/FormInputText";
 import SubmitStepper from "./StepperFormInputs/SubmitStepper";
 import { AuthContext } from "../../context/AuthContext";
-import emailjs from "emailjs";
+import emailjs from "emailjs-com";
 
 const useStyles = makeStyles({
   textArea: {
@@ -59,9 +59,9 @@ export default function StepperForm() {
   const handleEmail = async () => {
     const templateParams = {
       to_name: "Prevail Agency", // Replace with the recipient's name
-      from_name: user.name, // Replace with the sender's name
-      from_company: user.company, // Replace with the sender's name
-      user_email: user.email, // Replace with the sender's email
+      from_name: user.user.name, // Replace with the sender's name
+      from_company: user.user.company, // Replace with the sender's name
+      from_email: user.user.email, // Replace with the sender's email
       q1: formData.q1, // Replace with the actual values from the form
       q2: formData.q2,
       q3: formData.q3,
@@ -251,50 +251,38 @@ export default function StepperForm() {
                     label="Why was it founded? What is the story behind the business?"
                     name="q1"
                     value={formData.q1}
-                    onChange={(e) =>
-                      handleChange(e.target.name, e.target.value)
-                    }
+                    onChange={handleChange}
                   />
                   <FormInputText
                     label="What is the industry/sector?"
                     name="q2"
                     labelInput="Company & Industry"
                     value={formData.q2}
-                    onChange={(e) =>
-                      handleChange(e.target.name, e.target.value)
-                    }
+                    onChange={handleChange}
                   />
                   <FormTextArea
                     label="Does the company have a mission statement or core values?"
                     name="q3"
                     value={formData.q3}
-                    onChange={(e) =>
-                      handleChange(e.target.name, e.target.value)
-                    }
+                    onChange={handleChange}
                   />
                   <FormTextArea
                     label="Briefly describe the company in a few sentences."
                     name="q4"
                     value={formData.q4}
-                    onChange={(e) =>
-                      handleChange(e.target.name, e.target.value)
-                    }
+                    onChange={handleChange}
                   />
                   <FormTextArea
                     label="What are some of the goals/objectives? (increase revenue, increase profit, improve my ROI, get more conversions, lower my acquisition cost, other)"
                     name="q5"
                     value={formData.q5}
-                    onChange={(e) =>
-                      handleChange(e.target.name, e.target.value)
-                    }
+                    onChange={handleChange}
                   />
                   <FormTextArea
                     label="What is the vision for the company in the future? (For example, in 2 years+)"
                     name="q6"
                     value={formData.q6}
-                    onChange={(e) =>
-                      handleChange(e.target.name, e.target.value)
-                    }
+                    onChange={handleChange}
                   />
                 </Grid>
               )}
@@ -304,41 +292,31 @@ export default function StepperForm() {
                     label="Can you provide a list of competitors?"
                     name="q7"
                     value={formData.q7}
-                    onChange={(e) =>
-                      handleChange(e.target.name, e.target.value)
-                    }
+                    onChange={handleChange}
                   />
                   <FormTextArea
                     label="What sets the company apart from competitors?"
                     name="q8"
                     value={formData.q8}
-                    onChange={(e) =>
-                      handleChange(e.target.name, e.target.value)
-                    }
+                    onChange={handleChange}
                   />
                   <FormTextArea
                     label="Can you describe your typical customer? (demographic, geographic, psychographic, and behavioural traits)"
                     name="q9"
                     value={formData.q9}
-                    onChange={(e) =>
-                      handleChange(e.target.name, e.target.value)
-                    }
+                    onChange={handleChange}
                   />
                   <FormTextArea
                     label="What problems does your business solve for prospects/customers?"
                     name="q10"
                     value={formData.q10}
-                    onChange={(e) =>
-                      handleChange(e.target.name, e.target.value)
-                    }
+                    onChange={handleChange}
                   />
                   <FormTextArea
                     label="What is your unique selling point (USP) which sets you apart from your competitors?"
                     name="q11"
                     value={formData.q11}
-                    onChange={(e) =>
-                      handleChange(e.target.name, e.target.value)
-                    }
+                    onChange={handleChange}
                   />
                 </Grid>
               )}

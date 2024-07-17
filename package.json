@@ -27,6 +27,7 @@
     "cors": "^2.8.5",
     "dayjs": "^1.11.10",
     "emailjs": "^4.0.3",
+    "emailjs-com": "^3.2.0",
     "formik": "^2.4.5",
     "framer-motion": "^10.18.0",
     "install": "^0.13.0",

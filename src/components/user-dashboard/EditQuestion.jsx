@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import {
   Box,
   Button,
+  Fab,
   Paper,
   Stack,
   TextField,
@@ -20,6 +21,7 @@ import { AuthContext } from "../../context/AuthContext";
 import axiosInstance from "../utils/axios";
 import axios from "axios";
 import ReusedTextArea from "./ReusedTextArea";
+import emailjs from "emailjs-com";
 
 const EditQuestion = ({ openDrawer }) => {
   const { id } = useParams();
@@ -29,7 +31,40 @@ const EditQuestion = ({ openDrawer }) => {
   const isNonMobile = useMediaQuery("(min-width:968px)");
   const navigate = useNavigate();
 
-  const handleEditQuestion = async (data) => {
+  const handleEmail = async (data) => {
+    const templateParams = {
+      to_name: "Prevail Agency", // Replace with the recipient's name
+      from_name: user.user.name, // Replace with the sender's name
+      from_company: user.user.company, // Replace with the sender's name
+      from_email: user.user.email, // Replace with the sender's email
+      state: `NB: Updated version submitted from ${user.user.name}'s Dashboard`,
+      q1: data.q1, // Replace with the actual data from the form
+      q2: data.q2,
+      q3: data.q3,
+      q4: data.q4,
+      q5: data.q5,
+      q6: data.q6,
+      q7: data.q7,
+      q8: data.q8,
+      q9: data.q9,
+      q10: data.q10,
+      q11: data.q11,
+    };
+
+    try {
+      await emailjs.send(
+        "service_lj95wfq",
+        "template_whzqabk",
+        templateParams,
+        "user_CPUrZMkDdKmWI19xzxeJA"
+      );
+      console.log("Email successfully sent!");
+    } catch (error) {
+      console.error("Failed to send email:", error);
+    }
+  };
+
+  const handleSaveChanges = async (data) => {
     setLoading(true);
     try {
       const res = await axios.put(
@@ -51,6 +86,11 @@ const EditQuestion = ({ openDrawer }) => {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const handleSubmit = async (data) => {
+    await handleSaveChanges(data); // Save data first
+    await handleEmail(data); // Send email after successful save
   };
 
   const initialValues = {
@@ -87,9 +127,7 @@ const EditQuestion = ({ openDrawer }) => {
       >
         <Formik
           enableReinitialize={true}
-          onSubmit={(values) => {
-            handleEditQuestion(values);
-          }}
+          onSubmit={handleSubmit}
           initialValues={initialValues}
           validationSchema={editSchema}
         >
@@ -308,26 +346,50 @@ const EditQuestion = ({ openDrawer }) => {
                   </Box>
                 </Box>
               </Stack>
-              <Button
-                type="submit"
-                // disabled={!isValid}
-                sx={{
-                  mt: 4,
-                  textTransform: "none",
-                  bgcolor: "primary.main",
-                  color: "white",
-                  fontSize: "14px",
-                  paddingX: "20px",
-                  fontWeight: 500,
-                  paddingY: "8px",
-                  alignSelf: "start",
-                  "&:hover": {
-                    backgroundColor: "primary.main",
-                  },
-                }}
-              >
-                {loading ? "Loading" : "Save Changes"}
-              </Button>
+              <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+                <Button
+                  title="Save for later"
+                  type="button"
+                  onClick={() => handleSaveChanges(values)}
+                  sx={{
+                    mt: 4,
+                    textTransform: "none",
+                    bgcolor: "white",
+                    color: "primary.main",
+                    fontSize: "14px",
+                    border: "1px solid",
+                    paddingX: "20px",
+                    fontWeight: 500,
+                    paddingY: "8px",
+                    alignSelf: "start",
+                    "&:hover": {
+                      backgroundColor: "white",
+                    },
+                  }}
+                >
+                  {loading ? "Loading" : "Save Draft"}
+                </Button>
+                <Button
+                  title="Submit"
+                  type="submit"
+                  sx={{
+                    mt: 4,
+                    textTransform: "none",
+                    bgcolor: "primary.main",
+                    color: "white",
+                    fontSize: "14px",
+                    paddingX: "20px",
+                    fontWeight: 500,
+                    paddingY: "8px",
+                    alignSelf: "start",
+                    "&:hover": {
+                      backgroundColor: "primary.main",
+                    },
+                  }}
+                >
+                  {loading ? "Loading" : "Submit Changes"}
+                </Button>
+              </Box>
             </form>
           )}
         </Formik>
