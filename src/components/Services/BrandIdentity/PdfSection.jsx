@@ -238,9 +238,10 @@ const PdfSection = () => {
         overflow: "hidden",
         aspectRatio: "16/9",
         "@media (max-width: 600px)": {
-          height: "90vw",
+          height: "70vw",
           clipPath: "unset",
-          margin: "7vh 0",
+          margin: "0vh 0",
+          aspectRatio: "unset",
         },
       }}
     >
@@ -257,8 +258,11 @@ const PdfSection = () => {
             width: "100%",
             "@media (max-width: 600px)": {
               height: "100%",
+              backgroundSize: "contain",
               clipPath: "unset",
               margin: "unset",
+              aspectRatio: "unset",
+              width: "100vw",
             },
           }}
         />
@@ -279,7 +283,7 @@ const PdfSection = () => {
           alignItems: "center",
           justifyContent: "center",
           "@media (max-width: 600px)": {
-            top: "75%",
+            top: "65%",
             left: "23%",
           },
         }}
