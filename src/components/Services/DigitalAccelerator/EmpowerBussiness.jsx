@@ -108,7 +108,7 @@ const EmpowerBusiness = () => {
   };
 
   const downloadPdf = async () => {
-    const pdfWidth = 210; 
+    const pdfWidth = 210;
     const pdfHeight = 148;
 
     const doc = new jsPDF({
@@ -241,7 +241,7 @@ const EmpowerBusiness = () => {
         >
           <Box sx={{ display: "flex", justifyContent: "space-between" }}>
             <span onClick={toggleMaximize} variant="contained">
-              <Link to="empower-your-business">
+              <Link className="DAB_presentation" to="empower-your-business">
                 <HomeMax sx={{ color: "#653BB5" }} />
               </Link>
             </span>

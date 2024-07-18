@@ -320,7 +320,7 @@ const PdfSection = () => {
         >
           <Box sx={{ display: "flex", justifyContent: "space-between" }}>
             <span onClick={toggleMaximize} variant="contained">
-              <Link to="visual-brand-identity">
+              <Link className="branding_presentation" to="visual-brand-identity">
                 <HomeMax sx={{ color: "#653BB5" }} />
               </Link>
             </span>
