@@ -119,7 +119,7 @@ const FAQ = () => {
           through three essential services: Website Development, Brand Identity,
           and Search Engine Optimisation (SEO).
         </Typography>
-        <Link to={"/digital-accelerator-bundle"}>
+        <Link to={"/service/digital-accelerator-bundle"}>
           <ReusedButton text={"Learn More"} />
         </Link>
       </Box>

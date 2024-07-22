@@ -15,7 +15,7 @@ import axios from "axios";
 import Loading from "../utils/Loading";
 import { AuthContext } from "../../context/AuthContext";
 
-const Question = () => {
+const Question = ({ openDrawer }) => {
   const isNonMobile = useMediaQuery("(min-width:968px)");
   const Mobile = useMediaQuery("(min-width:600px)");
   const location = useLocation();
@@ -33,7 +33,7 @@ const Question = () => {
       <Header
         Icon={PersonIcon}
         title={"Questionnaire"}
-        // openDrawer={openDrawer}
+        openDrawer={openDrawer}
         button="Edit Answers"
         link={`/user/question/${user?.user._id}`}
       />

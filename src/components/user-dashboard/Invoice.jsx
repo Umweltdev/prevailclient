@@ -5,6 +5,7 @@ import Header from "./Header";
 import InvoiceDetails from "../Invoice/invoice-details";
 import axiosInstance from "../utils/axios";
 import { useParams } from "react-router-dom";
+import axios from "axios";
 
 const Invoices = ({ openDrawer }) => {
   const { id } = useParams();
@@ -13,7 +14,9 @@ const Invoices = ({ openDrawer }) => {
   useEffect(() => {
     const getInvoice = async () => {
       try {
-        const res = await axiosInstance.get(`/api/invoice/${id}`);
+        const res = await axiosInstance.get(
+          `/api/invoice/${id}`
+        );
         setInvoice(res.data);
       } catch (error) {
         console.log(error);

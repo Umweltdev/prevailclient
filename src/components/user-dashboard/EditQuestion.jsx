@@ -155,7 +155,7 @@ const EditQuestion = ({ openDrawer }) => {
                 >
                   <Box>
                     <Typography
-                      sx={{ mb: "10px", lineHeight: "20px", width: "20vw" }}
+                      sx={{ mb: "10px", lineHeight: "20px",  width: "390px" }}
                     >
                       Why was it founded? What is the story behind the business?
                     </Typography>
@@ -170,7 +170,7 @@ const EditQuestion = ({ openDrawer }) => {
                     />
                   </Box>
                   <Box>
-                    <Typography sx={{ mb: "10px", width: "20vw" }}>
+                    <Typography sx={{ mb: "10px",  width: "390px" }}>
                       What is the industry/sector?
                     </Typography>
                     <ReusedTextArea
@@ -186,7 +186,7 @@ const EditQuestion = ({ openDrawer }) => {
 
                   <Box>
                     <Typography
-                      sx={{ mb: "10px", lineHeight: "20px", width: "20vw" }}
+                      sx={{ mb: "10px", lineHeight: "20px",  width: "390px" }}
                     >
                       Does the company have a mission statement or core values?
                     </Typography>
@@ -203,7 +203,7 @@ const EditQuestion = ({ openDrawer }) => {
 
                   <Box>
                     <Typography
-                      sx={{ mb: "10px", lineHeight: "20px", width: "20vw" }}
+                      sx={{ mb: "10px", lineHeight: "20px",  width: "390px" }}
                     >
                       Briefly describe the company in a few sentences.
                     </Typography>
