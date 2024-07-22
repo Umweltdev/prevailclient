@@ -116,7 +116,7 @@ export default function StepperForm() {
       );
       const reg = response.data;
       setSuccess("Data saved successfully!");
-      navigate("/dashboard");
+      navigate("/user/profile");
     } catch (err) {
       setError(`Save failed. Please try again: ${err}`);
     } finally {
@@ -125,7 +125,7 @@ export default function StepperForm() {
   };
 
   const skipBtn = async () => {
-    navigate("/dashboard");
+    navigate("/user/profile");
   };
 
   const isStepOptional = (step) => {
@@ -353,11 +353,11 @@ export default function StepperForm() {
               </Button>
               {activeStep < steps.length - 1 && (
                 <>
-                  <Button onClick={handleSave} sx={{ ml: 1 }}>
+                  <Button onClick={skipBtn} sx={{ ml: 1 }}>
                     Save
                   </Button>
 
-                  <Button onClick={handleSkip} sx={{ mr: 1 }}>
+                  <Button onClick={skipBtn} sx={{ mr: 1 }}>
                     Skip
                   </Button>
                 </>
