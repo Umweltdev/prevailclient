@@ -75,7 +75,6 @@ const Solution = () => {
     return description;
   };
 
-  // console.log(slides[currentSlide]);
 
   return (
     <Box
@@ -110,7 +109,7 @@ const Solution = () => {
               {" "}
               <img
                 src={slide.image}
-                alt={slide.title}
+                alt={slide.alt}
                 style={{
                   width: "100%",
                   height: "100%",

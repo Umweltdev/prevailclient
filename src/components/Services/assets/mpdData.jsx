@@ -6,6 +6,7 @@ export const slides = [
     image:
       "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720459883/Hospitality-Carousel_jwha6d.avif",
     link: "/website-development#hospitality",
+    alt: "Hospitality-Carousel",
   },
   {
     topic: "Shopify",
@@ -14,6 +15,7 @@ export const slides = [
     image:
       "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720459885/Shopify-Carousel_un4sm6.avif",
     link: "/website-development#shopify",
+    alt: "Shopify-Carousel",
   },
   {
     topic: "Real Estate",
@@ -22,6 +24,7 @@ export const slides = [
     image:
       "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720459893/Real-Estate-Authority_fwbg6e.avif",
     link: "/website-development#real-estate",
+    alt: "Real-Estate-Authority",
   },
 ];
 
