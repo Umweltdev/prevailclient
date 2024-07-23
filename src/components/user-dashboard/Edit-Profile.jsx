@@ -28,7 +28,7 @@ const EditProfile = ({ openDrawer }) => {
 
   const handleEditProfile = async (data) => {
     try {
-      const res = await axios.put(`http://localhost:8080/api/user/${id}`, data, {
+      const res = await axios.put(`https://prevailserver-4b3c670a5496.herokuapp.com/api/user/${id}`, data, {
         headers: {
           Authorization: `Bearer ${user.token}`
         },

@@ -15,7 +15,7 @@ import axios from "axios";
 import Loading from "../utils/Loading";
 import { AuthContext } from "../../context/AuthContext";
 
-const Profile = () => {
+const Profile = ({openDrawer}) => {
   const isNonMobile = useMediaQuery("(min-width:968px)");
   const Mobile = useMediaQuery("(min-width:600px)");
   const location = useLocation();
@@ -33,7 +33,7 @@ const Profile = () => {
       <Header
         Icon={PersonIcon}
         title={"My Profile"}
-        // openDrawer={openDrawer}
+        openDrawer={openDrawer}
         button="Edit Profile"
         link={`/user/profile/${user?.user._id}`}
       />

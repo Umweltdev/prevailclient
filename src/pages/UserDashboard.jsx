@@ -15,10 +15,11 @@ import { AuthContext } from "../context/AuthContext";
 import Invoices from "../components/user-dashboard/Invoices";
 import Invoice from "../components/user-dashboard/Invoice";
 import AppBarNav from "../components/Navbar/Appbar";
-import Message from "../components/user-dashboard/Message";
-import CreateMessage from "../components/user-dashboard/Create-Message";
+// import Message from "../components/user-dashboard/Message";
+// import CreateMessage from "../components/user-dashboard/Create-Message";
+// import ViewMessage from "../components/user-dashboard/View-Message";
 
-const UserDashBoard = (props) => {
+const UserDashBoard = ({socket}) => {
   const [drawer, setDrawer] = useState(false);
   const { isLoggedIn } = useContext(AuthContext);
   const openDrawer = () => {
@@ -103,6 +104,10 @@ const UserDashBoard = (props) => {
                 {/* <Route
                   path="/message"
                   element={<Message openDrawer={openDrawer} />}
+                />
+                <Route
+                  path="/message/view/:id"
+                  element={<ViewMessage openDrawer={openDrawer} socket={socket} />}
                 />
                 <Route
                   path="/message/:id"

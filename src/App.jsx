@@ -1,10 +1,12 @@
-import React, { Suspense, useContext } from "react";
+import React, { Suspense, useContext, useState, useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import ScrollToTop from "./ScrollToTop";
 import { AuthContext } from "./context/AuthContext";
 import Loading from "./components/utils/Loading";
+import io from "socket.io-client";
+// import { AuthContext } from "../../context/AuthContext";
 
 // Lazy load pages and componentss
 const Landing = React.lazy(() => import("./pages/Landing"));
@@ -51,20 +53,45 @@ const PrivacyPolicy = React.lazy(() => import("./pages/PrivacyPolicy"));
 const ResetPasswordForm = React.lazy(() =>
   import("./components/Form/ForgotPassword/ResetPasswordForm")
 );
-
-const stripePromise = loadStripe(
-  "pk_test_51OsCJ5P1A39VkufThp1PVDexesvf2XAY8faTyK0uucC1qRl9NW9QkpBdwXQDyjCAjzL166zjMWNn5Zr25ZkaQJVi00vurq61mj"
-);
+const viteKey = import.meta.env.VITE_STRIPE_PUBLIC_KEY;
+const stripePromise = loadStripe(viteKey);
 
 function App() {
   const { user } = useContext(AuthContext);
+  const [socket, setSocket] = useState(null);
+
+  // const setupSocket = () => {
+  //   const token = user?.token;
+  //   if (token && !socket) {
+  //     const newSocket = io("http://localhost:5000", {
+  //       transports: ["websocket"],
+  //       withCredentials: true,
+  //       extraHeaders: {
+  //         "my-custom-header": "abcd",
+  //       },
+  //       query: {
+  //         token: user?.token,
+  //       },
+  //     });
+
+  //     newSocket.on("disconnect", () => {
+  //       setSocket(null);
+  //     });
+
+  //     newSocket.on("connect", () => {});
+
+  //     setSocket(newSocket);
+  //   }
+  // };
+  // useEffect(() => {
+  //   setupSocket();
+  // }, []);
 
   return (
     <Elements stripe={stripePromise}>
       <ScrollToTop />
       <Suspense fallback={<Loading />}>
-
-      <Routes>
+        <Routes>
           <Route path="/" element={<Landing />} />
           <Route
             path="/reset_password/:id/:token"
@@ -104,7 +131,9 @@ function App() {
           />
           <Route
             path="/user/*"
-            element={user ? <UserDashBoard /> : <Navigate to="/" />}
+            element={
+              user ? <UserDashBoard socket={socket} /> : <Navigate to="/" />
+            }
           />
         </Routes>
       </Suspense>
@@ -113,5 +142,3 @@ function App() {
 }
 
 export default App;
-
-
