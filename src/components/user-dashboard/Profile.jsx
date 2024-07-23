@@ -15,18 +15,18 @@ import axios from "axios";
 import Loading from "../utils/Loading";
 import { AuthContext } from "../../context/AuthContext";
 
-const Profile = ({openDrawer}) => {
+const Profile = ({ openDrawer }) => {
   const isNonMobile = useMediaQuery("(min-width:968px)");
   const Mobile = useMediaQuery("(min-width:600px)");
   const location = useLocation();
 
   const { user } = useContext(AuthContext);
-  
+
   if (!user) {
     return <Loading />;
   }
 
-  console.log(user);
+  // console.log(user);
 
   return (
     <Stack spacing={3}>

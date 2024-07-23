@@ -1,13 +1,23 @@
 import { CardMedia, Grid, Typography, Box, Card } from "@mui/material";
 import React from "react";
 import { TailoredApproachData } from "../assets/serviceData";
+import mugs from "../assets/mug.png";
+import styles from "../BrandIdentity/assets/animation.module.css"
+import { useInView } from "react-intersection-observer";
 
 const TailoredApproach = () => {
+  const { ref, inView, entry } = useInView({
+    triggerOnce: true, 
+    threshold: 0.1,
+  });
+
   return (
     <Box
+      ref={ref}
       sx={{
         display: "flex",
         width: "100vw",
+
         "@media (max-width: 600px)": {
           flexDirection: "column",
           justifyContent: "center",
@@ -19,6 +29,7 @@ const TailoredApproach = () => {
     >
       <CardMedia
         component={"img"}
+        className={inView ? styles.imageFadeIn : ""}
         image="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720084560/Approach-to-Brand-Needs-_vuyvaf.avif"
         alt="Approach-to-Brand-Needs-"
         sx={{
@@ -29,6 +40,7 @@ const TailoredApproach = () => {
         }}
       />
       <Grid
+        className={inView ? styles.textSlideIn : ""}
         sx={{
           display: "flex",
           flexDirection: "column",
@@ -37,6 +49,7 @@ const TailoredApproach = () => {
           pl: "5vw",
           gap: "20px",
           width: "50vw",
+          mt: "10px",
           "@media (max-width: 600px)": {
             width: "90vw",
             pl: "unset",
@@ -85,7 +98,7 @@ const TailoredApproach = () => {
           sx={{
             display: "flex",
             flexWrap: "wrap",
-            mt: "46px",
+            mt: "16px",
             gap: "36px",
             "@media (max-width: 600px)": {
               width: "100vw",
@@ -139,14 +152,17 @@ const TailoredApproach = () => {
           <Card
             sx={{
               color: "white",
-              width: "585px",
-              height: "206px",
-              background:
-                "linear-gradient(349deg, #350079 11.15%, #904AEA 92.99%)",
-              mt: "43px",
+              width: "42vw",
+              // height: "206px",
+              background: "#fff",
+              // mt: "43px",
+              padding: "20px",
               borderRadius: "10px",
+              boxShadow: "3",
               "@media (max-width: 600px)": {
-                height: "216px",
+                height: "auto",
+                mt: "unset",
+                padding: "20px",
                 margin: "auto",
                 width: "90vw",
                 ml: "unset",
@@ -155,14 +171,16 @@ const TailoredApproach = () => {
           >
             <Typography
               sx={{
-                width: "519px",
+                width: "40vw",
                 margin: "auto",
-                mt: "45px",
+                // mt: "45px",
                 fontSize: "16px",
                 fontWeight: "500",
+                color: "#350079",
+
                 "@media (max-width: 600px)": {
                   width: "80vw",
-                  mt: "20px",
+                  mt: "unset",
                   fontSize: "4vw",
                 },
               }}
@@ -174,6 +192,20 @@ const TailoredApproach = () => {
               of time. 
             </Typography>
           </Card>
+          <CardMedia
+            component={"img"}
+            image={
+              "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720437624/Slide-61_iem3ne.avif"
+            }
+            sx={{
+              width: "42vw",
+              borderRadius: "5px",
+              boxShadow: "3",
+              "@media (max-width: 600px)": {
+                width: "90vw",
+              },
+            }}
+          />
         </Box>
       </Grid>
     </Box>

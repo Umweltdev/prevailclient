@@ -4,18 +4,14 @@ import {
   Grid,
   TextField,
   Typography,
-  IconButton,
-  Link as MuiLink,
   CircularProgress,
-  CardMedia, // Import CircularProgress for loading indication
+  CardMedia,
+  useMediaQuery,
 } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import { styled } from "@mui/system";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
 import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
-import Loading from "../utils/Loading";
-import signupImage from "../Form/Login-Signup.webp";
 import image2 from "../Form/Group_1.svg";
 import { PasswordInput, TextInput } from "./Textfileds";
 
@@ -33,6 +29,7 @@ const SignUp = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const navigate = useNavigate();
   const { loading, error, dispatch } = useContext(AuthContext);
+  const isMobile = useMediaQuery("(max-width:600px)");
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -44,7 +41,7 @@ const SignUp = () => {
     confirmPassword: "",
   });
 
-  const [isButtonLoading, setIsButtonLoading] = useState(false); // Local loading state
+  const [isButtonLoading, setIsButtonLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -57,7 +54,7 @@ const SignUp = () => {
     }
     try {
       dispatch({ type: "LOGIN_START" });
-      setIsButtonLoading(true); // Set button loading state to true
+      setIsButtonLoading(true);
 
       const response = await axios.post(
         "https://prevailserver-4b3c670a5496.herokuapp.com/api/auth/register",
@@ -65,7 +62,8 @@ const SignUp = () => {
       );
       const user = response.data;
       dispatch({ type: "LOGIN_SUCCESS", payload: user });
-      navigate("/user/profile", { state: { user: user } });
+      // navigate("/user/profile", { state: { user: user } });
+      navigate("/Stepper");
     } catch (error) {
       dispatch({ type: "LOGIN_FAILURE", payload: error.response.data });
     } finally {
@@ -120,7 +118,6 @@ const SignUp = () => {
             alignItems: "center",
             justifyContent: "center",
             gap: "20px",
-            // width: "50vw",
           }}
           component="form"
           onSubmit={handleSubmit}
@@ -338,7 +335,7 @@ const SignUp = () => {
       >
         <CardMedia
           component={"img"}
-          image={signupImage}
+          image="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720440293/Login-Signup_kk5xao.avif"
           alt="Login-Signup"
           sx={{
             height: "75vh",
@@ -382,8 +379,6 @@ const SignUp = () => {
           other goods or services. Message/data rates may apply.
         </Typography>
       </Grid>
-      {/* </Grid> */}
-      {/* )} */}
     </Grid>
   );
 };

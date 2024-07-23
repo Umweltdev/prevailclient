@@ -13,6 +13,7 @@ import Testimonials from "./cases/Testimonials";
 import FacebookCreatives from "./cases/FacebookCreatives";
 import Accelerate from "./cases/Accelerate";
 import CaseNavigation from "./cases/CaseNavigation";
+import SmoothScrollUp from "../utils/SmoothScrollUp";
 
 const CaseDetails = () => {
   const { index } = useParams();
@@ -53,7 +54,7 @@ const CaseDetails = () => {
         prevHeader={prevCaseUrl ? caseData[prevIndex].header : ""}
         nextHeader={nextCaseUrl ? caseData[nextIndex].header : ""}
       />
-
+      <SmoothScrollUp />
       <FooterNew />
     </Grid>
   );

@@ -19,38 +19,42 @@ const BrandOverview = () => {
         <Typography
           sx={{ width: "80vw", marginTop: "1vh", fontSize: "4vw", mb: "1vh" }}
         >
-          Do you have any existing brand identity you want to retain or modify?
-          (e.g., logo, colour scheme, font style)
+          Can you provide a list of competitors?
         </Typography>
         <TextField
-          id="outlined-select-currency"
-          select
-          label="Select"
-          defaultValue="EUR"
-          helperText="Please select your currency"
+          id="outlined-multiline-static"
+          label="Type here..."
+          multiline
+          rows={4}
           fullWidth
-        >
-          {bool.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
+        />
       </Grid>
       <Grid sx={{ width: "100%", marginBottom: "2vh" }}>
         <Typography
           sx={{ width: "80vw", marginTop: "1vh", fontSize: "4vw", mb: "1vh" }}
         >
-          (a) If yes, please provide them below. (a) If you still need to,
-          please provide examples of brands or designs that appeal to your
-          vision.
+          What sets the company apart from competitors?
         </Typography>
         <TextField
           id="outlined-multiline-static"
-          label="Multiline"
+          label="Type here..."
           multiline
           rows={4}
-          defaultValue="Type here..."
+          fullWidth
+        />
+      </Grid>
+      <Grid sx={{ width: "100%", marginBottom: "2vh" }}>
+        <Typography
+          sx={{ width: "80vw", marginTop: "1vh", fontSize: "4vw", mb: "1vh" }}
+        >
+          Can you describe your typical customer? (demographic, geographic,
+          psychographic, and behavioural traits)
+        </Typography>
+        <TextField
+          id="outlined-multiline-static"
+          label="Type here..."
+          multiline
+          rows={4}
           fullWidth
         />
       </Grid>
@@ -59,14 +63,13 @@ const BrandOverview = () => {
         <Typography
           sx={{ width: "80vw", marginTop: "1vh", fontSize: "4vw", mb: "1vh" }}
         >
-          How would you like your brand to be perceived by your target audience?
+          What problems does your business solve for prospects/customers?
         </Typography>
         <TextField
           id="outlined-multiline-static"
-          label="Multiline"
+          label="Type here..."
           multiline
           rows={4}
-          defaultValue="Type here..."
           fullWidth
         />
       </Grid>
@@ -74,15 +77,14 @@ const BrandOverview = () => {
         <Typography
           sx={{ width: "80vw", marginTop: "1vh", fontSize: "4vw", mb: "1vh" }}
         >
-          Are there any specific emotions or feelings you want your brand to
-          evoke?
+          What is your unique selling point (USP) which sets you apart from your
+          competitors?
         </Typography>
         <TextField
           id="outlined-multiline-static"
-          label="Multiline"
+          label="Type here..."
           multiline
           rows={4}
-          defaultValue="Type here..."
           fullWidth
         />
       </Grid>

@@ -11,6 +11,7 @@ import CaseStudies from "../components/Portfolio/CaseStudies";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import DrawerAppBarWhite from "../components/Navbar/Appbar";
+import SmoothScrollUp from "../components/utils/SmoothScrollUp";
 
 
 const Portfolio = (props) => {
@@ -25,6 +26,7 @@ const Portfolio = (props) => {
       {/* <SectionSix/> */}
       {/* <SectionFour />
       <SectionFive /> */}
+      <SmoothScrollUp />
       <FooterNew />
     </div>
   );

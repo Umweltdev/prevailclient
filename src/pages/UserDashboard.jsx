@@ -15,6 +15,10 @@ import { AuthContext } from "../context/AuthContext";
 import Invoices from "../components/user-dashboard/Invoices";
 import Invoice from "../components/user-dashboard/Invoice";
 import AppBarNav from "../components/Navbar/Appbar";
+import Message from "../components/user-dashboard/Message";
+import CreateMessage from "../components/user-dashboard/Create-Message";
+import Question from "../components/user-dashboard/Question";
+import EditQuestion from "../components/user-dashboard/EditQuestion";
 // import Message from "../components/user-dashboard/Message";
 // import CreateMessage from "../components/user-dashboard/Create-Message";
 // import ViewMessage from "../components/user-dashboard/View-Message";
@@ -71,6 +75,14 @@ const UserDashBoard = ({socket}) => {
                 <Route
                   path="/profile/:id"
                   element={<EditProfile openDrawer={openDrawer} />}
+                />
+                <Route
+                  path="/question"
+                  element={<Question openDrawer={openDrawer} />}
+                />
+                <Route
+                  path="/question/:id"
+                  element={<EditQuestion openDrawer={openDrawer} />}
                 />
                 <Route
                   path="/bookings"

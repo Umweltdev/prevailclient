@@ -25,20 +25,29 @@ const drawerWidth = 240;
 
 const servicesData = [
   { text: "Services", link: "/service-landing-page" },
-  { text: "Brand Identity", link: "/brand-identity-package" },
-  { text: "Custom Website Development", link: "/custom-website-development" },
-  { text: "Website Development", link: "/website-development" },
-  { text: "Search Engine Marketing (SEM)", link: "/search-engine-marketing" },
+  { text: "Brand Identity", link: "/service/brand-identity-package" },
+  {
+    text: "Custom Website Development",
+    link: "/service/custom-website-development",
+  },
+  { text: "Website Development", link: "/service/website-development" },
+  {
+    text: "Search Engine Marketing (SEM)",
+    link: "/service/search-engine-marketing",
+  },
   {
     text: "Marketing Price Displacement (MPD)",
-    link: "/marketing-pricing-displacement",
+    link: "/service/marketing-pricing-displacement",
   },
-  { text: "Digital Accelerator Bundle", link: "/digital-accelerator-bundle" },
+  {
+    text: "Digital Accelerator Bundle",
+    link: "/service/digital-accelerator-bundle",
+  },
 ];
 
 const exploreData = [
-  { text: "Digital Ecosystem", link: "/digital-ecosystem" },
-  { text: "Customer Journey", link: "/customer-journey" },
+  { text: "Digital Ecosystem", link: "/explore/digital-ecosystem" },
+  { text: "Customer Journey", link: "/explore/customer-journey" },
 ];
 
 function AppBarNav({ color }) {

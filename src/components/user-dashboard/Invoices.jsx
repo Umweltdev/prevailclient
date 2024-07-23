@@ -15,6 +15,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Header from "./Header";
 import { fDate } from "../utils/format-time";
 import axiosInstance from "../utils/axios";
+import axios from "axios";
 
 const Invoice = ({ _id, invoiceNumber, createDate, dueDate, status }) => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
@@ -75,6 +76,7 @@ const Invoices = ({ openDrawer }) => {
       try {
         const res = await axiosInstance.get(
           `/api/invoice?phoneNumber=${phone}`
+          // `http://localhost:8080/api/invoice`
         );
         setInvoices(res.data);
       } catch (error) {

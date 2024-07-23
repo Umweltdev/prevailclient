@@ -17,13 +17,14 @@ import { AuthContext } from "../context/AuthContext";
 import MainPage from "../components/Services/MainPage";
 import AppBarNav from "../components/Navbar/Appbar";
 import { Helmet } from "react-helmet";
+import SmoothScrollUp from "../components/utils/SmoothScrollUp";
 //import Reduce from "../components/Services/Reduce";
 
 const Services = (props) => {
   const { isLoggedIn } = useContext(AuthContext);
   return (
     <>
-    <Helmet>
+      <Helmet>
         <title>Unlock Your Digital Potential with Prevail</title>
         <meta
           name="description"
@@ -31,15 +32,16 @@ const Services = (props) => {
         />
       </Helmet>
       <div
-      style={{
-        width: "100%",
-        overflow: "hidden",
-      }}
-    >
-      <AppBarNav color="#000" />
-      <MainPage />
-      <FooterNew />
-    </div>
+        style={{
+          width: "100%",
+          overflow: "hidden",
+        }}
+      >
+        <AppBarNav color="#000" />
+        <MainPage />
+        <FooterNew />
+        <SmoothScrollUp />
+      </div>
     </>
   );
 };

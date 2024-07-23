@@ -23,28 +23,28 @@ const services = [
     description:
       "Dive into Prevail's exclusive 'Brand Identity Package'. We do more than just logo creation and marketing materials; we embark on a creative partnership to forge your distinctive brand identity that not only stands out but resonates deeply with your audience.",
     icon: <BrandingIcon style={{ fontSize: 40, color: "#6A1B9A" }} />,
-    link: "/brand-identity-package",
+    link: "/service/brand-identity-package",
   },
   {
     title: "Website Mastery",
     description:
       "With our innovative 'Website Production' service, we craft captivating online platforms for SMEs and local enterprises. Our strategic approach ensures your website not only looks great but functions seamlessly, engaging your visitors and converting them into loyal customers.",
     icon: <WebsiteIcon style={{ fontSize: 40, color: "#6A1B9A" }} />,
-    link: "/website-development",
+    link: "/service/website-development",
   },
   {
     title: "Search Engine Marketing",
     description:
       "We offer more than just exposure; our holistic approach includes targeted advertising, refined SEO practices, and ongoing optimization to ensure you capture and keep the attention of your ideal audience.",
     icon: <SearchIcon style={{ fontSize: 40, color: "#6A1B9A" }} />,
-    link: "/Ssearch-engine-marketing",
+    link: "/service/search-engine-marketing",
   },
   {
     title: "Marketing Price Displacement API",
     description:
       "Our 'Marketing Price Displacement (MPD)' API transforms how you allocate your marketing budget. This tool isn’t just about spending; it’s about investing smartly through dynamic pricing and yield management, giving you control over your financial strategies and boosting your marketing efficiency.",
     icon: <APIIcon style={{ fontSize: 40, color: "#6A1B9A" }} />,
-    link: "/marketing-pricing-displacement",
+    link: "/service/marketing-pricing-displacement",
   },
 ];
 
@@ -114,7 +114,7 @@ const OurCore = () => {
             that are data-driven and creatively inspired.
           </Typography>
           <Box sx={{ textAlign: "center", marginBottom: "40px" }}>
-            <Link to={"/Services"}>
+            <Link to={"/service-landing-page"}>
               <ReusedButton text={"Learn More"} />
             </Link>
           </Box>

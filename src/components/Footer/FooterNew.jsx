@@ -50,34 +50,6 @@ const CustomTextField = styled(TextField)(({ theme }) => ({
 }));
 
 const FooterNew = () => {
-  const scrollToTop = () => {
-    const duration = 2000;
-    const start = window.pageYOffset;
-    const startTime =
-      "now" in window.performance ? performance.now() : new Date().getTime();
-
-    const easeInOutQuad = (t, b, c, d) => {
-      t /= d / 2;
-      if (t < 1) return (c / 2) * t * t + b;
-      t--;
-      return (-c / 2) * (t * (t - 2) - 1) + b;
-    };
-
-    const animateScroll = () => {
-      const currentTime =
-        "now" in window.performance ? performance.now() : new Date().getTime();
-      const elapsed = currentTime - startTime;
-
-      window.scrollTo(0, easeInOutQuad(elapsed, start, -start, duration));
-
-      if (elapsed < duration) {
-        requestAnimationFrame(animateScroll);
-      }
-    };
-
-    animateScroll();
-  };
-
   return (
     <Box
       sx={{
@@ -125,7 +97,7 @@ const FooterNew = () => {
                 mb: "5px",
               }}
             >
-             Company Registration: 737779
+              Company Registration: 737779
             </Typography>
             <Typography
               sx={{
@@ -159,13 +131,13 @@ const FooterNew = () => {
           </Typography>
           <Link
             style={{ textDecoration: "none", color: "#C1B2D5" }}
-            to={"/digital-ecosystem"}
+            to={"/explore/digital-ecosystem"}
           >
             <Typography>Digital Ecosystem</Typography>
           </Link>
           <Link
             style={{ textDecoration: "none", color: "#C1B2D5" }}
-            to={"/customer-journey"}
+            to={"/explore/customer-journey"}
           >
             <Typography>Customer Journey</Typography>
           </Link>
@@ -179,43 +151,43 @@ const FooterNew = () => {
           </Typography>
           <Link
             style={{ textDecoration: "none", color: "#C1B2D5" }}
-            to={"/service-landing-page"}
+            to={"/service/service-landing-page"}
           >
             <Typography>Services</Typography>
           </Link>
           <Link
             style={{ textDecoration: "none", color: "#C1B2D5" }}
-            to={"/brand-identity-package"}
+            to={"/service/brand-identity-package"}
           >
             <Typography>Brand Identity</Typography>
           </Link>
           <Link
             style={{ textDecoration: "none", color: "#C1B2D5" }}
-            to={"/custom-website-development"}
+            to={"/service/custom-website-development"}
           >
             <Typography>Custom Website Development</Typography>
           </Link>
           <Link
             style={{ textDecoration: "none", color: "#C1B2D5" }}
-            to={"/website-development"}
+            to={"/service/website-development"}
           >
             <Typography>Website Development</Typography>
           </Link>
           <Link
             style={{ textDecoration: "none", color: "#C1B2D5" }}
-            to={"/search-engine-marketing"}
+            to={"/service/search-engine-marketing"}
           >
             <Typography>Search Engine Marketing (SEM)</Typography>
           </Link>
           <Link
             style={{ textDecoration: "none", color: "#C1B2D5" }}
-            to={"/marketing-pricing-displacement"}
+            to={"/service/marketing-pricing-displacement"}
           >
             <Typography>Marketing Price Displacement (MPD)</Typography>
           </Link>
           <Link
             style={{ textDecoration: "none", color: "#C1B2D5" }}
-            to={"/digital-accelerator-bundle"}
+            to={"/service/digital-accelerator-bundle"}
           >
             <Typography>Digital Accelerator Bundle</Typography>
           </Link>
@@ -247,7 +219,7 @@ const FooterNew = () => {
           </Link>
           <Link
             style={{ textDecoration: "none", color: "#C1B2D5" }}
-            to={"/Services/privacypolicy"}
+            to={"/privacypolicy"}
           >
             <Typography>Privacy Policy</Typography>
           </Link>
@@ -255,29 +227,8 @@ const FooterNew = () => {
       </Grid>
       {/* =================CHATBOT========================= */}
 
-      <Grid
-        sx={{
-          position: "relative",
-          left: "85vw",
-          bottom: "1vh",
+      {/* <ChatBotLauncher /> */}
 
-          "@media (max-width: 767px)": {
-            left: "80vw",
-          },
-        }}
-      >
-        <ChatBotLauncher />
-        <Fab
-          sx={{
-            background: "#6E3EF4",
-            color: "#fff",
-            "&:hover": { background: "#6E3EF4", color: "#fff" },
-          }}
-          onClick={scrollToTop}
-        >
-          <KeyboardArrowUp />
-        </Fab>
-      </Grid>
       <Grid
         sx={{
           backgroundColor: "#3E2162",

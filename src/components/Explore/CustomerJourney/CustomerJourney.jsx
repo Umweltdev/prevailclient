@@ -9,6 +9,7 @@ import Trigger from "./Trigger";
 //import Purchase from './Purchase';
 //import SpecialOffer from './SpecialOffer';
 import Last from "./Last";
+import SmoothScrollUp from "../../utils/SmoothScrollUp";
 
 const CustomerJourney = () => {
   return (
@@ -26,6 +27,7 @@ const CustomerJourney = () => {
         <Hero />
         <Trigger />
         <Last />
+        <SmoothScrollUp />
         <FooterNew />
       </div>
     </>

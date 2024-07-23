@@ -10,7 +10,7 @@ import {
 } from "@react-pdf/renderer";
 
 import { fDate } from "../utils/format-time";
-import logo from "./pm2.png";
+import logo from "./newlogo.png";
 
 // ----------------------------------------------------------------------
 
@@ -61,6 +61,7 @@ const useStyles = () =>
         gridContainer: {
           flexDirection: "row",
           justifyContent: "space-between",
+          width: "100%",
         },
         table: {
           display: "flex",
@@ -110,35 +111,43 @@ export default function InvoicePDF({ invoice, currentStatus }) {
   } = invoice;
 
   const styles = useStyles();
+  const tax = 15;
 
   return (
     <Document>
       <Page size="A4" style={styles.page}>
         <View style={[styles.gridContainer, styles.mb40]}>
-          <Image
-            source="/logo.png"
-            style={{ width: 48, height: 48, objectFit: "cover" }}
-          />
-
-          <View style={{ alignItems: "flex-end", flexDirection: "column" }}>
-            <Text style={styles.h3}>{currentStatus}</Text>
-            <Text> {invoiceNumber} </Text>
+          <View style={{ flexDirection: "column" }}>
+            <Text> {currentStatus}</Text>
+            <Text style={styles.h3}>Invoice</Text>
           </View>
+          <Image source={logo} style={{ width: 68, objectFit: "cover" }} />
         </View>
 
         <View style={[styles.gridContainer, styles.mb40]}>
-          <View style={styles.col6}>
+          <View style={styles.col8}>
             <Text style={[styles.subtitle2, styles.mb4]}>Invoice from</Text>
-            <Text style={styles.body2}>{invoiceFrom.name}</Text>
-            <Text style={styles.body2}>{invoiceFrom.fullAddress}</Text>
-            <Text style={styles.body2}>{invoiceFrom.phoneNumber}</Text>
+            <Text style={styles.body2}>Prevail Agency</Text>
+            <Text style={styles.body2}>
+              Invoice Number: {invoice?.invoiceNumber}
+            </Text>
+            <Text style={styles.body2}>Date Issued: {fDate(createDate)}</Text>
+            <Text style={styles.body2}>Address: Meath, Ireland</Text>
+            <Text style={styles.body2}>Town, City: Duleek</Text>
+
+            <Text style={styles.body2}>
+              Email Address: info@prevailagency.ie
+            </Text>
+            <Text style={styles.body2}>VAT Number: IE9484135G</Text>
           </View>
 
-          <View style={styles.col6}>
+          <View>
             <Text style={[styles.subtitle2, styles.mb4]}>Invoice to</Text>
             <Text style={styles.body2}>{invoiceTo.name}</Text>
             <Text style={styles.body2}>{invoiceTo.fullAddress}</Text>
-            <Text style={styles.body2}>{invoiceTo.phoneNumber}</Text>
+            <Text style={styles.body2}>{invoiceTo.town}</Text>
+            {/* <Text style={styles.body2}>{invoiceTo.phoneNumber}</Text> */}
+            <Text style={styles.body2}>{invoiceTo.email}</Text>
           </View>
         </View>
 
@@ -147,7 +156,7 @@ export default function InvoicePDF({ invoice, currentStatus }) {
             <Text style={[styles.subtitle2, styles.mb4]}>Date create</Text>
             <Text style={styles.body2}>{fDate(createDate)}</Text>
           </View>
-          <View style={styles.col6}>
+          <View>
             <Text style={[styles.subtitle2, styles.mb4]}>Due date</Text>
             <Text style={styles.body2}>{fDate(dueDate)}</Text>
           </View>
@@ -167,11 +176,11 @@ export default function InvoicePDF({ invoice, currentStatus }) {
               </View>
 
               <View style={styles.tableCell_3}>
-                <Text style={styles.subtitle2}>Qty</Text>
+                <Text style={styles.subtitle2}>Hour(s)</Text>
               </View>
 
               <View style={styles.tableCell_3}>
-                <Text style={styles.subtitle2}>Unit price</Text>
+                <Text style={styles.subtitle2}>price</Text>
               </View>
 
               <View style={[styles.tableCell_3, styles.alignRight]}>
@@ -193,7 +202,7 @@ export default function InvoicePDF({ invoice, currentStatus }) {
                 </View>
 
                 <View style={styles.tableCell_3}>
-                  <Text>{item.quantity}</Text>
+                  <Text>{item.hour}</Text>
                 </View>
 
                 <View style={styles.tableCell_3}>
@@ -201,9 +210,7 @@ export default function InvoicePDF({ invoice, currentStatus }) {
                 </View>
 
                 <View style={[styles.tableCell_3, styles.alignRight]}>
-                  <Text>
-                    {`₦${(item.price * item.quantity).toLocaleString()}`}
-                  </Text>
+                  <Text>{`€${item.price.toLocaleString()}`}</Text>
                 </View>
               </View>
             ))}
@@ -213,10 +220,10 @@ export default function InvoicePDF({ invoice, currentStatus }) {
               <View style={styles.tableCell_2} />
               <View style={styles.tableCell_3} />
               <View style={styles.tableCell_3}>
-                <Text>Subtotal</Text>
+                <Text>Before Tax</Text>
               </View>
               <View style={[styles.tableCell_3, styles.alignRight]}>
-                <Text>{`₦${subTotal?.toLocaleString()}`}</Text>
+                <Text>{`€${invoice?.totalAmount.toLocaleString()}`}</Text>
               </View>
             </View>
 
@@ -225,34 +232,10 @@ export default function InvoicePDF({ invoice, currentStatus }) {
               <View style={styles.tableCell_2} />
               <View style={styles.tableCell_3} />
               <View style={styles.tableCell_3}>
-                <Text>Shipping</Text>
+                <Text>Tax Amount</Text>
               </View>
               <View style={[styles.tableCell_3, styles.alignRight]}>
-                <Text>{`₦${-shipping?.toLocaleString()}`}</Text>
-              </View>
-            </View>
-
-            <View style={[styles.tableRow, styles.noBorder]}>
-              <View style={styles.tableCell_1} />
-              <View style={styles.tableCell_2} />
-              <View style={styles.tableCell_3} />
-              <View style={styles.tableCell_3}>
-                <Text>Discount</Text>
-              </View>
-              <View style={[styles.tableCell_3, styles.alignRight]}>
-                <Text>{`₦${-discount?.toLocaleString()}`}</Text>
-              </View>
-            </View>
-
-            <View style={[styles.tableRow, styles.noBorder]}>
-              <View style={styles.tableCell_1} />
-              <View style={styles.tableCell_2} />
-              <View style={styles.tableCell_3} />
-              <View style={styles.tableCell_3}>
-                <Text>Taxes</Text>
-              </View>
-              <View style={[styles.tableCell_3, styles.alignRight]}>
-                <Text>{`₦${taxes?.toLocaleString()}`}</Text>
+                <Text>{`€${invoice?.taxes?.toLocaleString()}`}</Text>
               </View>
             </View>
 
@@ -264,9 +247,9 @@ export default function InvoicePDF({ invoice, currentStatus }) {
                 <Text style={styles.h4}>Total</Text>
               </View>
               <View style={[styles.tableCell_3, styles.alignRight]}>
-                <Text
-                  style={styles.h4}
-                >{`₦${totalAmount?.toLocaleString()}`}</Text>
+                <Text style={styles.h4}>{`€${(
+                  invoice?.totalAmount + invoice?.taxes
+                ).toLocaleString()}`}</Text>
               </View>
             </View>
           </View>
@@ -282,7 +265,6 @@ export default function InvoicePDF({ invoice, currentStatus }) {
           </View>
           <View style={[styles.col4, styles.alignRight]}>
             <Text style={styles.subtitle2}>Have a Question?</Text>
-            
           </View>
         </View>
       </Page>

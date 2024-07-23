@@ -15,27 +15,31 @@ import Addressing from "./Addressing";
 import TailoredApproach from "./TailoredApproach";
 import HeroComponent from "../ReusedComponenets/HeroComponent";
 import AppBarNav from "../../Navbar/Appbar";
+import PdfSection from "./PdfSection";
+import SmoothScrollUp from "../../utils/SmoothScrollUp";
 //import MainPage from "./MainPage";
 
 const BrandIdentity = () => {
   return (
     <>
-    <Helmet>
+      <Helmet>
         <title>Distinctive Brand Identity Solutions by Prevail</title>
         <meta
           name="description"
           content="Build Trust and Recognition with Prevail's Brand Identity"
         />
       </Helmet>
-    <div style={{ width: "100%", overflow: "hidden" }}>
-      <AppBarNav color="#000" />
-      <HeroComponent title={"Brand Identity Package"} />
-      <ElevateYourPresence />
-      <Addressing />
-      <TailoredApproach />
-      <Packages />
-      <FooterNew />
-    </div>
+      <div style={{ width: "100%", overflow: "hidden" }}>
+        <AppBarNav color="#000" />
+        <HeroComponent title={"Brand Identity Package"} />
+        <ElevateYourPresence />
+        <PdfSection />
+        <Addressing />
+        <TailoredApproach />
+        <Packages />
+        <SmoothScrollUp />
+        <FooterNew />
+      </div>
     </>
   );
 };

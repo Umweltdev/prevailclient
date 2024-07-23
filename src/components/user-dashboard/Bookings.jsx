@@ -96,8 +96,10 @@ const Bookings = ({ openDrawer }) => {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(false);
   const { user } = useContext(AuthContext);
+  
 
   useEffect(() => {
+    
     const getBookings = async () => {
       setLoading(true);
       try {
@@ -131,13 +133,15 @@ const Bookings = ({ openDrawer }) => {
             text={`Click here to schedule!`}
             styles={{
               color: "#884ed9",
-              backgroundColor: "inherit",
-              padding: "1vh 0.1vw",
+              backgroundColor: "#f3e8ee",
+              // padding: "1vh 0.1vw",
               fontFamily: "Sarabun",
-              fontSize: "1.1vw",
+              fontSize: "15px",
               border: "none",
               borderRadius: "5vw",
               cursor: "pointer",
+              fontWeight: 600,
+              padding: "5px 0",
             }}
           />
         }

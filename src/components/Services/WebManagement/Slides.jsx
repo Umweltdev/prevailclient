@@ -18,27 +18,24 @@ import { AuthContext } from "../../../context/AuthContext";
 const data = [
   {
     topic: "Hospitality",
-    description:
-      "Ability to increase efficiency, reduced cost, and enhance competitiveness.",
-      image: "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720087059/Hospitality-Carousel_xqw1xh.avif",
+    description: "Ability to increase efficiency, reduced cost, and enhance competitiveness.",
+    image: "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720087059/Hospitality-Carousel_xqw1xh.avif",
     alt: "Hospitality-Carousel",
     link: "/website-development#hospitality",
   },
   {
     topic: "Shopify",
-    description:
-      "Choose how often to adjust your marketing spend (daily, weekly, monthly, quarterly) for strategic flexibility.",
+    description: "Choose how often to adjust your marketing spend (daily, weekly, monthly, quarterly) for strategic flexibility.",
     image: "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720087059/Shopify-Carousel_yza6pk.avif",
     alt: "Shopify-Carousel",
     link: "/website-development#shopify",
   },
   {
     topic: "Real Estate",
-    description:
-      "Ability to connect to a digital Ads platform and database through an API.",
-      image: "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720087059/Real-Estate-Authority_akxsy5.avif",
-      alt: "Real-Estate-Authority",
-      link: "/website-development#real-estate",
+    description: "Ability to connect to a digital Ads platform and database through an API.",
+    image: "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720087059/Real-Estate-Authority_akxsy5.avif",
+    alt: "Real-Estate-Authority",
+    link: "/website-development#real-estate",
   },
   // Add more slides if needed
 ];
@@ -58,8 +55,9 @@ const SingleCarousel = () => {
 
   const navigate = useNavigate();
   const contact = () => {
-    navigate("/contact-us")
-  }
+    navigate("/contact-us");
+  };
+
   return (
     <Box
       position="relative"
@@ -104,13 +102,20 @@ const SingleCarousel = () => {
                     left: 0,
                     zIndex: 0,
                   }}
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    const altElement = document.getElementById(`alt-${index}`);
+                    if (altElement) {
+                      altElement.style.display = 'block';
+                    }
+                  }}
                 />
                 <Box
                   sx={{
                     position: "relative",
                     zIndex: 1,
                     py: 3,
-                    px:2.5,
+                    px: 2.5,
                     backgroundColor: "rgba(0, 0, 0, 0.5)",
                     borderRadius: "6px",
                   }}
@@ -127,7 +132,6 @@ const SingleCarousel = () => {
                     direction={"row"}
                     spacing={2}
                     mt={2}
-                    // justifyContent={"spa"}
                   >
                     <a href={slide.link}>
                       <Button
@@ -135,11 +139,9 @@ const SingleCarousel = () => {
                         sx={{
                           textTransform: "none",
                           fontSize: "12px",
-
                           borderRadius: "100px",
                           borderColor: "white",
                           color: "white",
-
                           "&:hover": {
                             borderColor: "white",
                           },
@@ -148,18 +150,15 @@ const SingleCarousel = () => {
                         Learn more
                       </Button>
                     </a>
-
                     <Link to={user ? "/user/bookings" : "/contact-us"}>
                       <Button
                         variant="outlined"
                         sx={{
                           textTransform: "none",
                           fontSize: "12px",
-
                           borderRadius: "100px",
                           borderColor: "white",
                           color: "white",
-
                           "&:hover": {
                             borderColor: "white",
                           },
@@ -170,6 +169,12 @@ const SingleCarousel = () => {
                       </Button>
                     </Link>
                   </Stack>
+                  <Typography
+                    id={`alt-${index}`}
+                    style={{ display: 'none', color: 'white', marginTop: '16px' }}
+                  >
+                    {slide.alt}
+                  </Typography>
                 </Box>
               </Box>
             </Box>

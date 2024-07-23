@@ -7,6 +7,7 @@ import { AuthContext } from "./context/AuthContext";
 import Loading from "./components/utils/Loading";
 import io from "socket.io-client";
 // import { AuthContext } from "../../context/AuthContext";
+import SmoothScrollUp from "./components/utils/SmoothScrollUp";
 
 // Lazy load pages and componentss
 const Landing = React.lazy(() => import("./pages/Landing"));
@@ -19,6 +20,9 @@ const BlogDetails = React.lazy(() => import("./components/Blog/BlogDetails"));
 const BrandIdentity = React.lazy(() =>
   import("./components/Services/BrandIdentity/BrandIdentity")
 );
+const VisualBrandIdentity = React.lazy(() =>
+  import("./components/Services/BrandIdentity/VisualBrandIdentity")
+);
 const WebsiteDevelopment = React.lazy(() =>
   import("./components/Services/WebsiteDevelopement/WebsiteDevelopment")
 );
@@ -29,6 +33,9 @@ const Sem = React.lazy(() => import("./components/Services/Sem/Sem"));
 const Mpd = React.lazy(() => import("./components/Services/Mpd/Mpd"));
 const DigitalAccelerator = React.lazy(() =>
   import("./components/Services/DigitalAccelerator/DigitalAccelerator")
+);
+const EmpowerYourBussiness = React.lazy(() =>
+  import("./components/Services/DigitalAccelerator/EmpowerYourBussiness")
 );
 const DigitalEcosystem = React.lazy(() =>
   import("./components/Explore/DigitalEcosystem/DigitalEcosystem")
@@ -88,56 +95,82 @@ function App() {
   // }, []);
 
   return (
-    <Elements stripe={stripePromise}>
-      <ScrollToTop />
-      <Suspense fallback={<Loading />}>
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route
-            path="/reset_password/:id/:token"
-            element={<ResetPasswordForm />}
-          />
-          <Route path="/about-us" element={<About />} />
-          <Route path="/Portfolio" element={<Portfolio />} />
-          <Route path="/Blog" element={<Blog />} />
-          <Route path="/contact-us" element={<Contact />} />
-          <Route path="/Blog/:index" element={<BlogDetails />} />
-          <Route path="/service-landing-page" element={<Services />} />
-          <Route path="/brand-identity-package" element={<BrandIdentity />} />
-          <Route
-            path="/custom-website-development"
-            element={<WebsiteDevelopment />}
-          />
-          <Route path="/digital-ecosystem" element={<DigitalEcosystem />} />
-          <Route path="/customer-journey" element={<CustomerJourney />} />
-          <Route path="/website-development" element={<WebManagement />} />
-          <Route path="/Services/privacypolicy" element={<PrivacyPolicy />} />
-          <Route path="/search-engine-marketing" element={<Sem />} />
-          <Route path="/marketing-pricing-displacement" element={<Mpd />} />
-          <Route
-            path="/digital-accelerator-bundle"
-            element={<DigitalAccelerator />}
-          />
-          <Route path="/Portfolio/:index" element={<CaseDetails />} />
-          <Route path="/about/ourWhy" element={<AboutOurWhy />} />
-          <Route path="/about/ourSolution" element={<AboutOurSolution />} />
-          <Route path="/SignUp" element={<SignUpForm />} />
-          <Route path="/Login" element={<LoginForm />} />
-          <Route path="/Stepper" element={<Stepper />} />
-          <Route path="/MobStepper" element={<MobStepper />} />
-          <Route
-            path="/UserDashboard"
-            element={user ? <UserDashBoard /> : <Navigate to="/" />}
-          />
-          <Route
-            path="/user/*"
-            element={
-              user ? <UserDashBoard socket={socket} /> : <Navigate to="/" />
-            }
-          />
-        </Routes>
-      </Suspense>
-    </Elements>
+    <>
+      <Elements stripe={stripePromise}>
+        <ScrollToTop />
+        <Suspense fallback={<Loading />}>
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route
+              path="/reset_password/:id/:token"
+              element={<ResetPasswordForm />}
+            />
+            <Route path="/about-us" element={<About />} />
+            <Route path="/Portfolio" element={<Portfolio />} />
+            <Route path="/Blog" element={<Blog />} />
+            <Route path="/contact-us" element={<Contact />} />
+            <Route path="/Blog/:index" element={<BlogDetails />} />
+            <Route path="/service-landing-page" element={<Services />} />
+            <Route
+              path="/service/brand-identity-package"
+              element={<BrandIdentity />}
+            />
+            <Route
+              path="/service/brand-identity-package/visual-brand-identity"
+              element={<VisualBrandIdentity />}
+            />
+            <Route
+              path="/service/custom-website-development"
+              element={<WebsiteDevelopment />}
+            />
+            <Route
+              path="/explore/digital-ecosystem"
+              element={<DigitalEcosystem />}
+            />
+            <Route
+              path="/explore/customer-journey"
+              element={<CustomerJourney />}
+            />
+            <Route
+              path="/service/website-development"
+              element={<WebManagement />}
+            />
+            <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+            <Route path="/service/search-engine-marketing" element={<Sem />} />
+            <Route
+              path="/service/marketing-pricing-displacement"
+              element={<Mpd />}
+            />
+            <Route
+              path="/service/digital-accelerator-bundle"
+              element={<DigitalAccelerator />}
+            />
+
+            <Route
+              path="/service/digital-accelerator-bundle/empower-your-business"
+              element={<EmpowerYourBussiness />}
+            />
+
+            <Route path="/Portfolio/:index" element={<CaseDetails />} />
+            <Route path="/about/ourWhy" element={<AboutOurWhy />} />
+            <Route path="/about/ourSolution" element={<AboutOurSolution />} />
+            <Route path="/SignUp" element={<SignUpForm />} />
+            <Route path="/Login" element={<LoginForm />} />
+            <Route path="/Stepper" element={<Stepper />} />
+            <Route path="/MobStepper" element={<MobStepper />} />
+            <Route
+              path="/UserDashboard"
+              element={user ? <UserDashBoard /> : <Navigate to="/" />}
+            />
+            <Route
+              path="/user/*"
+              element={user ? <UserDashBoard socket={socket}/> : <Navigate to="/" />}
+            />
+          </Routes>
+        </Suspense>
+      </Elements>
+      
+    </>
   );
 }
 

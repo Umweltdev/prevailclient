@@ -28,11 +28,15 @@ const EditProfile = ({ openDrawer }) => {
 
   const handleEditProfile = async (data) => {
     try {
-      const res = await axios.put(`https://prevailserver-4b3c670a5496.herokuapp.com/api/user/${id}`, data, {
-        headers: {
-          Authorization: `Bearer ${user.token}`
-        },
-      });   
+      const res = await axios.put(
+        `https://prevailserver-4b3c670a5496.herokuapp.com/api/user/${id}`,
+        data,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );   
       console.log(res.data)
       dispatch({ type: "LOGIN_SUCCESS", payload: {user:{...res.data},token:user.token} });
       navigate("/user/profile");
@@ -198,7 +202,7 @@ const EditProfile = ({ openDrawer }) => {
                   paddingY: "8px",
                   alignSelf: "start",
                   "&:hover": {
-                    backgroundColor: "#fc973f",
+                    backgroundColor: "primary.main",
                   },
                 }}
               >
