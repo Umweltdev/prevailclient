@@ -94,87 +94,87 @@ export default function InvoiceDetails({ invoice }) {
   const tax = 15;
   console.log(invoice);
 
- const renderTotal = (
-   <>
-     <StyledTableRow>
-       <TableCell colSpan={3} />
-       <TableCell sx={{ typography: "subtitle1", color: "#603799" }}>
-         BEFORE TAX
-       </TableCell>
-       <TableCell width={140} sx={{ typography: "subtitle1" }}>
-         {`€${(
-           (invoice?.totalAmount || 0) - (invoice?.taxes || 0)
-         ).toLocaleString()}`}
-       </TableCell>
-     </StyledTableRow>
-     <StyledTableRow>
-       <TableCell colSpan={3} />
-       <TableCell sx={{ typography: "subtitle1", color: "#603799" }}>
-         TAX AMOUNT
-       </TableCell>
-       <TableCell width={140} sx={{ typography: "subtitle1" }}>
-         {`€${(invoice?.taxes || 0).toLocaleString()}`}
-       </TableCell>
-     </StyledTableRow>
-     <StyledTableRow>
-       <TableCell colSpan={3} />
-       <TableCell sx={{ typography: "subtitle1", color: "#603799" }}>
-         FULL AMOUNT
-       </TableCell>
-       <TableCell width={140} sx={{ typography: "subtitle1" }}>
-         {`€${(invoice?.totalAmount || 0).toLocaleString()}`}
-       </TableCell>
-     </StyledTableRow>
-   </>
- );
+  const renderTotal = (
+    <>
+      <StyledTableRow>
+        <TableCell colSpan={3} />
+        <TableCell sx={{ typography: "subtitle1", color: "#603799" }}>
+          BEFORE TAX
+        </TableCell>
+        <TableCell width={140} sx={{ typography: "subtitle1" }}>
+          {`€${(
+            (invoice?.totalAmount || 0) - (invoice?.taxes || 0)
+          ).toLocaleString()}`}
+        </TableCell>
+      </StyledTableRow>
+      <StyledTableRow>
+        <TableCell colSpan={3} />
+        <TableCell sx={{ typography: "subtitle1", color: "#603799" }}>
+          TAX AMOUNT
+        </TableCell>
+        <TableCell width={140} sx={{ typography: "subtitle1" }}>
+          {`€${(invoice?.taxes || 0).toLocaleString()}`}
+        </TableCell>
+      </StyledTableRow>
+      <StyledTableRow>
+        <TableCell colSpan={3} />
+        <TableCell sx={{ typography: "subtitle1", color: "#603799" }}>
+          FULL AMOUNT
+        </TableCell>
+        <TableCell width={140} sx={{ typography: "subtitle1" }}>
+          {`€${(invoice?.totalAmount || 0).toLocaleString()}`}
+        </TableCell>
+      </StyledTableRow>
+    </>
+  );
 
- const paymentStages = (
-   <>
-     {invoice?.stages.map((row, index) => {
-       const taxes = (row?.amount || 0) * 0.23;
+  const paymentStages = (
+    <>
+      {invoice?.stages.map((row, index) => {
+        const taxes = (row?.amount || 0) * 0.23;
 
-       return (
-         <Grid
-           key={index}
-           sx={{ display: "flex", justifyContent: "space-between" }}
-         >
-           <Box sx={{ textAlign: "left" }}>
-             <Box sx={{ typography: "subtitle1", color: "#603799" }}>
-               PAYMENT STAGES
-             </Box>
-             <Box width={140} sx={{ typography: "subtitle1", color: "#333" }}>
-               {row?.header}
-             </Box>
-           </Box>
-           <Box sx={{ textAlign: "center" }}>
-             <Box sx={{ typography: "subtitle1", color: "#603799" }}>
-               BEFORE TAX
-             </Box>
-             <Box width={140} sx={{ typography: "subtitle1", color: "#333" }}>
-               {`€${(row?.amount || 0).toLocaleString()}`}
-             </Box>
-           </Box>
-           <Box sx={{ textAlign: "center" }}>
-             <Box sx={{ typography: "subtitle1", color: "#603799" }}>
-               TAX AMOUNT
-             </Box>
-             <Box width={140} sx={{ typography: "subtitle1", color: "#333" }}>
-               {`€${taxes.toLocaleString()}`}
-             </Box>
-           </Box>
-           <Box sx={{ textAlign: "right" }}>
-             <Box sx={{ typography: "subtitle1", color: "#603799" }}>
-               FULL AMOUNT
-             </Box>
-             <Box width={140} sx={{ typography: "subtitle1", color: "#333" }}>
-               {`€${((row?.amount || 0) + taxes).toLocaleString()}`}
-             </Box>
-           </Box>
-         </Grid>
-       );
-     })}
-   </>
- );
+        return (
+          <Grid
+            key={index}
+            sx={{ display: "flex", justifyContent: "space-between" }}
+          >
+            <Box sx={{ textAlign: "left" }}>
+              <Box sx={{ typography: "subtitle1", color: "#603799" }}>
+                PAYMENT STAGES
+              </Box>
+              <Box width={140} sx={{ typography: "subtitle1", color: "#333" }}>
+                {row?.header}
+              </Box>
+            </Box>
+            <Box sx={{ textAlign: "center" }}>
+              <Box sx={{ typography: "subtitle1", color: "#603799" }}>
+                BEFORE TAX
+              </Box>
+              <Box width={140} sx={{ typography: "subtitle1", color: "#333" }}>
+                {`€${(row?.amount || 0).toLocaleString()}`}
+              </Box>
+            </Box>
+            <Box sx={{ textAlign: "center" }}>
+              <Box sx={{ typography: "subtitle1", color: "#603799" }}>
+                TAX AMOUNT
+              </Box>
+              <Box width={140} sx={{ typography: "subtitle1", color: "#333" }}>
+                {`€${taxes.toLocaleString()}`}
+              </Box>
+            </Box>
+            <Box sx={{ textAlign: "right" }}>
+              <Box sx={{ typography: "subtitle1", color: "#603799" }}>
+                FULL AMOUNT
+              </Box>
+              <Box width={140} sx={{ typography: "subtitle1", color: "#333" }}>
+                {`€${((row?.amount || 0) + taxes).toLocaleString()}`}
+              </Box>
+            </Box>
+          </Grid>
+        );
+      })}
+    </>
+  );
 
   const dueStage = (
     <Grid sx={{ display: "flex", justifyContent: "space-between" }}>
@@ -318,6 +318,7 @@ export default function InvoiceDetails({ invoice }) {
       </Scrollbar>
     </TableContainer>
   );
+  console.log(invoice);
 
   return (
     <>
@@ -401,7 +402,7 @@ export default function InvoiceDetails({ invoice }) {
               >
                 PAYMENT STAGE:{" "}
                 <span style={{ color: "#333", fontWeight: 100 }}>
-                  Initial Payement
+                  {invoice?.stages.length > 0 ? invoice?.stages[0].header : ""}
                 </span>
               </Typography>
             </Box>
