@@ -128,43 +128,49 @@ export default function InvoiceDetails({ invoice }) {
 
   const paymentStages = (
     <>
-      {invoice?.stages.map((row, index) => (
-        <Grid sx={{ display: "flex", justifyContent: "space-between" }}>
-          <Box sx={{ textAlign: "left" }}>
-            <Box sx={{ typography: "subtitle1", color: "#603799" }}>
-              PAYMENT STAGES
+      {invoice?.stages.map((row, index) => {
+        const taxes = row?.beforeTaxes * 0.23;
+
+        return (
+          <Grid
+            key={index}
+            sx={{ display: "flex", justifyContent: "space-between" }}
+          >
+            <Box sx={{ textAlign: "left" }}>
+              <Box sx={{ typography: "subtitle1", color: "#603799" }}>
+                PAYMENT STAGES
+              </Box>
+              <Box width={140} sx={{ typography: "subtitle1", color: "#333" }}>
+                {row?.header}
+              </Box>
             </Box>
-            <Box width={140} sx={{ typography: "subtitle1", color: "#333" }}>
-              {/* {`€${invoice?.totalAmount.toLocaleString()}`} */}
-              {row?.header}
+            <Box sx={{ textAlign: "center" }}>
+              <Box sx={{ typography: "subtitle1", color: "#603799" }}>
+                BEFORE TAX
+              </Box>
+              <Box width={140} sx={{ typography: "subtitle1", color: "#333" }}>
+                {`€${row?.beforeTaxes.toLocaleString()}`}
+              </Box>
             </Box>
-          </Box>
-          <Box sx={{ textAlign: "center" }}>
-            <Box sx={{ typography: "subtitle1", color: "#603799" }}>
-              BEFORE TAX
+            <Box sx={{ textAlign: "center" }}>
+              <Box sx={{ typography: "subtitle1", color: "#603799" }}>
+                TAX AMOUNT
+              </Box>
+              <Box width={140} sx={{ typography: "subtitle1", color: "#333" }}>
+                {`€${taxes.toLocaleString()}`}
+              </Box>
             </Box>
-            <Box width={140} sx={{ typography: "subtitle1", color: "#333" }}>
-              {`€${row?.beforeTaxes.toLocaleString()}`}
+            <Box sx={{ textAlign: "right" }}>
+              <Box sx={{ typography: "subtitle1", color: "#603799" }}>
+                FULL AMOUNT
+              </Box>
+              <Box width={140} sx={{ typography: "subtitle1", color: "#333" }}>
+                {`€${(row?.beforeTaxes + taxes).toLocaleString()}`}
+              </Box>
             </Box>
-          </Box>
-          <Box sx={{ textAlign: "center" }}>
-            <Box sx={{ typography: "subtitle1", color: "#603799" }}>
-              TAX AMOUNT
-            </Box>
-            <Box width={140} sx={{ typography: "subtitle1", color: "#333" }}>
-              {`€${(invoice?.taxes).toLocaleString()}`}
-            </Box>
-          </Box>
-          <Box sx={{ textAlign: "right" }}>
-            <Box sx={{ typography: "subtitle1", color: "#603799" }}>
-              FULL AMOUNT
-            </Box>
-            <Box width={140} sx={{ typography: "subtitle1", color: "#333" }}>
-              {`€${(invoice?.totalAmount + invoice?.taxes).toLocaleString()}`}
-            </Box>
-          </Box>
-        </Grid>
-      ))}
+          </Grid>
+        );
+      })}
     </>
   );
 
