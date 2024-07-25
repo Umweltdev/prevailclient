@@ -58,6 +58,7 @@ const SignUp = () => {
 
       const response = await axios.post(
         "https://prevailserver-4b3c670a5496.herokuapp.com/api/auth/register",
+        // "http://localhost:8080/api/auth/register",
         formData
       );
       const user = response.data;

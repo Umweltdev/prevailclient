@@ -70,7 +70,6 @@ export default function InvoiceDetails({ invoice }) {
     [invoice?._id]
   );
 
-
   useEffect(() => {
     if (invoice?.status) {
       setCurrentStatus(invoice?.status);
@@ -90,7 +89,8 @@ export default function InvoiceDetails({ invoice }) {
     });
   };
 
-  const tax = 15;
+  const tax = invoice?.fullAmount * 0.23; ;
+  
 
   const renderTotal = (
     <>
@@ -111,7 +111,7 @@ export default function InvoiceDetails({ invoice }) {
           TAX AMOUNT
         </TableCell>
         <TableCell width={140} sx={{ typography: "subtitle1" }}>
-          {`€${(invoice?.taxes || 0).toLocaleString()}`}
+          {`€${(invoice?.fullAmount * 0.23 || 0).toLocaleString()}`}
         </TableCell>
       </StyledTableRow>
       <StyledTableRow>
@@ -120,7 +120,7 @@ export default function InvoiceDetails({ invoice }) {
           FULL AMOUNT
         </TableCell>
         <TableCell width={140} sx={{ typography: "subtitle1" }}>
-          {`€${(invoice?.fullAmount || 0).toLocaleString()}`}
+          {`€${(invoice?.fullAmount + tax || 0).toLocaleString()}`}
         </TableCell>
       </StyledTableRow>
     </>
@@ -128,10 +128,10 @@ export default function InvoiceDetails({ invoice }) {
 
   const paymentStages = (
     <>
-      <Grid sx={{ display: "flex", justifyContent: "space-between" }}>
+      <Grid sx={{ display: "flex", justifyContent: "space-between", my: 7 }}>
         <Box sx={{ textAlign: "left" }}>
           <Box sx={{ typography: "subtitle1", color: "#603799" }}>
-            PAYMENT STAGES
+            PAYMENT STAGE
           </Box>
           <Box width={140} sx={{ typography: "subtitle1", color: "#333" }}>
             {invoice?.stages?.header}
@@ -303,7 +303,7 @@ export default function InvoiceDetails({ invoice }) {
             {/* {dueStage} */}
           </TableBody>
         </Table>
-        <Box sx={{ mt: 5 }}>{paymentStages}</Box>
+        {/* <Box sx={{ mt: 5 }}>{paymentStages}</Box> */}
       </Scrollbar>
     </TableContainer>
   );
@@ -503,7 +503,7 @@ export default function InvoiceDetails({ invoice }) {
             >
               ADDRESS:{" "}
               <span style={{ color: "#333", fontWeight: 100, width: "200px" }}>
-                {invoice?.invoiceTo.fullAddress}
+                {invoice?.invoiceTo.fullAddress || invoice?.invoiceTo.address}
               </span>
             </Typography>
             <Typography
@@ -530,10 +530,23 @@ export default function InvoiceDetails({ invoice }) {
                 {invoice?.invoiceTo.email}
               </span>
             </Typography>
+            <Typography
+              sx={{
+                fontSize: 13,
+                fontWeight: 600,
+                letterSpacing: 2,
+              }}
+            >
+              VAT NUMBER:{" "}
+              <span style={{ color: "#333", fontWeight: 100 }}>
+                {invoice?.invoiceTo.vatNumber || invoice?.vatNumber}
+              </span>
+            </Typography>
           </Box>
         </Stack>
 
         {renderList}
+        {paymentStages}
 
         <Divider
           sx={{
