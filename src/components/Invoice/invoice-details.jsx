@@ -81,7 +81,7 @@ export default function InvoiceDetails({ invoice }) {
   const handleCheckout = async () => {
     setLoading(true);
     const res = await axiosInstance.post(`/api/payment/pay-stripe`, {
-      amount: invoice?.totalAmount,
+      amount: invoice?.stages?.totalAmount,
       invoiceId: invoice?._id,
     });
     setLoading(false);
@@ -103,7 +103,7 @@ export default function InvoiceDetails({ invoice }) {
         </TableCell>
         <TableCell width={140} sx={{ typography: "subtitle1" }}>
           {`€${(
-            (invoice?.totalAmount || 0) - (invoice?.taxes || 0)
+            (invoice?.fullAmount || 0) - (invoice?.taxes || 0)
           ).toLocaleString()}`}
         </TableCell>
       </StyledTableRow>
@@ -122,7 +122,7 @@ export default function InvoiceDetails({ invoice }) {
           FULL AMOUNT
         </TableCell>
         <TableCell width={140} sx={{ typography: "subtitle1" }}>
-          {`€${(invoice?.totalAmount || 0).toLocaleString()}`}
+          {`€${(invoice?.fullAmount || 0).toLocaleString()}`}
         </TableCell>
       </StyledTableRow>
     </>
@@ -130,49 +130,40 @@ export default function InvoiceDetails({ invoice }) {
 
   const paymentStages = (
     <>
-      {invoice?.stages.map((row, index) => {
-        const taxes = (row?.amount || 0) * 0.23;
-
-        return (
-          <Grid
-            key={index}
-            sx={{ display: "flex", justifyContent: "space-between" }}
-          >
-            <Box sx={{ textAlign: "left" }}>
-              <Box sx={{ typography: "subtitle1", color: "#603799" }}>
-                PAYMENT STAGES
-              </Box>
-              <Box width={140} sx={{ typography: "subtitle1", color: "#333" }}>
-                {row?.header}
-              </Box>
-            </Box>
-            <Box sx={{ textAlign: "center" }}>
-              <Box sx={{ typography: "subtitle1", color: "#603799" }}>
-                BEFORE TAX
-              </Box>
-              <Box width={140} sx={{ typography: "subtitle1", color: "#333" }}>
-                {`€${(row?.amount || 0).toLocaleString()}`}
-              </Box>
-            </Box>
-            <Box sx={{ textAlign: "center" }}>
-              <Box sx={{ typography: "subtitle1", color: "#603799" }}>
-                TAX AMOUNT
-              </Box>
-              <Box width={140} sx={{ typography: "subtitle1", color: "#333" }}>
-                {`€${taxes.toLocaleString()}`}
-              </Box>
-            </Box>
-            <Box sx={{ textAlign: "right" }}>
-              <Box sx={{ typography: "subtitle1", color: "#603799" }}>
-                FULL AMOUNT
-              </Box>
-              <Box width={140} sx={{ typography: "subtitle1", color: "#333" }}>
-                {`€${((row?.amount || 0) + taxes).toLocaleString()}`}
-              </Box>
-            </Box>
-          </Grid>
-        );
-      })}
+      <Grid sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box sx={{ textAlign: "left" }}>
+          <Box sx={{ typography: "subtitle1", color: "#603799" }}>
+            PAYMENT STAGES
+          </Box>
+          <Box width={140} sx={{ typography: "subtitle1", color: "#333" }}>
+            {invoice?.stages?.header}
+          </Box>
+        </Box>
+        <Box sx={{ textAlign: "center" }}>
+          <Box sx={{ typography: "subtitle1", color: "#603799" }}>
+            BEFORE TAX
+          </Box>
+          <Box width={140} sx={{ typography: "subtitle1", color: "#333" }}>
+            {`€${(invoice?.stages?.subAmount || 0).toLocaleString()}`}
+          </Box>
+        </Box>
+        <Box sx={{ textAlign: "center" }}>
+          <Box sx={{ typography: "subtitle1", color: "#603799" }}>
+            TAX AMOUNT
+          </Box>
+          <Box width={140} sx={{ typography: "subtitle1", color: "#333" }}>
+            {`€${invoice?.stages?.taxes.toLocaleString()}`}
+          </Box>
+        </Box>
+        <Box sx={{ textAlign: "right" }}>
+          <Box sx={{ typography: "subtitle1", color: "#603799" }}>
+            FULL AMOUNT
+          </Box>
+          <Box width={140} sx={{ typography: "subtitle1", color: "#333" }}>
+            {`€${invoice?.stages?.totalAmount.toLocaleString()}`}
+          </Box>
+        </Box>
+      </Grid>
     </>
   );
 
@@ -402,7 +393,8 @@ export default function InvoiceDetails({ invoice }) {
               >
                 PAYMENT STAGE:{" "}
                 <span style={{ color: "#333", fontWeight: 100 }}>
-                  {invoice?.stages.length > 0 ? invoice?.stages[0].header : ""}
+                  {invoice?.stages?.header}
+                  {/* {invoice?.stages.length > 0 ? invoice?.stages.header : ""} */}
                 </span>
               </Typography>
             </Box>

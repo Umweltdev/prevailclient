@@ -223,7 +223,7 @@ export default function InvoicePDF({ invoice, currentStatus }) {
                 <Text>Before Tax</Text>
               </View>
               <View style={[styles.tableCell_3, styles.alignRight]}>
-                <Text>{`€${invoice?.totalAmount.toLocaleString()}`}</Text>
+                <Text>{`€${invoice?.fullAmount.toLocaleString()}`}</Text>
               </View>
             </View>
 
