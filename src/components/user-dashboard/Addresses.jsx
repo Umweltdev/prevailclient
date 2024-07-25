@@ -40,7 +40,7 @@ const Addresses = ({ openDrawer }) => {
   }, [_id]);
 
 
-  console.log(invoices);
+  // console.log(invoices);
 
   return (
     <Stack spacing={2}>

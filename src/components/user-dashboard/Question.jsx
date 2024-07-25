@@ -26,7 +26,7 @@ const Question = ({ openDrawer }) => {
     return <Loading />;
   }
 
-  console.log(user);
+  // console.log(user);
   const eachUser = user?.user;
   return (
     <Stack spacing={3}>

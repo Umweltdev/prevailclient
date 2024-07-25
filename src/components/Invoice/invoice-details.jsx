@@ -70,7 +70,6 @@ export default function InvoiceDetails({ invoice }) {
     [invoice?._id]
   );
 
-  console.log(invoice);
 
   useEffect(() => {
     if (invoice?.status) {
@@ -92,7 +91,6 @@ export default function InvoiceDetails({ invoice }) {
   };
 
   const tax = 15;
-  console.log(invoice);
 
   const renderTotal = (
     <>
@@ -309,7 +307,6 @@ export default function InvoiceDetails({ invoice }) {
       </Scrollbar>
     </TableContainer>
   );
-  console.log(invoice);
 
   return (
     <>

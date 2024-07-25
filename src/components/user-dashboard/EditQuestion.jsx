@@ -76,7 +76,7 @@ const EditQuestion = ({ openDrawer }) => {
           },
         }
       );
-      console.log(res.data);
+      // console.log(res.data);
       dispatch({
         type: "LOGIN_SUCCESS",
         payload: { user: { ...res.data }, token: user.token },
