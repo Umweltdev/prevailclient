@@ -89,8 +89,7 @@ export default function InvoiceDetails({ invoice }) {
     });
   };
 
-  const tax = invoice?.fullAmount * 0.23; 
-  
+  const tax = invoice?.fullAmount * 0.23;
 
   const renderTotal = (
     <>
@@ -206,7 +205,7 @@ export default function InvoiceDetails({ invoice }) {
       <Grid xs={12} md={3} sx={{ py: 3, textAlign: "right" }}>
         <Typography variant="subtitle2">Have a Question?</Typography>
 
-        <Typography variant="body2">support@minimals.cc</Typography>
+        <Typography variant="body2">info@prevailagency.ie</Typography>
       </Grid>
       <Grid
         xs={12}
@@ -504,6 +503,18 @@ export default function InvoiceDetails({ invoice }) {
               ADDRESS:{" "}
               <span style={{ color: "#333", fontWeight: 100, width: "200px" }}>
                 {invoice?.invoiceTo.fullAddress || invoice?.invoiceTo.address}
+              </span>
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: 13,
+                fontWeight: 600,
+                letterSpacing: 2,
+              }}
+            >
+              Phone:{" "}
+              <span style={{ color: "#333", fontWeight: 100, width: "200px" }}>
+                {invoice?.invoiceTo?.phone || invoice?.phone}
               </span>
             </Typography>
             <Typography
