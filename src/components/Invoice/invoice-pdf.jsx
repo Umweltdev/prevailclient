@@ -212,11 +212,11 @@ export default function InvoicePDF({ invoice, currentStatus }) {
                 </View>
 
                 <View style={styles.tableCell_3}>
-                  <Text>{item.price}</Text>
+                  <Text>{item.price.toLocaleString()}</Text>
                 </View>
 
                 <View style={[styles.tableCell_3, styles.alignRight]}>
-                  <Text>{`€${item.price.toLocaleString()}`}</Text>
+                  <Text>€{(item.price * item.hour).toLocaleString()}</Text>
                 </View>
               </View>
             ))}
@@ -229,9 +229,7 @@ export default function InvoicePDF({ invoice, currentStatus }) {
                 <Text>Before Tax</Text>
               </View>
               <View style={[styles.tableCell_3, styles.alignRight]}>
-                <Text>{`€${(
-                  invoice?.fullAmount * 0.23
-                ).toLocaleString()}`}</Text>
+                <Text>€{invoice?.fullAmount?.toLocaleString()}</Text>
               </View>
             </View>
 
@@ -243,7 +241,7 @@ export default function InvoicePDF({ invoice, currentStatus }) {
                 <Text>Tax Amount</Text>
               </View>
               <View style={[styles.tableCell_3, styles.alignRight]}>
-                <Text>{`€${invoice?.taxes?.toLocaleString()}`}</Text>
+                <Text>€{(invoice?.fullAmount * 0.23).toLocaleString()}</Text>
               </View>
             </View>
 
@@ -255,9 +253,7 @@ export default function InvoicePDF({ invoice, currentStatus }) {
                 <Text style={styles.h4}>Total</Text>
               </View>
               <View style={[styles.tableCell_3, styles.alignRight]}>
-                <Text style={styles.h4}>{`€${(
-                  invoice?.totalAmount + tax
-                ).toLocaleString()}`}</Text>
+                <Text style={styles.h4}>€{(invoice?.fullAmount + tax).toLocaleString()}</Text>
               </View>
             </View>
           </View>
