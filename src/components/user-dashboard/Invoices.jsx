@@ -70,12 +70,14 @@ const Invoices = ({ openDrawer }) => {
   const [invoices, setInvoices] = useState([]);
   const { user } = useContext(AuthContext);
 
-  const phone = user?.user.phone;
+  const email = user?.user.email;
+  console.log(email);
+
   useEffect(() => {
     const getAddresses = async () => {
       try {
         const res = await axiosInstance.get(
-          `/api/invoice?phoneNumber=${phone}`
+          `/api/invoice?email=${email}`
           // `http://localhost:8080/api/invoice`
         );
         setInvoices(res.data);
