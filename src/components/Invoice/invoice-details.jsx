@@ -40,7 +40,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     textAlign: "right",
     borderBottom: "none",
     paddingTop: theme.spacing(1),
-    paddingBottom: theme.spacing(1),
+    // paddingBottom: theme.spacing(1),
   },
 }));
 
@@ -89,7 +89,7 @@ export default function InvoiceDetails({ invoice }) {
     });
   };
 
-  const tax = invoice?.fullAmount * 0.23; ;
+  const tax = invoice?.fullAmount * 0.23; 
   
 
   const renderTotal = (
@@ -128,7 +128,7 @@ export default function InvoiceDetails({ invoice }) {
 
   const paymentStages = (
     <>
-      <Grid sx={{ display: "flex", justifyContent: "space-between", my: 7 }}>
+      <Grid sx={{ display: "flex", justifyContent: "space-between", mb: 7 }}>
         <Box sx={{ textAlign: "left" }}>
           <Box sx={{ typography: "subtitle1", color: "#603799" }}>
             PAYMENT STAGE
@@ -300,10 +300,10 @@ export default function InvoiceDetails({ invoice }) {
             ))}
 
             {renderTotal}
-            {/* {dueStage} */}
           </TableBody>
         </Table>
-        {/* <Box sx={{ mt: 5 }}>{paymentStages}</Box> */}
+        <Box sx={{ mt: 5 }}>{paymentStages}</Box>
+        {/* {paymentStages} */}
       </Scrollbar>
     </TableContainer>
   );
@@ -546,7 +546,7 @@ export default function InvoiceDetails({ invoice }) {
         </Stack>
 
         {renderList}
-        {paymentStages}
+        {/* {paymentStages} */}
 
         <Divider
           sx={{

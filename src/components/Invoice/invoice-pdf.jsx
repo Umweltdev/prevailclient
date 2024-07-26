@@ -111,7 +111,7 @@ export default function InvoicePDF({ invoice, currentStatus }) {
   } = invoice;
 
   const styles = useStyles();
-  const tax = 15;
+  const tax = invoice?.fullAmount * 0.23;
 
   return (
     <Document>
@@ -143,11 +143,17 @@ export default function InvoicePDF({ invoice, currentStatus }) {
 
           <View>
             <Text style={[styles.subtitle2, styles.mb4]}>Invoice to</Text>
-            <Text style={styles.body2}>{invoiceTo.name}</Text>
-            <Text style={styles.body2}>{invoiceTo.fullAddress}</Text>
-            <Text style={styles.body2}>{invoiceTo.town}</Text>
-            {/* <Text style={styles.body2}>{invoiceTo.phoneNumber}</Text> */}
-            <Text style={styles.body2}>{invoiceTo.email}</Text>
+            <Text style={styles.body2}>NAME: {invoiceTo.name}</Text>
+            <Text style={styles.body2}>
+              ADDRESS:
+              {invoiceTo.fullAddress || invoiceTo.address || invoice?.address}
+            </Text>
+            <Text style={styles.body2}>TOWN, CITY: {invoiceTo?.town}</Text>
+            <Text style={styles.body2}>PHONE: {invoiceTo?.phone}</Text>
+            <Text style={styles.body2}>
+              VAT NUMBER: {invoiceTo?.vatNumber || invoice?.vatNumber}
+            </Text>
+            <Text style={styles.body2}>EMAIL: {invoiceTo.email}</Text>
           </View>
         </View>
 
@@ -223,7 +229,9 @@ export default function InvoicePDF({ invoice, currentStatus }) {
                 <Text>Before Tax</Text>
               </View>
               <View style={[styles.tableCell_3, styles.alignRight]}>
-                <Text>{`€${invoice?.fullAmount.toLocaleString()}`}</Text>
+                <Text>{`€${(
+                  invoice?.fullAmount * 0.23
+                ).toLocaleString()}`}</Text>
               </View>
             </View>
 
@@ -248,9 +256,51 @@ export default function InvoicePDF({ invoice, currentStatus }) {
               </View>
               <View style={[styles.tableCell_3, styles.alignRight]}>
                 <Text style={styles.h4}>{`€${(
-                  invoice?.totalAmount + invoice?.taxes
+                  invoice?.totalAmount + tax
                 ).toLocaleString()}`}</Text>
               </View>
+            </View>
+          </View>
+        </View>
+
+        {/* PAYEMENT STAGES */}
+
+        <View style={styles.table}>
+          <View>
+            <View style={styles.tableRow}>
+              <View style={styles.tableCell_2}>
+                <Text style={styles.subtitle2}>Payement Stage</Text>
+              </View>
+
+              <View style={styles.tableCell_3}>
+                <Text style={styles.subtitle2}>Before Tax</Text>
+              </View>
+
+              <View style={styles.tableCell_3}>
+                <Text style={styles.subtitle2}>Tax Amount</Text>
+              </View>
+
+              <View style={[styles.tableCell_3, styles.alignRight]}>
+                <Text style={styles.subtitle2}>Full Amount</Text>
+              </View>
+            </View>
+          </View>
+
+          <View style={styles.tableRow}>
+            <View style={styles.tableCell_2}>
+              <Text>{invoice?.stages?.header}</Text>
+            </View>
+
+            <View style={styles.tableCell_3}>
+              <Text>€{invoice?.stages?.subAmount.toLocaleString() || 0}</Text>
+            </View>
+
+            <View style={styles.tableCell_3}>
+              <Text>€{invoice?.stages?.taxes.toLocaleString() || 0}</Text>
+            </View>
+
+            <View style={[styles.tableCell_3, styles.alignRight]}>
+              <Text>€{invoice?.stages?.totalAmount.toLocaleString() || 0}</Text>
             </View>
           </View>
         </View>
