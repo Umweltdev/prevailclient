@@ -8,6 +8,8 @@ import Loading from "./components/utils/Loading";
 import io from "socket.io-client";
 // import { AuthContext } from "../../context/AuthContext";
 import SmoothScrollUp from "./components/utils/SmoothScrollUp";
+import ErrorBoundary from "./components/utils/ErrorBoundary";
+import NotFoundPage from "./components/utils/NotFoundPage";
 
 // Lazy load pages and componentss
 const Landing = React.lazy(() => import("./pages/Landing"));
@@ -99,77 +101,84 @@ function App() {
       <Elements stripe={stripePromise}>
         <ScrollToTop />
         <Suspense fallback={<Loading />}>
-          <Routes>
-            <Route path="/" element={<Landing />} />
-            <Route
-              path="/reset_password/:id/:token"
-              element={<ResetPasswordForm />}
-            />
-            <Route path="/about-us" element={<About />} />
-            <Route path="/Portfolio" element={<Portfolio />} />
-            <Route path="/Blog" element={<Blog />} />
-            <Route path="/contact-us" element={<Contact />} />
-            <Route path="/Blog/:index" element={<BlogDetails />} />
-            <Route path="/service-landing-page" element={<Services />} />
-            <Route
-              path="/service/brand-identity-package"
-              element={<BrandIdentity />}
-            />
-            <Route
-              path="/service/brand-identity-package/visual-brand-identity"
-              element={<VisualBrandIdentity />}
-            />
-            <Route
-              path="/service/custom-website-development"
-              element={<WebsiteDevelopment />}
-            />
-            <Route
-              path="/explore/digital-ecosystem"
-              element={<DigitalEcosystem />}
-            />
-            <Route
-              path="/explore/customer-journey"
-              element={<CustomerJourney />}
-            />
-            <Route
-              path="/service/website-development"
-              element={<WebManagement />}
-            />
-            <Route path="/privacypolicy" element={<PrivacyPolicy />} />
-            <Route path="/service/search-engine-marketing" element={<Sem />} />
-            <Route
-              path="/service/marketing-pricing-displacement"
-              element={<Mpd />}
-            />
-            <Route
-              path="/service/digital-accelerator-bundle"
-              element={<DigitalAccelerator />}
-            />
+          <ErrorBoundary>
+            <Routes>
+              <Route path="/" element={<Landing />} />
+              <Route
+                path="/reset_password/:id/:token"
+                element={<ResetPasswordForm />}
+              />
+              <Route path="/about-us" element={<About />} />
+              <Route path="/Portfolio" element={<Portfolio />} />
+              <Route path="/Blog" element={<Blog />} />
+              <Route path="/contact-us" element={<Contact />} />
+              <Route path="/Blog/:index" element={<BlogDetails />} />
+              <Route path="/service-landing-page" element={<Services />} />
+              <Route
+                path="/service/brand-identity-package"
+                element={<BrandIdentity />}
+              />
+              <Route
+                path="/service/brand-identity-package/visual-brand-identity"
+                element={<VisualBrandIdentity />}
+              />
+              <Route
+                path="/service/custom-website-development"
+                element={<WebsiteDevelopment />}
+              />
+              <Route
+                path="/explore/digital-ecosystem"
+                element={<DigitalEcosystem />}
+              />
+              <Route
+                path="/explore/customer-journey"
+                element={<CustomerJourney />}
+              />
+              <Route
+                path="/service/website-development"
+                element={<WebManagement />}
+              />
+              <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+              <Route
+                path="/service/search-engine-marketing"
+                element={<Sem />}
+              />
+              <Route
+                path="/service/marketing-pricing-displacement"
+                element={<Mpd />}
+              />
+              <Route
+                path="/service/digital-accelerator-bundle"
+                element={<DigitalAccelerator />}
+              />
 
-            <Route
-              path="/service/digital-accelerator-bundle/empower-your-business"
-              element={<EmpowerYourBussiness />}
-            />
+              <Route
+                path="/service/digital-accelerator-bundle/empower-your-business"
+                element={<EmpowerYourBussiness />}
+              />
 
-            <Route path="/Portfolio/:index" element={<CaseDetails />} />
-            <Route path="/about/ourWhy" element={<AboutOurWhy />} />
-            <Route path="/about/ourSolution" element={<AboutOurSolution />} />
-            <Route path="/SignUp" element={<SignUpForm />} />
-            <Route path="/Login" element={<LoginForm />} />
-            <Route path="/Stepper" element={<Stepper />} />
-            <Route path="/MobStepper" element={<MobStepper />} />
-            <Route
-              path="/UserDashboard"
-              element={user ? <UserDashBoard /> : <Navigate to="/" />}
-            />
-            <Route
-              path="/user/*"
-              element={user ? <UserDashBoard socket={socket}/> : <Navigate to="/" />}
-            />
-          </Routes>
+              <Route path="/Portfolio/:index" element={<CaseDetails />} />
+              <Route path="/about/ourWhy" element={<AboutOurWhy />} />
+              <Route path="/about/ourSolution" element={<AboutOurSolution />} />
+              <Route path="/SignUp" element={<SignUpForm />} />
+              <Route path="/Login" element={<LoginForm />} />
+              <Route path="/Stepper" element={<Stepper />} />
+              <Route path="/MobStepper" element={<MobStepper />} />
+              <Route
+                path="/UserDashboard"
+                element={user ? <UserDashBoard /> : <Navigate to="/" />}
+              />
+              <Route
+                path="/user/*"
+                element={
+                  user ? <UserDashBoard socket={socket} /> : <Navigate to="/" />
+                }
+              />
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </ErrorBoundary>
         </Suspense>
       </Elements>
-      
     </>
   );
 }
