@@ -23,7 +23,12 @@ const ErrorPage = () => {
       <CardMedia
         component="img"
         image={img404}
-        sx={{ width: "500px", margin: "auto", mt: "20px" }}
+        sx={{
+          width: "500px",
+          margin: "auto",
+          mt: "40px",
+          "@media (max-width: 600px)": { width: "80vw", mt: "50%" },
+        }}
       />
       <Typography variant="h3" sx={{ color: "#884ED9" }}>
         Oops! Something went wrong.

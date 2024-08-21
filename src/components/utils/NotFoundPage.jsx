@@ -24,14 +24,17 @@ const NotFoundPage = () => {
       <CardMedia
         component="img"
         image={img404}
-        sx={{ width: "500px", margin: "auto", mt: "40px" }}
+        sx={{
+          width: "500px",
+          margin: "auto",
+          mt: "40px",
+          "@media (max-width: 600px)": { width: "80vw", mt: "50%" },
+        }}
       />
       <Typography variant="h3" sx={{ color: "#884ED9" }}>
         Page Not Found
       </Typography>
-      <Typography >
-        The page you are looking for doesn't exist.
-      </Typography>
+      <Typography>The page you are looking for doesn't exist.</Typography>
       <Button variant="contained" sx={{ mt: "40px" }} onClick={handleGoBack}>
         Go Back
       </Button>

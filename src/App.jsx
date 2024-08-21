@@ -1,17 +1,14 @@
-import React, { Suspense, useContext, useState, useEffect } from "react";
+import React, { Suspense, useContext, useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import ScrollToTop from "./ScrollToTop";
 import { AuthContext } from "./context/AuthContext";
 import Loading from "./components/utils/Loading";
-import io from "socket.io-client";
-// import { AuthContext } from "../../context/AuthContext";
-import SmoothScrollUp from "./components/utils/SmoothScrollUp";
 import ErrorBoundary from "./components/utils/ErrorBoundary";
 import NotFoundPage from "./components/utils/NotFoundPage";
 
-// Lazy load pages and componentss
+// Lazy load pages and components
 const Landing = React.lazy(() => import("./pages/Landing"));
 const About = React.lazy(() => import("./pages/About"));
 const Portfolio = React.lazy(() => import("./pages/Portfolio"));
@@ -69,33 +66,6 @@ function App() {
   const { user } = useContext(AuthContext);
   const [socket, setSocket] = useState(null);
 
-  // const setupSocket = () => {
-  //   const token = user?.token;
-  //   if (token && !socket) {
-  //     const newSocket = io("http://localhost:5000", {
-  //       transports: ["websocket"],
-  //       withCredentials: true,
-  //       extraHeaders: {
-  //         "my-custom-header": "abcd",
-  //       },
-  //       query: {
-  //         token: user?.token,
-  //       },
-  //     });
-
-  //     newSocket.on("disconnect", () => {
-  //       setSocket(null);
-  //     });
-
-  //     newSocket.on("connect", () => {});
-
-  //     setSocket(newSocket);
-  //   }
-  // };
-  // useEffect(() => {
-  //   setupSocket();
-  // }, []);
-
   return (
     <>
       <Elements stripe={stripePromise}>
@@ -103,16 +73,13 @@ function App() {
         <Suspense fallback={<Loading />}>
           <ErrorBoundary>
             <Routes>
+              {/* Define the new routes */}
               <Route path="/" element={<Landing />} />
-              <Route
-                path="/reset_password/:id/:token"
-                element={<ResetPasswordForm />}
-              />
               <Route path="/about-us" element={<About />} />
-              <Route path="/Portfolio" element={<Portfolio />} />
-              <Route path="/Blog" element={<Blog />} />
+              <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/blog" element={<Blog />} />
               <Route path="/contact-us" element={<Contact />} />
-              <Route path="/Blog/:index" element={<BlogDetails />} />
+              <Route path="/blog/:index" element={<BlogDetails />} />
               <Route path="/service-landing-page" element={<Services />} />
               <Route
                 path="/service/brand-identity-package"
@@ -127,18 +94,9 @@ function App() {
                 element={<WebsiteDevelopment />}
               />
               <Route
-                path="/explore/digital-ecosystem"
-                element={<DigitalEcosystem />}
-              />
-              <Route
-                path="/explore/customer-journey"
-                element={<CustomerJourney />}
-              />
-              <Route
                 path="/service/website-development"
                 element={<WebManagement />}
               />
-              <Route path="/privacypolicy" element={<PrivacyPolicy />} />
               <Route
                 path="/service/search-engine-marketing"
                 element={<Sem />}
@@ -151,13 +109,11 @@ function App() {
                 path="/service/digital-accelerator-bundle"
                 element={<DigitalAccelerator />}
               />
-
               <Route
                 path="/service/digital-accelerator-bundle/empower-your-business"
                 element={<EmpowerYourBussiness />}
               />
-
-              <Route path="/Portfolio/:index" element={<CaseDetails />} />
+              <Route path="/portfolio/:index" element={<CaseDetails />} />
               <Route path="/about/ourWhy" element={<AboutOurWhy />} />
               <Route path="/about/ourSolution" element={<AboutOurSolution />} />
               <Route path="/SignUp" element={<SignUpForm />} />
@@ -174,6 +130,74 @@ function App() {
                   user ? <UserDashBoard socket={socket} /> : <Navigate to="/" />
                 }
               />
+
+              {/* Redirect old routes to the new routes */}
+              <Route path="/About" element={<Navigate to="/about-us" />} />
+              <Route path="/Portfolio" element={<Navigate to="/portfolio" />} />
+              <Route path="/Blog" element={<Navigate to="/blog" />} />
+              <Route path="/Contact" element={<Navigate to="/contact-us" />} />
+              <Route
+                path="/Blog/:index"
+                element={<Navigate to="/blog/:index" />}
+              />
+              <Route
+                path="/Services"
+                element={<Navigate to="/service-landing-page" />}
+              />
+              <Route
+                path="/Services/brand"
+                element={<Navigate to="/service/brand-identity-package" />}
+              />
+              <Route
+                path="/Services/website"
+                element={<Navigate to="/service/custom-website-development" />}
+              />
+              <Route
+                path="/Services/webmanagement"
+                element={<Navigate to="/service/website-development" />}
+              />
+              <Route
+                path="/Services/sem"
+                element={<Navigate to="/service/search-engine-marketing" />}
+              />
+              <Route
+                path="/Services/mpd"
+                element={
+                  <Navigate to="/service/marketing-pricing-displacement" />
+                }
+              />
+              <Route
+                path="/Services/privacypolicy"
+                element={<Navigate to="/privacypolicy" />}
+              />
+              <Route
+                path="/Services/digitalaccelerator"
+                element={<Navigate to="/service/digital-accelerator-bundle" />}
+              />
+              <Route
+                path="/Portfolio/:index"
+                element={<Navigate to="/portfolio/:index" />}
+              />
+              <Route
+                path="/about/ourWhy"
+                element={<Navigate to="/about/ourWhy" />}
+              />
+              <Route
+                path="/about/ourSolution"
+                element={<Navigate to="/about/ourSolution" />}
+              />
+              <Route path="/SignUp" element={<Navigate to="/SignUp" />} />
+              <Route path="/Login" element={<Navigate to="/Login" />} />
+              <Route path="/Stepper" element={<Navigate to="/Stepper" />} />
+              <Route
+                path="/MobStepper"
+                element={<Navigate to="/MobStepper" />}
+              />
+              <Route
+                path="/UserDashboard"
+                element={<Navigate to="/UserDashboard" />}
+              />
+
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </ErrorBoundary>

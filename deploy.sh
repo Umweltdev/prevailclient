@@ -18,7 +18,7 @@ heroku git:remote -a prevaildigitalmarketing
 
 git add .
 
-git commit -m "latest push"
+git commit -m "old url fallback"
 
 git push heroku main
 
