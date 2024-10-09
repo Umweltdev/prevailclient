@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const BASE_URL = "https://prevailserver-4b3c670a5496.herokuapp.com/api/";
+// const BASE_URL = "https://prevailserver-4b3c670a5496.herokuapp.com/api/";
+const BASE_URL = "http://localhost:8080/";
 let token = "";
 const storedToken = JSON.parse(
   JSON.parse(localStorage.getItem("persist:root"))?.user || "{}"

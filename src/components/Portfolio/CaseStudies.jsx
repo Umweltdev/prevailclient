@@ -152,12 +152,13 @@ const CaseStudies = () => {
             margin: "5vh 0",
             flexWrap: "wrap",
             magin: "0 auto",
-            justifyContent: 'center',
-            alignItems: 'center'
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
           {caseData.map((data, index) => (
             <Link
+              rel="canonical"
               key={index}
               to={`/Portfolio/${index}`}
               className="sOneBlogCardLink"

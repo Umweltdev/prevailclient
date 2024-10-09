@@ -205,6 +205,7 @@ const BlogDetails = () => {
             {blogBlurbs.slice(0, 6).map((data, index) => (
               <Link
                 to={`/blog/${index}`}
+                rel="canonical"
                 key={index}
                 className="sOneBlogCardLink"
                 style={{ textDecoration: "none" }}

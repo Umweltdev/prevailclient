@@ -43,7 +43,6 @@ import HeroComponent from "../ReusedComponenets/HeroComponent";
 import AppBarNav from "../../Navbar/Appbar";
 import Slides from "./Slides";
 import Solution from "../Mpd/Solution";
-import { useContext } from "react";
 import styles from "../BrandIdentity/assets/animation.module.css"
 import { useInView } from "react-intersection-observer";
 import SmoothScrollUp from "../../utils/SmoothScrollUp";

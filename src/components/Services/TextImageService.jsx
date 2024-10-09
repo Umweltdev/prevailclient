@@ -77,8 +77,8 @@ const TextImageService = ({ text, imageUrl, textHeader, url, alt }) => {
         >
           {text}
         </Typography>
-        <Link to={url}>
-          <Link to={url}>
+        <Link rel="canonical" to={url}>
+          <Link rel="canonical" to={url}>
             <ReusedButton text="Learn More" />
           </Link>
         </Link>

@@ -104,8 +104,7 @@ const SectionOne = () => {
           // margin: "0 auto"
         }}
       >
-       
-        <Grid sx={{mt: "200px"}}>
+        <Grid sx={{ mt: "200px" }}>
           <Grid>
             <ul className={classes.CaseNavlist}>
               <li
@@ -166,7 +165,6 @@ const SectionOne = () => {
             "@media (max-width: 600px)": {
               flexDirection: "column",
               alignItems: "center",
-              
             },
           }}
         >
@@ -183,13 +181,13 @@ const SectionOne = () => {
                 "@media (max-width: 600px)": {
                   flexDirection: "column",
                   alignItems: "center",
-                 
                 },
               },
             }}
           >
             {blogBlurbs.map((data, index) => (
               <Link
+                rel="canonical"
                 to={`/blog/${index}`}
                 key={index}
                 className="sOneBlogCardLink"
@@ -208,13 +206,12 @@ const SectionOne = () => {
               </Link>
             ))}
           </Grid>
-          <Grid sx={{ marginRight: "1vw", }} className="sOneBlogFeature">
+          <Grid sx={{ marginRight: "1vw" }} className="sOneBlogFeature">
             <FreeSolo />
             <BlogListSideCard />
           </Grid>
         </Grid>
       </Grid>
-
     </>
   );
 };

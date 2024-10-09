@@ -34,6 +34,7 @@ export default function BlogListSideCard() {
       {blogBlurbs.map((data, index) => (
         <Link
           to={`/blog/${index}`}
+          rel="canonical"
           key={index}
           className="sOneBlogCardLink"
           style={{ textDecoration: "none" }}

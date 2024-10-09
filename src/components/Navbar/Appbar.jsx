@@ -181,7 +181,7 @@ function AppBarNav({ color }) {
         variant="h6"
         sx={{ my: 5, fontFamily: `"Sarabun","sans-serif"` }}
       >
-        <Link to={`/`} style={{ textDecoration: "none" }}>
+        <Link rel="canonical" to={`/`} style={{ textDecoration: "none" }}>
           <img style={{ height: "10vh" }} src={logo} alt="logo" />
         </Link>
       </Typography>
@@ -239,7 +239,7 @@ function AppBarNav({ color }) {
               component="div"
               sx={{ display: { xs: "block", sm: "block" } }}
             >
-              <Link to={`/`} style={{ textDecoration: "none" }}>
+              <Link rel="canonical" to={`/`} style={{ textDecoration: "none" }}>
                 <img style={{ height: "50px" }} src={logo} alt="logo" />
               </Link>
             </Typography>
@@ -260,6 +260,7 @@ function AppBarNav({ color }) {
                     display: "flex",
                     alignItems: "center",
                   }}
+                  rel="canonical"
                   component={item.link ? Link : "div"}
                   to={item.link ? item.link : null}
                   onClick={item.onClick ? item.onClick : null}
@@ -331,7 +332,9 @@ function AppBarNav({ color }) {
                       textTransform: "none",
                       borderRadius: "20px",
                     }}
+                    rel="canonical"
                     component={Link}
+                 
                     to="/login"
                   >
                     Login
@@ -345,6 +348,7 @@ function AppBarNav({ color }) {
                       borderRadius: "20px",
                     }}
                     component={Link}
+                    rel="canonical"
                     to="/signup"
                   >
                     Sign Up
@@ -389,6 +393,7 @@ function AppBarNav({ color }) {
             }}
             key={i}
             to={data.link}
+            rel="canonical"
           >
             <MenuItem onClick={handleClose}>{data.text}</MenuItem>
           </Link>
@@ -408,6 +413,7 @@ function AppBarNav({ color }) {
             }}
             key={i}
             to={data.link}
+            rel="canonical"
           >
             <MenuItem onClick={handleClose}>{data.text}</MenuItem>
           </Link>

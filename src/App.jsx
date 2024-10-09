@@ -7,6 +7,7 @@ import { AuthContext } from "./context/AuthContext";
 import Loading from "./components/utils/Loading";
 import ErrorBoundary from "./components/utils/ErrorBoundary";
 import NotFoundPage from "./components/utils/NotFoundPage";
+import { Helmet } from "react-helmet";
 
 // Lazy load pages and components
 const Landing = React.lazy(() => import("./pages/Landing"));

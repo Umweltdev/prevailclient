@@ -36,11 +36,11 @@ const SectionTwo = () => {
           justifyContent: "center",
           /* width: 95vw; */
           gap: "4vw",
-         
         }}
       >
         {serviceCard.map((data, index) => (
           <Link
+            rel="canonical"
             style={{ textDecoration: "none" }}
             key={index}
             to={`/Services/${data.link}`}
