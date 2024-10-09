@@ -87,6 +87,18 @@ function App() {
                 element={<BrandIdentity />}
               />
               <Route
+                path="/explore/digital-ecosystem"
+                element={<DigitalEcosystem />}
+              />
+              <Route
+                path="/explore/customer-journey"
+                element={<CustomerJourney />}
+              />
+              <Route
+                path="/privacy-policy"
+                element={<PrivacyPolicy />}
+              />
+              <Route
                 path="/service/brand-identity-package/visual-brand-identity"
                 element={<VisualBrandIdentity />}
               />
@@ -168,8 +180,8 @@ function App() {
                 }
               />
               <Route
-                path="/Services/privacypolicy"
-                element={<Navigate to="/privacypolicy" />}
+                path="/privacypolicy"
+                element={<Navigate to="/privacy-policy" />}
               />
               <Route
                 path="/Services/digitalaccelerator"
