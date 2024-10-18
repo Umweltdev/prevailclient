@@ -1,5 +1,5 @@
 // ErrorPage.js
-import { Button, CardMedia, Grid } from "@mui/material";
+import { Button, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import img404 from "./404.png";

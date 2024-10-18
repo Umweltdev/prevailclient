@@ -60,6 +60,7 @@ const PrivacyPolicy = React.lazy(() => import("./pages/PrivacyPolicy"));
 const ResetPasswordForm = React.lazy(() =>
   import("./components/Form/ForgotPassword/ResetPasswordForm")
 );
+const UserConsent = React.lazy(() => import("./components/Footer/ConsentPage"));
 const viteKey = import.meta.env.VITE_STRIPE_PUBLIC_KEY;
 const stripePromise = loadStripe(viteKey);
 
@@ -94,10 +95,7 @@ function App() {
                 path="/explore/customer-journey"
                 element={<CustomerJourney />}
               />
-              <Route
-                path="/privacy-policy"
-                element={<PrivacyPolicy />}
-              />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route
                 path="/service/brand-identity-package/visual-brand-identity"
                 element={<VisualBrandIdentity />}
@@ -133,10 +131,12 @@ function App() {
               <Route path="/Login" element={<LoginForm />} />
               <Route path="/Stepper" element={<Stepper />} />
               <Route path="/MobStepper" element={<MobStepper />} />
+              <Route path="/user-consent" element={<UserConsent />} />
               <Route
                 path="/UserDashboard"
                 element={user ? <UserDashBoard /> : <Navigate to="/" />}
               />
+
               <Route
                 path="/user/*"
                 element={
