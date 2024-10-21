@@ -92,6 +92,32 @@ const BoldSwitch = styled(Switch)(({ theme }) => ({
   },
 }));
 
+const SmallSwitch = styled(Switch)(({ theme }) => ({
+  width: 40, // Reduced from 60
+  height: 20, // Reduced from 32
+  padding: 0,
+  "& .MuiSwitch-switchBase": {
+    padding: 2,
+    "&.Mui-checked": {
+      transform: "translateX(18px)", // Adjusted to fit smaller size
+      color: "#fff",
+      "& + .MuiSwitch-track": {
+        backgroundColor: theme.palette.primary.main,
+        opacity: 1,
+      },
+    },
+  },
+  "& .MuiSwitch-thumb": {
+    width: 16, // Reduced from 28
+    height: 16, // Reduced from 28
+  },
+  "& .MuiSwitch-track": {
+    borderRadius: 20 / 2, // Adjusted to match smaller height
+    backgroundColor: "#E9E9EA",
+    opacity: 1,
+  },
+}));
+
 function ConsentBar() {
   const [open, setOpen] = useState(false);
   const [selectedConsent, setSelectedConsent] = useState(null);
@@ -192,12 +218,31 @@ function ConsentBar() {
           p: 4,
           borderRadius: 3,
           mb: 4,
+          "@media (max-width: 600px)": {
+            width: "95vw",
+            p: 3,
+          },
         }}
       >
-        <Typography variant="h5" mb={3}>
+        <Typography
+          variant="h5"
+          mb={3}
+          sx={{
+            "@media (max-width: 600px)": {
+              display: "none",
+            },
+          }}
+        >
           Welcome to Prevail Consent Management
         </Typography>
-        <Typography variant="subtitle2">
+        <Typography
+          variant="subtitle2"
+          sx={{
+            "@media (max-width: 600px)": {
+              display: "none",
+            },
+          }}
+        >
           At Prevail, your privacy and control over your data are our top
           priorities. We believe in transparency, which is why we provide clear,
           detailed descriptions of how each cookie on our platform functions,
@@ -221,7 +266,7 @@ function ConsentBar() {
         </Box>
 
         <Typography variant="subtitle2" fontWeight="600" sx={{ mt: 3 }}>
-          Cookies will help us serve you better in these way:
+          Cookies will help us serve you better in these ways:
         </Typography>
 
         <Card
@@ -235,6 +280,12 @@ function ConsentBar() {
             p: 3,
             bgcolor: "#F5F3FB",
             boxShadow: 0,
+            "@media (max-width: 600px)": {
+              p: 2,
+              flexDirection: "column",
+              px: 2,
+              gap: 0.2,
+            },
           }}
         >
           {consentData.map((data, index) => (
@@ -244,22 +295,59 @@ function ConsentBar() {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
+                "@media (max-width: 600px)": {
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  width: "100%",
+                },
               }}
             >
-              <Typography variant="h6">{data.id}</Typography>
-              <Typography
-                variant="subtitle2"
-                mb={2}
-                color="primary"
-                sx={{ cursor: "pointer" }}
-                onClick={() => handleOpen(data)}
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  "@media (max-width: 600px)": {
+                    display: "block",
+                  },
+                }}
               >
-                Details
-              </Typography>
-              <BoldSwitch
-                checked={consentChoices[data.id]}
-                onChange={handleSwitchToggle(data.id)}
-              />
+                <Typography variant="h6">{data.id}</Typography>
+                <Typography
+                  variant="subtitle2"
+                  mb={2}
+                  color="primary"
+                  sx={{ cursor: "pointer" }}
+                  onClick={() => handleOpen(data)}
+                >
+                  Details
+                </Typography>
+              </Box>
+              <Box
+                sx={{
+                  "@media (max-width: 600px)": {
+                    display: "none",
+                  },
+                }}
+              >
+                <BoldSwitch
+                  checked={consentChoices[data.id]}
+                  onChange={handleSwitchToggle(data.id)}
+                />
+              </Box>
+              <Box
+                sx={{
+                  display: "none",
+                  "@media (max-width: 600px)": {
+                    display: "block",
+                  },
+                }}
+              >
+                <SmallSwitch
+                  checked={consentChoices[data.id]}
+                  onChange={handleSwitchToggle(data.id)}
+                />
+              </Box>
             </Box>
           ))}
         </Card>
