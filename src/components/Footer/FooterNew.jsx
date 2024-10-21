@@ -1,13 +1,10 @@
 import React from "react";
 import {
   Box,
-  Container,
   Grid,
   Typography,
   Button,
   TextField,
-  Divider,
-  Fab,
 } from "@mui/material";
 import { styled } from "@mui/system";
 import img1 from "./assets/newlogo.svg";
@@ -15,14 +12,11 @@ import Subscribe from "./Subscribe";
 import {
   Facebook,
   Instagram,
-  KeyboardArrowUp,
   LinkedIn,
   X,
   YouTube,
 } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-import ChatBotLauncher from "./ChatbotLauncher";
-import ConsentBar from "./ConsentBar";
 
 const CustomButton = styled(Button)(({ theme }) => ({
   backgroundColor: "#6A1B9A",
@@ -32,20 +26,6 @@ const CustomButton = styled(Button)(({ theme }) => ({
   "&:hover": {
     backgroundColor: "#5a0f8a",
   },
-}));
-
-const FloatingConsentBar = styled(Box)(({ theme }) => ({
-  position: "fixed",
-  bottom: 40,
-  width: "100%",
-  zIndex: 1000,
-  backgroundColor: "rgba(0,0,0,0)",
-  color: "#fff",
-  padding: "10px",
-  textAlign: "center",
-  boxShadow: 0,
-  display: "flex",
-  justifyContent: "center",
 }));
 
 const CustomTextField = styled(TextField)(({ theme }) => ({
@@ -67,9 +47,6 @@ const CustomTextField = styled(TextField)(({ theme }) => ({
 const FooterNew = () => {
   return (
     <Box>
-      {/* <FloatingConsentBar>
-        <ConsentBar />
-      </FloatingConsentBar> */}
       <Box
         sx={{
           backgroundColor: "#3E2162",

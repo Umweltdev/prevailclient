@@ -20,7 +20,32 @@
     <meta property="og:description" content="$OG_DESCRIPTION" />
     <meta property="og:url" content="./logo.svg" />
     <meta property="og:type" content="website" />
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-M3FCXGCG");
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-XQHL846D91"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
+      gtag("config", "G-XQHL846D91");
+    </script>
     <title>$OG_TITLE</title>
     <base href="/" />
   </head>
@@ -28,19 +53,27 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-M3FCXGCG"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
     <!-- =======================Google tag (gtag.js)============================== -->
     <!-- Google tag (gtag.js) -->
 
     <!-- Cookie Consent from  https://go.cookieinformation.com/-->
-    <script
+    <!-- <script
       id="CookieConsent"
       src="https://policy.app.cookieinformation.com/uc.js"
       data-culture="EN"
       data-gcm-version="2.0"
       type="text/javascript"
-    ></script>
+    ></script> -->
 
-    <script
+    <!-- <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=GT-5DH4FZDB"
     ></script>
@@ -57,10 +90,10 @@
       gtag("js", new Date());
 
       gtag("config", "GT-5DH4FZDB");
-    </script>
+    </script> -->
 
     <!-- ====================================================== -->
-    <script>
+    <!-- <script>
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
         w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
@@ -71,16 +104,30 @@
         j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
         f.parentNode.insertBefore(j, f);
       })(window, document, "script", "dataLayer", "GTM-NTJZGJN7");
-    </script>
+    </script> -->
+
     <!-- Google Tag Manager (noscript) -->
-    <noscript
+    <!-- <noscript
       ><iframe
         src="https://www.googletagmanager.com/ns.html?id=GTM-NTJZGJN7"
         height="0"
         width="0"
         style="display: none; visibility: hidden"
       ></iframe
-    ></noscript>
+    ></noscript> -->
     <!-- End Google Tag Manager (noscript) -->
   </body>
 </html>
+
+<!-- Google Tag Manager -->
+<!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M3FCXGCG');</script> -->
+<!-- End Google Tag Manager -->
+
+<!-- Google Tag Manager (noscript) -->
+<!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M3FCXGCG"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
+<!-- End Google Tag Manager (noscript) -->

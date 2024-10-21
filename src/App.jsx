@@ -8,6 +8,9 @@ import Loading from "./components/utils/Loading";
 import ErrorBoundary from "./components/utils/ErrorBoundary";
 import NotFoundPage from "./components/utils/NotFoundPage";
 import { Helmet } from "react-helmet";
+import CookieConsent from "react-cookie-consent";
+import { Box } from "@mui/material";
+import ConsentBar from "./components/Footer/ConsentBar";
 
 // Lazy load pages and components
 const Landing = React.lazy(() => import("./pages/Landing"));
@@ -67,6 +70,11 @@ const stripePromise = loadStripe(viteKey);
 function App() {
   const { user } = useContext(AuthContext);
   const [socket, setSocket] = useState(null);
+
+  const handleAcceptCookies = () => {
+    // Push an event to Google Tag Manager when cookies are accepted
+    window.dataLayer.push({ event: "cookie_consent_given" });
+  };
 
   return (
     <>
@@ -215,6 +223,16 @@ function App() {
             </Routes>
           </ErrorBoundary>
         </Suspense>
+        <Box
+          sx={{
+            width: "50vw",
+            display: "flex",
+            justifyContent: "center",
+            margin: "auto",
+          }}
+        >
+          <ConsentBar />
+        </Box>
       </Elements>
     </>
   );
