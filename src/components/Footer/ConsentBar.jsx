@@ -50,9 +50,9 @@ const ConsentBar = () => {
     localStorage.setItem("user_consent", JSON.stringify(updatedChoices));
 
     const consentMap = {
-      Personalization: "ad_personalisation",
+      Personalisation: "ad_personalisation",
       Analytics: "ad_analytics",
-      Optimization: "ad_optimisation",
+      Optimisation: "ad_optimisation",
       Enhancement: "ad_enhancemenet",
     };
     updateGtagConsent(consentMap[id], newChoice ? "granted" : "denied");
