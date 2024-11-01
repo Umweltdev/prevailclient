@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { styled } from "@mui/material/styles";
-import { Box, Button, Card, Typography, Modal, Switch } from "@mui/material";
+import { Box, Button, Card, Typography, Switch } from "@mui/material";
 
+// Styled switch for consent toggles
 const BoldSwitch = styled(Switch)(({ theme }) => ({
   width: 60,
   height: 32,
@@ -34,13 +35,42 @@ const ConsentBar = () => {
   });
   const [consentVisible, setConsentVisible] = useState(true);
 
+  // Load stored consent choices on component mount
   useEffect(() => {
     const storedConsent = JSON.parse(localStorage.getItem("user_consent"));
     if (storedConsent) setConsentChoices(storedConsent);
+
+    // Initialize Google Tag if it’s not yet defined
+    if (!window.gtag) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+      window.gtag = gtag;
+
+      gtag("js", new Date());
+      gtag("config", "GT-5DH4FZDB");
+
+      // Set initial default consent states to 'denied'
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        ad_personalization: "denied",
+        analytics_storage: "denied",
+      });
+    }
   }, []);
 
+  // Update the gtag consent settings based on type
   const updateGtagConsent = (type, value) => {
     window.gtag("consent", "update", { [type]: value });
+  };
+
+  // Map consent keys to Google Tag Manager keys
+  const consentMap = {
+    Personalization: "ad_personalization",
+    Analytics: "analytics_storage",
+    Optimization: "ad_optimization", // Add if applicable
+    Enhancement: "ad_enhancement", // Add if applicable
   };
 
   const handleSwitchToggle = (id) => (event) => {
@@ -49,15 +79,13 @@ const ConsentBar = () => {
     setConsentChoices(updatedChoices);
     localStorage.setItem("user_consent", JSON.stringify(updatedChoices));
 
-    const consentMap = {
-      Personalisation: "ad_personalisation",
-      Analytics: "ad_analytics",
-      Optimisation: "ad_optimisation",
-      Enhancement: "ad_enhancemenet",
-    };
-    updateGtagConsent(consentMap[id], newChoice ? "granted" : "denied");
+    // Update the specific consent type with Google Tag
+    const consentType = consentMap[id];
+    if (consentType)
+      updateGtagConsent(consentType, newChoice ? "granted" : "denied");
   };
 
+  // Accept all consents
   const handleAcceptAll = () => {
     const allTrueChoices = Object.keys(consentChoices).reduce((acc, key) => {
       acc[key] = true;
@@ -65,12 +93,15 @@ const ConsentBar = () => {
     }, {});
     setConsentChoices(allTrueChoices);
     localStorage.setItem("user_consent", JSON.stringify(allTrueChoices));
-    Object.keys(consentChoices).forEach((key) =>
-      updateGtagConsent(key, "granted")
+
+    // Grant consent for each Google Tag type
+    Object.values(consentMap).forEach((consentType) =>
+      updateGtagConsent(consentType, "granted")
     );
     setConsentVisible(false);
   };
 
+  // Reject all consents
   const handleRejectAll = () => {
     const allFalseChoices = Object.keys(consentChoices).reduce((acc, key) => {
       acc[key] = false;
@@ -78,12 +109,15 @@ const ConsentBar = () => {
     }, {});
     setConsentChoices(allFalseChoices);
     localStorage.setItem("user_consent", JSON.stringify(allFalseChoices));
-    Object.keys(consentChoices).forEach((key) =>
-      updateGtagConsent(key, "denied")
+
+    // Deny consent for each Google Tag type
+    Object.values(consentMap).forEach((consentType) =>
+      updateGtagConsent(consentType, "denied")
     );
     setConsentVisible(false);
   };
 
+  // Save settings without hiding the consent bar
   const handleSaveSettings = () => {
     localStorage.setItem("user_consent", JSON.stringify(consentChoices));
     setConsentVisible(false);
