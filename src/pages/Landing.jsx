@@ -16,13 +16,13 @@ import SmoothScrollUp from "../components/utils/SmoothScrollUp";
 const Landing = (props) => {
   return (
     <div style={{ overflowX: "hidden" }}>
-      <Helmet>
+      {/* <Helmet>
         <title>Prevail: Your Partner in Success</title>
         <meta
           name="description"
           content="Prevail is a Strategic Partner for Businesses in the Digital Age."
         />
-      </Helmet>
+      </Helmet> */}
       <div style={{ width: "100%", overflow: "hidden" }}>
         <AppBarNav color="#000" />
         <Hero />
