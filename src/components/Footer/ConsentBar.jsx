@@ -53,9 +53,10 @@ const ConsentBar = () => {
 
       // Set initial default consent states to 'denied'
       gtag("consent", "default", {
-        ad_storage: "denied",
         ad_personalization: "denied",
-        analytics_storage: "denied",
+        ad_analytics: "denied",
+        ad_optimization: "denied",
+        ad_enhancement: "denied",
       });
     }
   }, []);
@@ -68,7 +69,7 @@ const ConsentBar = () => {
   // Map consent keys to Google Tag Manager keys
   const consentMap = {
     Personalization: "ad_personalization",
-    Analytics: "analytics_storage",
+    Analytics: "ad_analytics",
     Optimization: "ad_optimization", // Add if applicable
     Enhancement: "ad_enhancement", // Add if applicable
   };
