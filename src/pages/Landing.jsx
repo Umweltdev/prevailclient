@@ -17,7 +17,7 @@ const Landing = (props) => {
   return (
     <div style={{ overflowX: "hidden" }}>
       <Helmet>
-        {/* <title>Prevail: Your Partner in Success</title> */}
+        <title>Prevail: Your Partner in Success</title>
         <meta
           name="description"
           content="Prevail is a Strategic Partner for Businesses in the Digital Age."
