@@ -1,6 +1,12 @@
+// Path: ConsentBar.js
+
 import React, { useState, useEffect } from "react";
 import { styled } from "@mui/material/styles";
-import { Box, Button, Card, Typography, Switch } from "@mui/material";
+import { Box, Button, Card, Typography, Switch, Modal } from "@mui/material";
+import PersonalizationModal from "./consentDetails/Personalization";
+import AnalyticsModal from "./consentDetails/Analytics";
+import OptimizationModal from "./consentDetails/Optimization";
+import EnhancementModal from "./consentDetails/Enhancement";
 
 // Styled switch for consent toggles
 const BoldSwitch = styled(Switch)(({ theme }) => ({
@@ -34,13 +40,13 @@ const ConsentBar = () => {
     Enhancement: false,
   });
   const [consentVisible, setConsentVisible] = useState(true);
+  const [openModal, setOpenModal] = useState(null);
 
   // Load stored consent choices on component mount
   useEffect(() => {
     const storedConsent = JSON.parse(localStorage.getItem("user_consent"));
     if (storedConsent) setConsentChoices(storedConsent);
 
-    // Initialize Google Tag if it’s not yet defined
     if (!window.gtag) {
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -51,7 +57,6 @@ const ConsentBar = () => {
       gtag("js", new Date());
       gtag("config", "GT-5DH4FZDB");
 
-      // Set initial default consent states to 'denied'
       gtag("consent", "default", {
         ad_personalization: "denied",
         ad_analytics: "denied",
@@ -61,17 +66,15 @@ const ConsentBar = () => {
     }
   }, []);
 
-  // Update the gtag consent settings based on type
   const updateGtagConsent = (type, value) => {
     window.gtag("consent", "update", { [type]: value });
   };
 
-  // Map consent keys to Google Tag Manager keys
   const consentMap = {
     Personalization: "ad_personalization",
     Analytics: "ad_analytics",
-    Optimization: "ad_optimization", // Add if applicable
-    Enhancement: "ad_enhancement", // Add if applicable
+    Optimization: "ad_optimization",
+    Enhancement: "ad_enhancement",
   };
 
   const handleSwitchToggle = (id) => (event) => {
@@ -80,13 +83,11 @@ const ConsentBar = () => {
     setConsentChoices(updatedChoices);
     localStorage.setItem("user_consent", JSON.stringify(updatedChoices));
 
-    // Update the specific consent type with Google Tag
     const consentType = consentMap[id];
     if (consentType)
       updateGtagConsent(consentType, newChoice ? "granted" : "denied");
   };
 
-  // Accept all consents
   const handleAcceptAll = () => {
     const allTrueChoices = Object.keys(consentChoices).reduce((acc, key) => {
       acc[key] = true;
@@ -95,14 +96,12 @@ const ConsentBar = () => {
     setConsentChoices(allTrueChoices);
     localStorage.setItem("user_consent", JSON.stringify(allTrueChoices));
 
-    // Grant consent for each Google Tag type
     Object.values(consentMap).forEach((consentType) =>
       updateGtagConsent(consentType, "granted")
     );
     setConsentVisible(false);
   };
 
-  // Reject all consents
   const handleRejectAll = () => {
     const allFalseChoices = Object.keys(consentChoices).reduce((acc, key) => {
       acc[key] = false;
@@ -111,20 +110,44 @@ const ConsentBar = () => {
     setConsentChoices(allFalseChoices);
     localStorage.setItem("user_consent", JSON.stringify(allFalseChoices));
 
-    // Deny consent for each Google Tag type
     Object.values(consentMap).forEach((consentType) =>
       updateGtagConsent(consentType, "denied")
     );
     setConsentVisible(false);
   };
 
-  // Save settings without hiding the consent bar
   const handleSaveSettings = () => {
     localStorage.setItem("user_consent", JSON.stringify(consentChoices));
     setConsentVisible(false);
   };
 
+  const handleShowMore = (id) => {
+    setOpenModal(id);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(null);
+  };
+
   if (!consentVisible) return null;
+
+  // Modal content for each consent type
+  const modalMessages = {
+    Personalization: (
+      <PersonalizationModal
+        onSwitchChange={handleSwitchToggle("Personalization")}
+      />
+    ),
+    Analytics: (
+      <AnalyticsModal onSwitchChange={handleSwitchToggle("Analytics")} />
+    ),
+    Optimization: (
+      <OptimizationModal onSwitchChange={handleSwitchToggle("Optimization")} />
+    ),
+    Enhancement: (
+      <EnhancementModal onSwitchChange={handleSwitchToggle("Enhancement")} />
+    ),
+  };
 
   return (
     <Box
@@ -145,9 +168,7 @@ const ConsentBar = () => {
       </Typography>
       <Typography variant="subtitle2" color="grey" my={2}>
         At Prevail, your privacy and control over your data are our top
-        priorities. We believe in transparency, which is why we provide clear,
-        detailed descriptions of how each cookie on our platform functions,
-        tools, and marketing efforts and how they enhance your experience.
+        priorities...
       </Typography>
       <Box sx={{ display: "flex", gap: 1, mt: 1 }}>
         <Button
@@ -195,6 +216,12 @@ const ConsentBar = () => {
               checked={consentChoices[id]}
               onChange={handleSwitchToggle(id)}
             />
+            <Button
+              onClick={() => handleShowMore(id)}
+              sx={{ textTransform: "capitalize", fontSize: "14px" }}
+            >
+              Show More...
+            </Button>
           </Box>
         ))}
       </Card>
@@ -206,6 +233,32 @@ const ConsentBar = () => {
       >
         Save Settings
       </Button>
+
+      {/* Modal for each consent type */}
+      <Modal open={!!openModal} onClose={handleCloseModal}>
+        <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            bgcolor: "background.paper",
+            p: 4,
+            borderRadius: 2,
+            boxShadow: 24,
+          }}
+        >
+          <Typography variant="h6" mb={2}>
+            {openModal}
+          </Typography>
+          <Typography variant="body1" mb={2}>
+            {modalMessages[openModal]}
+          </Typography>
+          <Button onClick={handleCloseModal} variant="contained">
+            Close
+          </Button>
+        </Box>
+      </Modal>
     </Box>
   );
 };
