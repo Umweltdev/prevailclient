@@ -156,8 +156,8 @@ const ConsentBar = () => {
         bottom: 0,
         color: "black",
         backgroundColor: "#fff",
-        width: "50vw",
-        p: 4,
+        width: { xs: "90vw", md: "50vw" },
+        p: { xs: 2, md: 4 },
         borderRadius: 5,
         mb: 2,
         opacity: 0.98,
@@ -198,6 +198,12 @@ const ConsentBar = () => {
           gap: 1,
           mt: 3,
           p: 3,
+          "@media (max-width: 767px)": {
+            flexWrap: "wrap",
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center",
+          },
         }}
       >
         {Object.keys(consentChoices).map((id) => (
@@ -246,6 +252,11 @@ const ConsentBar = () => {
             p: 4,
             borderRadius: 2,
             boxShadow: 24,
+            width: { xs: "90vw" },
+            "@media (max-width: 767px)": {
+              overflowY: "scroll",
+              maxHeight: "90vh",
+            },
           }}
         >
           <Typography variant="h6" mb={2}>
