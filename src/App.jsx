@@ -71,10 +71,7 @@ function App() {
   const { user } = useContext(AuthContext);
   const [socket, setSocket] = useState(null);
 
-  const handleAcceptCookies = () => {
-    // Push an event to Google Tag Manager when cookies are accepted
-    window.dataLayer.push({ event: "cookie_consent_given" });
-  };
+ 
 
   return (
     <>
