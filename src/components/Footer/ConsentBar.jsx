@@ -42,7 +42,6 @@ const ConsentBar = () => {
   const [consentVisible, setConsentVisible] = useState(true);
   const [openModal, setOpenModal] = useState(null);
 
-  // Load stored consent choices on component mount
   useEffect(() => {
     const storedConsent = JSON.parse(localStorage.getItem("user_consent"));
     if (storedConsent) setConsentChoices(storedConsent);
@@ -133,20 +132,10 @@ const ConsentBar = () => {
 
   // Modal content for each consent type
   const modalMessages = {
-    Personalization: (
-      <PersonalizationModal
-        onSwitchChange={handleSwitchToggle("Personalization")}
-      />
-    ),
-    Analytics: (
-      <AnalyticsModal onSwitchChange={handleSwitchToggle("Analytics")} />
-    ),
-    Optimization: (
-      <OptimizationModal onSwitchChange={handleSwitchToggle("Optimization")} />
-    ),
-    Enhancement: (
-      <EnhancementModal onSwitchChange={handleSwitchToggle("Enhancement")} />
-    ),
+    Personalization: <PersonalizationModal />,
+    Analytics: <AnalyticsModal />,
+    Optimization: <OptimizationModal />,
+    Enhancement: <EnhancementModal />,
   };
 
   return (
@@ -252,10 +241,11 @@ const ConsentBar = () => {
             p: 4,
             borderRadius: 2,
             boxShadow: 24,
-            width: { xs: "90vw" },
+            width: "50vw",
             "@media (max-width: 767px)": {
               overflowY: "scroll",
               maxHeight: "90vh",
+              width: "95vw",
             },
           }}
         >

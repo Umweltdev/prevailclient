@@ -104,11 +104,11 @@ function PersonalizationModal({ onSwitchChange }) {
                   {item.title}
                 </Typography>
               </Box>
-              <Switch
+              {/* <Switch
                 checked={switchStates[item.id]}
                 onClick={(e) => e.stopPropagation()}
                 onChange={handleSwitchChange(item.id)}
-              />
+              /> */}
             </Box>
           </AccordionSummary>
 

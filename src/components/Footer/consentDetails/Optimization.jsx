@@ -79,11 +79,11 @@ function OptimizationModal({ onSwitchChange }) {
                 {<ExpandMoreIcon style={{ cursor: "pointer" }} />}
                 <Typography style={{ marginLeft: 8 }}>{item.title}</Typography>
               </Box>
-              <Switch
+              {/* <Switch
                 checked={switchStates[item.id]}
                 onClick={(e) => e.stopPropagation()}
                 onChange={handleSwitchChange(item.id)}
-              />
+              /> */}
             </Box>
           </AccordionSummary>
 
