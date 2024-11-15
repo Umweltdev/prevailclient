@@ -176,3 +176,21 @@ const ConsentBar = () => {
 };
 
 export default ConsentBar;
+
+// Technology: Local storage
+// Cookie name : user_consent
+// Contnt: {Personalization: true, Analytics: true, Optimization: true, Enhancement: true}
+// Analytics
+// : 
+// true
+// Enhancement
+// : 
+// true
+// Optimization
+// : 
+// true
+// Personalization
+// : 
+// true
+
+

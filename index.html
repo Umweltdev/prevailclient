@@ -6,90 +6,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Quando&family=Rasa:ital,wght@0,300..700;1,300..700&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Quando&family=Rasa:ital,wght@0,300..700;1,300..700&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800&display=swap"
       rel="stylesheet"
     />
 
+    <!-- Google Tag Manager -->
     <script>
-      (function (w, d, s, l, i) {
+      (function(w, d, s, l, i) {
         w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
         var f = d.getElementsByTagName(s)[0],
           j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
+          dl = l != 'dataLayer' ? '&l=' + l : '';
         j.async = true;
-        j.src =
-          "https://www.googletagmanager.com/gtm.js?id=GT-5DH4FZDB" + i + dl;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
         f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-NTJZGJN7");
+      })(window, document, 'script', 'dataLayer', 'GTM-NTJZGJN7');
     </script>
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=GT-5DH4FZDB"
-    ></script>
-
-    <!-- <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"> -->
-    <!-- <title>PREVAIL</title> -->
+    <!-- End Google Tag Manager -->
 
     <meta property="og:title" content="Prevail: Your Partner in Success" />
-    <meta
-      property="og:description"
-      content="Prevail is a Strategic Partner for Businesses in the Digital Age."
-    />
+    <meta property="og:description" content="Prevail is a Strategic Partner for Businesses in the Digital Age." />
     <meta property="og:url" content="https://prevailagency.ie" />
     <meta property="og:type" content="website" />
-    <!-- Add the og:image meta tag to specify the preview image -->
     <meta property="og:image" content="./logo.svg" />
     <meta property="og:image:type" content="image/svg+xml" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <title>Prevail: Your Partner in Success</title>
-    <title>$OG_TITLE</title>
     <base href="/" />
   </head>
 
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-NTJZGJN7"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-    
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=GT-5DH4FZDB"
-    ></script>
-    <!-- =======================Google tag (gtag.js)============================== -->
-    <!-- Google tag (gtag.js) -->
 
-    <script>
-      gtag("event", "conversion_event_book_appointment", {
-        // <event_parameters>
-      });
-    </script>
+    <!-- Google Analytics (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GT-5DH4FZDB"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
-      gtag("js", new Date());
+      gtag('js', new Date());
 
-      gtag("config", "G-LT574Z27B4");
+      // Replace with your correct ID for tracking
+      gtag('config', 'GT-5DH4FZDB');
     </script>
-
-    <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-NTJZGJN7"
-        height="0"
-        width="0"
-        style="display: none; visibility: hidden"
-      ></iframe
-    ></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    
+    <!-- Custom Event Example -->
+    <script>
+      gtag('event', 'conversion_event_book_appointment', {
+        // event parameters go here if needed
+      });
+    </script>
   </body>
 </html>
+
 
 <!-- Google Tag Manager -->
 <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
