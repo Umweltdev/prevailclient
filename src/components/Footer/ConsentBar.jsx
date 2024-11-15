@@ -27,9 +27,9 @@ const BoldSwitch = styled(Switch)(({ theme }) => ({
 
 const ConsentBar = () => {
   const [consentChoices, setConsentChoices] = useState({
-    Personalization: false,
+    Personalisation: true,
     Analytics: false,
-    Optimization: false,
+    Optimisation: false,
     Enhancement: false,
   });
   const [consentVisible, setConsentVisible] = useState(true);
@@ -50,10 +50,8 @@ const ConsentBar = () => {
     localStorage.setItem("user_consent", JSON.stringify(updatedChoices));
 
     const consentMap = {
-      Personalization: "ad_personalisation",
       Personalisation: "ad_personalisation",
       Analytics: "ad_analytics",
-      Optimization: "ad_optimisation",
       Optimisation: "ad_optimisation",
       Enhancement: "ad_enhancemenet",
     };
