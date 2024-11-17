@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { styled } from "@mui/material/styles";
-import { Box, Button, Card, Typography, Modal, Switch } from "@mui/material";
+import { Box, Button, Card, Typography, Switch } from "@mui/material";
 
 const BoldSwitch = styled(Switch)(({ theme }) => ({
   width: 60,
@@ -27,65 +27,73 @@ const BoldSwitch = styled(Switch)(({ theme }) => ({
 
 const ConsentBar = () => {
   const [consentChoices, setConsentChoices] = useState({
-    Personalisation: true,
-    Analytics: false,
-    Optimisation: false,
-    Enhancement: false,
+    ad_storage: false,
+    analytics_storage: false,
+    functionality_storage: false,
+    personalization_storage: false,
+    security_storage: false,
   });
   const [consentVisible, setConsentVisible] = useState(true);
 
   useEffect(() => {
     const storedConsent = JSON.parse(localStorage.getItem("user_consent"));
-    if (storedConsent) setConsentChoices(storedConsent);
+    if (storedConsent) {
+      setConsentChoices(storedConsent);
+    } else {
+      // Load GTM default consent states
+      const defaultConsent = {
+        ad_storage: false,
+        analytics_storage: false,
+        functionality_storage: false,
+        personalization_storage: false,
+        security_storage: true, // Set default based on your requirements
+      };
+      setConsentChoices(defaultConsent);
+      localStorage.setItem("user_consent", JSON.stringify(defaultConsent));
+    }
   }, []);
 
   const updateGtagConsent = (type, value) => {
-    window.gtag("consent", "update", { [type]: value });
+    window.gtag("consent", "update", { [type]: value ? "granted" : "denied" });
   };
 
-  const handleSwitchToggle = (id) => (event) => {
-    const newChoice = event.target.checked;
-    const updatedChoices = { ...consentChoices, [id]: newChoice };
+  const handleSwitchToggle = (key) => (event) => {
+    const updatedChoices = {
+      ...consentChoices,
+      [key]: event.target.checked,
+    };
     setConsentChoices(updatedChoices);
     localStorage.setItem("user_consent", JSON.stringify(updatedChoices));
-
-    const consentMap = {
-      Personalisation: "ad_personalisation",
-      Analytics: "ad_analytics",
-      Optimisation: "ad_optimisation",
-      Enhancement: "ad_enhancemenet",
-    };
-    updateGtagConsent(consentMap[id], newChoice ? "granted" : "denied");
+    updateGtagConsent(key, event.target.checked);
   };
 
   const handleAcceptAll = () => {
     const allTrueChoices = Object.keys(consentChoices).reduce((acc, key) => {
       acc[key] = true;
+      updateGtagConsent(key, true);
       return acc;
     }, {});
     setConsentChoices(allTrueChoices);
     localStorage.setItem("user_consent", JSON.stringify(allTrueChoices));
-    Object.keys(consentChoices).forEach((key) =>
-      updateGtagConsent(key, "granted")
-    );
     setConsentVisible(false);
   };
 
   const handleRejectAll = () => {
     const allFalseChoices = Object.keys(consentChoices).reduce((acc, key) => {
       acc[key] = false;
+      updateGtagConsent(key, false);
       return acc;
     }, {});
     setConsentChoices(allFalseChoices);
     localStorage.setItem("user_consent", JSON.stringify(allFalseChoices));
-    Object.keys(consentChoices).forEach((key) =>
-      updateGtagConsent(key, "denied")
-    );
     setConsentVisible(false);
   };
 
   const handleSaveSettings = () => {
     localStorage.setItem("user_consent", JSON.stringify(consentChoices));
+    Object.keys(consentChoices).forEach((key) =>
+      updateGtagConsent(key, consentChoices[key])
+    );
     setConsentVisible(false);
   };
 
@@ -110,9 +118,8 @@ const ConsentBar = () => {
       </Typography>
       <Typography variant="subtitle2" color="grey" my={2}>
         At Prevail, your privacy and control over your data are our top
-        priorities. We believe in transparency, which is why we provide clear,
-        detailed descriptions of how each cookie on our platform functions,
-        tools, and marketing efforts and how they enhance your experience.
+        priorities. We provide clear descriptions of how each cookie functions
+        and how they enhance your experience.
       </Typography>
       <Box sx={{ display: "flex", gap: 1, mt: 1 }}>
         <Button
@@ -144,9 +151,9 @@ const ConsentBar = () => {
           p: 3,
         }}
       >
-        {Object.keys(consentChoices).map((id) => (
+        {Object.keys(consentChoices).map((key) => (
           <Box
-            key={id}
+            key={key}
             sx={{
               display: "flex",
               flexDirection: "column",
@@ -154,11 +161,11 @@ const ConsentBar = () => {
             }}
           >
             <Typography variant="body1" mb={2}>
-              {id}
+              {key.replace("_", " ").toUpperCase()}
             </Typography>
             <BoldSwitch
-              checked={consentChoices[id]}
-              onChange={handleSwitchToggle(id)}
+              checked={consentChoices[key]}
+              onChange={handleSwitchToggle(key)}
             />
           </Box>
         ))}
@@ -181,16 +188,14 @@ export default ConsentBar;
 // Cookie name : user_consent
 // Contnt: {Personalization: true, Analytics: true, Optimization: true, Enhancement: true}
 // Analytics
-// : 
+// :
 // true
 // Enhancement
-// : 
+// :
 // true
 // Optimization
-// : 
+// :
 // true
 // Personalization
-// : 
+// :
 // true
-
-
