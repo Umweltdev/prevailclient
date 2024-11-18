@@ -1,7 +1,14 @@
+// Path: ConsentBar.js
+
 import React, { useState, useEffect } from "react";
 import { styled } from "@mui/material/styles";
-import { Box, Button, Card, Typography, Switch } from "@mui/material";
+import { Box, Button, Card, Typography, Switch, Modal } from "@mui/material";
+import PersonalizationModal from "./consentDetails/Personalization";
+import AnalyticsModal from "./consentDetails/Analytics";
+import OptimizationModal from "./consentDetails/Optimization";
+import EnhancementModal from "./consentDetails/Enhancement";
 
+// Styled switch for consent toggles
 const BoldSwitch = styled(Switch)(({ theme }) => ({
   width: 60,
   height: 32,
@@ -27,77 +34,110 @@ const BoldSwitch = styled(Switch)(({ theme }) => ({
 
 const ConsentBar = () => {
   const [consentChoices, setConsentChoices] = useState({
-    ad_storage: false,
-    analytics_storage: false,
-    functionality_storage: false,
-    personalization_storage: false,
-    security_storage: false,
+    Personalization: false,
+    Analytics: false,
+    Optimization: false,
+    Enhancement: false,
   });
   const [consentVisible, setConsentVisible] = useState(true);
+  const [openModal, setOpenModal] = useState(null);
 
+  // Load stored consent choices on component mount
   useEffect(() => {
     const storedConsent = JSON.parse(localStorage.getItem("user_consent"));
-    if (storedConsent) {
-      setConsentChoices(storedConsent);
-    } else {
-      // Load GTM default consent states
-      const defaultConsent = {
-        ad_storage: false,
-        analytics_storage: false,
-        functionality_storage: false,
-        personalization_storage: false,
-        security_storage: true, // Set default based on your requirements
-      };
-      setConsentChoices(defaultConsent);
-      localStorage.setItem("user_consent", JSON.stringify(defaultConsent));
+    if (storedConsent) setConsentChoices(storedConsent);
+
+    if (!window.gtag) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+      window.gtag = gtag;
+
+      gtag("js", new Date());
+      gtag("config", "GT-5DH4FZDB");
+
+      gtag("consent", "default", {
+        ad_personalization: "denied",
+        ad_analytics: "denied",
+        ad_optimization: "denied",
+        ad_enhancement: "denied",
+      });
     }
   }, []);
 
   const updateGtagConsent = (type, value) => {
-    window.gtag("consent", "update", { [type]: value ? "granted" : "denied" });
+    window.gtag("consent", "update", { [type]: value });
   };
 
-  const handleSwitchToggle = (key) => (event) => {
-    const updatedChoices = {
-      ...consentChoices,
-      [key]: event.target.checked,
-    };
+  const consentMap = {
+    Personalization: "ad_personalization",
+    Analytics: "ad_analytics",
+    Optimization: "ad_optimization",
+    Enhancement: "ad_enhancement",
+  };
+
+  const handleSwitchToggle = (id) => (event) => {
+    const newChoice = event.target.checked;
+    const updatedChoices = { ...consentChoices, [id]: newChoice };
     setConsentChoices(updatedChoices);
     localStorage.setItem("user_consent", JSON.stringify(updatedChoices));
-    updateGtagConsent(key, event.target.checked);
+
+    const consentType = consentMap[id];
+    if (consentType)
+      updateGtagConsent(consentType, newChoice ? "granted" : "denied");
   };
 
   const handleAcceptAll = () => {
     const allTrueChoices = Object.keys(consentChoices).reduce((acc, key) => {
       acc[key] = true;
-      updateGtagConsent(key, true);
       return acc;
     }, {});
     setConsentChoices(allTrueChoices);
     localStorage.setItem("user_consent", JSON.stringify(allTrueChoices));
+
+    Object.values(consentMap).forEach((consentType) =>
+      updateGtagConsent(consentType, "granted")
+    );
     setConsentVisible(false);
   };
 
   const handleRejectAll = () => {
     const allFalseChoices = Object.keys(consentChoices).reduce((acc, key) => {
       acc[key] = false;
-      updateGtagConsent(key, false);
       return acc;
     }, {});
     setConsentChoices(allFalseChoices);
     localStorage.setItem("user_consent", JSON.stringify(allFalseChoices));
+
+    Object.values(consentMap).forEach((consentType) =>
+      updateGtagConsent(consentType, "denied")
+    );
     setConsentVisible(false);
   };
 
   const handleSaveSettings = () => {
     localStorage.setItem("user_consent", JSON.stringify(consentChoices));
-    Object.keys(consentChoices).forEach((key) =>
-      updateGtagConsent(key, consentChoices[key])
-    );
     setConsentVisible(false);
   };
 
+  const handleShowMore = (id) => {
+    setOpenModal(id);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(null);
+  };
+
   if (!consentVisible) return null;
+
+  // Modal content for each consent type
+  const modalMessages = {
+    Personalization: <PersonalizationModal />,
+    Analytics: <AnalyticsModal />,
+    Optimization: <OptimizationModal />,
+    Enhancement: <EnhancementModal />,
+  };
 
   return (
     <Box
@@ -108,6 +148,8 @@ const ConsentBar = () => {
         backgroundColor: "#fff",
         width: "50vw",
         p: 4,
+        width: { xs: "90vw", md: "50vw" },
+        p: { xs: 2, md: 4 },
         borderRadius: 5,
         mb: 2,
         opacity: 0.98,
@@ -118,8 +160,7 @@ const ConsentBar = () => {
       </Typography>
       <Typography variant="subtitle2" color="grey" my={2}>
         At Prevail, your privacy and control over your data are our top
-        priorities. We provide clear descriptions of how each cookie functions
-        and how they enhance your experience.
+        priorities...
       </Typography>
       <Box sx={{ display: "flex", gap: 1, mt: 1 }}>
         <Button
@@ -149,11 +190,17 @@ const ConsentBar = () => {
           gap: 1,
           mt: 3,
           p: 3,
+          "@media (max-width: 767px)": {
+            flexWrap: "wrap",
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center",
+          },
         }}
       >
-        {Object.keys(consentChoices).map((key) => (
+        {Object.keys(consentChoices).map((id) => (
           <Box
-            key={key}
+            key={id}
             sx={{
               display: "flex",
               flexDirection: "column",
@@ -161,12 +208,18 @@ const ConsentBar = () => {
             }}
           >
             <Typography variant="body1" mb={2}>
-              {key.replace("_", " ").toUpperCase()}
+              {id}
             </Typography>
             <BoldSwitch
-              checked={consentChoices[key]}
-              onChange={handleSwitchToggle(key)}
+              checked={consentChoices[id]}
+              onChange={handleSwitchToggle(id)}
             />
+            <Button
+              onClick={() => handleShowMore(id)}
+              sx={{ textTransform: "capitalize", fontSize: "14px" }}
+            >
+              Show More...
+            </Button>
           </Box>
         ))}
       </Card>
@@ -178,6 +231,37 @@ const ConsentBar = () => {
       >
         Save Settings
       </Button>
+
+      {/* Modal for each consent type */}
+      <Modal open={!!openModal} onClose={handleCloseModal}>
+        <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            bgcolor: "background.paper",
+            p: 4,
+            borderRadius: 2,
+            boxShadow: 24,
+            width: { xs: "90vw", md: "50vw" },
+            "@media (max-width: 767px)": {
+              overflowY: "scroll",
+              maxHeight: "90vh",
+            },
+          }}
+        >
+          <Typography variant="h6" mb={2}>
+            {openModal}
+          </Typography>
+          <Typography variant="body1" mb={2}>
+            {modalMessages[openModal]}
+          </Typography>
+          <Button onClick={handleCloseModal} variant="contained">
+            Close
+          </Button>
+        </Box>
+      </Modal>
     </Box>
   );
 };
