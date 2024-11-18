@@ -8,7 +8,6 @@ import AnalyticsModal from "./consentDetails/Analytics";
 import OptimizationModal from "./consentDetails/Optimization";
 import EnhancementModal from "./consentDetails/Enhancement";
 
-// Styled switch for consent toggles
 const BoldSwitch = styled(Switch)(({ theme }) => ({
   width: 60,
   height: 32,
@@ -42,11 +41,8 @@ const ConsentBar = () => {
   const [consentVisible, setConsentVisible] = useState(true);
   const [openModal, setOpenModal] = useState(null);
 
-  // Load stored consent choices on component mount
   useEffect(() => {
-    const storedConsent = JSON.parse(localStorage.getItem("user_consent"));
-    if (storedConsent) setConsentChoices(storedConsent);
-
+    // Initialize gtag and set default consent
     if (!window.gtag) {
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -55,15 +51,22 @@ const ConsentBar = () => {
       window.gtag = gtag;
 
       gtag("js", new Date());
-      gtag("config", "GT-5DH4FZDB");
 
+      // Set consent defaults explicitly
       gtag("consent", "default", {
         ad_personalization: "denied",
         ad_analytics: "denied",
         ad_optimization: "denied",
         ad_enhancement: "denied",
       });
+
+      // Now initialize GTM configuration after setting consent defaults
+      gtag("config", "GT-5DH4FZDB");
     }
+
+    // Load stored consent choices from localStorage
+    const storedConsent = JSON.parse(localStorage.getItem("user_consent"));
+    if (storedConsent) setConsentChoices(storedConsent);
   }, []);
 
   const updateGtagConsent = (type, value) => {
@@ -131,7 +134,6 @@ const ConsentBar = () => {
 
   if (!consentVisible) return null;
 
-  // Modal content for each consent type
   const modalMessages = {
     Personalization: <PersonalizationModal />,
     Analytics: <AnalyticsModal />,
@@ -232,7 +234,6 @@ const ConsentBar = () => {
         Save Settings
       </Button>
 
-      {/* Modal for each consent type */}
       <Modal open={!!openModal} onClose={handleCloseModal}>
         <Box
           sx={{
