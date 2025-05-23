@@ -67,7 +67,7 @@ const Login = () => {
       setIsButtonLoading(true);
 
       const response = await axios.post(
-        "https://prevailserver-4b3c670a5496.herokuapp.com/api/auth/login",
+        "https://prevail-server-3af81e972035.herokuapp.com/api/auth/login",
         // "http://localhost:8080/api/auth/login",
         {
           email,
