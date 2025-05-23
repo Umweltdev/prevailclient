@@ -1,6 +1,6 @@
 import axios from 'axios';
 const axiosInstance = axios.create({
-  baseURL: "https://prevailserver-4b3c670a5496.herokuapp.com",
+  baseURL: "https://prevail-server-3af81e972035.herokuapp.com",
   // baseURL: "http://localhost:8080",
 });
 
