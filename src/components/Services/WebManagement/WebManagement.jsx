@@ -14,6 +14,7 @@ import {
   Box,
   Button,
   SvgIcon,
+  Fab,
 } from "@mui/material";
 import Browse from "./assets/basket.svg?react";
 import Hospital from "./assets/hospital.svg?react";
@@ -43,12 +44,11 @@ import HeroComponent from "../ReusedComponenets/HeroComponent";
 import AppBarNav from "../../Navbar/Appbar";
 import Slides from "./Slides";
 import Solution from "../Mpd/Solution";
-import styles from "../BrandIdentity/assets/animation.module.css"
+import styles from "../BrandIdentity/assets/animation.module.css";
 import { useInView } from "react-intersection-observer";
 import SmoothScrollUp from "../../utils/SmoothScrollUp";
 
 const WebManagement = () => {
-
   const { ref, inView, entry } = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -191,106 +191,35 @@ const WebManagement = () => {
         </Box>
 
         {/* secondSectio */}
-        <div id="shopify">
-          <Box
-            py={10}
-            sx={{
-              backgroundImage:
-                "linear-gradient(to bottom, #ffffff, rgba(238,249,255, 0.2))",
-            }}
-          >
-            <Container maxWidth="lg">
-              <Stack color="#1D0D40" spacing={4}>
-                <Typography
-                  fontSize={{ xs: "26px", md: "32px" }}
-                  sx={{
-                    fontWeight: "600",
-                    textAlign: "center",
-                  }}
-                >
-                  Let's delve deeper into each of these solutions
-                </Typography>
 
+        <div id="hospitality">
+          <Box py={10} sx={{ backgroundColor: "#F9FAFC", mt: 4 }}>
+            <Container maxWidth="lg">
+              <Typography
+                fontSize={{ xs: "26px", md: "32px" }}
+                sx={{
+                  fontWeight: "600",
+                  textAlign: "center",
+                  mb: 5,
+                }}
+              >
+                Let's delve deeper into each of these solutions
+              </Typography>
+              <Stack color="#1D0D40" spacing={4}>
                 <Grid
                   container
                   justifyContent={"space-between"}
                   alignItems={"center"}
                 >
-                  <Grid
-                    className={inView ? styles.textSlideIn : ""}
-                    item
-                    xs={12}
-                    md={6}
-                  >
-                    <Stack>
-                      <Stack spacing={1.5} mb={3}>
-                        <Typography
-                          fontSize={{ xs: "20px", md: "24px" }}
-                          sx={{ fontWeight: "600" }}
-                        >
-                          E-commerce Powerhouse: Shopify Web Design Service 
-                        </Typography>
-                        <Typography>
-                          Are you an e-commerce business struggling with low
-                          conversions and a generic online store? Our “Shopify
-                          Web Design” Service offers a comprehensive solution.
-                          This service focuses on converting visitors into loyal
-                          customers through a captivating, user-friendly online
-                          store optimized for maximum engagement and sales. 
-                        </Typography>
-                      </Stack>
-                      <Grid container spacing={5}>
-                        <Grid item xs={12} md={6}>
-                          <Stack spacing={1}>
-                            <Cart />
-                            <Typography sx={{ fontWeight: "600" }}>
-                              Become an E-commerce Powerhouse
-                            </Typography>
-                            <Typography>
-                              Convert visitors into loyal customers with a
-                              captivating and user-friendly online store. 
-                            </Typography>
-                          </Stack>
-                        </Grid>
-                        <Grid item xs={12} md={6}>
-                          <Stack spacing={1}>
-                            <Cash />
-                            <Typography sx={{ fontWeight: "600" }}>
-                              Effortlessly Guide Visitors
-                            </Typography>
-                            <Typography>
-                              Design a seamless buying journey that maximises
-                              your sales potential. 
-                            </Typography>
-                          </Stack>
-                        </Grid>{" "}
-                        <Grid item xs={12} md={6}>
-                          <Stack spacing={1}>
-                            <Monitor />
-                            <Typography sx={{ fontWeight: "600" }}>
-                              Streamline Operations
-                            </Typography>
-                            <Typography>
-                              Integrate essential tools like CRM systems,
-                              payment gateways, and inventory management
-                              software for a smooth operation. 
-                            </Typography>
-                          </Stack>
-                        </Grid>
-                      </Grid>
-                    </Stack>
-                  </Grid>
-
-                  <Grid item xs={12} md={5} marginTop={{ xs: 4, md: 0 }}>
+                  <Grid item xs={12} md={5.7}>
                     <Box
                       sx={{
                         width: "100%",
                       }}
                     >
                       <img
-                        className={inView ? styles.imageFadeIn : ""}
-                        src="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720087060/Shopify-Web-Design_zfi35h.avif"
-                        alt="Shopify-Web-Design"
+                        src="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720087059/Hotel-Platform-Development-_yodr5a.avif"
+                        alt="Hotel-Platform-Development-"
                         style={{
                           width: "100%",
                           objectFit: "cover",
@@ -298,6 +227,114 @@ const WebManagement = () => {
                         }}
                       />
                     </Box>
+                  </Grid>
+                  <Grid item xs={12} md={5.7}>
+                    <Stack>
+                      <Stack spacing={1.5} mb={3}>
+                        <Typography
+                          sx={{ fontSize: "24px", fontWeight: "600" }}
+                        >
+                          Hospitality Haven: Hotel E-commerce Platform
+                          Development 
+                        </Typography>
+                        <Typography>
+                          Is your hotel website struggling to maximize bookings
+                          and drive direct reservations? Our “Hotel E-commerce
+                          Platform Development” package provides the tools
+                          necessary to transform your website into a powerful
+                          booking engine. This package is designed to enhance
+                          online visibility, simplify the booking process, and
+                          maximize revenue through direct reservations. 
+                        </Typography>
+                      </Stack>
+                      <Grid container spacing={2}>
+                        <Grid item xs={12} md={6}>
+                          <Stack spacing={1}>
+                            <Web />
+                            <Typography sx={{ fontWeight: "600" }}>
+                              Transform Your Online Presence
+                            </Typography>
+                            <Typography>
+                              Turn your hotel's website into a powerful booking
+                              engine that increases reservations and revenue.
+                            </Typography>
+                          </Stack>
+                        </Grid>
+                        <Grid item xs={12} md={6}>
+                          <Stack spacing={1}>
+                            <User />
+                            <Typography sx={{ fontWeight: "600" }}>
+                              Immerse Guests
+                            </Typography>
+                            <Typography>
+                              Showcase your hotel's ambiance and amenities with
+                              captivating photos and virtual tours that entice
+                              potential guests.
+                            </Typography>
+                          </Stack>
+                        </Grid>{" "}
+                        {/*<Grid item xs={12} md={6}>
+                      <Stack spacing={1}>
+                        <Mobile />
+                        <Typography sx={{ fontWeight: "600" }}>
+                          Effortless Booking System
+                        </Typography>
+                        <Typography>
+                          Allow guests to book their stay with ease through a
+                          secure and user-friendly online platform, eliminating
+                          the need for third-party booking sites. 
+                        </Typography>
+                      </Stack>
+                    </Grid>*/}
+                        <Grid item xs={12} md={6}>
+                          <Stack spacing={1}>
+                            <Money />
+                            <Typography sx={{ fontWeight: "600" }}>
+                              Maximise Revenue
+                            </Typography>
+                            <Typography>
+                              Create dynamic pricing packages and upselling
+                              opportunities to maximise revenue from direct
+                              bookings.
+                            </Typography>
+                          </Stack>
+                        </Grid>
+                        <Grid
+                          item
+                          xs={12}
+                          md={6}
+                          sx={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                          }}
+                        >
+                          <a
+                            href="https://crownstone.netlify.app"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <Fab
+                              sx={{
+                                m: "auto",
+                                bgcolor: "primary.main",
+                                color: "#fff",
+                                height: "100px",
+                                width: "100px",
+                                textTransform: "capitalize",
+                                "&:hover": {
+                                  m: "auto",
+                                  bgcolor: "primary.main",
+                                  color: "#fff",
+                                },
+                              }}
+                            >
+                              View
+                            </Fab>
+                          </a>
+                        </Grid>
+                      </Grid>
+                    </Stack>
                   </Grid>
                 </Grid>
 
@@ -314,14 +351,14 @@ const WebManagement = () => {
                   <Grid container spacing={5}>
                     <Grid item xs={12} md={4} sx={{}}>
                       <Stack spacing={1}>
-                        <Account />
+                        <Color />
                         <Typography sx={{ fontWeight: "600" }}>
-                          Conversion-Focused Design
+                          Stunning Visual Design
                         </Typography>
                         <Typography>
-                          We prioritise user experience, creating a website that
-                          guides visitors towards your products and increases
-                          conversion rates. 
+                          Immerse potential guests in your hotel experience with
+                          captivating photos and virtual tours that showcase
+                          your amenities and ambiance.
                         </Typography>
                       </Stack>
                     </Grid>
@@ -329,51 +366,24 @@ const WebManagement = () => {
                       <Stack spacing={1}>
                         <Mobile />
                         <Typography sx={{ fontWeight: "600" }}>
-                          Mobile-First Development
+                          Real-Time Booking System
                         </Typography>
                         <Typography>
-                          With mobile shopping booming, your store will be
-                          flawlessly optimised for any device, ensuring a
-                          seamless experience for all customers. 
+                          Allow guests to book their stay with ease through a
+                          secure and user-friendly online platform, eliminating
+                          the need for third-party booking sites. 
                         </Typography>
                       </Stack>
                     </Grid>{" "}
-                    <Grid item xs={12} md={4}>
-                      <Stack spacing={1}>
-                        <Comment />
-                        <Typography sx={{ fontWeight: "600" }}>
-                          Ongoing Support
-                        </Typography>
-                        <Typography>
-                          Our dedication doesn't end at launch. We provide
-                          ongoing support to ensure your store continues to
-                          thrive.
-                        </Typography>
-                      </Stack>
-                    </Grid>
                     <Grid item xs={12} md={4} sx={{}}>
                       <Stack spacing={1}>
-                        <Monitor />
+                        <Tag />
                         <Typography sx={{ fontWeight: "600" }}>
-                          Seamless Integration
+                          Package Management
                         </Typography>
                         <Typography>
-                          Integrate essential tools like CRM systems, payment
-                          gateways, and inventory management software for a
-                          smooth operation. 
-                        </Typography>
-                      </Stack>
-                    </Grid>
-                    <Grid item xs={12} md={4} sx={{}}>
-                      <Stack spacing={1}>
-                        <Search />
-                        <Typography sx={{ fontWeight: "600" }}>
-                          SEO Optimization
-                        </Typography>
-                        <Typography>
-                          We optimise your store for search engines, helping
-                          potential customers find you organically and drive
-                          more traffic.
+                          Create enticing packages with dynamic pricing options
+                          to attract different types of guests.  
                         </Typography>
                       </Stack>
                     </Grid>{" "}
@@ -559,8 +569,15 @@ const WebManagement = () => {
           </Box>
         </div>
 
-        <div id="hospitality">
-          <Box py={10} sx={{ backgroundColor: "#F9FAFC" }}>
+        {/* Hospitality */}
+        <div id="shopify">
+          <Box
+            py={10}
+            sx={{
+              backgroundImage:
+                "linear-gradient(to bottom, #ffffff, rgba(238,249,255, 0.2))",
+            }}
+          >
             <Container maxWidth="lg">
               <Stack color="#1D0D40" spacing={4}>
                 <Grid
@@ -568,15 +585,81 @@ const WebManagement = () => {
                   justifyContent={"space-between"}
                   alignItems={"center"}
                 >
-                  <Grid item xs={12} md={5.7}>
+                  <Grid
+                    className={inView ? styles.textSlideIn : ""}
+                    item
+                    xs={12}
+                    md={6}
+                  >
+                    <Stack>
+                      <Stack spacing={1.5} mb={3}>
+                        <Typography
+                          fontSize={{ xs: "20px", md: "24px" }}
+                          sx={{ fontWeight: "600" }}
+                        >
+                          E-commerce Powerhouse: Shopify Web Design Service 
+                        </Typography>
+                        <Typography>
+                          Are you an e-commerce business struggling with low
+                          conversions and a generic online store? Our “Shopify
+                          Web Design” Service offers a comprehensive solution.
+                          This service focuses on converting visitors into loyal
+                          customers through a captivating, user-friendly online
+                          store optimized for maximum engagement and sales. 
+                        </Typography>
+                      </Stack>
+                      <Grid container spacing={5}>
+                        <Grid item xs={12} md={6}>
+                          <Stack spacing={1}>
+                            <Cart />
+                            <Typography sx={{ fontWeight: "600" }}>
+                              Become an E-commerce Powerhouse
+                            </Typography>
+                            <Typography>
+                              Convert visitors into loyal customers with a
+                              captivating and user-friendly online store. 
+                            </Typography>
+                          </Stack>
+                        </Grid>
+                        <Grid item xs={12} md={6}>
+                          <Stack spacing={1}>
+                            <Cash />
+                            <Typography sx={{ fontWeight: "600" }}>
+                              Effortlessly Guide Visitors
+                            </Typography>
+                            <Typography>
+                              Design a seamless buying journey that maximises
+                              your sales potential. 
+                            </Typography>
+                          </Stack>
+                        </Grid>{" "}
+                        <Grid item xs={12} md={6}>
+                          <Stack spacing={1}>
+                            <Monitor />
+                            <Typography sx={{ fontWeight: "600" }}>
+                              Streamline Operations
+                            </Typography>
+                            <Typography>
+                              Integrate essential tools like CRM systems,
+                              payment gateways, and inventory management
+                              software for a smooth operation. 
+                            </Typography>
+                          </Stack>
+                        </Grid>
+                      </Grid>
+                    </Stack>
+                  </Grid>
+
+                  <Grid item xs={12} md={5} marginTop={{ xs: 4, md: 0 }}>
                     <Box
                       sx={{
                         width: "100%",
                       }}
                     >
                       <img
-                        src="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720087059/Hotel-Platform-Development-_yodr5a.avif"
-                        alt="Hotel-Platform-Development-"
+                        className={inView ? styles.imageFadeIn : ""}
+                        src="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720087060/Shopify-Web-Design_zfi35h.avif"
+                        alt="Shopify-Web-Design"
                         style={{
                           width: "100%",
                           objectFit: "cover",
@@ -584,80 +667,6 @@ const WebManagement = () => {
                         }}
                       />
                     </Box>
-                  </Grid>
-                  <Grid item xs={12} md={5.7}>
-                    <Stack>
-                      <Stack spacing={1.5} mb={3}>
-                        <Typography
-                          sx={{ fontSize: "24px", fontWeight: "600" }}
-                        >
-                          Hospitality Haven: Hotel E-commerce Platform
-                          Development 
-                        </Typography>
-                        <Typography>
-                          Is your hotel website struggling to maximize bookings
-                          and drive direct reservations? Our “Hotel E-commerce
-                          Platform Development” package provides the tools
-                          necessary to transform your website into a powerful
-                          booking engine. This package is designed to enhance
-                          online visibility, simplify the booking process, and
-                          maximize revenue through direct reservations. 
-                        </Typography>
-                      </Stack>
-                      <Grid container spacing={2}>
-                        <Grid item xs={12} md={6}>
-                          <Stack spacing={1}>
-                            <Web />
-                            <Typography sx={{ fontWeight: "600" }}>
-                              Transform Your Online Presence
-                            </Typography>
-                            <Typography>
-                              Turn your hotel's website into a powerful booking
-                              engine that increases reservations and revenue.
-                            </Typography>
-                          </Stack>
-                        </Grid>
-                        <Grid item xs={12} md={6}>
-                          <Stack spacing={1}>
-                            <User />
-                            <Typography sx={{ fontWeight: "600" }}>
-                              Immerse Guests
-                            </Typography>
-                            <Typography>
-                              Showcase your hotel's ambiance and amenities with
-                              captivating photos and virtual tours that entice
-                              potential guests.
-                            </Typography>
-                          </Stack>
-                        </Grid>{" "}
-                        {/*<Grid item xs={12} md={6}>
-                      <Stack spacing={1}>
-                        <Mobile />
-                        <Typography sx={{ fontWeight: "600" }}>
-                          Effortless Booking System
-                        </Typography>
-                        <Typography>
-                          Allow guests to book their stay with ease through a
-                          secure and user-friendly online platform, eliminating
-                          the need for third-party booking sites. 
-                        </Typography>
-                      </Stack>
-                    </Grid>*/}
-                        <Grid item xs={12} md={6}>
-                          <Stack spacing={1}>
-                            <Money />
-                            <Typography sx={{ fontWeight: "600" }}>
-                              Maximise Revenue
-                            </Typography>
-                            <Typography>
-                              Create dynamic pricing packages and upselling
-                              opportunities to maximise revenue from direct
-                              bookings.
-                            </Typography>
-                          </Stack>
-                        </Grid>
-                      </Grid>
-                    </Stack>
                   </Grid>
                 </Grid>
 
@@ -674,14 +683,14 @@ const WebManagement = () => {
                   <Grid container spacing={5}>
                     <Grid item xs={12} md={4} sx={{}}>
                       <Stack spacing={1}>
-                        <Color />
+                        <Account />
                         <Typography sx={{ fontWeight: "600" }}>
-                          Stunning Visual Design
+                          Conversion-Focused Design
                         </Typography>
                         <Typography>
-                          Immerse potential guests in your hotel experience with
-                          captivating photos and virtual tours that showcase
-                          your amenities and ambiance.
+                          We prioritise user experience, creating a website that
+                          guides visitors towards your products and increases
+                          conversion rates. 
                         </Typography>
                       </Stack>
                     </Grid>
@@ -689,24 +698,51 @@ const WebManagement = () => {
                       <Stack spacing={1}>
                         <Mobile />
                         <Typography sx={{ fontWeight: "600" }}>
-                          Real-Time Booking System
+                          Mobile-First Development
                         </Typography>
                         <Typography>
-                          Allow guests to book their stay with ease through a
-                          secure and user-friendly online platform, eliminating
-                          the need for third-party booking sites. 
+                          With mobile shopping booming, your store will be
+                          flawlessly optimised for any device, ensuring a
+                          seamless experience for all customers. 
                         </Typography>
                       </Stack>
                     </Grid>{" "}
-                    <Grid item xs={12} md={4} sx={{}}>
+                    <Grid item xs={12} md={4}>
                       <Stack spacing={1}>
-                        <Tag />
+                        <Comment />
                         <Typography sx={{ fontWeight: "600" }}>
-                          Package Management
+                          Ongoing Support
                         </Typography>
                         <Typography>
-                          Create enticing packages with dynamic pricing options
-                          to attract different types of guests.  
+                          Our dedication doesn't end at launch. We provide
+                          ongoing support to ensure your store continues to
+                          thrive.
+                        </Typography>
+                      </Stack>
+                    </Grid>
+                    <Grid item xs={12} md={4} sx={{}}>
+                      <Stack spacing={1}>
+                        <Monitor />
+                        <Typography sx={{ fontWeight: "600" }}>
+                          Seamless Integration
+                        </Typography>
+                        <Typography>
+                          Integrate essential tools like CRM systems, payment
+                          gateways, and inventory management software for a
+                          smooth operation. 
+                        </Typography>
+                      </Stack>
+                    </Grid>
+                    <Grid item xs={12} md={4} sx={{}}>
+                      <Stack spacing={1}>
+                        <Search />
+                        <Typography sx={{ fontWeight: "600" }}>
+                          SEO Optimization
+                        </Typography>
+                        <Typography>
+                          We optimise your store for search engines, helping
+                          potential customers find you organically and drive
+                          more traffic.
                         </Typography>
                       </Stack>
                     </Grid>{" "}

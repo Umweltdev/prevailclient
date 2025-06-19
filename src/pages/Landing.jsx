@@ -12,6 +12,7 @@ import AppBarNav from "../components/Navbar/Appbar";
 import JoinCustomers from "../components/About/JoinOurCustomer";
 import "./pages.css";
 import SmoothScrollUp from "../components/utils/SmoothScrollUp";
+import ExternalLinks from "../components/Landing/ExternalLinks";
 
 const Landing = (props) => {
   return (
@@ -26,6 +27,7 @@ const Landing = (props) => {
       <div style={{ width: "100%", overflow: "hidden" }}>
         <AppBarNav color="#000" />
         <Hero />
+        <ExternalLinks />
         <SectionTwo />
         <CoreValues />
         <OurCore />

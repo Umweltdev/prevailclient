@@ -7,8 +7,6 @@ import { AuthContext } from "./context/AuthContext";
 import Loading from "./components/utils/Loading";
 import ErrorBoundary from "./components/utils/ErrorBoundary";
 import NotFoundPage from "./components/utils/NotFoundPage";
-import { Helmet } from "react-helmet";
-import CookieConsent from "react-cookie-consent";
 import { Box } from "@mui/material";
 import ConsentBar from "./components/Footer/ConsentBar";
 
