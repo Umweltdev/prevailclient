@@ -96,7 +96,11 @@ const ExternalLinks = () => {
             rel="noopener noreferrer"
           >
             <Fab
-              sx={{ height: 100, width: 100, borderRadius: "50%" }}
+              sx={{
+                height: 500,
+                width: 500,
+                borderRadius: "50%",
+              }}
               color="primary"
               variant="extended"
             >
