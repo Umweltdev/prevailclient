@@ -10,7 +10,7 @@ const ExternalLinks = () => {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         width: "100%",
-        height: "100vh",
+        height: { xs: "unset", md: "100vh" },
         position: "relative", // Needed for absolute positioning of overlay
       }}
     >
@@ -33,6 +33,7 @@ const ExternalLinks = () => {
           position: "relative", // This will place content above the overlay
           zIndex: 2,
           display: "flex",
+          flexDirection: { xs: "column", md: "row" },
           color: "white", // White text for better contrast
           p: 4, // Add some padding
           height: "100%",
@@ -42,22 +43,23 @@ const ExternalLinks = () => {
       >
         <Box
           sx={{
-            width: "50%",
+            width: { xs: "100%", md: "50%" },
             margin: "0px auto",
+            flexDirection: { xs: "column", md: "row" },
             display: "flex",
             justifyContent: "center",
             alignItems: "top",
             gap: 2,
           }}
         >
-          <Box sx={{ width: 110, height: "auto" }}>
+          <Box sx={{ width: { xs: 80, md: 110 }, height: "auto" }}>
             <CardMedia
               component={"img"}
               image="/head-logo-1.png"
               sx={{ width: "100%" }}
             />
           </Box>
-          <Box sx={{ width: "70%" }}>
+          <Box sx={{ width: { xs: "100%", md: "70%" } }}>
             <Typography variant="h4" gutterBottom>
               Power Your Hotel with Purpose-Built Technology{" "}
             </Typography>
@@ -81,10 +83,11 @@ const ExternalLinks = () => {
 
         <Box
           sx={{
-            width: "50%",
+            width: { xs: "30%", md: "50%" },
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            mt: { xs: 4, md: "unset" },
           }}
         >
           <a
