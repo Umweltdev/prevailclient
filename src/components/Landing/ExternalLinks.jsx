@@ -97,8 +97,8 @@ const ExternalLinks = () => {
           >
             <Fab
               sx={{
-                height: 500,
-                width: 500,
+                height: { xs: "80%", md: 500 },
+                width: { xs: "80%", md: 500 },
                 borderRadius: "50%",
               }}
               color="primary"
