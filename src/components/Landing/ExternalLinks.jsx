@@ -83,7 +83,7 @@ const ExternalLinks = () => {
 
         <Box
           sx={{
-            width: { xs: "30%", md: "50%" },
+            width: { xs: "100%", md: "50%" },
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
