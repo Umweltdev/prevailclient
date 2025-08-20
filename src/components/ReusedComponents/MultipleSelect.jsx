@@ -1,4 +1,3 @@
-import * as React from "react";
 import PropTypes from "prop-types";
 import { useAutocomplete } from "@mui/base/useAutocomplete";
 import CheckIcon from "@mui/icons-material/Check";
@@ -193,7 +192,11 @@ export default function CustomizedHook() {
           className={focused ? "focused" : ""}
         >
           {value.map((option, index) => (
-            <StyledTag label={option.title} {...getTagProps({ index })} />
+            <StyledTag
+              key={option.title + index}
+              label={option.title}
+              {...getTagProps({ index })}
+            />
           ))}
           <input {...getInputProps()} />
         </InputWrapper>
@@ -201,7 +204,10 @@ export default function CustomizedHook() {
       {groupedOptions.length > 0 ? (
         <Listbox {...getListboxProps()}>
           {groupedOptions.map((option, index) => (
-            <li {...getOptionProps({ option, index })}>
+            <li
+              key={option.title + index}
+              {...getOptionProps({ option, index })}
+            >
               <span>{option.title}</span>
               <CheckIcon fontSize="small" />
             </li>
