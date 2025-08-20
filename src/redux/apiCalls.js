@@ -5,7 +5,6 @@ import {
   registerFailure,
   registerStart,
   registerSuccess,
-  resetState
 } from "./userRedux";
 import { publicRequest, updateTokenInHeaders } from "../requestMethods";
 

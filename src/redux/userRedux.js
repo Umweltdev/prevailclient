@@ -37,7 +37,7 @@ const userSlice = createSlice({
       state.isRegistering = false;
       state.error = true;
     },
-    resetState: (state) => {
+    resetState: () => {
       return {
         currentUser: null,
         isFetching: false,

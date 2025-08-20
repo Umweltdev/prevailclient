@@ -20,6 +20,7 @@ import logo from "./newlogo.svg";
 import { AuthContext } from "../../context/AuthContext";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Container from "@mui/material/Container";
+import PropTypes from "prop-types";
 
 const drawerWidth = 240;
 
@@ -52,10 +53,9 @@ const exploreData = [
 
 function AppBarNav({ color }) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const [servicesAnchorEl, setServicesAnchorEl] = React.useState(null);
   const [anchorElExplore, setAnchorElExplore] = React.useState(null);
   const [anchorElServices, setAnchorElServices] = React.useState(null);
-  const { isLoggedIn, isAdmin, dispatch, user } = React.useContext(AuthContext);
+  const { isLoggedIn, isAdmin, dispatch } = React.useContext(AuthContext);
   const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = React.useState(false);
 
@@ -76,11 +76,11 @@ function AppBarNav({ color }) {
     setMobileOpen((prevState) => !prevState);
   };
 
-  const handleLogout = () => {
+  const handleLogout = React.useCallback(() => {
     localStorage.removeItem("user");
     dispatch({ type: "LOGOUT" });
     navigate("/login");
-  };
+  }, [dispatch, navigate]);
 
   const handleUserDashboard = () => {
     navigate("/user/profile");
@@ -135,7 +135,7 @@ function AppBarNav({ color }) {
             { label: "Login", link: "/login" },
             { label: "Sign Up", link: "/signup" },
           ],
-    [isLoggedIn, isAdmin, handleLogout]
+    [isLoggedIn, handleLogout]
   );
 
   const DrawerNavItems = React.useMemo(
@@ -334,7 +334,6 @@ function AppBarNav({ color }) {
                     }}
                     rel="canonical"
                     component={Link}
-                 
                     to="/login"
                   >
                     Login
@@ -422,5 +421,9 @@ function AppBarNav({ color }) {
     </Box>
   );
 }
+
+AppBarNav.propTypes = {
+  color: PropTypes.string,
+};
 
 export default AppBarNav;

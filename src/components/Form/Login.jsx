@@ -2,10 +2,7 @@ import React, { useContext, useState } from "react";
 import {
   Button,
   Grid,
-  TextField,
   Typography,
-  IconButton,
-  Link as MuiLink,
   CardMedia,
   CircularProgress,
   Modal,
@@ -13,25 +10,12 @@ import {
   Box,
 } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
-import { styled } from "@mui/system";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
 import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
-import Loading from "../utils/Loading";
-//import loginImage from "../Form/Login-Signup.webp";
 import image2 from "../Form/Group_1.svg";
 import { PasswordInput, TextInput } from "./Textfileds";
 import Backdrop from "@mui/material/Backdrop";
 import ForgotPasswordForm from "./ForgotPassword/ForgotPasswordForm";
-
-const CustomTextField = styled(TextField)({
-  "& .MuiOutlinedInput-root": {
-    fontSize: "14px",
-    height: "45px",
-    borderRadius: "10px",
-    backgroundColor: "#f0f0f0",
-  },
-});
 
 const style = {
   position: "absolute",
@@ -50,9 +34,10 @@ const style = {
 };
 
 const Login = () => {
+  // eslint-disable-next-line no-unused-vars
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
-  const { user, loading, error, dispatch } = useContext(AuthContext);
+  const { error, dispatch } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isButtonLoading, setIsButtonLoading] = useState(false);
@@ -82,10 +67,6 @@ const Login = () => {
     } finally {
       setIsButtonLoading(false);
     }
-  };
-
-  const handleTogglePassword = () => {
-    setShowPassword(!showPassword);
   };
 
   // console.log("user", user.user);
@@ -258,7 +239,7 @@ const Login = () => {
               },
             }}
           >
-            Don't have an account?
+            Don&apos;t have an account?
             <span style={{ marginLeft: "5px" }}>
               <Link
                 to="/signup"
@@ -326,7 +307,7 @@ const Login = () => {
             },
           }}
         >
-          You agree to Prevail Agency's Terms of Use & Privacy Policy. You don't
+          You agree to Prevail Agency&apos;s Terms of Use & Privacy Policy. You don&apos;t
           need to consent as a condition of renting any property, or buying any
           other goods or services. Message/data rates may apply.
         </Typography>

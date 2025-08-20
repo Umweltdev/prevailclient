@@ -1,6 +1,4 @@
-import React from "react";
 import "./assets/footer.css";
-import logoImg from "../../assets/pmmlogocol.png";
 
 const Footer = () => {
   return (
