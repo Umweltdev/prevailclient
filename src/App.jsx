@@ -9,6 +9,7 @@ import ErrorBoundary from "./components/utils/ErrorBoundary";
 import NotFoundPage from "./components/utils/NotFoundPage";
 import { Box } from "@mui/material";
 import ConsentBar from "./components/Footer/ConsentBar";
+import CostCalculation from "./components/Services/CostCalculation/CostCalculation";
 
 // Lazy load pages and components
 const Landing = React.lazy(() => import("./pages/Landing"));
@@ -112,6 +113,10 @@ function App() {
                 element={<WebManagement />}
               />
               <Route
+                path="/service/cost-calculation"
+                element={<CostCalculation />}
+              />
+              <Route
                 path="/service/search-engine-marketing"
                 element={<Sem />}
               />
@@ -171,6 +176,10 @@ function App() {
               <Route
                 path="/Services/webmanagement"
                 element={<Navigate to="/service/website-development" />}
+              />
+              <Route
+                path="/Services/costcalculation"
+                element={<Navigate to="/service/cost-calculation" />}
               />
               <Route
                 path="/Services/sem"
