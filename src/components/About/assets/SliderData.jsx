@@ -5,19 +5,31 @@ import { AddTask, BarChart, Campaign, ChatRounded, CreditScore, Nat, QueryStats,
 
 export const sliderData = [
   {
-    img: focus,
-    header: "Tailored Solution",
-    text: "We tailor every strategy to meet the specific needs and goals of each client, ensuring maximum relevance and impact.",
+    icon: '🎯',
+    header: "Discovery",
+    text: "We immerse ourselves in your business, understanding your unique challenges and opportunities through in-depth consultation.",
   },
   {
-    img: announcement,
-    header: "Data-Driven Decisions",
-    text: "Our strategic decisions are fortified by advanced analytics, enabling us to identify trends and predict shifts that pave the way for smarter, more impactful business strategies.",
+    icon: '✏️',
+    header: "Strategy",
+    text: "Based on insights, we craft a tailored roadmap that aligns technology solutions with your business objectives.",
   },
   {
-    img: folder,
-    header: "Creative Execution",
-    text: "Our campaigns are informed by data but driven by creativity, designed to not only capture attention but also to connect emotionally with audiences.",
+    icon: '⚡',
+    header: "Build",
+    text: "Our team develops your solution using cutting-edge technology, with regular check-ins to ensure alignment.",
+  },
+
+    {
+    icon: '🚀',
+    header: "Launch",
+    text: "Smooth deployment with comprehensive training ensures your team is confident from day one.",
+  },
+
+    {
+    icon: '📈',
+    header: "Grow",
+    text: "Ongoing support, optimization, and scaling to ensure your technology evolves with your business.",
   },
 ];
 

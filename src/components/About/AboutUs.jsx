@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { CardMedia, Grid, Skeleton } from "@mui/material";
+import { CardMedia, Grid, Skeleton, Box } from "@mui/material";
 import React from "react";
 import { useInView } from "react-intersection-observer";
 import styles from "./assets/about.module.css";
+import { CheckCircle } from "@mui/icons-material"; // Import the CheckCircle icon from MUI
 
 const AboutUs = () => {
   const { ref, inView } = useInView({
@@ -58,7 +59,7 @@ const AboutUs = () => {
           },
         }}
       >
-        Great companies are made by great people
+        Empowering Irish Businesses to Prevail
       </Grid>
       <Grid
         className={`${styles.aboutUsText} ${inView ? styles.visible : ""}`}
@@ -75,15 +76,48 @@ const AboutUs = () => {
           },
         }}
       >
-        In a world where economic fluctuations often diminish the purchasing
-        power of individuals and small businesses alike, rising interest rates
-        and unpredictable consumer demands pose substantial challenges.
-        Small-to-medium-sized enterprises (SMEs) and local businesses frequently
-        find themselves battling to maintain relevance in a marketplace where
-        larger entities, armed with vast resources and advanced technological
-        tools, dominate. This daunting scenario is the very challenge that fuels
-        Prevail’s commitment and innovative approach.
+        We transform local SMEs with modern technology, smart automation, and
+        stunning design that drives real results.
       </Grid>
+      
+      {/* Added your section using MUI components */}
+      <Grid
+        container
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "column", sm: "row" },
+          justifyContent: "center",
+          alignItems: "center",
+          gap: { xs: 2, sm: 0 },
+          mt: 2
+        }}
+      >
+        <Grid item sx={{ display: "flex", alignItems: "center", gap: 1, mx: { sm: 2 } }}>
+          <CheckCircle sx={{ width: 16, height: 16, color: "green" }} />
+          <Box component="span" sx={{ fontSize: "14px", color: "gray" }}>
+            Client Focused
+          </Box>
+        </Grid>
+        <Grid item sx={{ display: "flex", alignItems: "center", gap: 1, mx: { sm: 2 } }}>
+          <CheckCircle sx={{ width: 16, height: 16, color: "green" }} />
+          <Box component="span" sx={{ fontSize: "14px", color: "gray" }}>
+           Support Available
+          </Box>
+        </Grid>
+        <Grid item sx={{ display: "flex", alignItems: "center", gap: 1, mx: { sm: 2 } }}>
+          <CheckCircle sx={{ width: 16, height: 16, color: "green" }} />
+          <Box component="span" sx={{ fontSize: "14px", color: "gray" }}>
+           Service Standards
+          </Box>
+        </Grid>
+         <Grid item sx={{ display: "flex", alignItems: "center", gap: 1, mx: { sm: 2 } }}>
+          <CheckCircle sx={{ width: 16, height: 16, color: "green" }} />
+          <Box component="span" sx={{ fontSize: "14px", color: "gray" }}>
+          Founded in Dublin
+          </Box>
+        </Grid>
+      </Grid>
+
       {!imageLoaded && (
         <Skeleton
           variant="rectangular"
@@ -99,6 +133,7 @@ const AboutUs = () => {
           }}
         />
       )}
+     
       <CardMedia
         ref={ref}
         component={"img"}
@@ -106,9 +141,7 @@ const AboutUs = () => {
           "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720110085/Working-Together_cvbkzp.avif"
         }
         alt="Working-Together"
-        className={`${styles.aboutUsImage} ${
-          inView ? styles.visible : ""
-        }`}
+        className={`${styles.aboutUsImage} ${inView ? styles.visible : ""}`}
         sx={{
           width: "1210px",
           height: "510px",

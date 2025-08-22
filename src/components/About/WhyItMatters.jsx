@@ -77,7 +77,7 @@ const WhyItMatters = () => {
               },
             }}
           >
-            Why It Matters
+            How We Work
           </Typography>
           <Typography
             sx={{
@@ -91,13 +91,7 @@ const WhyItMatters = () => {
               },
             }}
           >
-            In an era where large enterprises often overshadow smaller players,
-            Prevail enables local businesses and SMEs to not only compete but to
-            redefine standards of excellence within their industries.
-            <br /> <br /> We equip these businesses with the tools to harness
-            the full potential of digital technology and strategic marketing,
-            building a durable competitive edge. Together, we can ensure that
-            your business doesn’t just survive; it prevails.
+            A proven process that delivers results
           </Typography>
         </Grid>
         <Grid
