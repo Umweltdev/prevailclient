@@ -6,6 +6,8 @@ import {
   Box,
   Container,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import IndustryStep from "./steps/IndustryStep";
 import GoalsStep from "./steps/GoalsStep";
@@ -25,7 +27,6 @@ const steps = [
 
 const MultiStepForm = () => {
   const [activeStep, setActiveStep] = useState(0);
-
   const [formData, setFormData] = useState({
     industry: "Restaurant & Food",
     goals: [],
@@ -35,9 +36,11 @@ const MultiStepForm = () => {
     platform: null,
   });
 
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   const handleNext = () =>
     setActiveStep((prev) => Math.min(prev + 1, steps.length - 1));
-
   const handleBack = () => setActiveStep((prev) => Math.max(prev - 1, 0));
 
   const handleDataChange = (field, value) => {
@@ -113,25 +116,35 @@ const MultiStepForm = () => {
         return "Unknown step";
     }
   };
+
   return (
-    <Container maxWidth="md" sx={{ py: 4 }}>
-      <Box sx={{ textAlign: "center", mb: 6 }}>
+    <Container maxWidth="md" sx={{ py: { xs: 2, sm: 4 } }}>
+      <Box sx={{ textAlign: "center", mb: { xs: 3, sm: 6 } }}>
         <Typography
-          variant="h3"
+          variant={isMobile ? "h6" : "h3"}
           component="h1"
           sx={{ fontWeight: "bold", color: "#1976d2" }}
         >
           Transform Your Business with Intelligent Digital Solutions
         </Typography>
-        <Typography variant="h6" color="text.secondary" sx={{ mt: 1 }}>
+        <Typography
+          variant={isMobile ? "body2" : "h6"}
+          color="text.secondary"
+          sx={{ mt: 1 }}
+        >
           From custom enterprise platforms to ready-to-deploy templates
         </Typography>
       </Box>
+
       <Stepper
         activeStep={activeStep}
         alternativeLabel
-        connector={null}
-        sx={{ mb: 5 }}
+        sx={{
+          mb: 4,
+          "& .MuiStep-root": {
+            minWidth: isMobile ? "45px" : "auto",
+          },
+        }}
       >
         {steps.map((label, index) => {
           const isActive = activeStep === index;
@@ -142,13 +155,13 @@ const MultiStepForm = () => {
                 StepIconComponent={() => (
                   <Box
                     sx={{
-                      width: 28,
-                      height: 28,
+                      width: isMobile ? 24 : 28,
+                      height: isMobile ? 24 : 28,
                       borderRadius: "50%",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      fontSize: "0.8rem",
+                      fontSize: isMobile ? "0.65rem" : "0.8rem",
                       fontWeight: 700,
                       bgcolor: isActive
                         ? "#1976d2"
@@ -165,8 +178,10 @@ const MultiStepForm = () => {
                 <Typography
                   sx={{
                     fontWeight: 500,
+                    fontSize: isMobile ? "0.65rem" : "0.9rem",
                     color:
                       isActive || isCompleted ? "#1976d2" : "text.secondary",
+                    textAlign: "center",
                   }}
                 >
                   {label}
@@ -176,7 +191,8 @@ const MultiStepForm = () => {
           );
         })}
       </Stepper>
-      <Box>{getStepContent(activeStep)}</Box>
+
+      <Box sx={{ width: "100%" }}>{getStepContent(activeStep)}</Box>
     </Container>
   );
 };

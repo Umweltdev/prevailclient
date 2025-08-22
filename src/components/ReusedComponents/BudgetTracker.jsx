@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { Paper, Typography } from "@mui/material";
+import { Paper, Typography, Box } from "@mui/material";
 
 const BudgetTracker = ({ budget, spent, spentLabel = "Spent" }) => {
   const remaining = budget - spent;
@@ -10,23 +10,38 @@ const BudgetTracker = ({ budget, spent, spentLabel = "Spent" }) => {
       variant="outlined"
       sx={{
         p: 2,
-        display: "flex",
-        justifyContent: "space-between",
-        flexWrap: "wrap",
-        gap: 1,
         mb: 4,
         borderRadius: 2,
       }}
     >
-      <Typography>
-        Budget: <strong>£{budget.toLocaleString()}</strong>
-      </Typography>
-      <Typography color="error">
-        {spentLabel}: <strong>£{spent.toLocaleString()}</strong>
-      </Typography>
-      <Typography color={isBudgetExceeded ? "error" : "success.main"}>
-        Remaining: <strong>£{remaining.toLocaleString()}</strong>
-      </Typography>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          flexWrap: "nowrap", // prevent wrapping
+          gap: 2,
+          width: "100%",
+        }}
+      >
+        <Box sx={{ flex: "1 1 30%", minWidth: 100 }}>
+          <Typography variant="body1">
+            Budget: <strong>£{budget.toLocaleString()}</strong>
+          </Typography>
+        </Box>
+        <Box sx={{ flex: "1 1 30%", minWidth: 100 }}>
+          <Typography variant="body1" color="error">
+            {spentLabel}: <strong>£{spent.toLocaleString()}</strong>
+          </Typography>
+        </Box>
+        <Box sx={{ flex: "1 1 30%", minWidth: 100 }}>
+          <Typography
+            variant="body1"
+            color={isBudgetExceeded ? "error" : "success.main"}
+          >
+            Remaining: <strong>£{remaining.toLocaleString()}</strong>
+          </Typography>
+        </Box>
+      </Box>
     </Paper>
   );
 };
