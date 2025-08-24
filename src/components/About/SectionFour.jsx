@@ -125,8 +125,28 @@ const SectionFour = () => {
             },
           }}
         >
-          What We Do
+          Our Core Values
         </Typography>
+
+        <Typography
+          sx={{
+            display: "flex",
+            fontSize: "18px",
+            fontWeight: "400",
+            color: "#1D0D40",
+            marginBottom: "20px",
+            lineHeight: "110%",
+            letterSpacing: "-0.28px",
+
+            "@media (max-width: 600px)": {
+              fontSize: "6vw",
+              margin: "2vh 0",
+            },
+          }}
+        >
+          These principles guide everything we do
+        </Typography>
+
         <Typography
           sx={{
             fontSize: "16px",
@@ -139,14 +159,104 @@ const SectionFour = () => {
             },
           }}
         >
-          Prevail is not just a marketing firm; we are architects of bespoke
-          solutions that fuse cutting-edge automation technology, profound
-          consumer insights, and state-of-the-art marketing tactics. <br />
-          <br /> Our approach transcends mere automation by integrating it with
-          robust data analytics and creative flair, crafting marketing
-          strategies that truly resonate with your target demographics. Our
-          holistic strategy ensures sustained growth, even amongst the most
-          challenging.
+          <b>Innovation:</b> We constantly explore new technologies and
+          approaches to keep our clients ahead of the curve.
+        </Typography>
+
+        <Typography
+          sx={{
+            fontSize: "16px",
+            color: "#505660",
+            marginBottom: "3vh",
+            "@media (max-width: 600px)": {
+              fontSize: "4vw",
+              textAlign: "justify",
+              width: "100%",
+            },
+          }}
+        >
+          <b>Partnership Approach:</b> Your success is our success. We work as
+          an extension of your team, not just another vendor.
+        </Typography>
+
+        <Typography
+          sx={{
+            fontSize: "16px",
+            color: "#505660",
+            marginBottom: "3vh",
+            "@media (max-width: 600px)": {
+              fontSize: "4vw",
+              textAlign: "justify",
+              width: "100%",
+            },
+          }}
+        >
+          <b>Simplicity Matters :</b> Complex problems don't need complex
+          solutions. We make powerful technology accessible and easy to use.
+        </Typography>
+
+        <Typography
+          sx={{
+            fontSize: "16px",
+            color: "#505660",
+            marginBottom: "3vh",
+            "@media (max-width: 600px)": {
+              fontSize: "4vw",
+              textAlign: "justify",
+              width: "100%",
+            },
+          }}
+        >
+          <b>Results-Driven :</b> Beautiful design means nothing without
+          results. Every decision is measured by its impact on your business.
+        </Typography>
+
+        <Typography
+          sx={{
+            fontSize: "16px",
+            color: "#505660",
+            marginBottom: "3vh",
+            "@media (max-width: 600px)": {
+              fontSize: "4vw",
+              textAlign: "justify",
+              width: "100%",
+            },
+          }}
+        >
+          <b>Local Focus:</b> We understand Irish businesses because we are one.
+          Local knowledge, global standards.
+        </Typography>
+
+        <Typography
+          sx={{
+            fontSize: "16px",
+            color: "#505660",
+            marginBottom: "3vh",
+            "@media (max-width: 600px)": {
+              fontSize: "4vw",
+              textAlign: "justify",
+              width: "100%",
+            },
+          }}
+        >
+          <b>Partnership Approach:</b> Your success is our success. We work as
+          an extension of your team, not just another vendor.
+        </Typography>
+
+        <Typography
+          sx={{
+            fontSize: "16px",
+            color: "#505660",
+            marginBottom: "3vh",
+            "@media (max-width: 600px)": {
+              fontSize: "4vw",
+              textAlign: "justify",
+              width: "100%",
+            },
+          }}
+        >
+          <b>Speed and Agility:</b> The market moves fast, and so do we. Quick
+          deployment, rapid iteration, continuous improvement.
         </Typography>
       </Grid>
     </Grid>

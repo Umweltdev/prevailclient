@@ -11,7 +11,7 @@ import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
 const bull = <Star sx={{ color: "#FFBE4E", fontSize: "16px" }} />;
 
-export default function SliderCard({ text, header, author, img }) {
+export default function SliderCard({ text, header, author, icon }) {
   return (
     <Card
       sx={{
@@ -46,39 +46,23 @@ export default function SliderCard({ text, header, author, img }) {
           },
         }}
       >
-        <Grid
+        <Typography
           sx={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            gap: "16px",
-            background: "#B2B1FF",
-            width: "70px",
-            height: "70px",
-            borderRadius: "50%",
+            fontSize: "64px",
+            fontWeight: 500,
+            lineHeight: "110%" /* 28px */,
+            letterSpacing: "-0.24px",
+            width: "466px",
+            color: "#000",
             "@media (max-width: 600px)": {
-              width: "50px",
-              height: "50px",
-              objectFit: "cover",
+              fontSize: "16px",
+              width: "75vw",
             },
           }}
         >
-          <CardMedia
-            component="img"
-            image={img}
-            sx={{
-              width: "40px",
-              height: "40px",
-              objectFit: "cover",
-              margin: "auto",
-              "@media (max-width: 600px)": {
-                width: "30px",
-                height: "30px",
-                objectFit: "cover",
-              },
-            }}
-          />
-        </Grid>
+          {icon}
+        </Typography>
+
         <Typography
           sx={{
             fontSize: "24px",
