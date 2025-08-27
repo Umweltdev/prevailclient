@@ -44,6 +44,10 @@ const servicesData = [
     text: "Digital Accelerator Bundle",
     link: "/service/digital-accelerator-bundle",
   },
+  {
+    text: "Custom Ad Campaign",
+    link: "/service/custom-ad-campaign",
+  },
 ];
 
 const exploreData = [
