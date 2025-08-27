@@ -45,6 +45,10 @@ const servicesData = [
     link: "/service/digital-accelerator-bundle",
   },
   {
+    text: "Cost Calculation",
+    link: "/service/cost-calculation",
+  },
+  {
     text: "Custom Ad Campaign",
     link: "/service/custom-ad-campaign",
   },

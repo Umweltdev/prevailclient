@@ -8,7 +8,7 @@ const Contact = () => {
   return (
     <>
       <Helmet>
-        <title>Let's Elevate Your Online Presence Together</title>
+        <title>Let&apos;s Elevate Your Online Presence Together</title>
         <meta
           name="description"
           content="Get in Touch with Prevail for Bespoke Marketing Solutions"

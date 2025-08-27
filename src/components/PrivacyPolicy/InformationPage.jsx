@@ -1,5 +1,4 @@
 import { Box, Grid, Typography } from "@mui/material";
-import React from "react";
 
 const InformationPage = () => {
   return (
@@ -55,7 +54,6 @@ const InformationPage = () => {
           </li>
         </ul>
       </Box>
-      {/* ====================================================================== */}
       <Box id="use-of-information">
         <Typography
           sx={{ color: "#1D0D40", fontSize: "28px", fontWeight: "500" }}
@@ -81,15 +79,14 @@ const InformationPage = () => {
             Information related to the services and deliverables we provide,
             including project details and timelines.
           </li>
-          <li>Provide customer support and respond to your requests. </li>
+          <li>Provide customer support and respond to your requests.</li>
           <li>
             Analyse and understand how our services are used to enhance your
-            experience. 
+            experience.
           </li>
         </ul>
       </Box>
 
-      {/* ====================================================================== */}
       <Box id="client-expectations">
         <Typography
           sx={{ color: "#1D0D40", fontSize: "28px", fontWeight: "500" }}
@@ -103,12 +100,11 @@ const InformationPage = () => {
             We expect our clients to participate actively in meetings and
             provide timely feedback. This helps us to meet project timelines and
             deliver quality services. Missed meetings or delayed feedback can
-            result in project delays and additional costs. 
+            result in project delays and additional costs.
           </Typography>
         </ul>
       </Box>
 
-      {/* ====================================================================== */}
       <Box id="revisions-and-substantive-changes">
         <Typography
           sx={{ color: "#1D0D40", fontSize: "28px", fontWeight: "500" }}
@@ -128,7 +124,6 @@ const InformationPage = () => {
         </ul>
       </Box>
 
-      {/* ====================================================================== */}
       <Box id="cancellation-policy">
         <Typography
           sx={{ color: "#1D0D40", fontSize: "28px", fontWeight: "500" }}
@@ -148,7 +143,6 @@ const InformationPage = () => {
         </ul>
       </Box>
 
-      {/* ====================================================================== */}
       <Box id="confidentiality">
         <Typography
           sx={{ color: "#1D0D40", fontSize: "28px", fontWeight: "500" }}
@@ -167,7 +161,6 @@ const InformationPage = () => {
         </ul>
       </Box>
 
-      {/* ====================================================================== */}
       <Box id="copyright-ownership">
         <Typography
           sx={{ color: "#1D0D40", fontSize: "28px", fontWeight: "500" }}
@@ -186,7 +179,6 @@ const InformationPage = () => {
         </ul>
       </Box>
 
-      {/* ====================================================================== */}
       <Box id="sharing-of-information">
         <Typography
           sx={{ color: "#1D0D40", fontSize: "28px", fontWeight: "500" }}
@@ -205,7 +197,6 @@ const InformationPage = () => {
         </ul>
       </Box>
 
-      {/* ====================================================================== */}
       <Box id="data-security">
         <Typography
           sx={{ color: "#1D0D40", fontSize: "28px", fontWeight: "500" }}
@@ -242,7 +233,6 @@ const InformationPage = () => {
         </ul>
       </Box>
 
-      {/* ====================================================================== */}
       <Box id="acceptance-of-terms">
         <Typography
           sx={{ color: "#1D0D40", fontSize: "28px", fontWeight: "500" }}

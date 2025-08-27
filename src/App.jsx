@@ -9,6 +9,13 @@ import ErrorBoundary from "./components/utils/ErrorBoundary";
 import NotFoundPage from "./components/utils/NotFoundPage";
 import { Box } from "@mui/material";
 import ConsentBar from "./components/Footer/ConsentBar";
+import CostCalculation from "./components/Services/CostCalculation/CostCalculation";
+import IndustryStep from "./components/Services/CostCalculation/steps/IndustryStep";
+import GoalsStep from "./components/Services/CostCalculation/steps/GoalsStep";
+import InvestmentStep from "./components/Services/CostCalculation/steps/InvestmentStep";
+import SpecializedStep from "./components/Services/CostCalculation/steps/SpecializedStep";
+import UniversalStep from "./components/Services/CostCalculation/steps/UniversalStep";
+import GetStartedStep from "./components/Services/CostCalculation/steps/GetStartedStep";
 
 // Lazy load pages and components
 const Landing = React.lazy(() => import("./pages/Landing"));
@@ -71,9 +78,6 @@ const stripePromise = loadStripe(viteKey);
 function App() {
   const { user } = useContext(AuthContext);
   const [socket, setSocket] = useState(null);
-
- 
-
   return (
     <>
       <Elements stripe={stripePromise}>
@@ -89,6 +93,12 @@ function App() {
               <Route path="/contact-us" element={<Contact />} />
               <Route path="/blog/:index" element={<BlogDetails />} />
               <Route path="/service-landing-page" element={<Services />} />
+              <Route path="/step1" element={<IndustryStep />} />
+              <Route path="/step2" element={<GoalsStep />} />
+              <Route path="/step3" element={<InvestmentStep />} />
+              <Route path="/step4" element={<SpecializedStep />} />
+              <Route path="/step5" element={<UniversalStep />} />
+              <Route path="/step6" element={<GetStartedStep />} />
               <Route
                 path="/service/brand-identity-package"
                 element={<BrandIdentity />}
@@ -113,6 +123,10 @@ function App() {
               <Route
                 path="/service/website-development"
                 element={<WebManagement />}
+              />
+              <Route
+                path="/service/cost-calculation"
+                element={<CostCalculation />}
               />
               <Route
                 path="/service/search-engine-marketing"
@@ -178,6 +192,10 @@ function App() {
               <Route
                 path="/Services/webmanagement"
                 element={<Navigate to="/service/website-development" />}
+              />
+              <Route
+                path="/Services/costcalculation"
+                element={<Navigate to="/service/cost-calculation" />}
               />
               <Route
                 path="/Services/sem"
