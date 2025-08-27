@@ -1,6 +1,6 @@
 import * as React from "react";
 import { styled } from "@mui/material/styles";
-import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
+// import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import MuiAccordion from "@mui/material/Accordion";
 import MuiAccordionSummary from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
@@ -11,7 +11,7 @@ import {
   KeyboardArrowDown,
   Storefront,
   TipsAndUpdates,
-  Workspaces,
+  // Workspaces,
 } from "@mui/icons-material";
 
 const goalsObj = [
@@ -79,7 +79,7 @@ export default function GeneralAccordion() {
   };
 
   return (
-    <div sx={{ width: "40vw" }}>
+    <div style={{ width: "40vw" }}>
       {goalsObj.map((data, index) => (
         <Accordion
           key={index}

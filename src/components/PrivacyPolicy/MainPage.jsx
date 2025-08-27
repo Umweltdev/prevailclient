@@ -1,5 +1,4 @@
 import { Grid } from "@mui/material";
-import React from "react";
 import InformationCard from "./InformationCard";
 import InformationPage from "./InformationPage";
 

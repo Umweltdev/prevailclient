@@ -1,4 +1,3 @@
-import React from "react";
 import { Grid, Typography, CardMedia } from "@mui/material";
 import { Link } from "react-router-dom";
 import ReusedButton from "../ReusedComponents/ReusedButton";

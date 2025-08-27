@@ -1,5 +1,4 @@
 import { Box, Grid, Typography } from "@mui/material";
-import React from "react";
 import ImageTextService from "./ImageTextService";
 import TextImageService from "./TextImageService";
 import { useInView } from "react-intersection-observer";
@@ -49,7 +48,7 @@ const MainPage = () => {
         <Typography
           sx={{ color: "#1D0D40", fontSize: "38px", fontWeight: 500 }}
         >
-          The Ultimate products we serve 
+          The Ultimate products we serve
         </Typography>
         <Typography
           sx={{
@@ -119,6 +118,13 @@ const MainPage = () => {
           textHeader={"Digital Accelerator Bundle"}
           text="Our “Digital Accelerator” bundle integrate cutting-edge website design, bespoke brand identity, and strategic SEO services to boost visibility engage customers, and enhance your digital footprint."
           url="/service/digital-accelerator-bundle"
+        />
+        <TextImageService
+          imageUrl="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720088563/Search-Engine-Marketing_m1ebvn.avif"
+          alt="CostCalculation"
+          textHeader={"Cost Calculation"}
+          text="Get a valued based website based on your budget"
+          url="/service/cost-calculation"
         />
       </Box>
     </Grid>
