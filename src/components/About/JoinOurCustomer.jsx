@@ -78,7 +78,7 @@ const JoinOurCustomer = () => {
           }}
           className={`${styles.customerText} ${inView ? styles.visible : ""}`}
         >
-          Join Happy Customers Who Already Trust Us
+          Ready to Transform Your Business?
         </Typography>
         <Typography
           sx={{
@@ -96,7 +96,9 @@ const JoinOurCustomer = () => {
           }}
           className={`${styles.customerText} ${inView ? styles.visible : ""}`}
         >
-          Connect the dots between your vision and your customer’s needs.
+         Join hundreds of Irish businesses already thriving with Prevail
+Start Your Journey Book a Consultation
+
         </Typography>
         <Grid sx={{ mt: "34px" }}>
           <Link rel="canonical" to={"/signup"}>

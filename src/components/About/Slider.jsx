@@ -53,7 +53,7 @@ const Sliders = () => {
         {sliderData.map((data, i) => (
           <Grid key={i} style={{ padding: "5vh" }}>
             <SliderCard
-              img={data.img}
+              icon={data.icon}
               text={data.text}
               header={data.header}
             />
