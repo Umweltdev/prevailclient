@@ -12,6 +12,7 @@
     "homepage": "."
   },
   "dependencies": {
+    "@babel/runtime": "^7.28.3",
     "@emailjs/browser": "^4.3.3",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
@@ -53,7 +54,7 @@
     "react-slick": "^0.30.2",
     "react-spring": "^9.7.3",
     "react-swipeable": "^7.0.1",
-    "react-swipeable-views": "^0.12.15",
+    "react-swipeable-views": "^0.14.0",
     "react-swipeable-views-utils": "^0.12.14",
     "react-transition-group": "^4.4.5",
     "redux": "^5.0.1",
