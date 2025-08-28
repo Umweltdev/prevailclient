@@ -81,7 +81,7 @@
     "vite": "^7.1.3"
   },
   "engines": {
-    "node": "18"
+    "node": "20.19"
   },
   "proxy": "https://prevailserver-4b3c670a5496.herokuapp.com/api/"
 }
