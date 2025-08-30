@@ -45,6 +45,23 @@ const DigitalAccelerator = React.lazy(() =>
 const EmpowerYourBussiness = React.lazy(() =>
   import("./components/Services/DigitalAccelerator/EmpowerYourBussiness")
 );
+const Trinitycore = React.lazy(() =>
+  import("./components/TrinityPlus/TrinityCore")
+);
+const TrinityPlus = React.lazy(() =>
+  import("./components/TrinityPlus/TrinityPlus")
+);
+const ExpenseManager = React.lazy(() =>
+  import("./components/TrinityPlus/ExpenseManager")
+);
+const Garo = React.lazy(() => import("./components/TrinityPlus/Garo"));
+const Mcd = React.lazy(() => import("./components/TrinityPlus/MCD"));
+const Rcd = React.lazy(() =>
+  import("./components/TrinityPlus/RCD")
+);
+const Aed = React.lazy(() =>
+  import("./components/TrinityPlus/AED")
+);
 const DigitalEcosystem = React.lazy(() =>
   import("./components/Explore/DigitalEcosystem/DigitalEcosystem")
 );
@@ -141,6 +158,13 @@ function App() {
                 path="/service/digital-accelerator-bundle/empower-your-business"
                 element={<EmpowerYourBussiness />}
               />
+              <Route path="/trinity" element={<Trinitycore />} />
+              <Route path="/trinity/plus" element={<TrinityPlus />} />
+              <Route path="/trinity/expense-manager" element={<ExpenseManager />} />
+              <Route path="/trinity/garo" element={<Garo />} />
+              <Route path="/trinity/mcd" element={<Mcd />} />
+              <Route path="/trinity/rcd" element={<Rcd />} />
+              <Route path="/trinity/aed" element={<Aed />} />
               <Route path="/portfolio/:index" element={<CaseDetails />} />
               <Route path="/about/ourWhy" element={<AboutOurWhy />} />
               <Route path="/about/ourSolution" element={<AboutOurSolution />} />
