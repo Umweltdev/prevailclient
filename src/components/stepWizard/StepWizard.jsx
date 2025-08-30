@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import PropTypes from "prop-types";
 import {
@@ -350,7 +348,6 @@ SelectableCard.propTypes = {
   sx: PropTypes.object,
 };
 
-// FULLY REFACTORED STEP COMPONENTS 
 
 const SolutionChoice = ({ solutionType, setSolutionType, nextStep }) => (
   <Fade in timeout={500}>
@@ -1218,7 +1215,7 @@ FinalSummary.propTypes = {
 };
 const MemoizedFinalSummary = React.memo(FinalSummary);
 
-// --- MAIN WIZARD COMPONENT ---
+// MAIN WIZARD COMPONENT
 
 const StepWizard = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -1514,7 +1511,6 @@ const StepWizard = () => {
         />
       );
     }
-
     switch (solutionType) {
       case "trinity":
         switch (currentStep) {
@@ -1682,7 +1678,6 @@ const StepWizard = () => {
               Start Over
             </Button>
           </Box>
-
           <Stepper
             activeStep={currentStep - 1}
             alternativeLabel
@@ -1694,7 +1689,6 @@ const StepWizard = () => {
               </Step>
             ))}
           </Stepper>
-
           <Box>{renderStepContent()}</Box>
         </Container>
         <Snackbar
