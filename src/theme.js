@@ -1,17 +1,16 @@
 import { createTheme } from "@mui/material/styles";
 
 export const theme = createTheme({
-  // --- MERGED PALETTE ---
-  // Using the richer palette to match the UI, including the gradient background.
+ 
   palette: {
     mode: "light",
     primary: {
-      main: "#6E3EF4", // A more vibrant purple to match the design.
+      main: "#884ed9",
       light: "#d1c4e9",
       contrastText: "#fff",
     },
     secondary: {
-      main: "#1D0D40", // Dark purple for primary text.
+      main: "#1D0D40",
     },
     success: {
       main: "#027A48",
@@ -26,14 +25,12 @@ export const theme = createTheme({
     },
   },
 
-  // --- MERGED TYPOGRAPHY ---
-  // Using your preferred "Poppins" font and merging the text styles.
   typography: {
     fontFamily: ["Poppins", "sans-serif"].join(","),
     fontSize: 14,
     h1: {
       fontWeight: 800,
-      fontSize: "clamp(2.5rem, 5vw, 3.5rem)", // Responsive font size
+      fontSize: "clamp(2.5rem, 5vw, 3.5rem)",
       lineHeight: 1.2,
     },
     h2: {
