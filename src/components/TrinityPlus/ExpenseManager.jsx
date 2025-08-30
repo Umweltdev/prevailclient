@@ -1,8 +1,12 @@
-import React from 'react'
+import { useEffect } from 'react'
+import TrinityLandingPage from './ExpenseManager/page.js'
 
 function ExpenseManager() {
+    useEffect(() => {
+        import("./ExpenseManager/globals.css");
+    }, []);
   return (
-    <div>ExpenseManager</div>
+    <TrinityLandingPage/>
   )
 }
 

@@ -121,6 +121,18 @@
   }
 }
 
+layer utilities {
+  /* Reusable gradient base */
+  .gradient-brand {
+    @apply bg-gradient-to-r from-blue-600 to-purple-600;
+  }
+
+  /* Text gradient helper */
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+  }
+}
+
 /* styles/globals.css */
 /* styles/globals.css */
 @keyframes gradientShift {
@@ -155,4 +167,52 @@
 }
 .animate-pulse-slow {
   animation: pulse-slow 6s ease-in-out infinite;
+}
+@keyframes pulseSlow {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+.animate-pulse-slow {
+  animation: pulseSlow 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+.hero-title {
+  background-size: 200% auto;
+  animation: textShine 5s ease-in-out infinite alternate;
+}
+@keyframes textShine {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+@keyframes pulseSlow {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+.animate-pulse-slow {
+  animation: pulseSlow 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+.hero-title {
+  background-size: 200% auto;
+  animation: textShine 5s ease-in-out infinite alternate;
+}
+@keyframes textShine {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }

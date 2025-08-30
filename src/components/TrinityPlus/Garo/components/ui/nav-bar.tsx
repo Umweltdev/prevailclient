@@ -7,7 +7,7 @@ import {
   MobileNavHeader,
   MobileNavToggle,
   MobileNavMenu,
-} from "./resizable-navbar";
+} from "./resizable-navbar.js";
 import { useRef } from "react";
 import { Brain, Sparkles } from "lucide-react";
 

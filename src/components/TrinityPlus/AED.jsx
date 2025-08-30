@@ -1,8 +1,12 @@
-import React from 'react'
+import { useEffect } from 'react'
+import AEDLandingPage from './AedComponents/page.js'
 
 function Aed() {
+    useEffect(() => {
+        import("./AedComponents/globals.css");
+    }, []);
   return (
-    <div>AED</div>
+    <AEDLandingPage/>
   )
 }
 

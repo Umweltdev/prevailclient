@@ -2,8 +2,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Package, Brain, TrendingUp, BarChart3 } from "lucide-react";
-import CoreFunctionality from "./core-functionality";
-import PropTypes from "prop-types";
+import CoreFunctionality from "./core-functionality.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -34,25 +33,41 @@ const steps = [
   },
 ];
 
-const Card = ({ item, i }) => {
+interface Step {
+  step: number;
+  title: string;
+  desc: string;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+}
+
+interface CardProps {
+  item: Step;
+  i: number;
+}
+
+const Card = ({ item, i }: CardProps) => {
   const cardRef = useRef(null);
 
   useEffect(() => {
     if (!cardRef.current) return;
 
-    gsap.from(cardRef.current, {
-      opacity: 0,
-      y: 50,
-      duration: 0.8,
-      ease: "power3.out",
-      delay: i * 0.2,
-      scrollTrigger: {
-        trigger: cardRef.current,
-        start: "top 80%",
-        toggleActions: "play none none reverse",
-      },
-    });
-  }, []);
+    const ctx = gsap.context(() => {
+      gsap.from(cardRef.current, {
+        opacity: 0,
+        y: 50,
+        duration: 0.8,
+        ease: "power3.out",
+        delay: i * 0.2,
+        scrollTrigger: {
+          trigger: cardRef.current,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      });
+    }, cardRef);
+
+    return () => ctx.revert(); // cleanup
+  }, [i]);
 
   return (
     <div ref={cardRef} className="relative group">
@@ -127,13 +142,3 @@ export const HowGaroWorksCard = () => {
 };
 
 export default HowGaroWorksFade; // 👈 default export (fade version)
-
-Card.propTypes = {
-  item: {
-    step: PropTypes.number,
-    title: PropTypes.string,
-    desc: PropTypes.string,
-    icon: PropTypes.element | PropTypes.elementType
-  },
-  i: PropTypes.number
-}

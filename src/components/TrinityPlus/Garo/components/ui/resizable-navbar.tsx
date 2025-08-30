@@ -1,7 +1,5 @@
-/* eslint-disable react/prop-types */
 "use client";
-// import { cn } from "../../../../lib/utils";
-import { cn } from '../../../lib/utils'
+import { cn } from "../../../lib/utils.js";
 import { IconMenu2, IconX } from "@tabler/icons-react";
 import {
   motion,
@@ -9,55 +7,54 @@ import {
   useScroll,
   useMotionValueEvent,
 } from "motion/react";
-import PropTypes from "prop-types";
 
 import React, { useRef, useState } from "react";
 
-// interface NavbarProps {
-//   children: React.ReactNode;
-//   className?: string;
-// }
+interface NavbarProps {
+  children: React.ReactNode;
+  className?: string;
+}
 
-// interface NavBodyProps {
-//   children: React.ReactNode;
-//   className?: string;
-//   visible?: boolean;
-// }
+interface NavBodyProps {
+  children: React.ReactNode;
+  className?: string;
+  visible?: boolean;
+}
 
-// interface NavItemsProps {
-//   items?: {
-//     name: string;
-//     link: string;
-//   }[];
-//   className?: string;
-//   onItemClick?: () => void;
-// }
+interface NavItemsProps {
+  items?: {
+    name: string;
+    link: string;
+  }[];
+  className?: string;
+  onItemClick?: () => void;
+}
 
-// interface MobileNavProps {
-//   children: React.ReactNode;
-//   className?: string;
-//   visible?: boolean;
-// }
+interface MobileNavProps {
+  children: React.ReactNode;
+  className?: string;
+  visible?: boolean;
+}
 
-// interface MobileNavHeaderProps {
-//   children: React.ReactNode;
-//   className?: string;
-// }
+interface MobileNavHeaderProps {
+  children: React.ReactNode;
+  className?: string;
+}
 
-// interface MobileNavMenuProps {
-//   children: React.ReactNode;
-//   className?: string;
-//   isOpen: boolean;
-//   onClose: () => void;
-// }
+interface MobileNavMenuProps {
+  children: React.ReactNode;
+  className?: string;
+  isOpen: boolean;
+  onClose: () => void;
+}
 
-export const Navbar = ({ children, className }) => {
-  const ref = useRef(null);
+export const Navbar = ({ children, className }: NavbarProps) => {
+  const ref = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState<boolean>(false);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     if (latest > 100) {
@@ -76,7 +73,7 @@ export const Navbar = ({ children, className }) => {
       {React.Children.map(children, (child) =>
         React.isValidElement(child)
           ? React.cloneElement(
-              child,
+              child as React.ReactElement<{ visible?: boolean }>,
               { visible }
             )
           : child
@@ -85,7 +82,7 @@ export const Navbar = ({ children, className }) => {
   );
 };
 
-export const NavBody = ({ children, className, visible }) => {
+export const NavBody = ({ children, className, visible }: NavBodyProps) => {
   return (
     <motion.div
       animate={{
@@ -115,8 +112,8 @@ export const NavBody = ({ children, className, visible }) => {
   );
 };
 
-export const NavItems = ({ items, className, onItemClick }) => {
-  const [hovered, setHovered] = useState(null);
+export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
+  const [hovered, setHovered] = useState<number | null>(null);
 
   return (
     <motion.div
@@ -129,7 +126,7 @@ export const NavItems = ({ items, className, onItemClick }) => {
   );
 };
 
-export const MobileNav = ({ children, className, visible }) => {
+export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
   return (
     <motion.div
       animate={{
@@ -162,7 +159,7 @@ export const MobileNav = ({ children, className, visible }) => {
 export const MobileNavHeader = ({
   children,
   className,
-}) => {
+}: MobileNavHeaderProps) => {
   return (
     <div
       className={cn(
@@ -180,7 +177,7 @@ export const MobileNavMenu = ({
   className,
   isOpen,
   onClose,
-}) => {
+}: MobileNavMenuProps) => {
   return (
     <AnimatePresence>
       {isOpen && (
@@ -203,6 +200,9 @@ export const MobileNavMenu = ({
 export const MobileNavToggle = ({
   isOpen,
   onClick,
+}: {
+  isOpen: boolean;
+  onClick: () => void;
 }) => {
   return isOpen ? (
     <IconX className="text-black dark:text-white" onClick={onClick} />
@@ -230,12 +230,21 @@ export const NavbarLogo = () => {
 
 export const NavbarButton = ({
   href,
-  as = "a",
+  as: Tag = "a",
   children,
   className,
   variant = "primary",
   ...props
-}) => {
+}: {
+  href?: string;
+  as?: React.ElementType;
+  children: React.ReactNode;
+  className?: string;
+  variant?: "primary" | "secondary" | "dark" | "gradient";
+} & (
+  | React.ComponentPropsWithoutRef<"a">
+  | React.ComponentPropsWithoutRef<"button">
+)) => {
   const baseStyles =
     "px-4 py-2 rounded-md bg-white button bg-white text-black text-sm font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center";
 
@@ -258,10 +267,3 @@ export const NavbarButton = ({
     </Tag>
   );
 };
-
-NavbarButton.PropTypes = {
-  href: PropTypes.string,
-  as: PropTypes.string,
-  className: PropTypes.string,
-  variant: PropTypes.string
-}

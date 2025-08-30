@@ -1,10 +1,17 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Tilt from "react-parallax-tilt";
 import { Check } from "lucide-react";
 
+// Define the type for each industry
+interface Industry {
+  title: string;
+  icon: string; // Using string for emojis
+  description: string;
+  benefits: string[];
+}
 
 // Define the industries object with proper typing
-const industries = {
+const industries: Record<string, Industry> = {
   retail: {
     title: "Retail",
     icon: "🛒",
@@ -51,8 +58,8 @@ const industries = {
   },
 };
 
-const IndustrySection = () => {
-  const [activeTab, setActiveTab] = useState("retail");
+const IndustrySection: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<keyof typeof industries>("retail");
 
   return (
     <section className="py-12 bg-gray-50">
@@ -64,7 +71,7 @@ const IndustrySection = () => {
           {Object.keys(industries).map((key) => (
             <button
               key={key}
-              onClick={() => setActiveTab(key)}
+              onClick={() => setActiveTab(key as keyof typeof industries)}
               className={`relative px-6 py-3 rounded-lg font-semibold transition-all duration-200 focus:outline-none cursor-pointer ${
                 activeTab === key
                   ? "bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] text-white shadow-lg transform scale-105"
@@ -72,8 +79,8 @@ const IndustrySection = () => {
               }`}
             >
               <span className="flex items-center space-x-2">
-                <span>{industries[key].icon}</span>
-                <span>{industries[key].title}</span>
+                <span>{industries[key as keyof typeof industries].icon}</span>
+                <span>{industries[key as keyof typeof industries].title}</span>
               </span>
             </button>
           ))}
@@ -87,7 +94,7 @@ const IndustrySection = () => {
               {industries[activeTab].description}
             </p>
             <div className="space-y-3">
-              {industries[activeTab].benefits.map((benefit) => (
+              {industries[activeTab].benefits.map((benefit, i) => (
                 <div key={benefit} className="flex items-center space-x-3">
                   <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
                   <span className="text-gray-800">{benefit}</span>

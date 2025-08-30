@@ -1,3 +1,4 @@
+import React from "react";
 import { Shield, Database, Zap, RefreshCw } from "lucide-react";
 
 const FeatureSection = () => {

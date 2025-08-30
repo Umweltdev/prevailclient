@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+import React from "react";
 
 const BackgroundBlobs = ({ variant = 1 }) => {
   return (
@@ -6,7 +6,7 @@ const BackgroundBlobs = ({ variant = 1 }) => {
       {variant === 1 ? (
         <>
           <div
-            className="absolute -top-40 -right-32 w-72 h-72 sm:w-96 sm:h-96 
+            className="absolute -top-40 blob-2 -right-32 w-72 h-72 sm:w-96 sm:h-96 
                        bg-gradient-to-tr from-[#6E3EF4] to-[#409AFF] 
                        rounded-full mix-blend-multiply filter blur-3xl 
                        opacity-40 animate-pulse-slow"
@@ -22,7 +22,7 @@ const BackgroundBlobs = ({ variant = 1 }) => {
       ) : (
         <>
           <div
-            className="absolute -top-56 -left-32 w-64 h-64 sm:w-80 sm:h-80 
+            className="absolute blob-1 -top-56 -left-32 w-64 h-64 sm:w-80 sm:h-80 
                        bg-gradient-to-br from-[#6E3EF4] via-[#409AFF] to-[#6E3EF4] 
                        rounded-full mix-blend-multiply filter blur-2xl 
                        opacity-30 animate-pulse-slow"
@@ -41,7 +41,3 @@ const BackgroundBlobs = ({ variant = 1 }) => {
 };
 
 export default BackgroundBlobs;
-
-BackgroundBlobs.propTypes = {
-  variant: PropTypes.number
-}

@@ -1,16 +1,40 @@
-import { useState, useEffect } from "react";
+"use client";
+import { useRef } from "react";
+import { Brain, Sparkles } from "lucide-react";
+
+import React, { useState, useEffect } from "react";
+import {
+  ChevronRight,
+  Check,
+  TrendingUp,
+  Package,
+  Clock,
+  Shield,
+  Users,
+  BarChart3,
+  AlertCircle,
+  ArrowRight,
+  Zap,
+  Database,
+  RefreshCw,
+} from "lucide-react";
+import { Star } from "lucide-react";
 import { gsap } from "gsap";
-import HeroSection from "./garo/_components/hero-section";
-import FeatureSection from "./garo/_components/features-section";
-import BackgroundBlobs from "./components/ui/background-blobs";
-import IndustrySection from "./garo/_components/Industry-section";
-import HowGaroWorksSection from "./garo/_components/how-garo-works-section";
-import Footer from "./components/footer";
-import PricingSection from "./garo/_components/pricing-section";
-import BottomVillian from "./garo/_components/bottom-villian";
-import { NavBar } from "./components/ui/nav-bar";
+import CountUp from "react-countup";
+import Tilt from "react-parallax-tilt"; // For 3D tilt effect
+import HeroSection from "./garo/_components/hero-section.js";
+import FeatureSection from "./garo/_components/features-section.js";
+import BackgroundBlobs from "./components/ui/background-blobs.js";
+import IndustrySection from "./garo/_components/Industry-section.js";
+import HowGaroWorksSection from "./garo/_components/how-garo-works-section.js";
+import Footer from "./components/footer.js";
+import CoreFunctionality from "./garo/_components/core-functionality.js";
+import PricingSection from "./garo/_components/pricing-section.js";
+import BottomVillian from "./garo/_components/bottom-villian.js";
+import { NavBar } from "./components/ui/nav-bar.js";
 
 const GAROLandingPage = () => {
+  const [activeTab, setActiveTab] = useState("restaurants");
   const [scrolled, setScrolled] = useState(false);
   const [animatedStats, setAnimatedStats] = useState({
     waste: 0,
@@ -19,6 +43,7 @@ const GAROLandingPage = () => {
   });
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const logoRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -68,6 +93,61 @@ const GAROLandingPage = () => {
       stagger: 0.2,
     });
   }, []);
+
+  const industries = {
+    restaurants: {
+      title: "Restaurants & Food Chains",
+      icon: "🍴",
+      description:
+        "Slash food waste, extend shelf life, and keep kitchens stocked.",
+      benefits: [
+        "30% waste reduction",
+        "Smart FIFO/FEFO",
+        "Real-time demand prediction",
+      ],
+    },
+    hotels: {
+      title: "Hotels & Hospitality",
+      icon: "🏨",
+      description:
+        "Manage perishables, amenities, and maintenance parts seamlessly.",
+      benefits: [
+        "Predictive maintenance",
+        "Multi-location sync",
+        "Automated reordering",
+      ],
+    },
+    manufacturing: {
+      title: "Service & Manufacturing",
+      icon: "⚙️",
+      description:
+        "Predict equipment failures, optimise spare parts, and reduce downtime costs.",
+      benefits: [
+        "MTBF/MTTR tracking",
+        "Criticality scoring",
+        "Downtime prevention",
+      ],
+    },
+  };
+
+  const faqs = [
+    {
+      q: "What if I already use an ERP?",
+      a: "GARO works alongside ERPs—enhancing decision quality, not replacing tools.",
+    },
+    {
+      q: "Is it secure?",
+      a: "Fully GDPR-compliant with role-based access & encryption.",
+    },
+    {
+      q: "I'm a small business. Can I afford this?",
+      a: "Built for SMEs — minimal SKU requirements, instant ROI tracking, and flexible pricing.",
+    },
+    {
+      q: "How does GARO connect to my system?",
+      a: "GARO integrates directly with SquareUp POS via API or CSV upload.",
+    },
+  ];
 
   return (
     <div

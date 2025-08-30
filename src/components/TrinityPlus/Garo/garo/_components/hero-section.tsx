@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Tilt from "react-parallax-tilt";
 import CountUp from "react-countup";
 
@@ -24,7 +24,7 @@ const HeroSection = () => {
 
       <div className="relative z-10 mx-auto text-center max-w-7xl">
         {/* Decorative gradient line with subtle animation */}
-        <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] rounded-full opacity-90 animate-pulse"></div>
+        {/* <div className="absolute -z-10 -top-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] rounded-full opacity-40 animate-pulse"></div> */}
 
         {/* Headline with text reveal animation */}
         <h1 className="hero-title text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] bg-clip-text text-transparent leading-tight tracking-tight">
@@ -118,33 +118,6 @@ const HeroSection = () => {
           </Tilt>
         </div>
       </div>
-
-      <style>{`
-        @keyframes pulseSlow {
-          0%,
-          100% {
-            opacity: 0.4;
-          }
-          50% {
-            opacity: 0.6;
-          }
-        }
-        .animate-pulse-slow {
-          animation: pulseSlow 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-        .hero-title {
-          background-size: 200% auto;
-          animation: textShine 5s ease-in-out infinite alternate;
-        }
-        @keyframes textShine {
-          0% {
-            background-position: 0% 50%;
-          }
-          100% {
-            background-position: 100% 50%;
-          }
-        }
-      `}</style>
     </section>
   );
 };

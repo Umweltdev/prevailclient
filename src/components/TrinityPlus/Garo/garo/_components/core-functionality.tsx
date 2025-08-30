@@ -46,25 +46,35 @@ const features = [
 ];
 
 const CoreFunctionality = () => {
-  const listRefs = useRef([]);
+  const listRefs = useRef<(HTMLLIElement | null)[]>([]);
 
   useEffect(() => {
     listRefs.current.forEach((el, i) => {
       if (!el) return;
-      gsap.from(el, {
-        opacity: 0,
-        x: -50,
-        duration: 0.6,
-        ease: "power3.out",
-        delay: i * 0.15,
-        scrollTrigger: {
-          trigger: el,
-          start: "top 85%",
-          toggleActions: "play none none reverse",
-        },
-      });
+
+      gsap.fromTo(
+        el,
+        { opacity: 0, x: -50 },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.6,
+          ease: "power3.out",
+          delay: i * 0.15,
+          scrollTrigger: {
+            trigger: el,
+            start: "top 90%",   // fires a bit earlier so you see it
+            toggleActions: "play none none none", // don't auto-reverse on scroll back
+          },
+        }
+      );
     });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((st) => st.kill()); // clean up on unmount
+    };
   }, []);
+
 
   return (
     <section className="pt-20  px-6 relative overflow-hidden">

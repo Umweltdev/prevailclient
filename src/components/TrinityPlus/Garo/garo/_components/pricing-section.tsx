@@ -12,7 +12,7 @@ const PricingSection = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] rounded-full opacity-90 animate-pulse"></div>
+          {/* <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] rounded-full opacity-90 animate-pulse"></div> */}
           <h2 className="text-4xl sm:text-5xl font-extrabold mb-6 bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] bg-clip-text text-transparent hero-title">
             Simple, Transparent Pricing
           </h2>
@@ -215,33 +215,6 @@ const PricingSection = () => {
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes pulseSlow {
-          0%,
-          100% {
-            opacity: 0.4;
-          }
-          50% {
-            opacity: 0.6;
-          }
-        }
-        .animate-pulse-slow {
-          animation: pulseSlow 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-        .hero-title {
-          background-size: 200% auto;
-          animation: textShine 5s ease-in-out infinite alternate;
-        }
-        @keyframes textShine {
-          0% {
-            background-position: 0% 50%;
-          }
-          100% {
-            background-position: 100% 50%;
-          }
-        }
-      `}</style>
     </section>
   );
 };
