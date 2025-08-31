@@ -27,6 +27,7 @@ const drawerWidth = 240;
 const servicesData = [
   { text: "Services", link: "/service-landing-page" },
   { text: "Brand Identity", link: "/service/brand-identity-package" },
+  { text: "Trinity Plus", link: "/trinity/plus" },
   {
     text: "Custom Website Development",
     link: "/service/custom-website-development",
@@ -54,6 +55,28 @@ const servicesData = [
   },
 ];
 
+const trinityData = [
+  { text: "Trinity Core", link: "/trinity/core" },
+  { text: "Trinity Plus", link: "/trinity/plus" },
+  {
+    text: "Expense Manager",
+    link: "/trinity/expense-manager",
+  },
+  { text: "Garo", link: "/trinity/garo" },
+  {
+    text: "MCD",
+    link: "/trinity/mcd",
+  },
+  {
+    text: "RCD",
+    link: "/trinity/rcd",
+  },
+  {
+    text: "AED",
+    link: "/trinity/aed",
+  },
+];
+
 const exploreData = [
   { text: "Digital Ecosystem", link: "/explore/digital-ecosystem" },
   { text: "Customer Journey", link: "/explore/customer-journey" },
@@ -63,6 +86,7 @@ function AppBarNav({ color }) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [anchorElExplore, setAnchorElExplore] = React.useState(null);
   const [anchorElServices, setAnchorElServices] = React.useState(null);
+  const [anchorElTrinity, setAnchorElTrinity] = React.useState(null);
   const { isLoggedIn, isAdmin, dispatch } = React.useContext(AuthContext);
   const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = React.useState(false);
@@ -106,9 +130,14 @@ function AppBarNav({ color }) {
     setAnchorElExplore(event.currentTarget);
   };
 
+  const handleTrinityClick = (event) => {
+    setAnchorElTrinity(event.currentTarget);
+  };
+
   const handleClose = () => {
     setAnchorElServices(null);
     setAnchorElExplore(null);
+    setAnchorElTrinity(null);
   };
 
   const navItems = React.useMemo(
@@ -117,6 +146,7 @@ function AppBarNav({ color }) {
         ? [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
+            { label: "Trinity Plus", onClick: handleTrinityClick },
             // { label: "Blog", link: "/blog" },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
@@ -137,6 +167,7 @@ function AppBarNav({ color }) {
         : [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
+            { label: "Trinity Plus", onClick: handleTrinityClick },
             // { label: "Blog", link: "/blog" },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
@@ -152,6 +183,7 @@ function AppBarNav({ color }) {
         ? [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
+            { label: "Trinity Plus", onClick: handleTrinityClick },
             // { label: "Blog", link: "/blog" },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
@@ -171,6 +203,7 @@ function AppBarNav({ color }) {
         : [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
+            { label: "Trinity Plus", onClick: handleTrinityClick },
             // { label: "Blog", link: "/blog" },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
@@ -278,6 +311,9 @@ function AppBarNav({ color }) {
                     <ExpandMoreIcon sx={{ marginLeft: "5px" }} />
                   )}
                   {item.label === "Services" && (
+                    <ExpandMoreIcon sx={{ marginLeft: "5px" }} />
+                  )}
+                  {item.label === "Trinity Plus" && (
                     <ExpandMoreIcon sx={{ marginLeft: "5px" }} />
                   )}
                 </Button>
@@ -406,6 +442,48 @@ function AppBarNav({ color }) {
           </Link>
         ))}
       </Menu>
+      <Menu
+        anchorEl={anchorElTrinity}
+        open={Boolean(anchorElTrinity)}
+        onClose={handleClose}
+        sx={{ borderRadius: "50px" }}
+      >
+        {trinityData.map((data, i) =>
+          data.text === "MCD" || data.text === "RCD" ? (
+            <MenuItem
+              key={i}
+              disabled
+              sx={{
+                opacity: 0.7,
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+                fontWeight: 500,
+                color: "#6E3EF4",
+              }}
+            >
+              <span>{data.text}</span>
+              <span className="text-sm text-gray-500 flex items-center gap-1">
+                🚀 <em>Coming Soon</em>
+              </span>
+            </MenuItem>
+          ) : (
+            <Link
+              style={{
+                color: "#6E3EF4",
+                textDecoration: "none",
+                textAlign: "left",
+              }}
+              key={i}
+              to={data.link}
+              rel="canonical"
+            >
+              <MenuItem onClick={handleClose}>{data.text}</MenuItem>
+            </Link>
+          )
+        )}
+      </Menu>
+
       <Menu
         anchorEl={anchorElExplore}
         open={Boolean(anchorElExplore)}
