@@ -1,16 +1,8 @@
 import { Helmet } from "react-helmet";
-import SectionOne from "../components/About/SectionOne";
-import SectionThree from "../components/About/SectionThree";
 import SectionTwo from "../components/About/SectionTwo.jsx";
-import Navbar from "../components/Navbar/Navbar.jsx";
 import SectionFour from "../components/About/SectionFour.jsx";
-import Solutions from "../components/About/Solutions.jsx";
-import DrawerAppBar from "../components/Navbar/Appbar.jsx";
 import FooterNew from "../components/Footer/FooterNew.jsx";
-import AppBarOne from "../components/Navbar/Appbar.jsx";
-import SectionFive from "../components/About/SectionFive.jsx";
-import DrawerAppBarWhite from "../components/Navbar/Appbar.jsx";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext.jsx";
 import AboutUs from "../components/About/AboutUs.jsx";
 import WhyItMatters from "../components/About/WhyItMatters.jsx";
@@ -19,10 +11,8 @@ import FAQ from "../components/About/FAQ.jsx";
 import JoinOurCustomer from "../components/About/JoinOurCustomer.jsx";
 import AppBarNav from "../components/Navbar/Appbar.jsx";
 import SmoothScrollUp from "../components/utils/SmoothScrollUp.jsx";
-//import { Grid, Box } from "@mui/material";
 
-const About = (props) => {
-  const { isLoggedIn } = useContext(AuthContext);
+const About = () => {
 
   return (
     <>
