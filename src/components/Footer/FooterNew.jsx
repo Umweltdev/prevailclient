@@ -1,21 +1,9 @@
 import React from "react";
-import {
-  Box,
-  Grid,
-  Typography,
-  Button,
-  TextField,
-} from "@mui/material";
+import { Box, Grid, Typography, Button, TextField } from "@mui/material";
 import { styled } from "@mui/system";
 import img1 from "./assets/newlogo.svg";
 import Subscribe from "./Subscribe";
-import {
-  Facebook,
-  Instagram,
-  LinkedIn,
-  X,
-  YouTube,
-} from "@mui/icons-material";
+import { Facebook, Instagram, LinkedIn, X, YouTube } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
 const CustomButton = styled(Button)(({ theme }) => ({
@@ -84,6 +72,18 @@ const FooterNew = () => {
                 alt="Prevail Agency Logo"
                 style={{ marginBottom: "20px" }}
               />
+              <Typography
+                sx={{
+                  width: "269px",
+                  color: "#C1B2D5",
+                  fontSize: "16px",
+                  fontWeight: " 400",
+                  mb: "5px",
+                }}
+              >
+                Your Partner in Digital Success
+              </Typography>
+
               <Typography
                 sx={{
                   width: "269px",
@@ -265,7 +265,7 @@ const FooterNew = () => {
               },
             }}
           >
-            ©2023-2024 Prevailagency. All rights reserved
+            ©2025 Prevail Agency. All rights reserved
           </Typography>
           <Grid
             sx={{

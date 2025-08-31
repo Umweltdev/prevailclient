@@ -59,34 +59,77 @@ const SectionTwo = () => {
             },
           }}
         >
-          Our Mission
+          Our Story
         </Typography>
-        <Typography
-          sx={{
-            fontSize: "16px",
-            color: "#505660",
-            marginBottom: "3vh",
-            "@media (max-width: 600px)": {
-              fontSize: "4vw",
-              textAlign: "justify",
-              width: "90vw",
-            },
-          }}
-        >
-          Prevail is not just a marketing firm; we are architects of bespoke
-          solutions that fuse cutting-edge automation technology, profound
-          consumer insights, and state-of-the-art marketing tactics. <br />
-          <br /> Our approach transcends mere automation by integrating it with
-          robust data analytics and creative flair, crafting marketing
-          strategies that truly resonate with your target demographics. Our
-          holistic strategy ensures sustained growth, even amongst the most
-          challenging.
-        </Typography>
+        
+        <Box sx={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+          <Typography
+            sx={{
+              fontSize: "16px",
+              color: "#505660",
+              "@media (max-width: 600px)": {
+                fontSize: "4vw",
+                textAlign: "justify",
+              },
+            }}
+          >
+            Founded in 2021, Prevail Agency emerged from a simple observation:
+            Irish small businesses were being left behind by the digital
+            revolution.
+          </Typography>
+          
+          <Typography
+            sx={{
+              fontSize: "16px",
+              color: "#505660",
+              "@media (max-width: 600px)": {
+                fontSize: "4vw",
+                textAlign: "justify",
+              },
+            }}
+          >
+            While enterprise companies had access to cutting-edge
+            technology and automation, local businesses struggled with outdated
+            websites, manual processes, and disconnected systems.
+          </Typography>
+          
+          <Typography
+            sx={{
+              fontSize: "16px",
+              color: "#505660",
+              "@media (max-width: 600px)": {
+                fontSize: "4vw",
+                textAlign: "justify",
+              },
+            }}
+          >
+            <Box component="span" fontWeight="bold">
+              Our mission became clear:
+            </Box> Bridge the technology gap and give every
+            Irish business the tools they need to compete and thrive in the modern
+            economy.
+          </Typography>
+          
+          <Typography
+            sx={{
+              fontSize: "16px",
+              color: "#505660",
+              "@media (max-width: 600px)": {
+                fontSize: "4vw",
+                textAlign: "justify",
+              },
+            }}
+          >
+            Today, we're proud to be the trusted technology partner for over 200
+            Irish businesses, from boutique salons in Dublin to artisan bakeries
+            in Cork, helping them automate operations, increase revenue, and
+            deliver exceptional customer experiences.
+          </Typography>
+        </Box>
       </Grid>
+      
       <Box
-        className={`${styles.imageSlideIn} ${
-          inView ? styles.visible : ""
-        }`}
+        className={`${styles.imageSlideIn} ${inView ? styles.visible : ""}`}
         sx={{
           background: "#ECF1FA",
           width: "485px",
@@ -98,6 +141,7 @@ const SectionTwo = () => {
           "@media (max-width: 600px)": {
             width: "90vw",
             height: "auto",
+            minHeight: "200px",
           },
         }}
       >
@@ -109,8 +153,8 @@ const SectionTwo = () => {
             sx={{
               borderRadius: "14px",
               "@media (max-width: 600px)": {
-                width: "90vw",
-                height: "auto",
+                width: "90%",
+                height: "200px",
               },
             }}
           />
@@ -129,8 +173,7 @@ const SectionTwo = () => {
             height: "auto",
             display: imageLoaded ? "block" : "none",
             "@media (max-width: 600px)": {
-              maxWidth: "90vw",
-              width: "90vw",
+              maxWidth: "90%",
             },
           }}
         />

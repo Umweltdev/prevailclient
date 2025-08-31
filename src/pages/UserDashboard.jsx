@@ -1,7 +1,6 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Box, Grid, Container, Drawer } from "@mui/material";
-import DrawerAppBarWhite from "../components/Navbar/Appbar";
 import DashboardBox from "../components/user-dashboard/DashboardBox";
 import Profile from "../components/user-dashboard/Profile";
 import EditProfile from "../components/user-dashboard/Edit-Profile";
@@ -11,21 +10,17 @@ import Addresses from "../components/user-dashboard/Addresses";
 import Address from "../components/user-dashboard/Address";
 import SavedProperties from "../components/user-dashboard/SavedProperties";
 import FooterNew from "../components/Footer/FooterNew";
-import { AuthContext } from "../context/AuthContext";
 import Invoices from "../components/user-dashboard/Invoices";
 import Invoice from "../components/user-dashboard/Invoice";
 import AppBarNav from "../components/Navbar/Appbar";
-import Message from "../components/user-dashboard/Message";
-import CreateMessage from "../components/user-dashboard/Create-Message";
 import Question from "../components/user-dashboard/Question";
 import EditQuestion from "../components/user-dashboard/EditQuestion";
 // import Message from "../components/user-dashboard/Message";
 // import CreateMessage from "../components/user-dashboard/Create-Message";
 // import ViewMessage from "../components/user-dashboard/View-Message";
 
-const UserDashBoard = ({socket}) => {
+const UserDashBoard = () => {
   const [drawer, setDrawer] = useState(false);
-  const { isLoggedIn } = useContext(AuthContext);
   const openDrawer = () => {
     setDrawer(true);
   };
