@@ -49,6 +49,10 @@ const servicesData = [
     text: "Cost Calculation",
     link: "/service/cost-calculation",
   },
+   {
+    text: "Step Wizard",
+    link: "/service/stepWizardPage",
+  },
 ];
 
 const trinityData = [

@@ -126,6 +126,13 @@ const MainPage = () => {
           text="Get a valued based website based on your budget"
           url="/service/cost-calculation"
         />
+        <ImageTextService
+          imageUrl="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720088563/Branding_trrcgh.avif"
+          alt="Branding"
+          textHeader={"Step Wizard"}
+          text="Our "
+          url="/service/stepWizardPage"
+        />
       </Box>
     </Grid>
   );

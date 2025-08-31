@@ -17,6 +17,7 @@ import SpecializedStep from "./components/Services/CostCalculation/steps/Special
 import UniversalStep from "./components/Services/CostCalculation/steps/UniversalStep";
 import GetStartedStep from "./components/Services/CostCalculation/steps/GetStartedStep";
 
+
 // Lazy load pages and components
 const Landing = React.lazy(() => import("./pages/Landing"));
 const About = React.lazy(() => import("./pages/About"));
@@ -82,6 +83,7 @@ const MobStepper = React.lazy(() => import("./pages/MobStepper"));
 const UserDashBoard = React.lazy(() => import("./pages/UserDashboard"));
 const Profile = React.lazy(() => import("./components/user-dashboard/Profile"));
 const PrivacyPolicy = React.lazy(() => import("./pages/PrivacyPolicy"));
+const StepWizardPage = React.lazy(() => import("./pages/StepWizardPage"));
 const ResetPasswordForm = React.lazy(() =>
   import("./components/Form/ForgotPassword/ResetPasswordForm")
 );
@@ -141,6 +143,10 @@ function App() {
               <Route
                 path="/service/cost-calculation"
                 element={<CostCalculation />}
+              />
+              <Route
+                path="/service/stepWizardPage"
+                element={<StepWizardPage />}
               />
               <Route
                 path="/service/search-engine-marketing"
@@ -213,6 +219,10 @@ function App() {
               <Route
                 path="/Services/webmanagement"
                 element={<Navigate to="/service/website-development" />}
+              />
+              <Route
+                path="/Services/stepwizard"
+                element={<Navigate to="/service/stepWizardPage" />}
               />
               <Route
                 path="/Services/costcalculation"
