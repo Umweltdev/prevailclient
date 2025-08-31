@@ -15,7 +15,7 @@ const BottomVillian = () => {
         <div className="absolute -bottom-40 -left-32 w-80 h-80 bg-indigo-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse animation-delay-2000"></div>
       </div>
 
-      <div className="max-w-4xl mx-auto text-center relative z-10">
+      <div className="max-w-4xl mx-auto text-center relative ">
         <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-purple-400 to-indigo-400 rounded-full opacity-80"></div>
 
         <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
@@ -29,7 +29,7 @@ const BottomVillian = () => {
 
         <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
           <button className="relative px-8 py-4 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-xl text-lg font-semibold text-white hover:from-purple-600 hover:to-indigo-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl group overflow-hidden">
-            <span className="relative z-10 flex items-center justify-center">
+            <span className="relative  flex items-center justify-center">
               Simulate My Strategy
               <svg
                 className="inline ml-2 w-5 h-5 group-hover:animate-bounce"
@@ -50,7 +50,7 @@ const BottomVillian = () => {
           </button>
 
           <button className="relative px-8 py-4 border-2 border-purple-500 rounded-xl text-lg font-semibold text-purple-700 hover:bg-purple-500/10 hover:text-purple-800 transition-all duration-300 group overflow-hidden">
-            <span className="relative z-10">Book a Demo</span>
+            <span className="relative ">Book a Demo</span>
             <div className="absolute inset-0 bg-purple-500/5 group-hover:bg-purple-500/10 transition-colors duration-300"></div>
           </button>
         </div>

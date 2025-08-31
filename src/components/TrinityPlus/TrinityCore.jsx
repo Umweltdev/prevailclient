@@ -1,9 +1,8 @@
-import React from 'react'
+import "./TrinityCore/globals.css";
+import TrinityCore from "./TrinityCore/page.js";
 
 function Trinitycore() {
-  return (
-    <div>Trinity-core</div>
-  )
+  return <TrinityCore />;
 }
 
-export default Trinitycore
+export default Trinitycore;

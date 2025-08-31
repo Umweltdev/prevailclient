@@ -1,9 +1,8 @@
-import React from 'react'
+import "./TrinityPlus/globals.css";
+import TrinityPlusPage from "./TrinityPlus/page.js";
 
 function TrinityPlus() {
-  return (
-    <div>TrinityPlus</div>
-  )
+  return <TrinityPlusPage />;
 }
 
-export default TrinityPlus
+export default TrinityPlus;

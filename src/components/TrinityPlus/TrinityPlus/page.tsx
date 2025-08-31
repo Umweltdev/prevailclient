@@ -22,19 +22,17 @@ import { Star } from "lucide-react";
 import { gsap } from "gsap";
 import CountUp from "react-countup";
 import Tilt from "react-parallax-tilt"; // For 3D tilt effect
-import HeroSection from "./garo/_components/hero-section.js";
-import FeatureSection from "./garo/_components/features-section.js";
-import BackgroundBlobs from "./components/ui/background-blobs.js";
-import IndustrySection from "./garo/_components/Industry-section.js";
-import HowGaroWorksSection from "./garo/_components/how-garo-works-section.js";
-import Footer from "./components/footer.js";
-import CoreFunctionality from "./garo/_components/core-functionality.js";
-import PricingSection from "./garo/_components/pricing-section.js";
-import BottomVillian from "./garo/_components/bottom-villian.js";
+
 import { NavBar } from "./components/ui/nav-bar.js";
 import AppBarNav from "../../Navbar/Appbar.jsx";
+import CTASection from "./_components/CTASection.js";
+import StatsSection from "./_components/StatsSection.js";
+import SystemsSection from "./_components/CTASection.js";
+import Hero from "./_components/Hero.js";
+import FloatingElements from "./_components/FloatingElements.js";
+import "./globals.css";
 
-const GAROLandingPage = () => {
+const TrinityPlusPage = () => {
   const [activeTab, setActiveTab] = useState("restaurants");
   const [scrolled, setScrolled] = useState(false);
   const [animatedStats, setAnimatedStats] = useState({
@@ -175,23 +173,24 @@ const GAROLandingPage = () => {
       `}</style>
       {/* Navigation */}
       <AppBarNav color="#000" />
-
       {/* <NavBar /> */}
 
       <div className="relative bg-gradient-to-b from-gray-50 to-indigo-10">
         {/* Blobs behind hero */}
-        <BackgroundBlobs variant={1} />
-        <HeroSection />
+        {/* <FloatingElements /> */}
 
-        {/* Blobs behind features */}
-        <BackgroundBlobs variant={2} />
-        <FeatureSection />
+        {/* Page Sections */}
+        <Hero />
+        <SystemsSection />
+        <StatsSection />
+        <CTASection />
+        {/* <FeatureSection />
 
         <IndustrySection />
 
         <HowGaroWorksSection />
 
-        <PricingSection />
+        <PricingSection /> */}
       </div>
 
       {/* Industry Solutions */}
@@ -203,14 +202,8 @@ const GAROLandingPage = () => {
       {/* FAQ Section */}
 
       {/* Final CTA */}
-
-      <BottomVillian />
-
-      {/* Footer */}
-      {/* Footer */}
-      <Footer />
     </div>
   );
 };
 
-export default GAROLandingPage;
+export default TrinityPlusPage;

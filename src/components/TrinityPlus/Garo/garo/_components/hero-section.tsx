@@ -22,13 +22,21 @@ const HeroSection = () => {
     <section className="relative flex items-center min-h-screen px-4 pt-40 pb-16 overflow-hidden md:pt-20 sm:px-6 0">
       {/* Animated background blobs with parallax */}
 
-      <div className="relative z-10 mx-auto text-center max-w-7xl">
+      <div className="relative  mx-auto text-center max-w-7xl">
         {/* Decorative gradient line with subtle animation */}
-        {/* <div className="absolute -z-10 -top-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] rounded-full opacity-40 animate-pulse"></div> */}
+        {/* <div className="absolute - -top-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] rounded-full opacity-40 animate-pulse"></div> */}
 
         {/* Headline with text reveal animation */}
-        <h1 className="hero-title text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] bg-clip-text text-transparent leading-tight tracking-tight">
-          Evolve Your Restocking. Cut Waste <br /> Reduce Stockouts.
+        <h1
+          className="text-4xl sm:text-6xl md:text-7xl  font-extrabold mb-8 
+  bg-gradient-to-r from-[#6E3EF4] via-[#5A3DFB] to-[#409AFF] 
+  bg-clip-text text-transparent 
+  leading-[1.1] tracking-tight 
+  drop-shadow-[0_4px_12px_rgba(64,154,255,0.6)] 
+  animate-gradient"
+        >
+          <span className="block">Evolve Your Restocking.</span>
+          <span className="block">Cut Waste, Reduce Stockouts.</span>
         </h1>
 
         <p className="max-w-3xl mx-auto mb-10 text-base leading-relaxed text-gray-700 sm:text-lg md:text-xl">
@@ -46,7 +54,7 @@ const HeroSection = () => {
                 background: "linear-gradient(90deg, #6E3EF4 0%, #409AFF 100%)",
               }}
             >
-              <span className="relative z-10 flex items-center justify-center">
+              <span className="relative  flex items-center justify-center">
                 Simulate My Strategy
                 <svg
                   className="inline w-4 h-4 ml-2 sm:w-5 sm:h-5 group-hover:animate-bounce"
@@ -69,7 +77,7 @@ const HeroSection = () => {
 
           <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10}>
             <button className="relative inline-flex items-center justify-center min-w-[00200px] px-6 py-3 sm:min-w-0 sm:w-auto sm:px-8 sm:py-4 border-2 border-[#6E3EF4] rounded-lg sm:rounded-xl text-base sm:text-lg font-semibold text-[#6E3EF4] hover:bg-[#6E3EF4]/10 hover:text-[#409AFF] transition-all duration-300 group overflow-hidden">
-              <span className="relative z-10">Book Consultation (€40-€75)</span>
+              <span className="relative ">Book Consultation (€40-€75)</span>
               <div className="absolute inset-0 bg-[#6E3EF4]/5 group-hover:bg-[#6E3EF4]/15 transition-colors duration-300"></div>
             </button>
           </Tilt>

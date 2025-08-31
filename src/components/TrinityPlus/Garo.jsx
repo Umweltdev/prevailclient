@@ -1,13 +1,8 @@
-import { useEffect } from 'react'
-import GAROLandingPage from './Garo/page';
+import "./Garo/globals.css";
+import GAROLandingPage from "./Garo/page";
 
 function Garo() {
-     useEffect(() => {
-        import("./Garo/globals.css");
-    }, []);
-  return (
-    <GAROLandingPage/>
-  )
+  return <GAROLandingPage />;
 }
 
-export default Garo
+export default Garo;

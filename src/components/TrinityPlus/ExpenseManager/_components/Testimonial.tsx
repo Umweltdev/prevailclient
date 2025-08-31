@@ -1,6 +1,6 @@
-'use client'
-import React, { useState, useEffect, useRef } from 'react';
-import { Quote, Star, TrendingUp, Users, Award } from 'lucide-react';
+"use client";
+import React, { useState, useEffect, useRef } from "react";
+import { Quote, Star, TrendingUp, Users, Award } from "lucide-react";
 
 interface Testimonial {
   name: string;
@@ -23,30 +23,33 @@ const Testimonial: React.FC = () => {
     {
       name: "Sarah Chen",
       business: "Digital Marketing Agency",
-      quote: "Before Trinity, I was constantly stressed about cash flow. Now I can see 30 days ahead and never worry about making payroll.",
+      quote:
+        "Before Trinity, I was constantly stressed about cash flow. Now I can see 30 days ahead and never worry about making payroll.",
       metric: "Zero missed payments in 18 months",
       avatar: "SC",
       rating: 5,
-      industry: "Marketing"
+      industry: "Marketing",
     },
     {
       name: "Marcus Johnson",
-      business: "Construction Company", 
-      quote: "Trinity saved my business. It caught a cash crunch 3 weeks early and gave me options. Without it, I'd have defaulted on a major supplier.",
+      business: "Construction Company",
+      quote:
+        "Trinity saved my business. It caught a cash crunch 3 weeks early and gave me options. Without it, I'd have defaulted on a major supplier.",
       metric: "£45,000 in avoided emergency loans",
       avatar: "MJ",
       rating: 5,
-      industry: "Construction"
+      industry: "Construction",
     },
     {
       name: "Emma Williams",
       business: "Retail Chain",
-      quote: "The subscription model for distant expenses is genius. I'm funding expansion without blocking operational cash.",
+      quote:
+        "The subscription model for distant expenses is genius. I'm funding expansion without blocking operational cash.",
       metric: "3 new locations opened with optimal cash flow",
       avatar: "EW",
       rating: 5,
-      industry: "Retail"
-    }
+      industry: "Retail",
+    },
   ];
 
   // Intersection Observer for section visibility
@@ -78,7 +81,7 @@ const Testimonial: React.FC = () => {
 
   const handleTestimonialChange = (index: number) => {
     if (index === currentTestimonial) return;
-    
+
     setIsTransitioning(true);
     setTimeout(() => {
       setCurrentTestimonial(index);
@@ -89,7 +92,7 @@ const Testimonial: React.FC = () => {
   const currentData = testimonials[currentTestimonial];
 
   return (
-    <section 
+    <section
       ref={sectionRef}
       className="py-24 bg-slate-900 relative overflow-hidden"
     >
@@ -100,12 +103,16 @@ const Testimonial: React.FC = () => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-indigo-500/5 to-purple-500/5 rounded-full blur-3xl animate-pulse delay-2000"></div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-6 relative ">
         {/* Section Title */}
-        <div className={`
+        <div
+          className={`
           text-center mb-16 transform transition-all duration-1000 ease-out
-          ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}
-        `}>
+          ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
+          }
+        `}
+        >
           <div className="flex justify-center mb-6">
             <div className="p-3 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-2xl backdrop-blur-sm border border-purple-400/30">
               <Users className="w-8 h-8 text-purple-400" />
@@ -121,27 +128,39 @@ const Testimonial: React.FC = () => {
         </div>
 
         {/* Main Testimonial Card */}
-        <div 
+        <div
           className="max-w-5xl mx-auto"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          <div className={`
+          <div
+            className={`
             bg-gradient-to-br from-purple-500/20 to-blue-600/20 backdrop-blur-xl rounded-3xl p-12 
             border border-purple-400/30 shadow-2xl relative overflow-hidden
             transform transition-all duration-700 ease-out hover:scale-[1.02] hover:-translate-y-1
-            ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}
-          `}>
+            ${
+              isVisible
+                ? "translate-y-0 opacity-100"
+                : "translate-y-8 opacity-0"
+            }
+          `}
+          >
             {/* Floating quote icon */}
             <div className="absolute top-8 left-8 opacity-20">
               <Quote className="w-16 h-16 text-purple-400" />
             </div>
 
             {/* Content Container */}
-            <div className={`
+            <div
+              className={`
               transition-all duration-500 ease-in-out transform
-              ${isTransitioning ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}
-            `}>
+              ${
+                isTransitioning
+                  ? "opacity-0 translate-y-4"
+                  : "opacity-100 translate-y-0"
+              }
+            `}
+            >
               {/* Header Section */}
               <div className="flex flex-col md:flex-row justify-between items-start mb-8 gap-6">
                 {/* User Info */}
@@ -150,13 +169,22 @@ const Testimonial: React.FC = () => {
                     {currentData.avatar}
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-white mb-1">{currentData.name}</h3>
-                    <p className="text-gray-300 text-lg">{currentData.business}</p>
+                    <h3 className="text-2xl font-bold text-white mb-1">
+                      {currentData.name}
+                    </h3>
+                    <p className="text-gray-300 text-lg">
+                      {currentData.business}
+                    </p>
                     <div className="flex items-center gap-1 mt-2">
                       {[...Array(currentData.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                        <Star
+                          key={i}
+                          className="w-4 h-4 fill-yellow-400 text-yellow-400"
+                        />
                       ))}
-                      <span className="ml-2 text-sm text-gray-400">{currentData.industry}</span>
+                      <span className="ml-2 text-sm text-gray-400">
+                        {currentData.industry}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -165,9 +193,13 @@ const Testimonial: React.FC = () => {
                 <div className="bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-2xl p-6 backdrop-blur-sm border border-cyan-400/30 text-center min-w-64">
                   <div className="flex items-center justify-center mb-2">
                     <Award className="w-5 h-5 text-cyan-400 mr-2" />
-                    <span className="text-sm text-cyan-300 font-medium">Key Result</span>
+                    <span className="text-sm text-cyan-300 font-medium">
+                      Key Result
+                    </span>
                   </div>
-                  <div className="text-lg font-bold text-cyan-400">{currentData.metric}</div>
+                  <div className="text-lg font-bold text-cyan-400">
+                    {currentData.metric}
+                  </div>
                 </div>
               </div>
 
@@ -187,9 +219,10 @@ const Testimonial: React.FC = () => {
                   onClick={() => handleTestimonialChange(idx)}
                   className={`
                     transition-all duration-500 ease-out rounded-full
-                    ${currentTestimonial === idx 
-                      ? 'w-12 h-3 bg-gradient-to-r from-purple-500 to-blue-500 shadow-lg' 
-                      : 'w-3 h-3 bg-gray-600 hover:bg-gray-500'
+                    ${
+                      currentTestimonial === idx
+                        ? "w-12 h-3 bg-gradient-to-r from-purple-500 to-blue-500 shadow-lg"
+                        : "w-3 h-3 bg-gray-600 hover:bg-gray-500"
                     }
                   `}
                 />
@@ -203,10 +236,16 @@ const Testimonial: React.FC = () => {
           </div>
 
           {/* Trust Indicators */}
-          <div className={`
+          <div
+            className={`
             flex justify-center items-center gap-8 mt-12 transform transition-all duration-1000 ease-out delay-500
-            ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}
-          `}>
+            ${
+              isVisible
+                ? "translate-y-0 opacity-100"
+                : "translate-y-8 opacity-0"
+            }
+          `}
+          >
             <div className="flex items-center gap-2 text-gray-400">
               <TrendingUp className="w-5 h-5 text-green-400" />
               <span className="text-sm">98% Customer Satisfaction</span>

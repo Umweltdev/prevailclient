@@ -1,13 +1,8 @@
-import { useEffect } from 'react'
-import AEDLandingPage from './AedComponents/page.js'
+import "./AedComponents/globals.css";
+import AEDLandingPage from "./AedComponents/page.js";
 
 function Aed() {
-    useEffect(() => {
-        import("./AedComponents/globals.css");
-    }, []);
-  return (
-    <AEDLandingPage/>
-  )
+  return <AEDLandingPage />;
 }
 
-export default Aed
+export default Aed;

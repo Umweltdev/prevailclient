@@ -100,7 +100,7 @@ export const HowGaroWorksFade = () => {
       {/* Only dark gradient background */}
       <div className="absolute inset-0 z-0 bg-gradient-to-b from-slate-900 to-indigo-950" />
 
-      <div className="relative z-10 mx-auto max-w-7xl">
+      <div className="relative  mx-auto max-w-7xl">
         <h2 className="mb-12 text-4xl font-bold text-center text-transparent bg-gradient-to-r from-purple-400 to-indigo-100 bg-clip-text">
           How GARO Works
         </h2>
@@ -125,7 +125,7 @@ export const HowGaroWorksCard = () => {
         {/* Dark background inside the card */}
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-indigo-950" />
 
-        <div className="relative z-10 p-12">
+        <div className="relative  p-12">
           <h2 className="mb-12 text-4xl font-bold text-center text-transparent bg-gradient-to-r from-purple-400 to-indigo-100 bg-clip-text">
             How GARO Works
           </h2>

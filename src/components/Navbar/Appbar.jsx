@@ -133,7 +133,7 @@ function AppBarNav({ color }) {
   const handleClose = () => {
     setAnchorElServices(null);
     setAnchorElExplore(null);
-    setAnchorElTrinity(null)
+    setAnchorElTrinity(null);
   };
 
   const navItems = React.useMemo(
@@ -444,21 +444,42 @@ function AppBarNav({ color }) {
         onClose={handleClose}
         sx={{ borderRadius: "50px" }}
       >
-        {trinityData.map((data, i) => (
-          <Link
-            style={{
-              color: "#6E3EF4",
-              textDecoration: "none",
-              textAlign: "left",
-            }}
-            key={i}
-            to={data.link}
-            rel="canonical"
-          >
-            <MenuItem onClick={handleClose}>{data.text}</MenuItem>
-          </Link>
-        ))}
+        {trinityData.map((data, i) =>
+          data.text === "MCD" || data.text === "RCD" ? (
+            <MenuItem
+              key={i}
+              disabled
+              sx={{
+                opacity: 0.7,
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+                fontWeight: 500,
+                color: "#6E3EF4",
+              }}
+            >
+              <span>{data.text}</span>
+              <span className="text-sm text-gray-500 flex items-center gap-1">
+                🚀 <em>Coming Soon</em>
+              </span>
+            </MenuItem>
+          ) : (
+            <Link
+              style={{
+                color: "#6E3EF4",
+                textDecoration: "none",
+                textAlign: "left",
+              }}
+              key={i}
+              to={data.link}
+              rel="canonical"
+            >
+              <MenuItem onClick={handleClose}>{data.text}</MenuItem>
+            </Link>
+          )
+        )}
       </Menu>
+
       <Menu
         anchorEl={anchorElExplore}
         open={Boolean(anchorElExplore)}

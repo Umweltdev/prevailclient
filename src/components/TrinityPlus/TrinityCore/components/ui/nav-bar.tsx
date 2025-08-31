@@ -35,7 +35,7 @@ export function NavBar({
 
   return (
     <div
-      className={`w-full fixed top-0 left-0 z-50 transition-all duration-300 
+      className={`w-full fixed top-0 left-0  transition-all duration-300 
         ${scrolled ? "backdrop-blur-md py-2" : "py-4"}
       `}
     >

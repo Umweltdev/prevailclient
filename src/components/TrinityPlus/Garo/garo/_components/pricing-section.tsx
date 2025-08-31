@@ -9,11 +9,11 @@ const PricingSection = () => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(110,62,244,0.08),transparent_50%)] pointer-events-none"></div>
       <div className="absolute top-0 left-1/2 w-96 h-96 bg-[#6E3EF4]/20 rounded-full blur-3xl animate-pulse-slow"></div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative ">
         {/* Header */}
         <div className="text-center mb-16">
           {/* <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] rounded-full opacity-90 animate-pulse"></div> */}
-          <h2 className="text-4xl sm:text-5xl font-extrabold mb-6 bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] bg-clip-text text-transparent hero-title">
+          <h2 className="text-4xl sm:text-5xl font-extrabold mb-6 bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] bg-clip-text text-transparent heritle">
             Simple, Transparent Pricing
           </h2>
           <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
@@ -72,7 +72,7 @@ const PricingSection = () => {
               </div>
 
               <button className="w-full py-4 bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] rounded-xl font-bold text-white hover:from-[#5B2CCF] hover:to-[#2D7BE5] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#6E3EF4]/25 hover:scale-[1.02] active:scale-[0.98] relative overflow-hidden group/btn">
-                <span className="relative z-10">Secure Your Spot</span>
+                <span className="relative ">Secure Your Spot</span>
                 <div className="absolute inset-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 group-hover/btn:left-full transition-all duration-500"></div>
               </button>
             </div>
@@ -133,7 +133,7 @@ const PricingSection = () => {
               </div>
 
               <button className="w-full py-4 bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] rounded-xl font-bold text-white hover:from-[#5B2CCF] hover:to-[#2D7BE5] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#6E3EF4]/25 hover:scale-[1.02] active:scale-[0.98] relative overflow-hidden group/btn">
-                <span className="relative z-10">Get Started Now</span>
+                <span className="relative ">Get Started Now</span>
                 <div className="absolute inset-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 group-hover/btn:left-full transition-all duration-500"></div>
               </button>
             </div>
@@ -187,7 +187,7 @@ const PricingSection = () => {
               </div>
 
               <button className="w-full py-4 bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] rounded-xl font-bold text-white hover:from-[#5B2CCF] hover:to-[#2D7BE5] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#6E3EF4]/25 hover:scale-[1.02] active:scale-[0.98] relative overflow-hidden group/btn">
-                <span className="relative z-10">Reserve Your License</span>
+                <span className="relative ">Reserve Your License</span>
                 <div className="absolute inset-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 group-hover/btn:left-full transition-all duration-500"></div>
               </button>
             </div>

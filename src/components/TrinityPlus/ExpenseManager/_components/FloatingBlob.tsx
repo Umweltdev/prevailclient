@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
 interface Blob {
   x: number;
@@ -20,7 +20,7 @@ const FloatingBlobs = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     let animationFrameId: number;
@@ -36,13 +36,15 @@ const FloatingBlobs = () => {
     const initBlobs = () => {
       blobs = [];
       const blobCount = Math.max(3, Math.floor(window.innerWidth / 400)); // More blobs on larger screens
-      
+
       for (let i = 0; i < blobCount; i++) {
         blobs.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
           radius: 100 + Math.random() * 150, // Random size
-          color: `rgba(${120 + Math.random() * 50}, ${80 + Math.random() * 100}, ${200 + Math.random() * 55}, ${0.15 + Math.random() * 0.1})`,
+          color: `rgba(${120 + Math.random() * 50}, ${
+            80 + Math.random() * 100
+          }, ${200 + Math.random() * 55}, ${0.15 + Math.random() * 0.1})`,
           speedX: (Math.random() - 0.5) * 0.5,
           speedY: (Math.random() - 0.5) * 0.5,
           noiseX: Math.random() * 1000,
@@ -54,11 +56,11 @@ const FloatingBlobs = () => {
     // Draw a single blob with fluffy appearance
     const drawBlob = (blob: Blob) => {
       ctx.beginPath();
-      
+
       // Create a fluffy blob using multiple Bezier curves
       const numPoints = 12;
-      const points: {x: number, y: number}[] = [];
-      
+      const points: { x: number; y: number }[] = [];
+
       for (let i = 0; i < numPoints; i++) {
         const angle = (i / numPoints) * Math.PI * 2;
         const variation = 0.8 + Math.random() * 0.4;
@@ -66,40 +68,44 @@ const FloatingBlobs = () => {
         const y = blob.y + Math.sin(angle) * blob.radius * variation;
         points.push({ x, y });
       }
-      
+
       // Draw the blob with curved edges
       ctx.moveTo(points[0].x, points[0].y);
-      
+
       for (let i = 0; i < numPoints; i++) {
         const nextIndex = (i + 1) % numPoints;
         const controlPointX = (points[i].x + points[nextIndex].x) / 2;
         const controlPointY = (points[i].y + points[nextIndex].y) / 2;
-        
+
         ctx.quadraticCurveTo(
-          points[i].x, 
-          points[i].y, 
-          controlPointX, 
+          points[i].x,
+          points[i].y,
+          controlPointX,
           controlPointY
         );
       }
-      
+
       ctx.closePath();
-      
+
       // Create gradient fill
       const gradient = ctx.createRadialGradient(
-        blob.x, blob.y, 0,
-        blob.x, blob.y, blob.radius
+        blob.x,
+        blob.y,
+        0,
+        blob.x,
+        blob.y,
+        blob.radius
       );
       gradient.addColorStop(0, blob.color);
-      gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
-      
+      gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
+
       ctx.fillStyle = gradient;
       ctx.fill();
-      
+
       // Add a subtle blur effect
-      ctx.filter = 'blur(15px)';
+      ctx.filter = "blur(15px)";
       ctx.fill();
-      ctx.filter = 'none';
+      ctx.filter = "none";
     };
 
     // Simple Perlin noise implementation
@@ -109,15 +115,15 @@ const FloatingBlobs = () => {
 
     // Update blob positions with Perlin noise for smooth movement
     const updateBlobs = () => {
-      blobs.forEach(blob => {
+      blobs.forEach((blob) => {
         // Use Perlin noise for smooth, natural movement
         blob.noiseX += 0.01;
         blob.noiseY += 0.01;
-        
+
         // Update position with noise-based movement
         blob.x += blob.speedX + (noise(blob.noiseX) - 0.5) * 0.6;
         blob.y += blob.speedY + (noise(blob.noiseY) - 0.5) * 0.6;
-        
+
         // Bounce off edges
         if (blob.x < -blob.radius) blob.x = canvas.width + blob.radius;
         if (blob.x > canvas.width + blob.radius) blob.x = -blob.radius;
@@ -129,13 +135,13 @@ const FloatingBlobs = () => {
     // Animation loop
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
+
       // Draw all blobs
       blobs.forEach(drawBlob);
-      
+
       // Update positions
       updateBlobs();
-      
+
       // Continue animation
       animationFrameId = requestAnimationFrame(animate);
     };
@@ -153,20 +159,20 @@ const FloatingBlobs = () => {
       animate();
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     // Cleanup
     return () => {
       cancelAnimationFrame(animationFrameId);
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   return (
     <canvas
       ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-full animate-pulse -z-10 pointer-events-none"
-      style={{ background: 'transparent' }}
+      className="fixed top-0 left-0 w-full h-full animate-pulse - pointer-events-none"
+      style={{ background: "transparent" }}
     />
   );
 };

@@ -1,5 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { CheckCircle, Target, Shield, TrendingUp, DollarSign } from 'lucide-react';
+import React, { useState, useEffect, useRef } from "react";
+import {
+  CheckCircle,
+  Target,
+  Shield,
+  TrendingUp,
+  DollarSign,
+} from "lucide-react";
 
 interface BenefitCardProps {
   icon: React.ReactNode;
@@ -11,14 +17,14 @@ interface BenefitCardProps {
   delay: number;
 }
 
-const BenefitCard: React.FC<BenefitCardProps> = ({ 
-  icon, 
-  title, 
-  description, 
-  gradient, 
-  border, 
+const BenefitCard: React.FC<BenefitCardProps> = ({
+  icon,
+  title,
+  description,
+  gradient,
+  border,
   iconColor,
-  delay 
+  delay,
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
@@ -48,11 +54,8 @@ const BenefitCard: React.FC<BenefitCardProps> = ({
         ${gradient} backdrop-blur-sm rounded-2xl p-8 ${border}
         transform transition-all duration-700 ease-out cursor-pointer
         hover:scale-105 hover:-translate-y-2 hover:shadow-2xl
-        ${isVisible 
-          ? 'translate-y-0 opacity-100' 
-          : 'translate-y-8 opacity-0'
-        }
-        ${isHovered ? 'shadow-lg' : ''}
+        ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}
+        ${isHovered ? "shadow-lg" : ""}
         group relative overflow-hidden
       `}
       onMouseEnter={() => setIsHovered(true)}
@@ -62,32 +65,38 @@ const BenefitCard: React.FC<BenefitCardProps> = ({
       <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500">
         <div className={`absolute inset-0 ${gradient} blur-xl`}></div>
       </div>
-      
+
       {/* Content */}
-      <div className="relative z-10">
-        <div className={`
+      <div className="relative ">
+        <div
+          className={`
           ${iconColor} mb-6 transform transition-all duration-500
           group-hover:scale-110 group-hover:rotate-12
-          ${isVisible ? 'animate-pulse' : ''}
-        `}>
+          ${isVisible ? "animate-pulse" : ""}
+        `}
+        >
           {icon}
         </div>
-        
-        <h3 className={`
+
+        <h3
+          className={`
           text-xl font-bold mb-3 transition-all duration-300
-          ${isHovered ? 'text-slate-600' : 'text-slate-900'}
-        `}>
+          ${isHovered ? "text-slate-600" : "text-slate-900"}
+        `}
+        >
           {title}
         </h3>
-        
-        <p className={`
+
+        <p
+          className={`
           leading-relaxed transition-all duration-300
-          ${isHovered ? 'text-gray-900' : 'text-gray-600'}
-        `}>
+          ${isHovered ? "text-gray-900" : "text-gray-600"}
+        `}
+        >
           {description}
         </p>
       </div>
-      
+
       {/* Hover effect border */}
       <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
@@ -121,39 +130,43 @@ const Benefit: React.FC = () => {
     {
       icon: <CheckCircle size={40} />,
       title: "Never Miss Payroll",
-      description: "Trinity ensures employee payments are always protected and prioritized.",
+      description:
+        "Trinity ensures employee payments are always protected and prioritized.",
       gradient: "bg-gradient-to-br from-emerald-500/20 to-green-600/20",
       border: "border border-emerald-400/30",
       iconColor: "text-emerald-400",
-      delay: 100
+      delay: 100,
     },
     {
       icon: <Target size={40} />,
       title: "30-Day Visibility",
-      description: "See exactly what you can spend today while guaranteeing future obligations.",
+      description:
+        "See exactly what you can spend today while guaranteeing future obligations.",
       gradient: "bg-gradient-to-br from-blue-500/20 to-cyan-600/20",
       border: "border border-blue-400/30",
       iconColor: "text-blue-400",
-      delay: 200
+      delay: 200,
     },
     {
       icon: <Shield size={40} />,
       title: "Emergency Protected",
-      description: "Always maintains minimum operational cash for unexpected needs.",
+      description:
+        "Always maintains minimum operational cash for unexpected needs.",
       gradient: "bg-gradient-to-br from-purple-500/20 to-violet-600/20",
       border: "border border-purple-400/30",
       iconColor: "text-purple-400",
-      delay: 300
+      delay: 300,
     },
     {
       icon: <TrendingUp size={40} />,
       title: "Reduce Debt Costs",
-      description: "Avoid expensive emergency loans by planning weeks in advance.",
+      description:
+        "Avoid expensive emergency loans by planning weeks in advance.",
       gradient: "bg-gradient-to-br from-orange-500/20 to-amber-600/20",
       border: "border border-orange-400/30",
       iconColor: "text-orange-400",
-      delay: 400
-    }
+      delay: 400,
+    },
   ];
 
   return (
@@ -164,20 +177,21 @@ const Benefit: React.FC = () => {
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
       <div className="flex justify-center mb-6">
-            <div className="p-4 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 rounded-3xl backdrop-blur-sm border border-purple-400/30 relative">
-            <DollarSign className="w-8 h-8 text-purple-400 animate-pulse" />
-            <div className="absolute -top-1 -right-1 w-3 h-3 bg-cyan-400 rounded-full animate-ping"></div>
-            </div>
+        <div className="p-4 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 rounded-3xl backdrop-blur-sm border border-purple-400/30 relative">
+          <DollarSign className="w-8 h-8 text-purple-400 animate-pulse" />
+          <div className="absolute -top-1 -right-1 w-3 h-3 bg-cyan-400 rounded-full animate-ping"></div>
         </div>
-      <div className="container mx-auto px-6 relative z-10">
+      </div>
+      <div className="container mx-auto px-6 relative ">
         {/* Animated title section */}
-        <div 
+        <div
           ref={titleRef}
           className={`
             text-center mb-16 transform transition-all duration-1000 ease-out
-            ${titleVisible 
-              ? 'translate-y-0 opacity-100' 
-              : 'translate-y-12 opacity-0'
+            ${
+              titleVisible
+                ? "translate-y-0 opacity-100"
+                : "translate-y-12 opacity-0"
             }
           `}
         >

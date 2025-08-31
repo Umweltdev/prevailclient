@@ -63,7 +63,7 @@ const CoreFunctionality = () => {
           delay: i * 0.15,
           scrollTrigger: {
             trigger: el,
-            start: "top 90%",   // fires a bit earlier so you see it
+            start: "top 90%", // fires a bit earlier so you see it
             toggleActions: "play none none none", // don't auto-reverse on scroll back
           },
         }
@@ -75,10 +75,9 @@ const CoreFunctionality = () => {
     };
   }, []);
 
-
   return (
     <section className="pt-20  px-6 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative ">
         <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-purple-400 to-indigo-200 bg-clip-text text-transparent">
           Core Functionality
         </h2>

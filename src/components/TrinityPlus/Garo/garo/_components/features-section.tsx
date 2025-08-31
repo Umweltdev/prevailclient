@@ -5,9 +5,8 @@ const FeatureSection = () => {
   return (
     <section className="py-20  relative overflow-hidden ">
       {/* Section background with gradient */}
-      
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 relative ">
         {/* Heading (optional, looks gucci with context) */}
         <div className="text-center mb-14">
           <h2 className="text-3xl font-bold text-slate-800">Why Choose Us</h2>
