@@ -49,7 +49,7 @@ const servicesData = [
     text: "Cost Calculation",
     link: "/service/cost-calculation",
   },
-   {
+  {
     text: "Step Wizard",
     link: "/service/stepWizardPage",
   },
@@ -457,15 +457,11 @@ function AppBarNav({ color }) {
                 opacity: 0.7,
                 display: "flex",
                 alignItems: "center",
-                gap: 1,
                 fontWeight: 500,
                 color: "#6E3EF4",
               }}
             >
-              <span>{data.text}</span>
-              <span className="text-sm text-gray-500 flex items-center gap-1">
-                🚀 <em>Coming Soon</em>
-              </span>
+              {data.text}
             </MenuItem>
           ) : (
             <Link
