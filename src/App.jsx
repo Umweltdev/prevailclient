@@ -158,7 +158,7 @@ function App() {
                 path="/service/digital-accelerator-bundle/empower-your-business"
                 element={<EmpowerYourBussiness />}
               />
-              <Route path="/trinity" element={<Trinitycore />} />
+              <Route path="/trinity/core" element={<Trinitycore />} />
               <Route path="/trinity/plus" element={<TrinityPlus />} />
               <Route path="/trinity/expense-manager" element={<ExpenseManager />} />
               <Route path="/trinity/garo" element={<Garo />} />

@@ -8,11 +8,14 @@ import SectionTwo from "../components/Landing/SectionTwo";
 import CoreValues from "../components/Landing/CoreValues";
 import AppBarNav from "../components/Navbar/Appbar";
 import JoinCustomers from "../components/About/JoinOurCustomer";
-import "./pages.css";
 import SmoothScrollUp from "../components/utils/SmoothScrollUp";
 import ExternalLinks from "../components/Landing/ExternalLinks";
+import { useEffect } from "react";
 
 const Landing = () => {
+  useEffect(()=>{
+    import ("./pages.css");
+  }, [])
   return (
     <div style={{ overflowX: "hidden" }}>
       <Helmet>
