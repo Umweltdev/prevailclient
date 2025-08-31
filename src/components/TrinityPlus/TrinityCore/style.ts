@@ -1,3 +1,4 @@
+export const styles = `
 * {
   margin: 0;
   padding: 0;
@@ -1426,3 +1427,5 @@ h1 {
 .section-space {
   margin-top: 75px;
 }
+
+`

@@ -30,7 +30,7 @@ import StatsSection from "./_components/StatsSection.js";
 import SystemsSection from "./_components/SystemsSection.js";
 import Hero from "./_components/Hero.js";
 import FloatingElements from "./_components/FloatingElements.js";
-import "./globals.css";
+// import "./globals.css";
 
 const TrinityPlusPage = () => {
   const [activeTab, setActiveTab] = useState("restaurants");
