@@ -449,21 +449,6 @@ function AppBarNav({ color }) {
         sx={{ borderRadius: "50px" }}
       >
         {trinityData.map((data, i) =>
-          data.text === "MCD" || data.text === "RCD" ? (
-            <MenuItem
-              key={i}
-              disabled
-              sx={{
-                opacity: 0.7,
-                display: "flex",
-                alignItems: "center",
-                fontWeight: 500,
-                color: "#6E3EF4",
-              }}
-            >
-              {data.text}
-            </MenuItem>
-          ) : (
             <Link
               style={{
                 color: "#6E3EF4",
@@ -476,7 +461,6 @@ function AppBarNav({ color }) {
             >
               <MenuItem onClick={handleClose}>{data.text}</MenuItem>
             </Link>
-          )
         )}
       </Menu>
 
