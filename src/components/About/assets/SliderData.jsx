@@ -1,7 +1,4 @@
-import focus from "../assets/focus.svg";
-import announcement from "../assets/announcement.svg";
-import folder from "../assets/folder.svg";
-import { AddTask, BarChart, Campaign, ChatRounded, CreditScore, Nat, QueryStats, Storefront, TextSnippet, TravelExplore, TrendingUp } from "@mui/icons-material";
+import { AddTask, BarChart, Campaign, CreditScore, Nat, QueryStats, Storefront, TextSnippet, TravelExplore, TrendingUp } from "@mui/icons-material";
 
 export const sliderData = [
   {
