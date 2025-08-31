@@ -106,7 +106,14 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="hero">
+    <section
+      style={{
+        background: "transparent",
+        border: "none",
+        boxShadow: "none",
+      }}
+      className="hero section-alt  "
+    >
       <div className="hero-content container">
         {/* Pricing Alert */}
         <div className="pricing-alert">
