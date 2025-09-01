@@ -353,6 +353,7 @@ const SolutionChoice = ({ solutionType, setSolutionType, nextStep, setTrinitySel
   const [type, setType] = useState(null)
   const [id,setId] = useState(null)
   const [val, setVal]=useState(null)
+  const [selected, setSelected] = useState(null)
   return(
   <Fade in timeout={500}>
     <Box>
@@ -372,8 +373,9 @@ const SolutionChoice = ({ solutionType, setSolutionType, nextStep, setTrinitySel
         {solutionTypes.map((solution, i) => (
           <Grid item xs={12} md={4} key={i}>
             <SelectableCard
-              selected={solutionType === solution.id}
+              selected={selected === i}
               onClick={() => {
+                setSelected(i)
                 setSolutionType(solution.id)
                 setVal(solution.name)
                 setType(solution.id)
