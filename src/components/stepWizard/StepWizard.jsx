@@ -46,7 +46,7 @@ import {
 } from "./api";
 
 // STRIPE INITIALIZATION & CONSTANT DATA
-const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_TEST_KEY);
+const stripePromise = loadStripe("pk_test_51OsCJ5P1A39VkufThp1PVDexesvf2XAY8faTyK0uucC1qRl9NW9QkpBdwXQDyjCAjzL166zjMWNn5Zr25ZkaQJVi00vurq61mj");
 const betaDaysRemaining = 10;
 const ALL_TRINITY_OPTIONS = [
   {

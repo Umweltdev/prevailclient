@@ -2,7 +2,7 @@ export const createCheckoutSession = async (checkoutData) => {
   const baseUrl = import.meta.env.VITE_APP_BASE_URL;
 
   try {
-    const response = await fetch(import.meta.env.VITE_CREATE_CHECKOUT, {
+    const response = await fetch("https://prevail-services-e973123f8b1e.herokuapp.com/api/create-checkout-session", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
