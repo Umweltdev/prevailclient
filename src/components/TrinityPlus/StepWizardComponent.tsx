@@ -416,7 +416,7 @@ const SolutionChoice = ({ solutionType, setSolutionType, nextStep, setTrinitySel
           // nextStep(4);
           setSolutionType(type);
           setTrinitySelectionId(val === 'Trinity Plus' ? 'trinity-plus' : val === 'Trinity Core' ? 'trinity-core' : null)
-          val === 'Trinity Plus' ? setCurrentStep(4) : val === 'Trinity Core' ? setCurrentStep(4) : nextStep()
+          val === 'Trinity Plus' ? setCurrentStep(3) : val === 'Trinity Core' ? setCurrentStep(4) : nextStep()
           
         }}
         disabled={!solutionType}
@@ -640,7 +640,11 @@ const TrinityPackages = ({
         sx={{ mb: 4, color: "white", bgcolor: "#D92D20" }}
       />
       <Grid container spacing={3} sx={{ mb: 4 }}>
-        {ALL_TRINITY_OPTIONS.map((option) => (
+        {ALL_TRINITY_OPTIONS.map((option) => {
+          if(option.id === 'trinity-core' || option.id === 'trinity-plus'){
+            return;
+          }
+          return (
           <Grid
             item
             xs={12}
@@ -746,7 +750,8 @@ const TrinityPackages = ({
               </Grid>
             </SelectableCard>
           </Grid>
-        ))}
+        )
+        })}
       </Grid>
       <Box display="flex" gap={2}>
         <Button
@@ -784,7 +789,7 @@ const StoreType = ({
   nextStep,
   prevStep,
 }) => {
-  const needsStoreInfo = false
+  const needsStoreInfo = trinitySelectionId === "trinity-plus" || trinitySelectionId === "garo";
   useEffect(() => {
     if (!needsStoreInfo) nextStep();
   }, [needsStoreInfo, nextStep]);
@@ -1003,6 +1008,8 @@ const FinalSummary = ({
   handleCheckout,
   isProcessing,
   calculateRunningTotal,
+  setCurrentStep,
+  setHasPhysicalStore
 }) => {
   const trinitySelection = ALL_TRINITY_OPTIONS.find(
     (opt) => opt.id === trinitySelectionId
@@ -1192,7 +1199,18 @@ const FinalSummary = ({
                 <Button
                   variant="outlined"
                   fullWidth
-                  onClick={prevStep}
+                  onClick={()=>{
+                    if(trinitySelectionId === 'trinity-core'){
+                       setCurrentStep(1)
+                    }else if(trinitySelectionId === 'trinity-core' || trinitySelectionId === 'garo'){
+                      setHasPhysicalStore(null)
+                       setCurrentStep(3)
+                    }
+                    else{
+                      setHasPhysicalStore(null)
+                        setCurrentStep(2)
+                    }
+                  }}
                   startIcon={<ChevronLeft />}
                 >
                   Back
@@ -1523,6 +1541,8 @@ const StepWizard = () => {
             handleCheckout,
             isProcessing,
             calculateRunningTotal,
+            setCurrentStep,
+            setHasPhysicalStore
           }}
         />
       );
