@@ -52,7 +52,7 @@ const ALL_TRINITY_OPTIONS = [
     icon: "💰",
     description:
       "AI-powered financial planning that ensures you never run out of cash",
-    betaPrice: 200,
+    betaPrice: 232,
     earlyPrice: 500,
     standardPrice: 1500,
     features: [
@@ -69,7 +69,7 @@ const ALL_TRINITY_OPTIONS = [
     icon: "📈",
     description:
       "Marketing Cost Displacement - automatically adjusts prices based on ad spend",
-    betaPrice: 200,
+    betaPrice: 232,
     earlyPrice: 500,
     standardPrice: 1500,
     features: [
@@ -86,7 +86,7 @@ const ALL_TRINITY_OPTIONS = [
     icon: "🎯",
     description:
       "Returning Customer Discounts - creates viral loyalty networks",
-    betaPrice: 200,
+    betaPrice: 232,
     earlyPrice: 500,
     standardPrice: 1500,
     features: [
@@ -103,7 +103,7 @@ const ALL_TRINITY_OPTIONS = [
     icon: "🧬",
     description:
       "Genetic Algorithm Restocking Optimizer - evolves perfect inventory decisions",
-    betaPrice: 200,
+    betaPrice: 2089,
     earlyPrice: 500,
     standardPrice: 1500,
     features: [
@@ -121,7 +121,7 @@ const ALL_TRINITY_OPTIONS = [
     icon: "🚀",
     description:
       "Advertising Efficiency Dashboard - unifies and optimizes all ad platforms",
-    betaPrice: 200,
+    betaPrice: 232,
     earlyPrice: 500,
     standardPrice: 1500,
     features: [
@@ -137,7 +137,7 @@ const ALL_TRINITY_OPTIONS = [
     name: "Trinity Core Package",
     icon: "⚡",
     description: "Essential business intelligence: Expense Manager + MCD + RCD",
-    betaPrice: 600,
+    betaPrice: 696,
     earlyPrice: 1500,
     standardPrice: 4500,
     includes: ["💰 Expense Manager", "📈 MCD System", "🎯 RCD System"],
@@ -150,7 +150,7 @@ const ALL_TRINITY_OPTIONS = [
     name: "Trinity Plus Package",
     icon: "🌟",
     description: "Complete suite: All 5 systems working in perfect harmony",
-    betaPrice: 1000,
+    betaPrice: 1159,
     earlyPrice: 2500,
     standardPrice: 7500,
     includes: [
