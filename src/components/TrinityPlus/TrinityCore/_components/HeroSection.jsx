@@ -180,17 +180,17 @@ export default function HeroSection() {
             <div className="tier-card active">
               <div className="tier-badge">ACTIVE NOW</div>
               <div className="tier-name">Beta Access</div>
-              <div className="tier-price">£200</div>
+              <div className="tier-price"> €230 </div>
               <div className="tier-duration">Per system • 10 days left</div>
             </div>
             <div className="tier-card">
               <div className="tier-name">Early Adopter</div>
-              <div className="tier-price">£500</div>
+              <div className="tier-price"> €577</div>
               <div className="tier-duration">Per system • Next 3 months</div>
             </div>
             <div className="tier-card">
               <div className="tier-name">Standard</div>
-              <div className="tier-price">£1,500</div>
+              <div className="tier-price">€1739 </div>
               <div className="tier-duration">Per system • After 3 months</div>
             </div>
           </div>
@@ -203,7 +203,7 @@ export default function HeroSection() {
             onClick={() => scrollToSection("bundle")}
             style={{ animation: "pulse 2s infinite" }}
           >
-            Get All 3 Systems - £600 (Beta)
+            Get All 3 Trinity Core - €696 (Beta)
           </button>
           <button
             className="btn btn-secondary"

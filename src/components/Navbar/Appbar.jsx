@@ -146,7 +146,7 @@ function AppBarNav({ color }) {
         ? [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
-            { label: "Trinity Plus", onClick: handleTrinityClick },
+            { label: "Trinity", onClick: handleTrinityClick },
             // { label: "Blog", link: "/blog" },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
@@ -167,7 +167,7 @@ function AppBarNav({ color }) {
         : [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
-            { label: "Trinity Plus", onClick: handleTrinityClick },
+            { label: "Trinity", onClick: handleTrinityClick },
             // { label: "Blog", link: "/blog" },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
@@ -183,7 +183,7 @@ function AppBarNav({ color }) {
         ? [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
-            { label: "Trinity Plus", onClick: handleTrinityClick },
+            { label: "Trinity ", onClick: handleTrinityClick },
             // { label: "Blog", link: "/blog" },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
@@ -307,13 +307,7 @@ function AppBarNav({ color }) {
                   onClick={item.onClick ? item.onClick : null}
                 >
                   {item.label}
-                  {item.label === "Explore" && (
-                    <ExpandMoreIcon sx={{ marginLeft: "5px" }} />
-                  )}
-                  {item.label === "Services" && (
-                    <ExpandMoreIcon sx={{ marginLeft: "5px" }} />
-                  )}
-                  {item.label === "Trinity Plus" && (
+                  {["Explore", "Services", "Trinity"].includes(item.label) && (
                     <ExpandMoreIcon sx={{ marginLeft: "5px" }} />
                   )}
                 </Button>
@@ -448,20 +442,20 @@ function AppBarNav({ color }) {
         onClose={handleClose}
         sx={{ borderRadius: "50px" }}
       >
-        {trinityData.map((data, i) =>
-            <Link
-              style={{
-                color: "#6E3EF4",
-                textDecoration: "none",
-                textAlign: "left",
-              }}
-              key={i}
-              to={data.link}
-              rel="canonical"
-            >
-              <MenuItem onClick={handleClose}>{data.text}</MenuItem>
-            </Link>
-        )}
+        {trinityData.map((data, i) => (
+          <Link
+            style={{
+              color: "#6E3EF4",
+              textDecoration: "none",
+              textAlign: "left",
+            }}
+            key={i}
+            to={data.link}
+            rel="canonical"
+          >
+            <MenuItem onClick={handleClose}>{data.text}</MenuItem>
+          </Link>
+        ))}
       </Menu>
 
       <Menu

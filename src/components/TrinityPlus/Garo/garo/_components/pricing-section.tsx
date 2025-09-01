@@ -39,7 +39,7 @@ const PricingSection = () => {
               <div className="mb-8">
                 <div className="flex items-baseline justify-center mb-2">
                   <span className="text-5xl font-black bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] bg-clip-text text-transparent">
-                    £1800
+                    €2,089
                   </span>
                 </div>
                 <p className="text-gray-700 text-center font-medium">
@@ -100,7 +100,7 @@ const PricingSection = () => {
               <div className="mb-8">
                 <div className="flex items-baseline justify-center mb-2">
                   <span className="text-5xl font-black bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] bg-clip-text text-transparent">
-                    £2100
+                    €2,439
                   </span>
                 </div>
                 <p className="text-gray-700 text-center font-medium">
@@ -146,7 +146,7 @@ const PricingSection = () => {
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 bg-[#6E3EF4] rounded-full animate-pulse"></div>
                   <span className="text-sm font-bold text-[#6E3EF4] tracking-widest">
-                    POST LAUNCH
+                    STANDARD
                   </span>
                 </div>
               </div>
@@ -154,7 +154,7 @@ const PricingSection = () => {
               <div className="mb-8">
                 <div className="flex items-baseline justify-center mb-2">
                   <span className="text-5xl font-black bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] bg-clip-text text-transparent">
-                    £3100
+                    €3,599
                   </span>
                 </div>
                 <p className="text-gray-700 text-center font-medium">

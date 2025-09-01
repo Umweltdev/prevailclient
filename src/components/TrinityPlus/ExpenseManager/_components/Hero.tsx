@@ -22,7 +22,7 @@ function Hero() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-600 text-white rounded-lg font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300">
-              Start Free Trial
+              Start Beta
             </button>
             <button className="px-8 py-4 bg-black/60 backdrop-blur text-white rounded-lg font-semibold text-lg border border-white/20 hover:bg-black transition-all duration-300">
               Watch 2-Min Demo

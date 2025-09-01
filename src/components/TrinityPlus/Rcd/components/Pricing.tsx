@@ -16,9 +16,11 @@ function PricingCard({
   featured?: boolean;
 }) {
   return (
-    <GlassCard 
+    <GlassCard
       className={`relative p-10 text-center ${
-        featured ? 'ring-2 ring-violet-400/50 scale-110 shadow-2xl shadow-violet-500/25' : ''
+        featured
+          ? "ring-2 ring-violet-400/50 scale-110 shadow-2xl shadow-violet-500/25"
+          : ""
       }`}
     >
       {featured && (
@@ -34,7 +36,9 @@ function PricingCard({
         <span className="text-6xl font-black bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
           {price}
         </span>
-        {price !== "Custom" && <span className="text-slate-500 text-lg">/mo</span>}
+        {price !== "Custom" && (
+          <span className="text-slate-500 text-lg">/mo</span>
+        )}
       </div>
       <ul className="mb-10 space-y-4 text-left">
         {features.map((f, i) => (
@@ -44,8 +48,12 @@ function PricingCard({
           </li>
         ))}
       </ul>
-      <Button variant={featured ? "primary" : "secondary"} size="lg" className="w-full">
-        Start Free Trial
+      <Button
+        variant={featured ? "primary" : "secondary"}
+        size="lg"
+        className="w-full"
+      >
+        Book a Spot
       </Button>
     </GlassCard>
   );
@@ -63,7 +71,7 @@ export default function Pricing() {
         "Simple referral system",
         "Email notifications",
       ],
-      featured: false,
+      featured: true, // ✅ only Beta is active
     },
     {
       name: "Standard",
@@ -77,7 +85,7 @@ export default function Pricing() {
         "API access",
         "Priority support",
       ],
-      featured: true,
+      featured: false,
     },
     {
       name: "Early",
@@ -102,7 +110,7 @@ export default function Pricing() {
         </h2>
         <div className="grid gap-8 lg:grid-cols-3">
           {plans.map((p, i) => (
-            <div 
+            <div
               key={p.name}
               className="animate-slide-in"
               style={{ animationDelay: `${i * 150}ms` }}
