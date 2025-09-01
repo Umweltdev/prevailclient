@@ -51,13 +51,13 @@ const HeroSection = () => {
         <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-y-0 sm:space-x-6">
           <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10}>
             <button
-            onClick={()=> navigate('/trinity/step-wizard')}
+            onClick={()=> navigate('/trinity/plus#wizard')}
               className="relative inline-flex items-center justify-center min-w-[280px] px-6 py-3 text-base font-semibold text-white transition-all duration-300 transform rounded-lg sm:min-w-0 sm:w-auto sm:px-8 sm:py-4 sm:rounded-xl sm:text-lg hover:scale-105 hover:shadow-2xl group"
               style={{
                 background: "linear-gradient(90deg, #6E3EF4 0%, #409AFF 100%)",
               }}
             >
-              <span onClick={()=> navigate('/trinity/step-wizard')} className="relative  flex items-center justify-center">
+              <span onClick={()=> navigate('/trinity/plus#wizard')} className="relative  flex items-center justify-center">
                 Simulate My Strategy
                 <svg
                   className="inline w-4 h-4 ml-2 sm:w-5 sm:h-5 group-hover:animate-bounce"

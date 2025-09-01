@@ -22,7 +22,7 @@ export default function CTA() {
             The first system where retention creates acquisition.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <Button onClick={()=> navigate('/trinity/step-wizard')} size="lg" className="text-xl px-12 py-6">
+            <Button onClick={()=> navigate('/trinity/plus#wizard')} size="lg" className="text-xl px-12 py-6">
               Activate Complete System Now
             </Button>
             <Button variant="secondary" size="lg" className="text-xl px-12 py-6">

@@ -109,7 +109,7 @@ function Hero() {
               isLoaded ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}
           >
-            <button onClick={()=> navigate('/trinity/step-wizard')} className="group relative px-10 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full text-lg font-semibold overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/25 transform hover:scale-105">
+            <button onClick={()=> navigate('/trinity/plus#wizard')} className="group relative px-10 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full text-lg font-semibold overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/25 transform hover:scale-105">
               <span className="relative  flex items-center">
                 Get Started
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />

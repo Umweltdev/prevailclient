@@ -43,7 +43,7 @@ function Pricing() {
                 Email support
               </li>
             </ul>
-            <button onClick={()=> navigate('/trinity/step-wizard')} className="w-full py-3 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition">
+            <button onClick={()=> navigate('/trinity/plus#wizard')} className="w-full py-3 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition">
               Get Bundle
             </button>
           </div>
@@ -75,7 +75,7 @@ function Pricing() {
                 API access
               </li>
             </ul>
-            <button onClick={()=> navigate('/trinity/step-wizard')} className="w-full py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg hover:shadow-xl transition">
+            <button onClick={()=> navigate('/trinity/plus#wizard')} className="w-full py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg hover:shadow-xl transition">
               Get Bundle
             </button>
           </div>
@@ -102,7 +102,7 @@ function Pricing() {
                 Custom integrations
               </li>
             </ul>
-            <button onClick={()=> navigate('/trinity/step-wizard')} className="w-full py-3 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition">
+            <button onClick={()=> navigate('/trinity/plus#wizard')} className="w-full py-3 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition">
               Get Bundle
             </button>
           </div>

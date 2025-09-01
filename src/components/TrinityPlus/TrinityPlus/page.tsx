@@ -31,6 +31,7 @@ import SystemsSection from "./_components/SystemsSection.js";
 import Hero from "./_components/Hero.js";
 import FloatingElements from "./_components/FloatingElements.js";
 import TrinityStepWizard from "../StepWizardPage.js";
+import { useLocation } from "react-router-dom";
 // import "./globals.css";
 
 const TrinityPlusPage = () => {
@@ -148,6 +149,17 @@ const TrinityPlusPage = () => {
       a: "GARO integrates directly with SquareUp POS via API or CSV upload.",
     },
   ];
+
+   const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const el = document.getElementById(location.hash.replace("#", ""));
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
 
   return (
     <div

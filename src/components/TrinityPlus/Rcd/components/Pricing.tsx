@@ -52,7 +52,7 @@ function PricingCard({
       </ul>
       <Button
         disabled={name !== 'Beta'}
-        onClick={()=> navigate('/trinity/step-wizard')}
+        onClick={()=> navigate('/trinity/plus#wizard')}
         variant={featured ? "primary" : "secondary"}
         size="lg"
         className="w-full"

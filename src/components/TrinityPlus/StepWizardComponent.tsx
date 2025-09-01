@@ -1021,6 +1021,11 @@ const FinalSummary = ({
   const isBundle = solutionType === "both" && trinitySelection && tierSelection;
   const finalPrice = isBundle ? Math.round(total * 0.9) : total;
 
+  const validateEmail = (value: string) => {
+    // simple regex for demo: one "@" and a dot later
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(value);
+  };
   return (
     <Fade in timeout={500}>
       <Grid container spacing={4}>
@@ -1187,7 +1192,7 @@ const FinalSummary = ({
                   variant="contained"
                   fullWidth
                   onClick={handleCheckout}
-                  disabled={isProcessing || !name || !email}
+                  disabled={isProcessing || !name || !email || !validateEmail(email)}
                   startIcon={
                     isProcessing ? (
                       <CircularProgress size={20} color="inherit" />
@@ -1366,7 +1371,7 @@ const StepWizard = () => {
         nextStepNum++;
       }
       setCurrentStep(nextStepNum);
-      window.scrollTo(0, 0);
+      // window.scrollTo(0, 0);
     }
   }, [currentStep, getSteps, solutionType, trinitySelectionId]);
 
@@ -1379,7 +1384,7 @@ const StepWizard = () => {
         prevStepNum--;
       }
       setCurrentStep(prevStepNum);
-      window.scrollTo(0, 0);
+      // window.scrollTo(0, 0);
     }
   }, [currentStep, solutionType, trinitySelectionId]);
 
