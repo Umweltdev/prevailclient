@@ -2,11 +2,10 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import svgr from "vite-plugin-svgr";
 import pluginRewriteAll from "vite-plugin-rewrite-all";
-import tailwindcss from '@tailwindcss/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), svgr(), pluginRewriteAll(), tailwindcss(),],
+  plugins: [react(), svgr(), pluginRewriteAll(),],
   resolve: {
   alias: {
     '@babel/runtime/helpers/interopRequireDefault.js':

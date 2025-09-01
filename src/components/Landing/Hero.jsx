@@ -45,6 +45,17 @@ const animationStyles = `
     }
   }
 
+  @keyframes slideInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   @keyframes float {
     0%, 100% {
       transform: translateY(0px);
@@ -92,6 +103,11 @@ const animationStyles = `
 
   .slide-in-right {
     animation: slideInRight 0.8s ease-out 0.4s forwards;
+    opacity: 0;
+  }
+
+  .slide-in-up {
+    animation: slideInUp 0.8s ease-out 0.6s forwards;
     opacity: 0;
   }
 
@@ -182,6 +198,21 @@ const animationStyles = `
       background-position: 0% 50%;
     }
   }
+
+  /* Mobile-specific optimizations */
+  @media (max-width: 767px) {
+    .floating {
+      animation: float 4s ease-in-out infinite;
+    }
+    
+    .rotating {
+      animation: rotate 15s linear infinite;
+    }
+    
+    .pulsing {
+      animation: pulse 3s ease-in-out infinite;
+    }
+  }
 `;
 
 const Hero = () => {
@@ -199,6 +230,11 @@ const Hero = () => {
   });
 
   const { ref: imageGroupRef, inView: imageGroupInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const { ref: buttonRef, inView: buttonInView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
@@ -222,11 +258,14 @@ const Hero = () => {
           minHeight: "100vh",
           position: "relative",
           overflow: "hidden",
+          px: { xs: 2, sm: 4, md: 6 },
           "@media (max-width: 767px)": {
             flexDirection: "column",
-            width: "100vw",
-            pt: "168px",
-            pl: "5vw",
+            pt: "100px",
+            pb: "60px",
+            px: 3,
+            minHeight: "auto",
+            alignItems: "center",
           },
         }}
       >
@@ -241,6 +280,12 @@ const Hero = () => {
             borderRadius: "50%",
             background: "linear-gradient(45deg, #FF6B6B, #4ECDC4)",
             opacity: 0.6,
+            "@media (max-width: 767px)": {
+              width: "30px",
+              height: "30px",
+              top: "5%",
+              left: "10%",
+            },
           }}
           className="floating"
         />
@@ -254,52 +299,49 @@ const Hero = () => {
             borderRadius: "50%",
             background: "linear-gradient(45deg, #FFE66D, #FF8E53)",
             opacity: 0.7,
+            "@media (max-width: 767px)": {
+              width: "25px",
+              height: "25px",
+              bottom: "10%",
+              right: "15%",
+            },
           }}
           className="floating pulsing"
         />
 
+        {/* Content Section */}
         <Grid 
           sx={{ 
             position: "relative", 
             maxWidth: "650px",
-            pr: 4,
-            "@media (max-width: 767px)": {
-              pr: 0,
-            },
+            pr: { xs: 0, md: 4 },
+            mb: { xs: 4, md: 0 },
+            width: { xs: "100%", md: "auto" },
           }}
         >
           <Box
             sx={{
               background: "linear-gradient(135deg, rgba(110, 62, 244, 0.05), rgba(64, 154, 255, 0.05))",
-              borderRadius: "30px",
-              padding: "40px",
+              borderRadius: { xs: "20px", md: "30px" },
+              padding: { xs: "24px", sm: "32px", md: "40px" },
               backdropFilter: "blur(10px)",
               border: "1px solid rgba(255, 255, 255, 0.2)",
               boxShadow: "0 20px 40px rgba(110, 62, 244, 0.1)",
-              "@media (max-width: 767px)": {
-                padding: "20px",
-                borderRadius: "20px",
-              },
             }}
           >
             <Typography
               ref={headingRef}
               className={headingInView ? "zoom-fade-in" : ""}
               sx={{
-                fontSize: "64px",
+                fontSize: { xs: "32px", sm: "45px", md: "64px" },
                 color: "#1D0D40",
                 fontWeight: "600",
                 fontFamily: "system-ui, -apple-system, sans-serif",
-                lineHeight: 1.1,
-                mb: 1,
+                lineHeight: { xs: 1.2, md: 1.1 },
+                mb: { xs: 1, md: 1 },
                 textShadow: "0 2px 4px rgba(29, 13, 64, 0.1)",
                 letterSpacing: "-0.02em",
-                "@media (max-width: 767px)": {
-                  fontSize: "40px",
-                  lineHeight: "unset",
-                  marginBottom: "unset",
-                  fontWeight: "500",
-                },
+                textAlign: { xs: "center", md: "left" },
               }}
             >
               Your Partner in Accelerating the
@@ -307,33 +349,27 @@ const Hero = () => {
             <Typography
               className="gradient-text"
               sx={{
-                fontSize: "64px",
+                fontSize: { xs: "32px", sm: "45px", md: "64px" },
                 fontWeight: "700",
-                mb: 4,
+                mb: { xs: 3, md: 4 },
                 position: "relative",
                 letterSpacing: "-0.02em",
+                textAlign: { xs: "center", md: "left" },
                 "&::after": {
                   content: '""',
                   position: "absolute",
-                  bottom: -15,
-                  left: 0,
-                  width: "100%",
-                  height: "6px",
+                  bottom: { xs: -8, md: -15 },
+                  left: { xs: "50%", md: 0 },
+                  transform: { xs: "translateX(-50%)", md: "none" },
+                  width: { xs: "80%", md: "100%" },
+                  height: { xs: "4px", md: "6px" },
                   background: "linear-gradient(102deg, #6E3EF4 10.45%, #409AFF 64.21%)",
                   borderRadius: "3px",
-                  transform: headingInView ? "scaleX(1)" : "scaleX(0)",
-                  transformOrigin: "left",
+                  transform: headingInView ? 
+                    { xs: "translateX(-50%) scaleX(1)", md: "scaleX(1)" } : 
+                    { xs: "translateX(-50%) scaleX(0)", md: "scaleX(0)" },
+                  transformOrigin: { xs: "center", md: "left" },
                   transition: "transform 0.8s ease 0.5s",
-                },
-                "@media (max-width: 767px)": {
-                  fontSize: "40px",
-                  lineHeight: "unset",
-                  marginBottom: "2rem",
-                  fontWeight: "500",
-                  "&::after": {
-                    height: "4px",
-                    bottom: -10,
-                  },
                 },
               }}
             >
@@ -346,7 +382,8 @@ const Hero = () => {
                 background: "linear-gradient(90deg, rgba(110, 62, 244, 0.2), rgba(64, 154, 255, 0.2))",
                 borderRadius: "2px",
                 mb: 3,
-                width: "80px",
+                width: { xs: "60px", md: "80px" },
+                mx: { xs: "auto", md: 0 },
               }}
             />
             
@@ -354,29 +391,26 @@ const Hero = () => {
               ref={subTextRef}
               className={subTextInView ? "slide-in-left" : ""}
               sx={{
-                fontSize: "1.3rem",
+                fontSize: { xs: "1.1rem", sm: "1.2rem", md: "1.3rem" },
                 lineHeight: 1.7,
                 color: "#2C2C2C",
                 fontWeight: "400",
-                mb: 4,
+                mb: { xs: 3, md: 4 },
                 letterSpacing: "0.01em",
                 position: "relative",
+                textAlign: { xs: "center", md: "left" },
+                px: { xs: 2, md: 0 },
                 "&::before": {
                   content: '""',
                   position: "absolute",
-                  left: "-20px",
+                  left: { xs: "50%", md: "-20px" },
                   top: "0",
                   bottom: "0",
-                  width: "3px",
+                  width: { xs: "2px", md: "3px" },
                   background: "linear-gradient(180deg, #6E3EF4, #409AFF)",
                   borderRadius: "2px",
-                },
-                "@media (max-width: 767px)": {
-                  fontSize: "1.2rem",
-                  "&::before": {
-                    left: "-15px",
-                    width: "2px",
-                  },
+                  transform: { xs: "translateX(-50%)", md: "none" },
+                  display: { xs: "none", md: "block" },
                 },
               }}
             >
@@ -384,24 +418,36 @@ const Hero = () => {
               presence by providing innovative and holistic solutions.
             </Typography>
             
-            <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+            <Box 
+              ref={buttonRef}
+              className={buttonInView ? "slide-in-up" : ""}
+              sx={{ 
+                display: "flex", 
+                flexDirection: { xs: "column", sm: "row" },
+                alignItems: { xs: "center", sm: "center" }, 
+                gap: { xs: 2, sm: 2 },
+                justifyContent: { xs: "center", md: "flex-start" },
+              }}
+            >
               <Button
                 className="enhanced-button"
                 onClick={() => navigate("/contact-us")}
                 sx={{
-                  fontSize: "1.1rem",
-                  px: 4,
-                  py: 1.5,
+                  fontSize: { xs: "1rem", md: "1.1rem" },
+                  px: { xs: 3, md: 4 },
+                  py: { xs: 1.2, md: 1.5 },
+                  width: { xs: "200px", sm: "auto" },
                 }}
               >
                 Get Started
               </Button>
               <Typography
                 sx={{
-                  fontSize: "0.9rem",
+                  fontSize: { xs: "0.85rem", md: "0.9rem" },
                   color: "#6B7280",
                   fontWeight: "500",
                   opacity: 0.8,
+                  textAlign: { xs: "center", sm: "left" },
                 }}
               >
                 Start your digital journey today
@@ -410,44 +456,38 @@ const Hero = () => {
           </Box>
         </Grid>
 
+        {/* Images Section */}
         <Grid
           ref={imageGroupRef}
           className={imageGroupInView ? "slide-in-right" : ""}
           sx={{
             position: "relative",
-            transform: "translateY(-60px)", // Moved images up by 60px
-            "@media (max-width: 767px)": {
-              width: "90vw",
-              pt: "80px",
-              margin: "auto",
-              ml: "unset",
-              transform: "translateY(-30px)", // Less movement on mobile
-            },
+            transform: { xs: "translateY(0)", md: "translateY(-60px)" },
+            width: { xs: "100%", md: "auto" },
+            maxWidth: { xs: "100%", sm: "600px" },
+            mx: { xs: "auto", md: 0 },
           }}
         >
           <Box>
+            {/* First row of images */}
             <Box
               sx={{
                 display: "flex",
                 position: "relative",
-                mb: 3,
-                "@media (max-width: 767px)": {
-                  width: "90vw",
-                },
+                mb: { xs: 2, md: 3 },
+                gap: { xs: 1, sm: 2 },
+                justifyContent: "center",
               }}
             >
               <CardMedia
                 className="image-hover floating"
                 sx={{
-                  width: "367px",
-                  height: "300px",
-                  borderRadius: "30%",
+                  width: { xs: "45vw", sm: "280px", md: "367px" },
+                  height: { xs: "35vw", sm: "220px", md: "300px" },
+                  borderRadius: { xs: "25%", md: "30%" },
                   boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
-                  "@media (max-width: 767px)": {
-                    width: "55vw",
-                    height: "35vw",
-                    borderRadius: "35%",
-                  },
+                  maxWidth: "350px",
+                  maxHeight: "280px",
                 }}
                 component={"img"}
                 image={
@@ -458,20 +498,17 @@ const Hero = () => {
               <Box
                 sx={{
                   position: "relative",
-                  width: "241px",
-                  ml: 2,
-                  "@media (max-width: 767px)": {
-                    width: "35vw",
-                    height: "35vw",
-                  },
+                  width: { xs: "30vw", sm: "180px", md: "241px" },
+                  maxWidth: "220px",
                 }}
               >
                 <CardMedia
                   className="image-hover pulsing"
                   sx={{
                     width: "100%",
-                    height: "300px",
-                    borderRadius: "45%",
+                    height: { xs: "35vw", sm: "220px", md: "300px" },
+                    maxHeight: "280px",
+                    borderRadius: { xs: "35%", md: "45%" },
                     boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
                   }}
                   component={"img"}
@@ -484,12 +521,10 @@ const Hero = () => {
                   className="rotating"
                   sx={{
                     position: "absolute",
-                    top: "-60px",
-                    left: "-60px",
-                    width: "50%",
-                    "@media (max-width: 767px)": {
-                      width: "70%",
-                    },
+                    top: { xs: "-30px", sm: "-45px", md: "-60px" },
+                    left: { xs: "-30px", sm: "-45px", md: "-60px" },
+                    width: { xs: "40px", sm: "60px", md: "80px" },
+                    height: { xs: "40px", sm: "60px", md: "80px" },
                   }}
                 >
                   <CardMedia
@@ -509,10 +544,7 @@ const Hero = () => {
                       top: "50%",
                       left: "50%",
                       transform: "translate(-50%, -50%)",
-                      width: "50%",
-                      "@media (max-width: 767px)": {
-                        width: "70%",
-                      },
+                      width: { xs: "60%", md: "50%" },
                     }}
                     component={"img"}
                     image={face11}
@@ -521,31 +553,35 @@ const Hero = () => {
                 </Box>
               </Box>
             </Box>
-            <Box sx={{ display: "flex", gap: 2, mb: 3 }}>
+
+            {/* Second row of images */}
+            <Box 
+              sx={{ 
+                display: "flex", 
+                gap: { xs: 1, sm: 2 }, 
+                mb: { xs: 2, md: 3 },
+                justifyContent: "center",
+              }}
+            >
               <Box
                 className="glowing floating"
                 sx={{
-                  width: "190px",
-                  height: "190px",
+                  width: { xs: "25vw", sm: "140px", md: "190px" },
+                  height: { xs: "25vw", sm: "140px", md: "190px" },
+                  maxWidth: "170px",
+                  maxHeight: "170px",
                   background: "linear-gradient(135deg, #8555ED, #6E3EF4)",
                   borderRadius: "50%",
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
                   boxShadow: "0 10px 30px rgba(133, 85, 237, 0.3)",
-                  "@media (max-width: 767px)": {
-                    width: "35vw",
-                    height: "35vw",
-                  },
                 }}
               >
                 <CardMedia
                   sx={{
-                    width: "80px",
+                    width: { xs: "40px", sm: "60px", md: "80px" },
                     filter: "brightness(0) invert(1)",
-                    "@media (max-width: 767px)": {
-                      width: "50px",
-                    },
                   }}
                   component={"img"}
                   image={face9}
@@ -555,15 +591,12 @@ const Hero = () => {
               <CardMedia
                 className="image-hover"
                 sx={{
-                  width: "425px",
-                  height: "190px",
-                  borderRadius: "45%",
+                  width: { xs: "50vw", sm: "320px", md: "425px" },
+                  height: { xs: "25vw", sm: "140px", md: "190px" },
+                  maxWidth: "400px",
+                  maxHeight: "170px",
+                  borderRadius: { xs: "35%", md: "45%" },
                   boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
-                  "@media (max-width: 767px)": {
-                    width: "55vw",
-                    height: "35vw",
-                    borderRadius: "40%",
-                  },
                 }}
                 component={"img"}
                 image={
@@ -572,108 +605,103 @@ const Hero = () => {
                 alt="Landing-View-3"
               />
             </Box>
-          </Box>
-          <Box sx={{ display: "flex", gap: 2 }}>
-            <Box
-              sx={{
-                position: "relative",
-                width: "205px",
-                height: "205px",
-                borderRadius: "50%",
-                "@media (max-width: 767px)": {
-                  width: "30vw",
-                  height: "30vw",
-                },
+
+            {/* Third row of images */}
+            <Box 
+              sx={{ 
+                display: "flex", 
+                gap: { xs: 1, sm: 2 },
+                justifyContent: "center",
               }}
             >
+              <Box
+                sx={{
+                  position: "relative",
+                  width: { xs: "25vw", sm: "150px", md: "205px" },
+                  height: { xs: "25vw", sm: "150px", md: "205px" },
+                  maxWidth: "180px",
+                  maxHeight: "180px",
+                  borderRadius: "50%",
+                }}
+              >
+                <CardMedia
+                  className="image-hover floating"
+                  sx={{
+                    width: "100%",
+                    height: "100%",
+                    borderRadius: "50%",
+                    boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
+                  }}
+                  component={"img"}
+                  image={
+                    "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720079289/Landing-View-4_n1jfb5.webp"
+                  }
+                  alt="Landing-View-4"
+                />
+                <Box
+                  className="pulsing"
+                  sx={{
+                    position: "absolute",
+                    top: { xs: "5%", md: "-5%" },
+                    left: { xs: "75%", md: "85%" },
+                    transform: "translate(-50%, -50%)",
+                  }}
+                >
+                  <CardMedia
+                    sx={{
+                      width: { xs: "50px", sm: "70px", md: "100px" },
+                      height: { xs: "50px", sm: "70px", md: "100px" },
+                      filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.2))",
+                    }}
+                    component={"img"}
+                    image={face12}
+                    alt="Unions"
+                  />
+                  <CardMedia
+                    sx={{
+                      position: "absolute",
+                      top: "50%",
+                      left: "50%",
+                      transform: "translate(-50%, -50%)",
+                      width: { xs: "70%", md: "60%" },
+                    }}
+                    component={"img"}
+                    image={face13}
+                    alt="hands-new"
+                  />
+                </Box>
+              </Box>
+              <CardMedia
+                className="image-hover rotating"
+                sx={{
+                  width: { xs: "25vw", sm: "150px", md: "205px" },
+                  height: { xs: "25vw", sm: "150px", md: "205px" },
+                  maxWidth: "180px",
+                  maxHeight: "180px",
+                  borderRadius: "50%",
+                  boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
+                }}
+                component={"img"}
+                image={face8}
+                alt="globe"
+              />
               <CardMedia
                 className="image-hover floating"
                 sx={{
-                  width: "100%",
-                  height: "100%",
+                  width: { xs: "25vw", sm: "150px", md: "205px" },
+                  height: { xs: "25vw", sm: "150px", md: "205px" },
+                  maxWidth: "180px",
+                  maxHeight: "180px",
                   borderRadius: "50%",
                   boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
                 }}
                 component={"img"}
                 image={
-                  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720079289/Landing-View-4_n1jfb5.webp"
+                  "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720079287/Landing-View-5_idby0s.webp"
                 }
-                alt="Landing-View-4"
+                alt="Landing-View-5"
               />
-              <Box
-                className="pulsing"
-                sx={{
-                  position: "absolute",
-                  top: "-5%",
-                  left: "85%",
-                  transform: "translate(-50%, -50%)",
-                }}
-              >
-                <CardMedia
-                  sx={{
-                    width: "100px",
-                    height: "100px",
-                    filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.2))",
-                    "@media (max-width: 767px)": {
-                      width: "60px",
-                      height: "60px",
-                    },
-                  }}
-                  component={"img"}
-                  image={face12}
-                  alt="Unions"
-                />
-                <CardMedia
-                  sx={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    width: "60%",
-                    "@media (max-width: 767px)": {
-                      width: "80%",
-                    },
-                  }}
-                  component={"img"}
-                  image={face13}
-                  alt="hands-new"
-                />
-              </Box>
             </Box>
-            <CardMedia
-              className="image-hover rotating"
-              sx={{
-                width: "205px",
-                height: "205px",
-                borderRadius: "50%",
-                boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
-                "@media (max-width: 767px)": {
-                  width: "30vw",
-                  height: "30vw",
-                },
-              }}
-              component={"img"}
-              image={face8}
-              alt="globe"
-            />
-            <CardMedia
-              className="image-hover floating"
-              sx={{
-                width: "205px",
-                height: "205px",
-                borderRadius: "50%",
-                boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
-                "@media (max-width: 767px)": {
-                  width: "30vw",
-                  height: "30vw",
-                },
-              }}
-              component={"img"}
-              image={
-                "https://res.cloudinary.com/dtzuqacg3/image/upload/v1720079287/Landing-View-5_idby0s.webp"
-              }
-              alt="Landing-View-5"
-            />
           </Box>
         </Grid>
       </Grid>

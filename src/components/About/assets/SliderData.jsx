@@ -1,24 +1,34 @@
-import focus from "../assets/focus.svg";
-import announcement from "../assets/announcement.svg";
-import folder from "../assets/folder.svg";
-import { AddTask, BarChart, Campaign, ChatRounded, CreditScore, Nat, QueryStats, Storefront, TextSnippet, TravelExplore, TrendingUp } from "@mui/icons-material";
+import { AddTask, BarChart, Campaign, CreditScore, Nat, QueryStats, Storefront, TextSnippet, TravelExplore, TrendingUp } from "@mui/icons-material";
 
 export const sliderData = [
   {
-    img: focus,
-    header: "Tailored Solution",
-    text: "We tailor every strategy to meet the specific needs and goals of each client, ensuring maximum relevance and impact.",
+    icon: "🚀",
+    header: "Innovation Hub",
+    text: "Discover cutting-edge solutions that transform your business landscape with advanced technology and creative thinking.",
+    category: "Technology",
+    gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
   },
   {
-    img: announcement,
-    header: "Data-Driven Decisions",
-    text: "Our strategic decisions are fortified by advanced analytics, enabling us to identify trends and predict shifts that pave the way for smarter, more impactful business strategies.",
+    icon: "💎",
+    header: "Premium Quality",
+    text: "Experience unmatched excellence with our carefully crafted products designed for the most discerning customers.",
+    category: "Quality",
+    gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
   },
   {
-    img: folder,
-    header: "Creative Execution",
-    text: "Our campaigns are informed by data but driven by creativity, designed to not only capture attention but also to connect emotionally with audiences.",
+    icon: "⚡",
+    header: "Lightning Fast",
+    text: "Accelerate your workflow with blazing-fast performance that keeps you ahead of the competition every step of the way.",
+    category: "Performance",
+    gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
   },
+  {
+    icon: "🎯",
+    header: "Precision Focus",
+    text: "Target your goals with laser precision using our expertly designed tools and methodologies for maximum impact.",
+    category: "Strategy",
+    gradient: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)"
+  }
 ];
 
 export const FAQs = [
