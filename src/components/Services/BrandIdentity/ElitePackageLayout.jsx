@@ -14,7 +14,7 @@ import { AuthContext } from "../../../context/AuthContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 
-const ElitePackageLayout = ({ packages, amount, info }) => {
+const ElitePackageLayout = ({ packages, amount, info, handleClick }) => {
   const { user } = useContext(AuthContext);
 
   return (
@@ -79,7 +79,7 @@ const ElitePackageLayout = ({ packages, amount, info }) => {
             One Off Payment
           </Typography> */}
         </Box>
-        <Link to={user ? "/user/bookings" : "/contact-us"}>
+        
 
         <Button
           sx={{
@@ -94,10 +94,11 @@ const ElitePackageLayout = ({ packages, amount, info }) => {
               color: "#6E3EF4",
             },
           }}
+          onClick={handleClick}
         >
           Book now
         </Button>
-       </Link>
+      
         {/* Render the StarterBrandIdentity items */}
         <Grid
           sx={{

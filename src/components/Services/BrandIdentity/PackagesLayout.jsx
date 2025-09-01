@@ -14,7 +14,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 
-const PackagesLayout = ({ packages, amount, info }) => {
+const PackagesLayout = ({ packages, amount, info, handleClick, onBoxClick }) => {
   const { user } = useContext(AuthContext);
 
   return (
@@ -32,6 +32,7 @@ const PackagesLayout = ({ packages, amount, info }) => {
             "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
         },
       }}
+      onClick={onBoxClick}
     >
       <CardContent
         sx={{
@@ -78,7 +79,7 @@ const PackagesLayout = ({ packages, amount, info }) => {
             One Off Payment
           </Typography>
         </Box>
-        <Link to={user ? "/user/bookings" : "/contact-us"}>
+        
         <Button
           sx={{
             background: "#6E3EF4",
@@ -92,10 +93,11 @@ const PackagesLayout = ({ packages, amount, info }) => {
               color: "#fff",
             },
           }}
+          onClick={handleClick}
         >
           Book now
         </Button>
-        </Link>
+       
         
 
         {/* Render the StarterBrandIdentity items */}

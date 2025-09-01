@@ -7,10 +7,10 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 const PremiumPackageLayout = ({
-
   packages,
   amount,
   info,
+  handleClick
 }) => {
   const { user } = useContext(AuthContext);
 
@@ -75,7 +75,7 @@ const PremiumPackageLayout = ({
             One Off Payment
           </Typography>
         </Box>
-        <Link to={user ? "/user/bookings" : "/contact-us"}>
+        
 
         <Button
           sx={{
@@ -90,10 +90,11 @@ const PremiumPackageLayout = ({
               color: "#fff",
             },
           }}
+          onClick={handleClick}
         >
           Book now
         </Button>
-        </Link>
+       
         {/* Render the StarterBrandIdentity items */}
         <Grid
           sx={{

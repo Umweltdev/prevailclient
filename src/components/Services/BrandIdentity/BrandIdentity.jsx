@@ -17,6 +17,18 @@ import HeroComponent from "../ReusedComponenets/HeroComponent";
 import AppBarNav from "../../Navbar/Appbar";
 import PdfSection from "./PdfSection";
 import SmoothScrollUp from "../../utils/SmoothScrollUp";
+import PremiumPackageLayout from "./PremiumPackageLayout"; 
+//import PackagesLayout from "./PackagesLayout";
+import StepWizard from "./Packages";
+import {
+  Card,
+  CardContent,
+  Button,
+  Typography,
+  Box,
+  Grid,
+} from "@mui/material";
+import ElitePackageLayout from "./ElitePackageLayout";
 //import MainPage from "./MainPage";
 
 const BrandIdentity = () => {
@@ -31,12 +43,15 @@ const BrandIdentity = () => {
       </Helmet>
       <div style={{ width: "100%", overflow: "hidden" }}>
         <AppBarNav color="#000" />
+
         <HeroComponent title={"Brand Identity Package"} />
-        <ElevateYourPresence />
+        {/* <ElevateYourPresence />
         <PdfSection />
         <Addressing />
         <TailoredApproach />
-        <Packages />
+        <Packages /> */}
+         
+            <StepWizard/>
         <SmoothScrollUp />
         <FooterNew />
       </div>
