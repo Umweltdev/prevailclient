@@ -1,0 +1,12 @@
+diff --git a/node_modules/react-swipeable-views/lib/index.js b/node_modules/react-swipeable-views/lib/index.js
+index 5d11122..59bc3be 100644
+--- a/node_modules/react-swipeable-views/lib/index.js
++++ b/node_modules/react-swipeable-views/lib/index.js
+@@ -1,6 +1,6 @@
+ "use strict";
+ 
+-var _interopRequireDefault = require("@babel/runtime/helpers/builtin/interopRequireDefault");
++var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault")
+ 
+ Object.defineProperty(exports, "__esModule", {
+   value: true
