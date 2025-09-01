@@ -37,12 +37,16 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { loadStripe } from "@stripe/stripe-js";
-import { theme } from "../../theme";
+import { theme } from "./theme.js";
+import { 
+  createCheckoutSession, 
+  mapToApiServiceType, 
+  generateTargetAudience, 
+  generateCampaignDuration 
+} from "./api";
 
 // STRIPE INITIALIZATION & CONSTANT DATA
-const stripePromise = loadStripe(
-  "pk_test_51OsCJ5P1A39VkufThp1PVDexesvf2XAY8faTyK0uucC1qRl9NW9QkpBdwXQDyjCAjzL166zjMWNn5Zr25ZkaQJVi00vurq61mj"
-);
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_TEST_KEY);
 const betaDaysRemaining = 10;
 const ALL_TRINITY_OPTIONS = [
   {
@@ -347,7 +351,6 @@ SelectableCard.propTypes = {
   selected: PropTypes.bool,
   sx: PropTypes.object,
 };
-
 
 const SolutionChoice = ({ solutionType, setSolutionType, nextStep }) => (
   <Fade in timeout={500}>
@@ -971,6 +974,7 @@ const FinalSummary = ({
   selectedIndustry,
   solutionType,
   hasPhysicalStore,
+  selectedGoals,
   name,
   setName,
   email,
@@ -1029,6 +1033,7 @@ const FinalSummary = ({
                       label="Your Name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
+                      required
                     />
                   </Grid>
                   <Grid item xs={12} sm={6}>
@@ -1038,6 +1043,7 @@ const FinalSummary = ({
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
+                      required
                     />
                   </Grid>
                 </Grid>
@@ -1388,77 +1394,44 @@ const StepWizard = () => {
       showToastMessage("Error: Please enter your name and email to proceed.");
       return;
     }
+    
     setIsProcessing(true);
-    const trinitySelection = ALL_TRINITY_OPTIONS.find(
-      (opt) => opt.id === trinitySelectionId
-    );
-    const tier = platformTiers.find((t) => t.id === selectedTier);
-    const parseToArray = (str) =>
-      str
-        ? str
-            .split(",")
-            .map((item) => item.trim())
-            .filter(Boolean)
-        : [];
-    const commonData = {
-      selectedSystems: parseToArray(selectedSystems),
-      selectedIndustryDashboards: parseToArray(selectedDashboards),
-      selectedUniversalDashboards: [],
-      additionalNotes,
-    };
-    const selectedServices = [];
-    if (solutionType === "website" || solutionType === "both") {
-      selectedServices.push({
-        serviceType: "brand_identity_package",
-        price: tier ? (tier.minPrice + tier.maxPrice) / 2 : 0,
-        keywords: parseToArray(keywords),
-        ...commonData,
-      });
-    }
-    if (solutionType === "trinity" || solutionType === "both") {
-      let trinityPrice = trinitySelection ? trinitySelection.betaPrice : 0;
-      if (
-        hasPhysicalStore &&
-        (trinitySelectionId === "trinity-plus" || trinitySelectionId === "garo")
-      ) {
-        trinityPrice += 1600;
-      }
-      selectedServices.push({
-        serviceType: "seo_optimization",
-        price: trinityPrice,
-        keywords: parseToArray(keywords),
-        ...commonData,
-      });
-    }
-    const total = calculateRunningTotal();
-    const isBundle = solutionType === "both" && trinitySelection && tier;
-    const finalPrice = isBundle ? Math.round(total * 0.9) : total;
-    const payload = { name, email, totalPrice: finalPrice, selectedServices };
 
     try {
-      const response = await fetch(
-        "https://prevail-services-e973123f8b1e.herokuapp.com/api/create-multiple-checkout-session",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        }
-      );
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(
-          errorData.message || "Failed to create checkout session."
-        );
-      }
-      const session = await response.json();
+      const total = calculateRunningTotal();
+      const isBundle = solutionType === "both";
+      const finalPrice = isBundle ? Math.round(total * 0.9) : total;
+
+      // Prepare checkout data using the new API format
+      const checkoutData = {
+        name,
+        email,
+        serviceType: mapToApiServiceType(solutionType, trinitySelectionId),
+        price: finalPrice,
+        targetAudience: generateTargetAudience(selectedIndustry, selectedGoals),
+        campaignDuration: generateCampaignDuration(solutionType, trinitySelectionId),
+        notes: `${additionalNotes || ''} | Selected Systems: ${selectedSystems || 'None'} | Dashboards: ${selectedDashboards || 'None'} | Keywords: ${keywords || 'None'} | Solution: ${solutionType} | Trinity: ${trinitySelectionId || 'None'} | Tier: ${selectedTier || 'None'} | Physical Store: ${hasPhysicalStore ? 'Yes' : 'No'}`.trim()
+      };
+
+      // Create checkout session using the API function
+      const session = await createCheckoutSession(checkoutData);
+
+      // Redirect to Stripe checkout
       const stripe = await stripePromise;
-      if (!stripe) throw new Error("Stripe.js has not loaded yet.");
+      if (!stripe) {
+        throw new Error("Stripe.js has not loaded yet.");
+      }
+
       const { error } = await stripe.redirectToCheckout({
         sessionId: session.id,
       });
-      if (error) throw new Error(error.message);
+
+      if (error) {
+        throw new Error(error.message);
+      }
     } catch (error) {
-      showToastMessage(`Error: ${error.message ?? "Unknown error"}`);
+      console.error('Checkout error:', error);
+      showToastMessage(`Error: ${error.message || "Unknown error occurred"}`);
     } finally {
       setIsProcessing(false);
     }
@@ -1468,6 +1441,8 @@ const StepWizard = () => {
     solutionType,
     trinitySelectionId,
     selectedTier,
+    selectedIndustry,
+    selectedGoals,
     hasPhysicalStore,
     additionalNotes,
     keywords,

@@ -147,28 +147,15 @@ function AppBarNav({ color }) {
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
             { label: "Trinity Plus", onClick: handleTrinityClick },
-            // { label: "Blog", link: "/blog" },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
-
-            // ...(isAdmin
-            //   ? [
-            //       {
-            //         label: "Admin Panel",
-            //         onClick: handleAdminPanel,
-            //         path: "https://667a6e03fc92ceb5b5ec2751--marvelous-muffin-8a8584.netlify.app/auth/jwt/login?returnTo=%2Fdashboard",
-            //       },
-            //     ]
-            //   : []),
             { label: "Dashboard", link: "/contact-us" },
-
             { label: "Logout", onClick: handleLogout, path: "/login" },
           ]
         : [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
             { label: "Trinity Plus", onClick: handleTrinityClick },
-            // { label: "Blog", link: "/blog" },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
             { label: "Login", link: "/login" },
@@ -184,7 +171,6 @@ function AppBarNav({ color }) {
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
             { label: "Trinity Plus", onClick: handleTrinityClick },
-            // { label: "Blog", link: "/blog" },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
             ...(isAdmin
@@ -197,14 +183,12 @@ function AppBarNav({ color }) {
                 ]
               : []),
             { label: "Dashboard", link: "/user/profile" },
-
             { label: "Logout", onClick: handleLogout, path: "/login" },
           ]
         : [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
             { label: "Trinity Plus", onClick: handleTrinityClick },
-            // { label: "Blog", link: "/blog" },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
             { label: "Login", link: "/login" },
@@ -214,27 +198,20 @@ function AppBarNav({ color }) {
   );
 
   const drawer = (
-    <Box
-      onClick={handleDrawerToggle}
-      sx={{ textAlign: "center", color: "#884ed9" }}
-    >
-      <Typography
-        variant="h6"
-        sx={{ my: 5, fontFamily: `"Sarabun","sans-serif"` }}
-      >
-        <Link rel="canonical" to={`/`} style={{ textDecoration: "none" }}>
-          <img style={{ height: "10vh" }} src={logo} alt="logo" />
+    <Box onClick={handleDrawerToggle}>
+      <Typography variant="h6" sx={{ my: 2 }}>
+        <Link to="/">
+          <img style={{ height: "40px" }} src={logo} alt="logo" />
         </Link>
       </Typography>
       <Divider />
       <List>
         {DrawerNavItems.map((item, index) => (
-          <ListItem sx={{ textAlign: "center" }} key={index} disablePadding>
+          <ListItem key={index} disablePadding>
             <ListItemButton
               component={item.link ? Link : "div"}
-              to={item.link ? item.link : null}
-              onClick={item.onClick ? item.onClick : null}
-              sx={{ textAlign: "center" }}
+              to={item.link || undefined}
+              onClick={item.onClick || undefined}
             >
               <ListItemText primary={item.label} />
             </ListItemButton>
@@ -244,29 +221,22 @@ function AppBarNav({ color }) {
     </Box>
   );
 
-  // console.log("isLoggedIn: ", isLoggedIn);
-  // console.log("isAdmin: ", isAdmin);
-
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar
         component="nav"
         sx={{
-          background: isScrolled ? "#fff" : "rgba(0,0,0,0)",
+          background: isScrolled ? "#fff" : "transparent",
           transition: "background-color 0.3s",
-          boxShadow: isScrolled ? "1" : "0",
-          borderBottom: "0 solid #E5E5E5",
-          py: "20px",
+          py: 2,
         }}
       >
-        <Container sx={{ px: { xs: 1, sm: 1, md: 1 } }}>
+        <Container>
           <Toolbar sx={{ justifyContent: "space-between" }}>
             <IconButton
               color="inherit"
-              aria-label="open drawer"
               onClick={handleDrawerToggle}
-              edge="start"
               sx={{
                 display: { sm: "none" },
                 color: isScrolled ? "#000" : color,
@@ -274,126 +244,65 @@ function AppBarNav({ color }) {
             >
               <MenuIcon />
             </IconButton>
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              sx={{ display: { xs: "block", sm: "block" } }}
-            >
-              <Link rel="canonical" to={`/`} style={{ textDecoration: "none" }}>
+            
+            <Typography variant="h6" component="div">
+              <Link to="/">
                 <img style={{ height: "50px" }} src={logo} alt="logo" />
               </Link>
             </Typography>
-            <Box
-              sx={{
-                display: { xs: "none", sm: "flex" },
-                flexGrow: 1,
-                justifyContent: "center",
-              }}
-            >
+            
+            <Box sx={{ display: { xs: "none", sm: "flex" }, flexGrow: 1, justifyContent: "center" }}>
               {navItems.slice(0, -2).map((item, index) => (
-                <Button
+                <Box
                   key={index}
-                  sx={{
-                    color: isScrolled ? "#000" : color,
-                    textTransform: "none",
-                    margin: "0 10px",
-                    display: "flex",
-                    alignItems: "center",
+                  sx={{ 
+                    color: isScrolled ? "#000" : color, 
+                    mx: 2,
+                    px: 1,
+                    py: 1,
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    textDecoration: 'none',
+                    '&:hover': {
+                      opacity: 0.7
+                    }
                   }}
-                  rel="canonical"
                   component={item.link ? Link : "div"}
-                  to={item.link ? item.link : null}
-                  onClick={item.onClick ? item.onClick : null}
+                  to={item.link || undefined}
+                  onClick={item.onClick || undefined}
                 >
-                  {item.label}
-                  {item.label === "Explore" && (
-                    <ExpandMoreIcon sx={{ marginLeft: "5px" }} />
+                  <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                    {item.label}
+                  </Typography>
+                  {(item.label === "Explore" || item.label === "Services" || item.label === "Trinity Plus") && (
+                    <ExpandMoreIcon sx={{ ml: 0.5 }} />
                   )}
-                  {item.label === "Services" && (
-                    <ExpandMoreIcon sx={{ marginLeft: "5px" }} />
-                  )}
-                  {item.label === "Trinity Plus" && (
-                    <ExpandMoreIcon sx={{ marginLeft: "5px" }} />
-                  )}
-                </Button>
+                </Box>
               ))}
             </Box>
-            <Box
-              sx={{ display: { xs: "none", sm: "flex" }, alignItems: "center" }}
-            >
+            
+            <Box sx={{ display: { xs: "none", sm: "flex" } }}>
               {isLoggedIn ? (
                 <>
-                  <Button
-                    variant="outlined"
-                    sx={{
-                      marginRight: "10px",
-                      borderColor: "#884ed9",
-                      color: isScrolled ? "#000" : color,
-                      textTransform: "none",
-                      borderRadius: "20px",
-                    }}
-                    onClick={handleLogout}
-                  >
+                  <Button variant="outlined" sx={{ mr: 1 }} onClick={handleLogout}>
                     Logout
                   </Button>
-                  <Button
-                    variant="contained"
-                    sx={{
-                      backgroundColor: "#884ed9",
-                      color: "white",
-                      textTransform: "none",
-                      borderRadius: "20px",
-                      marginRight: "10px",
-                    }}
-                    onClick={handleUserDashboard}
-                  >
+                  <Button variant="contained" sx={{ mr: 1 }} onClick={handleUserDashboard}>
                     Dashboard
                   </Button>
                   {isAdmin && (
-                    <Button
-                      variant="contained"
-                      sx={{
-                        backgroundColor: "#ff5722",
-                        color: "white",
-                        textTransform: "none",
-                        borderRadius: "20px",
-                      }}
-                      onClick={handleAdminPanel}
-                    >
+                    <Button variant="contained" color="error" onClick={handleAdminPanel}>
                       Admin Panel
                     </Button>
                   )}
                 </>
               ) : (
                 <>
-                  <Button
-                    variant="outlined"
-                    sx={{
-                      marginRight: "15px",
-                      borderColor: "#884ed9",
-                      color: isScrolled ? "#000" : color,
-                      textTransform: "none",
-                      borderRadius: "20px",
-                    }}
-                    rel="canonical"
-                    component={Link}
-                    to="/login"
-                  >
+                  <Button variant="outlined" sx={{ mr: 1 }} component={Link} to="/login">
                     Login
                   </Button>
-                  <Button
-                    variant="contained"
-                    sx={{
-                      backgroundColor: "#884ed9",
-                      color: "white",
-                      textTransform: "none",
-                      borderRadius: "20px",
-                    }}
-                    component={Link}
-                    rel="canonical"
-                    to="/signup"
-                  >
+                  <Button variant="contained" component={Link} to="/signup">
                     Sign Up
                   </Button>
                 </>
@@ -402,106 +311,50 @@ function AppBarNav({ color }) {
           </Toolbar>
         </Container>
       </AppBar>
+      
       <Box component="nav">
         <Drawer
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true,
-          }}
+          ModalProps={{ keepMounted: true }}
           sx={{
             display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
+            "& .MuiDrawer-paper": { width: drawerWidth },
           }}
         >
           {drawer}
         </Drawer>
       </Box>
-      <Menu
-        anchorEl={anchorElServices}
-        open={Boolean(anchorElServices)}
-        onClose={handleClose}
-        sx={{ borderRadius: "50px" }}
-      >
+      
+      <Menu anchorEl={anchorElServices} open={Boolean(anchorElServices)} onClose={handleClose}>
         {servicesData.map((data, i) => (
-          <Link
-            style={{
-              color: "#6E3EF4",
-              textDecoration: "none",
-              textAlign: "left",
-            }}
-            key={i}
-            to={data.link}
-            rel="canonical"
-          >
-            <MenuItem onClick={handleClose}>{data.text}</MenuItem>
-          </Link>
+          <MenuItem key={i} component={Link} to={data.link} onClick={handleClose}>
+            {data.text}
+          </MenuItem>
         ))}
       </Menu>
-      <Menu
-        anchorEl={anchorElTrinity}
-        open={Boolean(anchorElTrinity)}
-        onClose={handleClose}
-        sx={{ borderRadius: "50px" }}
-      >
+      
+      <Menu anchorEl={anchorElTrinity} open={Boolean(anchorElTrinity)} onClose={handleClose}>
         {trinityData.map((data, i) =>
           data.text === "MCD" || data.text === "RCD" ? (
-            <MenuItem
-              key={i}
-              disabled
-              sx={{
-                opacity: 0.7,
-                display: "flex",
-                alignItems: "center",
-                gap: 1,
-                fontWeight: 500,
-                color: "#6E3EF4",
-              }}
-            >
+            <MenuItem key={i} disabled>
               <span>{data.text}</span>
-              <span className="text-sm text-gray-500 flex items-center gap-1">
-                🚀 <em>Coming Soon</em>
-              </span>
+              <span>🚀 Coming Soon</span>
             </MenuItem>
           ) : (
-            <Link
-              style={{
-                color: "#6E3EF4",
-                textDecoration: "none",
-                textAlign: "left",
-              }}
-              key={i}
-              to={data.link}
-              rel="canonical"
-            >
-              <MenuItem onClick={handleClose}>{data.text}</MenuItem>
-            </Link>
+            <MenuItem key={i} component={Link} to={data.link} onClick={handleClose}>
+              {data.text}
+            </MenuItem>
           )
         )}
       </Menu>
 
-      <Menu
-        anchorEl={anchorElExplore}
-        open={Boolean(anchorElExplore)}
-        onClose={handleClose}
-      >
+      <Menu anchorEl={anchorElExplore} open={Boolean(anchorElExplore)} onClose={handleClose}>
         {exploreData.map((data, i) => (
-          <Link
-            style={{
-              color: "#6E3EF4",
-              textDecoration: "none",
-              textAlign: "left",
-            }}
-            key={i}
-            to={data.link}
-            rel="canonical"
-          >
-            <MenuItem onClick={handleClose}>{data.text}</MenuItem>
-          </Link>
+          <MenuItem key={i} component={Link} to={data.link} onClick={handleClose}>
+            {data.text}
+          </MenuItem>
         ))}
       </Menu>
     </Box>

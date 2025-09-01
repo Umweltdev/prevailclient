@@ -360,7 +360,6 @@ const Hero = () => {
                   position: "absolute",
                   bottom: { xs: -8, md: -15 },
                   left: { xs: "50%", md: 0 },
-                  transform: { xs: "translateX(-50%)", md: "none" },
                   width: { xs: "80%", md: "100%" },
                   height: { xs: "4px", md: "6px" },
                   background: "linear-gradient(102deg, #6E3EF4 10.45%, #409AFF 64.21%)",
