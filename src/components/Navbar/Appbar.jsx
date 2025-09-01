@@ -122,8 +122,6 @@ function AppBarNav({ color }) {
             { label: "Booking", link: "/booking" },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
-            { label: "Login", link: "/login" },
-            { label: "Sign Up", link: "/signup" },
           ],
     [isLoggedIn]
   );
