@@ -15,8 +15,8 @@ import {
   ArrowRight,
   Video,
   LoaderCircle,
-  User, // Added for name input
-  Mail, // Added for email input
+  User,
+  Mail,
 } from "lucide-react";
 import {
   ThemeProvider,
@@ -26,16 +26,13 @@ import {
   Button,
   IconButton,
   Grid,
-  TextField, // Added for inputs
-  InputAdornment, // Added for input icons
-  CircularProgress, // Added for loading states
+  TextField,
+  InputAdornment,
+  CircularProgress, 
 } from "@mui/material";
 import { theme } from "../../theme.js";
 
-// --- Mock Data for Availability ---
-// In a real app, you would fetch this from your backend API.
-// 'all' means the entire day is unavailable.
-// An array of times means only those specific slots are booked.
+
 const mockBookedSlots = {
   "2025-09-15": ["09:00 AM", "11:30 AM", "02:00 PM"],
   "2025-09-20": "all",
@@ -63,7 +60,6 @@ const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 const getDaysInMonth = (year, month) => new Date(year, month + 1, 0).getDate();
 const getFirstDayOfMonth = (year, month) => new Date(year, month, 1).getDay();
-// Helper to format date as YYYY-MM-DD
 const formatDateToYMD = (date) => date.toISOString().split("T")[0];
 
 const CalendarComponent = ({
@@ -71,8 +67,8 @@ const CalendarComponent = ({
   setSelectedDate,
   currentDate,
   setCurrentDate,
-  availability, // Prop to pass availability data
-  isLoading, // Prop to handle loading state
+  availability,
+  isLoading,
 }) => {
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();
