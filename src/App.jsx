@@ -196,7 +196,6 @@ function App() {
                 }
               />
 
-              {/* Redirect old routes to the new routes */}
               <Route path="/About" element={<Navigate to="/about-us" />} />
               <Route path="/Portfolio" element={<Navigate to="/portfolio" />} />
               <Route path="/Blog" element={<Navigate to="/blog" />} />
