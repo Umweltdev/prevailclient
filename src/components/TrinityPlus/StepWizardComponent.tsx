@@ -349,7 +349,11 @@ SelectableCard.propTypes = {
 };
 
 
-const SolutionChoice = ({ solutionType, setSolutionType, nextStep }) => (
+const SolutionChoice = ({ solutionType, setSolutionType, nextStep, setTrinitySelectionId,setCurrentStep }) => {
+  const [type, setType] = useState(null)
+  const [id,setId] = useState(null)
+  const [val, setVal]=useState(null)
+  return(
   <Fade in timeout={500}>
     <Box>
       <Chip
@@ -369,7 +373,11 @@ const SolutionChoice = ({ solutionType, setSolutionType, nextStep }) => (
           <Grid item xs={12} md={4} key={i}>
             <SelectableCard
               selected={solutionType === solution.id}
-              onClick={() => setSolutionType(solution.id)}
+              onClick={() => {
+                setSolutionType(solution.id)
+                setVal(solution.name)
+                setType(solution.id)
+              }}
             >
               <Box
                 sx={{
@@ -402,7 +410,13 @@ const SolutionChoice = ({ solutionType, setSolutionType, nextStep }) => (
       </Grid>
       <Button
         variant="contained"
-        onClick={nextStep}
+        onClick={()=>{
+          // nextStep(4);
+          setSolutionType(type);
+          setTrinitySelectionId(val === 'Trinity Plus' ? 'trinity-plus' : val === 'Trinity Core' ? 'trinity-core' : null)
+          val === 'Trinity Plus' ? setCurrentStep(4) : val === 'Trinity Core' ? setCurrentStep(4) : nextStep()
+          
+        }}
         disabled={!solutionType}
         endIcon={<ChevronRight />}
       >
@@ -411,6 +425,7 @@ const SolutionChoice = ({ solutionType, setSolutionType, nextStep }) => (
     </Box>
   </Fade>
 );
+}
 SolutionChoice.propTypes = {
   solutionType: PropTypes.string,
   setSolutionType: PropTypes.func.isRequired,
@@ -767,8 +782,7 @@ const StoreType = ({
   nextStep,
   prevStep,
 }) => {
-  const needsStoreInfo =
-    trinitySelectionId === "trinity-plus" || trinitySelectionId === "garo";
+  const needsStoreInfo = false
   useEffect(() => {
     if (!needsStoreInfo) nextStep();
   }, [needsStoreInfo, nextStep]);
@@ -1302,24 +1316,24 @@ const StepWizard = () => {
   }, []);
 
   const getSteps = useCallback(() => {
-    if (solutionType === "trinity")
+    // if (solutionType === "trinity")
       return [
         "Solution Type",
         "Trinity Package",
         "Store Type",
         "Review & Purchase",
       ];
-    if (solutionType === "website")
-      return ["Solution Type", "Industry", "Goals", "Platform Tier", "Review"];
-    if (solutionType === "both")
-      return [
-        "Solution Type",
-        "Industry",
-        "Trinity Package",
-        "Platform Tier",
-        "Review",
-      ];
-    return ["Solution Type"];
+    // if (solutionType === "website")
+    //   return ["Solution Type", "Industry", "Goals", "Platform Tier", "Review"];
+    // if (solutionType === "both")
+    //   return [
+    //     "Solution Type",
+    //     "Industry",
+    //     "Trinity Package",
+    //     "Platform Tier",
+    //     "Review",
+    //   ];
+    // return ["Solution Type"];
   }, [solutionType]);
 
   const nextStep = useCallback(() => {
@@ -1517,7 +1531,7 @@ const StepWizard = () => {
           case 1:
             return (
               <MemoizedSolutionChoice
-                {...{ solutionType, setSolutionType, nextStep }}
+                {...{ solutionType, setSolutionType, nextStep, setTrinitySelectionId, setCurrentStep }}
               />
             );
           case 2:
@@ -1552,7 +1566,7 @@ const StepWizard = () => {
           case 1:
             return (
               <MemoizedSolutionChoice
-                {...{ solutionType, setSolutionType, nextStep }}
+                {...{ solutionType, setSolutionType, nextStep, setTrinitySelectionId, setCurrentStep }}
               />
             );
           case 2:
@@ -1592,7 +1606,7 @@ const StepWizard = () => {
           case 1:
             return (
               <MemoizedSolutionChoice
-                {...{ solutionType, setSolutionType, nextStep }}
+                {...{ solutionType, setSolutionType, nextStep, setTrinitySelectionId, setCurrentStep }}
               />
             );
           case 2:
@@ -1636,7 +1650,7 @@ const StepWizard = () => {
       default:
         return (
           <MemoizedSolutionChoice
-            {...{ solutionType, setSolutionType, nextStep }}
+            {...{ solutionType, setSolutionType, nextStep, setTrinitySelectionId, setCurrentStep }}
           />
         );
     }
