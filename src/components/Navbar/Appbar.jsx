@@ -28,13 +28,26 @@ const servicesData = [
   { text: "Services", link: "/service-landing-page" },
   { text: "Brand Identity", link: "/service/brand-identity-package" },
   { text: "Trinity Plus", link: "/trinity/plus" },
-  { text: "Custom Website Development", link: "/service/custom-website-development" },
+  {
+    text: "Custom Website Development",
+    link: "/service/custom-website-development",
+  },
   { text: "Website Development", link: "/service/website-development" },
-  { text: "Search Engine Marketing (SEM)", link: "/service/search-engine-marketing" },
-  { text: "Marketing Price Displacement (MPD)", link: "/service/marketing-pricing-displacement" },
-  { text: "Digital Accelerator Bundle", link: "/service/digital-accelerator-bundle" },
+  {
+    text: "Search Engine Marketing (SEM)",
+    link: "/service/search-engine-marketing",
+  },
+  {
+    text: "Marketing Price Displacement (MPD)",
+    link: "/service/marketing-pricing-displacement",
+  },
+  {
+    text: "Digital Accelerator Bundle",
+    link: "/service/digital-accelerator-bundle",
+  },
   { text: "Cost Calculation", link: "/service/cost-calculation" },
   { text: "Step Wizard", link: "/service/stepWizardPage" },
+  { text: "Custom Ad Campaign", link: "/service/custom-ad-campaign" },
 ];
 
 const trinityData = [
@@ -67,7 +80,7 @@ function AppBarNav({ color }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleDrawerToggle = () => setMobileOpen(prev => !prev);
+  const handleDrawerToggle = () => setMobileOpen((prev) => !prev);
 
   const handleLogout = React.useCallback(() => {
     localStorage.removeItem("user");
@@ -76,11 +89,12 @@ function AppBarNav({ color }) {
   }, [dispatch, navigate]);
 
   const handleUserDashboard = () => navigate("/user/profile");
-  const handleAdminPanel = () => window.location.href = "https://marvelous-muffin-8a8584.netlify.app";
+  const handleAdminPanel = () =>
+    (window.location.href = "https://marvelous-muffin-8a8584.netlify.app");
 
-  const handleServicesClick = e => setAnchorElServices(e.currentTarget);
-  const handleExploreClick = e => setAnchorElExplore(e.currentTarget);
-  const handleTrinityClick = e => setAnchorElTrinity(e.currentTarget);
+  const handleServicesClick = (e) => setAnchorElServices(e.currentTarget);
+  const handleExploreClick = (e) => setAnchorElExplore(e.currentTarget);
+  const handleTrinityClick = (e) => setAnchorElTrinity(e.currentTarget);
 
   const handleClose = () => {
     setAnchorElServices(null);
@@ -177,7 +191,10 @@ function AppBarNav({ color }) {
             <IconButton
               color="inherit"
               onClick={handleDrawerToggle}
-              sx={{ display: { sm: "none" }, color: isScrolled ? "#000" : color }}
+              sx={{
+                display: { sm: "none" },
+                color: isScrolled ? "#000" : color,
+              }}
             >
               <MenuIcon />
             </IconButton>
@@ -188,7 +205,13 @@ function AppBarNav({ color }) {
               </Link>
             </Typography>
 
-            <Box sx={{ display: { xs: "none", sm: "flex" }, flexGrow: 1, justifyContent: "center" }}>
+            <Box
+              sx={{
+                display: { xs: "none", sm: "flex" },
+                flexGrow: 1,
+                justifyContent: "center",
+              }}
+            >
               {navItems.map((item, index) => (
                 <Box
                   key={index}
@@ -218,21 +241,38 @@ function AppBarNav({ color }) {
             <Box sx={{ display: { xs: "none", sm: "flex" } }}>
               {isLoggedIn ? (
                 <>
-                  <Button variant="outlined" sx={{ mr: 1 }} onClick={handleLogout}>
+                  <Button
+                    variant="outlined"
+                    sx={{ mr: 1 }}
+                    onClick={handleLogout}
+                  >
                     Logout
                   </Button>
-                  <Button variant="contained" sx={{ mr: 1 }} onClick={handleUserDashboard}>
+                  <Button
+                    variant="contained"
+                    sx={{ mr: 1 }}
+                    onClick={handleUserDashboard}
+                  >
                     Dashboard
                   </Button>
                   {isAdmin && (
-                    <Button variant="contained" color="error" onClick={handleAdminPanel}>
+                    <Button
+                      variant="contained"
+                      color="error"
+                      onClick={handleAdminPanel}
+                    >
                       Admin Panel
                     </Button>
                   )}
                 </>
               ) : (
                 <>
-                  <Button variant="outlined" sx={{ mr: 1 }} component={Link} to="/login">
+                  <Button
+                    variant="outlined"
+                    sx={{ mr: 1 }}
+                    component={Link}
+                    to="/login"
+                  >
                     Login
                   </Button>
                   <Button variant="contained" component={Link} to="/signup">
@@ -260,15 +300,28 @@ function AppBarNav({ color }) {
         </Drawer>
       </Box>
 
-      <Menu anchorEl={anchorElServices} open={Boolean(anchorElServices)} onClose={handleClose}>
+      <Menu
+        anchorEl={anchorElServices}
+        open={Boolean(anchorElServices)}
+        onClose={handleClose}
+      >
         {servicesData.map((data, i) => (
-          <MenuItem key={i} component={Link} to={data.link} onClick={handleClose}>
+          <MenuItem
+            key={i}
+            component={Link}
+            to={data.link}
+            onClick={handleClose}
+          >
             {data.text}
           </MenuItem>
         ))}
       </Menu>
 
-      <Menu anchorEl={anchorElTrinity} open={Boolean(anchorElTrinity)} onClose={handleClose}>
+      <Menu
+        anchorEl={anchorElTrinity}
+        open={Boolean(anchorElTrinity)}
+        onClose={handleClose}
+      >
         {trinityData.map((data, i) => (
           <Link
             key={i}
@@ -280,9 +333,18 @@ function AppBarNav({ color }) {
         ))}
       </Menu>
 
-      <Menu anchorEl={anchorElExplore} open={Boolean(anchorElExplore)} onClose={handleClose}>
+      <Menu
+        anchorEl={anchorElExplore}
+        open={Boolean(anchorElExplore)}
+        onClose={handleClose}
+      >
         {exploreData.map((data, i) => (
-          <MenuItem key={i} component={Link} to={data.link} onClick={handleClose}>
+          <MenuItem
+            key={i}
+            component={Link}
+            to={data.link}
+            onClick={handleClose}
+          >
             {data.text}
           </MenuItem>
         ))}
