@@ -44,10 +44,10 @@ export default function HeroSection() {
   }, []);
 
   // Smooth scroll
-  const scrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) section.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
+  // const scrollToSection = (sectionId) => {
+  //   const section = document.getElementById(sectionId);
+  //   if (section) section.scrollIntoView({ behavior: "smooth", block: "start" });
+  // };
 
   // Purchase handler
   const purchase = (type) => {
@@ -106,6 +106,13 @@ export default function HeroSection() {
 
     alert(message + "\n\n[Checkout process would begin here]");
   };
+
+  const handleScroll = () => {
+      const target = document.querySelector('#wizard');
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    };
 
   return (
     <section
@@ -185,12 +192,12 @@ export default function HeroSection() {
               <div className="tier-price"> €696 </div>
               <div className="tier-duration">Per system • 10 days left</div>
             </div>
-            <div className="tier-card">
+            <div className="tier-card" onClick={() => handleScroll()}>
               <div className="tier-name">Early Adopter</div>
               <div className="tier-price"> €577</div>
               <div className="tier-duration">Per system • Next 3 months</div>
             </div>
-            <div className="tier-card">
+            <div className="tier-card" onClick={() => handleScroll()}>
               <div className="tier-name">Standard</div>
               <div className="tier-price">€1739 </div>
               <div className="tier-duration">Per system • After 3 months</div>
@@ -209,7 +216,7 @@ export default function HeroSection() {
           </button>
           <button
             className="btn btn-secondary"
-            onClick={() => scrollToSection("systems")}
+            onClick={() => handleScroll()}
           >
             Explore Individual Systems
           </button>

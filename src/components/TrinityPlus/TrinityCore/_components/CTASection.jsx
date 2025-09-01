@@ -40,13 +40,12 @@ export default function CtaSection() {
     return () => clearInterval(interval);
   }, []);
 
-  const purchase = (type) => {
-    console.log(`Purchased: ${type}`);
-  };
-
-  const showIndividualOptions = () => {
-    console.log("Showing individual system options");
-  };
+  const handleScroll = () => {
+      const target = document.querySelector('#wizard');
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    };
 
   return (
     <section className="cta-section section-space">
@@ -76,14 +75,14 @@ export default function CtaSection() {
           <button
             className="btn btn-warning"
             style={{ fontSize: "1.125rem", padding: "1rem 2.5rem" }}
-            onClick={() => purchase("bundle")}
+            onClick={() => handleScroll()}
           >
             Get All Trinity Core - €696
           </button>
           <button
             className="btn btn-primary"
             style={{ fontSize: "1.125rem", padding: "1rem 2.5rem" }}
-            onClick={showIndividualOptions}
+            onClick={() => handleScroll()}
           >
             Choose Individual Systems
           </button>

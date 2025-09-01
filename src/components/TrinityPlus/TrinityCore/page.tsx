@@ -12,6 +12,7 @@ import AppBarNav from "../../Navbar/Appbar.jsx";
 import HeroSection from "./_components/HeroSection.jsx";
 import SystemsSection from "./_components/SystemsSection.jsx";
 import CtaSection from "./_components/CTASection.jsx";
+import TrinityStepWizard from "../StepWizardPage.js";
 
 const TrinityCore = () => {
   const [activeTab, setActiveTab] = useState("restaurants");
@@ -162,6 +163,7 @@ const TrinityCore = () => {
         <HeroSection />
         <SystemsSection />
         <CtaSection />
+        <TrinityStepWizard/>
 
         {/* Page Sections */}
         {/* <Hero />

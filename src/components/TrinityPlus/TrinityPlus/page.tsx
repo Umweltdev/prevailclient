@@ -30,6 +30,7 @@ import StatsSection from "./_components/StatsSection.js";
 import SystemsSection from "./_components/SystemsSection.js";
 import Hero from "./_components/Hero.js";
 import FloatingElements from "./_components/FloatingElements.js";
+import TrinityStepWizard from "../StepWizardPage.js";
 // import "./globals.css";
 
 const TrinityPlusPage = () => {
@@ -184,6 +185,7 @@ const TrinityPlusPage = () => {
         <SystemsSection />
         <StatsSection />
         <CTASection />
+        <TrinityStepWizard/>
         {/* <FeatureSection />
 
         <IndustrySection />

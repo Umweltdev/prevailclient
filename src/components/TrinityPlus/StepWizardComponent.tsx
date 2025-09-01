@@ -1689,10 +1689,11 @@ const StepWizard = () => {
           color: "text.primary",
           overflowX: "hidden",
         }}
+        
       >
         <Container maxWidth="lg" sx={{ py: { xs: 6, md: 8 } }}>
           <Box textAlign="center" mb={{ xs: 6, md: 8 }}>
-            <Typography variant="h1" component="h1" gutterBottom>
+            <Typography variant="h1" component="h1" gutterBottom id="wizard">
               Your Partner in Accelerating the{" "}
               <Box component="span" sx={gradientText}>
                 Digital Space

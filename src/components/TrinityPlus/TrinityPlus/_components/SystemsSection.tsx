@@ -79,6 +79,13 @@ const SystemsSection = () => {
     );
   };
 
+   const handleScroll = () => {
+      const target = document.querySelector('#wizard');
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    };
+
   return (
     <section className="section section-alt" id="systems">
       <div className="container">
@@ -124,7 +131,7 @@ const SystemsSection = () => {
               </ul>
               <button
                 className="cta-button"
-                onClick={() => purchase("garo-beta")}
+                onClick={() => handleScroll()}
               >
                 Secure Your Spot
               </button>
@@ -207,7 +214,7 @@ const SystemsSection = () => {
               </ul>
               <button
                 className="cta-button"
-                onClick={() => purchase("aed-beta")}
+                onClick={() => handleScroll()}
               >
                 Secure Your Spot
               </button>
@@ -306,7 +313,7 @@ const SystemsSection = () => {
                 </ul>
                 <button
                   className="cta-button"
-                  onClick={() => purchase("bundle-beta")}
+                  onClick={() => handleScroll()}
                 >
                   Secure Your Spot
                 </button>
@@ -389,7 +396,7 @@ const SystemsSection = () => {
                 </ul>
                 <button
                   className="cta-button"
-                  onClick={() => purchase("storefront-beta")}
+                  onClick={() => handleScroll()}
                 >
                   Secure Your Spot
                 </button>
@@ -446,7 +453,7 @@ const SystemsSection = () => {
         </div>
 
         {/* Trinity Core Link */}
-        <div className="trinity-core-banner">
+        {/* <div className="trinity-core-banner">
           <h3 style={{ marginBottom: "1rem" }}>Looking for Core Systems?</h3>
           <p style={{ marginBottom: "1.5rem" }}>
             Trinity Core includes Expense Manager, MCD, and RCD systems.
@@ -456,7 +463,7 @@ const SystemsSection = () => {
           <a href="#" className="btn btn-primary" onClick={goToTrinityCore}>
             Explore Trinity Core Systems →
           </a>
-        </div>
+        </div> */}
       </div>
     </section>
   );

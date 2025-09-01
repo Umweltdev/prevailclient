@@ -6,6 +6,13 @@ const SystemsSection = () => {
     );
   };
 
+  const handleScroll = () => {
+      const target = document.querySelector('#wizard');
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    };
+
   return (
     <section className="section section-alt" id="systems">
       <div className="container">
@@ -18,9 +25,9 @@ const SystemsSection = () => {
             <br />
             Start with the essentials and upgrade to Plus anytime.
           </p>
-          <a href="#" className="btn btn-primary" onClick={goToTrinityCore}>
+          <button className="btn btn-primary" onClick={() => handleScroll()}>
             Explore Trinity Core Systems →
-          </a>
+          </button>
         </div>
       </div>
     </section>

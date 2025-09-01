@@ -11,6 +11,13 @@ const Hero = () => {
     }
   };
 
+   const handleScroll = () => {
+      const target = document.querySelector('#wizard');
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    };
+
   return (
     <section className="hero" id="hero">
       <div className="blob-container">
@@ -76,12 +83,12 @@ const Hero = () => {
             <div className="tier-price">€1,159</div>
             <div className="tier-label">Beta (10 days)</div>
           </div>
-          <div className="tier">
+          <div className="tier" onClick={() => handleScroll()}>
             <div className="tier-price">€579</div>
             <div className="tier-label">Early (3 months)</div>
           </div>
-          <div className="tier">
-            <div className="tier-price">€1,739</div>
+          <div className="tier" onClick={() => handleScroll()}>
+            <div className="tier-price" >€1,739</div>
             <div className="tier-label">Standard</div>
           </div>
         </div>
@@ -104,7 +111,7 @@ const Hero = () => {
           </button>
           <button
             className="btn btn-primary"
-            onClick={() => scrollToSection("systems")}
+            onClick={() => handleScroll()}
           >
             Explore Individual Systems
           </button>
