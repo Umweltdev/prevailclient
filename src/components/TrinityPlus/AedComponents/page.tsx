@@ -39,7 +39,7 @@ function AEDLandingPage() {
       {/* Footer */}
       <Footer />
       {/* Floating Blob */}
-      <FloatingBlobs />
+      {/* <FloatingBlobs /> */}
     </div>
   );
 }

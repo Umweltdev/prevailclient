@@ -28,53 +28,23 @@ const servicesData = [
   { text: "Services", link: "/service-landing-page" },
   { text: "Brand Identity", link: "/service/brand-identity-package" },
   { text: "Trinity Plus", link: "/trinity/plus" },
-  {
-    text: "Custom Website Development",
-    link: "/service/custom-website-development",
-  },
+  { text: "Custom Website Development", link: "/service/custom-website-development" },
   { text: "Website Development", link: "/service/website-development" },
-  {
-    text: "Search Engine Marketing (SEM)",
-    link: "/service/search-engine-marketing",
-  },
-  {
-    text: "Marketing Price Displacement (MPD)",
-    link: "/service/marketing-pricing-displacement",
-  },
-  {
-    text: "Digital Accelerator Bundle",
-    link: "/service/digital-accelerator-bundle",
-  },
-  {
-    text: "Cost Calculation",
-    link: "/service/cost-calculation",
-  },
-   {
-    text: "Step Wizard",
-    link: "/service/stepWizardPage",
-  },
+  { text: "Search Engine Marketing (SEM)", link: "/service/search-engine-marketing" },
+  { text: "Marketing Price Displacement (MPD)", link: "/service/marketing-pricing-displacement" },
+  { text: "Digital Accelerator Bundle", link: "/service/digital-accelerator-bundle" },
+  { text: "Cost Calculation", link: "/service/cost-calculation" },
+  { text: "Step Wizard", link: "/service/stepWizardPage" },
 ];
 
 const trinityData = [
   { text: "Trinity Core", link: "/trinity/core" },
   { text: "Trinity Plus", link: "/trinity/plus" },
-  {
-    text: "Expense Manager",
-    link: "/trinity/expense-manager",
-  },
+  { text: "Expense Manager", link: "/trinity/expense-manager" },
   { text: "Garo", link: "/trinity/garo" },
-  {
-    text: "MCD",
-    link: "/trinity/mcd",
-  },
-  {
-    text: "RCD",
-    link: "/trinity/rcd",
-  },
-  {
-    text: "AED",
-    link: "/trinity/aed",
-  },
+  { text: "MCD", link: "/trinity/mcd" },
+  { text: "RCD", link: "/trinity/rcd" },
+  { text: "AED", link: "/trinity/aed" },
 ];
 
 const exploreData = [
@@ -92,21 +62,12 @@ function AppBarNav({ color }) {
   const [isScrolled, setIsScrolled] = React.useState(false);
 
   React.useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      setIsScrolled(scrollY > 50);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleDrawerToggle = () => {
-    setMobileOpen((prevState) => !prevState);
-  };
+  const handleDrawerToggle = () => setMobileOpen(prev => !prev);
 
   const handleLogout = React.useCallback(() => {
     localStorage.removeItem("user");
@@ -114,25 +75,12 @@ function AppBarNav({ color }) {
     navigate("/login");
   }, [dispatch, navigate]);
 
-  const handleUserDashboard = () => {
-    navigate("/user/profile");
-  };
+  const handleUserDashboard = () => navigate("/user/profile");
+  const handleAdminPanel = () => window.location.href = "https://marvelous-muffin-8a8584.netlify.app";
 
-  const handleAdminPanel = () => {
-    window.location.href = "https://marvelous-muffin-8a8584.netlify.app";
-  };
-
-  const handleServicesClick = (event) => {
-    setAnchorElServices(event.currentTarget);
-  };
-
-  const handleExploreClick = (event) => {
-    setAnchorElExplore(event.currentTarget);
-  };
-
-  const handleTrinityClick = (event) => {
-    setAnchorElTrinity(event.currentTarget);
-  };
+  const handleServicesClick = e => setAnchorElServices(e.currentTarget);
+  const handleExploreClick = e => setAnchorElExplore(e.currentTarget);
+  const handleTrinityClick = e => setAnchorElTrinity(e.currentTarget);
 
   const handleClose = () => {
     setAnchorElServices(null);
@@ -146,22 +94,20 @@ function AppBarNav({ color }) {
         ? [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
-            { label: "Trinity Plus", onClick: handleTrinityClick },
+            { label: "Trinity", onClick: handleTrinityClick },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
-            { label: "Dashboard", link: "/contact-us" },
-            { label: "Logout", onClick: handleLogout, path: "/login" },
           ]
         : [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
-            { label: "Trinity Plus", onClick: handleTrinityClick },
+            { label: "Trinity", onClick: handleTrinityClick },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
             { label: "Login", link: "/login" },
             { label: "Sign Up", link: "/signup" },
           ],
-    [isLoggedIn, handleLogout]
+    [isLoggedIn]
   );
 
   const DrawerNavItems = React.useMemo(
@@ -170,25 +116,19 @@ function AppBarNav({ color }) {
         ? [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
-            { label: "Trinity Plus", onClick: handleTrinityClick },
+            { label: "Trinity", onClick: handleTrinityClick },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
             ...(isAdmin
-              ? [
-                  {
-                    label: "Admin Panel",
-                    onClick: handleAdminPanel,
-                    path: "https://marvelous-muffin-8a8584.netlify.app",
-                  },
-                ]
+              ? [{ label: "Admin Panel", onClick: handleAdminPanel }]
               : []),
             { label: "Dashboard", link: "/user/profile" },
-            { label: "Logout", onClick: handleLogout, path: "/login" },
+            { label: "Logout", onClick: handleLogout },
           ]
         : [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
-            { label: "Trinity Plus", onClick: handleTrinityClick },
+            { label: "Trinity", onClick: handleTrinityClick },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
             { label: "Login", link: "/login" },
@@ -237,51 +177,44 @@ function AppBarNav({ color }) {
             <IconButton
               color="inherit"
               onClick={handleDrawerToggle}
-              sx={{
-                display: { sm: "none" },
-                color: isScrolled ? "#000" : color,
-              }}
+              sx={{ display: { sm: "none" }, color: isScrolled ? "#000" : color }}
             >
               <MenuIcon />
             </IconButton>
-            
+
             <Typography variant="h6" component="div">
               <Link to="/">
                 <img style={{ height: "50px" }} src={logo} alt="logo" />
               </Link>
             </Typography>
-            
+
             <Box sx={{ display: { xs: "none", sm: "flex" }, flexGrow: 1, justifyContent: "center" }}>
-              {navItems.slice(0, -2).map((item, index) => (
+              {navItems.map((item, index) => (
                 <Box
                   key={index}
-                  sx={{ 
-                    color: isScrolled ? "#000" : color, 
+                  sx={{
+                    color: isScrolled ? "#000" : color,
                     mx: 2,
                     px: 1,
                     py: 1,
-                    cursor: 'pointer',
-                    display: 'flex',
-                    alignItems: 'center',
-                    textDecoration: 'none',
-                    '&:hover': {
-                      opacity: 0.7
-                    }
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    textDecoration: "none",
+                    "&:hover": { opacity: 0.7 },
                   }}
                   component={item.link ? Link : "div"}
                   to={item.link || undefined}
                   onClick={item.onClick || undefined}
                 >
-                  <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                    {item.label}
-                  </Typography>
-                  {(item.label === "Explore" || item.label === "Services" || item.label === "Trinity Plus") && (
-                    <ExpandMoreIcon sx={{ ml: 0.5 }} />
+                  {item.label}
+                  {["Explore", "Services", "Trinity"].includes(item.label) && (
+                    <ExpandMoreIcon sx={{ marginLeft: "5px" }} />
                   )}
                 </Box>
               ))}
             </Box>
-            
+
             <Box sx={{ display: { xs: "none", sm: "flex" } }}>
               {isLoggedIn ? (
                 <>
@@ -311,7 +244,7 @@ function AppBarNav({ color }) {
           </Toolbar>
         </Container>
       </AppBar>
-      
+
       <Box component="nav">
         <Drawer
           variant="temporary"
@@ -326,7 +259,7 @@ function AppBarNav({ color }) {
           {drawer}
         </Drawer>
       </Box>
-      
+
       <Menu anchorEl={anchorElServices} open={Boolean(anchorElServices)} onClose={handleClose}>
         {servicesData.map((data, i) => (
           <MenuItem key={i} component={Link} to={data.link} onClick={handleClose}>
@@ -334,20 +267,17 @@ function AppBarNav({ color }) {
           </MenuItem>
         ))}
       </Menu>
-      
+
       <Menu anchorEl={anchorElTrinity} open={Boolean(anchorElTrinity)} onClose={handleClose}>
-        {trinityData.map((data, i) =>
-          data.text === "MCD" || data.text === "RCD" ? (
-            <MenuItem key={i} disabled>
-              <span>{data.text}</span>
-              <span>🚀 Coming Soon</span>
-            </MenuItem>
-          ) : (
-            <MenuItem key={i} component={Link} to={data.link} onClick={handleClose}>
-              {data.text}
-            </MenuItem>
-          )
-        )}
+        {trinityData.map((data, i) => (
+          <Link
+            key={i}
+            to={data.link}
+            style={{ color: "#6E3EF4", textDecoration: "none" }}
+          >
+            <MenuItem onClick={handleClose}>{data.text}</MenuItem>
+          </Link>
+        ))}
       </Menu>
 
       <Menu anchorEl={anchorElExplore} open={Boolean(anchorElExplore)} onClose={handleClose}>
