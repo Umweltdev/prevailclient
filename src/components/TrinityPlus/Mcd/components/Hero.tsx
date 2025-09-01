@@ -1,7 +1,9 @@
 import React from 'react'
 import { ChevronDown, Check, X, Shield, Zap, Target, BarChart3, Clock, RefreshCw, Lock, TrendingUp, AlertCircle, Star, Mail, Phone, ArrowRight, DollarSign, Activity, AlertTriangle } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 function Hero() {
+    const navigate = useNavigate()
   return (
     <section className="min-h-screen flex items-center justify-center px-6 pt-32 pb-16 relative bg-gradient-radial">
         <div className="max-w-7xl mx-auto text-center relative z-10">
@@ -14,7 +16,7 @@ function Hero() {
             Introducing Marketing Cost Displacement – The intelligent pricing engine that turns successful advertising into higher margins, automatically.
             </p>
             <div className="hero-fade-3 flex flex-col md:flex-row gap-4 justify-center mb-12">
-            <button className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold text-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2 group">
+            <button onClick={()=> navigate('/trinity/step-wizard')} className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold text-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2 group">
                 See MCD in Action
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>

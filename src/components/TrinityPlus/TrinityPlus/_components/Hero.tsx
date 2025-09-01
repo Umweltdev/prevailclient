@@ -1,7 +1,9 @@
 import React from "react";
 // import "@/App.css"
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate()
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
     if (section) {
@@ -70,8 +72,8 @@ const Hero = () => {
 
         {/* Pricing Tiers */}
         <div className="pricing-tiers">
-          <div className="tier active">
-            <div className="tier-price">€232</div>
+          <div className="tier active" onClick={()=> navigate('/trinity/step-wizard')}>
+            <div className="tier-price">€1,159</div>
             <div className="tier-label">Beta (10 days)</div>
           </div>
           <div className="tier">
@@ -95,7 +97,7 @@ const Hero = () => {
         >
           <button
             className="btn btn-warning"
-            onClick={() => scrollToSection("bundle")}
+            onClick={() => navigate('/trinity/step-wizard')}
             style={{ animation: "pulse 2s infinite" }}
           >
             Get Complete Trinity Plus Bundle

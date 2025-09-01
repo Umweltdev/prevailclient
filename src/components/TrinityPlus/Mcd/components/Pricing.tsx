@@ -1,7 +1,9 @@
 import { Check } from "lucide-react";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function Pricing({ visibleSections }) {
+  const navigate = useNavigate()
   return (
     <section
       id="pricing"
@@ -93,6 +95,7 @@ function Pricing({ visibleSections }) {
               </ul>
 
               <button
+              onClick={()=> navigate('/trinity/step-wizard')}
                 disabled={!plan.clickable} // ✅ Disable other plans
                 className={`w-full py-3 rounded-full font-semibold transition-all duration-300 ${
                   plan.clickable

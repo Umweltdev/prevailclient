@@ -1,6 +1,7 @@
 import Button from "./Button.js";
 import { FloatingBadge } from "./FloatingShapes.js";
 import GlassCard from "./GlassCard.js";
+import { useNavigate } from "react-router-dom";
 
 function PricingCard({
   name,
@@ -15,6 +16,7 @@ function PricingCard({
   features: string[];
   featured?: boolean;
 }) {
+  const navigate = useNavigate()
   return (
     <GlassCard
       className={`relative p-10 text-center ${
@@ -49,6 +51,8 @@ function PricingCard({
         ))}
       </ul>
       <Button
+        disabled={name !== 'Beta'}
+        onClick={()=> navigate('/trinity/step-wizard')}
         variant={featured ? "primary" : "secondary"}
         size="lg"
         className="w-full"

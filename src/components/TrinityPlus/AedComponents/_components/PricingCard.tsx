@@ -2,6 +2,7 @@
 "use client";
 
 import { CheckCircle } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import React from "react";
 
 // Component: Pricing Card
@@ -24,6 +25,7 @@ const PricingCard: React.FC<Pricing> = ({
   popular,
   clickable = true, // default true
 }) => {
+  const navigate = useNavigate()
   return (
     <div
       className={`relative bg-white rounded-xl shadow-lg p-8 transition-transform duration-300 flex flex-col ${
@@ -62,6 +64,7 @@ const PricingCard: React.FC<Pricing> = ({
       <div className="mt-auto">
         <button
           disabled={!clickable}
+          onClick={()=> navigate('/trinity/step-wizard')}
           className={`w-full py-3 rounded-lg font-semibold transition-all ${
             clickable
               ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:shadow-lg transform hover:scale-105"
