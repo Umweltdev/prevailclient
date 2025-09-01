@@ -433,7 +433,7 @@
   justify-content: space-between; justify-between */
   padding: 2rem; /* p-8 */
   margin-bottom: 2.5rem; /* mb-10 */
-  background-color: rgba(255, 255, 255, 0.9); /* bg-white/90 */
+  background-color: rgba(255, 255, 255, 0.9); 
   backdrop-filter: blur(8px); /* backdrop-blur */
   border-radius: 1rem; /* rounded-2xl */
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); /* shadow-xl */

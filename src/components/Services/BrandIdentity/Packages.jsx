@@ -1,4 +1,4 @@
-import React, {useState, useCallback, useEffect, useRef} from "react";
+import  {useState, useCallback, useEffect, useRef} from "react";
 import PackagesLayout from "./PackagesLayout";
 import { Grid, Typography } from "@mui/material";
 import PremiumPackageLayout from "./PremiumPackageLayout";
@@ -9,26 +9,13 @@ import {
   ChevronRight,
   ChevronLeft,
   Check,
-  Wifi,
-  Building,
-  Globe,
-  Rocket,
-  Zap,
-  RefreshCw,
+  
   TrendingUp,
 } from "lucide-react";
 const StepWizard= () => {
   
-  //  const getInitialState = () => {
-  //   if (typeof window === "undefined") return {};
-  //   const savedState = localStorage.getItem("quoteBuilderState");
-  //   return savedState ? JSON.parse(savedState) : {};
-  // };
-// const initialState = getInitialState();
-  const [currentStep, setCurrentStep] = useState(1);
-  // Initial state function to load from localStorage
- 
   
+  const [currentStep, setCurrentStep] = useState(1);
 
   const [trinitySelectionId, setTrinitySelectionId] =
     useState( null);
@@ -62,12 +49,10 @@ const StepWizard= () => {
   const prevStep = useCallback(() => {
     if (currentStep > 1) {
       let prevStepNum = currentStep - 1;
-
-      
       setCurrentStep(prevStepNum);
       wizardRef.current?.scrollIntoView({ behavior: "smooth" });
 
-      // window.scrollTo(0, 0);
+    
     }
   }, [currentStep]);
   useEffect(() => {
@@ -76,7 +61,7 @@ const StepWizard= () => {
       
       trinitySelectionId,
       
-      //budget,
+      
       
     };
     localStorage.setItem("quoteBuilderState", JSON.stringify(stateToSave));
@@ -116,7 +101,7 @@ const Packages = () => {
         margin: "0px auto 0 auto",
         padding: "30px 0 50px 0",
         
-        background: "#F9FAFC",
+        // background: "#F9FAFC",
         "@media (max-width: 600px)": {
           margin: "1vh auto 0 auto",
         },
