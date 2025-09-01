@@ -78,7 +78,7 @@ export default function CtaSection() {
             style={{ fontSize: "1.125rem", padding: "1rem 2.5rem" }}
             onClick={() => purchase("bundle")}
           >
-            Get All 3 Systems - €696
+            Get All Trinity Core - €696
           </button>
           <button
             className="btn btn-primary"

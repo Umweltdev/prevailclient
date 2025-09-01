@@ -27,10 +27,10 @@ import { NavBar } from "./components/ui/nav-bar.js";
 import AppBarNav from "../../Navbar/Appbar.jsx";
 import CTASection from "./_components/CTASection.js";
 import StatsSection from "./_components/StatsSection.js";
-import SystemsSection from "./_components/CTASection.js";
+import SystemsSection from "./_components/SystemsSection.js";
 import Hero from "./_components/Hero.js";
 import FloatingElements from "./_components/FloatingElements.js";
-import "./globals.css";
+// import "./globals.css";
 
 const TrinityPlusPage = () => {
   const [activeTab, setActiveTab] = useState("restaurants");

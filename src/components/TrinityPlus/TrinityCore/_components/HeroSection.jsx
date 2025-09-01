@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function HeroSection() {
+  const navigate = useNavigate()
   // Countdown state
   const [timeLeft, setTimeLeft] = useState({
     days: 10,
@@ -61,7 +63,7 @@ export default function HeroSection() {
           "• Emergency fund protection\n" +
           "• Full source code\n\n" +
           "Price after beta: £500 (early) → £1,500 (standard)\n" +
-          "You save: £1,300!";
+          "You save: €696 beta!";
         break;
       case "mcd":
         message =
@@ -72,7 +74,7 @@ export default function HeroSection() {
           "• Profit protection algorithms\n" +
           "• Full source code\n\n" +
           "Price after beta: £500 (early) → £1,500 (standard)\n" +
-          "You save: £1,300!";
+          "You save: €1,300!";
         break;
       case "rcd":
         message =
@@ -83,7 +85,7 @@ export default function HeroSection() {
           "• Customer lifetime optimization\n" +
           "• Full source code\n\n" +
           "Price after beta: £500 (early) → £1,500 (standard)\n" +
-          "You save: £1,300!";
+          "You save: € 1,696!";
         break;
       case "bundle":
         message =
@@ -96,7 +98,7 @@ export default function HeroSection() {
           "Beta price: £600 (next 10 days)\n" +
           "Early adopter: £1,500 (next 3 months)\n" +
           "Standard price: £4,500\n\n" +
-          "YOU SAVE £3,900!";
+          "YOU SAVE €3,900!";
         break;
       default:
         message = "System not found!";
@@ -106,7 +108,14 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="hero">
+    <section
+      style={{
+        background: "transparent",
+        border: "none",
+        boxShadow: "none",
+      }}
+      className="hero section-alt  "
+    >
       <div className="hero-content container">
         {/* Pricing Alert */}
         <div className="pricing-alert">
@@ -170,20 +179,20 @@ export default function HeroSection() {
         <div className="pricing-tiers" id="pricing">
           <h3 style={{ marginBottom: "1rem" }}>Time-Limited Pricing</h3>
           <div className="tier-grid">
-            <div className="tier-card active">
+            <div className="tier-card active cursor-pointer" onClick={()=> navigate('/trinity/step-wizard')}>
               <div className="tier-badge">ACTIVE NOW</div>
               <div className="tier-name">Beta Access</div>
-              <div className="tier-price">£200</div>
+              <div className="tier-price"> €696 </div>
               <div className="tier-duration">Per system • 10 days left</div>
             </div>
             <div className="tier-card">
               <div className="tier-name">Early Adopter</div>
-              <div className="tier-price">£500</div>
+              <div className="tier-price"> €577</div>
               <div className="tier-duration">Per system • Next 3 months</div>
             </div>
             <div className="tier-card">
               <div className="tier-name">Standard</div>
-              <div className="tier-price">£1,500</div>
+              <div className="tier-price">€1739 </div>
               <div className="tier-duration">Per system • After 3 months</div>
             </div>
           </div>
@@ -193,10 +202,10 @@ export default function HeroSection() {
         <div className="hero-buttons">
           <button
             className="btn btn-warning"
-            onClick={() => scrollToSection("bundle")}
+            onClick={() => navigate('/trinity/step-wizard')}
             style={{ animation: "pulse 2s infinite" }}
           >
-            Get All 3 Systems - £600 (Beta)
+            Get All 3 Trinity Core - €696 (Beta)
           </button>
           <button
             className="btn btn-secondary"

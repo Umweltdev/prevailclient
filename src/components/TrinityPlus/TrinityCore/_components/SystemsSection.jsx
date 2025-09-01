@@ -164,7 +164,11 @@ export default function SystemSection() {
             Upgrade to Trinity Plus and add the revolutionary GARO Genetic
             Algorithm Optimizer
           </p>
-          <button className="btn btn-success" onClick={handleTrinityPlus}>
+          <button
+            style={{ marginTop: "1rem" }}
+            className="btn btn-success"
+            onClick={handleTrinityPlus}
+          >
             Explore Trinity Plus →
           </button>
         </div>

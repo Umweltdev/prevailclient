@@ -44,7 +44,7 @@ const ExpenseManagerPage = () => {
       {/* CTA and Footer */}
       {/* <div className='bg-slate-900'> */}
       {/* CTA */}
-      <CTA />
+      {/* <CTA /> */}
 
       {/* Footer */}
       <Footer />
