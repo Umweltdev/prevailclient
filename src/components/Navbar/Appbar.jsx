@@ -27,6 +27,7 @@ const drawerWidth = 240;
 const servicesData = [
   { text: "Services", link: "/service-landing-page" },
   { text: "Brand Identity", link: "/service/brand-identity-package" },
+  { text: "Trinity Plus", link: "/trinity/plus" },
   {
     text: "Custom Website Development",
     link: "/service/custom-website-development",
@@ -44,10 +45,19 @@ const servicesData = [
     text: "Digital Accelerator Bundle",
     link: "/service/digital-accelerator-bundle",
   },
-  {
-    text: "Cost Calculation",
-    link: "/service/cost-calculation",
-  },
+  { text: "Cost Calculation", link: "/service/cost-calculation" },
+  { text: "Step Wizard", link: "/service/stepWizardPage" },
+  { text: "Custom Ad Campaign", link: "/service/custom-ad-campaign" },
+];
+
+const trinityData = [
+  { text: "Trinity Core", link: "/trinity/core" },
+  { text: "Trinity Plus", link: "/trinity/plus" },
+  { text: "Expense Manager", link: "/trinity/expense-manager" },
+  { text: "Garo", link: "/trinity/garo" },
+  { text: "MCD", link: "/trinity/mcd" },
+  { text: "RCD", link: "/trinity/rcd" },
+  { text: "AED", link: "/trinity/aed" },
 ];
 
 const exploreData = [
@@ -59,26 +69,18 @@ function AppBarNav({ color }) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [anchorElExplore, setAnchorElExplore] = React.useState(null);
   const [anchorElServices, setAnchorElServices] = React.useState(null);
+  const [anchorElTrinity, setAnchorElTrinity] = React.useState(null);
   const { isLoggedIn, isAdmin, dispatch } = React.useContext(AuthContext);
   const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = React.useState(false);
 
   React.useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      setIsScrolled(scrollY > 50);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleDrawerToggle = () => {
-    setMobileOpen((prevState) => !prevState);
-  };
+  const handleDrawerToggle = () => setMobileOpen((prev) => !prev);
 
   const handleLogout = React.useCallback(() => {
     localStorage.removeItem("user");
@@ -86,25 +88,18 @@ function AppBarNav({ color }) {
     navigate("/login");
   }, [dispatch, navigate]);
 
-  const handleUserDashboard = () => {
-    navigate("/user/profile");
-  };
+  const handleUserDashboard = () => navigate("/user/profile");
+  const handleAdminPanel = () =>
+    (window.location.href = "https://marvelous-muffin-8a8584.netlify.app");
 
-  const handleAdminPanel = () => {
-    window.location.href = "https://marvelous-muffin-8a8584.netlify.app";
-  };
-
-  const handleServicesClick = (event) => {
-    setAnchorElServices(event.currentTarget);
-  };
-
-  const handleExploreClick = (event) => {
-    setAnchorElExplore(event.currentTarget);
-  };
+  const handleServicesClick = (e) => setAnchorElServices(e.currentTarget);
+  const handleExploreClick = (e) => setAnchorElExplore(e.currentTarget);
+  const handleTrinityClick = (e) => setAnchorElTrinity(e.currentTarget);
 
   const handleClose = () => {
     setAnchorElServices(null);
     setAnchorElExplore(null);
+    setAnchorElTrinity(null);
   };
 
   const navItems = React.useMemo(
@@ -113,33 +108,22 @@ function AppBarNav({ color }) {
         ? [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
-            // { label: "Blog", link: "/blog" },
+            { label: "Trinity Plus", onClick: handleTrinityClick },
+          // { label: "Blog", link: "/blog" },
+            { label: "Booking", link: "/booking" },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
-
-            // ...(isAdmin
-            //   ? [
-            //       {
-            //         label: "Admin Panel",
-            //         onClick: handleAdminPanel,
-            //         path: "https://667a6e03fc92ceb5b5ec2751--marvelous-muffin-8a8584.netlify.app/auth/jwt/login?returnTo=%2Fdashboard",
-            //       },
-            //     ]
-            //   : []),
-            { label: "Dashboard", link: "/contact-us" },
-
-            { label: "Logout", onClick: handleLogout, path: "/login" },
           ]
         : [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
-            // { label: "Blog", link: "/blog" },
+            { label: "Trinity Plus", onClick: handleTrinityClick },
+          // { label: "Blog", link: "/blog" },
+            { label: "Booking", link: "/booking" },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
-            { label: "Login", link: "/login" },
-            { label: "Sign Up", link: "/signup" },
           ],
-    [isLoggedIn, handleLogout]
+    [isLoggedIn]
   );
 
   const DrawerNavItems = React.useMemo(
@@ -148,26 +132,24 @@ function AppBarNav({ color }) {
         ? [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
-            // { label: "Blog", link: "/blog" },
+            { label: "Trinity Plus", onClick: handleTrinityClick },
+          // { label: "Blog", link: "/blog" },
+            { label: "Booking", link: "/booking" },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
             ...(isAdmin
-              ? [
-                  {
-                    label: "Admin Panel",
-                    onClick: handleAdminPanel,
-                    path: "https://marvelous-muffin-8a8584.netlify.app",
-                  },
-                ]
+              ? [{ label: "Admin Panel", onClick: handleAdminPanel }]
               : []),
             { label: "Dashboard", link: "/user/profile" },
-
-            { label: "Logout", onClick: handleLogout, path: "/login" },
+            { label: "Logout", onClick: handleLogout },
           ]
         : [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
-            // { label: "Blog", link: "/blog" },
+            { label: "Trinity Plus", onClick: handleTrinityClick },
+          // { label: "Blog", link: "/blog" },
+            { label: "Booking", link: "/booking" },
+
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
             { label: "Login", link: "/login" },
@@ -177,27 +159,20 @@ function AppBarNav({ color }) {
   );
 
   const drawer = (
-    <Box
-      onClick={handleDrawerToggle}
-      sx={{ textAlign: "center", color: "#884ed9" }}
-    >
-      <Typography
-        variant="h6"
-        sx={{ my: 5, fontFamily: `"Sarabun","sans-serif"` }}
-      >
-        <Link rel="canonical" to={`/`} style={{ textDecoration: "none" }}>
-          <img style={{ height: "10vh" }} src={logo} alt="logo" />
+    <Box onClick={handleDrawerToggle}>
+      <Typography variant="h6" sx={{ my: 2 }}>
+        <Link to="/">
+          <img style={{ height: "40px" }} src={logo} alt="logo" />
         </Link>
       </Typography>
       <Divider />
       <List>
         {DrawerNavItems.map((item, index) => (
-          <ListItem sx={{ textAlign: "center" }} key={index} disablePadding>
+          <ListItem key={index} disablePadding>
             <ListItemButton
               component={item.link ? Link : "div"}
-              to={item.link ? item.link : null}
-              onClick={item.onClick ? item.onClick : null}
-              sx={{ textAlign: "center" }}
+              to={item.link || undefined}
+              onClick={item.onClick || undefined}
             >
               <ListItemText primary={item.label} />
             </ListItemButton>
@@ -213,20 +188,16 @@ function AppBarNav({ color }) {
       <AppBar
         component="nav"
         sx={{
-          background: isScrolled ? "#fff" : "rgba(0,0,0,0)",
+          background: isScrolled ? "#fff" : "transparent",
           transition: "background-color 0.3s",
-          boxShadow: isScrolled ? "1" : "0",
-          borderBottom: "0 solid #E5E5E5",
-          py: "20px",
+          py: 2,
         }}
       >
-        <Container sx={{ px: { xs: 1, sm: 1, md: 1 } }}>
+        <Container>
           <Toolbar sx={{ justifyContent: "space-between" }}>
             <IconButton
               color="inherit"
-              aria-label="open drawer"
               onClick={handleDrawerToggle}
-              edge="start"
               sx={{
                 display: { sm: "none" },
                 color: isScrolled ? "#000" : color,
@@ -234,16 +205,13 @@ function AppBarNav({ color }) {
             >
               <MenuIcon />
             </IconButton>
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              sx={{ display: { xs: "block", sm: "block" } }}
-            >
-              <Link rel="canonical" to={`/`} style={{ textDecoration: "none" }}>
+
+            <Typography variant="h6" component="div">
+              <Link to="/">
                 <img style={{ height: "50px" }} src={logo} alt="logo" />
               </Link>
             </Typography>
+
             <Box
               sx={{
                 display: { xs: "none", sm: "flex" },
@@ -251,58 +219,45 @@ function AppBarNav({ color }) {
                 justifyContent: "center",
               }}
             >
-              {navItems.slice(0, -2).map((item, index) => (
-                <Button
+              {navItems.map((item, index) => (
+                <Box
                   key={index}
                   sx={{
                     color: isScrolled ? "#000" : color,
-                    textTransform: "none",
-                    margin: "0 10px",
+                    mx: 2,
+                    px: 1,
+                    py: 1,
+                    cursor: "pointer",
                     display: "flex",
                     alignItems: "center",
+                    textDecoration: "none",
+                    "&:hover": { opacity: 0.7 },
                   }}
-                  rel="canonical"
                   component={item.link ? Link : "div"}
-                  to={item.link ? item.link : null}
-                  onClick={item.onClick ? item.onClick : null}
+                  to={item.link || undefined}
+                  onClick={item.onClick || undefined}
                 >
                   {item.label}
-                  {item.label === "Explore" && (
+                  {["Explore", "Services", "Trinity"].includes(item.label) && (
                     <ExpandMoreIcon sx={{ marginLeft: "5px" }} />
                   )}
-                  {item.label === "Services" && (
-                    <ExpandMoreIcon sx={{ marginLeft: "5px" }} />
-                  )}
-                </Button>
+                </Box>
               ))}
             </Box>
-            <Box
-              sx={{ display: { xs: "none", sm: "flex" }, alignItems: "center" }}
-            >
+
+            <Box sx={{ display: { xs: "none", sm: "flex" } }}>
               {isLoggedIn ? (
                 <>
                   <Button
                     variant="outlined"
-                    sx={{
-                      marginRight: "10px",
-                      borderColor: "#884ed9",
-                      color: isScrolled ? "#000" : color,
-                      textTransform: "none",
-                      borderRadius: "20px",
-                    }}
+                    sx={{ mr: 1 }}
                     onClick={handleLogout}
                   >
                     Logout
                   </Button>
                   <Button
                     variant="contained"
-                    sx={{
-                      backgroundColor: "#884ed9",
-                      color: "white",
-                      textTransform: "none",
-                      borderRadius: "20px",
-                      marginRight: "10px",
-                    }}
+                    sx={{ mr: 1 }}
                     onClick={handleUserDashboard}
                   >
                     Dashboard
@@ -310,12 +265,7 @@ function AppBarNav({ color }) {
                   {isAdmin && (
                     <Button
                       variant="contained"
-                      sx={{
-                        backgroundColor: "#ff5722",
-                        color: "white",
-                        textTransform: "none",
-                        borderRadius: "20px",
-                      }}
+                      color="error"
                       onClick={handleAdminPanel}
                     >
                       Admin Panel
@@ -326,31 +276,13 @@ function AppBarNav({ color }) {
                 <>
                   <Button
                     variant="outlined"
-                    sx={{
-                      marginRight: "15px",
-                      borderColor: "#884ed9",
-                      color: isScrolled ? "#000" : color,
-                      textTransform: "none",
-                      borderRadius: "20px",
-                    }}
-                    rel="canonical"
+                    sx={{ mr: 1 }}
                     component={Link}
                     to="/login"
                   >
                     Login
                   </Button>
-                  <Button
-                    variant="contained"
-                    sx={{
-                      backgroundColor: "#884ed9",
-                      color: "white",
-                      textTransform: "none",
-                      borderRadius: "20px",
-                    }}
-                    component={Link}
-                    rel="canonical"
-                    to="/signup"
-                  >
+                  <Button variant="contained" component={Link} to="/signup">
                     Sign Up
                   </Button>
                 </>
@@ -359,67 +291,77 @@ function AppBarNav({ color }) {
           </Toolbar>
         </Container>
       </AppBar>
+
       <Box component="nav">
         <Drawer
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true,
-          }}
+          ModalProps={{ keepMounted: true }}
           sx={{
             display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
+            "& .MuiDrawer-paper": { width: drawerWidth },
           }}
         >
           {drawer}
         </Drawer>
       </Box>
+
       <Menu
         anchorEl={anchorElServices}
         open={Boolean(anchorElServices)}
         onClose={handleClose}
-        sx={{ borderRadius: "50px" }}
       >
         {servicesData.map((data, i) => (
-          <Link
-            style={{
-              color: "#6E3EF4",
-              textDecoration: "none",
-              textAlign: "left",
-            }}
+          <MenuItem
             key={i}
+            component={Link}
             to={data.link}
-            rel="canonical"
+            onClick={handleClose}
           >
-            <MenuItem onClick={handleClose}>{data.text}</MenuItem>
-          </Link>
+            {data.text}
+          </MenuItem>
         ))}
       </Menu>
+
       <Menu
-        anchorEl={anchorElExplore}
-        open={Boolean(anchorElExplore)}
+        anchorEl={anchorElTrinity}
+        open={Boolean(anchorElTrinity)}
         onClose={handleClose}
       >
-        {exploreData.map((data, i) => (
+        {trinityData.map((data, i) => (
           <Link
-            style={{
-              color: "#6E3EF4",
-              textDecoration: "none",
-             
-              textAlign: "left",
-            }}
             key={i}
             to={data.link}
-            rel="canonical"
+            style={{ color: "#6E3EF4", textDecoration: "none" }}
           >
             <MenuItem onClick={handleClose}>{data.text}</MenuItem>
           </Link>
         ))}
       </Menu>
+
+<Menu
+  anchorEl={anchorElExplore}
+  open={Boolean(anchorElExplore)}
+  onClose={handleClose}
+>
+  {exploreData.map((data, i) => (
+    <MenuItem
+      key={i}
+      component={Link}
+      to={data.link}
+      onClick={handleClose}
+      sx={{
+        color: "#6E3EF4",
+        textDecoration: "none",
+        textAlign: "left",
+      }}
+    >
+      {data.text}
+    </MenuItem>
+  ))}
+</Menu>
+
     </Box>
   );
 }
