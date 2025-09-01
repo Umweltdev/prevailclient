@@ -340,22 +340,28 @@ function AppBarNav({ color }) {
         ))}
       </Menu>
 
-      <Menu
-        anchorEl={anchorElExplore}
-        open={Boolean(anchorElExplore)}
-        onClose={handleClose}
-      >
-        {exploreData.map((data, i) => (
-          <MenuItem
-            key={i}
-            component={Link}
-            to={data.link}
-            onClick={handleClose}
-          >
-            {data.text}
-          </MenuItem>
-        ))}
-      </Menu>
+<Menu
+  anchorEl={anchorElExplore}
+  open={Boolean(anchorElExplore)}
+  onClose={handleClose}
+>
+  {exploreData.map((data, i) => (
+    <MenuItem
+      key={i}
+      component={Link}
+      to={data.link}
+      onClick={handleClose}
+      sx={{
+        color: "#6E3EF4",
+        textDecoration: "none",
+        textAlign: "left",
+      }}
+    >
+      {data.text}
+    </MenuItem>
+  ))}
+</Menu>
+
     </Box>
   );
 }
