@@ -108,14 +108,18 @@ function AppBarNav({ color }) {
         ? [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
-            { label: "Trinity", onClick: handleTrinityClick },
+            { label: "Trinity Plus", onClick: handleTrinityClick },
+          // { label: "Blog", link: "/blog" },
+            { label: "Booking", link: "/booking" },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
           ]
         : [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
-            { label: "Trinity", onClick: handleTrinityClick },
+            { label: "Trinity Plus", onClick: handleTrinityClick },
+          // { label: "Blog", link: "/blog" },
+            { label: "Booking", link: "/booking" },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
             { label: "Login", link: "/login" },
@@ -130,7 +134,9 @@ function AppBarNav({ color }) {
         ? [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
-            { label: "Trinity", onClick: handleTrinityClick },
+            { label: "Trinity Plus", onClick: handleTrinityClick },
+          // { label: "Blog", link: "/blog" },
+            { label: "Booking", link: "/booking" },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
             ...(isAdmin
@@ -142,7 +148,10 @@ function AppBarNav({ color }) {
         : [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
-            { label: "Trinity", onClick: handleTrinityClick },
+            { label: "Trinity Plus", onClick: handleTrinityClick },
+          // { label: "Blog", link: "/blog" },
+            { label: "Booking", link: "/booking" },
+
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
             { label: "Login", link: "/login" },
