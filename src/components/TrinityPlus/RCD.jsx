@@ -1,8 +1,12 @@
-import React from 'react'
+import { useEffect  } from 'react';
+import RcdLanding from './Rcd/rcd-viral-landing.js'
 
 function Rcd() {
+  useEffect(() => {
+      import("./Rcd/globals.css");
+  }, []);
   return (
-    <div>RCD</div>
+    <RcdLanding/>
   )
 }
 

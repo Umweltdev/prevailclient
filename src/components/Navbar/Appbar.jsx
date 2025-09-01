@@ -50,9 +50,10 @@ const servicesData = [
     link: "/service/cost-calculation",
   },
 {
-    text: "Custom Ad Campaign",
-    link: "/service/custom-ad-campaign",
-  },
+  text: "Custom Ad Campaign",
+  link: "/service/custom-ad-campaign",
+},
+
   {
     text: "Step Wizard",
     link: "/service/stepWizardPage",
@@ -150,7 +151,7 @@ function AppBarNav({ color }) {
         ? [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
-            { label: "Trinity Plus", onClick: handleTrinityClick },
+            { label: "Trinity", onClick: handleTrinityClick },
             // { label: "Blog", link: "/blog" },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
@@ -171,7 +172,7 @@ function AppBarNav({ color }) {
         : [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
-            { label: "Trinity Plus", onClick: handleTrinityClick },
+            { label: "Trinity", onClick: handleTrinityClick },
             // { label: "Blog", link: "/blog" },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
@@ -187,7 +188,7 @@ function AppBarNav({ color }) {
         ? [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
-            { label: "Trinity Plus", onClick: handleTrinityClick },
+            { label: "Trinity ", onClick: handleTrinityClick },
             // { label: "Blog", link: "/blog" },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
@@ -311,13 +312,7 @@ function AppBarNav({ color }) {
                   onClick={item.onClick ? item.onClick : null}
                 >
                   {item.label}
-                  {item.label === "Explore" && (
-                    <ExpandMoreIcon sx={{ marginLeft: "5px" }} />
-                  )}
-                  {item.label === "Services" && (
-                    <ExpandMoreIcon sx={{ marginLeft: "5px" }} />
-                  )}
-                  {item.label === "Trinity Plus" && (
+                  {["Explore", "Services", "Trinity"].includes(item.label) && (
                     <ExpandMoreIcon sx={{ marginLeft: "5px" }} />
                   )}
                 </Button>
@@ -452,40 +447,20 @@ function AppBarNav({ color }) {
         onClose={handleClose}
         sx={{ borderRadius: "50px" }}
       >
-        {trinityData.map((data, i) =>
-          data.text === "MCD" || data.text === "RCD" ? (
-            <MenuItem
-              key={i}
-              disabled
-              sx={{
-                opacity: 0.7,
-                display: "flex",
-                alignItems: "center",
-                gap: 1,
-                fontWeight: 500,
-                color: "#6E3EF4",
-              }}
-            >
-              <span>{data.text}</span>
-              <span className="text-sm text-gray-500 flex items-center gap-1">
-                🚀 <em>Coming Soon</em>
-              </span>
-            </MenuItem>
-          ) : (
-            <Link
-              style={{
-                color: "#6E3EF4",
-                textDecoration: "none",
-                textAlign: "left",
-              }}
-              key={i}
-              to={data.link}
-              rel="canonical"
-            >
-              <MenuItem onClick={handleClose}>{data.text}</MenuItem>
-            </Link>
-          )
-        )}
+        {trinityData.map((data, i) => (
+          <Link
+            style={{
+              color: "#6E3EF4",
+              textDecoration: "none",
+              textAlign: "left",
+            }}
+            key={i}
+            to={data.link}
+            rel="canonical"
+          >
+            <MenuItem onClick={handleClose}>{data.text}</MenuItem>
+          </Link>
+        ))}
       </Menu>
 
       <Menu
