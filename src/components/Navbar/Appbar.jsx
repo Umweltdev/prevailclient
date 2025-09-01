@@ -49,6 +49,11 @@ const servicesData = [
     text: "Cost Calculation",
     link: "/service/cost-calculation",
   },
+{
+  text: "Custom Ad Campaign",
+  link: "/service/custom-ad-campaign",
+},
+
   {
     text: "Step Wizard",
     link: "/service/stepWizardPage",

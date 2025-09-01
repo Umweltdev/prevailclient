@@ -29,6 +29,9 @@ const BlogDetails = React.lazy(() => import("./components/Blog/BlogDetails"));
 const BrandIdentity = React.lazy(() =>
   import("./components/Services/BrandIdentity/BrandIdentity")
 );
+const AdCampaign = React.lazy(() =>
+  import("./components/Services/CAD/AdCampaign")
+);
 const VisualBrandIdentity = React.lazy(() =>
   import("./components/Services/BrandIdentity/VisualBrandIdentity")
 );
@@ -165,6 +168,10 @@ function App() {
                 path="/service/digital-accelerator-bundle/empower-your-business"
                 element={<EmpowerYourBussiness />}
               />
+<Route
+                path="/service/custom-ad-campaign"
+                element={<AdCampaign />}
+              />
               <Route path="/trinity" element={<Trinitycore />} />
               <Route path="/trinity/plus" element={<TrinityPlus />} />
               <Route path="/trinity/core" element={<TrinityCore />} />
@@ -239,6 +246,10 @@ function App() {
                 element={
                   <Navigate to="/service/marketing-pricing-displacement" />
                 }
+              />
+              <Route
+                path="/Services/custom-ad-campaign"
+                element={<Navigate to="/service/custom-ad-campaign" />}
               />
               <Route
                 path="/privacypolicy"
