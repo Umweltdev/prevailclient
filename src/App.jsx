@@ -16,6 +16,7 @@ import InvestmentStep from "./components/Services/CostCalculation/steps/Investme
 import SpecializedStep from "./components/Services/CostCalculation/steps/SpecializedStep";
 import UniversalStep from "./components/Services/CostCalculation/steps/UniversalStep";
 import GetStartedStep from "./components/Services/CostCalculation/steps/GetStartedStep";
+import BookingPage from "./pages/Booking.jsx";
 
 
 // Lazy load pages and components
@@ -110,6 +111,7 @@ function App() {
               <Route path="/about-us" element={<About />} />
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/blog" element={<Blog />} />
+              <Route path="/booking" element={<BookingPage />} />
               <Route path="/contact-us" element={<Contact />} />
               <Route path="/blog/:index" element={<BlogDetails />} />
               <Route path="/service-landing-page" element={<Services />} />
@@ -209,9 +211,13 @@ function App() {
               <Route path="/Portfolio" element={<Navigate to="/portfolio" />} />
               <Route path="/Blog" element={<Navigate to="/blog" />} />
               <Route path="/Contact" element={<Navigate to="/contact-us" />} />
+                <Route
+                  path="/Blog/:index"
+                  element={<Navigate to="/blog/:index" />}
+              />
               <Route
-                path="/Blog/:index"
-                element={<Navigate to="/blog/:index" />}
+                path="/Booking"
+                element={<Navigate to="/booking" />}
               />
               <Route
                 path="/Services"
