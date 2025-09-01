@@ -22,7 +22,7 @@ const PremiumPackageLayout = ({
         // minHeight: "55vh",
         borderRadius: 4,
         boxShadow: "2",
-        "@media (max-width: 600px)": {
+        "@media (max-width: 760px)": {
           marginTop: "1vh",
           height: "670px",
           width: "90vw",

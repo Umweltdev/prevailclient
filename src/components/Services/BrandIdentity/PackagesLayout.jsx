@@ -24,7 +24,7 @@ const PackagesLayout = ({ packages, amount, info, handleClick, onBoxClick }) => 
         height: "530px",
         borderRadius: 4,
         boxShadow: "2",
-        "@media (max-width: 600px)": {
+        "@media (max-width: 760px)": {
           marginTop: "1vh",
           height: "530px",
           width: "90vw",

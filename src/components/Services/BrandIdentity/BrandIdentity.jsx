@@ -48,8 +48,8 @@ const BrandIdentity = () => {
         {/* <ElevateYourPresence />
         <PdfSection />
         <Addressing />
-        <TailoredApproach />
-        <Packages /> */}
+        <TailoredApproach /> */}
+        
          
             <StepWizard/>
         <SmoothScrollUp />

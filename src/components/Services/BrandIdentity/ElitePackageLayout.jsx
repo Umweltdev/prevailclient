@@ -26,7 +26,7 @@ const ElitePackageLayout = ({ packages, amount, info, handleClick }) => {
         background: "#6E3EF4",
         color: "white",
         height: "800px",
-        "@media (max-width: 600px)": {
+        "@media (max-width: 760px)": {
           marginTop: "1vh",
           height: "810px",
           width: "90vw",

@@ -1,4 +1,4 @@
-import React, {useState, useCallback, useEffect} from "react";
+import React, {useState, useCallback, useEffect, useRef} from "react";
 import PackagesLayout from "./PackagesLayout";
 import { Grid, Typography } from "@mui/material";
 import PremiumPackageLayout from "./PremiumPackageLayout";
@@ -19,13 +19,13 @@ import {
 } from "lucide-react";
 const StepWizard= () => {
   
-   const getInitialState = () => {
-    if (typeof window === "undefined") return {};
-    const savedState = localStorage.getItem("quoteBuilderState");
-    return savedState ? JSON.parse(savedState) : {};
-  };
-const initialState = getInitialState();
-  const [currentStep, setCurrentStep] = useState(initialState.currentStep || 1);
+  //  const getInitialState = () => {
+  //   if (typeof window === "undefined") return {};
+  //   const savedState = localStorage.getItem("quoteBuilderState");
+  //   return savedState ? JSON.parse(savedState) : {};
+  // };
+// const initialState = getInitialState();
+  const [currentStep, setCurrentStep] = useState(1);
   // Initial state function to load from localStorage
  
   
@@ -40,11 +40,12 @@ const initialState = getInitialState();
     setShowToast(message);
     setTimeout(() => setShowToast(null), 3000);
   };
+  
   const getSteps =() => {
    
     return ["Package Type", "Review"]
   };
- console.log("pack", packageDetails);
+ const wizardRef = useRef(null);
   const nextStep = useCallback(() => {
     const steps = 2;
    // if (currentStep < steps.length) {
@@ -53,7 +54,8 @@ const initialState = getInitialState();
       
 
       setCurrentStep(nextStepNum);
-      window.scrollTo(0, 0);
+      wizardRef.current?.scrollIntoView({ behavior: "smooth" });
+      //window.scrollTo(1, 1);
     //}
   }, [currentStep]);
 
@@ -62,9 +64,10 @@ const initialState = getInitialState();
       let prevStepNum = currentStep - 1;
 
       
-
       setCurrentStep(prevStepNum);
-      window.scrollTo(0, 0);
+      wizardRef.current?.scrollIntoView({ behavior: "smooth" });
+
+      // window.scrollTo(0, 0);
     }
   }, [currentStep]);
   useEffect(() => {
@@ -150,7 +153,7 @@ const Packages = () => {
         sx={{
           display: "flex",
           // gap: "2vw",
-          "@media (max-width: 600px)": {
+          "@media (max-width: 760px)": {
             display: "unset",
           },
         }}
@@ -160,14 +163,14 @@ const Packages = () => {
           //info="Forever free, even after the launch"
           amount="500"
           handleClick={()=> {nextStep(); setPackageDetails({amount:500, packages:"Starter Brand Identity Package"})}}
-          onBoxClick={()=> {setPackageDetails({amount:500, packages:"Starter Brand Identity Package"})}}
+          onBoxClick={()=> {setPackageDetails({amount:500, package:"Starter Brand Identity Package"})}}
         />
         <PremiumPackageLayout
           packages="Premium Brand Identity Package"
           //info="Forever free, even after the launch"
           amount="750"
          handleClick={()=> {nextStep(); setPackageDetails({amount:750, packages:"Premium Brand Identity Package"})}}
-         onBoxClick={()=> { setPackageDetails({amount:750, packages:"Premium Brand Identity Package"})}}
+         onBoxClick={()=> { setPackageDetails({amount:750, package:"Premium Brand Identity Package"})}}
          
         />
         <ElitePackageLayout
@@ -175,7 +178,7 @@ const Packages = () => {
           //info="Forever free, even after the launch"
           amount="1000"
            handleClick={()=> {nextStep(); setPackageDetails({amount:1000, packages:"Elite Brand Identity Package"})}}
-           onBoxClick={()=> { setPackageDetails({amount:1000, packages:"Elite Brand Identity Package"})}}
+           onBoxClick={()=> { setPackageDetails({amount:1000, package:"Elite Brand Identity Package"})}}
         />
       </Grid>
       </div>
@@ -273,7 +276,7 @@ const Packages = () => {
                 <li className="packageWrapper">
                   <span className="packageTitle">Package:</span>
                   <span className="packageName">
-                    {packageDetails.packages}
+                    {packageDetails.package}
                   </span>
                 </li>
                 
@@ -349,8 +352,9 @@ const Packages = () => {
   };
    const steps = getSteps();
 return (
-  <div>
+  <div ref={wizardRef}>
         <div className="container">
+          
           {steps.map((step, i) => {
             const stepNum = i + 1;
             const isActive = currentStep === stepNum;
