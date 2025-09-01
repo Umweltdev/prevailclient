@@ -3,6 +3,7 @@ import ImageTextService from "./ImageTextService";
 import TextImageService from "./TextImageService";
 import { useInView } from "react-intersection-observer";
 import styles from "../About/assets/about.module.css"
+import ServiceSelector from "./ServiceSelector.jsx";
 
 const MainPage = () => {
   
@@ -126,13 +127,14 @@ const MainPage = () => {
           text="Get a valued based website based on your budget"
           url="/service/cost-calculation"
         />
-        <ImageTextService
+        {/* <ImageTextService
           imageUrl="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720088563/Branding_trrcgh.avif"
           alt="Branding"
           textHeader={"Step Wizard"}
           text="Our "
           url="/service/stepWizardPage"
-        />
+        /> */}
+        <ServiceSelector />
       </Box>
     </Grid>
   );

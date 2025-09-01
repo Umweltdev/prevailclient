@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function Hero() {
+  const navigate = useNavigate()
   return (
     <section className="relative overflow-hidden mt-20" id="home">
       <div className="absolute inset-0">
@@ -21,8 +23,8 @@ function Hero() {
             juggling expenses so you always have money when you need it most.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-600 text-white rounded-lg font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300">
-              Start Free Trial
+            <button onClick={()=> navigate('/trinity/step-wizard')} className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-600 text-white rounded-lg font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300">
+              Start Beta
             </button>
             <button className="px-8 py-4 bg-black/60 backdrop-blur text-white rounded-lg font-semibold text-lg border border-white/20 hover:bg-black transition-all duration-300">
               Watch 2-Min Demo

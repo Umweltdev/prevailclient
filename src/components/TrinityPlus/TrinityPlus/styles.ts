@@ -1,3 +1,4 @@
+export const style = `
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -2164,3 +2165,5 @@ h2 {
     font-size: 0.85rem;
   }
 }
+
+`

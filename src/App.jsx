@@ -30,6 +30,9 @@ const BlogDetails = React.lazy(() => import("./components/Blog/BlogDetails"));
 const BrandIdentity = React.lazy(() =>
   import("./components/Services/BrandIdentity/BrandIdentity")
 );
+const AdCampaign = React.lazy(() =>
+  import("./components/Services/CAD/AdCampaign")
+);
 const VisualBrandIdentity = React.lazy(() =>
   import("./components/Services/BrandIdentity/VisualBrandIdentity")
 );
@@ -64,6 +67,7 @@ const Garo = React.lazy(() => import("./components/TrinityPlus/Garo"));
 const Mcd = React.lazy(() => import("./components/TrinityPlus/MCD"));
 const Rcd = React.lazy(() => import("./components/TrinityPlus/RCD"));
 const Aed = React.lazy(() => import("./components/TrinityPlus/AED"));
+const StepWizard = React.lazy(() => import("./components/TrinityPlus/StepWizardPage.js"));
 const DigitalEcosystem = React.lazy(() =>
   import("./components/Explore/DigitalEcosystem/DigitalEcosystem")
 );
@@ -166,6 +170,10 @@ function App() {
                 path="/service/digital-accelerator-bundle/empower-your-business"
                 element={<EmpowerYourBussiness />}
               />
+<Route
+                path="/service/custom-ad-campaign"
+                element={<AdCampaign />}
+              />
               <Route path="/trinity" element={<Trinitycore />} />
               <Route path="/trinity/plus" element={<TrinityPlus />} />
               <Route path="/trinity/core" element={<TrinityCore />} />
@@ -177,6 +185,7 @@ function App() {
               <Route path="/trinity/mcd" element={<Mcd />} />
               <Route path="/trinity/rcd" element={<Rcd />} />
               <Route path="/trinity/aed" element={<Aed />} />
+              <Route path="/trinity/step-wizard" element={<StepWizard />} />
               <Route path="/portfolio/:index" element={<CaseDetails />} />
               <Route path="/about/ourWhy" element={<AboutOurWhy />} />
               <Route path="/about/ourSolution" element={<AboutOurSolution />} />
@@ -243,6 +252,10 @@ function App() {
                 element={
                   <Navigate to="/service/marketing-pricing-displacement" />
                 }
+              />
+              <Route
+                path="/Services/custom-ad-campaign"
+                element={<Navigate to="/service/custom-ad-campaign" />}
               />
               <Route
                 path="/privacypolicy"

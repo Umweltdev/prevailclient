@@ -1,36 +1,14 @@
-"use client";
 import { useRef } from "react";
-import { Brain, Sparkles } from "lucide-react";
 
 import React, { useState, useEffect } from "react";
-import {
-  ChevronRight,
-  Check,
-  TrendingUp,
-  Package,
-  Clock,
-  Shield,
-  Users,
-  BarChart3,
-  AlertCircle,
-  ArrowRight,
-  Zap,
-  Database,
-  RefreshCw,
-} from "lucide-react";
-import { Star } from "lucide-react";
 import { gsap } from "gsap";
-import CountUp from "react-countup";
-import Tilt from "react-parallax-tilt"; // For 3D tilt effect
 
-import { NavBar } from "./components/ui/nav-bar.js";
 import AppBarNav from "../../Navbar/Appbar.jsx";
 // import CTASection from "./_components/CTASection.js";
 // import StatsSection from "./_components/StatsSection.js";
 // import SystemsSection from "./_components/CTASection.js";
 // import Hero from "./_components/Hero.js";
 // import FloatingElements from "./_components/FloatingElements.js";
-import "./globals.css";
 import HeroSection from "./_components/HeroSection.jsx";
 import SystemsSection from "./_components/SystemsSection.jsx";
 import CtaSection from "./_components/CTASection.jsx";

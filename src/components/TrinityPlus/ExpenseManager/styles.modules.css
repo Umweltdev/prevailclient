@@ -1,0 +1,52 @@
+
+
+@layer utilities {
+  /* Reusable gradient base */
+  .gradient-brand {
+    @apply bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-400;
+  }
+
+  /* Text gradient helper */
+  .gradient-text {
+    @apply bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-400 bg-clip-text text-transparent;
+  }
+}
+
+
+@keyframes blob {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+}
+
+.animate-blob {
+  animation: blob 8s infinite ease-in-out;
+}
+
+ .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+  }
+
+  .logo-icon {
+      width: 45px;
+      height: 45px;
+      background: linear-gradient(135deg, #06b6d4, #a855f7, #ec4899, #10b981);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: wheat;
+      /* animation: pulse 3s ease-in-out infinite; */
+  }
