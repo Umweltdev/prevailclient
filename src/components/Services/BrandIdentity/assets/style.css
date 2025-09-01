@@ -10,7 +10,7 @@
    display: flex; /* flex */
   justify-content: center; /* justify-center */
   gap: 0.5rem; /* gap-2 */
-  margin-bottom: 3rem; /* mb-12 */
+  margin-bottom: 0rem; /* mb-12 */
   flex-wrap: wrap; /* flex-wrap */
   /* background-image: linear-gradient(to bottom right, #ffffff, #ffffff);
   border-top-left-radius: 2rem;

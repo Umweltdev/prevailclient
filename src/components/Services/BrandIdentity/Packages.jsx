@@ -147,14 +147,14 @@ const Packages = () => {
           packages="Starter Brand Identity Package"
           //info="Forever free, even after the launch"
           amount="500"
-          handleClick={()=> {nextStep(); setPackageDetails({amount:500, packages:"Starter Brand Identity Package"})}}
+          handleClick={()=> {nextStep(); setPackageDetails({amount:500, package:"Starter Brand Identity Package"})}}
           onBoxClick={()=> {setPackageDetails({amount:500, package:"Starter Brand Identity Package"})}}
         />
         <PremiumPackageLayout
           packages="Premium Brand Identity Package"
           //info="Forever free, even after the launch"
           amount="750"
-         handleClick={()=> {nextStep(); setPackageDetails({amount:750, packages:"Premium Brand Identity Package"})}}
+         handleClick={()=> {nextStep(); setPackageDetails({amount:750, package:"Premium Brand Identity Package"})}}
          onBoxClick={()=> { setPackageDetails({amount:750, package:"Premium Brand Identity Package"})}}
          
         />
