@@ -82,19 +82,19 @@ const LoginForm = React.lazy(() => import("./pages/Login"));
 const Stepper = React.lazy(() => import("./pages/Stepper"));
 const MobStepper = React.lazy(() => import("./pages/MobStepper"));
 const UserDashBoard = React.lazy(() => import("./pages/UserDashboard"));
-const Profile = React.lazy(() => import("./components/user-dashboard/Profile"));
+// const Profile = React.lazy(() => import("./components/user-dashboard/Profile"));
 const PrivacyPolicy = React.lazy(() => import("./pages/PrivacyPolicy"));
 const StepWizardPage = React.lazy(() => import("./pages/StepWizardPage"));
-const ResetPasswordForm = React.lazy(() =>
-  import("./components/Form/ForgotPassword/ResetPasswordForm")
-);
+// const ResetPasswordForm = React.lazy(() =>
+//   import("./components/Form/ForgotPassword/ResetPasswordForm")
+// );
 const UserConsent = React.lazy(() => import("./components/Footer/ConsentPage"));
 const viteKey = import.meta.env.VITE_STRIPE_PUBLIC_KEY;
 const stripePromise = loadStripe(viteKey);
 
 function App() {
   const { user } = useContext(AuthContext);
-  const [socket, setSocket] = useState(null);
+  const [socket] = useState(null);
   return (
     <>
       <Elements stripe={stripePromise}>
@@ -102,7 +102,6 @@ function App() {
         <Suspense fallback={<Loading />}>
           <ErrorBoundary>
             <Routes>
-              {/* Define the new routes */}
               <Route path="/" element={<Landing />} />
               <Route path="/about-us" element={<About />} />
               <Route path="/portfolio" element={<Portfolio />} />

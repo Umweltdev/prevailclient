@@ -15,6 +15,8 @@ import {
   ArrowRight,
   Video,
   LoaderCircle,
+  User, // Added for name input
+  Mail, // Added for email input
 } from "lucide-react";
 import {
   ThemeProvider,
@@ -24,8 +26,21 @@ import {
   Button,
   IconButton,
   Grid,
+  TextField, // Added for inputs
+  InputAdornment, // Added for input icons
+  CircularProgress, // Added for loading states
 } from "@mui/material";
 import { theme } from "../../theme.js";
+
+// --- Mock Data for Availability ---
+// In a real app, you would fetch this from your backend API.
+// 'all' means the entire day is unavailable.
+// An array of times means only those specific slots are booked.
+const mockBookedSlots = {
+  "2025-09-15": ["09:00 AM", "11:30 AM", "02:00 PM"],
+  "2025-09-20": "all",
+  "2025-10-01": ["10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM"],
+};
 
 const timeSlots = [
   "09:00 AM",
@@ -48,14 +63,16 @@ const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 const getDaysInMonth = (year, month) => new Date(year, month + 1, 0).getDate();
 const getFirstDayOfMonth = (year, month) => new Date(year, month, 1).getDay();
-
-
+// Helper to format date as YYYY-MM-DD
+const formatDateToYMD = (date) => date.toISOString().split("T")[0];
 
 const CalendarComponent = ({
   selectedDate,
   setSelectedDate,
   currentDate,
   setCurrentDate,
+  availability, // Prop to pass availability data
+  isLoading, // Prop to handle loading state
 }) => {
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();
@@ -70,7 +87,6 @@ const CalendarComponent = ({
     () => setCurrentDate(new Date(year, month - 1, 1)),
     [year, month, setCurrentDate]
   );
-
   const handleNextMonth = useCallback(
     () => setCurrentDate(new Date(year, month + 1, 1)),
     [year, month, setCurrentDate]
@@ -92,10 +108,12 @@ const CalendarComponent = ({
 
     for (let day = 1; day <= getDaysInMonth(year, month); day++) {
       const date = new Date(year, month, day);
+      const dateString = formatDateToYMD(date);
       const isSelected =
         selectedDate && date.toDateString() === selectedDate.toDateString();
       const isPast = date < today;
       const isToday = date.toDateString() === today.toDateString();
+      const isUnavailable = availability && availability[dateString] === "all";
 
       days.push(
         <Grid
@@ -106,16 +124,16 @@ const CalendarComponent = ({
         >
           <IconButton
             onClick={() => handleDateClick(day)}
-            disabled={isPast}
+            disabled={isPast || isUnavailable}
             sx={{
               width: 42,
               height: 42,
-              borderRadius: "50%", // guarantees circle
+              borderRadius: "50%",
               fontSize: "0.9rem",
               fontWeight: isToday || isSelected ? "bold" : "normal",
               color: isSelected
                 ? "white"
-                : isPast
+                : isPast || isUnavailable
                   ? "text.disabled"
                   : isToday
                     ? "primary.main"
@@ -125,6 +143,8 @@ const CalendarComponent = ({
                 : isToday
                   ? "grey.200"
                   : "transparent",
+              textDecoration: isUnavailable ? "line-through" : "none",
+              opacity: isUnavailable ? 0.6 : 1,
               boxShadow: isSelected ? 2 : 0,
               "&:hover": {
                 backgroundColor: isSelected ? "primary.dark" : "action.hover",
@@ -138,7 +158,7 @@ const CalendarComponent = ({
       );
     }
     return days;
-  }, [year, month, selectedDate, today, handleDateClick]);
+  }, [year, month, selectedDate, today, handleDateClick, availability]);
 
   return (
     <Paper
@@ -150,15 +170,41 @@ const CalendarComponent = ({
         borderRadius: "16px",
         border: "1px solid",
         borderColor: "divider",
+        position: "relative",
+        opacity: isLoading ? 0.7 : 1,
+        transition: "opacity 0.3s",
       }}
     >
+      {isLoading && (
+        <Box
+          sx={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "rgba(255, 255, 255, 0.5)",
+            zIndex: 1,
+            borderRadius: "16px",
+          }}
+        >
+          <CircularProgress />
+        </Box>
+      )}
       <Box
         display="flex"
         alignItems="center"
         justifyContent="space-between"
         mb={3}
       >
-        <IconButton onClick={handlePrevMonth} aria-label="Previous month">
+        <IconButton
+          onClick={handlePrevMonth}
+          aria-label="Previous month"
+          disabled={isLoading}
+        >
           <ChevronLeft />
         </IconButton>
         <Typography variant="h6" fontWeight="bold">
@@ -167,7 +213,11 @@ const CalendarComponent = ({
             year: "numeric",
           })}
         </Typography>
-        <IconButton onClick={handleNextMonth} aria-label="Next month">
+        <IconButton
+          onClick={handleNextMonth}
+          aria-label="Next month"
+          disabled={isLoading}
+        >
           <ChevronRight />
         </IconButton>
       </Box>
@@ -193,6 +243,8 @@ CalendarComponent.propTypes = {
   setSelectedDate: PropTypes.func.isRequired,
   currentDate: PropTypes.instanceOf(Date).isRequired,
   setCurrentDate: PropTypes.func.isRequired,
+  availability: PropTypes.object,
+  isLoading: PropTypes.bool,
 };
 
 const TimeSlotComponent = ({
@@ -200,61 +252,78 @@ const TimeSlotComponent = ({
   setSelectedTime,
   onNextStep,
   timeSlotRef,
-}) => (
-  <Paper
-    ref={timeSlotRef}
-    elevation={3}
-    sx={{
-      p: 2,
-      width: "100%",
-      maxWidth: 360,
-      mt: { xs: 2, md: 0 },
-      borderRadius: "12px",
-    }}
-  >
-    <Typography variant="h6" mb={1}>
-      Select a Time
-    </Typography>
-    <Typography variant="body2" color="text.secondary" mb={2}>
-      Timezone: {timeZone}
-    </Typography>
-    <Box sx={{ maxHeight: 280, overflowY: "auto", pr: 1 }}>
-      <Grid container spacing={1}>
-        {timeSlots.map((time) => (
-          <Grid item xs={6} key={time}>
-            <Button
-              variant={selectedTime === time ? "contained" : "outlined"}
-              fullWidth
-              onClick={() => setSelectedTime(time)}
-              sx={{
-                borderRadius: "8px",
-                textTransform: "none",
-                padding: "10px 0",
-              }}
-            >
-              {time}
-            </Button>
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
-    <Button
-      onClick={onNextStep}
-      disabled={!selectedTime}
-      variant="contained"
-      fullWidth
-      endIcon={<ArrowRight />}
-      sx={{ mt: 2, borderRadius: "8px" }}
+  selectedDate,
+  availability,
+}) => {
+  const bookedTimes = useMemo(() => {
+    if (!selectedDate || !availability) return [];
+    const dateString = formatDateToYMD(selectedDate);
+    const slots = availability[dateString];
+    return Array.isArray(slots) ? slots : [];
+  }, [selectedDate, availability]);
+
+  return (
+    <Paper
+      ref={timeSlotRef}
+      elevation={3}
+      sx={{
+        p: 2,
+        width: "100%",
+        maxWidth: 360,
+        mt: { xs: 2, md: 0 },
+        borderRadius: "12px",
+      }}
     >
-      Next Step
-    </Button>
-  </Paper>
-);
+      <Typography variant="h6" mb={1}>
+        Select a Time
+      </Typography>
+      <Typography variant="body2" color="text.secondary" mb={2}>
+        Timezone: {timeZone}
+      </Typography>
+      <Box sx={{ maxHeight: 280, overflowY: "auto", pr: 1 }}>
+        <Grid container spacing={1}>
+          {timeSlots.map((time) => {
+            const isBooked = bookedTimes.includes(time);
+            return (
+              <Grid item xs={6} key={time}>
+                <Button
+                  variant={selectedTime === time ? "contained" : "outlined"}
+                  fullWidth
+                  disabled={isBooked}
+                  onClick={() => setSelectedTime(time)}
+                  sx={{
+                    borderRadius: "8px",
+                    textTransform: "none",
+                    padding: "10px 0",
+                  }}
+                >
+                  {time}
+                </Button>
+              </Grid>
+            );
+          })}
+        </Grid>
+      </Box>
+      <Button
+        onClick={onNextStep}
+        disabled={!selectedTime}
+        variant="contained"
+        fullWidth
+        endIcon={<ArrowRight />}
+        sx={{ mt: 2, borderRadius: "8px" }}
+      >
+        Next Step
+      </Button>
+    </Paper>
+  );
+};
 TimeSlotComponent.propTypes = {
   selectedTime: PropTypes.string,
   setSelectedTime: PropTypes.func.isRequired,
   onNextStep: PropTypes.func.isRequired,
   timeSlotRef: PropTypes.object,
+  selectedDate: PropTypes.instanceOf(Date),
+  availability: PropTypes.object,
 };
 
 const ConfirmationComponent = ({
@@ -263,6 +332,10 @@ const ConfirmationComponent = ({
   onConfirm,
   onPrevStep,
   isBooking,
+  name,
+  setName,
+  email,
+  setEmail,
 }) => {
   const formattedDate = selectedDate
     ? selectedDate.toLocaleDateString("en-US", {
@@ -272,6 +345,11 @@ const ConfirmationComponent = ({
         day: "numeric",
       })
     : "";
+  const isEmailValid = useMemo(
+    () => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email),
+    [email]
+  );
+  const canConfirm = name.trim() !== "" && isEmailValid && !isBooking;
 
   return (
     <Paper
@@ -281,7 +359,56 @@ const ConfirmationComponent = ({
       <Typography variant="h5" align="center" gutterBottom>
         Confirm Your Booking
       </Typography>
+
       <Box sx={{ my: 3, display: "flex", flexDirection: "column", gap: 2 }}>
+        <TextField
+          label="Full Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+          fullWidth
+          disabled={isBooking}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <User size={20} />
+              </InputAdornment>
+            ),
+          }}
+        />
+        <TextField
+          label="Email Address"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          fullWidth
+          disabled={isBooking}
+          error={email.length > 0 && !isEmailValid}
+          helperText={
+            email.length > 0 && !isEmailValid
+              ? "Please enter a valid email."
+              : ""
+          }
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <Mail size={20} />
+              </InputAdornment>
+            ),
+          }}
+        />
+      </Box>
+
+      <Typography
+        variant="subtitle2"
+        color="text.secondary"
+        sx={{ mb: 2, textAlign: "center" }}
+      >
+        You are booking the following slot:
+      </Typography>
+
+      <Box sx={{ my: 2, display: "flex", flexDirection: "column", gap: 2 }}>
         <Paper
           variant="outlined"
           sx={{
@@ -346,10 +473,11 @@ const ConfirmationComponent = ({
           </Box>
         </Paper>
       </Box>
-      <Box sx={{ display: "flex", flexDirection: "column", gap: 1.5 }}>
+
+      <Box sx={{ display: "flex", flexDirection: "column", gap: 1.5, mt: 3 }}>
         <Button
           onClick={onConfirm}
-          disabled={isBooking}
+          disabled={!canConfirm}
           variant="contained"
           color="success"
           size="large"
@@ -372,6 +500,10 @@ ConfirmationComponent.propTypes = {
   onConfirm: PropTypes.func.isRequired,
   onPrevStep: PropTypes.func.isRequired,
   isBooking: PropTypes.bool.isRequired,
+  name: PropTypes.string.isRequired,
+  setName: PropTypes.func.isRequired,
+  email: PropTypes.string.isRequired,
+  setEmail: PropTypes.func.isRequired,
 };
 
 const Booking = ({ onBookingConfirmed = () => {} }) => {
@@ -379,9 +511,27 @@ const Booking = ({ onBookingConfirmed = () => {} }) => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [availability, setAvailability] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const [isConfirmed, setIsConfirmed] = useState(false);
   const [isBooking, setIsBooking] = useState(false);
   const timeSlotRef = useRef(null);
+
+  useEffect(() => {
+    setIsLoading(true);
+    // Simulate fetching availability data from an API
+    setTimeout(() => {
+      setAvailability(mockBookedSlots);
+      setIsLoading(false);
+    }, 1500);
+  }, []);
+
+  // When date changes, reset time selection
+  useEffect(() => {
+    setSelectedTime(null);
+  }, [selectedDate]);
 
   useEffect(() => {
     if (selectedDate && timeSlotRef.current && window.innerWidth < 768) {
@@ -398,17 +548,20 @@ const Booking = ({ onBookingConfirmed = () => {} }) => {
   const handleBookingConfirmation = useCallback(() => {
     setIsBooking(true);
     const bookingDetails = {
-      date: selectedDate.toISOString().split("T")[0],
+      date: formatDateToYMD(selectedDate),
       time: selectedTime,
+      name,
+      email,
     };
 
-    // Simulate API call
+    console.log("Booking Payload:", bookingDetails);
+
     setTimeout(() => {
       setIsConfirmed(true);
       setIsBooking(false);
       onBookingConfirmed(bookingDetails);
     }, 2000);
-  }, [selectedDate, selectedTime, onBookingConfirmed]);
+  }, [selectedDate, selectedTime, name, email, onBookingConfirmed]);
 
   const MemoizedCalendar = React.memo(CalendarComponent);
   const MemoizedTimeSlots = React.memo(TimeSlotComponent);
@@ -458,7 +611,11 @@ const Booking = ({ onBookingConfirmed = () => {} }) => {
               Booking Confirmed!
             </Typography>
             <Typography color="text.secondary">
-              Your consultation is scheduled for{" "}
+              Your consultation for{" "}
+              <Typography component="span" fontWeight="bold">
+                {name}
+              </Typography>{" "}
+              is scheduled for{" "}
               <Typography component="span" fontWeight="bold">
                 {selectedDate.toLocaleDateString()}
               </Typography>{" "}
@@ -469,7 +626,11 @@ const Booking = ({ onBookingConfirmed = () => {} }) => {
               .
             </Typography>
             <Typography color="text.secondary" mt={1}>
-              A Google Meet invitation has been sent to your email.
+              A Google Meet invitation has been sent to{" "}
+              <Typography component="span" fontWeight="bold">
+                {email}
+              </Typography>
+              .
             </Typography>
           </Paper>
         </Box>
@@ -507,7 +668,6 @@ const Booking = ({ onBookingConfirmed = () => {} }) => {
           >
             Select a date and time that works for you.
           </Typography>
-
           <Box
             sx={{
               display: "flex",
@@ -525,6 +685,8 @@ const Booking = ({ onBookingConfirmed = () => {} }) => {
                     setSelectedDate,
                     currentDate,
                     setCurrentDate,
+                    availability,
+                    isLoading,
                   }}
                 />
                 {selectedDate && (
@@ -534,6 +696,8 @@ const Booking = ({ onBookingConfirmed = () => {} }) => {
                       setSelectedTime,
                       onNextStep: handleNextStep,
                       timeSlotRef,
+                      selectedDate,
+                      availability,
                     }}
                   />
                 )}
@@ -547,6 +711,10 @@ const Booking = ({ onBookingConfirmed = () => {} }) => {
                   onConfirm: handleBookingConfirmation,
                   onPrevStep: handlePrevStep,
                   isBooking,
+                  name,
+                  setName,
+                  email,
+                  setEmail,
                 }}
               />
             )}
