@@ -45,13 +45,13 @@ const Last = () => {
       >
         <Typography
           sx={{
-            fontSize: "32px",
+            fontSize: {md: "32px" },
             fontWeight: "700",
             lineHeight: "150%",
             padding: "20px",
             "@media (max-width: 767px)": {
-              fontSize: "24px",
-              width: "80vw"
+              fontSize: "18px",
+              width: "85vw",
             },
           }}
         >

@@ -207,9 +207,6 @@ function AppBarNav({ color }) {
     </Box>
   );
 
-  // console.log("isLoggedIn: ", isLoggedIn);
-  // console.log("isAdmin: ", isAdmin);
-
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -412,6 +409,7 @@ function AppBarNav({ color }) {
             style={{
               color: "#6E3EF4",
               textDecoration: "none",
+             
               textAlign: "left",
             }}
             key={i}
