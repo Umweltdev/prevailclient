@@ -13,6 +13,8 @@ import {
   Stepper,
   Step,
   StepLabel,
+  Snackbar,
+  Alert,
   TextField,
   List,
   ListItem,
@@ -20,6 +22,7 @@ import {
   ListItemText,
   Divider,
   Fade,
+   CircularProgress,
 } from "@mui/material";
 import "./assets/style.css"
 import PropTypes from "prop-types";
@@ -29,7 +32,14 @@ import {
   Check,
   RefreshCw,
 } from "lucide-react";
+import { 
+  createCheckoutSession, 
+   
+} from "../../stepWizard/api.js";
 
+//import { loadStripe } from "@stripe/stripe-js";
+// STRIPE INITIALIZATION & CONSTANT DATA
+//const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_TEST_KEY);
 const platformTiers = [
   {
     id: "Starter",
@@ -87,96 +97,13 @@ const platformTiers = [
     ],
   },
 ];
-
-const StepWizard= () => {
-  
-  
-  const [currentStep, setCurrentStep] = useState(1);
-    
-    const [showToast, setShowToast] = useState(null);
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [additionalNotes, setAdditionalNotes] = useState("");
-    const [keywords, setKeywords] = useState("");
-    const [selectedSystems, setSelectedSystems] = useState("");
-     const [selectedTier, setSelectedTier] = useState(null);
-    const [selectedDashboards, setSelectedDashboards] = useState("");
-    // Effect to save state to localStorage on any change
-    
-  const showToastMessage = (message) => {
-    setShowToast(message);
-    setTimeout(() => setShowToast(null), 3000);
-  };
-  
-  const getSteps =() => {
-   
-    return ["Package Type", "Review"]
-  };
- const wizardRef = useRef(null);
-  const nextStep = useCallback(() => {
-    const steps = 2;
-   // if (currentStep < steps.length) {
-      let nextStepNum = currentStep + 1;
-
-      
-
-      setCurrentStep(nextStepNum);
-      wizardRef.current?.scrollIntoView({ behavior: "smooth" });
-      
-    
-  }, [currentStep]);
-
-  const prevStep = useCallback(() => {
-    if (currentStep > 1) {
-      let prevStepNum = currentStep - 1;
-      setCurrentStep(prevStepNum);
-      wizardRef.current?.scrollIntoView({ behavior: "smooth" });
-
-    
-    }
-  }, [currentStep]);
-   const resetSelections = useCallback(() => {
-      setCurrentStep(1);
-      
-      showToastMessage("Selections have been reset.");
-    }, [showToastMessage]);
-  useEffect(() => {
-    const stateToSave = {
-      currentStep,
-      
-    };
-    localStorage.setItem("quoteBuilderState", JSON.stringify(stateToSave));
-  }, [
-    currentStep,
-    
-   // budget,
-    
-  ]);
-  const gradientText = {
+const gradientText = {
     background: "linear-gradient(to right, #6E3EF4, #3B82F6)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
     display: "inline-block",
   };
-  const renderStepContent = () => {
-    const steps = getSteps();
-    const isReviewStep = steps.length > 1 && steps.length === currentStep;
-
-    if (isReviewStep) {
-      return <MemoizedFinalSummary />;
-    }
-
-   
-        switch (currentStep) {
-          case 1:
-            return <MemoizedPlatformTier />;
-          
-          default:
-            return null;
-        }
-    
-  };
- const SelectableCard = ({ children, selected, ...props }) => (
+const SelectableCard = ({ children, selected, ...props }) => (
    <Card
      {...props}
      elevation={selected ? 8 : 2}
@@ -207,10 +134,14 @@ const StepWizard= () => {
    selected: PropTypes.bool,
    sx: PropTypes.object,
  };
-  
-const PlatformTier = (
-
-) => (
+ const PlatformTier = (
+{
+  selectedTier,
+  setSelectedTier,
+  nextStep,
+  prevStep,
+}
+) =>{ return(
   <Fade in timeout={500}>
     <Box>
       <Chip
@@ -277,7 +208,7 @@ const PlatformTier = (
       </Box>
     </Box>
   </Fade>
-);
+)};
 PlatformTier.propTypes = {
   selectedTier: PropTypes.string,
   setSelectedTier: PropTypes.func.isRequired,
@@ -285,19 +216,33 @@ PlatformTier.propTypes = {
   prevStep: PropTypes.func.isRequired,
 };
 const MemoizedPlatformTier = React.memo(PlatformTier);
-
 // Consolidated Final Summary Component
-  const FinalSummary = () => {
-    // const trinitySelection = ALL_TRINITY_OPTIONS.find(
-    //   (opt) => opt.id === trinitySelectionId
-    // );
-    // const tier = platformTiers.find((t) => t.id === selectedTier);
-    // const industry = industries.find((ind) => ind.id === selectedIndustry);
+  const FinalSummary = ({
+  selectedTier,
+  
+  name,
+  setName,
+  email,
+  setEmail,
+  additionalNotes,
+  setAdditionalNotes,
+  keywords,
+  setKeywords,
+  selectedSystems,
+  setSelectedSystems,
+  selectedDashboards,
+  setSelectedDashboards,
+  prevStep,
+  handleCheckout,
+  isProcessing,
+  
+}) => {
+    
     const total = 0
    
-    const finalPrice = selectedTier.price;
-    
 const tierSelection = platformTiers.find((t) => t.id === selectedTier);
+
+
     return (
       <Fade in timeout={500}>
             <Grid container spacing={4}>
@@ -399,13 +344,13 @@ const tierSelection = platformTiers.find((t) => t.id === selectedTier);
                       
                       
                         {tierSelection && (
-                                          <Box display="flex" justifyContent="space-between">
-                                            <Typography variant="subtitle2">Package Tier:</Typography>
-                                            <Typography variant="subtitle1">
-                                              {tierSelection.name}
-                                            </Typography>
-                                          </Box>
-                                        )}
+                          <Box display="flex" justifyContent="space-between" alignItems={"center"}>
+                            <Typography variant="subtitle2">Package Tier:</Typography>
+                            <Typography variant="subtitle1">
+                              {tierSelection.name}
+                            </Typography>
+                          </Box>
+                        )}
                     </Box>
                     <Box mt={3} pt={2} borderTop={1} borderColor="divider">
                       <Box
@@ -423,11 +368,15 @@ const tierSelection = platformTiers.find((t) => t.id === selectedTier);
                       <Button
                         variant="contained"
                         fullWidth
-                        //onClick={handleCheckout}
-                        disabled={ !name || !email}
-                        
+                        onClick={handleCheckout}
+                        disabled={isProcessing || !name || !email}
+                        startIcon={
+                          isProcessing ? (
+                            <CircularProgress size={20} color="inherit" />
+                          ) : null
+                        }
                       >
-                        Proceed to Checkout
+                        {isProcessing ? "Processing..." : "Proceed to Checkout"}
                         
                       </Button>
                       <Button
@@ -467,8 +416,184 @@ const tierSelection = platformTiers.find((t) => t.id === selectedTier);
     isProcessing: PropTypes.bool,
     calculateRunningTotal: PropTypes.func,
   };
-  const MemoizedFinalSummary = React.memo(FinalSummary);
+ const MemoizedFinalSummary = React.memo(FinalSummary);
+const StepWizard= () => {
+  
+  
+  const [currentStep, setCurrentStep] = useState(1);
+    
+    const [showToast, setShowToast] = useState(null);
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [additionalNotes, setAdditionalNotes] = useState("");
+    const [keywords, setKeywords] = useState("");
+    const [selectedSystems, setSelectedSystems] = useState("");
+     const [selectedTier, setSelectedTier] = useState(null);
+    const [selectedDashboards, setSelectedDashboards] = useState("");
+    const [isProcessing, setIsProcessing] = useState(false);
+    // Effect to save state to localStorage on any change
+    
+  const showToastMessage = (message) => {
+    setShowToast(message);
+    setTimeout(() => setShowToast(null), 3000);
+  };
+  
+  const getSteps =() => {
+   
+    return ["Package Type", "Review"]
+  };
+ const wizardRef = useRef(null);
+  const nextStep = useCallback(() => {
+    const steps = 2;
+   // if (currentStep < steps.length) {
+      let nextStepNum = currentStep + 1;
+
+      
+
+      setCurrentStep(nextStepNum);
+      wizardRef.current?.scrollIntoView({ behavior: "smooth" });
+      
+    
+  }, [currentStep]);
+
+  const prevStep = useCallback(() => {
+    if (currentStep > 1) {
+      let prevStepNum = currentStep - 1;
+      setCurrentStep(prevStepNum);
+      wizardRef.current?.scrollIntoView({ behavior: "smooth" });
+
+    
+    }
+  }, [currentStep]);
+   const resetSelections = useCallback(() => {
+      setCurrentStep(1);
+      
+      showToastMessage("Selections have been reset.");
+    }, [showToastMessage]);
+  useEffect(() => {
+    const stateToSave = {
+      currentStep,
+      
+    };
+    localStorage.setItem("quoteBuilderState", JSON.stringify(stateToSave));
+  }, [
+    currentStep,
+    
+   // budget,
+    
+  ]);
+  
+  const tierSelection = platformTiers.find((t) => t.id === selectedTier);
+ 
+const handleCheckout = useCallback(async () => {
+    if (!name || !email) {
+      showToastMessage("Error: Please enter your name and email to proceed.");
+      return;
+    }
+    
+    setIsProcessing(true);
+
+    try {
+      //const total = calculateRunningTotal();
+      //console.log(name, email, price)
+      const finalPrice = tierSelection.price
+
+      // Prepare checkout data using the new API format
+      const checkoutData = {
+        name,
+        email,
+       
+        price: finalPrice,
+       
+        serviceType:tierSelection.id,
+        notes: `${additionalNotes || ''} | Selected Systems: ${selectedSystems || 'None'} | Dashboards: ${selectedDashboards || 'None'} | Keywords: ${keywords || 'None'}| Tier: ${selectedTier || 'None'} `.trim()
+      };
+
+      // Create checkout session using the API function
+      const session = await createCheckoutSession(checkoutData);
+
+      // Redirect to Stripe checkout
+      const stripe = await stripePromise;
+      if (!stripe) {
+        throw new Error("Stripe.js has not loaded yet.");
+      }
+
+      const { error } = await stripe.redirectToCheckout({
+        sessionId: session.id,
+      });
+
+      if (error) {
+        throw new Error(error.message);
+      }
+    } catch (error) {
+      console.error('Checkout error:', error);
+      showToastMessage(`Error: ${error.message || "Unknown error occurred"}`);
+    } finally {
+      setIsProcessing(false);
+    }
+  }, [
+    name,
+    email,
+
+    selectedTier,
+    
+    additionalNotes,
+    keywords,
+    selectedSystems,
+    selectedDashboards,
+    
+    showToastMessage,
+  ]);
+
+
+
+ 
    const steps = getSteps();
+   const renderStepContent = () => {
+    //const steps = getSteps();
+    const isReviewStep = steps.length > 1 && steps.length === currentStep;
+
+    if (isReviewStep) {
+      return <MemoizedFinalSummary
+          {...{  
+            selectedTier,
+            name,
+            setName,
+            email,
+            setEmail,
+            additionalNotes,
+            setAdditionalNotes,
+            keywords,
+            setKeywords,
+            selectedSystems,
+            setSelectedSystems,
+            selectedDashboards,
+            setSelectedDashboards,
+            prevStep,
+            handleCheckout,
+            isProcessing,
+          
+          }}
+        /> 
+    }
+
+   
+        switch (currentStep) {
+          case 1:
+            return <MemoizedPlatformTier
+                {...{
+                  selectedTier,
+                  setSelectedTier,
+                  nextStep,
+                  prevStep,
+                }}
+              />;;
+          
+          default:
+            return null;
+        }
+    
+  };
 return (
   <ThemeProvider theme={theme}>
        <Box
@@ -521,12 +646,25 @@ return (
         </div>
        </Container>
 
-      {showToast && (
-        <div className="toastContainer">
-          <Check className="toastCheck" />
-          <span className="toastText">{showToast}</span>
-        </div>
-      )}
+      <Snackbar
+                open={!!showToast}
+                autoHideDuration={6000}
+                onClose={() => setShowToast(null)}
+                anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+              >
+                <Alert
+                  onClose={() => setShowToast(null)}
+                  severity={
+                    showToast && showToast.toLowerCase().includes("error")
+                      ? "error"
+                      : "success"
+                  }
+                  sx={{ width: "100%" }}
+                  variant="filled"
+                >
+                  {showToast}
+                </Alert>
+              </Snackbar>
        </Box>
 
      </ThemeProvider>
