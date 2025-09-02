@@ -190,13 +190,13 @@ const SelectableCard = ({ children, selected, ...props }) => (
         ))}
       </Grid>
       <Box display="flex" gap={2}>
-        <Button
+        {/* <Button
           variant="outlined"
           onClick={prevStep}
           startIcon={<ChevronLeft />}
         >
           Back
-        </Button>
+        </Button> */}
         <Button
           variant="contained"
           onClick={nextStep}
@@ -604,7 +604,7 @@ return (
            overflowX: "hidden",
          }}
        >
-         <Container maxWidth="lg" sx={{ py: { xs: 6, md: 8 } }}>
+         <Container maxWidth="lg" sx={{ py: { xs: 6, md: 8 } }} ref={wizardRef} >
            <Box textAlign="center" mb={{ xs: 6, md: 8 }}>
              <Typography variant="h1" component="h1" gutterBottom>
                Your Partner in Accelerating the{" "}
