@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function HeroSection() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   // Countdown state
   const [timeLeft, setTimeLeft] = useState({
     days: 10,
@@ -108,11 +108,11 @@ export default function HeroSection() {
   };
 
   const handleScroll = () => {
-      const target = document.querySelector('#wizard');
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    };
+    const target = document.querySelector("#wizard");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
     <section
@@ -186,7 +186,10 @@ export default function HeroSection() {
         <div className="pricing-tiers" id="pricing">
           <h3 style={{ marginBottom: "1rem" }}>Time-Limited Pricing</h3>
           <div className="tier-grid">
-            <div className="tier-card active cursor-pointer" onClick={()=> navigate('/trinity/step-wizard')}>
+            <div
+              className="tier-card active cursor-pointer"
+              onClick={() => navigate("/trinity/plus#wizard")}
+            >
               <div className="tier-badge">ACTIVE NOW</div>
               <div className="tier-name">Beta Access</div>
               <div className="tier-price"> €696 </div>
@@ -194,7 +197,7 @@ export default function HeroSection() {
             </div>
             <div className="tier-card" onClick={() => handleScroll()}>
               <div className="tier-name">Early Adopter</div>
-              <div className="tier-price"> €577</div>
+              <div className="tier-price"> €579</div>
               <div className="tier-duration">Per system • Next 3 months</div>
             </div>
             <div className="tier-card" onClick={() => handleScroll()}>
@@ -209,15 +212,12 @@ export default function HeroSection() {
         <div className="hero-buttons">
           <button
             className="btn btn-warning"
-            onClick={() => navigate('/trinity/step-wizard')}
+            onClick={() => navigate("/trinity/plus#wizard")}
             style={{ animation: "pulse 2s infinite" }}
           >
             Get All 3 Trinity Core - €696 (Beta)
           </button>
-          <button
-            className="btn btn-secondary"
-            onClick={() => handleScroll()}
-          >
+          <button className="btn btn-secondary" onClick={() => handleScroll()}>
             Explore Individual Systems
           </button>
         </div>

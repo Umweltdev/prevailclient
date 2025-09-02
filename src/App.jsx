@@ -17,7 +17,6 @@ import SpecializedStep from "./components/Services/CostCalculation/steps/Special
 import UniversalStep from "./components/Services/CostCalculation/steps/UniversalStep";
 import GetStartedStep from "./components/Services/CostCalculation/steps/GetStartedStep";
 
-
 // Lazy load pages and components
 const Landing = React.lazy(() => import("./pages/Landing"));
 const About = React.lazy(() => import("./pages/About"));
@@ -63,7 +62,9 @@ const Garo = React.lazy(() => import("./components/TrinityPlus/Garo"));
 const Mcd = React.lazy(() => import("./components/TrinityPlus/MCD"));
 const Rcd = React.lazy(() => import("./components/TrinityPlus/RCD"));
 const Aed = React.lazy(() => import("./components/TrinityPlus/AED"));
-const StepWizard = React.lazy(() => import("./components/TrinityPlus/StepWizardPage.js"));
+const StepWizard = React.lazy(() =>
+  import("./components/TrinityPlus/StepWizardPage.js")
+);
 const DigitalEcosystem = React.lazy(() =>
   import("./components/Explore/DigitalEcosystem/DigitalEcosystem")
 );
@@ -176,7 +177,7 @@ function App() {
               <Route path="/trinity/mcd" element={<Mcd />} />
               <Route path="/trinity/rcd" element={<Rcd />} />
               <Route path="/trinity/aed" element={<Aed />} />
-              <Route path="/trinity/step-wizard" element={<StepWizard />} />
+              <Route path="/trinity/plus#wizard" element={<StepWizard />} />
               <Route path="/portfolio/:index" element={<CaseDetails />} />
               <Route path="/about/ourWhy" element={<AboutOurWhy />} />
               <Route path="/about/ourSolution" element={<AboutOurSolution />} />

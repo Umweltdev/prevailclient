@@ -162,8 +162,7 @@ const TrinityCore = () => {
         {/* <FloatingElements /> */}
         <HeroSection />
         <SystemsSection />
-        <CtaSection />
-        <TrinityStepWizard/>
+        <TrinityStepWizard />
 
         {/* Page Sections */}
         {/* <Hero />

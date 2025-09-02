@@ -3,7 +3,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
     if (section) {
@@ -11,12 +11,12 @@ const Hero = () => {
     }
   };
 
-   const handleScroll = () => {
-      const target = document.querySelector('#wizard');
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    };
+  const handleScroll = () => {
+    const target = document.querySelector("#wizard");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
     <section className="hero" id="hero">
@@ -29,8 +29,13 @@ const Hero = () => {
         <div className="blob blob-6"></div>
       </div>
 
-      <div className="hero-content">
-        <div className="new-badge">
+      <div
+        style={{
+          marginTop: "40px",
+        }}
+        className="hero-content"
+      >
+        <div className="new-badge ">
           ✨ ADVANCED AI SYSTEMS - Genetic Evolution & Advertising Automation
         </div>
 
@@ -79,16 +84,19 @@ const Hero = () => {
 
         {/* Pricing Tiers */}
         <div className="pricing-tiers">
-          <div className="tier active" onClick={()=> navigate('/trinity/step-wizard')}>
+          <div
+            className="tier active"
+            onClick={() => navigate("/trinity/plus#wizard")}
+          >
             <div className="tier-price">€1,159</div>
             <div className="tier-label">Beta (10 days)</div>
           </div>
-          <div className="tier" onClick={() => handleScroll()}>
+          <div className="tier " onClick={() => handleScroll()}>
             <div className="tier-price">€579</div>
             <div className="tier-label">Early (3 months)</div>
           </div>
           <div className="tier" onClick={() => handleScroll()}>
-            <div className="tier-price" >€1,739</div>
+            <div className="tier-price">€1,739</div>
             <div className="tier-label">Standard</div>
           </div>
         </div>
@@ -104,15 +112,12 @@ const Hero = () => {
         >
           <button
             className="btn btn-warning"
-            onClick={() => navigate('/trinity/step-wizard')}
+            onClick={() => navigate("/trinity/plus#wizard")}
             style={{ animation: "pulse 2s infinite" }}
           >
             Get Complete Trinity Plus Bundle
           </button>
-          <button
-            className="btn btn-primary"
-            onClick={() => handleScroll()}
-          >
+          <button className="btn btn-primary" onClick={() => handleScroll()}>
             Explore Individual Systems
           </button>
         </div>
