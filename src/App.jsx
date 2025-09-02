@@ -188,14 +188,12 @@ function App() {
                 path="/UserDashboard"
                 element={user ? <UserDashBoard /> : <Navigate to="/" />}
               />
-
               <Route
                 path="/user/*"
                 element={
                   user ? <UserDashBoard socket={socket} /> : <Navigate to="/" />
                 }
               />
-
               <Route path="/About" element={<Navigate to="/about-us" />} />
               <Route path="/Portfolio" element={<Navigate to="/portfolio" />} />
               <Route path="/Blog" element={<Navigate to="/blog" />} />

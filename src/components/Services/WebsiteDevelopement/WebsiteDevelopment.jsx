@@ -1,9 +1,10 @@
-import React from "react";
 import { Helmet } from "react-helmet";
 import FooterNew from "../../Footer/FooterNew";
 import HeroComponent from "../ReusedComponenets/HeroComponent";
 import AppBarNav from "../../Navbar/Appbar";
-import { Container, Grid, Typography, Stack, Box } from "@mui/material";
+import { Container, Grid, Typography, Stack, Box, Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { ArrowForward } from "@mui/icons-material";
 import PalleteSvg from "./assets/pallete.svg";
 import ChipSvg from "./assets/chip.svg";
 import DocSvg from "./assets/doc.svg";
@@ -13,7 +14,7 @@ import StartUpSvg from "./assets/startup.svg";
 import BulbSvg from "./assets/bulb.svg";
 import TextImageComponent from "../ReusedComponenets/TextImageComponent";
 import ImageTextComponent from "../ReusedComponenets/ImageTextComponent";
-import { Transition } from 'react-transition-group';
+import { Transition } from "react-transition-group";
 import SmoothScrollUp from "../../utils/SmoothScrollUp";
 
 const duration = 300;
@@ -69,6 +70,14 @@ const data = [
 ];
 
 const WebsiteDevelopment = () => {
+  const navigate = useNavigate();
+
+  // 4. Create a handler to navigate to the wizard's route
+  const handleNavigateToWizard = () => {
+    // You can change '/quote-builder' to whatever route you set for the WebDevWizard
+    navigate("/quote-builder");
+  };
+
   return (
     <>
       <Helmet>
@@ -94,29 +103,29 @@ const WebsiteDevelopment = () => {
                 alt="Why-Custom-Web-Development"
                 header={"Why Custom Web Development?"}
                 text={`Establishing a distinct digital presence is more crucial than ever in the digital era. 
-                  If you’re looking to craft a digital identity that embodies your brand and precisely 
-                  tells your story, the “custom website development” service is your go-to solution. 
-                  Unlike standard web builder platforms that might suffice for simpler, small-scale 
-                  projects – custom development allows for a limitless array of API integrations, 
-                  frontend customisations, and aesthetic enhancements. This approach is tailored for visionary 
-                  businesses aiming to carve out a significant digital presence.`}
+ If you’re looking to craft a digital identity that embodies your brand and precisely 
+ tells your story, the “custom website development” service is your go-to solution. 
+ Unlike standard web builder platforms that might suffice for simpler, small-scale 
+ projects – custom development allows for a limitless array of API integrations, 
+ frontend customisations, and aesthetic enhancements. This approach is tailored for visionary 
+ businesses aiming to carve out a significant digital presence.`}
               />
               <ImageTextComponent
                 img="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720086386/Limitations-of-Standard-Solutions_pw74ga.avif"
                 alt="Limitations-of-Standard-Solutions"
                 header={"The Limitations of Standard Solutions "}
                 text={`Many businesses encounter significant challenges on their
-                  digital journey, including performance issues where heavy,
-                  costly images and design elements slow down websites,
-                  adversely affecting user experience. High hosting charges and
-                  the risk of overspending on poorly optimised digital assets
-                  pose major cost concerns.<br/><br/> Additionally, generic web builder platforms often lack the
-                  flexibility needed to truly distinguish a brand or meet
-                  specific business requirements, and there are frequent
-                  communication gaps that make it difficult to bridge the divide
-                  between a business's vision and what is technologically
-                  feasible, adding to the complexity and frustration of creating
-                  an effective digital presence.`}
+                digital journey, including performance issues where heavy,
+                costly images and design elements slow down websites,
+                adversely affecting user experience. High hosting charges and
+                the risk of overspending on poorly optimised digital assets
+                pose major cost concerns.<br/><br/> Additionally, generic web builder platforms often lack the
+                flexibility needed to truly distinguish a brand or meet
+                specific business requirements, and there are frequent
+                communication gaps that make it difficult to bridge the divide
+                between a business's vision and what is technologically
+                feasible, adding to the complexity and frustration of creating
+                an effective digital presence.`}
               />
               <TextImageComponent
                 img="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720086386/Your-Digital-Development-Journey_m82lfs.avif"
@@ -124,15 +133,17 @@ const WebsiteDevelopment = () => {
                 header={
                   "Why Choose Prevail for Your Digital Development Journey?"
                 }
-                text={`Prevail stands out due to our comprehensive, bespoke service offerings. 
-                  Our team, consisting of brand identity experts, UI/UX designers, full-stack MERN 
-                  developers, and marketing consultants, excels in crafting digital platforms that 
-                  are not only visually striking but also highly functional.<br/><br/> 
-                  We invest time to understand your unique business needs and vision, 
-                  ensuring the final product perfectly aligns with your goals. 
-                  Our process is thorough, involving detailed consultations to capture 
-                  all necessary content and design preferences to launch your digital 
-                  presence effectively.`}
+                text={
+                `Prevail stands out due to our comprehensive, bespoke service offerings.
+                Our team, consisting of brand identity experts, UI/UX designers, full-stack MERN 
+                developers, and marketing consultants, excels in crafting digital platforms that 
+                are not only visually striking but also highly functional.<br/><br/> 
+                We invest time to understand your unique business needs and vision, 
+                ensuring the final product perfectly aligns with your goals. 
+                Our process is thorough, involving detailed consultations to capture 
+                all necessary content and design preferences to launch your digital 
+                presence effectively.`
+                }
               />
               <Stack mt={{ xs: 6, md: 10 }} px={{ xs: 2, md: 6 }}>
                 <Typography
@@ -140,7 +151,7 @@ const WebsiteDevelopment = () => {
                   fontWeight="600"
                   mb={4}
                 >
-                  What You Get and What to Expect  
+                  What You Get and What to Expect
                 </Typography>
                 <Grid container spacing={3}>
                   {data.map((item, index) => (
@@ -149,7 +160,7 @@ const WebsiteDevelopment = () => {
                         <Box>
                           <img src={item.svg} alt={item.title} />
                         </Box>
-                        <Stack spacing={1} color={"#505660"}>
+                        <Stack spacing={1} color="#505660">
                           <Typography fontWeight="600" color="#1D0D40">
                             {item.title}
                           </Typography>
@@ -180,8 +191,10 @@ const WebsiteDevelopment = () => {
               py={{ xs: 3, md: 8 }}
               sx={{
                 backgroundColor: "#FCFCFC",
-                py: 8,
                 borderRadius: "8px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
               }}
             >
               <Typography
@@ -194,10 +207,25 @@ const WebsiteDevelopment = () => {
               >
                 Choosing Prevail’s Custom Website Development means opting for a
                 tailored, effective, and secure digital presence. Ready to
-                embark on this transformative journey? Contact Prevail today to
-                build a website that not only meets but exceeds your digital
-                aspirations. 
+                embark on this transformative journey?{" "}
               </Typography>
+              <Button
+                variant="contained"
+                size="large"
+                onClick={handleNavigateToWizard}
+                endIcon={<ArrowForward />}
+                sx={{
+                  mt: 4,
+                  py: 1.5,
+                  px: 4,
+                  borderRadius: "8px",
+                  fontWeight: "bold",
+                  textTransform: "none",
+                  fontSize: "1rem",
+                }}
+              >
+                Get a Quote Instantly
+              </Button>
             </Box>
           </Container>
         </Box>
