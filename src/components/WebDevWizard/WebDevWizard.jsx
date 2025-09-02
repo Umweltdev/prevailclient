@@ -39,7 +39,6 @@ const stripePromise = loadStripe(
   "pk_test_51OsCJ5P1A39VkufThp1PVDexesvf2XAY8faTyK0uucC1qRl9NW9QkpBdwXQDyjCAjzL166zjMWNn5Zr25ZkaQJVi00vurq61mj"
 );
 
-// --- DATA (Web Development Only) ---
 
 const industries = [
   {
@@ -172,7 +171,6 @@ const gradientText = {
   display: "inline-block",
 };
 
-// --- UI COMPONENTS ---
 
 const SelectableCard = ({ children, selected, ...props }) => (
   <Card
@@ -612,7 +610,6 @@ FinalSummary.propTypes = {
   calculatePrice: PropTypes.func,
 };
 
-// --- MAIN WIZARD COMPONENT ---
 
 const WebDevWizard = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -625,7 +622,6 @@ const WebDevWizard = () => {
   const [isProcessing, setIsProcessing] = useState(false);
   const [showToast, setShowToast] = useState(null);
 
-  // The steps are now a fixed array since it's only one flow
   const steps = ["Industry", "Goals", "Platform Tier", "Review & Purchase"];
 
   useEffect(() => {
@@ -703,7 +699,6 @@ const WebDevWizard = () => {
     }
     setIsProcessing(true);
 
-    // Simplified payload for web_development service ONLY
     const payload = {
       name,
       email,
