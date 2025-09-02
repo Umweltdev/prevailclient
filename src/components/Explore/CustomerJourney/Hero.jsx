@@ -23,7 +23,6 @@ const Hero = () => {
     <Box
       sx={{
         background: "linear-gradient(135deg, #d1c4e9, #ffffff, #bbdefb)",
-
         minHeight: "10vh", // Ensure full height of the viewport
         display: "flex",
         justifyContent: "center",

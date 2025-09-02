@@ -59,7 +59,7 @@ const Digital = () => {
       className={`${styles.section} ${sectionInView ? styles.visible : ""}`}
       sx={{
         background: "linear-gradient(135deg, #d1c4e9, #ffffff, #bbdefb)",
-        minHeight: "100vh", // Ensure full height of the viewport
+        minHeight: "100vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -67,7 +67,13 @@ const Digital = () => {
     >
       <Container sx={{ padding: "2rem" }}>
         <Typography
-          sx={{ mb: "24px" }}
+          sx={{
+            color: "#6E3EF4",
+            fontSize: "24px",
+            fontWeight: "400",
+            lineHeight: "110%",
+            letterSpacing: "-0.24px",
+          }}
           variant="h6"
           align="center"
           pt="106px"
@@ -77,10 +83,16 @@ const Digital = () => {
           Digital Ecosystem
         </Typography>
         <Typography
-          sx={{ mb: "24px", fontSize: { xs: "24px", sm: "38px" } }}
-          variant="h4"
-          align="center"
-          gutterBottom
+          sx={{
+            color: "#1D0D40",
+            fontSize: { xs: "24px", sm: "38px" },
+            fontWeight: "500",
+            letterSpacing: "-0.24px",
+            textAlign: "center",
+            "@media (max-width: 600px)": {
+              width: "80vw",
+            },
+          }}
         >
           The Ultimate Products We Serve
         </Typography>
