@@ -5,8 +5,6 @@ import { serviceCard } from "../assets/ServicesData";
 import { useParams } from "react-router-dom";
 import ServiceDetails2 from "./ServiceDetails2";
 import ServiceDetails3 from "./ServiceDetails3";
-import PackagesLayout from "./PackagesLayout";
-import Packages from "./Packages";
 import Footer from "../../Footer/Footer";
 import FooterNew from "../../Footer/FooterNew";
 //import AppBarOne from "../../Navbar/AppbarOne";
@@ -17,18 +15,9 @@ import HeroComponent from "../ReusedComponenets/HeroComponent";
 import AppBarNav from "../../Navbar/Appbar";
 import PdfSection from "./PdfSection";
 import SmoothScrollUp from "../../utils/SmoothScrollUp";
-import PremiumPackageLayout from "./PremiumPackageLayout"; 
-//import PackagesLayout from "./PackagesLayout";
+
 import StepWizard from "./Packages";
-import {
-  Card,
-  CardContent,
-  Button,
-  Typography,
-  Box,
-  Grid,
-} from "@mui/material";
-import ElitePackageLayout from "./ElitePackageLayout";
+
 //import MainPage from "./MainPage";
 
 const BrandIdentity = () => {
@@ -45,10 +34,10 @@ const BrandIdentity = () => {
         <AppBarNav color="#000" />
 
         <HeroComponent title={"Brand Identity Package"} />
-        {/* <ElevateYourPresence />
+        <ElevateYourPresence />
         <PdfSection />
         <Addressing />
-        <TailoredApproach /> */}
+        <TailoredApproach />
         
          
             <StepWizard/>

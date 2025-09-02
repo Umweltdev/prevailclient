@@ -1,28 +1,108 @@
-import  {useState, useCallback, useEffect, useRef} from "react";
-import PackagesLayout from "./PackagesLayout";
-import { Grid, Typography } from "@mui/material";
-import PremiumPackageLayout from "./PremiumPackageLayout";
-import ElitePackageLayout from "./ElitePackageLayout";
+import React, {useState, useCallback, useEffect, useRef} from "react";
+import { theme } from "../../stepWizard/theme.js";
+import {
+  ThemeProvider,
+  Box,
+  Container,
+  Typography,
+  Button,
+  Grid,
+  Card,
+  CardContent,
+  Chip,
+  Stepper,
+  Step,
+  StepLabel,
+  TextField,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Divider,
+  Fade,
+} from "@mui/material";
 import "./assets/style.css"
-
+import PropTypes from "prop-types";
 import {
   ChevronRight,
   ChevronLeft,
   Check,
-  
-  TrendingUp,
+  RefreshCw,
 } from "lucide-react";
+
+const platformTiers = [
+  {
+    id: "Starter",
+    name: "Starter Brand Identity Package",
+    price: 500,
+    features:   [
+    "Logo design concept (up to 2 proposals)",
+   "colour scheme",
+    "Typography",
+    "business card",
+    "letterhead design or invoice design",
+   "questionnaire submission",
+   "style scope",
+   "X1 revision",
+    
+]
+  
+  },
+  {
+    id: "Premium",
+    name: "Premium Brand Identity Package",
+    price: 750,
+    features:  [
+     "Logo design concept (up to 2 proposals)",
+     "colour scheme",
+     "Typography",
+     "business card",
+     "letterhead design or invoice design",
+     "questionnaire submission",
+     "style scope",
+     "dos and don’ts",
+     "up to X3 marketing material",
+     "X2 revision",
+    ]
+  },
+  {
+    id: "Elite",
+    name: "Elite Brand Identity Package",
+    price: 1000,
+    features:   [
+  "Logo design concept (up to 2 proposals)",
+  "colour scheme",
+  "Typography",
+  "business card",
+  "letterhead design or invoice design",
+  "questionnaire submission",
+  "style scope",
+  "dos and don’ts",
+  "up to X5 marketing material",
+  "X4 revision (up to proposals) brand personality overview",
+  "printing guide",
+  "digital asset guide",
+  "1-hour consultation meeting",
+  
+    ],
+  },
+];
+
 const StepWizard= () => {
   
   
   const [currentStep, setCurrentStep] = useState(1);
-
-  const [trinitySelectionId, setTrinitySelectionId] =
-    useState( null);
-    const[packageDetails, setPackageDetails]= useState({amount:"", package:""})
+    
     const [showToast, setShowToast] = useState(null);
-
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [additionalNotes, setAdditionalNotes] = useState("");
+    const [keywords, setKeywords] = useState("");
+    const [selectedSystems, setSelectedSystems] = useState("");
+     const [selectedTier, setSelectedTier] = useState(null);
+    const [selectedDashboards, setSelectedDashboards] = useState("");
     // Effect to save state to localStorage on any change
+    
   const showToastMessage = (message) => {
     setShowToast(message);
     setTimeout(() => setShowToast(null), 3000);
@@ -42,8 +122,8 @@ const StepWizard= () => {
 
       setCurrentStep(nextStepNum);
       wizardRef.current?.scrollIntoView({ behavior: "smooth" });
-      //window.scrollTo(1, 1);
-    //}
+      
+    
   }, [currentStep]);
 
   const prevStep = useCallback(() => {
@@ -55,177 +135,157 @@ const StepWizard= () => {
     
     }
   }, [currentStep]);
+   const resetSelections = useCallback(() => {
+      setCurrentStep(1);
+      
+      showToastMessage("Selections have been reset.");
+    }, [showToastMessage]);
   useEffect(() => {
     const stateToSave = {
       currentStep,
-      
-      trinitySelectionId,
-      
-      
       
     };
     localStorage.setItem("quoteBuilderState", JSON.stringify(stateToSave));
   }, [
     currentStep,
     
-    trinitySelectionId,
-    
    // budget,
     
   ]);
+  const gradientText = {
+    background: "linear-gradient(to right, #6E3EF4, #3B82F6)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    display: "inline-block",
+  };
   const renderStepContent = () => {
     const steps = getSteps();
     const isReviewStep = steps.length > 1 && steps.length === currentStep;
 
     if (isReviewStep) {
-      return <FinalSummary />;
+      return <MemoizedFinalSummary />;
     }
 
    
         switch (currentStep) {
           case 1:
-            return <Packages />;
+            return <MemoizedPlatformTier />;
           
           default:
             return null;
         }
     
   };
+ const SelectableCard = ({ children, selected, ...props }) => (
+   <Card
+     {...props}
+     elevation={selected ? 8 : 2}
+     sx={{
+       cursor: "pointer",
+       height: "100%",
+       border: "2px solid",
+       borderColor: selected ? "primary.main" : "transparent",
+       transform: selected ? "scale(1.03)" : "none",
+       transition:
+         "transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease",
+       "&:hover": {
+         transform: "scale(1.03)",
+         borderColor: "rgba(136, 78, 217, 0.5)",
+       },
+       ...props.sx,
+     }}
+   >
+     <CardContent
+       sx={{ display: "flex", flexDirection: "column", height: "100%", p: 3 }}
+     >
+       {children}
+     </CardContent>
+   </Card>
+ );
+ SelectableCard.propTypes = {
+   children: PropTypes.node,
+   selected: PropTypes.bool,
+   sx: PropTypes.object,
+ };
   
+const PlatformTier = (
 
-const Packages = () => {
-  return(
-  
-    <div
-      style={{
-        margin: "0px auto 0 auto",
-        padding: "30px 0 50px 0",
-        
-        // background: "#F9FAFC",
-        "@media (max-width: 600px)": {
-          margin: "1vh auto 0 auto",
-        },
-      }}
-    >
-      <div
-      style={{
-       
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        
-      }}
-      > 
-      <Typography
-        sx={{
-          fontSize: "48px",
-          fontWeight: "bold",
-          color: "45px",
-          margin: "5vh 0",
-          fontFamily: `"Sarabun", sans-serif`,
-          "@media (max-width: 600px)": {
-            fontSize: "7vw",
-            fontWeight: "bold",
-            color: "#884ed9",
-            margin: "1vh 0",
-          },
-        }}
-      >
+) => (
+  <Fade in timeout={500}>
+    <Box>
+      <Chip
+        label="Package Type"
+        color="primary"
+        variant="outlined"
+        sx={{ mb: 2 }}
+      />
+      <Typography variant="h2" gutterBottom>
         Choose Your Package
       </Typography>
-      <Grid
-        sx={{
-          display: "flex",
-          // gap: "2vw",
-          "@media (max-width: 760px)": {
-            display: "unset",
-          },
-        }}
-      >
-        <PackagesLayout
-          packages="Starter Brand Identity Package"
-          //info="Forever free, even after the launch"
-          amount="500"
-          handleClick={()=> {nextStep(); setPackageDetails({amount:500, package:"Starter Brand Identity Package"})}}
-          onBoxClick={()=> {setPackageDetails({amount:500, package:"Starter Brand Identity Package"})}}
-        />
-        <PremiumPackageLayout
-          packages="Premium Brand Identity Package"
-          //info="Forever free, even after the launch"
-          amount="750"
-         handleClick={()=> {nextStep(); setPackageDetails({amount:750, package:"Premium Brand Identity Package"})}}
-         onBoxClick={()=> { setPackageDetails({amount:750, package:"Premium Brand Identity Package"})}}
-         
-        />
-        <ElitePackageLayout
-          packages="Elite Brand Identity Package"
-          //info="Forever free, even after the launch"
-          amount="1000"
-           handleClick={()=> {nextStep(); setPackageDetails({amount:1000, packages:"Elite Brand Identity Package"})}}
-           onBoxClick={()=> { setPackageDetails({amount:1000, package:"Elite Brand Identity Package"})}}
-        />
+      <Typography variant="body1" sx={{ mb: 4 }}>
+        Choose the functionality you need for your brand identity.
+      </Typography>
+      <Grid container spacing={3} sx={{ mb: 4 }}>
+        {platformTiers.map((tier) => (
+          <Grid item xs={12} md={4} key={tier.id}>
+            <SelectableCard
+              selected={selectedTier === tier.id}
+              onClick={() => setSelectedTier(tier.id)}
+            >
+              
+              <Typography variant="h6" component="h3">
+                {tier.name}
+              </Typography>
+              <Typography
+                variant="h5"
+                component="p"
+                color="primary"
+                sx={{ my: 1 }}
+              >
+                £{tier.price} 
+              </Typography>
+              <List dense sx={{ mt: 2, p: 0 }}>
+                {tier.features.map((feature) => (
+                  <ListItem key={feature} disableGutters sx={{ p: 0 }}>
+                    <ListItemIcon sx={{ minWidth: 24 }}>
+                      <Check size={16} color={theme.palette.success.main} />
+                    </ListItemIcon>
+                    <ListItemText primary={feature} />
+                  </ListItem>
+                ))}
+              </List>
+            </SelectableCard>
+          </Grid>
+        ))}
       </Grid>
-      </div>
-      <div className="button-container">
-        <button
-          className="my-button"
-          onClick={nextStep}
-          disabled={!packageDetails.amount}
+      <Box display="flex" gap={2}>
+        <Button
+          variant="outlined"
+          onClick={prevStep}
+          startIcon={<ChevronLeft />}
         >
-          Continue <ChevronRight className="chevron" />
-        </button>
-        
-      </div>
-    </div>)
-  
+          Back
+        </Button>
+        <Button
+          variant="contained"
+          onClick={nextStep}
+          disabled={!selectedTier}
+          endIcon={<ChevronRight />}
+        >
+          Continue
+        </Button>
+      </Box>
+    </Box>
+  </Fade>
+);
+PlatformTier.propTypes = {
+  selectedTier: PropTypes.string,
+  setSelectedTier: PropTypes.func.isRequired,
+  nextStep: PropTypes.func.isRequired,
+  prevStep: PropTypes.func.isRequired,
 };
-// Return on Investment (ROI) Calculator Component
-  const ROICalculator = () => {
-    const totalCost = 0
-    //calculateRunningTotal();
-    const estimatedMonthlySavings = () => {
-      let savings = 0;
-      if (trinitySelectionId === "trinity-plus") savings += 700; // Additional value for plus
-      return savings;
-    };
+const MemoizedPlatformTier = React.memo(PlatformTier);
 
-    const breakEvenMonths =
-      estimatedMonthlySavings > 0
-        ? (totalCost / estimatedMonthlySavings).toFixed(1)
-        : "N/A";
-
-    if (estimatedMonthlySavings === 0) return null;
-
-    return (
-      <div className="calculatorContainer">
-        <h3 className="calculatorTitle">
-          <TrendingUp className="trendingUp" />
-          Estimated Return on Investment
-        </h3>
-        <div className="estmatedSavingsContainer">
-          <div>
-            <p className="estimatedSavings">
-              {/* £{estimatedMonthlySavings.toLocaleString()} */}
-        N/A
-
-            </p>
-            <p className="estimatedMonthly">Estimated Monthly Savings</p>
-          </div>
-          <div>
-            <p className="breakEvenMonths">
-              {breakEvenMonths}
-            </p>
-            <p className="monthsbreakEven">Months to Break Even</p>
-          </div>
-        </div>
-        <p className="calculatorFooter">
-          *This is an illustrative estimate based on typical results for
-          businesses with your selected goals.
-        </p>
-      </div>
-    );
-  };
 // Consolidated Final Summary Component
   const FinalSummary = () => {
     // const trinitySelection = ALL_TRINITY_OPTIONS.find(
@@ -234,149 +294,232 @@ const Packages = () => {
     // const tier = platformTiers.find((t) => t.id === selectedTier);
     // const industry = industries.find((ind) => ind.id === selectedIndustry);
     const total = 0
-    //calculateRunningTotal()||0;
-    //const isBundle = solutionType === "both" && trinitySelection && tier;
-    const discountedTotal = total
-    //isBundle ? Math.round(total * 0.9) : total;
-
+   
+    const finalPrice = selectedTier.price;
+    
+const tierSelection = platformTiers.find((t) => t.id === selectedTier);
     return (
-      <div className="finalSummaryContainer">
-        <div className="textWrapper">
-          <h2 className="summaryHeading">
-            Your Custom Solution Summary
-          </h2>
-          <p className="summaryDescription">
-            Here is a complete overview of your selections. Ready to proceed?
-          </p>
-        </div>
-
-        <div className="columnContainer">
-          <div className="columnGrid">
-            {/* Column 1: Selections */}
-            <div>
-              <h4 className="columnTitle">
-                Your Selections
-              </h4>
-              <ul className="packageContainer">
-                <li className="packageWrapper">
-                  <span className="packageTitle">Package:</span>
-                  <span className="packageName">
-                    {packageDetails.package}
-                  </span>
-                </li>
-                
-                {/* {trinitySelection && (
-                  <li className="flex justify-between items-center">
-                    <span className="text-gray-400">Trinity System:</span>
-                    <span className="text-white font-medium">
-                      {trinitySelection.name}
-                    </span>
-                  </li>
-                )} */}
-                
-                {/* <li className="flex justify-between items-center">
-                  <span className="text-gray-400">Budget:</span>
-                  <span className="text-white font-medium">
-                    ~£{budget.toLocaleString()}
-                  </span>
-                </li> */}
-              </ul>
-            </div>
-
-            {/* Column 2: Cost Breakdown */}
-            <div>
-              <h4 className="costBreakdown">
-                Cost Breakdown
-              </h4>
-              <div className="breakdownContainer">
-                {/* {trinitySelection && (
-                  <div className="flex justify-between py-2 border-b border-white/10">
-                    <span className="text-gray-400">
-                      {trinitySelection.name}
-                    </span>
-                    <span className="text-white">
-                      £{trinitySelection.betaPrice.toLocaleString()}
-                    </span>
-                  </div>
-                )} */}
-                
-                <div className="totalInvestmentWrapper">
-                  <span className="totalInvestment">Total Investment</span>
-                  <span className="discountedTotal">
-                    £{packageDetails.amount}
-                    {/* £{discountedTotal.toLocaleString()} */}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <ROICalculator />
-
-        <div className="controlContainer">
-          <button
-            onClick={prevStep}
-            className="prevButton"
-          >
-            <ChevronLeft className="chevron" /> Back
-          </button>
-          <button
-            onClick={() =>
-              showToastMessage(
-                "Your quote has been submitted! We'll be in touch."
-              )
-            }
-            className="finalizeButton"
-          >
-            Finalize & Get Quote →
-          </button>
-        </div>
-      </div>
+      <Fade in timeout={500}>
+            <Grid container spacing={4}>
+              <Grid item xs={12} lg={8}>
+                <Chip
+                  label="Final Step: Review & Purchase"
+                  color="primary"
+                  variant="outlined"
+                  sx={{ mb: 2 }}
+                />
+                <Typography variant="h2" gutterBottom>
+                  Confirm Your Configuration
+                </Typography>
+                <Typography variant="body1" sx={{ mb: 4 }}>
+                  Review your selections and provide your details to proceed.
+                </Typography>
+                <Card>
+                  <CardContent
+                    sx={{ display: "flex", flexDirection: "column", gap: 4, p: 3 }}
+                  >
+                    <Box>
+                      <Typography variant="h6" component="h3" gutterBottom>
+                        Your Details
+                      </Typography>
+                      <Grid container spacing={2}>
+                        <Grid item xs={12} sm={6}>
+                          <TextField
+                            fullWidth
+                            label="Your Name"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            required
+                          />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                          <TextField
+                            fullWidth
+                            label="Your Email"
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                          />
+                        </Grid>
+                      </Grid>
+                    </Box>
+                    <Box>
+                      <Typography variant="h6" component="h3" gutterBottom>
+                        Optional Customization
+                      </Typography>
+                      <Grid container spacing={2}>
+                        <Grid item xs={12} sm={6}>
+                          <TextField
+                            fullWidth
+                            label="Keywords (comma-separated)"
+                            value={keywords}
+                            onChange={(e) => setKeywords(e.target.value)}
+                          />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                          <TextField
+                            fullWidth
+                            label="Systems (e.g. CRM)"
+                            value={selectedSystems}
+                            onChange={(e) => setSelectedSystems(e.target.value)}
+                          />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                          <TextField
+                            fullWidth
+                            label="Dashboards (e.g. Sales)"
+                            value={selectedDashboards}
+                            onChange={(e) => setSelectedDashboards(e.target.value)}
+                          />
+                        </Grid>
+                        <Grid item xs={12}>
+                          <TextField
+                            fullWidth
+                            multiline
+                            rows={3}
+                            label="Additional Notes"
+                            value={additionalNotes}
+                            onChange={(e) => setAdditionalNotes(e.target.value)}
+                          />
+                        </Grid>
+                      </Grid>
+                    </Box>
+                  </CardContent>
+                </Card>
+              </Grid>
+              <Grid item xs={12} lg={4}>
+                <Card sx={{ position: "sticky", top: "24px" }}>
+                  <CardContent sx={{ p: 3 }}>
+                    <Typography variant="h6" component="h3" gutterBottom>
+                      Your Summary
+                    </Typography>
+                    <Divider sx={{ my: 2 }} />
+                    <Box display="flex" flexDirection="column" gap={1}>
+                      
+                      
+                        {tierSelection && (
+                                          <Box display="flex" justifyContent="space-between">
+                                            <Typography variant="subtitle2">Package Tier:</Typography>
+                                            <Typography variant="subtitle1">
+                                              {tierSelection.name}
+                                            </Typography>
+                                          </Box>
+                                        )}
+                    </Box>
+                    <Box mt={3} pt={2} borderTop={1} borderColor="divider">
+                      <Box
+                        display="flex"
+                        justifyContent="space-between"
+                        alignItems="baseline"
+                      >
+                        <Typography variant="h6">Total Price:</Typography>
+                        <Typography variant="h5" fontWeight="bold" sx={gradientText}>
+                          £{tierSelection.price}
+                        </Typography>
+                      </Box>
+                    </Box>
+                    <Box mt={3} display="flex" flexDirection="column" gap={2}>
+                      <Button
+                        variant="contained"
+                        fullWidth
+                        //onClick={handleCheckout}
+                        disabled={ !name || !email}
+                        
+                      >
+                        Proceed to Checkout
+                        
+                      </Button>
+                      <Button
+                        variant="outlined"
+                        fullWidth
+                        onClick={prevStep}
+                        startIcon={<ChevronLeft />}
+                      >
+                        Back
+                      </Button>
+                    </Box>
+                  </CardContent>
+                </Card>
+              </Grid>
+            </Grid>
+          </Fade>
     );
   };
+  FinalSummary.propTypes = {
+    
+    selectedTier: PropTypes.string,
+    
+    name: PropTypes.string,
+    setName: PropTypes.func,
+    email: PropTypes.string,
+    setEmail: PropTypes.func,
+    additionalNotes: PropTypes.string,
+    setAdditionalNotes: PropTypes.func,
+    keywords: PropTypes.string,
+    setKeywords: PropTypes.func,
+    selectedSystems: PropTypes.string,
+    setSelectedSystems: PropTypes.func,
+    selectedDashboards: PropTypes.string,
+    setSelectedDashboards: PropTypes.func,
+    prevStep: PropTypes.func,
+    handleCheckout: PropTypes.func,
+    isProcessing: PropTypes.bool,
+    calculateRunningTotal: PropTypes.func,
+  };
+  const MemoizedFinalSummary = React.memo(FinalSummary);
    const steps = getSteps();
 return (
-  <div ref={wizardRef}>
-        <div className="container">
+  <ThemeProvider theme={theme}>
+       <Box
+         sx={{
+           minHeight: "100vh",
+           background: theme.palette.background.default,
+           color: "text.primary",
+           overflowX: "hidden",
+         }}
+       >
+         <Container maxWidth="lg" sx={{ py: { xs: 6, md: 8 } }}>
+           <Box textAlign="center" mb={{ xs: 6, md: 8 }}>
+             <Typography variant="h1" component="h1" gutterBottom>
+               Your Partner in Accelerating the{" "}
+               <Box component="span" sx={gradientText}>
+                 Digital Space
+               </Box>
+             </Typography>
+             <Typography
+               variant="h5"
+               color="text.secondary"
+               sx={{ maxWidth: "720px", mx: "auto" }}
+             >
+               Our goal is to help businesses thrive by providing innovative and
+               holistic solutions.
+             </Typography>
+             <Button
+               onClick={resetSelections}
+               startIcon={<RefreshCw size={16} />}
+               sx={{ mt: 3, color: "text.secondary" }}
+             >
+               Start Over
+             </Button>
+           </Box>
+          <Stepper
+                      activeStep={currentStep - 1}
+                      alternativeLabel
+                      sx={{ mb: { xs: 5, md: 7 } }}
+                    >
+                      {steps.map((label) => (
+                        <Step key={label}>
+                          <StepLabel>{label}</StepLabel>
+                        </Step>
+                      ))}
+                    </Stepper>
           
-          {steps.map((step, i) => {
-            const stepNum = i + 1;
-            const isActive = currentStep === stepNum;
-            const isCompleted = currentStep > stepNum;
-
-            return (
-              <div
-                key={i}
-                className={`wrapper ${
-                  isActive
-                    ? "active"
-                    : isCompleted
-                      ? "completed"
-                      : "general"
-                }`}
-              >
-                <span
-                  className={`step ${
-                    isActive
-                      ? "stepActive"
-                      : isCompleted
-                        ? "stepCompleted"
-                        : "stepGeneral"
-                  }`}
-                >
-                  {isCompleted ? <Check className="completedCheck" /> : stepNum}
-                </span>
-                <span>{step}</span>
-              </div>
-            );
-          })}
-         
-        </div>
+        
 <div className="my-container">
         {renderStepContent()}
         </div>
-      
+       </Container>
 
       {showToast && (
         <div className="toastContainer">
@@ -384,9 +527,10 @@ return (
           <span className="toastText">{showToast}</span>
         </div>
       )}
+       </Box>
 
-     
-      </div>
+     </ThemeProvider>
+      
 )
 }
 
