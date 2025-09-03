@@ -108,8 +108,8 @@ function AppBarNav({ color }) {
         ? [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
-            { label: "Trinity Plus", onClick: handleTrinityClick },
-          // { label: "Blog", link: "/blog" },
+            { label: "Trinity", onClick: handleTrinityClick },
+            // { label: "Blog", link: "/blog" },
             { label: "Booking", link: "/booking" },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
@@ -117,8 +117,8 @@ function AppBarNav({ color }) {
         : [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
-            { label: "Trinity Plus", onClick: handleTrinityClick },
-          // { label: "Blog", link: "/blog" },
+            { label: "Trinity", onClick: handleTrinityClick },
+            // { label: "Blog", link: "/blog" },
             { label: "Booking", link: "/booking" },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
@@ -133,7 +133,7 @@ function AppBarNav({ color }) {
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
             { label: "Trinity Plus", onClick: handleTrinityClick },
-          // { label: "Blog", link: "/blog" },
+            // { label: "Blog", link: "/blog" },
             { label: "Booking", link: "/booking" },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
@@ -147,7 +147,7 @@ function AppBarNav({ color }) {
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
             { label: "Trinity Plus", onClick: handleTrinityClick },
-          // { label: "Blog", link: "/blog" },
+            // { label: "Blog", link: "/blog" },
             { label: "Booking", link: "/booking" },
 
             { label: "About Us", link: "/about-us" },
@@ -223,7 +223,7 @@ function AppBarNav({ color }) {
                 <Box
                   key={index}
                   sx={{
-                    color:"#000" ,
+                    color: "#000",
                     mx: 2,
                     px: 1,
                     py: 1,
@@ -239,7 +239,7 @@ function AppBarNav({ color }) {
                 >
                   {item.label}
                   {["Explore", "Services", "Trinity"].includes(item.label) && (
-                    <ExpandMoreIcon sx={{ marginLeft: "5px",  }} />
+                    <ExpandMoreIcon sx={{ marginLeft: "5px" }} />
                   )}
                 </Box>
               ))}
@@ -340,28 +340,27 @@ function AppBarNav({ color }) {
         ))}
       </Menu>
 
-<Menu
-  anchorEl={anchorElExplore}
-  open={Boolean(anchorElExplore)}
-  onClose={handleClose}
->
-  {exploreData.map((data, i) => (
-    <MenuItem
-      key={i}
-      component={Link}
-      to={data.link}
-      onClick={handleClose}
-      sx={{
-        // color: "#6E3EF4",
-        textDecoration: "none",
-        textAlign: "left",
-      }}
-    >
-      {data.text}
-    </MenuItem>
-  ))}
-</Menu>
-
+      <Menu
+        anchorEl={anchorElExplore}
+        open={Boolean(anchorElExplore)}
+        onClose={handleClose}
+      >
+        {exploreData.map((data, i) => (
+          <MenuItem
+            key={i}
+            component={Link}
+            to={data.link}
+            onClick={handleClose}
+            sx={{
+              // color: "#6E3EF4",
+              textDecoration: "none",
+              textAlign: "left",
+            }}
+          >
+            {data.text}
+          </MenuItem>
+        ))}
+      </Menu>
     </Box>
   );
 }
