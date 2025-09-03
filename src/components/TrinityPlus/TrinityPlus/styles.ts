@@ -1,6 +1,4 @@
-@import "tailwindcss";
-@import "tw-animate-css";
-
+export const style = `
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -2164,3 +2162,5 @@ h2 {
     font-size: 0.85rem;
   }
 }
+
+`

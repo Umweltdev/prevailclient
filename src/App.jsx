@@ -28,8 +28,11 @@ const BlogDetails = React.lazy(() => import("./components/Blog/BlogDetails"));
 const BrandIdentity = React.lazy(
   () => import("./components/Services/BrandIdentity/BrandIdentity")
 );
-const VisualBrandIdentity = React.lazy(
-  () => import("./components/Services/BrandIdentity/VisualBrandIdentity")
+const AdCampaign = React.lazy(() =>
+  import("./components/Services/CAD/AdCampaign")
+);
+const VisualBrandIdentity = React.lazy(() =>
+  import("./components/Services/BrandIdentity/VisualBrandIdentity")
 );
 const WebsiteDevelopment = React.lazy(
   () => import("./components/Services/WebsiteDevelopement/WebsiteDevelopment")
@@ -59,8 +62,9 @@ const Garo = React.lazy(() => import("./components/TrinityPlus/Garo"));
 const Mcd = React.lazy(() => import("./components/TrinityPlus/MCD"));
 const Rcd = React.lazy(() => import("./components/TrinityPlus/RCD"));
 const Aed = React.lazy(() => import("./components/TrinityPlus/AED"));
-const DigitalEcosystem = React.lazy(
-  () => import("./components/Explore/DigitalEcosystem/DigitalEcosystem")
+const StepWizard = React.lazy(() => import("./components/TrinityPlus/StepWizardPage.js"));
+const DigitalEcosystem = React.lazy(() =>
+  import("./components/Explore/DigitalEcosystem/DigitalEcosystem")
 );
 const CustomerJourney = React.lazy(
   () => import("./components/Explore/CustomerJourney/CustomerJourney")
@@ -92,7 +96,7 @@ function App() {
         <ScrollToTop />
         <Suspense fallback={<Loading />}>
           <ErrorBoundary>
-            <Routes>
+  <Routes>
               <Route path="/" element={<Landing />} />
               <Route path="/about-us" element={<About />} />
               <Route path="/portfolio" element={<Portfolio />} />
@@ -145,9 +149,13 @@ function App() {
                 path="/service/digital-accelerator-bundle/empower-your-business"
                 element={<EmpowerYourBussiness />}
               />
+              <Route
+                path="/service/custom-ad-campaign"
+                element={<AdCampaign />}
+              />
 
+              {/* New routes from WebdevStep branch */}
               <Route path="/quote-builder" element={<WebDevWizardPage />} />
-
               <Route
                 path="/explore/digital-ecosystem"
                 element={<DigitalEcosystem />}
@@ -156,6 +164,8 @@ function App() {
                 path="/explore/customer-journey"
                 element={<CustomerJourney />}
               />
+
+              {/* Trinity routes */}
               <Route path="/trinity" element={<TrinityCore />} />
               <Route path="/trinity/plus" element={<TrinityPlus />} />
               <Route path="/trinity/core" element={<TrinityCore />} />
@@ -167,10 +177,12 @@ function App() {
               <Route path="/trinity/mcd" element={<Mcd />} />
               <Route path="/trinity/rcd" element={<Rcd />} />
               <Route path="/trinity/aed" element={<Aed />} />
+              <Route path="/trinity/step-wizard" element={<StepWizard />} />
               <Route path="/portfolio/:index" element={<CaseDetails />} />
               <Route path="/about/ourWhy" element={<AboutOurWhy />} />
               <Route path="/about/ourSolution" element={<AboutOurSolution />} />
 
+              {/* Auth and user routes */}
               <Route path="/SignUp" element={<SignUpForm />} />
               <Route path="/Login" element={<LoginForm />} />
               <Route path="/Stepper" element={<Stepper />} />
@@ -185,6 +197,89 @@ function App() {
                 element={
                   user ? <UserDashBoard socket={socket} /> : <Navigate to="/" />
                 }
+              />
+
+              {/* Redirect old routes to the new routes */}
+              <Route path="/About" element={<Navigate to="/about-us" />} />
+              <Route path="/Portfolio" element={<Navigate to="/portfolio" />} />
+              <Route path="/Blog" element={<Navigate to="/blog" />} />
+              <Route path="/Contact" element={<Navigate to="/contact-us" />} />
+              <Route
+                path="/Blog/:index"
+                element={<Navigate to="/blog/:index" />}
+              />
+              <Route
+                path="/Booking"
+                element={<Navigate to="/booking" />}
+              />
+              <Route
+                path="/Services"
+                element={<Navigate to="/service-landing-page" />}
+              />
+              <Route
+                path="/Services/brand"
+                element={<Navigate to="/service/brand-identity-package" />}
+              />
+              <Route
+                path="/Services/website"
+                element={<Navigate to="/service/custom-website-development" />}
+              />
+              <Route
+                path="/Services/webmanagement"
+                element={<Navigate to="/service/website-development" />}
+              />
+              <Route
+                path="/Services/stepwizard"
+                element={<Navigate to="/service/stepWizardPage" />}
+              />
+              <Route
+                path="/Services/costcalculation"
+                element={<Navigate to="/service/cost-calculation" />}
+              />
+              <Route
+                path="/Services/sem"
+                element={<Navigate to="/service/search-engine-marketing" />}
+              />
+              <Route
+                path="/Services/mpd"
+                element={
+                  <Navigate to="/service/marketing-pricing-displacement" />
+                }
+              />
+              <Route
+                path="/Services/custom-ad-campaign"
+                element={<Navigate to="/service/custom-ad-campaign" />}
+              />
+              <Route
+                path="/privacypolicy"
+                element={<Navigate to="/privacy-policy" />}
+              />
+              <Route
+                path="/Services/digitalaccelerator"
+                element={<Navigate to="/service/digital-accelerator-bundle" />}
+              />
+              <Route
+                path="/Portfolio/:index"
+                element={<Navigate to="/portfolio/:index" />}
+              />
+              <Route
+                path="/about/ourWhy"
+                element={<Navigate to="/about/ourWhy" />}
+              />
+              <Route
+                path="/about/ourSolution"
+                element={<Navigate to="/about/ourSolution" />}
+              />
+              <Route path="/SignUp" element={<Navigate to="/SignUp" />} />
+              <Route path="/Login" element={<Navigate to="/Login" />} />
+              <Route path="/Stepper" element={<Navigate to="/Stepper" />} />
+              <Route
+                path="/MobStepper"
+                element={<Navigate to="/MobStepper" />}
+              />
+              <Route
+                path="/UserDashboard"
+                element={<Navigate to="/UserDashboard" />}
               />
 
               <Route path="*" element={<NotFoundPage />} />

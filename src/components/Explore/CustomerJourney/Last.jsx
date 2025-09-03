@@ -173,52 +173,63 @@ const Last = () => {
         py: { xs: 8, md: 12 },
       }}
     >
-      <div className={classes.floatingElements}>
-        <TrendingUpIcon className="floating-icon" sx={{ fontSize: 60 }} />
-        <StarIcon className="floating-icon" sx={{ fontSize: 50 }} />
-        <TrendingUpIcon className="floating-icon" sx={{ fontSize: 40 }} />
-      </div>
+<div className={classes.floatingElements}>
+  <TrendingUpIcon className="floating-icon" sx={{ fontSize: 60 }} />
+  <StarIcon className="floating-icon" sx={{ fontSize: 50 }} />
+  <TrendingUpIcon className="floating-icon" sx={{ fontSize: 40 }} />
+</div>
 
-      <Container maxWidth="lg">
-        <Paper className={classes.mainCard}>
-          <div className={classes.decorativeElements}>
-            <div className="dot"></div>
-            <div className="dot"></div>
-            <div className="dot"></div>
-          </div>
+<Container maxWidth="lg">
+  <Paper className={classes.mainCard}
+    sx={{
+      padding: "10px",
+      backgroundColor: "#FFFFFF",
+      borderRadius: "5",
+      boxShadow: "3",
+      maxWidth: "1000px",
+      margin: "auto",
+      textAlign: "center",
+    }}
+  >
+    <div className={classes.decorativeElements}>
+      <div className="dot"></div>
+      <div className="dot"></div>
+      <div className="dot"></div>
+    </div>
 
-          <div className={classes.chipContainer}>
-            <Chip
-              label="Transform Your Business"
-              className={classes.brandChip}
-              icon={<StarIcon sx={{ color: "#ffffff !important" }} />}
-            />
-          </div>
+    <div className={classes.chipContainer}>
+      <Chip
+        label="Transform Your Business"
+        className={classes.brandChip}
+        icon={<StarIcon sx={{ color: "#ffffff !important" }} />}
+      />
+    </div>
 
-          <Typography
-            variant="h3"
-            className={classes.mainText}
-            sx={{
-              fontSize: { xs: "24px", sm: "32px", md: "38px" },
-              textAlign: "center",
-              maxWidth: "900px",
-              margin: "0 auto 32px auto",
-            }}
-          >
-            At Prevail, we are committed to guiding you through each stage of
-            the customer journey with strategic expertise and technological
-            prowess. Let us help you transform potential interest into lasting
-            customer loyalty.
-          </Typography>
+    <Typography
+      sx={{
+        fontSize: { xs: "24px", sm: "32px", md: "38px" },
+        fontWeight: "700",
+        lineHeight: "150%",
+        padding: "20px",
+        maxWidth: "900px",
+        margin: "0 auto 32px auto",
+      }}
+    >
+      At Prevail, we are committed to guiding you through each stage of the
+      customer journey with strategic expertise and technological prowess.
+      Let us help you transform potential interest into lasting customer
+      loyalty. Start your journey with us today!
+    </Typography>
 
-          <Box sx={{ textAlign: "center" }}>
-            <button className={classes.ctaButton}>
-              <TrendingUpIcon sx={{ fontSize: 20 }} />
-              Start Your Journey Today
-            </button>
-          </Box>
-        </Paper>
-      </Container>
+    <Box sx={{ textAlign: "center" }}>
+      <button className={classes.ctaButton}>
+        <TrendingUpIcon sx={{ fontSize: 20 }} />
+        Start Your Journey Today
+      </button>
+    </Box>
+  </Paper>
+</Container>
+
     </Box>
   );
 };
