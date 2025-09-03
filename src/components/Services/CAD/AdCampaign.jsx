@@ -7,7 +7,6 @@ import AddOns from './AddOns';
 import TrustBuilders from './TrustBuilders';
 import HowItWorks from './HowItWorks';
 import Modal from './Modal';
-import FooterNew from '../../Footer/FooterNew.jsx';
 
 const AdCampaign = () => { 
     return (
@@ -20,7 +19,6 @@ const AdCampaign = () => {
             <TrustBuilders />
             <HowItWorks />
             <Modal />
-            <FooterNew />
         </div>
     )
 }
