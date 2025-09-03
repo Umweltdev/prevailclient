@@ -18,6 +18,13 @@ export default function Nav() {
         target.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     };
+
+      const handleScroll = () => {
+      const target = document.querySelector('#wizard');
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    };
   return (
     <nav
       className={`fixed inset-x-0 top-0 z-50 py-6 transition-all duration-500 ${

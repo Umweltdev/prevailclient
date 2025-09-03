@@ -19,6 +19,7 @@ import GetStartedStep from "./components/Services/CostCalculation/steps/GetStart
 import BookingPage from "./pages/Booking.jsx";
 import StepWizardPage from "./pages/StepWizardPage.jsx";
 
+// Lazy load pages and components
 const Landing = React.lazy(() => import("./pages/Landing"));
 const About = React.lazy(() => import("./pages/About"));
 const Portfolio = React.lazy(() => import("./pages/Portfolio"));
@@ -184,7 +185,7 @@ function App() {
               <Route path="/trinity/mcd" element={<Mcd />} />
               <Route path="/trinity/rcd" element={<Rcd />} />
               <Route path="/trinity/aed" element={<Aed />} />
-              <Route path="/trinity/step-wizard" element={<StepWizard />} />
+              <Route path="/trinity/plus#wizard" element={<StepWizard />} />
               <Route path="/portfolio/:index" element={<CaseDetails />} />
               <Route path="/about/ourWhy" element={<AboutOurWhy />} />
               <Route path="/about/ourSolution" element={<AboutOurSolution />} />

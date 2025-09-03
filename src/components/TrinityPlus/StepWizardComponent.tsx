@@ -176,13 +176,13 @@ const solutionTypes = [
     id: "trinity",
     name: "Trinity Core",
     icon: Zap,
-    description: "AI-powered business intelligence",
+    description: "Business Automation tool ",
   },
   {
     id: "trinity",
     name: "Trinity Plus",
     icon: Rocket,
-    description: "Website + Trinity systems",
+    description: "Business Automation and Intelligence ",
   },
 ];
 const industries = [
@@ -348,69 +348,100 @@ SelectableCard.propTypes = {
   sx: PropTypes.object,
 };
 
-
-const SolutionChoice = ({ solutionType, setSolutionType, nextStep }) => (
-  <Fade in timeout={500}>
-    <Box>
-      <Chip
-        label="Step 1: Choose Your Path"
-        color="primary"
-        variant="outlined"
-        sx={{ mb: 2 }}
-      />
-      <Typography variant="h2" gutterBottom>
-        What type of solution do you need?
-      </Typography>
-      <Typography variant="body1" sx={{ mb: 4 }}>
-        Select the best fit for your business transformation.
-      </Typography>
-      <Grid container spacing={3} sx={{ mb: 4 }}>
-        {solutionTypes.map((solution, i) => (
-          <Grid item xs={12} md={4} key={i}>
-            <SelectableCard
-              selected={solutionType === solution.id}
-              onClick={() => setSolutionType(solution.id)}
-            >
-              <Box
-                sx={{
-                  width: 64,
-                  height: 64,
-                  borderRadius: 3,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  mb: 2,
-                  background:
-                    "linear-gradient(to bottom right, #E0E7FF, #DDD4EF)",
+const SolutionChoice = ({
+  solutionType,
+  setSolutionType,
+  nextStep,
+  setTrinitySelectionId,
+  setCurrentStep,
+}) => {
+  const [type, setType] = useState(null);
+  const [id, setId] = useState(null);
+  const [val, setVal] = useState(null);
+  const [selected, setSelected] = useState(null);
+  return (
+    <Fade in timeout={500}>
+      <Box>
+        <Chip
+          label="Step 1: Choose Your Path"
+          color="primary"
+          variant="outlined"
+          sx={{ mb: 2 }}
+        />
+        <Typography variant="h2" gutterBottom>
+          What type of solution do you need?
+        </Typography>
+        <Typography variant="body1" sx={{ mb: 4 }}>
+          Select the best fit for your business transformation.
+        </Typography>
+        <Grid container spacing={3} sx={{ mb: 4 }}>
+          {solutionTypes.map((solution, i) => (
+            <Grid item xs={12} md={4} key={i}>
+              <SelectableCard
+                selected={selected === i}
+                onClick={() => {
+                  setSelected(i);
+                  setSolutionType(solution.id);
+                  setVal(solution.name);
+                  setType(solution.id);
                 }}
               >
-                <solution.icon
-                  style={{
-                    color: theme.palette.primary.main,
-                    width: 32,
-                    height: 32,
+                <Box
+                  sx={{
+                    width: 64,
+                    height: 64,
+                    borderRadius: 3,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    mb: 2,
+                    background:
+                      "linear-gradient(to bottom right, #E0E7FF, #DDD4EF)",
                   }}
-                />
-              </Box>
-              <Typography variant="h6" component="h3" gutterBottom>
-                {solution.name}
-              </Typography>
-              <Typography variant="body1">{solution.description}</Typography>
-            </SelectableCard>
-          </Grid>
-        ))}
-      </Grid>
-      <Button
-        variant="contained"
-        onClick={nextStep}
-        disabled={!solutionType}
-        endIcon={<ChevronRight />}
-      >
-        Continue
-      </Button>
-    </Box>
-  </Fade>
-);
+                >
+                  <solution.icon
+                    style={{
+                      color: theme.palette.primary.main,
+                      width: 32,
+                      height: 32,
+                    }}
+                  />
+                </Box>
+                <Typography variant="h6" component="h3" gutterBottom>
+                  {solution.name}
+                </Typography>
+                <Typography variant="body1">{solution.description}</Typography>
+              </SelectableCard>
+            </Grid>
+          ))}
+        </Grid>
+        <Button
+          variant="contained"
+          onClick={() => {
+            // nextStep(4);
+            setSolutionType(type);
+            setTrinitySelectionId(
+              val === "Trinity Plus"
+                ? "trinity-plus"
+                : val === "Trinity Core"
+                ? "trinity-core"
+                : null
+            );
+            val === "Trinity Plus"
+              ? setCurrentStep(3)
+              : val === "Trinity Core"
+              ? setCurrentStep(4)
+              : nextStep();
+          }}
+          disabled={!solutionType}
+          endIcon={<ChevronRight />}
+        >
+          Continue
+        </Button>
+      </Box>
+    </Fade>
+  );
+};
 SolutionChoice.propTypes = {
   solutionType: PropTypes.string,
   setSolutionType: PropTypes.func.isRequired,
@@ -623,113 +654,118 @@ const TrinityPackages = ({
         sx={{ mb: 4, color: "white", bgcolor: "#D92D20" }}
       />
       <Grid container spacing={3} sx={{ mb: 4 }}>
-        {ALL_TRINITY_OPTIONS.map((option) => (
-          <Grid
-            item
-            xs={12}
-            lg={option.type === "package" ? 12 : 6}
-            key={option.id}
-          >
-            <SelectableCard
-              selected={trinitySelectionId === option.id}
-              onClick={() => setTrinitySelectionId(option.id)}
+        {ALL_TRINITY_OPTIONS.map((option) => {
+          if (option.id === "trinity-core" || option.id === "trinity-plus") {
+            return;
+          }
+          return (
+            <Grid
+              item
+              xs={12}
+              lg={option.type === "package" ? 12 : 6}
+              key={option.id}
             >
-              <Box sx={{ display: "flex", gap: 1, mb: 2 }}>
-                {recommendations.trinityRec === option.id &&
-                  !option.bestValue && (
+              <SelectableCard
+                selected={trinitySelectionId === option.id}
+                onClick={() => setTrinitySelectionId(option.id)}
+              >
+                <Box sx={{ display: "flex", gap: 1, mb: 2 }}>
+                  {recommendations.trinityRec === option.id &&
+                    !option.bestValue && (
+                      <Chip
+                        label="Recommended"
+                        size="small"
+                        sx={{ bgcolor: "#3B82F6", color: "white" }}
+                      />
+                    )}
+                  {option.bestValue && (
                     <Chip
-                      label="Recommended"
+                      label="Best Value"
                       size="small"
-                      sx={{ bgcolor: "#3B82F6", color: "white" }}
+                      color="success"
+                      variant="filled"
                     />
                   )}
-                {option.bestValue && (
-                  <Chip
-                    label="Best Value"
-                    size="small"
-                    color="success"
-                    variant="filled"
-                  />
-                )}
-              </Box>
-              <Grid container spacing={2}>
-                <Grid item xs={2} sm={1}>
-                  <Typography variant="h4">{option.icon}</Typography>
-                </Grid>
-                <Grid item xs={10} sm={11}>
-                  <Box
-                    display="flex"
-                    justifyContent="space-between"
-                    alignItems="flex-start"
-                    flexWrap="wrap"
-                  >
-                    <Box>
-                      <Typography variant="h6" component="h3">
-                        {option.name}
-                      </Typography>
-                      <Typography variant="body1" sx={{ mt: 1 }}>
-                        {option.description}
-                      </Typography>
-                    </Box>
-                    <Box textAlign="right" ml={2} mt={{ xs: 1, sm: 0 }}>
-                      <Typography
-                        variant="h5"
-                        color="#B42318"
-                        fontWeight="bold"
-                      >
-                        £{option.betaPrice.toLocaleString()}
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        sx={{ textDecoration: "line-through" }}
-                        color="text.secondary"
-                      >
-                        £{option.standardPrice.toLocaleString()}
-                      </Typography>
-                    </Box>
-                  </Box>
-                  {option.features && (
-                    <List dense sx={{ mt: 2 }}>
-                      {option.features.map((feature) => (
-                        <ListItem key={feature} disableGutters>
-                          <ListItemIcon sx={{ minWidth: 24 }}>
-                            <Check
-                              size={16}
-                              color={theme.palette.success.main}
-                            />
-                          </ListItemIcon>
-                          <ListItemText primary={feature} />
-                        </ListItem>
-                      ))}
-                    </List>
-                  )}
-                  {option.includes && (
-                    <Box mt={2}>
-                      {option.includes.map((item) => (
-                        <Chip key={item} label={item} sx={{ mr: 1, mb: 1 }} />
-                      ))}
-                      {option.savings && (
-                        <Typography
-                          variant="subtitle1"
-                          color="success.main"
-                          fontWeight="bold"
-                          sx={{ mt: 1 }}
-                        >
-                          {option.savings}
+                </Box>
+                <Grid container spacing={2}>
+                  <Grid item xs={2} sm={1}>
+                    <Typography variant="h4">{option.icon}</Typography>
+                  </Grid>
+                  <Grid item xs={10} sm={11}>
+                    <Box
+                      display="flex"
+                      justifyContent="space-between"
+                      alignItems="flex-start"
+                      flexWrap="wrap"
+                    >
+                      <Box>
+                        <Typography variant="h6" component="h3">
+                          {option.name}
                         </Typography>
-                      )}
+                        <Typography variant="body1" sx={{ mt: 1 }}>
+                          {option.description}
+                        </Typography>
+                      </Box>
+                      <Box textAlign="right" ml={2} mt={{ xs: 1, sm: 0 }}>
+                        <Typography
+                          variant="h5"
+                          color="#B42318"
+                          fontWeight="bold"
+                        >
+                          £{option.betaPrice.toLocaleString()}
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          sx={{ textDecoration: "line-through" }}
+                          color="text.secondary"
+                        >
+                          £{option.standardPrice.toLocaleString()}
+                        </Typography>
+                      </Box>
                     </Box>
-                  )}
-                  {option.note && (
-                    <Alert severity="warning" sx={{ mt: 2 }}>
-                      {option.note}
-                    </Alert>
-                  )}
+                    {option.features && (
+                      <List dense sx={{ mt: 2 }}>
+                        {option.features.map((feature) => (
+                          <ListItem key={feature} disableGutters>
+                            <ListItemIcon sx={{ minWidth: 24 }}>
+                              <Check
+                                size={16}
+                                color={theme.palette.success.main}
+                              />
+                            </ListItemIcon>
+                            <ListItemText primary={feature} />
+                          </ListItem>
+                        ))}
+                      </List>
+                    )}
+                    {option.includes && (
+                      <Box mt={2}>
+                        {option.includes.map((item) => (
+                          <Chip key={item} label={item} sx={{ mr: 1, mb: 1 }} />
+                        ))}
+                        {option.savings && (
+                          <Typography
+                            variant="subtitle1"
+                            color="success.main"
+                            fontWeight="bold"
+                            sx={{ mt: 1 }}
+                          >
+                            {option.savings}
+                          </Typography>
+                        )}
+                      </Box>
+                    )}
+                    {option.note && (
+                      <Alert severity="warning" sx={{ mt: 2 }}>
+                        {option.note}
+                      </Alert>
+                    )}
+                  </Grid>
                 </Grid>
-              </Grid>
-            </SelectableCard>
-          </Grid>
-        ))}
+              </SelectableCard>
+            </Grid>
+          );
+        })}
       </Grid>
       <Box display="flex" gap={2}>
         <Button
@@ -987,6 +1023,8 @@ const FinalSummary = ({
   handleCheckout,
   isProcessing,
   calculateRunningTotal,
+  setCurrentStep,
+  setHasPhysicalStore,
 }) => {
   const trinitySelection = ALL_TRINITY_OPTIONS.find(
     (opt) => opt.id === trinitySelectionId
@@ -998,6 +1036,11 @@ const FinalSummary = ({
   const isBundle = solutionType === "both" && trinitySelection && tierSelection;
   const finalPrice = isBundle ? Math.round(total * 0.9) : total;
 
+  const validateEmail = (value: string) => {
+    // simple regex for demo: one "@" and a dot later
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(value);
+  };
   return (
     <Fade in timeout={500}>
       <Grid container spacing={4}>
@@ -1164,7 +1207,9 @@ const FinalSummary = ({
                   variant="contained"
                   fullWidth
                   onClick={handleCheckout}
-                  disabled={isProcessing || !name || !email}
+                  disabled={
+                    isProcessing || !name || !email || !validateEmail(email)
+                  }
                   startIcon={
                     isProcessing ? (
                       <CircularProgress size={20} color="inherit" />
@@ -1176,7 +1221,20 @@ const FinalSummary = ({
                 <Button
                   variant="outlined"
                   fullWidth
-                  onClick={prevStep}
+                  onClick={() => {
+                    if (trinitySelectionId === "trinity-core") {
+                      setCurrentStep(1);
+                    } else if (
+                      trinitySelectionId === "trinity-core" ||
+                      trinitySelectionId === "garo"
+                    ) {
+                      setHasPhysicalStore(null);
+                      setCurrentStep(3);
+                    } else {
+                      setHasPhysicalStore(null);
+                      setCurrentStep(2);
+                    }
+                  }}
                   startIcon={<ChevronLeft />}
                 >
                   Back
@@ -1302,24 +1360,24 @@ const StepWizard = () => {
   }, []);
 
   const getSteps = useCallback(() => {
-    if (solutionType === "trinity")
-      return [
-        "Solution Type",
-        "Trinity Package",
-        "Store Type",
-        "Review & Purchase",
-      ];
-    if (solutionType === "website")
-      return ["Solution Type", "Industry", "Goals", "Platform Tier", "Review"];
-    if (solutionType === "both")
-      return [
-        "Solution Type",
-        "Industry",
-        "Trinity Package",
-        "Platform Tier",
-        "Review",
-      ];
-    return ["Solution Type"];
+    // if (solutionType === "trinity")
+    return [
+      "Solution Type",
+      "Trinity Package",
+      "Store Type",
+      "Review & Purchase",
+    ];
+    // if (solutionType === "website")
+    //   return ["Solution Type", "Industry", "Goals", "Platform Tier", "Review"];
+    // if (solutionType === "both")
+    //   return [
+    //     "Solution Type",
+    //     "Industry",
+    //     "Trinity Package",
+    //     "Platform Tier",
+    //     "Review",
+    //   ];
+    // return ["Solution Type"];
   }, [solutionType]);
 
   const nextStep = useCallback(() => {
@@ -1332,7 +1390,7 @@ const StepWizard = () => {
         nextStepNum++;
       }
       setCurrentStep(nextStepNum);
-      window.scrollTo(0, 0);
+      // window.scrollTo(0, 0);
     }
   }, [currentStep, getSteps, solutionType, trinitySelectionId]);
 
@@ -1345,7 +1403,7 @@ const StepWizard = () => {
         prevStepNum--;
       }
       setCurrentStep(prevStepNum);
-      window.scrollTo(0, 0);
+      // window.scrollTo(0, 0);
     }
   }, [currentStep, solutionType, trinitySelectionId]);
 
@@ -1507,6 +1565,8 @@ const StepWizard = () => {
             handleCheckout,
             isProcessing,
             calculateRunningTotal,
+            setCurrentStep,
+            setHasPhysicalStore,
           }}
         />
       );
@@ -1517,7 +1577,13 @@ const StepWizard = () => {
           case 1:
             return (
               <MemoizedSolutionChoice
-                {...{ solutionType, setSolutionType, nextStep }}
+                {...{
+                  solutionType,
+                  setSolutionType,
+                  nextStep,
+                  setTrinitySelectionId,
+                  setCurrentStep,
+                }}
               />
             );
           case 2:
@@ -1552,7 +1618,13 @@ const StepWizard = () => {
           case 1:
             return (
               <MemoizedSolutionChoice
-                {...{ solutionType, setSolutionType, nextStep }}
+                {...{
+                  solutionType,
+                  setSolutionType,
+                  nextStep,
+                  setTrinitySelectionId,
+                  setCurrentStep,
+                }}
               />
             );
           case 2:
@@ -1592,7 +1664,13 @@ const StepWizard = () => {
           case 1:
             return (
               <MemoizedSolutionChoice
-                {...{ solutionType, setSolutionType, nextStep }}
+                {...{
+                  solutionType,
+                  setSolutionType,
+                  nextStep,
+                  setTrinitySelectionId,
+                  setCurrentStep,
+                }}
               />
             );
           case 2:
@@ -1636,7 +1714,13 @@ const StepWizard = () => {
       default:
         return (
           <MemoizedSolutionChoice
-            {...{ solutionType, setSolutionType, nextStep }}
+            {...{
+              solutionType,
+              setSolutionType,
+              nextStep,
+              setTrinitySelectionId,
+              setCurrentStep,
+            }}
           />
         );
     }
@@ -1656,20 +1740,13 @@ const StepWizard = () => {
       >
         <Container maxWidth="lg" sx={{ py: { xs: 6, md: 8 } }}>
           <Box textAlign="center" mb={{ xs: 6, md: 8 }}>
-            <Typography variant="h1" component="h1" gutterBottom>
+            <Typography variant="h1" component="h1" gutterBottom id="wizard">
               Your Partner in Accelerating the{" "}
               <Box component="span" sx={gradientText}>
                 Digital Space
               </Box>
             </Typography>
-            <Typography
-              variant="h5"
-              color="text.secondary"
-              sx={{ maxWidth: "720px", mx: "auto" }}
-            >
-              Our goal is to help businesses thrive by providing innovative and
-              holistic solutions.
-            </Typography>
+
             <Button
               onClick={resetSelections}
               startIcon={<RefreshCw size={16} />}

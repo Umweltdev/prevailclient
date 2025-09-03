@@ -95,7 +95,7 @@ function Pricing({ visibleSections }) {
               </ul>
 
               <button
-              onClick={()=> navigate('/trinity/step-wizard')}
+              onClick={()=> navigate('/trinity/plus#wizard')}
                 disabled={!plan.clickable} // ✅ Disable other plans
                 className={`w-full py-3 rounded-full font-semibold transition-all duration-300 ${
                   plan.clickable

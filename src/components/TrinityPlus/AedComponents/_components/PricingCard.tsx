@@ -64,7 +64,7 @@ const PricingCard: React.FC<Pricing> = ({
       <div className="mt-auto">
         <button
           disabled={!clickable}
-          onClick={()=> navigate('/trinity/step-wizard')}
+          onClick={()=> navigate('/trinity/plus#wizard')}
           className={`w-full py-3 rounded-lg font-semibold transition-all ${
             clickable
               ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:shadow-lg transform hover:scale-105"

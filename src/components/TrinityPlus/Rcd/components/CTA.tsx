@@ -1,7 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import Button from "./Button.js";
 import GlassCard from "./GlassCard.js";
 
 export default function CTA() {
+  const navigate = useNavigate()
   return (
     <section className="py-20 px-6">
       <div className="mx-auto max-w-5xl">
@@ -20,7 +22,7 @@ export default function CTA() {
             The first system where retention creates acquisition.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <Button size="lg" className="text-xl px-12 py-6">
+            <Button onClick={()=> navigate('/trinity/plus#wizard')} size="lg" className="text-xl px-12 py-6">
               Activate Complete System Now
             </Button>
             <Button variant="secondary" size="lg" className="text-xl px-12 py-6">

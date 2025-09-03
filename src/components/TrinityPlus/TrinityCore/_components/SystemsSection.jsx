@@ -91,13 +91,20 @@ export default function SystemSection() {
     return () => clearInterval(interval);
   }, []);
 
-  const handlePurchase = (type) => {
-    alert(`Purchase triggered for ${type}`);
-  };
+  // const handlePurchase = (type) => {
+  //   alert(`Purchase triggered for ${type}`);
+  // };
 
-  const handleTrinityPlus = () => {
-    alert("Redirect to Trinity Plus page");
-  };
+  // const handleTrinityPlus = () => {
+  //   alert("Redirect to Trinity Plus page");
+  // };
+
+  const handleScroll = () => {
+      const target = document.querySelector('#wizard');
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    };
 
   return (
     <section className="section section-alt section-space" id="systems">
@@ -149,7 +156,7 @@ export default function SystemSection() {
                 <button
                   className="btn btn-primary"
                   style={{ width: "100%", marginTop: "1rem" }}
-                  onClick={() => handlePurchase(sys.id)}
+                  onClick={() => handleScroll()}
                 >
                   Get {sys.title} - €{sys.price.beta}
                 </button>
@@ -167,7 +174,7 @@ export default function SystemSection() {
           <button
             style={{ marginTop: "1rem" }}
             className="btn btn-success"
-            onClick={handleTrinityPlus}
+            onClick={() => handleScroll()}
           >
             Explore Trinity Plus →
           </button>
