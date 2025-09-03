@@ -176,13 +176,13 @@ const solutionTypes = [
     id: "trinity",
     name: "Trinity Core",
     icon: Zap,
-    description: "AI-powered business intelligence",
+    description: "Business Automation tool ",
   },
   {
     id: "trinity",
     name: "Trinity Plus",
     icon: Rocket,
-    description: "Website + Trinity systems",
+    description: "Business Automation and Intelligence ",
   },
 ];
 const industries = [
