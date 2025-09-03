@@ -1,10 +1,14 @@
-import { CardMedia, Grid, Typography, Box, Card } from "@mui/material";
+import { CardMedia, Grid, Typography, Box, Card, } from "@mui/material";
 import React from "react";
 import { TailoredApproachData } from "../assets/serviceData";
 import mugs from "../assets/mug.png";
 import styles from "../BrandIdentity/assets/animation.module.css"
 import { useInView } from "react-intersection-observer";
-
+import {
+ 
+  Rocket,
+  
+} from '@mui/icons-material';
 const TailoredApproach = () => {
   const { ref, inView, entry } = useInView({
     triggerOnce: true, 
@@ -151,13 +155,16 @@ const TailoredApproach = () => {
 
           <Card
             sx={{
-              color: "white",
+             
+              color: "#fff",
               width: "42vw",
               // height: "206px",
-              background: "#fff",
+              background: "#7f4dc7",
+             border: `1px solid #604889`,
               // mt: "43px",
               padding: "20px",
               borderRadius: "10px",
+              backdropFilter: 'blur(10px)',
               boxShadow: "3",
               "@media (max-width: 600px)": {
                 height: "auto",
@@ -169,6 +176,8 @@ const TailoredApproach = () => {
               },
             }}
           >
+           
+            
             <Typography
               sx={{
                 width: "40vw",
@@ -176,7 +185,7 @@ const TailoredApproach = () => {
                 // mt: "45px",
                 fontSize: "16px",
                 fontWeight: "500",
-                color: "#350079",
+                color: "white",
 
                 "@media (max-width: 600px)": {
                   width: "80vw",
@@ -191,7 +200,9 @@ const TailoredApproach = () => {
               customers. Join us, and let’s build a brand that stands the test
               of time. 
             </Typography>
+            
           </Card>
+          
           <CardMedia
             component={"img"}
             image={

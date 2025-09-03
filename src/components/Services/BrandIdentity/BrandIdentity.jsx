@@ -5,8 +5,6 @@ import { serviceCard } from "../assets/ServicesData";
 import { useParams } from "react-router-dom";
 import ServiceDetails2 from "./ServiceDetails2";
 import ServiceDetails3 from "./ServiceDetails3";
-import PackagesLayout from "./PackagesLayout";
-import Packages from "./Packages";
 import Footer from "../../Footer/Footer";
 import FooterNew from "../../Footer/FooterNew";
 //import AppBarOne from "../../Navbar/AppbarOne";
@@ -17,6 +15,9 @@ import HeroComponent from "../ReusedComponenets/HeroComponent";
 import AppBarNav from "../../Navbar/Appbar";
 import PdfSection from "./PdfSection";
 import SmoothScrollUp from "../../utils/SmoothScrollUp";
+
+import StepWizard from "./Packages";
+
 //import MainPage from "./MainPage";
 
 const BrandIdentity = () => {
@@ -31,12 +32,15 @@ const BrandIdentity = () => {
       </Helmet>
       <div style={{ width: "100%", overflow: "hidden" }}>
         <AppBarNav color="#000" />
+
         <HeroComponent title={"Brand Identity Package"} />
         <ElevateYourPresence />
         <PdfSection />
         <Addressing />
         <TailoredApproach />
-        <Packages />
+        
+         
+            <StepWizard/>
         <SmoothScrollUp />
         <FooterNew />
       </div>
