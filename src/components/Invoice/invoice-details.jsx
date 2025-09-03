@@ -364,7 +364,6 @@ export default function InvoiceDetails({ invoice }) {
                   fontSize: 14,
                   fontWeight: 600,
                   letterSpacing: 2,
-                  letterSpacing: 2,
                 }}
               >
                 DATE ISSUED:{" "}
@@ -378,7 +377,7 @@ export default function InvoiceDetails({ invoice }) {
               >
                 INVOICE NUMBER:{" "}
                 <span
-                  style={{ color: "#333", fontWeight: 100, fontWeight: 100 }}
+                  style={{ color: "#333", fontWeight: 100 }}
                 >
                   {" "}
                   {invoice?.invoiceNumber}
@@ -422,7 +421,7 @@ export default function InvoiceDetails({ invoice }) {
           }}
         >
           <Box>
-            <Typography variant="h6" sx={{ mb: 1, mb: 2 }}>
+            <Typography variant="h6" sx={{ mb: 2 }}>
               Agency Information
             </Typography>
             <Typography
@@ -478,7 +477,7 @@ export default function InvoiceDetails({ invoice }) {
               },
             }}
           >
-            <Typography variant="h6" sx={{ mb: 1, mb: 2 }}>
+            <Typography variant="h6" sx={{ mb: 2 }}>
               Client Information
             </Typography>
             <Typography

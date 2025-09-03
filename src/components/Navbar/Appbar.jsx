@@ -223,7 +223,7 @@ function AppBarNav({ color }) {
                 <Box
                   key={index}
                   sx={{
-                    color: isScrolled ? "#000" : color,
+                    color:"#000" ,
                     mx: 2,
                     px: 1,
                     py: 1,
@@ -239,7 +239,7 @@ function AppBarNav({ color }) {
                 >
                   {item.label}
                   {["Explore", "Services", "Trinity"].includes(item.label) && (
-                    <ExpandMoreIcon sx={{ marginLeft: "5px" }} />
+                    <ExpandMoreIcon sx={{ marginLeft: "5px",  }} />
                   )}
                 </Box>
               ))}
@@ -352,7 +352,7 @@ function AppBarNav({ color }) {
       to={data.link}
       onClick={handleClose}
       sx={{
-        color: "#6E3EF4",
+        // color: "#6E3EF4",
         textDecoration: "none",
         textAlign: "left",
       }}
