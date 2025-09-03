@@ -21,7 +21,7 @@ const AboutUs = () => {
       sx={{
         display: "flex",
         flexDirection: "column",
-        pt: "200px",
+        pt: { xs: "100px", sm: "200px" },
         justifyContent: "center",
         alignItems: "center",
         gap: "24px",
@@ -29,9 +29,6 @@ const AboutUs = () => {
         minHeight: "100vh",
         margin: "0 auto",
         background: "linear-gradient(135deg, #d1c4e9, #ffffff, #bbdefb)",
-        "@media (max-width: 600px)": {
-          width: "100vw",
-        },
       }}
     >
       <Grid
@@ -50,7 +47,7 @@ const AboutUs = () => {
         className={`${styles.aboutUsText} ${inView ? styles.visible : ""}`}
         sx={{
           color: "#1D0D40",
-          fontSize: "38px",
+          fontSize: { xs: "24px", sm: "38px" },
           fontWeight: "500",
           letterSpacing: "-0.24px",
           textAlign: "center",
@@ -65,7 +62,7 @@ const AboutUs = () => {
         className={`${styles.aboutUsText} ${inView ? styles.visible : ""}`}
         sx={{
           color: "#505660",
-          fontSize: "18px",
+          fontSize: { xs: "14px", sm: "18px" },
           fontWeight: "400",
           letterSpacing: "-0.24px",
           lineHeight: "150%",
@@ -79,41 +76,53 @@ const AboutUs = () => {
         We transform local SMEs with modern technology, smart automation, and
         stunning design that drives real results.
       </Grid>
-      
+
       {/* Added your section using MUI components */}
       <Grid
         container
         sx={{
           display: "flex",
-          flexDirection: { xs: "column", sm: "row" },
+          flexDirection: { xs: "row", sm: "row" },
           justifyContent: "center",
           alignItems: "center",
           gap: { xs: 2, sm: 0 },
-          mt: 2
+          mt: 2,
         }}
       >
-        <Grid item sx={{ display: "flex", alignItems: "center", gap: 1, mx: { sm: 2 } }}>
+        <Grid
+          item
+          sx={{ display: "flex", alignItems: "center", gap: 1, mx: { sm: 2 } }}
+        >
           <CheckCircle sx={{ width: 16, height: 16, color: "green" }} />
           <Box component="span" sx={{ fontSize: "14px", color: "gray" }}>
             Client Focused
           </Box>
         </Grid>
-        <Grid item sx={{ display: "flex", alignItems: "center", gap: 1, mx: { sm: 2 } }}>
+        <Grid
+          item
+          sx={{ display: "flex", alignItems: "center", gap: 1, mx: { sm: 2 } }}
+        >
           <CheckCircle sx={{ width: 16, height: 16, color: "green" }} />
           <Box component="span" sx={{ fontSize: "14px", color: "gray" }}>
-           Support Available
+            Support Available
           </Box>
         </Grid>
-        <Grid item sx={{ display: "flex", alignItems: "center", gap: 1, mx: { sm: 2 } }}>
+        <Grid
+          item
+          sx={{ display: "flex", alignItems: "center", gap: 1, mx: { sm: 2 } }}
+        >
           <CheckCircle sx={{ width: 16, height: 16, color: "green" }} />
           <Box component="span" sx={{ fontSize: "14px", color: "gray" }}>
-           Service Standards
+            Service Standards
           </Box>
         </Grid>
-         <Grid item sx={{ display: "flex", alignItems: "center", gap: 1, mx: { sm: 2 } }}>
+        <Grid
+          item
+          sx={{ display: "flex", alignItems: "center", gap: 1, mx: { sm: 2 } }}
+        >
           <CheckCircle sx={{ width: 16, height: 16, color: "green" }} />
           <Box component="span" sx={{ fontSize: "14px", color: "gray" }}>
-          Founded in Dublin
+            Founded in Dublin
           </Box>
         </Grid>
       </Grid>
@@ -133,7 +142,7 @@ const AboutUs = () => {
           }}
         />
       )}
-     
+
       <CardMedia
         ref={ref}
         component={"img"}

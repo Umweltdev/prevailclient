@@ -23,7 +23,7 @@ const Hero = () => {
     <Box
       sx={{
         background: "linear-gradient(135deg, #d1c4e9, #ffffff, #bbdefb)",
-        padding: "2rem 0",
+
         minHeight: "10vh", // Ensure full height of the viewport
         display: "flex",
         justifyContent: "center",
@@ -39,7 +39,7 @@ const Hero = () => {
         >
           <Typography
             variant="h6"
-            pt="176px"
+            pt="106px"
             align="center"
             color="primary"
             gutterBottom
@@ -53,7 +53,14 @@ const Hero = () => {
             subtitleInView ? styles.visible : ""
           }`}
         >
-          <Typography variant="h4" align="center" gutterBottom>
+          <Typography
+            variant="h4"
+            align="center"
+            gutterBottom
+            sx={{
+              fontSize: { xs: "20px", md: "30px" },
+            }}
+          >
             Enhance Your Customer Journey
             <br /> with Prevail’s Expert Services
           </Typography>
@@ -64,7 +71,7 @@ const Hero = () => {
             bodyInView ? styles.visible : ""
           }`}
         >
-          <Typography variant="body1" align="center">
+          <Typography variant="body1" pt='20px' sx={{ textAlign: {xs: "left", md: 'center'} }} align="center">
             Are you ready to take your business to the next level? Imagine
             having a comprehensive view of your customer’s journey, from the
             moment they discover your business to the point where they become

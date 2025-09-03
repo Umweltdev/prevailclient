@@ -59,7 +59,6 @@ const Digital = () => {
       className={`${styles.section} ${sectionInView ? styles.visible : ""}`}
       sx={{
         background: "linear-gradient(135deg, #d1c4e9, #ffffff, #bbdefb)",
-        padding: "2rem 0",
         minHeight: "100vh", // Ensure full height of the viewport
         display: "flex",
         justifyContent: "center",
@@ -71,14 +70,14 @@ const Digital = () => {
           sx={{ mb: "24px" }}
           variant="h6"
           align="center"
-          pt="176px"
+          pt="106px"
           color="primary"
           gutterBottom
         >
           Digital Ecosystem
         </Typography>
         <Typography
-          sx={{ mb: "24px" }}
+          sx={{ mb: "24px", fontSize: { xs: "24px", sm: "38px" } }}
           variant="h4"
           align="center"
           gutterBottom
@@ -87,7 +86,7 @@ const Digital = () => {
         </Typography>
         <Grid
           sx={{
-            pt: "88px",
+            pt: "58px",
             display: "flex",
             flexWrap: "wrap",
             margin: "auto",

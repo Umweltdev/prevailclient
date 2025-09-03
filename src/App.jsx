@@ -16,9 +16,8 @@ import InvestmentStep from "./components/Services/CostCalculation/steps/Investme
 import SpecializedStep from "./components/Services/CostCalculation/steps/SpecializedStep";
 import UniversalStep from "./components/Services/CostCalculation/steps/UniversalStep";
 import GetStartedStep from "./components/Services/CostCalculation/steps/GetStartedStep";
+import BookingPage from "./pages/Booking.jsx";
 
-
-// Lazy load pages and components
 const Landing = React.lazy(() => import("./pages/Landing"));
 const About = React.lazy(() => import("./pages/About"));
 const Portfolio = React.lazy(() => import("./pages/Portfolio"));
@@ -26,8 +25,8 @@ const Blog = React.lazy(() => import("./pages/Blog"));
 const Services = React.lazy(() => import("./pages/Services"));
 const Contact = React.lazy(() => import("./pages/Contact"));
 const BlogDetails = React.lazy(() => import("./components/Blog/BlogDetails"));
-const BrandIdentity = React.lazy(() =>
-  import("./components/Services/BrandIdentity/BrandIdentity")
+const BrandIdentity = React.lazy(
+  () => import("./components/Services/BrandIdentity/BrandIdentity")
 );
 const AdCampaign = React.lazy(() =>
   import("./components/Services/CAD/AdCampaign")
@@ -35,32 +34,29 @@ const AdCampaign = React.lazy(() =>
 const VisualBrandIdentity = React.lazy(() =>
   import("./components/Services/BrandIdentity/VisualBrandIdentity")
 );
-const WebsiteDevelopment = React.lazy(() =>
-  import("./components/Services/WebsiteDevelopement/WebsiteDevelopment")
+const WebsiteDevelopment = React.lazy(
+  () => import("./components/Services/WebsiteDevelopement/WebsiteDevelopment")
 );
-const WebManagement = React.lazy(() =>
-  import("./components/Services/WebManagement/WebManagement")
+const WebDevWizardPage = React.lazy(() => import("./pages/WebDevWizardPage"));
+const WebManagement = React.lazy(
+  () => import("./components/Services/WebManagement/WebManagement")
 );
 const Sem = React.lazy(() => import("./components/Services/Sem/Sem"));
 const Mpd = React.lazy(() => import("./components/Services/Mpd/Mpd"));
-const DigitalAccelerator = React.lazy(() =>
-  import("./components/Services/DigitalAccelerator/DigitalAccelerator")
+const DigitalAccelerator = React.lazy(
+  () => import("./components/Services/DigitalAccelerator/DigitalAccelerator")
 );
-const EmpowerYourBussiness = React.lazy(() =>
-  import("./components/Services/DigitalAccelerator/EmpowerYourBussiness")
+const EmpowerYourBussiness = React.lazy(
+  () => import("./components/Services/DigitalAccelerator/EmpowerYourBussiness")
 );
-const Trinitycore = React.lazy(() =>
-  import("./components/TrinityPlus/TrinityCore")
+const TrinityCore = React.lazy(
+  () => import("./components/TrinityPlus/TrinityCore")
 );
-
-const TrinityCore = React.lazy(() =>
-  import("./components/TrinityPlus/TrinityCore")
+const TrinityPlus = React.lazy(
+  () => import("./components/TrinityPlus/TrinityPlus")
 );
-const TrinityPlus = React.lazy(() =>
-  import("./components/TrinityPlus/TrinityPlus")
-);
-const ExpenseManager = React.lazy(() =>
-  import("./components/TrinityPlus/ExpenseManager")
+const ExpenseManager = React.lazy(
+  () => import("./components/TrinityPlus/ExpenseManager")
 );
 const Garo = React.lazy(() => import("./components/TrinityPlus/Garo"));
 const Mcd = React.lazy(() => import("./components/TrinityPlus/MCD"));
@@ -70,46 +66,42 @@ const StepWizard = React.lazy(() => import("./components/TrinityPlus/StepWizardP
 const DigitalEcosystem = React.lazy(() =>
   import("./components/Explore/DigitalEcosystem/DigitalEcosystem")
 );
-const CustomerJourney = React.lazy(() =>
-  import("./components/Explore/CustomerJourney/CustomerJourney")
+const CustomerJourney = React.lazy(
+  () => import("./components/Explore/CustomerJourney/CustomerJourney")
 );
 const AboutOurWhy = React.lazy(() => import("./components/About/AboutOurWhy"));
-const AboutOurSolution = React.lazy(() =>
-  import("./components/About/AboutOurSolution")
+const AboutOurSolution = React.lazy(
+  () => import("./components/About/AboutOurSolution")
 );
-const CaseDetails = React.lazy(() =>
-  import("./components/Portfolio/CaseDetails")
+const CaseDetails = React.lazy(
+  () => import("./components/Portfolio/CaseDetails")
 );
 const SignUpForm = React.lazy(() => import("./pages/SignUp"));
 const LoginForm = React.lazy(() => import("./pages/Login"));
 const Stepper = React.lazy(() => import("./pages/Stepper"));
 const MobStepper = React.lazy(() => import("./pages/MobStepper"));
 const UserDashBoard = React.lazy(() => import("./pages/UserDashboard"));
-const Profile = React.lazy(() => import("./components/user-dashboard/Profile"));
 const PrivacyPolicy = React.lazy(() => import("./pages/PrivacyPolicy"));
-const StepWizardPage = React.lazy(() => import("./pages/StepWizardPage"));
-const ResetPasswordForm = React.lazy(() =>
-  import("./components/Form/ForgotPassword/ResetPasswordForm")
-);
 const UserConsent = React.lazy(() => import("./components/Footer/ConsentPage"));
+
 const viteKey = import.meta.env.VITE_STRIPE_PUBLIC_KEY;
 const stripePromise = loadStripe(viteKey);
 
 function App() {
   const { user } = useContext(AuthContext);
-  const [socket, setSocket] = useState(null);
+  const [socket] = useState(null);
   return (
     <>
       <Elements stripe={stripePromise}>
         <ScrollToTop />
         <Suspense fallback={<Loading />}>
           <ErrorBoundary>
-            <Routes>
-              {/* Define the new routes */}
+  <Routes>
               <Route path="/" element={<Landing />} />
               <Route path="/about-us" element={<About />} />
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/blog" element={<Blog />} />
+              <Route path="/booking" element={<BookingPage />} />
               <Route path="/contact-us" element={<Contact />} />
               <Route path="/blog/:index" element={<BlogDetails />} />
               <Route path="/service-landing-page" element={<Services />} />
@@ -119,19 +111,12 @@ function App() {
               <Route path="/step4" element={<SpecializedStep />} />
               <Route path="/step5" element={<UniversalStep />} />
               <Route path="/step6" element={<GetStartedStep />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+
               <Route
                 path="/service/brand-identity-package"
                 element={<BrandIdentity />}
               />
-              <Route
-                path="/explore/digital-ecosystem"
-                element={<DigitalEcosystem />}
-              />
-              <Route
-                path="/explore/customer-journey"
-                element={<CustomerJourney />}
-              />
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route
                 path="/service/brand-identity-package/visual-brand-identity"
                 element={<VisualBrandIdentity />}
@@ -149,10 +134,6 @@ function App() {
                 element={<CostCalculation />}
               />
               <Route
-                path="/service/stepWizardPage"
-                element={<StepWizardPage />}
-              />
-              <Route
                 path="/service/search-engine-marketing"
                 element={<Sem />}
               />
@@ -168,11 +149,24 @@ function App() {
                 path="/service/digital-accelerator-bundle/empower-your-business"
                 element={<EmpowerYourBussiness />}
               />
-<Route
+              <Route
                 path="/service/custom-ad-campaign"
                 element={<AdCampaign />}
               />
-              <Route path="/trinity" element={<Trinitycore />} />
+
+              {/* New routes from WebdevStep branch */}
+              <Route path="/quote-builder" element={<WebDevWizardPage />} />
+              <Route
+                path="/explore/digital-ecosystem"
+                element={<DigitalEcosystem />}
+              />
+              <Route
+                path="/explore/customer-journey"
+                element={<CustomerJourney />}
+              />
+
+              {/* Trinity routes */}
+              <Route path="/trinity" element={<TrinityCore />} />
               <Route path="/trinity/plus" element={<TrinityPlus />} />
               <Route path="/trinity/core" element={<TrinityCore />} />
               <Route
@@ -187,6 +181,8 @@ function App() {
               <Route path="/portfolio/:index" element={<CaseDetails />} />
               <Route path="/about/ourWhy" element={<AboutOurWhy />} />
               <Route path="/about/ourSolution" element={<AboutOurSolution />} />
+
+              {/* Auth and user routes */}
               <Route path="/SignUp" element={<SignUpForm />} />
               <Route path="/Login" element={<LoginForm />} />
               <Route path="/Stepper" element={<Stepper />} />
@@ -196,7 +192,6 @@ function App() {
                 path="/UserDashboard"
                 element={user ? <UserDashBoard /> : <Navigate to="/" />}
               />
-
               <Route
                 path="/user/*"
                 element={
@@ -212,6 +207,10 @@ function App() {
               <Route
                 path="/Blog/:index"
                 element={<Navigate to="/blog/:index" />}
+              />
+              <Route
+                path="/Booking"
+                element={<Navigate to="/booking" />}
               />
               <Route
                 path="/Services"

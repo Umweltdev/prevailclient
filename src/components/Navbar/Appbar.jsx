@@ -108,18 +108,20 @@ function AppBarNav({ color }) {
         ? [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
-            { label: "Trinity", onClick: handleTrinityClick },
+            { label: "Trinity Plus", onClick: handleTrinityClick },
+          // { label: "Blog", link: "/blog" },
+            { label: "Booking", link: "/booking" },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
           ]
         : [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
-            { label: "Trinity", onClick: handleTrinityClick },
+            { label: "Trinity Plus", onClick: handleTrinityClick },
+          // { label: "Blog", link: "/blog" },
+            { label: "Booking", link: "/booking" },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
-            { label: "Login", link: "/login" },
-            { label: "Sign Up", link: "/signup" },
           ],
     [isLoggedIn]
   );
@@ -130,7 +132,9 @@ function AppBarNav({ color }) {
         ? [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
-            { label: "Trinity", onClick: handleTrinityClick },
+            { label: "Trinity Plus", onClick: handleTrinityClick },
+          // { label: "Blog", link: "/blog" },
+            { label: "Booking", link: "/booking" },
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
             ...(isAdmin
@@ -142,7 +146,10 @@ function AppBarNav({ color }) {
         : [
             { label: "Explore", onClick: handleExploreClick },
             { label: "Services", onClick: handleServicesClick },
-            { label: "Trinity", onClick: handleTrinityClick },
+            { label: "Trinity Plus", onClick: handleTrinityClick },
+          // { label: "Blog", link: "/blog" },
+            { label: "Booking", link: "/booking" },
+
             { label: "About Us", link: "/about-us" },
             { label: "Contact Us", link: "/contact-us" },
             { label: "Login", link: "/login" },
@@ -333,22 +340,28 @@ function AppBarNav({ color }) {
         ))}
       </Menu>
 
-      <Menu
-        anchorEl={anchorElExplore}
-        open={Boolean(anchorElExplore)}
-        onClose={handleClose}
-      >
-        {exploreData.map((data, i) => (
-          <MenuItem
-            key={i}
-            component={Link}
-            to={data.link}
-            onClick={handleClose}
-          >
-            {data.text}
-          </MenuItem>
-        ))}
-      </Menu>
+<Menu
+  anchorEl={anchorElExplore}
+  open={Boolean(anchorElExplore)}
+  onClose={handleClose}
+>
+  {exploreData.map((data, i) => (
+    <MenuItem
+      key={i}
+      component={Link}
+      to={data.link}
+      onClick={handleClose}
+      sx={{
+        color: "#6E3EF4",
+        textDecoration: "none",
+        textAlign: "left",
+      }}
+    >
+      {data.text}
+    </MenuItem>
+  ))}
+</Menu>
+
     </Box>
   );
 }

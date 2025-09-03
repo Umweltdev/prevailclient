@@ -1,6 +1,3 @@
-@import "tailwindcss";
-@import "tw-animate-css";
-
 :root { font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif; }
 
 .gradient-text {
