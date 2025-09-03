@@ -1,19 +1,11 @@
-import React from "react";
 import { Helmet } from "react-helmet";
-import DrawerAppBarWhite from "../../Navbar/Appbar";
-import PainPoint from "./PainPoint";
-import Offering from "./Offering";
 import FooterNew from "../../Footer/FooterNew";
-import AppBarOne from "../../Navbar/AppbarOne";
-import Packages from "./Packages";
 import {
   Container,
   Grid,
   Typography,
   Stack,
   Box,
-  Button,
-  SvgIcon,
   Fab,
 } from "@mui/material";
 import Browse from "./assets/basket.svg?react";
@@ -47,9 +39,10 @@ import Solution from "../Mpd/Solution";
 import styles from "../BrandIdentity/assets/animation.module.css";
 import { useInView } from "react-intersection-observer";
 import SmoothScrollUp from "../../utils/SmoothScrollUp";
+import WebDevWizard from "../../WebDevWizard/WebDevWizard.jsx";
 
 const WebManagement = () => {
-  const { ref, inView, entry } = useInView({
+  const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
@@ -99,19 +92,20 @@ const WebManagement = () => {
                       fontWeight: "600",
                     }}
                   >
-                    Unleash Your Brand's Potential: Tailored Web Development
-                    Solutions 
+                    Unleash Your Brand&apos;s Potential: Tailored Web
+                    Development Solutions
                   </Typography>
                   <Typography sx={{ color: "#505660" }}>
-                    In today's digital landscape, standing out requires more
-                    than just an online presence—it demands a tailored web
-                    experience that truly reflects your brand's identity and
-                    drives tangible results. At Prevail Agency, we specialize in
-                    delivering high-impact web development solutions designed to
-                    elevate businesses across various sectors. From e-commerce
-                    powerhouses to real estate authorities and hospitality
-                    havens, our bespoke services are geared to transform your
-                    digital interface and enhance your market presence. 
+                    In today&apos;s digital landscape, standing out requires
+                    more than just an online presence—it demands a tailored web
+                    experience that truly reflects your brand&apos;s identity
+                    and drives tangible results. At Prevail Agency, we
+                    specialize in delivering high-impact web development
+                    solutions designed to elevate businesses across various
+                    sectors. From e-commerce powerhouses to real estate
+                    authorities and hospitality havens, our bespoke services are
+                    geared to transform your digital interface and enhance your
+                    market presence.
                   </Typography>
                 </Stack>
               </Box>
@@ -153,7 +147,7 @@ const WebManagement = () => {
                         E-commerce Powerhouse
                       </Typography>
                       <Typography>
-                        Shopify Web Design Service Transform your online store
+                        Shopify Web Design Service Transform your online store
                         into a conversion machine with our custom Shopify
                         development.
                       </Typography>
@@ -168,7 +162,7 @@ const WebManagement = () => {
                         Real Estate Authority
                       </Typography>
                       <Typography>
-                        Tailored Web Development for Agencies Attract and
+                        Tailored Web Development for Agencies Attract and
                         convert clients with a website that exudes
                         professionalism and trust.
                       </Typography>
@@ -179,8 +173,9 @@ const WebManagement = () => {
                         Hospitality Haven
                       </Typography>
                       <Typography>
-                        Hotel E-commerce Platform Development Turn your hotel's
-                        online presence into a powerful booking engine.
+                        Hotel E-commerce Platform Development Turn your
+                        hotel&apos;s online presence into a powerful booking
+                        engine.
                       </Typography>
                     </Stack>
                   </Stack>
@@ -203,7 +198,7 @@ const WebManagement = () => {
                   mb: 5,
                 }}
               >
-                Let's delve deeper into each of these solutions
+                Let&apos;s delve deeper into each of these solutions
               </Typography>
               <Stack color="#1D0D40" spacing={4}>
                 <Grid
@@ -235,7 +230,7 @@ const WebManagement = () => {
                           sx={{ fontSize: "24px", fontWeight: "600" }}
                         >
                           Hospitality Haven: Hotel E-commerce Platform
-                          Development 
+                          Development
                         </Typography>
                         <Typography>
                           Is your hotel website struggling to maximize bookings
@@ -244,7 +239,7 @@ const WebManagement = () => {
                           necessary to transform your website into a powerful
                           booking engine. This package is designed to enhance
                           online visibility, simplify the booking process, and
-                          maximize revenue through direct reservations. 
+                          maximize revenue through direct reservations.
                         </Typography>
                       </Stack>
                       <Grid container spacing={2}>
@@ -255,8 +250,9 @@ const WebManagement = () => {
                               Transform Your Online Presence
                             </Typography>
                             <Typography>
-                              Turn your hotel's website into a powerful booking
-                              engine that increases reservations and revenue.
+                              Turn your hotel&apos;s website into a powerful
+                              booking engine that increases reservations and
+                              revenue.
                             </Typography>
                           </Stack>
                         </Grid>
@@ -267,12 +263,12 @@ const WebManagement = () => {
                               Immerse Guests
                             </Typography>
                             <Typography>
-                              Showcase your hotel's ambiance and amenities with
-                              captivating photos and virtual tours that entice
-                              potential guests.
+                              Showcase your hotel&apos;s ambiance and amenities
+                              with captivating photos and virtual tours that
+                              entice potential guests.
                             </Typography>
                           </Stack>
-                        </Grid>{" "}
+                        </Grid>
                         {/*<Grid item xs={12} md={6}>
                       <Stack spacing={1}>
                         <Mobile />
@@ -282,7 +278,7 @@ const WebManagement = () => {
                         <Typography>
                           Allow guests to book their stay with ease through a
                           secure and user-friendly online platform, eliminating
-                          the need for third-party booking sites. 
+                          the need for third-party booking sites.
                         </Typography>
                       </Stack>
                     </Grid>*/}
@@ -346,7 +342,7 @@ const WebManagement = () => {
                       mb: 3,
                     }}
                   >
-                    What's Included
+                    What&apos;s Included
                   </Typography>
                   <Grid container spacing={5}>
                     <Grid item xs={12} md={4} sx={{}}>
@@ -371,7 +367,7 @@ const WebManagement = () => {
                         <Typography>
                           Allow guests to book their stay with ease through a
                           secure and user-friendly online platform, eliminating
-                          the need for third-party booking sites. 
+                          the need for third-party booking sites.
                         </Typography>
                       </Stack>
                     </Grid>{" "}
@@ -383,7 +379,7 @@ const WebManagement = () => {
                         </Typography>
                         <Typography>
                           Create enticing packages with dynamic pricing options
-                          to attract different types of guests.  
+                          to attract different types of guests.
                         </Typography>
                       </Stack>
                     </Grid>{" "}
@@ -393,8 +389,6 @@ const WebManagement = () => {
             </Container>
           </Box>
         </div>
-
-        {/* thirdSection */}
         <div id="real-estate">
           <Box
             py={10}
@@ -434,7 +428,7 @@ const WebManagement = () => {
                           sx={{ fontSize: "24px", fontWeight: "600" }}
                         >
                           Real Estate Authority: Tailored Web Development for
-                          Agencies 
+                          Agencies
                         </Typography>
                         <Typography>
                           Real estate agencies looking to effectively showcase
@@ -443,7 +437,7 @@ const WebManagement = () => {
                           Designed to establish your agency as a beacon of
                           professionalism and trust, this package includes
                           everything needed to engage potential clients and
-                          capture valuable leads. 
+                          capture valuable leads.
                         </Typography>
                       </Stack>
                       <Grid container spacing={2}>
@@ -455,7 +449,7 @@ const WebManagement = () => {
                             </Typography>
                             <Typography>
                               Create a website that exudes professionalism and
-                              trust, attracting more clients. 
+                              trust, attracting more clients.
                             </Typography>
                           </Stack>
                         </Grid>
@@ -497,7 +491,7 @@ const WebManagement = () => {
                       mb: 3,
                     }}
                   >
-                    What's Included
+                    What&apos;s Included
                   </Typography>
                   <Grid container spacing={5}>
                     <Grid item xs={12} md={4} sx={{}}>
@@ -509,7 +503,7 @@ const WebManagement = () => {
                         <Typography>
                           Showcase your properties in a stunning and
                           user-friendly format, complete with high-resolution
-                          photos and detailed descriptions. 
+                          photos and detailed descriptions.
                         </Typography>
                       </Stack>
                     </Grid>
@@ -522,7 +516,7 @@ const WebManagement = () => {
                         <Typography>
                           Allow potential buyers and renters to easily find
                           their dream property with powerful and intuitive
-                          search features. 
+                          search features.
                         </Typography>
                       </Stack>
                     </Grid>{" "}
@@ -534,7 +528,7 @@ const WebManagement = () => {
                         </Typography>
                         <Typography>
                           Capture valuable leads with strategically-placed
-                          contact forms and call-to-action buttons. 
+                          contact forms and call-to-action buttons.
                         </Typography>
                       </Stack>
                     </Grid>
@@ -546,7 +540,7 @@ const WebManagement = () => {
                         </Typography>
                         <Typography>
                           Integrate with popular MLS and CRM platforms for
-                          effortless data management and automation. 
+                          effortless data management and automation.
                         </Typography>
                       </Stack>
                     </Grid>
@@ -561,7 +555,7 @@ const WebManagement = () => {
                           thought leader with SEO-focused content
                         </Typography>
                       </Stack>
-                    </Grid>{" "}
+                    </Grid>
                   </Grid>
                 </Stack>
               </Stack>
@@ -597,7 +591,7 @@ const WebManagement = () => {
                           fontSize={{ xs: "20px", md: "24px" }}
                           sx={{ fontWeight: "600" }}
                         >
-                          E-commerce Powerhouse: Shopify Web Design Service 
+                          E-commerce Powerhouse: Shopify Web Design Service
                         </Typography>
                         <Typography>
                           Are you an e-commerce business struggling with low
@@ -605,7 +599,7 @@ const WebManagement = () => {
                           Web Design” Service offers a comprehensive solution.
                           This service focuses on converting visitors into loyal
                           customers through a captivating, user-friendly online
-                          store optimized for maximum engagement and sales. 
+                          store optimized for maximum engagement and sales.
                         </Typography>
                       </Stack>
                       <Grid container spacing={5}>
@@ -617,7 +611,7 @@ const WebManagement = () => {
                             </Typography>
                             <Typography>
                               Convert visitors into loyal customers with a
-                              captivating and user-friendly online store. 
+                              captivating and user-friendly online store.
                             </Typography>
                           </Stack>
                         </Grid>
@@ -629,7 +623,7 @@ const WebManagement = () => {
                             </Typography>
                             <Typography>
                               Design a seamless buying journey that maximises
-                              your sales potential. 
+                              your sales potential.
                             </Typography>
                           </Stack>
                         </Grid>{" "}
@@ -642,7 +636,7 @@ const WebManagement = () => {
                             <Typography>
                               Integrate essential tools like CRM systems,
                               payment gateways, and inventory management
-                              software for a smooth operation. 
+                              software for a smooth operation.
                             </Typography>
                           </Stack>
                         </Grid>
@@ -678,7 +672,7 @@ const WebManagement = () => {
                       mb: 3,
                     }}
                   >
-                    What's Included
+                    What&apos;s Included
                   </Typography>
                   <Grid container spacing={5}>
                     <Grid item xs={12} md={4} sx={{}}>
@@ -690,7 +684,7 @@ const WebManagement = () => {
                         <Typography>
                           We prioritise user experience, creating a website that
                           guides visitors towards your products and increases
-                          conversion rates. 
+                          conversion rates.
                         </Typography>
                       </Stack>
                     </Grid>
@@ -703,7 +697,7 @@ const WebManagement = () => {
                         <Typography>
                           With mobile shopping booming, your store will be
                           flawlessly optimised for any device, ensuring a
-                          seamless experience for all customers. 
+                          seamless experience for all customers.
                         </Typography>
                       </Stack>
                     </Grid>{" "}
@@ -714,7 +708,7 @@ const WebManagement = () => {
                           Ongoing Support
                         </Typography>
                         <Typography>
-                          Our dedication doesn't end at launch. We provide
+                          Our dedication doesn&apos;t end at launch. We provide
                           ongoing support to ensure your store continues to
                           thrive.
                         </Typography>
@@ -729,7 +723,7 @@ const WebManagement = () => {
                         <Typography>
                           Integrate essential tools like CRM systems, payment
                           gateways, and inventory management software for a
-                          smooth operation. 
+                          smooth operation.
                         </Typography>
                       </Stack>
                     </Grid>
@@ -745,52 +739,47 @@ const WebManagement = () => {
                           more traffic.
                         </Typography>
                       </Stack>
-                    </Grid>{" "}
+                    </Grid>
                   </Grid>
                 </Stack>
               </Stack>
             </Container>
           </Box>
         </div>
-
-        <Box
-          py={7}
-          sx={{
-            backgroundImage:
-              "linear-gradient(to bottom, #ffffff, rgba(110, 62, 244, 0.3))",
-          }}
-        >
+        <Box py={7}>
           <Box
             py={{ xs: 8, md: 11 }}
             px={{ xs: 2, md: 10 }}
             width={{ xs: "90%", md: "80%" }}
             sx={{
-              backgroundImage:
-                "linear-gradient(349deg, #350079 11.15%, #904AEA 92.99%)",
-              // width: "80%",
               margin: "0 auto",
               textAlign: "center",
-              color: "white",
-              borderRadius: "10px",
+              backgroundColor: "#ffffff",
+              border: "2px solid #6E3EF4",
+              borderRadius: "16px",
+              boxShadow: "0 8px 24px rgba(110, 62, 244, 0.1)",
+              color: "#350079",
             }}
           >
             <Typography
               fontSize={{ xs: "30px", md: "38px" }}
-              sx={{ fontWeight: "600" }}
+              sx={{ fontWeight: "700", color: "#350079" }}
             >
-              Ready to unleash your brand's potential?
+              Ready to unleash your brand&apos;s potential?
             </Typography>
             <Typography
               fontSize={"20px"}
               width={{ xs: "100%", md: "70%" }}
               margin={"0 auto"}
-              mt={1}
+              mt={2}
+              sx={{ color: "#4a4a4a" }}
             >
               Contact Prevail today for a free consultation and embark on a
-              journey towards digital excellence. 
+              journey towards digital excellence.
             </Typography>
           </Box>
         </Box>
+        <WebDevWizard />
         <SmoothScrollUp />
         <FooterNew />
       </div>

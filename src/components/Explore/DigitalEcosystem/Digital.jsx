@@ -114,7 +114,7 @@ const Digital = () => {
             }`}
           >
             <SmallCard
-              icon="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720081141/image_115_edmn5q.png"
+              icon="https://cdn-icons-png.flaticon.com/512/2103/2103631.png"
               header={"Digital Landscape"}
               text={`The term "digital landscape" refers to the entire digital environment where your brand operates. This includes various online platforms, digital trends, consumer behavior online, and the evolution of digital marketing strategies.`}
             />
@@ -126,7 +126,7 @@ const Digital = () => {
             }`}
           >
             <LargeCard
-              icon="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720081141/image_116_zz9vay.png"
+              icon="https://cdn-icons-png.flaticon.com/512/3079/3079726.png"
               header={"Brand Awareness"}
               text={`Brand awareness strategies are to introduce your brand and its products or services to your target audience. The goal is to create a long-lasting impression in the minds of potential customers so that when they are ready to make a purchase, they think of your brand.`}
             />
@@ -138,7 +138,7 @@ const Digital = () => {
             }`}
           >
             <MediumCard
-              icon="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720081142/image_117_luvs6a.png"
+              icon="https://cdn-icons-png.flaticon.com/512/2920/2920277.png"
               header={"Competitor Analysis"}
               text={`To succeed in the market, it is essential to research and understand your competitors’ strategies, strengths, weaknesses, and market positioning. Examining your competitors can aid you in identifying market gaps, learning from their successes or mistakes, and differentiating your brand.`}
             />
@@ -150,7 +150,7 @@ const Digital = () => {
             }`}
           >
             <MediumCard
-              icon="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720081142/image_118_oxl4hv.png"
+              icon="https://cdn-icons-png.flaticon.com/512/3094/3094837.png"
               header={"Keyword Ranking"}
               text={`A high keyword ranking can lead to organic traffic being directed to your site, improve visibility, and enhance brand credibility. SEO (Search Engine Optimization) strategies such as optimizing website content, building backlinks, and improving site performance are used to improve keyword rankings.`}
             />
@@ -162,7 +162,7 @@ const Digital = () => {
             }`}
           >
             <SmallCard
-              icon="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720081142/image_119_ap67bk.png"
+              icon="https://cdn-icons-png.flaticon.com/512/1055/1055646.png"
               header={"Targeted Advertising"}
               text={`A strategy in which you direct your advertising efforts to a specific audience based on demographics, interests, behaviors, or other criteria. This approach aims to spend your marketing budget more efficiently by reaching people more likely to be interested in your products or services.`}
             />
@@ -174,7 +174,7 @@ const Digital = () => {
             }`}
           >
             <LargerCard
-              icon="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720081142/image_120_okkamb.png"
+              icon="https://cdn-icons-png.flaticon.com/512/159/159604.png"
               header={"Higher Visibility"}
               text={`This goal aims to enhance your business’s online presence to become more noticeable to prospective customers. This objective can be achieved through various means, such as improving search engine rankings, engaging on social media, and content marketing. The more visible your brand is online and offline, the more likely it is to be considered by potential customers.`}
             />
@@ -186,7 +186,7 @@ const Digital = () => {
             }`}
           >
             <LargeCard
-              icon="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720081142/image_121_fh61oa.png"
+              icon="https://cdn-icons-png.flaticon.com/512/3524/3524659.png"
               header={"Optimization"}
               text={`This refers to continuously improving your digital marketing strategies to achieve better results. It can involve website optimization for better user experience and SEO ranking, improving ad campaigns, data analysis, and making informed adjustments to stay ahead of the competition and achieve your marketing goals.`}
             />
@@ -198,7 +198,7 @@ const Digital = () => {
             }`}
           >
             <SmallCard
-              icon="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720081147/image_122_msotch.png"
+              icon="https://cdn-icons-png.flaticon.com/512/2920/2920349.png"
               header={"Reporting"}
               text={`This involves collecting and analyzing data to evaluate the performance of your digital marketing activities. Reporting provides valuable insights into campaign effectiveness, audience behavior, and overall return on investment. It informs decisions to improve your marketing strategy.`}
             />

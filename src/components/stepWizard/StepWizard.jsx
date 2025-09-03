@@ -35,6 +35,7 @@ import {
   Zap,
   RefreshCw,
   TrendingUp,
+  Target
 } from "lucide-react";
 import { loadStripe } from "@stripe/stripe-js";
 import { theme } from "./theme.js";
@@ -763,6 +764,146 @@ TrinityPackages.propTypes = {
 };
 const MemoizedTrinityPackages = React.memo(TrinityPackages);
 
+const AEDUpsell = ({
+  aedUpsellChoice,
+  setAEDUpsellChoice,
+  trinitySelectionId,
+  nextStep,
+  prevStep,
+}) => {
+  const currentSelection = ALL_TRINITY_OPTIONS.find(opt => opt.id === trinitySelectionId);
+  
+  const upsellOptions = [
+    {
+      id: "aed-only",
+      name: "AED System only",
+      price: 232,
+      description: "Add just the Advertising Efficiency Dashboard to your current selection",
+      includes: ["AED System only"]
+    },
+    {
+      id: "trinity-core",
+      name: "Full Trinity Core",
+      price: 695,
+      description: "Upgrade to complete core package (Expense + MCD + RCD + AED)",
+      includes: ["Expense Manager", "MCD System", "RCD System", "AED System"]
+    },
+    {
+      id: "trinity-plus",
+      name: "Full Trinity Plus",
+      price: 1159,
+      description: "Complete suite with all 5 systems including AED",
+      includes: ["All 5 Trinity Systems", "GARO Inventory", "AED Dashboard"]
+    },
+    {
+      id: "skip",
+      name: "Skip Trinity",
+      price: 0,
+      description: "Continue with your current selection",
+      includes: ["No additional systems"]
+    }
+  ];
+
+  return (
+    <Fade in timeout={500}>
+      <Box>
+        <Chip
+          label="Advertising Efficiency Boost"
+          color="primary"
+          variant="outlined"
+          sx={{ mb: 2 }}
+        />
+        <Typography variant="h2" gutterBottom>
+          Unify all ad platforms with Trinity AED?
+        </Typography>
+        <Typography variant="body1" sx={{ mb: 4 }}>
+          Maximize your advertising ROI with our AI-powered platform unification
+        </Typography>
+
+        <Grid container spacing={3} sx={{ mb: 4 }}>
+          {upsellOptions.map((option) => (
+            <Grid item xs={12} md={6} key={option.id}>
+              <SelectableCard
+                selected={aedUpsellChoice === option.id}
+                onClick={() => setAEDUpsellChoice(option.id)}
+              >
+                <Box display="flex" alignItems="flex-start" gap={2}>
+                  <Box
+                    sx={{
+                      width: 48,
+                      height: 48,
+                      borderRadius: 2,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      background: "linear-gradient(to bottom right, #E0E7FF, #DDD4EF)",
+                      flexShrink: 0
+                    }}
+                  >
+                    <Target size={24} color={theme.palette.primary.main} />
+                  </Box>
+                  <Box flexGrow={1}>
+                    <Typography variant="h6" component="h3" gutterBottom>
+                      {option.name}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+                      {option.description}
+                    </Typography>
+                    <Box sx={{ mt: 1 }}>
+                      {option.includes.map((item, index) => (
+                        <Chip
+                          key={index}
+                          label={item}
+                          size="small"
+                          sx={{ mr: 0.5, mb: 0.5 }}
+                          variant="outlined"
+                        />
+                      ))}
+                    </Box>
+                  </Box>
+                  {option.price > 0 && (
+                    <Box textAlign="right" ml={2}>
+                      <Typography variant="h6" color="primary" fontWeight="bold">
+                        +€{option.price}
+                      </Typography>
+                    </Box>
+                  )}
+                </Box>
+              </SelectableCard>
+            </Grid>
+          ))}
+        </Grid>
+
+        <Box display="flex" gap={2}>
+          <Button
+            variant="outlined"
+            onClick={prevStep}
+            startIcon={<ChevronLeft />}
+          >
+            Back
+          </Button>
+          <Button
+            variant="contained"
+            onClick={nextStep}
+            disabled={!aedUpsellChoice}
+            endIcon={<ChevronRight />}
+          >
+            Continue
+          </Button>
+        </Box>
+      </Box>
+    </Fade>
+  );
+};
+AEDUpsell.propTypes = {
+  aedUpsellChoice: PropTypes.string,
+  setAEDUpsellChoice: PropTypes.func.isRequired,
+  trinitySelectionId: PropTypes.string,
+  nextStep: PropTypes.func.isRequired,
+  prevStep: PropTypes.func.isRequired,
+};
+const MemoizedAEDUpsell = React.memo(AEDUpsell);
+
 const StoreType = ({
   trinitySelectionId,
   hasPhysicalStore,
@@ -974,7 +1115,6 @@ const FinalSummary = ({
   selectedIndustry,
   solutionType,
   hasPhysicalStore,
-  selectedGoals,
   name,
   setName,
   email,
@@ -1240,6 +1380,7 @@ const StepWizard = () => {
   const [keywords, setKeywords] = useState("");
   const [selectedSystems, setSelectedSystems] = useState("");
   const [selectedDashboards, setSelectedDashboards] = useState("");
+  const [aedUpsellChoice, setAEDUpsellChoice] = useState(null);
 
   useEffect(() => {
     const savedState = localStorage.getItem("quoteBuilderState");
@@ -1253,6 +1394,7 @@ const StepWizard = () => {
       setSelectedTier(parsedState.selectedTier || null);
       setBudget(parsedState.budget || 5000);
       setHasPhysicalStore(parsedState.hasPhysicalStore || null);
+      setAEDUpsellChoice(parsedState.aedUpsellChoice || null);
     }
   }, []);
 
@@ -1266,6 +1408,7 @@ const StepWizard = () => {
       selectedTier,
       budget,
       hasPhysicalStore,
+      aedUpsellChoice,
     };
     localStorage.setItem("quoteBuilderState", JSON.stringify(stateToSave));
   }, [
@@ -1277,6 +1420,7 @@ const StepWizard = () => {
     selectedTier,
     budget,
     hasPhysicalStore,
+    aedUpsellChoice,
   ]);
 
   const calculateRunningTotal = useCallback(() => {
@@ -1293,6 +1437,27 @@ const StepWizard = () => {
       ) {
         total += 1600;
       }
+    }
+    if (aedUpsellChoice) {
+      switch (aedUpsellChoice) {
+        case "aed-only":
+          total += 232;
+          break;
+        case "trinity-core":
+          total = ALL_TRINITY_OPTIONS.find(opt => opt.id === "trinity-core").betaPrice;
+          break;
+        case "trinity-plus":
+          total = ALL_TRINITY_OPTIONS.find(opt => opt.id === "trinity-plus").betaPrice;
+          break;
+        case "skip":
+          break;
+        default:
+          if (trinitySelection) {
+            total += trinitySelection.betaPrice;
+          }
+      }
+    } else if (trinitySelection) {
+      total += trinitySelection.betaPrice;
     }
     if (selectedTier) {
       const tier = platformTiers.find((t) => t.id === selectedTier);
@@ -1312,6 +1477,7 @@ const StepWizard = () => {
       return [
         "Solution Type",
         "Trinity Package",
+        "AED Upsell",
         "Store Type",
         "Review & Purchase",
       ];
@@ -1334,7 +1500,7 @@ const StepWizard = () => {
       let nextStepNum = currentStep + 1;
       const needsStoreInfo =
         trinitySelectionId === "trinity-plus" || trinitySelectionId === "garo";
-      if (solutionType === "trinity" && nextStepNum === 3 && !needsStoreInfo) {
+      if (solutionType === "trinity" && nextStepNum === 4 && !needsStoreInfo) {
         nextStepNum++;
       }
       setCurrentStep(nextStepNum);
@@ -1347,7 +1513,7 @@ const StepWizard = () => {
       let prevStepNum = currentStep - 1;
       const needsStoreInfo =
         trinitySelectionId === "trinity-plus" || trinitySelectionId === "garo";
-      if (solutionType === "trinity" && prevStepNum === 3 && !needsStoreInfo) {
+      if (solutionType === "trinity" && prevStepNum === 4 && !needsStoreInfo) {
         prevStepNum--;
       }
       setCurrentStep(prevStepNum);
@@ -1370,6 +1536,7 @@ const StepWizard = () => {
     setKeywords("");
     setSelectedSystems("");
     setSelectedDashboards("");
+    setAEDUpsellChoice(null);
     localStorage.removeItem("quoteBuilderState");
     showToastMessage("Selections have been reset.");
   }, [showToastMessage]);
@@ -1507,7 +1674,19 @@ const StepWizard = () => {
                 }}
               />
             );
-          case 3:
+          case 3: 
+          return (
+            <MemoizedAEDUpsell
+              {...{
+                aedUpsellChoice,
+                setAEDUpsellChoice,
+                trinitySelectionId,
+                nextStep,
+                prevStep,
+              }}
+            />
+          );
+          case 4:
             return (
               <MemoizedStoreType
                 {...{
