@@ -1,3 +1,4 @@
+@import "tailwindcss";
 :root { font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif; }
 
 .gradient-text {
