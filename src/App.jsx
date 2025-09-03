@@ -63,7 +63,7 @@ const Mcd = React.lazy(() => import("./components/TrinityPlus/MCD"));
 const Rcd = React.lazy(() => import("./components/TrinityPlus/RCD"));
 const Aed = React.lazy(() => import("./components/TrinityPlus/AED"));
 const StepWizard = React.lazy(() =>
-  import("./components/TrinityPlus/StepWizardPage.js")
+  import("./components/TrinityPlus/StepWizardPage")
 );
 const DigitalEcosystem = React.lazy(() =>
   import("./components/Explore/DigitalEcosystem/DigitalEcosystem")
