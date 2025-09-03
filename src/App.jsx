@@ -17,6 +17,7 @@ import SpecializedStep from "./components/Services/CostCalculation/steps/Special
 import UniversalStep from "./components/Services/CostCalculation/steps/UniversalStep";
 import GetStartedStep from "./components/Services/CostCalculation/steps/GetStartedStep";
 import BookingPage from "./pages/Booking.jsx";
+import StepWizardPage from "./pages/StepWizardPage.jsx";
 
 const Landing = React.lazy(() => import("./pages/Landing"));
 const About = React.lazy(() => import("./pages/About"));
@@ -25,8 +26,8 @@ const Blog = React.lazy(() => import("./pages/Blog"));
 const Services = React.lazy(() => import("./pages/Services"));
 const Contact = React.lazy(() => import("./pages/Contact"));
 const BlogDetails = React.lazy(() => import("./components/Blog/BlogDetails"));
-const BrandIdentity = React.lazy(
-  () => import("./components/Services/BrandIdentity/BrandIdentity")
+const BrandIdentity = React.lazy(() =>
+  import("./components/Services/BrandIdentity/BrandIdentity")
 );
 const AdCampaign = React.lazy(() =>
   import("./components/Services/CAD/AdCampaign")
@@ -34,47 +35,49 @@ const AdCampaign = React.lazy(() =>
 const VisualBrandIdentity = React.lazy(() =>
   import("./components/Services/BrandIdentity/VisualBrandIdentity")
 );
-const WebsiteDevelopment = React.lazy(
-  () => import("./components/Services/WebsiteDevelopement/WebsiteDevelopment")
+const WebsiteDevelopment = React.lazy(() =>
+  import("./components/Services/WebsiteDevelopement/WebsiteDevelopment")
 );
 const WebDevWizardPage = React.lazy(() => import("./pages/WebDevWizardPage"));
-const WebManagement = React.lazy(
-  () => import("./components/Services/WebManagement/WebManagement")
+const WebManagement = React.lazy(() =>
+  import("./components/Services/WebManagement/WebManagement")
 );
 const Sem = React.lazy(() => import("./components/Services/Sem/Sem"));
 const Mpd = React.lazy(() => import("./components/Services/Mpd/Mpd"));
-const DigitalAccelerator = React.lazy(
-  () => import("./components/Services/DigitalAccelerator/DigitalAccelerator")
+const DigitalAccelerator = React.lazy(() =>
+  import("./components/Services/DigitalAccelerator/DigitalAccelerator")
 );
-const EmpowerYourBussiness = React.lazy(
-  () => import("./components/Services/DigitalAccelerator/EmpowerYourBussiness")
+const EmpowerYourBussiness = React.lazy(() =>
+  import("./components/Services/DigitalAccelerator/EmpowerYourBussiness")
 );
-const TrinityCore = React.lazy(
-  () => import("./components/TrinityPlus/TrinityCore")
+const TrinityCore = React.lazy(() =>
+  import("./components/TrinityPlus/TrinityCore")
 );
-const TrinityPlus = React.lazy(
-  () => import("./components/TrinityPlus/TrinityPlus")
+const TrinityPlus = React.lazy(() =>
+  import("./components/TrinityPlus/TrinityPlus")
 );
-const ExpenseManager = React.lazy(
-  () => import("./components/TrinityPlus/ExpenseManager")
+const ExpenseManager = React.lazy(() =>
+  import("./components/TrinityPlus/ExpenseManager")
 );
 const Garo = React.lazy(() => import("./components/TrinityPlus/Garo"));
 const Mcd = React.lazy(() => import("./components/TrinityPlus/MCD"));
 const Rcd = React.lazy(() => import("./components/TrinityPlus/RCD"));
 const Aed = React.lazy(() => import("./components/TrinityPlus/AED"));
-const StepWizard = React.lazy(() => import("./components/TrinityPlus/StepWizardPage.js"));
+const StepWizard = React.lazy(() =>
+  import("./components/TrinityPlus/StepWizardPage")
+);
 const DigitalEcosystem = React.lazy(() =>
   import("./components/Explore/DigitalEcosystem/DigitalEcosystem")
 );
-const CustomerJourney = React.lazy(
-  () => import("./components/Explore/CustomerJourney/CustomerJourney")
+const CustomerJourney = React.lazy(() =>
+  import("./components/Explore/CustomerJourney/CustomerJourney")
 );
 const AboutOurWhy = React.lazy(() => import("./components/About/AboutOurWhy"));
-const AboutOurSolution = React.lazy(
-  () => import("./components/About/AboutOurSolution")
+const AboutOurSolution = React.lazy(() =>
+  import("./components/About/AboutOurSolution")
 );
-const CaseDetails = React.lazy(
-  () => import("./components/Portfolio/CaseDetails")
+const CaseDetails = React.lazy(() =>
+  import("./components/Portfolio/CaseDetails")
 );
 const SignUpForm = React.lazy(() => import("./pages/SignUp"));
 const LoginForm = React.lazy(() => import("./pages/Login"));
@@ -96,7 +99,7 @@ function App() {
         <ScrollToTop />
         <Suspense fallback={<Loading />}>
           <ErrorBoundary>
-  <Routes>
+            <Routes>
               <Route path="/" element={<Landing />} />
               <Route path="/about-us" element={<About />} />
               <Route path="/portfolio" element={<Portfolio />} />
@@ -132,6 +135,10 @@ function App() {
               <Route
                 path="/service/cost-calculation"
                 element={<CostCalculation />}
+              />
+              <Route
+                path="/service/stepWizardPage"
+                element={<StepWizardPage />}
               />
               <Route
                 path="/service/search-engine-marketing"
@@ -208,10 +215,7 @@ function App() {
                 path="/Blog/:index"
                 element={<Navigate to="/blog/:index" />}
               />
-              <Route
-                path="/Booking"
-                element={<Navigate to="/booking" />}
-              />
+              <Route path="/Booking" element={<Navigate to="/booking" />} />
               <Route
                 path="/Services"
                 element={<Navigate to="/service-landing-page" />}

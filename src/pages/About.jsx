@@ -2,8 +2,6 @@ import { Helmet } from "react-helmet";
 import SectionTwo from "../components/About/SectionTwo.jsx";
 import SectionFour from "../components/About/SectionFour.jsx";
 import FooterNew from "../components/Footer/FooterNew.jsx";
-import { useContext } from "react";
-import { AuthContext } from "../context/AuthContext.jsx";
 import AboutUs from "../components/About/AboutUs.jsx";
 import WhyItMatters from "../components/About/WhyItMatters.jsx";
 import Sliders from "../components/About/Slider.jsx";

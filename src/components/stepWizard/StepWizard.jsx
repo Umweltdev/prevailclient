@@ -1115,7 +1115,6 @@ const FinalSummary = ({
   selectedIndustry,
   solutionType,
   hasPhysicalStore,
-  selectedGoals,
   name,
   setName,
   email,
