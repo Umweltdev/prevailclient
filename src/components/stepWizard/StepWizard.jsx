@@ -1808,7 +1808,7 @@ const StepWizard = () => {
           overflowX: "hidden",
         }}
       >
-        <Container maxWidth="lg" sx={{ py: { xs: 6, md: 8 } }}>
+        <Container maxWidth="lg" sx={{ py: { xs: 6, md: 8 }, pt: { xs: 20, md: 22 } }}>
           <Box textAlign="center" mb={{ xs: 6, md: 8 }}>
             <Typography variant="h1" component="h1" gutterBottom>
               Your Partner in Accelerating the{" "}

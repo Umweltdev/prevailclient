@@ -102,7 +102,7 @@ const MainPage = () => {
     <Box
       ref={sectionRef}
       className={`${classes.mainContainer} ${styles.contact} ${sectionInView ? styles.visible : ""}`}
-      sx={{ py: { xs: 8, md: 12 } }}
+      sx={{ py: { xs: 8, md: 12 }, pt: {xs: 20, md: 22} }}
     >
       <Container maxWidth="xl">
         <Box
