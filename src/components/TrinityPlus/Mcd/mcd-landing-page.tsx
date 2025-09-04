@@ -75,7 +75,7 @@ const MCDLandingPage = () => {
       <SimulationSection visibleSections={visibleSections} />
 
       {/* Testimonials */}
-      <Testimonials visibleSections={visibleSections}/>
+      {/* <Testimonials visibleSections={visibleSections}/> */}
 
       {/* Pricing */}
       <Pricing visibleSections={visibleSections}/>

@@ -102,7 +102,7 @@ const SystemsSection = () => {
 
         {/* GARO System Pricing */}
         <div className="pricing-section-wrapper">
-          <h3 className="system-title">GARO System Pricing</h3>
+          <h3 className="system-title">GARO System Pricing (Store Front Option)</h3>
           <p className="system-subtitle">
             Genetic Algorithm Restocking Optimizer
           </p>
@@ -185,7 +185,91 @@ const SystemsSection = () => {
           </div>
         </div>
 
-        {/* AED System Pricing */}
+         {/* GARO System Pricing Store front */}
+        <div className="pricing-section-wrapper">
+          <h3 className="system-title">GARO System Pricing (E-commerce Only)</h3>
+          <p className="system-subtitle">
+            Genetic Algorithm Restocking Optimizer
+          </p>
+          <div className="pricing-cards">
+            {/* Beta (Most Popular) */}
+            <div className="pricing-card popular">
+              <div className="popular-badge">Most Popular</div>
+              <div className="card-header">
+                <div className="tier-dot beta"></div>
+                <h4>BETA USERS</h4>
+              </div>
+              <div className="price">€235</div>
+              <div className="access-text">
+                One-time payment • Lifetime access
+              </div>
+              <div className="offer-pill beta">
+                ⚡ Ends in {countdown.days}d {countdown.hours}h{" "}
+                {countdown.minutes}m {countdown.seconds}s
+              </div>
+              <ul className="features-list">
+                <li>✓ GARO™ Inventory Optimization Platform</li>
+                <li>✓ SquareUp POS & Payments Integration</li>
+                <li>✓ Full Analytics Admin Dashboard</li>
+                <li>✓ Complete Onboarding & Support</li>
+                <li>✓ Comprehensive Training Program</li>
+              </ul>
+              <button
+                className="cta-button"
+                onClick={() => handleScroll()}
+              >
+                Secure Your Spot
+              </button>
+            </div>
+
+            {/* Early Adopters */}
+            <div className="pricing-card">
+              <div className="card-header">
+                <div className="tier-dot early"></div>
+                <h4>EARLY ADOPTERS</h4>
+              </div>
+              <div className="price">€585</div>
+              <div className="access-text">
+                One-time payment • Lifetime access
+              </div>
+              <div className="offer-pill early">🚀 Next 3 months</div>
+              <ul className="features-list">
+                <li>✓ GARO™ Inventory Optimization Platform</li>
+                <li>✓ SquareUp POS & Payments Integration</li>
+                <li>✓ Full Analytics Admin Dashboard</li>
+                <li>✓ Complete Onboarding & Support</li>
+                <li>✓ Comprehensive Training Program</li>
+              </ul>
+              <button className="cta-button disabled" disabled>
+                Coming Soon
+              </button>
+            </div>
+
+            {/* Standard */}
+            <div className="pricing-card">
+              <div className="card-header">
+                <div className="tier-dot post"></div>
+                <h4>STANDARD</h4>
+              </div>
+              <div className="price">€1, 745</div>
+              <div className="access-text">
+                One-time payment • Lifetime access
+              </div>
+              <div className="offer-pill post">📈 After 3 months</div>
+              <ul className="features-list">
+                <li>✓ GARO™ Inventory Optimization Platform</li>
+                <li>✓ SquareUp POS & Payments Integration</li>
+                <li>✓ Full Analytics Admin Dashboard</li>
+                <li>✓ Complete Onboarding & Support</li>
+                <li>✓ Comprehensive Training Program</li>
+              </ul>
+              <button className="cta-button disabled" disabled>
+                Coming Soon
+              </button>
+            </div>
+          </div>
+        </div>
+
         <div className="pricing-section-wrapper">
           <h3 className="system-title">AED System Pricing</h3>
           <p className="system-subtitle">Advertising Efficiency Dashboard</p>
@@ -260,6 +344,251 @@ const SystemsSection = () => {
                 <li>✓ Unified Analytics Dashboard</li>
                 <li>✓ Complete Onboarding & Support</li>
                 <li>✓ Comprehensive Training Program</li>
+              </ul>
+              <button className="cta-button disabled" disabled>
+                Coming Soon
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div className="pricing-section-wrapper">
+          <h3 className="system-title">Expense Management System Pricing</h3>
+          <p className="system-subtitle">Expense Manager Dashboard</p>
+          <div className="pricing-cards">
+            {/* Beta (Most Popular) */}
+            <div className="pricing-card popular">
+              <div className="popular-badge">Most Popular</div>
+              <div className="card-header">
+                <div className="tier-dot beta"></div>
+                <h4>BETA USERS</h4>
+              </div>
+              <div className="price">€232</div>
+              <div className="access-text">
+                One-time payment • Lifetime access
+              </div>
+              <div className="offer-pill beta">
+                ⚡ Ends in {countdown.days}d {countdown.hours}h{" "}
+                {countdown.minutes}m {countdown.seconds}s
+              </div>
+              <ul className="features-list">
+                <li>✓ Up to £10k monthly expenses</li>
+                <li>✓ 30-day forecasting</li>
+                <li>✓ Email support</li>
+              </ul>
+              <button
+                className="cta-button"
+                onClick={() => handleScroll()}
+              >
+                Secure Your Spot
+              </button>
+            </div>
+
+            {/* Early Adopters */}
+            <div className="pricing-card">
+              <div className="card-header">
+                <div className="tier-dot early"></div>
+                <h4>STANDARD</h4>
+              </div>
+              <div className="price">€1,739</div>
+              <div className="access-text">
+                One-time payment • Lifetime access
+              </div>
+              <div className="offer-pill early">🚀 Next 3 months</div>
+              <ul className="features-list">
+                <li>✓ Up to £100k monthly expenses</li>
+                <li>✓ 90-day forecasting</li>
+                <li>✓ Priority support</li>
+                <li>✓ API access</li>
+              </ul>
+              <button className="cta-button disabled" disabled>
+                Coming Soon
+              </button>
+            </div>
+
+            {/* Standard */}
+            <div className="pricing-card">
+              <div className="card-header">
+                <div className="tier-dot post"></div>
+                <h4>EARLY ADOPTERS</h4>
+              </div>
+              <div className="price">€579</div>
+              <div className="access-text">
+                One-time payment • Lifetime access
+              </div>
+              <div className="offer-pill post">📈 After 3 months</div>
+              <ul className="features-list">
+                <li>✓ Unlimited expenses</li>
+                <li>✓ 365-day forecasting</li>
+                <li>✓ Dedicated support</li>
+                <li>✓ Custom integrations</li>
+              </ul>
+              <button className="cta-button disabled" disabled>
+                Coming Soon
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div className="pricing-section-wrapper">
+          <h3 className="system-title">RCD System Pricing</h3>
+          <p className="system-subtitle">Returning Customer Discounts Dashboard</p>
+          <div className="pricing-cards">
+            {/* Beta (Most Popular) */}
+            <div className="pricing-card popular">
+              <div className="popular-badge">Most Popular</div>
+              <div className="card-header">
+                <div className="tier-dot beta"></div>
+                <h4>BETA USERS</h4>
+              </div>
+              <div className="price">€232</div>
+              <div className="access-text">
+                One-time payment • Lifetime access
+              </div>
+              <div className="offer-pill beta">
+                ⚡ Ends in {countdown.days}d {countdown.hours}h{" "}
+                {countdown.minutes}m {countdown.seconds}s
+              </div>
+              <ul className="features-list">
+                <li>✓Up to 1,000 customers</li>
+                <li>✓Basic vector positioning</li>
+                <li>✓Simple referral system</li>
+                <li>✓Email notifications</li>
+              </ul>
+              <button
+                className="cta-button"
+                onClick={() => handleScroll()}
+              >
+                Secure Your Spot
+              </button>
+            </div>
+
+            {/* Early Adopters */}
+            <div className="pricing-card">
+              <div className="card-header">
+                <div className="tier-dot early"></div>
+                <h4>EARLY ADOPTERS</h4>
+              </div>
+              <div className="price">€579</div>
+              <div className="access-text">
+                One-time payment • Lifetime access
+              </div>
+              <div className="offer-pill early">🚀 Next 3 months</div>
+              <ul className="features-list">
+                <li>✓Unlimited customers</li>
+                <li>✓Custom weights</li>
+                <li>✓Custom sharing ratios</li>
+                <li>✓Dedicated success manager</li>
+                <li>✓White-label</li>
+              </ul>
+              <button className="cta-button disabled" disabled>
+                Coming Soon
+              </button>
+            </div>
+
+            {/* Standard */}
+            <div className="pricing-card">
+              <div className="card-header">
+                <div className="tier-dot post"></div>
+                <h4>STANDARD</h4>
+              </div>
+              <div className="price">€1,739</div>
+              <div className="access-text">
+                One-time payment • Lifetime access
+              </div>
+              <div className="offer-pill post">📈 After 3 months</div>
+              <ul className="features-list">
+                <li>✓Up to 10,000 customers</li>
+                <li>✓Advanced algorithm</li>
+                <li>✓Full 50/50 sharing</li>
+                <li>✓Network visualization</li>
+                <li>✓API access</li>
+                <li>✓Priority support</li>
+              </ul>
+              <button className="cta-button disabled" disabled>
+                Coming Soon
+              </button>
+            </div>
+          </div>
+        </div>
+
+
+        {/* AED System Pricing */}
+        <div className="pricing-section-wrapper">
+          <h3 className="system-title">MCD System Pricing</h3>
+          <p className="system-subtitle">Market Cost Displacement API</p>
+          <div className="pricing-cards">
+            {/* Beta (Most Popular) */}
+            <div className="pricing-card popular">
+              <div className="popular-badge">Most Popular</div>
+              <div className="card-header">
+                <div className="tier-dot beta"></div>
+                <h4>BETA USERS</h4>
+              </div>
+              <div className="price">€232</div>
+              <div className="access-text">
+                One-time payment • Lifetime access
+              </div>
+              <div className="offer-pill beta">
+                ⚡ Ends in {countdown.days}d {countdown.hours}h{" "}
+                {countdown.minutes}m {countdown.seconds}s
+              </div>
+              <ul className="features-list">
+                <li>✓ Up to $10K monthly revenue</li>
+                <li>✓ 3 marketing channels</li>
+                <li>✓ Daily price updates</li>
+                <li>✓ Email support</li>
+                <li>✓ Basic analytics</li>
+              </ul>
+              <button
+                className="cta-button"
+                onClick={() => handleScroll()}
+              >
+                Secure Your Spot
+              </button>
+            </div>
+
+            {/* Early Adopters */}
+            <div className="pricing-card">
+              <div className="card-header">
+                <div className="tier-dot early"></div>
+                <h4>EARLY ADOPTERS</h4>
+              </div>
+              <div className="price">€579</div>
+              <div className="access-text">
+                One-time payment • Lifetime access
+              </div>
+              <div className="offer-pill early">🚀 Next 3 months</div>
+              <ul className="features-list">
+                <li>✓ Unlimited revenue</li>
+                <li>✓ Custom integration</li>
+                <li>✓ Dedicated success manager</li>
+                <li>✓ SLA guarantee</li>
+                <li>✓ API access</li>
+              </ul>
+              <button className="cta-button disabled" disabled>
+                Coming Soon
+              </button>
+            </div>
+
+            {/* Standard */}
+            <div className="pricing-card">
+              <div className="card-header">
+                <div className="tier-dot post"></div>
+                <h4>STANDARD</h4>
+              </div>
+              <div className="price">€1,739</div>
+              <div className="access-text">
+                One-time payment • Lifetime access
+              </div>
+              <div className="offer-pill post">📈 After 3 months</div>
+              <ul className="features-list">
+                <li>✓Up to $100K monthly revenue</li>
+                <li>✓Unlimited channels</li>
+                <li>✓Hourly updates</li>
+                <li>✓Priority support</li>
+                <li>✓Custom rules</li>
+                <li>✓Advanced analytics</li>
               </ul>
               <button className="cta-button disabled" disabled>
                 Coming Soon

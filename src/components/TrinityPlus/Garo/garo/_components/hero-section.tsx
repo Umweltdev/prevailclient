@@ -41,6 +41,12 @@ const HeroSection = () => {
           <span className="block">Cut Waste, Reduce Stockouts.</span>
         </h1>
 
+        <div className="mb-8">
+          <h2 className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-gray-600 to-gray-400 bg-clip-text text-transparent">
+            Genetic Algorithm Restocking Optimisation API 
+          </h2>
+        </div>
+
         <p className="max-w-3xl mx-auto mb-10 text-base leading-relaxed text-gray-700 sm:text-lg md:text-xl">
           Genetic Algorithm Restocking Optimisation with SquareUp API
           Integration — the intelligent evolution engine that transforms your
@@ -84,6 +90,12 @@ const HeroSection = () => {
               <div className="absolute inset-0 bg-[#6E3EF4]/5 group-hover:bg-[#6E3EF4]/15 transition-colors duration-300"></div>
             </button>
           </Tilt>
+        </div>
+
+        <div className="relative inline-block mt-6 px-6 py-3 rounded-full bg-white/20 backdrop-blur-md border border-white/30 shadow-md animate-pulse">
+          <span className="text-gray-800 font-medium text-sm">
+            Lock in beta price by making a purchase during launch week • 3 days before beta ends
+          </span>
         </div>
 
         {/* Animated Stats with CountUp and Tilt */}

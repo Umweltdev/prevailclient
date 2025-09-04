@@ -90,6 +90,11 @@ function Hero() {
           </h1>
 
           {/* Subtitle */}
+          <div className="mb-8">
+            <h2 className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-gray-600 to-gray-400 bg-clip-text text-transparent">
+              Advertising Expensive Distribution API
+            </h2>
+          </div>
           <p
             className={`text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-400 ${
               isLoaded ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"

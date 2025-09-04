@@ -25,26 +25,9 @@ function Pricing() {
               "Email support",
               "Monthly reports",
             ]}
-            cta="Get Bundle"
+            cta="Book a Consultation"
             popular={false}
             clickable={true}
-          />
-          <PricingCard
-            name="Standard"
-            price="€1,739 "
-            description="For growing businesses"
-            features={[
-              "Up to $50,000 monthly ad spend",
-              "All 4 platforms included",
-              "Advanced ML optimization",
-              "Priority support",
-              "Weekly reports",
-              "Custom rules",
-              "API access",
-            ]}
-            cta="Get Bundle"
-            popular={true}
-            clickable={false}
           />
           <PricingCard
             name="Early"
@@ -59,8 +42,25 @@ function Pricing() {
               "White label option",
               "Custom integrations",
             ]}
-            cta="Get Bundle"
+            cta="Book a Consultation"
             popular={false}
+            clickable={false}
+          />
+          <PricingCard
+            name="Standard"
+            price="€1,739 "
+            description="For growing businesses"
+            features={[
+              "Up to $50,000 monthly ad spend",
+              "All 4 platforms included",
+              "Advanced ML optimization",
+              "Priority support",
+              "Weekly reports",
+              "Custom rules",
+              "API access",
+            ]}
+            cta="Book a Consultation"
+            popular={true}
             clickable={false}
           />
         </div>

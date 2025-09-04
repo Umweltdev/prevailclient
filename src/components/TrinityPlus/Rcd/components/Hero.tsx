@@ -17,8 +17,13 @@ export default function Hero() {
                 And Their Friends Get It Too.
               </span>
             </h1>
+            <div className="mb-8">
+                <h2 className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-gray-600 to-gray-400 bg-clip-text text-transparent">
+                    Returning Customer Discounts API 
+                </h2>
+            </div>
             
-            <p className="text-xl text-slate-600 leading-relaxed max-w-2xl">
+            <p className="text-xl text-slate-600 text-center leading-relaxed max-w-2xl">
               A mathematical system that positions each customer on a "loyalty map" based on spending and frequency, 
               creating personalized 0-20% discounts customers can share with their entire network.
             </p>
