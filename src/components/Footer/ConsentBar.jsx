@@ -1,5 +1,3 @@
-// Path: ConsentBar.js
-
 import React, { useState, useEffect } from "react";
 import { styled } from "@mui/material/styles";
 import { Box, Button, Card, Typography, Switch, Modal } from "@mui/material";
@@ -32,7 +30,7 @@ const BoldSwitch = styled(Switch)(({ theme }) => ({
 }));
 
 const ConsentBar = () => {
-  const [consentChoices, setConsentChoices] = useState({
+  const [consentChoices, setConsentChoices] = React.useState({
     Personalization: false,
     Analytics: false,
     Optimization: false,
@@ -42,12 +40,14 @@ const ConsentBar = () => {
   const [openModal, setOpenModal] = useState(null);
 
   useEffect(() => {
+    // Declare gtag at the top of the function body
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
+
     // Initialize gtag and set default consent
     if (!window.gtag) {
       window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        window.dataLayer.push(arguments);
-      }
       window.gtag = gtag;
 
       gtag("js", new Date());
@@ -148,8 +148,6 @@ const ConsentBar = () => {
         bottom: 0,
         color: "black",
         backgroundColor: "#fff",
-        // width: "50vw",
-        // p: 4,
         width: { xs: "90vw", md: "50vw" },
         p: { xs: 2, md: 4 },
         borderRadius: 5,
@@ -193,10 +191,10 @@ const ConsentBar = () => {
           mt: 3,
           p: 3,
           "@media (max-width: 767px)": {
-            flexWrap: "wrap",
-            justifyContent: "center",
-            alignItems: "center",
-            textAlign: "center",
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: 2,
+            justifyItems: "center",
           },
         }}
       >
@@ -207,6 +205,9 @@ const ConsentBar = () => {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
+              "@media (max-width: 767px)": {
+                minWidth: "auto",
+              },
             }}
           >
             <Typography variant="body1" mb={2}>
