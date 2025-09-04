@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import PropTypes from "prop-types";
 import {
   ThemeProvider,
@@ -34,7 +34,6 @@ import {
   Rocket,
   Zap,
   RefreshCw,
-  TrendingUp,
 } from "lucide-react";
 import { loadStripe } from "@stripe/stripe-js";
 import { theme } from "../../theme.js";
@@ -170,19 +169,19 @@ const solutionTypes = [
     id: "trinity",
     name: "Trinity Standalone Modules",
     icon: Globe,
-    description: "Trinity modules",
+    description: "Individual Trinity systems",
   },
   {
-    id: "trinity",
+    id: "trinity-core",
     name: "Trinity Core",
     icon: Zap,
-    description: "Business Automation tool ",
+    description: "AI-powered business intelligence",
   },
   {
-    id: "trinity",
+    id: "trinity-plus",
     name: "Trinity Plus",
     icon: Rocket,
-    description: "Business Automation and Intelligence ",
+    description: "Complete suite with all systems",
   },
 ];
 const industries = [
@@ -221,91 +220,6 @@ const industries = [
     name: "Other Industry",
     icon: "🚀",
     examples: "Tell us about your business",
-  },
-];
-const goals = [
-  {
-    id: "fees",
-    name: "Eliminate Platform Fees",
-    icon: "💰",
-    description: "Stop paying 20-35% commission",
-    savings: "Save £1,000-5,000/month",
-  },
-  {
-    id: "brand",
-    name: "Build Brand Identity",
-    icon: "🎨",
-    description: "Create unique digital presence",
-    savings: "73% better brand recall",
-  },
-  {
-    id: "automation",
-    name: "Automate Operations",
-    icon: "⚡",
-    description: "Streamline workflows",
-    savings: "15-20 hours/week saved",
-  },
-  {
-    id: "scale",
-    name: "Scale Your Business",
-    icon: TrendingUp,
-    description: "Systems that grow with you",
-    savings: "Multi-location ready",
-  },
-  {
-    id: "customers",
-    name: "Own Customer Relationships",
-    icon: "👥",
-    description: "Direct customer connection",
-    savings: "Build lasting loyalty",
-  },
-  {
-    id: "insights",
-    name: "Data-Driven Decisions",
-    icon: "📊",
-    description: "Analytics for growth",
-    savings: "Real-time dashboards",
-  },
-];
-const platformTiers = [
-  {
-    id: "foundation",
-    name: "Foundation",
-    minPrice: 600,
-    maxPrice: 1000,
-    features: [
-      "Professional Website",
-      "Mobile Responsive",
-      "Basic SEO",
-      "Contact Forms",
-      "Social Media Links",
-    ],
-  },
-  {
-    id: "full",
-    name: "Full System",
-    minPrice: 1200,
-    maxPrice: 2000,
-    features: [
-      "Everything in Foundation",
-      "Complete Ordering System",
-      "Customer Database",
-      "Email Automation",
-      "Payment Processing",
-    ],
-  },
-  {
-    id: "premium",
-    name: "Premium",
-    minPrice: 1800,
-    maxPrice: 3000,
-    features: [
-      "Everything in Full System",
-      "Advanced Analytics",
-      "Multi-location Support",
-      "API Access",
-      "AI Predictions",
-    ],
   },
 ];
 
@@ -348,17 +262,28 @@ SelectableCard.propTypes = {
   sx: PropTypes.object,
 };
 
-const SolutionChoice = ({
-  solutionType,
-  setSolutionType,
-  nextStep,
-  setTrinitySelectionId,
-  setCurrentStep,
-}) => {
-  const [type, setType] = useState(null);
-  const [id, setId] = useState(null);
-  const [val, setVal] = useState(null);
+const SolutionChoice = ({ setSolutionType, setTrinitySelections, setCurrentStep }) => {
   const [selected, setSelected] = useState(null);
+  
+  const handleSelection = (index, solution) => {
+    setSelected(index);
+    setSolutionType(solution.id);
+    
+    if (solution.id === "trinity") {
+      // For standalone modules, show individual packages
+      setTrinitySelections([]);
+      setCurrentStep(2);
+    } else if (solution.id === "trinity-core") {
+      // For Trinity Core, select it and go directly to final summary
+      setTrinitySelections(["trinity-core"]);
+      setCurrentStep(4);
+    } else if (solution.id === "trinity-plus") {
+      // For Trinity Plus, select it and go to store type selection
+      setTrinitySelections(["trinity-plus"]);
+      setCurrentStep(3);
+    }
+  };
+  
   return (
     <Fade in timeout={500}>
       <Box>
@@ -379,12 +304,7 @@ const SolutionChoice = ({
             <Grid item xs={12} md={4} key={i}>
               <SelectableCard
                 selected={selected === i}
-                onClick={() => {
-                  setSelected(i);
-                  setSolutionType(solution.id);
-                  setVal(solution.name);
-                  setType(solution.id);
-                }}
+                onClick={() => handleSelection(i, solution)}
               >
                 <Box
                   sx={{
@@ -415,278 +335,76 @@ const SolutionChoice = ({
             </Grid>
           ))}
         </Grid>
-        <Button
-          variant="contained"
-          onClick={() => {
-            // nextStep(4);
-            setSolutionType(type);
-            setTrinitySelectionId(
-              val === "Trinity Plus"
-                ? "trinity-plus"
-                : val === "Trinity Core"
-                ? "trinity-core"
-                : null
-            );
-            val === "Trinity Plus"
-              ? setCurrentStep(3)
-              : val === "Trinity Core"
-              ? setCurrentStep(4)
-              : nextStep();
-          }}
-          disabled={!solutionType}
-          endIcon={<ChevronRight />}
-        >
-          Continue
-        </Button>
       </Box>
     </Fade>
   );
 };
 SolutionChoice.propTypes = {
-  solutionType: PropTypes.string,
   setSolutionType: PropTypes.func.isRequired,
-  nextStep: PropTypes.func.isRequired,
+  setTrinitySelections: PropTypes.func.isRequired,
+  setCurrentStep: PropTypes.func.isRequired,
 };
 const MemoizedSolutionChoice = React.memo(SolutionChoice);
 
-const IndustryStep = ({
-  selectedIndustry,
-  setSelectedIndustry,
-  nextStep,
+const TrinityPackages = ({
+  trinitySelections,
+  setTrinitySelections,
   prevStep,
-}) => (
-  <Fade in timeout={500}>
-    <Box>
-      <Chip
-        label="Step 2: Your Industry"
-        color="primary"
-        variant="outlined"
-        sx={{ mb: 2 }}
-      />
-      <Typography variant="h2" gutterBottom>
-        What industry is your business in?
-      </Typography>
-      <Typography variant="body1" sx={{ mb: 4 }}>
-        This helps us tailor our recommendations for you.
-      </Typography>
-      <Grid container spacing={3} sx={{ mb: 4 }}>
-        {industries.map((industry) => (
-          <Grid item xs={12} sm={6} md={4} key={industry.id}>
-            <SelectableCard
-              selected={selectedIndustry === industry.id}
-              onClick={() => setSelectedIndustry(industry.id)}
-            >
-              <Typography
-                variant="h3"
-                component="p"
-                sx={{ fontSize: "3rem", mb: 2 }}
-              >
-                {industry.icon}
-              </Typography>
-              <Typography variant="h6" component="h3" gutterBottom>
-                {industry.name}
-              </Typography>
-              <Typography variant="body1">{industry.examples}</Typography>
-            </SelectableCard>
-          </Grid>
-        ))}
-      </Grid>
-      <Box display="flex" gap={2}>
-        <Button
-          variant="outlined"
-          onClick={prevStep}
-          startIcon={<ChevronLeft />}
-        >
-          Back
-        </Button>
-        <Button
-          variant="contained"
-          onClick={nextStep}
-          disabled={!selectedIndustry}
-          endIcon={<ChevronRight />}
-        >
-          Continue
-        </Button>
-      </Box>
-    </Box>
-  </Fade>
-);
-IndustryStep.propTypes = {
-  selectedIndustry: PropTypes.string,
-  setSelectedIndustry: PropTypes.func.isRequired,
-  nextStep: PropTypes.func.isRequired,
-  prevStep: PropTypes.func.isRequired,
-};
-const MemoizedIndustryStep = React.memo(IndustryStep);
-
-const GoalsStep = ({ selectedGoals, setSelectedGoals, nextStep, prevStep }) => {
-  const toggleGoal = (goalId) => {
-    setSelectedGoals((prev) =>
-      prev.includes(goalId)
-        ? prev.filter((g) => g !== goalId)
-        : [...prev, goalId]
-    );
+  setCurrentStep,
+}) => {
+  const individualOptions = ALL_TRINITY_OPTIONS.filter(opt => opt.type === "individual");
+  
+  const handleSelection = (optionId) => {
+    setTrinitySelections(prev => {
+      if (prev.includes(optionId)) {
+        // Remove if already selected
+        return prev.filter(id => id !== optionId);
+      } else {
+        // Add to selections
+        return [...prev, optionId];
+      }
+    });
   };
+  
+  const hasGaro = trinitySelections.includes("garo");
+  
   return (
     <Fade in timeout={500}>
       <Box>
         <Chip
-          label="Step 3: Your Goals"
+          label="Trinity Systems Selection"
           color="primary"
           variant="outlined"
           sx={{ mb: 2 }}
         />
         <Typography variant="h2" gutterBottom>
-          What are your primary business goals?
+          Choose Your{" "}
+          <Box component="span" sx={gradientText}>
+            Trinity Solution
+          </Box>
         </Typography>
-        <Typography variant="body1" sx={{ mb: 4 }}>
-          Select all that apply. This helps us suggest the right features.
+        <Typography variant="body1" sx={{ mb: 2 }}>
+          Select individual systems. Beta pricing ends in{" "}
+          {betaDaysRemaining} days!
         </Typography>
+        <Chip
+          label={`🔥 BETA PRICING: ${betaDaysRemaining} Days Remaining`}
+          color="error"
+          sx={{ mb: 4, color: "white", bgcolor: "#D92D20" }}
+        />
         <Grid container spacing={3} sx={{ mb: 4 }}>
-          {goals.map((goal) => (
-            <Grid item xs={12} sm={6} md={4} key={goal.id}>
+          {individualOptions.map((option) => (
+            <Grid item xs={12} lg={6} key={option.id}>
               <SelectableCard
-                selected={selectedGoals.includes(goal.id)}
-                onClick={() => toggleGoal(goal.id)}
+                selected={trinitySelections.includes(option.id)}
+                onClick={() => handleSelection(option.id)}
               >
-                <Box
-                  sx={{
-                    width: 56,
-                    height: 56,
-                    borderRadius: 3,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    mb: 2,
-                    background:
-                      "linear-gradient(to bottom right, #E0E7FF, #DDD4EF)",
-                  }}
-                >
-                  {typeof goal.icon === "string" ? (
-                    <Typography sx={{ fontSize: "2rem" }}>
-                      {goal.icon}
-                    </Typography>
-                  ) : (
-                    <goal.icon
-                      style={{
-                        color: theme.palette.primary.main,
-                        width: 28,
-                        height: 28,
-                      }}
-                    />
+                <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 1 }}>
+                  {trinitySelections.includes(option.id) && (
+                    <Check size={20} color={theme.palette.success.main} />
                   )}
                 </Box>
-                <Typography variant="h6" component="h3" gutterBottom>
-                  {goal.name}
-                </Typography>
-                <Typography variant="body1" sx={{ flexGrow: 1 }}>
-                  {goal.description}
-                </Typography>
-                <Typography
-                  variant="subtitle1"
-                  color="success.main"
-                  fontWeight="bold"
-                  sx={{ mt: 2 }}
-                >
-                  {goal.savings}
-                </Typography>
-              </SelectableCard>
-            </Grid>
-          ))}
-        </Grid>
-        <Box display="flex" gap={2}>
-          <Button
-            variant="outlined"
-            onClick={prevStep}
-            startIcon={<ChevronLeft />}
-          >
-            Back
-          </Button>
-          <Button
-            variant="contained"
-            onClick={nextStep}
-            disabled={selectedGoals.length === 0}
-            endIcon={<ChevronRight />}
-          >
-            Continue
-          </Button>
-        </Box>
-      </Box>
-    </Fade>
-  );
-};
-GoalsStep.propTypes = {
-  selectedGoals: PropTypes.array.isRequired,
-  setSelectedGoals: PropTypes.func.isRequired,
-  nextStep: PropTypes.func.isRequired,
-  prevStep: PropTypes.func.isRequired,
-};
-const MemoizedGoalsStep = React.memo(GoalsStep);
-
-const TrinityPackages = ({
-  trinitySelectionId,
-  setTrinitySelectionId,
-  recommendations,
-  nextStep,
-  prevStep,
-}) => (
-  <Fade in timeout={500}>
-    <Box>
-      <Chip
-        label="Trinity Systems Selection"
-        color="primary"
-        variant="outlined"
-        sx={{ mb: 2 }}
-      />
-      <Typography variant="h2" gutterBottom>
-        Choose Your{" "}
-        <Box component="span" sx={gradientText}>
-          Trinity Solution
-        </Box>
-      </Typography>
-      <Typography variant="body1" sx={{ mb: 2 }}>
-        Select individual systems or complete packages. Beta pricing ends in{" "}
-        {betaDaysRemaining} days!
-      </Typography>
-      <Chip
-        label={`🔥 BETA PRICING: ${betaDaysRemaining} Days Remaining`}
-        color="error"
-        sx={{ mb: 4, color: "white", bgcolor: "#D92D20" }}
-      />
-      <Grid container spacing={3} sx={{ mb: 4 }}>
-        {ALL_TRINITY_OPTIONS.map((option) => {
-          if (option.id === "trinity-core" || option.id === "trinity-plus") {
-            return;
-          }
-          return (
-            <Grid
-              item
-              xs={12}
-              lg={option.type === "package" ? 12 : 6}
-              key={option.id}
-            >
-              <SelectableCard
-                selected={trinitySelectionId === option.id}
-                onClick={() => setTrinitySelectionId(option.id)}
-              >
-                <Box sx={{ display: "flex", gap: 1, mb: 2 }}>
-                  {recommendations.trinityRec === option.id &&
-                    !option.bestValue && (
-                      <Chip
-                        label="Recommended"
-                        size="small"
-                        sx={{ bgcolor: "#3B82F6", color: "white" }}
-                      />
-                    )}
-                  {option.bestValue && (
-                    <Chip
-                      label="Best Value"
-                      size="small"
-                      color="success"
-                      variant="filled"
-                    />
-                  )}
-                </Box>
+                
                 <Grid container spacing={2}>
                   <Grid item xs={2} sm={1}>
                     <Typography variant="h4">{option.icon}</Typography>
@@ -738,23 +456,6 @@ const TrinityPackages = ({
                         ))}
                       </List>
                     )}
-                    {option.includes && (
-                      <Box mt={2}>
-                        {option.includes.map((item) => (
-                          <Chip key={item} label={item} sx={{ mr: 1, mb: 1 }} />
-                        ))}
-                        {option.savings && (
-                          <Typography
-                            variant="subtitle1"
-                            color="success.main"
-                            fontWeight="bold"
-                            sx={{ mt: 1 }}
-                          >
-                            {option.savings}
-                          </Typography>
-                        )}
-                      </Box>
-                    )}
                     {option.note && (
                       <Alert severity="warning" sx={{ mt: 2 }}>
                         {option.note}
@@ -764,56 +465,65 @@ const TrinityPackages = ({
                 </Grid>
               </SelectableCard>
             </Grid>
-          );
-        })}
-      </Grid>
-      <Box display="flex" gap={2}>
-        <Button
-          variant="outlined"
-          onClick={prevStep}
-          startIcon={<ChevronLeft />}
-        >
-          Back
-        </Button>
-        <Button
-          variant="contained"
-          onClick={nextStep}
-          disabled={!trinitySelectionId}
-          endIcon={<ChevronRight />}
-        >
-          Continue
-        </Button>
+          ))}
+        </Grid>
+        <Box display="flex" gap={2}>
+          <Button
+            variant="outlined"
+            onClick={prevStep}
+            startIcon={<ChevronLeft />}
+          >
+            Back
+          </Button>
+          <Button
+            variant="contained"
+            onClick={() => {
+              if (hasGaro) {
+                setCurrentStep(3); // Go to store type step
+              } else {
+                setCurrentStep(4); // Go directly to final summary
+              }
+            }}
+            disabled={trinitySelections.length === 0}
+            endIcon={<ChevronRight />}
+          >
+            Continue
+          </Button>
+        </Box>
       </Box>
-    </Box>
-  </Fade>
-);
+    </Fade>
+  );
+};
 TrinityPackages.propTypes = {
-  trinitySelectionId: PropTypes.string,
-  setTrinitySelectionId: PropTypes.func.isRequired,
-  recommendations: PropTypes.object.isRequired,
+  trinitySelections: PropTypes.array.isRequired,
+  setTrinitySelections: PropTypes.func.isRequired,
   nextStep: PropTypes.func.isRequired,
   prevStep: PropTypes.func.isRequired,
+  setCurrentStep: PropTypes.func.isRequired,
 };
 const MemoizedTrinityPackages = React.memo(TrinityPackages);
 
 const StoreType = ({
-  trinitySelectionId,
+  trinitySelections,
   hasPhysicalStore,
   setHasPhysicalStore,
   nextStep,
   prevStep,
+  setCurrentStep,
 }) => {
-  const needsStoreInfo =
-    trinitySelectionId === "trinity-plus" || trinitySelectionId === "garo";
+  const needsStoreInfo = trinitySelections.includes("trinity-plus") || trinitySelections.includes("garo");
+  
   useEffect(() => {
     if (!needsStoreInfo) nextStep();
   }, [needsStoreInfo, nextStep]);
+  
   if (!needsStoreInfo) return null;
 
-  const trinitySelection = ALL_TRINITY_OPTIONS.find(
-    (opt) => opt.id === trinitySelectionId
-  );
-  const basePrice = trinitySelection ? trinitySelection.betaPrice : 0;
+  // Calculate base price for all selected items that might need store setup
+  const basePrice = trinitySelections.reduce((total, id) => {
+    const selection = ALL_TRINITY_OPTIONS.find(opt => opt.id === id);
+    return total + (selection ? selection.betaPrice : 0);
+  }, 0);
 
   return (
     <Fade in timeout={500}>
@@ -892,7 +602,7 @@ const StoreType = ({
           </Button>
           <Button
             variant="contained"
-            onClick={nextStep}
+            onClick={() => setCurrentStep(4)} // Go to final summary
             disabled={hasPhysicalStore === null}
             endIcon={<ChevronRight />}
           >
@@ -904,106 +614,17 @@ const StoreType = ({
   );
 };
 StoreType.propTypes = {
-  trinitySelectionId: PropTypes.string,
+  trinitySelections: PropTypes.array.isRequired,
   hasPhysicalStore: PropTypes.bool,
   setHasPhysicalStore: PropTypes.func.isRequired,
   nextStep: PropTypes.func.isRequired,
   prevStep: PropTypes.func.isRequired,
+  setCurrentStep: PropTypes.func.isRequired,
 };
 const MemoizedStoreType = React.memo(StoreType);
 
-const PlatformTier = ({
-  selectedTier,
-  setSelectedTier,
-  recommendations,
-  nextStep,
-  prevStep,
-}) => (
-  <Fade in timeout={500}>
-    <Box>
-      <Chip
-        label="Platform Tier"
-        color="primary"
-        variant="outlined"
-        sx={{ mb: 2 }}
-      />
-      <Typography variant="h2" gutterBottom>
-        Select Your Platform Tier
-      </Typography>
-      <Typography variant="body1" sx={{ mb: 4 }}>
-        Choose the functionality you need for your website or digital platform.
-      </Typography>
-      <Grid container spacing={3} sx={{ mb: 4 }}>
-        {platformTiers.map((tier) => (
-          <Grid item xs={12} md={4} key={tier.id}>
-            <SelectableCard
-              selected={selectedTier === tier.id}
-              onClick={() => setSelectedTier(tier.id)}
-            >
-              {recommendations.tierRec === tier.id && (
-                <Chip
-                  label="Recommended"
-                  size="small"
-                  sx={{ bgcolor: "#3B82F6", color: "white", mb: 2 }}
-                />
-              )}
-              <Typography variant="h6" component="h3">
-                {tier.name}
-              </Typography>
-              <Typography
-                variant="h5"
-                component="p"
-                color="primary"
-                sx={{ my: 1 }}
-              >
-                £{tier.minPrice} - £{tier.maxPrice}
-              </Typography>
-              <List dense sx={{ mt: 2, p: 0 }}>
-                {tier.features.map((feature) => (
-                  <ListItem key={feature} disableGutters sx={{ p: 0 }}>
-                    <ListItemIcon sx={{ minWidth: 24 }}>
-                      <Check size={16} color={theme.palette.success.main} />
-                    </ListItemIcon>
-                    <ListItemText primary={feature} />
-                  </ListItem>
-                ))}
-              </List>
-            </SelectableCard>
-          </Grid>
-        ))}
-      </Grid>
-      <Box display="flex" gap={2}>
-        <Button
-          variant="outlined"
-          onClick={prevStep}
-          startIcon={<ChevronLeft />}
-        >
-          Back
-        </Button>
-        <Button
-          variant="contained"
-          onClick={nextStep}
-          disabled={!selectedTier}
-          endIcon={<ChevronRight />}
-        >
-          Continue
-        </Button>
-      </Box>
-    </Box>
-  </Fade>
-);
-PlatformTier.propTypes = {
-  selectedTier: PropTypes.string,
-  setSelectedTier: PropTypes.func.isRequired,
-  recommendations: PropTypes.object.isRequired,
-  nextStep: PropTypes.func.isRequired,
-  prevStep: PropTypes.func.isRequired,
-};
-const MemoizedPlatformTier = React.memo(PlatformTier);
-
 const FinalSummary = ({
-  trinitySelectionId,
-  selectedTier,
+  trinitySelections,
   selectedIndustry,
   solutionType,
   hasPhysicalStore,
@@ -1019,28 +640,27 @@ const FinalSummary = ({
   setSelectedSystems,
   selectedDashboards,
   setSelectedDashboards,
-  prevStep,
   handleCheckout,
   isProcessing,
   calculateRunningTotal,
   setCurrentStep,
-  setHasPhysicalStore,
+  setHasPhysicalStore
 }) => {
-  const trinitySelection = ALL_TRINITY_OPTIONS.find(
-    (opt) => opt.id === trinitySelectionId
+  // Get all selected trinity options
+  const selectedTrinityOptions = ALL_TRINITY_OPTIONS.filter(opt => 
+    trinitySelections.includes(opt.id)
   );
-  const tierSelection = platformTiers.find((t) => t.id === selectedTier);
+  
   const industrySelection = industries.find((i) => i.id === selectedIndustry);
 
   const total = calculateRunningTotal();
-  const isBundle = solutionType === "both" && trinitySelection && tierSelection;
-  const finalPrice = isBundle ? Math.round(total * 0.9) : total;
+  const finalPrice = total;
 
-  const validateEmail = (value: string) => {
-    // simple regex for demo: one "@" and a dot later
+  const validateEmail = (value) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(value);
   };
+  
   return (
     <Fade in timeout={500}>
       <Grid container spacing={4}>
@@ -1141,7 +761,8 @@ const FinalSummary = ({
                   <Box display="flex" justifyContent="space-between">
                     <Typography variant="subtitle2">Solution:</Typography>
                     <Typography variant="subtitle1" textTransform="capitalize">
-                      {solutionType}
+                      {solutionType === "trinity" ? "Trinity Standalone Modules" : 
+                       solutionType === "trinity-core" ? "Trinity Core" : "Trinity Plus"}
                     </Typography>
                   </Box>
                 )}
@@ -1153,25 +774,30 @@ const FinalSummary = ({
                     </Typography>
                   </Box>
                 )}
-                {trinitySelection && (
-                  <Box display="flex" justifyContent="space-between">
-                    <Typography variant="subtitle2">Trinity System:</Typography>
+                
+                {/* Display all selected products */}
+                {selectedTrinityOptions.map(option => (
+                  <Box key={option.id} display="flex" justifyContent="space-between" mb={1}>
+                    <Typography variant="subtitle2">{option.name}:</Typography>
                     <Typography variant="subtitle1">
-                      {trinitySelection.name}
+                      £{option.betaPrice.toLocaleString()}
                     </Typography>
                   </Box>
-                )}
-                {tierSelection && (
-                  <Box display="flex" justifyContent="space-between">
-                    <Typography variant="subtitle2">Platform Tier:</Typography>
-                    <Typography variant="subtitle1">
-                      {tierSelection.name}
-                    </Typography>
-                  </Box>
-                )}
+                ))}
+                
+                {hasPhysicalStore !== null &&
+                  (trinitySelections.includes("trinity-plus") ||
+                    trinitySelections.includes("garo")) && (
+                    <Box display="flex" justifyContent="space-between">
+                      <Typography variant="subtitle2">Store Type:</Typography>
+                      <Typography variant="subtitle1">
+                        {hasPhysicalStore ? "Physical Store" : "E-commerce Only"}
+                      </Typography>
+                    </Box>
+                  )}
                 {hasPhysicalStore &&
-                  (trinitySelectionId === "trinity-plus" ||
-                    trinitySelectionId === "garo") && (
+                  (trinitySelections.includes("trinity-plus") ||
+                    trinitySelections.includes("garo")) && (
                     <Box display="flex" justifyContent="space-between">
                       <Typography variant="subtitle2">Add-on:</Typography>
                       <Typography variant="subtitle1">
@@ -1179,16 +805,6 @@ const FinalSummary = ({
                       </Typography>
                     </Box>
                   )}
-                {isBundle && (
-                  <Box display="flex" justifyContent="space-between">
-                    <Typography variant="subtitle2" color="success.main">
-                      Bundle Discount:
-                    </Typography>
-                    <Typography variant="subtitle1" color="success.main">
-                      -10%
-                    </Typography>
-                  </Box>
-                )}
               </Box>
               <Box mt={3} pt={2} borderTop={1} borderColor="divider">
                 <Box
@@ -1207,9 +823,7 @@ const FinalSummary = ({
                   variant="contained"
                   fullWidth
                   onClick={handleCheckout}
-                  disabled={
-                    isProcessing || !name || !email || !validateEmail(email)
-                  }
+                  disabled={isProcessing || !name || !email || !validateEmail(email)}
                   startIcon={
                     isProcessing ? (
                       <CircularProgress size={20} color="inherit" />
@@ -1222,17 +836,13 @@ const FinalSummary = ({
                   variant="outlined"
                   fullWidth
                   onClick={() => {
-                    if (trinitySelectionId === "trinity-core") {
-                      setCurrentStep(1);
-                    } else if (
-                      trinitySelectionId === "trinity-core" ||
-                      trinitySelectionId === "garo"
-                    ) {
+                    if (trinitySelections.includes("garo") || trinitySelections.includes("trinity-plus")) {
                       setHasPhysicalStore(null);
-                      setCurrentStep(3);
+                      setCurrentStep(3); // Go back to StoreType
+                    } else if (solutionType === "trinity") {
+                      setCurrentStep(2); // Go back to TrinityPackages
                     } else {
-                      setHasPhysicalStore(null);
-                      setCurrentStep(2);
+                      setCurrentStep(1); // Go back to SolutionChoice
                     }
                   }}
                   startIcon={<ChevronLeft />}
@@ -1248,9 +858,7 @@ const FinalSummary = ({
   );
 };
 FinalSummary.propTypes = {
-  selectedGoals: PropTypes.array,
-  trinitySelectionId: PropTypes.string,
-  selectedTier: PropTypes.string,
+  trinitySelections: PropTypes.array.isRequired,
   selectedIndustry: PropTypes.string,
   solutionType: PropTypes.string,
   hasPhysicalStore: PropTypes.bool,
@@ -1270,6 +878,8 @@ FinalSummary.propTypes = {
   handleCheckout: PropTypes.func,
   isProcessing: PropTypes.bool,
   calculateRunningTotal: PropTypes.func,
+  setCurrentStep: PropTypes.func,
+  setHasPhysicalStore: PropTypes.func,
 };
 const MemoizedFinalSummary = React.memo(FinalSummary);
 
@@ -1279,10 +889,7 @@ const StepWizard = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [solutionType, setSolutionType] = useState(null);
   const [selectedIndustry, setSelectedIndustry] = useState(null);
-  const [selectedGoals, setSelectedGoals] = useState([]);
-  const [trinitySelectionId, setTrinitySelectionId] = useState(null);
-  const [selectedTier, setSelectedTier] = useState(null);
-  const [budget, setBudget] = useState(5000);
+  const [trinitySelections, setTrinitySelections] = useState([]);
   const [hasPhysicalStore, setHasPhysicalStore] = useState(null);
   const [showToast, setShowToast] = useState(null);
   const [name, setName] = useState("");
@@ -1300,10 +907,7 @@ const StepWizard = () => {
       setCurrentStep(parsedState.currentStep || 1);
       setSolutionType(parsedState.solutionType || null);
       setSelectedIndustry(parsedState.selectedIndustry || null);
-      setSelectedGoals(parsedState.selectedGoals || []);
-      setTrinitySelectionId(parsedState.trinitySelectionId || null);
-      setSelectedTier(parsedState.selectedTier || null);
-      setBudget(parsedState.budget || 5000);
+      setTrinitySelections(parsedState.trinitySelections || []);
       setHasPhysicalStore(parsedState.hasPhysicalStore || null);
     }
   }, []);
@@ -1313,10 +917,7 @@ const StepWizard = () => {
       currentStep,
       solutionType,
       selectedIndustry,
-      selectedGoals,
-      trinitySelectionId,
-      selectedTier,
-      budget,
+      trinitySelections,
       hasPhysicalStore,
     };
     localStorage.setItem("quoteBuilderState", JSON.stringify(stateToSave));
@@ -1324,97 +925,63 @@ const StepWizard = () => {
     currentStep,
     solutionType,
     selectedIndustry,
-    selectedGoals,
-    trinitySelectionId,
-    selectedTier,
-    budget,
+    trinitySelections,
     hasPhysicalStore,
   ]);
 
   const calculateRunningTotal = useCallback(() => {
     let total = 0;
-    const trinitySelection = ALL_TRINITY_OPTIONS.find(
-      (opt) => opt.id === trinitySelectionId
-    );
-    if (trinitySelection) {
-      total += trinitySelection.betaPrice;
-      if (
-        hasPhysicalStore &&
-        (trinitySelection.id === "trinity-plus" ||
-          trinitySelection.id === "garo")
-      ) {
-        total += 1600;
+    
+    // Add up all selected trinity options
+    trinitySelections.forEach(id => {
+      const selection = ALL_TRINITY_OPTIONS.find(opt => opt.id === id);
+      if (selection) {
+        total += selection.betaPrice;
+        
+        // Add store setup fee if needed
+        if (
+          hasPhysicalStore &&
+          (id === "trinity-plus" || id === "garo")
+        ) {
+          total += 1600;
+        }
       }
-    }
-    if (selectedTier) {
-      const tier = platformTiers.find((t) => t.id === selectedTier);
-      if (tier) {
-        total += (tier.minPrice + tier.maxPrice) / 2;
-      }
-    }
+    });
+    
     return Math.round(total);
-  }, [trinitySelectionId, selectedTier, hasPhysicalStore]);
+  }, [trinitySelections, hasPhysicalStore]);
 
   const showToastMessage = useCallback((message) => {
     setShowToast(message);
   }, []);
 
   const getSteps = useCallback(() => {
-    // if (solutionType === "trinity")
     return [
       "Solution Type",
       "Trinity Package",
       "Store Type",
       "Review & Purchase",
     ];
-    // if (solutionType === "website")
-    //   return ["Solution Type", "Industry", "Goals", "Platform Tier", "Review"];
-    // if (solutionType === "both")
-    //   return [
-    //     "Solution Type",
-    //     "Industry",
-    //     "Trinity Package",
-    //     "Platform Tier",
-    //     "Review",
-    //   ];
-    // return ["Solution Type"];
-  }, [solutionType]);
+  }, []);
 
   const nextStep = useCallback(() => {
     const steps = getSteps();
     if (currentStep < steps.length) {
-      let nextStepNum = currentStep + 1;
-      const needsStoreInfo =
-        trinitySelectionId === "trinity-plus" || trinitySelectionId === "garo";
-      if (solutionType === "trinity" && nextStepNum === 3 && !needsStoreInfo) {
-        nextStepNum++;
-      }
-      setCurrentStep(nextStepNum);
-      // window.scrollTo(0, 0);
+      setCurrentStep(currentStep + 1);
     }
-  }, [currentStep, getSteps, solutionType, trinitySelectionId]);
+  }, [currentStep, getSteps]);
 
   const prevStep = useCallback(() => {
     if (currentStep > 1) {
-      let prevStepNum = currentStep - 1;
-      const needsStoreInfo =
-        trinitySelectionId === "trinity-plus" || trinitySelectionId === "garo";
-      if (solutionType === "trinity" && prevStepNum === 3 && !needsStoreInfo) {
-        prevStepNum--;
-      }
-      setCurrentStep(prevStepNum);
-      // window.scrollTo(0, 0);
+      setCurrentStep(currentStep - 1);
     }
-  }, [currentStep, solutionType, trinitySelectionId]);
+  }, [currentStep]);
 
   const resetSelections = useCallback(() => {
     setCurrentStep(1);
     setSolutionType(null);
     setSelectedIndustry(null);
-    setSelectedGoals([]);
-    setTrinitySelectionId(null);
-    setSelectedTier(null);
-    setBudget(5000);
+    setTrinitySelections([]);
     setHasPhysicalStore(null);
     setName("");
     setEmail("");
@@ -1426,31 +993,13 @@ const StepWizard = () => {
     showToastMessage("Selections have been reset.");
   }, [showToastMessage]);
 
-  const recommendations = useMemo(() => {
-    let trinityRec = "trinity-core";
-    let tierRec = "full";
-    if (selectedGoals.includes("scale") || selectedIndustry === "retail")
-      trinityRec = "trinity-plus";
-    if (
-      selectedGoals.includes("automation") &&
-      selectedGoals.includes("insights")
-    )
-      tierRec = "premium";
-    else if (selectedGoals.length <= 1 && !selectedGoals.includes("scale"))
-      tierRec = "foundation";
-    return { trinityRec, tierRec };
-  }, [selectedGoals, selectedIndustry]);
-
   const handleCheckout = useCallback(async () => {
     if (!name || !email) {
       showToastMessage("Error: Please enter your name and email to proceed.");
       return;
     }
     setIsProcessing(true);
-    const trinitySelection = ALL_TRINITY_OPTIONS.find(
-      (opt) => opt.id === trinitySelectionId
-    );
-    const tier = platformTiers.find((t) => t.id === selectedTier);
+    
     const parseToArray = (str) =>
       str
         ? str
@@ -1458,39 +1007,41 @@ const StepWizard = () => {
             .map((item) => item.trim())
             .filter(Boolean)
         : [];
+    
     const commonData = {
       selectedSystems: parseToArray(selectedSystems),
       selectedIndustryDashboards: parseToArray(selectedDashboards),
       selectedUniversalDashboards: [],
       additionalNotes,
     };
+    
     const selectedServices = [];
-    if (solutionType === "website" || solutionType === "both") {
-      selectedServices.push({
-        serviceType: "brand_identity_package",
-        price: tier ? (tier.minPrice + tier.maxPrice) / 2 : 0,
-        keywords: parseToArray(keywords),
-        ...commonData,
-      });
-    }
-    if (solutionType === "trinity" || solutionType === "both") {
-      let trinityPrice = trinitySelection ? trinitySelection.betaPrice : 0;
-      if (
-        hasPhysicalStore &&
-        (trinitySelectionId === "trinity-plus" || trinitySelectionId === "garo")
-      ) {
-        trinityPrice += 1600;
+    
+    // Create a service for each selected product
+    trinitySelections.forEach(id => {
+      const selection = ALL_TRINITY_OPTIONS.find(opt => opt.id === id);
+      if (selection) {
+        let price = selection.betaPrice;
+        
+        // Add store setup fee if needed
+        if (
+          hasPhysicalStore &&
+          (id === "trinity-plus" || id === "garo")
+        ) {
+          price += 1600;
+        }
+        
+        selectedServices.push({
+          serviceType: id,
+          price: price,
+          keywords: parseToArray(keywords),
+          ...commonData,
+        });
       }
-      selectedServices.push({
-        serviceType: "seo_optimization",
-        price: trinityPrice,
-        keywords: parseToArray(keywords),
-        ...commonData,
-      });
-    }
+    });
+    
     const total = calculateRunningTotal();
-    const isBundle = solutionType === "both" && trinitySelection && tier;
-    const finalPrice = isBundle ? Math.round(total * 0.9) : total;
+    const finalPrice = total;
     const payload = { name, email, totalPrice: finalPrice, selectedServices };
 
     try {
@@ -1523,9 +1074,7 @@ const StepWizard = () => {
   }, [
     name,
     email,
-    solutionType,
-    trinitySelectionId,
-    selectedTier,
+    trinitySelections,
     hasPhysicalStore,
     additionalNotes,
     keywords,
@@ -1536,193 +1085,65 @@ const StepWizard = () => {
   ]);
 
   const renderStepContent = () => {
-    const steps = getSteps();
-    const isReviewStep = steps.length > 1 && steps.length === currentStep;
-
-    if (isReviewStep && solutionType) {
-      return (
-        <MemoizedFinalSummary
-          {...{
-            selectedGoals,
-            trinitySelectionId,
-            selectedTier,
-            selectedIndustry,
-            solutionType,
-            hasPhysicalStore,
-            name,
-            setName,
-            email,
-            setEmail,
-            additionalNotes,
-            setAdditionalNotes,
-            keywords,
-            setKeywords,
-            selectedSystems,
-            setSelectedSystems,
-            selectedDashboards,
-            setSelectedDashboards,
-            prevStep,
-            handleCheckout,
-            isProcessing,
-            calculateRunningTotal,
-            setCurrentStep,
-            setHasPhysicalStore,
-          }}
-        />
-      );
-    }
-    switch (solutionType) {
-      case "trinity":
-        switch (currentStep) {
-          case 1:
-            return (
-              <MemoizedSolutionChoice
-                {...{
-                  solutionType,
-                  setSolutionType,
-                  nextStep,
-                  setTrinitySelectionId,
-                  setCurrentStep,
-                }}
-              />
-            );
-          case 2:
-            return (
-              <MemoizedTrinityPackages
-                {...{
-                  trinitySelectionId,
-                  setTrinitySelectionId,
-                  recommendations,
-                  nextStep,
-                  prevStep,
-                }}
-              />
-            );
-          case 3:
-            return (
-              <MemoizedStoreType
-                {...{
-                  trinitySelectionId,
-                  hasPhysicalStore,
-                  setHasPhysicalStore,
-                  nextStep,
-                  prevStep,
-                }}
-              />
-            );
-          default:
-            return null;
-        }
-      case "website":
-        switch (currentStep) {
-          case 1:
-            return (
-              <MemoizedSolutionChoice
-                {...{
-                  solutionType,
-                  setSolutionType,
-                  nextStep,
-                  setTrinitySelectionId,
-                  setCurrentStep,
-                }}
-              />
-            );
-          case 2:
-            return (
-              <MemoizedIndustryStep
-                {...{
-                  selectedIndustry,
-                  setSelectedIndustry,
-                  nextStep,
-                  prevStep,
-                }}
-              />
-            );
-          case 3:
-            return (
-              <MemoizedGoalsStep
-                {...{ selectedGoals, setSelectedGoals, nextStep, prevStep }}
-              />
-            );
-          case 4:
-            return (
-              <MemoizedPlatformTier
-                {...{
-                  selectedTier,
-                  setSelectedTier,
-                  recommendations,
-                  nextStep,
-                  prevStep,
-                }}
-              />
-            );
-          default:
-            return null;
-        }
-      case "both":
-        switch (currentStep) {
-          case 1:
-            return (
-              <MemoizedSolutionChoice
-                {...{
-                  solutionType,
-                  setSolutionType,
-                  nextStep,
-                  setTrinitySelectionId,
-                  setCurrentStep,
-                }}
-              />
-            );
-          case 2:
-            return (
-              <MemoizedIndustryStep
-                {...{
-                  selectedIndustry,
-                  setSelectedIndustry,
-                  nextStep,
-                  prevStep,
-                }}
-              />
-            );
-          case 3:
-            return (
-              <MemoizedTrinityPackages
-                {...{
-                  trinitySelectionId,
-                  setTrinitySelectionId,
-                  recommendations,
-                  nextStep,
-                  prevStep,
-                }}
-              />
-            );
-          case 4:
-            return (
-              <MemoizedPlatformTier
-                {...{
-                  selectedTier,
-                  setSelectedTier,
-                  recommendations,
-                  nextStep,
-                  prevStep,
-                }}
-              />
-            );
-          default:
-            return null;
-        }
-      default:
+    switch (currentStep) {
+      case 1:
         return (
           <MemoizedSolutionChoice
-            {...{
-              solutionType,
-              setSolutionType,
-              nextStep,
-              setTrinitySelectionId,
-              setCurrentStep,
-            }}
+            setSolutionType={setSolutionType}
+            setTrinitySelections={setTrinitySelections}
+            setCurrentStep={setCurrentStep}
           />
         );
+      case 2:
+        return (
+          <MemoizedTrinityPackages
+            trinitySelections={trinitySelections}
+            setTrinitySelections={setTrinitySelections}
+            nextStep={nextStep}
+            prevStep={prevStep}
+            setCurrentStep={setCurrentStep}
+          />
+        );
+      case 3:
+        return (
+          <MemoizedStoreType
+            trinitySelections={trinitySelections}
+            hasPhysicalStore={hasPhysicalStore}
+            setHasPhysicalStore={setHasPhysicalStore}
+            nextStep={nextStep}
+            prevStep={prevStep}
+            setCurrentStep={setCurrentStep}
+          />
+        );
+      case 4:
+        return (
+          <MemoizedFinalSummary
+            trinitySelections={trinitySelections}
+            selectedIndustry={selectedIndustry}
+            solutionType={solutionType}
+            hasPhysicalStore={hasPhysicalStore}
+            name={name}
+            setName={setName}
+            email={email}
+            setEmail={setEmail}
+            additionalNotes={additionalNotes}
+            setAdditionalNotes={setAdditionalNotes}
+            keywords={keywords}
+            setKeywords={setKeywords}
+            selectedSystems={selectedSystems}
+            setSelectedSystems={setSelectedSystems}
+            selectedDashboards={selectedDashboards}
+            setSelectedDashboards={setSelectedDashboards}
+            prevStep={prevStep}
+            handleCheckout={handleCheckout}
+            isProcessing={isProcessing}
+            calculateRunningTotal={calculateRunningTotal}
+            setCurrentStep={setCurrentStep}
+            setHasPhysicalStore={setHasPhysicalStore}
+          />
+        );
+      default:
+        return null;
     }
   };
 
@@ -1746,7 +1167,14 @@ const StepWizard = () => {
                 Digital Space
               </Box>
             </Typography>
-
+            <Typography
+              variant="h5"
+              color="text.secondary"
+              sx={{ maxWidth: "720px", mx: "auto" }}
+            >
+              Our goal is to help businesses thrive by providing innovative and
+              holistic solutions.
+            </Typography>
             <Button
               onClick={resetSelections}
               startIcon={<RefreshCw size={16} />}
