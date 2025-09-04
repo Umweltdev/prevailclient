@@ -75,11 +75,9 @@ const InputWrapper = styled("div")(
   }
 
   &.focused {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 32px rgba(110, 62, 244, 0.2);
-    
+    /* Removed transform and box-shadow changes when dropdown opens */
     &::before {
-      background: linear-gradient(135deg, #6E3EF4 0%, #9C6AFF 100%);
+      background: linear-gradient(135deg, rgba(110, 62, 244, 0.2) 0%, rgba(156, 106, 255, 0.2) 100%);
     }
   }
 
@@ -156,6 +154,7 @@ const StyledTag = styled(Tag)(
   &:hover {
     transform: translateY(-1px);
     box-shadow: 0 6px 16px rgba(110, 62, 244, 0.4);
+    background: linear-gradient(135deg, #5A2FD6 0%, #8B57E8 100%);
   }
 
   & span {
@@ -175,7 +174,7 @@ const StyledTag = styled(Tag)(
     transition: all 0.2s ease;
     
     &:hover {
-      background: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.4);
       transform: scale(1.1);
     }
   }
@@ -201,7 +200,7 @@ const Listbox = styled("ul")(
   right: 0;
 
   & li {
-    padding: 12px 16px;
+    padding: 14px 16px;
     display: flex;
     align-items: center;
     border-radius: 12px;
@@ -210,6 +209,7 @@ const Listbox = styled("ul")(
     font-weight: 500;
     color: #2D3748;
     cursor: pointer;
+    position: relative;
 
     & span {
       flex-grow: 1;
@@ -223,10 +223,11 @@ const Listbox = styled("ul")(
   }
 
   & li[aria-selected='true'] {
-    background: linear-gradient(135deg, rgba(110, 62, 244, 0.1) 0%, rgba(156, 106, 255, 0.1) 100%);
+    background: linear-gradient(135deg, rgba(110, 62, 244, 0.12) 0%, rgba(156, 106, 255, 0.12) 100%);
     color: #6E3EF4;
     font-weight: 600;
-    border: 1px solid rgba(110, 62, 244, 0.2);
+    border: 1px solid rgba(110, 62, 244, 0.25);
+    box-shadow: 0 4px 12px rgba(110, 62, 244, 0.1);
 
     & svg {
       color: #6E3EF4;
@@ -235,18 +236,32 @@ const Listbox = styled("ul")(
   }
 
   & li.${autocompleteClasses.focused} {
-    background: linear-gradient(135deg, rgba(110, 62, 244, 0.05) 0%, rgba(156, 106, 255, 0.05) 100%);
-    border: 1px solid rgba(110, 62, 244, 0.15);
+    background: linear-gradient(135deg, rgba(110, 62, 244, 0.08) 0%, rgba(156, 106, 255, 0.08) 100%);
+    border: 1px solid rgba(110, 62, 244, 0.2);
     transform: translateX(4px);
 
     & svg {
-      color: #6E3EF4;
+      color: #9C6AFF;
     }
   }
 
   & li:hover {
-    background: linear-gradient(135deg, rgba(110, 62, 244, 0.08) 0%, rgba(156, 106, 255, 0.08) 100%);
+    background: linear-gradient(135deg, rgba(110, 62, 244, 0.06) 0%, rgba(156, 106, 255, 0.06) 100%);
     transform: translateX(2px);
+    border: 1px solid rgba(110, 62, 244, 0.15);
+  }
+
+  /* Enhanced selection state for focused + selected */
+  & li[aria-selected='true'].${autocompleteClasses.focused} {
+    background: linear-gradient(135deg, rgba(110, 62, 244, 0.15) 0%, rgba(156, 106, 255, 0.15) 100%);
+    border: 1px solid rgba(110, 62, 244, 0.3);
+    box-shadow: 0 6px 16px rgba(110, 62, 244, 0.15);
+    transform: translateX(2px);
+
+    & svg {
+      color: #6E3EF4;
+      transform: scale(1.15);
+    }
   }
 `
 );
