@@ -33,6 +33,7 @@ import PricingSection from "./garo/_components/pricing-section.js";
 import BottomVillian from "./garo/_components/bottom-villian.js";
 import { NavBar } from "./components/ui/nav-bar.js";
 import AppBarNav from "../../Navbar/Appbar.jsx";
+import FooterNew from "../../Footer/FooterNew.jsx";
 
 const GAROLandingPage = () => {
   const [activeTab, setActiveTab] = useState("restaurants");
@@ -175,9 +176,7 @@ const GAROLandingPage = () => {
       `}</style>
       {/* Navigation */}
       <AppBarNav color="#000" />
-
       {/* <NavBar /> */}
-
       <div className="relative bg-gradient-to-b from-gray-50 to-indigo-10">
         {/* Blobs behind hero */}
         <BackgroundBlobs variant={1} />
@@ -193,22 +192,15 @@ const GAROLandingPage = () => {
 
         <PricingSection />
       </div>
-
       {/* Industry Solutions */}
-
       {/* Features Grid */}
-
       {/* Pricing Section - NEW (AFTER) */}
-
       {/* FAQ Section */}
-
       {/* Final CTA */}
-
       <BottomVillian />
-
       {/* Footer */}
       {/* Footer */}
-      <Footer />
+      <FooterNew />{" "}
     </div>
   );
 };

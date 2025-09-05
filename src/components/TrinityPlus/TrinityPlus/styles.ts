@@ -1543,6 +1543,8 @@ h2 {
 }
 
 .pricing-cards {
+  display: flex;
+  align-items: stretch; /* This makes all cards stretch to same height */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
@@ -2163,4 +2165,115 @@ h2 {
   }
 }
 
-`
+/* Enhanced Learn More button styles */
+.btn-secondary {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  color: #475569;
+  border: 2px solid rgba(102, 126, 234, 0.3);
+  border-radius: 50px;
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  z-index: 1;
+}
+
+.btn-secondary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-3px) scale(1.02);
+  color: white;
+  border-color: rgba(102, 126, 234, 0.5);
+  box-shadow: 0 12px 32px rgba(102, 126, 234, 0.3);
+}
+
+.btn-secondary:hover::before {
+  opacity: 1;
+}
+
+.btn-secondary:active {
+  transform: translateY(-1px) scale(1);
+}
+
+/* Add a subtle shine effect on hover */
+.btn-secondary::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+.btn-secondary:hover::after {
+  opacity: 1;
+  left: 100%;
+}
+
+/* Add animation to make it more attention-grabbing */
+@keyframes subtlePulse {
+  0%, 100% {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+  50% {
+    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.2);
+  }
+}
+
+.btn-secondary {
+  animation: subtlePulse 3s ease-in-out infinite;
+}
+
+/* Pricing card button spacing */
+.pricing-card .btn-secondary {
+  margin-bottom: 0.75rem;
+  width: 100%;
+}
+
+/* System card button spacing */
+.system-card .btn-secondary {
+  margin-top: 0.75rem;
+  width: 100%;
+}
+
+/* If you need specific styles for disabled state */
+.cta-button.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Ensure proper button hierarchy in pricing cards */
+.pricing-card .btn-secondary + .cta-button {
+  margin-top: 0;
+}
+
+
+`;

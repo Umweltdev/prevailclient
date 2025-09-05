@@ -40,7 +40,7 @@ const Hero = () => {
         </div>
 
         <h1>
-          <span className="gradient-text">Evolution + Intelligence</span>
+          <span className="gradient-text">Trinity Plus </span>
           <br />
           Next-Gen Business Systems
         </h1>

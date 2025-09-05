@@ -26,27 +26,7 @@ body {
   z-index: 0;
 }
 
-.grid-overlay {
-  position: fixed;
-  inset: 0;
-  background-image: linear-gradient(
-      rgba(56, 189, 248, 0.03) 1px,
-      transparent 1px
-    ),
-    linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
-  background-size: 50px 50px;
-  z-index: 1;
-  animation: gridMove 20s linear infinite;
-}
 
-@keyframes gridMove {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(50px, 50px);
-  }
-}
 
 @keyframes pulse {
   0%,
@@ -297,26 +277,7 @@ body {
 }
 
 /* Floating particles animation */
-nav::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(
-      circle at 20% 30%,
-      rgba(102, 126, 234, 0.03) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 80% 70%,
-      rgba(118, 75, 162, 0.03) 0%,
-      transparent 50%
-    );
-  animation: floatingParticles 20s ease-in-out infinite;
-  pointer-events: none;
-}
+
 
 @keyframes floatingParticles {
   0%,
@@ -383,19 +344,20 @@ nav::before {
 .pricing-alert {
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.95) 0%,
-    rgba(254, 249, 195, 0.8) 100%
+    rgba(236, 233, 252, 0.95) 0%,
+    rgba(221, 214, 254, 0.85) 100%
   );
   backdrop-filter: blur(20px);
-  border: 2px solid rgba(239, 68, 68, 0.2);
+  border: 2px solid rgba(139, 92, 246, 0.2); /* soft purple border */
   border-radius: 20px;
   padding: 24px;
   margin-bottom: 48px;
-  box-shadow: 0 20px 40px rgba(239, 68, 68, 0.15);
+  box-shadow: 0 20px 40px rgba(139, 92, 246, 0.15); /* soft purple shadow */
   animation: slideInFromTop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
   overflow: hidden;
 }
+
 
 .pricing-alert::before {
   content: "";
@@ -437,11 +399,13 @@ nav::before {
 }
 
 .pricing-alert > div:first-child {
-  color: #ef4444;
   font-weight: 600;
   margin-bottom: 0.5rem;
   font-size: 18px;
   animation: bounce 2s ease-in-out infinite;
+  background: linear-gradient(90deg, #7c3aed, #4f46e5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 @keyframes bounce {
@@ -508,9 +472,10 @@ nav::before {
 .countdown-value {
   font-size: 24px;
   font-weight: 700;
-  color: #ef4444;
+  color: #7c3aed; /* Violet-600 */
   line-height: 1;
 }
+
 
 .countdown-label {
   font-size: 12px;
@@ -1428,4 +1393,26 @@ h1 {
   margin-top: 75px;
 }
 
-`
+
+/* Add to your existing CSS */
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.9);
+  color: #475569;
+  border: 2px solid rgba(71, 85, 105, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 1);
+  border-color: rgba(102, 126, 234, 0.4);
+  color: #667eea;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+.price-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+`;

@@ -1,5 +1,5 @@
-"use client";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; // Add thi
 
 const systemsData = [
   {
@@ -17,6 +17,7 @@ const systemsData = [
     price: { beta: 232, early: 579, standard: 1739 },
     color: "#3b82f6",
     colorDark: "#2563eb",
+    route: "expense-manager", // Add this property
   },
   {
     id: "mcd",
@@ -33,6 +34,7 @@ const systemsData = [
     price: { beta: 232, early: 579, standard: 1739 },
     color: "#8b5cf6",
     colorDark: "#7c3aed",
+    route: "mcd", // Add this property
   },
   {
     id: "rcd",
@@ -49,10 +51,13 @@ const systemsData = [
     price: { beta: 232, early: 579, standard: 1739 },
     color: "#ec4899",
     colorDark: "#db2777",
+    route: "rcd", // Add this property
   },
 ];
 
 export default function SystemSection() {
+  const navigate = useNavigate(); // Add this hook
+
   const [countdown, setCountdown] = useState({
     days: "10",
     hours: "00",
@@ -60,6 +65,12 @@ export default function SystemSection() {
     seconds: "00",
   });
 
+const handleLearnMore = (systemId) => {
+  const system = systemsData.find((sys) => sys.id === systemId);
+  if (system) {
+    navigate(`/trinity/${system.route}`);
+  }
+};
   useEffect(() => {
     const betaEndDate = new Date();
     betaEndDate.setDate(betaEndDate.getDate() + 10);
@@ -100,11 +111,11 @@ export default function SystemSection() {
   // };
 
   const handleScroll = () => {
-      const target = document.querySelector('#wizard');
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    };
+    const target = document.querySelector("#wizard");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
     <section className="section section-alt section-space" id="systems">
@@ -153,9 +164,27 @@ export default function SystemSection() {
                   <span>Standard:</span>
                   <span>€{sys.price.standard}</span>
                 </div>
+
+                {/* Add Learn More button */}
+                <a
+                  href={`/trinity/${
+                    sys.id === "expense" ? "expense-manager" : sys.id
+                  }`}
+                  className="btn btn-secondary"
+                  style={{
+                    width: "100%",
+                    marginTop: "0.75rem",
+                    textDecoration: "none",
+                    display: "inline-block",
+                  }}
+                  onClick={() => handleLearnMore(sys.id)}
+                >
+                  Learn More
+                </a>
+
                 <button
                   className="btn btn-primary"
-                  style={{ width: "100%", marginTop: "1rem" }}
+                  style={{ width: "100%", marginTop: "0.75rem" }}
                   onClick={() => handleScroll()}
                 >
                   Get {sys.title} - €{sys.price.beta}

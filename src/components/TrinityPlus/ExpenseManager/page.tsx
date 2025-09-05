@@ -11,6 +11,7 @@ import CTA from "./_components/CTA.js";
 import Footer from "./_components/Footer.js";
 import FloatingBlobs from "./_components/FloatingBlob.js";
 import AppBarNav from "../../Navbar/Appbar.jsx";
+import FooterNew from "../../Footer/FooterNew.jsx";
 
 const ExpenseManagerPage = () => {
   return (
@@ -47,7 +48,7 @@ const ExpenseManagerPage = () => {
       {/* <CTA /> */}
 
       {/* Footer */}
-      <Footer />
+      <FooterNew />
       {/* </div> */}
       {/* Floationg Blogs */}
       <FloatingBlobs />

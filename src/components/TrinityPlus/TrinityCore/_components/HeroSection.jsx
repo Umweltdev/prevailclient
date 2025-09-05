@@ -174,7 +174,7 @@ export default function HeroSection() {
         <h1>
           Three Intelligent Systems for
           <br />
-          <span className="gradient-text">Unstoppable Business</span>
+          <span className="gradient-text">Trinity Core System</span>
         </h1>
 
         <p>
