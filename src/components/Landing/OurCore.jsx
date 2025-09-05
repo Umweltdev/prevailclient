@@ -42,7 +42,7 @@ const services = [
   description:
     "Drive engagement with content-driven ad campaigns tailored to your audience. We blend storytelling, creativity, and data insights to deliver campaigns that boost visibility, strengthen brand identity, and maximize ROI.",
   icon: <SearchIcon />,
-  link: "/service/conten-ad-campaign",
+  link: "/service/custom-ad-campaign",
   color: "#FF8A65",
   gradient: "linear-gradient(135deg, #FF8A65 0%, #FFB199 100%)",
   category: "Marketing",
@@ -52,7 +52,7 @@ const services = [
   description:
     "The Trinity System unites strategy, creativity, and technology into a powerful growth engine. By integrating marketing efforts, data-driven insights, and digital tools, we help businesses achieve consistency, scalability, and lasting impact in the digital landscape.",
   icon: <APIIcon />,
-  link: "/service/trinity-plus",
+  link: "/trinity",
   color: "#6C63FF",
   gradient: "linear-gradient(135deg, #6C63FF 0%, #9C9BFF 100%)",
   category: "Technology",

@@ -90,7 +90,7 @@ const MainPage = () => {
           alt="Trinity System"
           textHeader={"Trinity System"}
           text="The Trinity System integrates strategy, creativity, and technology into one powerful solution. We help your business achieve consistent growth by aligning marketing efforts, data insights, and digital tools into a unified system."
-          url="/service/trinity-plus"
+          url="/trinity"
         />
         <ImageTextService
           imageUrl="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720088569/Website-Development_gxpjci.avif"
@@ -111,7 +111,7 @@ const MainPage = () => {
           alt="Content Ad Campaign"
           textHeader={"Content Ad Campaign"}
           text="Drive customer engagement with tailored content-driven ad campaigns. We craft compelling stories and visuals that resonate with your audience, helping your brand stand out while maximizing ad performance and ROI."
-          url="/service/conten-ad-campaign"
+          url="/service/custom-ad-campaign"
         />
         <TextImageService
           imageUrl="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720088562/Digital-Accelerator_p0j4ty.avif"
