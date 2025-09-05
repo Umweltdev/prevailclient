@@ -13,6 +13,8 @@ import HeroSection from "./_components/HeroSection.jsx";
 import SystemsSection from "./_components/SystemsSection.jsx";
 import CtaSection from "./_components/CTASection.jsx";
 import TrinityStepWizard from "../StepWizardPage.js";
+import StepWizard from "../StepWizardComponent.js";
+
 
 const TrinityCore = () => {
   const [activeTab, setActiveTab] = useState("restaurants");
@@ -157,7 +159,7 @@ const TrinityCore = () => {
         {/* <FloatingElements /> */}
         <HeroSection />
         <SystemsSection />
-        <TrinityStepWizard />
+        <StepWizard />
 
         {/* Page Sections */}
         {/* <Hero />

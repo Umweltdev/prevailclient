@@ -2,7 +2,6 @@ import { Helmet } from "react-helmet";
 import AppBarNav from "../Navbar/Appbar.jsx";
 import FooterNew from "../Footer/FooterNew.jsx";
 import SmoothScrollUp from "../utils/SmoothScrollUp.jsx";
-import StepWizard from "./StepWizardComponent.js";
 import CtaSection from "./TrinityCore/_components/CTASection.jsx";
 // import StepWizard from "../stepWizard/StepWizard.jsx";
 
@@ -20,7 +19,7 @@ const TrinityStepWizard = () => {
       <AppBarNav color="#000" />
 
       {/* <StepWizardComponent /> */}
-      <StepWizard />
+      {/* <StepWizard /> */}
 
       <SmoothScrollUp />
 

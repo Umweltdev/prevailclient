@@ -37,26 +37,27 @@ const services = [
     gradient: "linear-gradient(135deg, #4ECDC4 0%, #6FDDDD 100%)",
     category: "Development",
   },
-  {
-    title: "Search Engine Marketing",
-    description:
-      "We offer more than just exposure; our holistic approach includes targeted advertising, refined SEO practices, and ongoing optimization to ensure you capture and keep the attention of your ideal audience.",
-    icon: <SearchIcon />,
-    link: "/service/search-engine-marketing",
-    color: "#45B7D1",
-    gradient: "linear-gradient(135deg, #45B7D1 0%, #6BC8E8 100%)",
-    category: "Marketing",
-  },
-  {
-    title: "Marketing Price Displacement API",
-    description:
-      "Our 'Marketing Price Displacement (MPD)' API transforms how you allocate your marketing budget. This tool isn't just about spending; it's about investing smartly through dynamic pricing and yield management, giving you control over your financial strategies and boosting your marketing efficiency.",
-    icon: <APIIcon />,
-    link: "/service/marketing-pricing-displacement",
-    color: "#96CEB4",
-    gradient: "linear-gradient(135deg, #96CEB4 0%, #B4E4C8 100%)",
-    category: "Technology",
-  },
+{
+  title: "Content Ad Campaign",
+  description:
+    "Drive engagement with content-driven ad campaigns tailored to your audience. We blend storytelling, creativity, and data insights to deliver campaigns that boost visibility, strengthen brand identity, and maximize ROI.",
+  icon: <SearchIcon />,
+  link: "/service/conten-ad-campaign",
+  color: "#FF8A65",
+  gradient: "linear-gradient(135deg, #FF8A65 0%, #FFB199 100%)",
+  category: "Marketing",
+},
+{
+  title: "Trinity System",
+  description:
+    "The Trinity System unites strategy, creativity, and technology into a powerful growth engine. By integrating marketing efforts, data-driven insights, and digital tools, we help businesses achieve consistency, scalability, and lasting impact in the digital landscape.",
+  icon: <APIIcon />,
+  link: "/service/trinity-plus",
+  color: "#6C63FF",
+  gradient: "linear-gradient(135deg, #6C63FF 0%, #9C9BFF 100%)",
+  category: "Technology",
+},
+
 ];
 
 const ServiceCard = styled("div")(({ theme, serviceColor, serviceGradient }) => ({
