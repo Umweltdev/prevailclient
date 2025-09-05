@@ -4,6 +4,7 @@ import TextImageService from "./TextImageService";
 import { useInView } from "react-intersection-observer";
 import styles from "../About/assets/about.module.css"
 import ServiceSelector from "./ServiceSelector.jsx";
+import StepWizard from "../stepWizard/StepWizard.jsx";
 
 const MainPage = () => {
   
@@ -134,7 +135,7 @@ const MainPage = () => {
           text="Our "
           url="/service/stepWizardPage"
         /> */}
-        <ServiceSelector />
+        <StepWizard />
       </Box>
     </Grid>
   );
