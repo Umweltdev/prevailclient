@@ -43,7 +43,6 @@ const WebDevWizardPage = React.lazy(() => import("./pages/WebDevWizardPage"));
 const WebManagement = React.lazy(() =>
   import("./components/Services/WebManagement/WebManagement")
 );
-const Sem = React.lazy(() => import("./components/Services/Sem/Sem"));
 const Mpd = React.lazy(() => import("./components/Services/Mpd/Mpd"));
 const DigitalAccelerator = React.lazy(() =>
   import("./components/Services/DigitalAccelerator/DigitalAccelerator")
@@ -140,10 +139,6 @@ function App() {
               <Route
                 path="/service/stepWizardPage"
                 element={<StepWizardPage />}
-              />
-              <Route
-                path="/service/search-engine-marketing"
-                element={<Sem />}
               />
               <Route
                 path="/service/marketing-pricing-displacement"

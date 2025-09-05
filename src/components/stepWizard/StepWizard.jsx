@@ -1494,32 +1494,32 @@ const StepWizard = () => {
     return ["Solution Type"];
   }, [solutionType]);
 
-  const nextStep = useCallback(() => {
-    const steps = getSteps();
-    if (currentStep < steps.length) {
-      let nextStepNum = currentStep + 1;
-      const needsStoreInfo =
-        trinitySelectionId === "trinity-plus" || trinitySelectionId === "garo";
-      if (solutionType === "trinity" && nextStepNum === 4 && !needsStoreInfo) {
-        nextStepNum++;
-      }
-      setCurrentStep(nextStepNum);
-      window.scrollTo(0, 0);
+const nextStep = useCallback(() => {
+  const steps = getSteps();
+  if (currentStep < steps.length) {
+    let nextStepNum = currentStep + 1;
+    const needsStoreInfo =
+      trinitySelectionId === "trinity-plus" || trinitySelectionId === "garo";
+    if (solutionType === "trinity" && nextStepNum === 4 && !needsStoreInfo) {
+      nextStepNum++;
     }
-  }, [currentStep, getSteps, solutionType, trinitySelectionId]);
+    setCurrentStep(nextStepNum);
+    // Remove: window.scrollTo(0, 0);
+  }
+}, [currentStep, getSteps, solutionType, trinitySelectionId]);
 
-  const prevStep = useCallback(() => {
-    if (currentStep > 1) {
-      let prevStepNum = currentStep - 1;
-      const needsStoreInfo =
-        trinitySelectionId === "trinity-plus" || trinitySelectionId === "garo";
-      if (solutionType === "trinity" && prevStepNum === 4 && !needsStoreInfo) {
-        prevStepNum--;
-      }
-      setCurrentStep(prevStepNum);
-      window.scrollTo(0, 0);
+const prevStep = useCallback(() => {
+  if (currentStep > 1) {
+    let prevStepNum = currentStep - 1;
+    const needsStoreInfo =
+      trinitySelectionId === "trinity-plus" || trinitySelectionId === "garo";
+    if (solutionType === "trinity" && prevStepNum === 4 && !needsStoreInfo) {
+      prevStepNum--;
     }
-  }, [currentStep, solutionType, trinitySelectionId]);
+    setCurrentStep(prevStepNum);
+    // Remove: window.scrollTo(0, 0);
+  }
+}, [currentStep, solutionType, trinitySelectionId]);
 
   const resetSelections = useCallback(() => {
     setCurrentStep(1);

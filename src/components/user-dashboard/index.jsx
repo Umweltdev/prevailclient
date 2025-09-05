@@ -13,7 +13,6 @@ import Addresses from "./Addresses";
 import Address from "./Address";
 import EditProfile from "./Edit-Profile";
 import SavedProperties from "./SavedProperties";
-import Invoice from "./Invoice";
 import Question from "./Question";
 
 

@@ -153,6 +153,7 @@ const ConsentBar = () => {
         borderRadius: 5,
         mb: 2,
         opacity: 0.98,
+        zIndex: 9999, // High z-index to ensure it appears above other elements
       }}
     >
       <Typography variant="h5">
@@ -247,6 +248,7 @@ const ConsentBar = () => {
             borderRadius: 2,
             boxShadow: 24,
             width: { xs: "90vw", md: "50vw" },
+            zIndex: 10000, // Even higher z-index for the modal
             "@media (max-width: 767px)": {
               overflowY: "scroll",
               maxHeight: "90vh",
@@ -269,19 +271,3 @@ const ConsentBar = () => {
 };
 
 export default ConsentBar;
-
-// Technology: Local storage
-// Cookie name : user_consent
-// Contnt: {Personalization: true, Analytics: true, Optimization: true, Enhancement: true}
-// Analytics
-// :
-// true
-// Enhancement
-// :
-// true
-// Optimization
-// :
-// true
-// Personalization
-// :
-// true
