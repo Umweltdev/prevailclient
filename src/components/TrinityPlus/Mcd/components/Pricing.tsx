@@ -38,6 +38,19 @@ function Pricing({ visibleSections }) {
               clickable: true, // ✅ Only Beta is clickable
             },
             {
+              name: "Early",
+              price: "€579",
+              features: [
+                "Unlimited revenue",
+                "Custom integration",
+                "Dedicated success manager",
+                "SLA guarantee",
+                "API access",
+              ],
+              featured: false,
+              clickable: false,
+            },
+            {
               name: "Standard",
               price: "€1,739",
               features: [
@@ -51,19 +64,6 @@ function Pricing({ visibleSections }) {
               featured: true,
               clickable: false,
             },
-            {
-              name: "Early",
-              price: "€579",
-              features: [
-                "Unlimited revenue",
-                "Custom integration",
-                "Dedicated success manager",
-                "SLA guarantee",
-                "API access",
-              ],
-              featured: false,
-              clickable: false,
-            },
           ].map((plan, idx) => (
             <div
               key={idx}
@@ -75,7 +75,7 @@ function Pricing({ visibleSections }) {
             >
               {plan.featured && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
-                  MOST POPULAR
+                  Current Price
                 </div>
               )}
 
@@ -103,7 +103,7 @@ function Pricing({ visibleSections }) {
                     : "bg-gray-200 text-gray-500 cursor-not-allowed"
                 }`}
               >
-                Get Package
+                Book a Consultation
               </button>
             </div>
           ))}

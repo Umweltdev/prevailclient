@@ -35,7 +35,7 @@ const PricingCard: React.FC<Pricing> = ({
       {popular && (
         <div className="absolute animate-bounce top-2 left-1/2 transform -translate-x-1/2">
           <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-1 rounded-full text-sm font-medium">
-            Most Popular
+            Current Price
           </span>
         </div>
       )}

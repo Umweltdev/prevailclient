@@ -12,6 +12,7 @@ import CTA from "./_components/CTA.js";
 import Footer from "./_components/Footer.js";
 import FloatingBlobs from "./_components/FloatingBlob.js";
 import AppBarNav from "../../Navbar/Appbar.jsx";
+import FooterNew from "../../Footer/FooterNew.jsx";
 
 // Main Landing Page Component
 function AEDLandingPage() {
@@ -37,7 +38,7 @@ function AEDLandingPage() {
       {/* CTA Section */}
       <CTA />
       {/* Footer */}
-      <Footer />
+      <FooterNew />
       {/* Floating Blob */}
       {/* <FloatingBlobs /> */}
     </div>

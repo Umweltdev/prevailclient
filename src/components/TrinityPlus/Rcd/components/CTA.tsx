@@ -23,11 +23,11 @@ export default function CTA() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
             <Button onClick={()=> navigate('/trinity/plus#wizard')} size="lg" className="text-xl px-12 py-6">
-              Activate Complete System Now
+              Book a Consultation
             </Button>
-            <Button variant="secondary" size="lg" className="text-xl px-12 py-6">
+            {/* <Button variant="secondary" size="lg" className="text-xl px-12 py-6">
               See Interactive Demo
-            </Button>
+            </Button> */}
           </div>
         </GlassCard>
       </div>

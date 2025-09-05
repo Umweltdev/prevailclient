@@ -28,7 +28,7 @@ function PricingCard({
       {featured && (
         <div className="absolute -top-12 left-1/2 -translate-x-1/2">
           <FloatingBadge className="animate-pulse">
-            ✨ MOST POPULAR ✨
+            ✨ Current Price ✨
           </FloatingBadge>
         </div>
       )}
@@ -57,7 +57,7 @@ function PricingCard({
         size="lg"
         className="w-full"
       >
-        Book a Spot
+        Book a Consultation
       </Button>
     </GlassCard>
   );
