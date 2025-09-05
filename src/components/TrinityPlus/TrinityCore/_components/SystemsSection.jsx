@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"; // Add thi
+import { Link, useNavigate } from "react-router-dom"; // Add thi
 
 const systemsData = [
   {
@@ -166,8 +166,8 @@ const handleLearnMore = (systemId) => {
                 </div>
 
                 {/* Add Learn More button */}
-                <a
-                  href={`/trinity/${
+                <Link
+                  to={`/trinity/${
                     sys.id === "expense" ? "expense-manager" : sys.id
                   }`}
                   className="btn btn-secondary"
@@ -180,7 +180,7 @@ const handleLearnMore = (systemId) => {
                   onClick={() => handleLearnMore(sys.id)}
                 >
                   Learn More
-                </a>
+                </Link>
 
                 <button
                   className="btn btn-primary"

@@ -1,3 +1,4 @@
+export const styles = `
 @import "tailwindcss";
 @keyframes float {
     0%, 100% { transform: translate(0, 0) scale(1); }
@@ -109,3 +110,4 @@
                 0 0 30px rgba(59, 130, 246, 0.1),
                 0 0 60px rgba(59, 130, 246, 0.05);
 }
+`
