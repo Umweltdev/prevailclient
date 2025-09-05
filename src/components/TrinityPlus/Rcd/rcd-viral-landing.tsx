@@ -1,4 +1,5 @@
 import FAQ from "../../About/FAQ.jsx";
+import FooterNew from "../../Footer/FooterNew.jsx";
 import AppBarNav from "../../Navbar/Appbar.jsx";
 import CTA from "./components/CTA.js";
 import Features from "./components/Features.js";
@@ -25,14 +26,8 @@ export default function RcdLanding() {
       <Pricing />
       <FAQ />
       <CTA />
-      
-      <footer className="py-16 text-center">
-        <GlassCard className="mx-auto max-w-md p-8">
-          <p className="text-slate-600 font-medium">
-            © {new Date().getFullYear()} RCD. All rights reserved.
-          </p>
-        </GlassCard>
-      </footer>
+
+      <FooterNew />
     </div>
   );
 }

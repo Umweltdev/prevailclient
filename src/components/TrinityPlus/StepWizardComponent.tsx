@@ -262,13 +262,17 @@ SelectableCard.propTypes = {
   sx: PropTypes.object,
 };
 
-const SolutionChoice = ({ setSolutionType, setTrinitySelections, setCurrentStep }) => {
+const SolutionChoice = ({
+  setSolutionType,
+  setTrinitySelections,
+  setCurrentStep,
+}) => {
   const [selected, setSelected] = useState(null);
-  
+
   const handleSelection = (index, solution) => {
     setSelected(index);
     setSolutionType(solution.id);
-    
+
     if (solution.id === "trinity") {
       // For standalone modules, show individual packages
       setTrinitySelections([]);
@@ -283,7 +287,7 @@ const SolutionChoice = ({ setSolutionType, setTrinitySelections, setCurrentStep 
       setCurrentStep(3);
     }
   };
-  
+
   return (
     <Fade in timeout={500}>
       <Box>
@@ -352,22 +356,24 @@ const TrinityPackages = ({
   prevStep,
   setCurrentStep,
 }) => {
-  const individualOptions = ALL_TRINITY_OPTIONS.filter(opt => opt.type === "individual");
-  
+  const individualOptions = ALL_TRINITY_OPTIONS.filter(
+    (opt) => opt.type === "individual"
+  );
+
   const handleSelection = (optionId) => {
-    setTrinitySelections(prev => {
+    setTrinitySelections((prev) => {
       if (prev.includes(optionId)) {
         // Remove if already selected
-        return prev.filter(id => id !== optionId);
+        return prev.filter((id) => id !== optionId);
       } else {
         // Add to selections
         return [...prev, optionId];
       }
     });
   };
-  
+
   const hasGaro = trinitySelections.includes("garo");
-  
+
   return (
     <Fade in timeout={500}>
       <Box>
@@ -384,8 +390,8 @@ const TrinityPackages = ({
           </Box>
         </Typography>
         <Typography variant="body1" sx={{ mb: 2 }}>
-          Select individual systems. Beta pricing ends in{" "}
-          {betaDaysRemaining} days!
+          Select individual systems. Beta pricing ends in {betaDaysRemaining}{" "}
+          days!
         </Typography>
         <Chip
           label={`🔥 BETA PRICING: ${betaDaysRemaining} Days Remaining`}
@@ -399,12 +405,14 @@ const TrinityPackages = ({
                 selected={trinitySelections.includes(option.id)}
                 onClick={() => handleSelection(option.id)}
               >
-                <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 1 }}>
+                <Box
+                  sx={{ display: "flex", justifyContent: "flex-end", mb: 1 }}
+                >
                   {trinitySelections.includes(option.id) && (
                     <Check size={20} color={theme.palette.success.main} />
                   )}
                 </Box>
-                
+
                 <Grid container spacing={2}>
                   <Grid item xs={2} sm={1}>
                     <Typography variant="h4">{option.icon}</Typography>
@@ -511,17 +519,19 @@ const StoreType = ({
   prevStep,
   setCurrentStep,
 }) => {
-  const needsStoreInfo = trinitySelections.includes("trinity-plus") || trinitySelections.includes("garo");
-  
+  const needsStoreInfo =
+    trinitySelections.includes("trinity-plus") ||
+    trinitySelections.includes("garo");
+
   useEffect(() => {
     if (!needsStoreInfo) nextStep();
   }, [needsStoreInfo, nextStep]);
-  
+
   if (!needsStoreInfo) return null;
 
   // Calculate base price for all selected items that might need store setup
   const basePrice = trinitySelections.reduce((total, id) => {
-    const selection = ALL_TRINITY_OPTIONS.find(opt => opt.id === id);
+    const selection = ALL_TRINITY_OPTIONS.find((opt) => opt.id === id);
     return total + (selection ? selection.betaPrice : 0);
   }, 0);
 
@@ -641,16 +651,18 @@ const FinalSummary = ({
   selectedDashboards,
   setSelectedDashboards,
   handleCheckout,
-  isProcessing,
+  handleConsultationCheckout,
+  isCheckoutProcessing, // Changed from isProcessing
+  isConsultationProcessing, // Added this prop
   calculateRunningTotal,
   setCurrentStep,
-  setHasPhysicalStore
+  setHasPhysicalStore,
 }) => {
   // Get all selected trinity options
-  const selectedTrinityOptions = ALL_TRINITY_OPTIONS.filter(opt => 
+  const selectedTrinityOptions = ALL_TRINITY_OPTIONS.filter((opt) =>
     trinitySelections.includes(opt.id)
   );
-  
+
   const industrySelection = industries.find((i) => i.id === selectedIndustry);
 
   const total = calculateRunningTotal();
@@ -660,7 +672,7 @@ const FinalSummary = ({
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(value);
   };
-  
+
   return (
     <Fade in timeout={500}>
       <Grid container spacing={4}>
@@ -761,8 +773,11 @@ const FinalSummary = ({
                   <Box display="flex" justifyContent="space-between">
                     <Typography variant="subtitle2">Solution:</Typography>
                     <Typography variant="subtitle1" textTransform="capitalize">
-                      {solutionType === "trinity" ? "Trinity Standalone Modules" : 
-                       solutionType === "trinity-core" ? "Trinity Core" : "Trinity Plus"}
+                      {solutionType === "trinity"
+                        ? "Trinity Standalone Modules"
+                        : solutionType === "trinity-core"
+                        ? "Trinity Core"
+                        : "Trinity Plus"}
                     </Typography>
                   </Box>
                 )}
@@ -774,24 +789,31 @@ const FinalSummary = ({
                     </Typography>
                   </Box>
                 )}
-                
+
                 {/* Display all selected products */}
-                {selectedTrinityOptions.map(option => (
-                  <Box key={option.id} display="flex" justifyContent="space-between" mb={1}>
+                {selectedTrinityOptions.map((option) => (
+                  <Box
+                    key={option.id}
+                    display="flex"
+                    justifyContent="space-between"
+                    mb={1}
+                  >
                     <Typography variant="subtitle2">{option.name}:</Typography>
                     <Typography variant="subtitle1">
                       £{option.betaPrice.toLocaleString()}
                     </Typography>
                   </Box>
                 ))}
-                
+
                 {hasPhysicalStore !== null &&
                   (trinitySelections.includes("trinity-plus") ||
                     trinitySelections.includes("garo")) && (
                     <Box display="flex" justifyContent="space-between">
                       <Typography variant="subtitle2">Store Type:</Typography>
                       <Typography variant="subtitle1">
-                        {hasPhysicalStore ? "Physical Store" : "E-commerce Only"}
+                        {hasPhysicalStore
+                          ? "Physical Store"
+                          : "E-commerce Only"}
                       </Typography>
                     </Box>
                   )}
@@ -823,20 +845,60 @@ const FinalSummary = ({
                   variant="contained"
                   fullWidth
                   onClick={handleCheckout}
-                  disabled={isProcessing || !name || !email || !validateEmail(email)}
+                  disabled={
+                    isCheckoutProcessing ||
+                    !name ||
+                    !email ||
+                    !validateEmail(email)
+                  }
                   startIcon={
-                    isProcessing ? (
+                    isCheckoutProcessing ? (
                       <CircularProgress size={20} color="inherit" />
                     ) : null
                   }
                 >
-                  {isProcessing ? "Processing..." : "Proceed to Checkout"}
+                  {isCheckoutProcessing
+                    ? "Processing..."
+                    : "Proceed to Checkout"}
+                </Button>
+
+                {/* Add this new button */}
+                <Button
+                  variant="outlined"
+                  fullWidth
+                  onClick={handleConsultationCheckout}
+                  disabled={
+                    isConsultationProcessing ||
+                    !name ||
+                    !email ||
+                    !validateEmail(email)
+                  }
+                  startIcon={
+                    isConsultationProcessing ? (
+                      <CircularProgress size={20} color="inherit" />
+                    ) : null
+                  }
+                  sx={{
+                    borderColor: "#3B82F6",
+                    color: "#3B82F6",
+                    "&:hover": {
+                      borderColor: "#2563EB",
+                      backgroundColor: "rgba(59, 130, 246, 0.04)",
+                    },
+                  }}
+                >
+                  {isConsultationProcessing
+                    ? "Processing..."
+                    : "Book a Consultation €83"}
                 </Button>
                 <Button
                   variant="outlined"
                   fullWidth
                   onClick={() => {
-                    if (trinitySelections.includes("garo") || trinitySelections.includes("trinity-plus")) {
+                    if (
+                      trinitySelections.includes("garo") ||
+                      trinitySelections.includes("trinity-plus")
+                    ) {
                       setHasPhysicalStore(null);
                       setCurrentStep(3); // Go back to StoreType
                     } else if (solutionType === "trinity") {
@@ -863,6 +925,9 @@ FinalSummary.propTypes = {
   solutionType: PropTypes.string,
   hasPhysicalStore: PropTypes.bool,
   name: PropTypes.string,
+  handleConsultationCheckout: PropTypes.func.isRequired,
+  isCheckoutProcessing: PropTypes.bool, // Replace isProcessing
+  isConsultationProcessing: PropTypes.bool, // Add this
   setName: PropTypes.func,
   email: PropTypes.string,
   setEmail: PropTypes.func,
@@ -876,7 +941,6 @@ FinalSummary.propTypes = {
   setSelectedDashboards: PropTypes.func,
   prevStep: PropTypes.func,
   handleCheckout: PropTypes.func,
-  isProcessing: PropTypes.bool,
   calculateRunningTotal: PropTypes.func,
   setCurrentStep: PropTypes.func,
   setHasPhysicalStore: PropTypes.func,
@@ -894,12 +958,19 @@ const StepWizard = () => {
   const [showToast, setShowToast] = useState(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [isProcessing, setIsProcessing] = useState(false);
   const [additionalNotes, setAdditionalNotes] = useState("");
   const [keywords, setKeywords] = useState("");
   const [selectedSystems, setSelectedSystems] = useState("");
   const [selectedDashboards, setSelectedDashboards] = useState("");
 
+  const [isCheckoutProcessing, setIsCheckoutProcessing] = useState(false);
+  const [isConsultationProcessing, setIsConsultationProcessing] =
+    useState(false);
+
+  const validateEmail = (value) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(value);
+  };
   useEffect(() => {
     const savedState = localStorage.getItem("quoteBuilderState");
     if (savedState) {
@@ -931,23 +1002,20 @@ const StepWizard = () => {
 
   const calculateRunningTotal = useCallback(() => {
     let total = 0;
-    
+
     // Add up all selected trinity options
-    trinitySelections.forEach(id => {
-      const selection = ALL_TRINITY_OPTIONS.find(opt => opt.id === id);
+    trinitySelections.forEach((id) => {
+      const selection = ALL_TRINITY_OPTIONS.find((opt) => opt.id === id);
       if (selection) {
         total += selection.betaPrice;
-        
+
         // Add store setup fee if needed
-        if (
-          hasPhysicalStore &&
-          (id === "trinity-plus" || id === "garo")
-        ) {
+        if (hasPhysicalStore && (id === "trinity-plus" || id === "garo")) {
           total += 1600;
         }
       }
     });
-    
+
     return Math.round(total);
   }, [trinitySelections, hasPhysicalStore]);
 
@@ -998,8 +1066,8 @@ const StepWizard = () => {
       showToastMessage("Error: Please enter your name and email to proceed.");
       return;
     }
-    setIsProcessing(true);
-    
+    setIsCheckoutProcessing(true);
+
     const parseToArray = (str) =>
       str
         ? str
@@ -1007,30 +1075,27 @@ const StepWizard = () => {
             .map((item) => item.trim())
             .filter(Boolean)
         : [];
-    
+
     const commonData = {
       selectedSystems: parseToArray(selectedSystems),
       selectedIndustryDashboards: parseToArray(selectedDashboards),
       selectedUniversalDashboards: [],
       additionalNotes,
     };
-    
+
     const selectedServices = [];
-    
+
     // Create a service for each selected product
-    trinitySelections.forEach(id => {
-      const selection = ALL_TRINITY_OPTIONS.find(opt => opt.id === id);
+    trinitySelections.forEach((id) => {
+      const selection = ALL_TRINITY_OPTIONS.find((opt) => opt.id === id);
       if (selection) {
         let price = selection.betaPrice;
-        
+
         // Add store setup fee if needed
-        if (
-          hasPhysicalStore &&
-          (id === "trinity-plus" || id === "garo")
-        ) {
+        if (hasPhysicalStore && (id === "trinity-plus" || id === "garo")) {
           price += 1600;
         }
-        
+
         selectedServices.push({
           serviceType: id,
           price: price,
@@ -1039,7 +1104,7 @@ const StepWizard = () => {
         });
       }
     });
-    
+
     const total = calculateRunningTotal();
     const finalPrice = total;
     const payload = { name, email, totalPrice: finalPrice, selectedServices };
@@ -1069,7 +1134,7 @@ const StepWizard = () => {
     } catch (error) {
       showToastMessage(`Error: ${error.message ?? "Unknown error"}`);
     } finally {
-      setIsProcessing(false);
+      setIsCheckoutProcessing(false);
     }
   }, [
     name,
@@ -1083,6 +1148,71 @@ const StepWizard = () => {
     calculateRunningTotal,
     showToastMessage,
   ]);
+
+  const handleConsultationCheckout = useCallback(async () => {
+    if (!name || !email) {
+      showToastMessage("Error: Please enter your name and email to proceed.");
+      return;
+    }
+    if (!validateEmail(email)) {
+      showToastMessage("Error: Please enter a valid email.");
+      return;
+    }
+
+    setIsConsultationProcessing(true);
+
+    try {
+      const payload = {
+        name,
+        email,
+        consultation: true,
+        price: 83, // fixed consultation fee in EUR
+        // You might want to include other data that your backend expects
+        selectedServices: [
+          {
+            serviceType: "consultation",
+            price: 83,
+            keywords: [],
+            selectedSystems: [],
+            selectedIndustryDashboards: [],
+            selectedUniversalDashboards: [],
+            additionalNotes: additionalNotes,
+          },
+        ],
+        totalPrice: 83,
+      };
+
+      const response = await fetch(
+        "https://prevail-services-e973123f8b1e.herokuapp.com/api/create-multiple-checkout-session",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(
+          errorData.message || "Failed to create consultation session."
+        );
+      }
+
+      const session = await response.json();
+      const stripe = await stripePromise;
+      if (!stripe) throw new Error("Stripe.js has not loaded yet.");
+
+      const { error } = await stripe.redirectToCheckout({
+        sessionId: session.id,
+      });
+      if (error) throw new Error(error.message);
+    } catch (error) {
+      showToastMessage(`Error: ${error.message ?? "Unknown error"}`);
+    } finally {
+      setIsConsultationProcessing(false);
+    }
+  }, [name, email, additionalNotes, showToastMessage]);
+  
 
   const renderStepContent = () => {
     switch (currentStep) {
@@ -1136,7 +1266,9 @@ const StepWizard = () => {
             setSelectedDashboards={setSelectedDashboards}
             prevStep={prevStep}
             handleCheckout={handleCheckout}
-            isProcessing={isProcessing}
+            handleConsultationCheckout={handleConsultationCheckout} // Add this line
+            isCheckoutProcessing={isCheckoutProcessing} // Replace isProcessing with isCheckoutProcessing
+            isConsultationProcessing={isConsultationProcessing} // Add this new prop
             calculateRunningTotal={calculateRunningTotal}
             setCurrentStep={setCurrentStep}
             setHasPhysicalStore={setHasPhysicalStore}

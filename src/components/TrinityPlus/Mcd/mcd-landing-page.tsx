@@ -12,6 +12,7 @@ import Problem from './components/Problem.js';
 import Hero from './components/Hero.js';
 import Nav from './components/Nav.js';
 import AppBarNav from '../../Navbar/Appbar.jsx';
+import FooterNew from '../../Footer/FooterNew.jsx';
 
 // Simulation Component
 
@@ -75,7 +76,7 @@ const MCDLandingPage = () => {
       <SimulationSection visibleSections={visibleSections} />
 
       {/* Testimonials */}
-      <Testimonials visibleSections={visibleSections}/>
+      {/* <Testimonials visibleSections={visibleSections}/> */}
 
       {/* Pricing */}
       <Pricing visibleSections={visibleSections}/>
@@ -87,7 +88,7 @@ const MCDLandingPage = () => {
       <Cta visibleSections={visibleSections}/>
 
       {/* Footer */}
-     <Footer/>
+     <FooterNew/>
     </div>
   );
 };

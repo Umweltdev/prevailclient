@@ -40,7 +40,7 @@ const Hero = () => {
         </div>
 
         <h1>
-          <span className="gradient-text">Evolution + Intelligence</span>
+          <span className="gradient-text">Trinity Plus </span>
           <br />
           Next-Gen Business Systems
         </h1>
@@ -88,15 +88,15 @@ const Hero = () => {
             className="tier active"
             onClick={() => navigate("/trinity/plus#wizard")}
           >
-            <div className="tier-price">€1,159</div>
+            <div className="tier-price">€5,795</div>
             <div className="tier-label">Beta (10 days)</div>
           </div>
           <div className="tier " onClick={() => handleScroll()}>
-            <div className="tier-price">€579</div>
+            <div className="tier-price">€2,895</div>
             <div className="tier-label">Early (3 months)</div>
           </div>
           <div className="tier" onClick={() => handleScroll()}>
-            <div className="tier-price">€1,739</div>
+            <div className="tier-price">€8,695</div>
             <div className="tier-label">Standard</div>
           </div>
         </div>

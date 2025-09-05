@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SystemsSection = () => {
   const [countdown, setCountdown] = useState({
@@ -8,6 +9,7 @@ const SystemsSection = () => {
     minutes: "00",
     seconds: "00",
   });
+  const navigate = useNavigate();
 
   // Countdown Timer
   useEffect(() => {
@@ -79,12 +81,12 @@ const SystemsSection = () => {
     );
   };
 
-   const handleScroll = () => {
-      const target = document.querySelector('#wizard');
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    };
+  const handleScroll = () => {
+    const target = document.querySelector("#wizard");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
     <section className="section section-alt" id="systems">
@@ -102,7 +104,9 @@ const SystemsSection = () => {
 
         {/* GARO System Pricing */}
         <div className="pricing-section-wrapper">
-          <h3 className="system-title">GARO System Pricing</h3>
+          <h3 className="system-title">
+            GARO System Pricing (Store Front Option)
+          </h3>
           <p className="system-subtitle">
             Genetic Algorithm Restocking Optimizer
           </p>
@@ -129,10 +133,17 @@ const SystemsSection = () => {
                 <li>✓ Complete Onboarding & Support</li>
                 <li>✓ Comprehensive Training Program</li>
               </ul>
+
+              {/* Add Learn More button */}
               <button
-                className="cta-button"
-                onClick={() => handleScroll()}
+                className="btn btn-secondary"
+                style={{ width: "100%", marginBottom: "0.75rem" }}
+                onClick={() => navigate("/trinity/garo")}
               >
+                Learn More
+              </button>
+
+              <button className="cta-button" onClick={() => handleScroll()}>
                 Secure Your Spot
               </button>
             </div>
@@ -155,6 +166,16 @@ const SystemsSection = () => {
                 <li>✓ Complete Onboarding & Support</li>
                 <li>✓ Comprehensive Training Program</li>
               </ul>
+
+              {/* Add Learn More button */}
+              <button
+                className="btn btn-secondary"
+                style={{ width: "100%", marginBottom: "0.75rem" }}
+                onClick={() => navigate("/trinity/garo")}
+              >
+                Learn More
+              </button>
+
               <button className="cta-button disabled" disabled>
                 Coming Soon
               </button>
@@ -178,6 +199,16 @@ const SystemsSection = () => {
                 <li>✓ Complete Onboarding & Support</li>
                 <li>✓ Comprehensive Training Program</li>
               </ul>
+
+              {/* Add Learn More button */}
+              <button
+                className="btn btn-secondary"
+                style={{ width: "100%", marginBottom: "0.75rem" }}
+                onClick={() => navigate("/trinity/garo")}
+              >
+                Learn More
+              </button>
+
               <button className="cta-button disabled" disabled>
                 Coming Soon
               </button>
@@ -185,7 +216,112 @@ const SystemsSection = () => {
           </div>
         </div>
 
-        {/* AED System Pricing */}
+        {/* GARO System Pricing Store front */}
+        <div className="pricing-section-wrapper">
+          <h3 className="system-title">
+            GARO System Pricing (E-commerce Only)
+          </h3>
+          <p className="system-subtitle">
+            Genetic Algorithm Restocking Optimizer
+          </p>
+          <div className="pricing-cards">
+            {/* Beta (Most Popular) */}
+            <div className="pricing-card popular">
+              <div className="popular-badge">Most Popular</div>
+              <div className="card-header">
+                <div className="tier-dot beta"></div>
+                <h4>BETA USERS</h4>
+              </div>
+              <div className="price">€235</div>
+              <div className="access-text">
+                One-time payment • Lifetime access
+              </div>
+              <div className="offer-pill beta">
+                ⚡ Ends in {countdown.days}d {countdown.hours}h{" "}
+                {countdown.minutes}m {countdown.seconds}s
+              </div>
+              <ul className="features-list">
+                <li>✓ GARO™ Inventory Optimization Platform</li>
+                <li>✓ SquareUp POS & Payments Integration</li>
+                <li>✓ Full Analytics Admin Dashboard</li>
+                <li>✓ Complete Onboarding & Support</li>
+                <li>✓ Comprehensive Training Program</li>
+              </ul>{" "}
+              <button
+                className="btn btn-secondary"
+                style={{ width: "100%", marginBottom: "0.75rem" }}
+                onClick={() => navigate("/trinity/garo")}
+              >
+                Learn More
+              </button>
+              <button className="cta-button" onClick={() => handleScroll()}>
+                Secure Your Spot
+              </button>
+            </div>
+
+            {/* Early Adopters */}
+            <div className="pricing-card">
+              <div className="card-header">
+                <div className="tier-dot early"></div>
+                <h4>EARLY ADOPTERS</h4>
+              </div>
+              <div className="price">€585</div>
+              <div className="access-text">
+                One-time payment • Lifetime access
+              </div>
+              <div className="offer-pill early">🚀 Next 3 months</div>
+              <ul className="features-list">
+                <li>✓ GARO™ Inventory Optimization Platform</li>
+                <li>✓ SquareUp POS & Payments Integration</li>
+                <li>✓ Full Analytics Admin Dashboard</li>
+                <li>✓ Complete Onboarding & Support</li>
+                <li>✓ Comprehensive Training Program</li>
+              </ul>
+
+              <button
+                className="btn btn-secondary"
+                style={{ width: "100%", marginBottom: "0.75rem" }}
+                onClick={() => navigate("/trinity/garo")}
+              >
+                Learn More
+              </button>
+              <button className="cta-button disabled" disabled>
+                Coming Soon
+              </button>
+            </div>
+
+            {/* Standard */}
+            <div className="pricing-card">
+              <div className="card-header">
+                <div className="tier-dot post"></div>
+                <h4>STANDARD</h4>
+              </div>
+              <div className="price">€1, 745</div>
+              <div className="access-text">
+                One-time payment • Lifetime access
+              </div>
+              <div className="offer-pill post">📈 After 3 months</div>
+              <ul className="features-list">
+                <li>✓ GARO™ Inventory Optimization Platform</li>
+                <li>✓ SquareUp POS & Payments Integration</li>
+                <li>✓ Full Analytics Admin Dashboard</li>
+                <li>✓ Complete Onboarding & Support</li>
+                <li>✓ Comprehensive Training Program</li>
+              </ul>{" "}
+              <button
+                className="btn btn-secondary"
+                style={{ width: "100%", marginBottom: "0.75rem" }}
+                onClick={() => navigate("/trinity/garo")}
+              >
+                Learn More
+              </button>
+              <button className="cta-button disabled" disabled>
+                Coming Soon
+              </button>
+            </div>
+          </div>
+        </div>
+
         <div className="pricing-section-wrapper">
           <h3 className="system-title">AED System Pricing</h3>
           <p className="system-subtitle">Advertising Efficiency Dashboard</p>
@@ -211,11 +347,15 @@ const SystemsSection = () => {
                 <li>✓ Unified Analytics Dashboard</li>
                 <li>✓ Complete Onboarding & Support</li>
                 <li>✓ Comprehensive Training Program</li>
-              </ul>
+              </ul>{" "}
               <button
-                className="cta-button"
-                onClick={() => handleScroll()}
+                className="btn btn-secondary"
+                style={{ width: "100%", marginBottom: "0.75rem" }}
+                onClick={() => navigate("/trinity/aed")}
               >
+                Learn More
+              </button>
+              <button className="cta-button" onClick={() => handleScroll()}>
                 Secure Your Spot
               </button>
             </div>
@@ -237,7 +377,14 @@ const SystemsSection = () => {
                 <li>✓ Unified Analytics Dashboard</li>
                 <li>✓ Complete Onboarding & Support</li>
                 <li>✓ Comprehensive Training Program</li>
-              </ul>
+              </ul>{" "}
+              <button
+                className="btn btn-secondary"
+                style={{ width: "100%", marginBottom: "0.75rem" }}
+                onClick={() => navigate("/trinity/aed")}
+              >
+                Learn More
+              </button>
               <button className="cta-button disabled" disabled>
                 Coming Soon
               </button>
@@ -260,7 +407,314 @@ const SystemsSection = () => {
                 <li>✓ Unified Analytics Dashboard</li>
                 <li>✓ Complete Onboarding & Support</li>
                 <li>✓ Comprehensive Training Program</li>
+              </ul>{" "}
+              <button
+                className="btn btn-secondary"
+                style={{ width: "100%", marginBottom: "0.75rem" }}
+                onClick={() => navigate("/trinity/aed")}
+              >
+                Learn More
+              </button>
+              <button className="cta-button disabled" disabled>
+                Coming Soon
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div className="pricing-section-wrapper">
+          <h3 className="system-title">Expense Management System Pricing</h3>
+          <p className="system-subtitle">Expense Manager Dashboard</p>
+          <div className="pricing-cards">
+            {/* Beta (Most Popular) */}
+            <div className="pricing-card popular">
+              <div className="popular-badge">Most Popular</div>
+              <div className="card-header">
+                <div className="tier-dot beta"></div>
+                <h4>BETA USERS</h4>
+              </div>
+              <div className="price">€232</div>
+              <div className="access-text">
+                One-time payment • Lifetime access
+              </div>
+              <div className="offer-pill beta">
+                ⚡ Ends in {countdown.days}d {countdown.hours}h{" "}
+                {countdown.minutes}m {countdown.seconds}s
+              </div>
+              <ul className="features-list">
+                <li>✓ Up to £10k monthly expenses</li>
+                <li>✓ 30-day forecasting</li>
+                <li>✓ Email support</li>
               </ul>
+              <button
+                className="btn btn-secondary"
+                style={{ width: "100%", marginBottom: "0.75rem" }}
+                onClick={() => navigate("/trinity/expense-manager")}
+              >
+                Learn More
+              </button>
+              <button className="cta-button" onClick={() => handleScroll()}>
+                Secure Your Spot
+              </button>
+            </div>
+
+            {/* Early Adopters */}
+            <div className="pricing-card">
+              <div className="card-header">
+                <div className="tier-dot early"></div>
+                <h4>STANDARD</h4>
+              </div>
+              <div className="price">€1,739</div>
+              <div className="access-text">
+                One-time payment • Lifetime access
+              </div>
+              <div className="offer-pill early">🚀 Next 3 months</div>
+              <ul className="features-list">
+                <li>✓ Up to £100k monthly expenses</li>
+                <li>✓ 90-day forecasting</li>
+                <li>✓ Priority support</li>
+                <li>✓ API access</li>
+              </ul>{" "}
+              <button
+                className="btn btn-secondary"
+                style={{ width: "100%", marginBottom: "0.75rem" }}
+                onClick={() => navigate("/trinity/expense-manager")}
+              >
+                Learn More
+              </button>
+              <button className="cta-button disabled" disabled>
+                Coming Soon
+              </button>
+            </div>
+
+            {/* Standard */}
+            <div className="pricing-card">
+              <div className="card-header">
+                <div className="tier-dot post"></div>
+                <h4>EARLY ADOPTERS</h4>
+              </div>
+              <div className="price">€579</div>
+              <div className="access-text">
+                One-time payment • Lifetime access
+              </div>
+              <div className="offer-pill post">📈 After 3 months</div>
+              <ul className="features-list">
+                <li>✓ Unlimited expenses</li>
+                <li>✓ 365-day forecasting</li>
+                <li>✓ Dedicated support</li>
+                <li>✓ Custom integrations</li>
+              </ul>{" "}
+              <button
+                className="btn btn-secondary"
+                style={{ width: "100%", marginBottom: "0.75rem" }}
+                onClick={() => navigate("/trinity/expense-manager")}
+              >
+                Learn More
+              </button>
+              <button className="cta-button disabled" disabled>
+                Coming Soon
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div className="pricing-section-wrapper">
+          <h3 className="system-title">RCD System Pricing</h3>
+          <p className="system-subtitle">
+            Returning Customer Discounts Dashboard
+          </p>
+          <div className="pricing-cards">
+            {/* Beta (Most Popular) */}
+            <div className="pricing-card popular">
+              <div className="popular-badge">Most Popular</div>
+              <div className="card-header">
+                <div className="tier-dot beta"></div>
+                <h4>BETA USERS</h4>
+              </div>
+              <div className="price">€232</div>
+              <div className="access-text">
+                One-time payment • Lifetime access
+              </div>
+              <div className="offer-pill beta">
+                ⚡ Ends in {countdown.days}d {countdown.hours}h{" "}
+                {countdown.minutes}m {countdown.seconds}s
+              </div>
+              <ul className="features-list">
+                <li>✓Up to 1,000 customers</li>
+                <li>✓Basic vector positioning</li>
+                <li>✓Simple referral system</li>
+                <li>✓Email notifications</li>
+              </ul>{" "}
+              <button
+                className="btn btn-secondary"
+                style={{ width: "100%", marginBottom: "0.75rem" }}
+                onClick={() => navigate("/trinity/rcd")}
+              >
+                Learn More
+              </button>
+              <button className="cta-button" onClick={() => handleScroll()}>
+                Secure Your Spot
+              </button>
+            </div>
+
+            {/* Early Adopters */}
+            <div className="pricing-card">
+              <div className="card-header">
+                <div className="tier-dot early"></div>
+                <h4>EARLY ADOPTERS</h4>
+              </div>
+              <div className="price">€579</div>
+              <div className="access-text">
+                One-time payment • Lifetime access
+              </div>
+              <div className="offer-pill early">🚀 Next 3 months</div>
+              <ul className="features-list">
+                <li>✓Unlimited customers</li>
+                <li>✓Custom weights</li>
+                <li>✓Custom sharing ratios</li>
+                <li>✓Dedicated success manager</li>
+                <li>✓White-label</li>
+              </ul>{" "}
+              <button
+                className="btn btn-secondary"
+                style={{ width: "100%", marginBottom: "0.75rem" }}
+                onClick={() => navigate("/trinity/rcd")}
+              >
+                Learn More
+              </button>
+              <button className="cta-button disabled" disabled>
+                Coming Soon
+              </button>
+            </div>
+
+            {/* Standard */}
+            <div className="pricing-card">
+              <div className="card-header">
+                <div className="tier-dot post"></div>
+                <h4>STANDARD</h4>
+              </div>
+              <div className="price">€1,739</div>
+              <div className="access-text">
+                One-time payment • Lifetime access
+              </div>
+              <div className="offer-pill post">📈 After 3 months</div>
+              <ul className="features-list">
+                <li>✓Up to 10,000 customers</li>
+                <li>✓Advanced algorithm</li>
+                <li>✓Full 50/50 sharing</li>
+                <li>✓Network visualization</li>
+                <li>✓API access</li>
+                <li>✓Priority support</li>
+              </ul>{" "}
+              <button
+                className="btn btn-secondary"
+                style={{ width: "100%", marginBottom: "0.75rem" }}
+                onClick={() => navigate("/trinity/rcd")}
+              >
+                Learn More
+              </button>
+              <button className="cta-button disabled" disabled>
+                Coming Soon
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* AED System Pricing */}
+        <div className="pricing-section-wrapper">
+          <h3 className="system-title">MCD System Pricing</h3>
+          <p className="system-subtitle">Market Cost Displacement API</p>
+          <div className="pricing-cards">
+            {/* Beta (Most Popular) */}
+            <div className="pricing-card popular">
+              <div className="popular-badge">Most Popular</div>
+              <div className="card-header">
+                <div className="tier-dot beta"></div>
+                <h4>BETA USERS</h4>
+              </div>
+              <div className="price">€232</div>
+              <div className="access-text">
+                One-time payment • Lifetime access
+              </div>
+              <div className="offer-pill beta">
+                ⚡ Ends in {countdown.days}d {countdown.hours}h{" "}
+                {countdown.minutes}m {countdown.seconds}s
+              </div>
+              <ul className="features-list">
+                <li>✓ Up to $10K monthly revenue</li>
+                <li>✓ 3 marketing channels</li>
+                <li>✓ Daily price updates</li>
+                <li>✓ Email support</li>
+                <li>✓ Basic analytics</li>
+              </ul>{" "}
+              <button
+                className="btn btn-secondary"
+                style={{ width: "100%", marginBottom: "0.75rem" }}
+                onClick={() => navigate("/trinity/mcd")}
+              >
+                Learn More
+              </button>
+              <button className="cta-button" onClick={() => handleScroll()}>
+                Secure Your Spot
+              </button>
+            </div>
+
+            {/* Early Adopters */}
+            <div className="pricing-card">
+              <div className="card-header">
+                <div className="tier-dot early"></div>
+                <h4>EARLY ADOPTERS</h4>
+              </div>
+              <div className="price">€579</div>
+              <div className="access-text">
+                One-time payment • Lifetime access
+              </div>
+              <div className="offer-pill early">🚀 Next 3 months</div>
+              <ul className="features-list">
+                <li>✓ Unlimited revenue</li>
+                <li>✓ Custom integration</li>
+                <li>✓ Dedicated success manager</li>
+                <li>✓ SLA guarantee</li>
+                <li>✓ API access</li>
+              </ul>{" "}
+              <button
+                className="btn btn-secondary"
+                style={{ width: "100%", marginBottom: "0.75rem" }}
+                onClick={() => navigate("/trinity/mcd")}
+              >
+                Learn More
+              </button>
+              <button className="cta-button disabled" disabled>
+                Coming Soon
+              </button>
+            </div>
+
+            {/* Standard */}
+            <div className="pricing-card">
+              <div className="card-header">
+                <div className="tier-dot post"></div>
+                <h4>STANDARD</h4>
+              </div>
+              <div className="price">€1,739</div>
+              <div className="access-text">
+                One-time payment • Lifetime access
+              </div>
+              <div className="offer-pill post">📈 After 3 months</div>
+              <ul className="features-list">
+                <li>✓Up to $100K monthly revenue</li>
+                <li>✓Unlimited channels</li>
+                <li>✓Hourly updates</li>
+                <li>✓Priority support</li>
+                <li>✓Custom rules</li>
+                <li>✓Advanced analytics</li>
+              </ul>{" "}
+              <button
+                className="btn btn-secondary"
+                style={{ width: "100%", marginBottom: "0.75rem" }}
+                onClick={() => navigate("/trinity/mcd")}
+              >
+                Learn More
+              </button>
               <button className="cta-button disabled" disabled>
                 Coming Soon
               </button>
@@ -310,11 +764,17 @@ const SystemsSection = () => {
                   <li>✓ Full Analytics Dashboard</li>
                   <li>✓ Priority Support & Training</li>
                   <li>✓ Exclusive Beta Features</li>
-                </ul>
+                </ul>{" "}
                 <button
-                  className="cta-button"
-                  onClick={() => handleScroll()}
+                  className="btn btn-secondary"
+                  style={{ width: "100%", marginBottom: "0.75rem" }}
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
                 >
+                  Learn More
+                </button>
+                <button className="cta-button" onClick={() => handleScroll()}>
                   Secure Your Spot
                 </button>
               </div>
@@ -335,7 +795,16 @@ const SystemsSection = () => {
                   <li>✓ Full Analytics Dashboard</li>
                   <li>✓ Priority Support & Training</li>
                   <li>✓ Early Access Features</li>
-                </ul>
+                </ul>{" "}
+                <button
+                  className="btn btn-secondary"
+                  style={{ width: "100%", marginBottom: "0.75rem" }}
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                >
+                  Learn More
+                </button>
                 <button className="cta-button disabled" disabled>
                   Coming Soon
                 </button>
@@ -357,7 +826,16 @@ const SystemsSection = () => {
                   <li>✓ Full Analytics Dashboard</li>
                   <li>✓ Standard Support & Training</li>
                   <li>✓ Full Feature Access</li>
-                </ul>
+                </ul>{" "}
+                <button
+                  className="btn btn-secondary"
+                  style={{ width: "100%", marginBottom: "0.75rem" }}
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                >
+                  Learn More
+                </button>
                 <button className="cta-button disabled" disabled>
                   Coming Soon
                 </button>
@@ -393,11 +871,17 @@ const SystemsSection = () => {
                   <li>✓ Complete Setup & Training</li>
                   <li>✓ 3 Months Post-Launch Support</li>
                   <li>✓ Exclusive Beta Features</li>
-                </ul>
+                </ul>{" "}
                 <button
-                  className="cta-button"
-                  onClick={() => handleScroll()}
+                  className="btn btn-secondary"
+                  style={{ width: "100%", marginBottom: "0.75rem" }}
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
                 >
+                  Learn More
+                </button>
+                <button className="cta-button" onClick={() => handleScroll()}>
                   Secure Your Spot
                 </button>
               </div>
@@ -418,7 +902,16 @@ const SystemsSection = () => {
                   <li>✓ Complete Setup & Training</li>
                   <li>✓ 3 Months Post-Launch Support</li>
                   <li>✓ Early Access Features</li>
-                </ul>
+                </ul>{" "}
+                <button
+                  className="btn btn-secondary"
+                  style={{ width: "100%", marginBottom: "0.75rem" }}
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                >
+                  Learn More
+                </button>
                 <button className="cta-button disabled" disabled>
                   Coming Soon
                 </button>
@@ -440,7 +933,16 @@ const SystemsSection = () => {
                   <li>✓ Complete Setup & Training</li>
                   <li>✓ Standard Support Package</li>
                   <li>✓ Full Feature Access</li>
-                </ul>
+                </ul>{" "}
+                <button
+                  className="btn btn-secondary"
+                  style={{ width: "100%", marginBottom: "0.75rem" }}
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                >
+                  Learn More
+                </button>
                 <button className="cta-button disabled" disabled>
                   Coming Soon
                 </button>

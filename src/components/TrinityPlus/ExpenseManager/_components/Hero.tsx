@@ -18,6 +18,14 @@ function Hero() {
               Cash Again
             </span>
           </h1>
+          
+          {/* Added Expense Manager subtitle */}
+          <div className="mb-8">
+            <h2 className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-gray-600 to-gray-400 bg-clip-text text-transparent">
+              Expense Manager
+            </h2>
+          </div>
+          
           <p className="text-xl md:text-2xl text-gray-500 mb-8 max-w-3xl mx-auto">
             Trinity sees 30 days into your financial future, automatically
             juggling expenses so you always have money when you need it most.
@@ -26,16 +34,16 @@ function Hero() {
             <button onClick={()=> navigate('/trinity/plus#wizard')} className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-600 text-white rounded-lg font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300">
               Start Beta
             </button>
-            <button onClick={()=> navigate('/trinity/plus#wizard')} className="px-8 py-4 bg-black/60 backdrop-blur text-white rounded-lg font-semibold text-lg border border-white/20 hover:bg-black transition-all duration-300">
+            {/* <button onClick={()=> navigate('/trinity/plus#wizard')} className="px-8 py-4 bg-black/60 backdrop-blur text-white rounded-lg font-semibold text-lg border border-white/20 hover:bg-black transition-all duration-300">
               Watch 2-Min Demo
-            </button>
+            </button> */}
           </div>
           {/* <GlassButton className='text-black animate-pulse'>
               No credit card required • 30-day free trial • Cancel anytime
             </GlassButton> */}
           <div className="relative inline-block mt-6 px-6 py-3 rounded-full bg-white/20 backdrop-blur-md border border-white/30 shadow-md animate-pulse">
             <span className="text-gray-800 font-medium text-sm">
-              No credit card required • 30-day free trial • Cancel anytime
+              Lock in beta price by making a purchase during launch week • 3 days before beta ends
             </span>
           </div>
           {/* <p className="mt-6 text-gray-400">

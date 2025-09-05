@@ -133,12 +133,7 @@ const TrinityCore = () => {
   return (
     <div
       className="min-h-screen text-gray-900 relative w-full"
-      style={{
-        background:
-          "linear-gradient(135deg, rgba(209, 196, 233, 0.8), rgba(255, 255, 255, 0.9), rgba(187, 222, 251, 0.8))",
-        backgroundSize: "200% 200%",
-        animation: "gradientShift 8s ease infinite",
-      }}
+  
     >
       <style>{`
         @keyframes gradientShift {

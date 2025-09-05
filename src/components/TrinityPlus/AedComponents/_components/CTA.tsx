@@ -3,9 +3,15 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 function CTA() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
-    <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+    <section
+      style={{
+        padding: "5rem 0",
+        background: "linear-gradient(to right, #4c1d95, #6d28d9)", // Purple-900 → Violet-700
+        color: "white",
+      }}
+    >
       <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold text-white mb-6">
           Ready to Stop Wasting Money on Ads?
@@ -15,7 +21,10 @@ function CTA() {
           ROI
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button onClick={()=> navigate('/trinity/plus#wizard')} className="px-8 py-4 bg-white text-blue-600 rounded-full text-lg font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-200 flex items-center">
+          <button
+            onClick={() => navigate("/trinity/plus#wizard")}
+            className="px-8 py-4 bg-white text-blue-600 rounded-full text-lg font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-200 flex items-center"
+          >
             Get Bundle <ArrowRight className="ml-2 w-5 h-5" />
           </button>
           <button className="px-8 py-4 bg-transparent text-white border-2 border-white rounded-full text-lg font-semibold hover:bg-white/10 transition-all duration-200">
