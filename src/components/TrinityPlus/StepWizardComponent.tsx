@@ -111,7 +111,7 @@ const ALL_TRINITY_OPTIONS = [
       "70% stockout reduction",
       "Predictive demand modeling",
     ],
-    note: "Physical stores: +£1,600 for Square setup & training",
+    note: "Physical stores: includes €1,600 for Square setup & training",
   },
   {
     id: "aed",
@@ -140,7 +140,7 @@ const ALL_TRINITY_OPTIONS = [
     earlyPrice: 1500,
     standardPrice: 4500,
     includes: ["💰 Expense Manager", "📈 MCD System", "🎯 RCD System"],
-    savings: "Save £3,900 vs standard pricing",
+    savings: "Save €3,900 vs standard pricing",
     baseRecommended: true,
   },
   {
@@ -159,9 +159,9 @@ const ALL_TRINITY_OPTIONS = [
       "🧬 GARO System",
       "🚀 AED System",
     ],
-    savings: "Save £6,500 vs standard pricing",
+    savings: "Save €6,500 vs standard pricing",
     bestValue: true,
-    note: "GARO requires +£1,600 for physical stores",
+    note: "GARO requires includes €1,600 for physical stores",
   },
 ];
 const solutionTypes = [
@@ -438,14 +438,14 @@ const TrinityPackages = ({
                           color="#B42318"
                           fontWeight="bold"
                         >
-                          £{option.betaPrice.toLocaleString()}
+                          €{option.betaPrice.toLocaleString()}
                         </Typography>
                         <Typography
                           variant="body2"
                           sx={{ textDecoration: "line-through" }}
                           color="text.secondary"
                         >
-                          £{option.standardPrice.toLocaleString()}
+                          €{option.standardPrice.toLocaleString()}
                         </Typography>
                       </Box>
                     </Box>
@@ -569,7 +569,7 @@ const StoreType = ({
                 fontWeight="bold"
                 sx={{ mt: "auto", pt: 2 }}
               >
-                £{basePrice.toLocaleString()}
+                €{basePrice.toLocaleString()}
               </Typography>
               <Typography variant="body2" color="success.main">
                 Standard API setup
@@ -594,10 +594,10 @@ const StoreType = ({
                 fontWeight="bold"
                 sx={{ mt: "auto", pt: 2 }}
               >
-                £{(basePrice + 1600).toLocaleString()}
+                €{(basePrice + 1600).toLocaleString()}
               </Typography>
               <Typography variant="body2" color="warning.main">
-                +£1,600 Square setup & training
+                includes €1,600 Square setup & training
               </Typography>
             </SelectableCard>
           </Grid>
@@ -800,7 +800,7 @@ const FinalSummary = ({
                   >
                     <Typography variant="subtitle2">{option.name}:</Typography>
                     <Typography variant="subtitle1">
-                      £{option.betaPrice.toLocaleString()}
+                      €{option.betaPrice.toLocaleString()}
                     </Typography>
                   </Box>
                 ))}
@@ -836,7 +836,7 @@ const FinalSummary = ({
                 >
                   <Typography variant="h6">Total Price:</Typography>
                   <Typography variant="h5" fontWeight="bold" sx={gradientText}>
-                    £{finalPrice.toLocaleString()}
+                    €{finalPrice.toLocaleString()}
                   </Typography>
                 </Box>
               </Box>

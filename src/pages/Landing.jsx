@@ -25,10 +25,11 @@ const Landing = () => {
       <div style={{ width: "100%", overflow: "hidden" }}>
         <AppBarNav color="#000" />
         <Hero />
+        <OurCore />
         <ExternalLinks />
         <SectionTwo />
         <CoreValues />
-        <OurCore />
+        
         <SectionSeven />
         <SectionFour />
         <JoinCustomers />

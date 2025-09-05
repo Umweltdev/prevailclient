@@ -565,7 +565,7 @@ const FinalSummary = ({
                   </Typography>
                 </Box>
               </Box>
-              <Box mt={3} display="flex" flexDirection="column" gap={2}>
+                       <Box mt={3} display="flex" flexDirection="column" gap={2}>
                 <Button
                   variant="contained"
                   fullWidth
@@ -578,6 +578,23 @@ const FinalSummary = ({
                   }
                 >
                   {isProcessing ? "Processing..." : "Proceed to Checkout"}
+                </Button>
+                <Button
+                  variant="outlined"
+                  fullWidth
+                  disabled
+                  onClick={() => window.open('https://calendly.com/your-consultation-link', '_blank')}
+                  sx={{ 
+                    borderColor: 'primary.main',
+                    color: 'primary.main',
+                    '&:hover': {
+                      borderColor: 'primary.dark',
+                      backgroundColor: 'primary.main',
+                      color: 'white'
+                    }
+                  }}
+                >
+                  Book a Consultation
                 </Button>
                 <Button
                   variant="outlined"

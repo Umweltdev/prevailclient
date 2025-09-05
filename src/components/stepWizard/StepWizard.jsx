@@ -35,19 +35,21 @@ import {
   Zap,
   RefreshCw,
   TrendingUp,
-  Target
+  Target,
 } from "lucide-react";
 import { loadStripe } from "@stripe/stripe-js";
 import { theme } from "./theme.js";
-import { 
-  createCheckoutSession, 
-  mapToApiServiceType, 
-  generateTargetAudience, 
-  generateCampaignDuration 
+import {
+  createCheckoutSession,
+  mapToApiServiceType,
+  generateTargetAudience,
+  generateCampaignDuration,
 } from "./api";
 
 // STRIPE INITIALIZATION & CONSTANT DATA
-const stripePromise = loadStripe("pk_test_51OsCJ5P1A39VkufThp1PVDexesvf2XAY8faTyK0uucC1qRl9NW9QkpBdwXQDyjCAjzL166zjMWNn5Zr25ZkaQJVi00vurq61mj");
+const stripePromise = loadStripe(
+  "pk_test_51OsCJ5P1A39VkufThp1PVDexesvf2XAY8faTyK0uucC1qRl9NW9QkpBdwXQDyjCAjzL166zjMWNn5Zr25ZkaQJVi00vurq61mj"
+);
 const betaDaysRemaining = 10;
 const ALL_TRINITY_OPTIONS = [
   {
@@ -117,7 +119,7 @@ const ALL_TRINITY_OPTIONS = [
       "70% stockout reduction",
       "Predictive demand modeling",
     ],
-    note: "Physical stores: +£1,600 for Square setup & training",
+    note: "Physical stores: includes €1,600 for Square setup & training",
   },
   {
     id: "aed",
@@ -146,7 +148,7 @@ const ALL_TRINITY_OPTIONS = [
     earlyPrice: 1500,
     standardPrice: 4500,
     includes: ["💰 Expense Manager", "📈 MCD System", "🎯 RCD System"],
-    savings: "Save £3,900 vs standard pricing",
+    savings: "Saveincludes €3,900 vs standard pricing",
     baseRecommended: true,
   },
   {
@@ -165,9 +167,9 @@ const ALL_TRINITY_OPTIONS = [
       "🧬 GARO System",
       "🚀 AED System",
     ],
-    savings: "Save £6,500 vs standard pricing",
+    savings: "Saveincludes €6,500 vs standard pricing",
     bestValue: true,
-    note: "GARO requires +£1,600 for physical stores",
+    note: "GARO requires includes €1,600 for physical stores",
   },
 ];
 const solutionTypes = [
@@ -234,7 +236,7 @@ const goals = [
     name: "Eliminate Platform Fees",
     icon: "💰",
     description: "Stop paying 20-35% commission",
-    savings: "Save £1,000-5,000/month",
+    savings: "Saveincludes €1,000-5,000/month",
   },
   {
     id: "brand",
@@ -681,14 +683,14 @@ const TrinityPackages = ({
                         color="#B42318"
                         fontWeight="bold"
                       >
-                        £{option.betaPrice.toLocaleString()}
+                      includes €{option.betaPrice.toLocaleString()}
                       </Typography>
                       <Typography
                         variant="body2"
                         sx={{ textDecoration: "line-through" }}
                         color="text.secondary"
                       >
-                        £{option.standardPrice.toLocaleString()}
+                      includes €{option.standardPrice.toLocaleString()}
                       </Typography>
                     </Box>
                   </Box>
@@ -771,37 +773,41 @@ const AEDUpsell = ({
   nextStep,
   prevStep,
 }) => {
-  const currentSelection = ALL_TRINITY_OPTIONS.find(opt => opt.id === trinitySelectionId);
-  
+  const currentSelection = ALL_TRINITY_OPTIONS.find(
+    (opt) => opt.id === trinitySelectionId
+  );
+
   const upsellOptions = [
     {
       id: "aed-only",
       name: "AED System only",
       price: 232,
-      description: "Add just the Advertising Efficiency Dashboard to your current selection",
-      includes: ["AED System only"]
+      description:
+        "Add just the Advertising Efficiency Dashboard to your current selection",
+      includes: ["AED System only"],
     },
     {
       id: "trinity-core",
       name: "Full Trinity Core",
       price: 695,
-      description: "Upgrade to complete core package (Expense + MCD + RCD + AED)",
-      includes: ["Expense Manager", "MCD System", "RCD System", "AED System"]
+      description:
+        "Upgrade to complete core package (Expense + MCD + RCD + AED)",
+      includes: ["Expense Manager", "MCD System", "RCD System", "AED System"],
     },
     {
       id: "trinity-plus",
       name: "Full Trinity Plus",
       price: 1159,
       description: "Complete suite with all 5 systems including AED",
-      includes: ["All 5 Trinity Systems", "GARO Inventory", "AED Dashboard"]
+      includes: ["All 5 Trinity Systems", "GARO Inventory", "AED Dashboard"],
     },
     {
       id: "skip",
       name: "Skip Trinity",
       price: 0,
       description: "Continue with your current selection",
-      includes: ["No additional systems"]
-    }
+      includes: ["No additional systems"],
+    },
   ];
 
   return (
@@ -836,8 +842,9 @@ const AEDUpsell = ({
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      background: "linear-gradient(to bottom right, #E0E7FF, #DDD4EF)",
-                      flexShrink: 0
+                      background:
+                        "linear-gradient(to bottom right, #E0E7FF, #DDD4EF)",
+                      flexShrink: 0,
                     }}
                   >
                     <Target size={24} color={theme.palette.primary.main} />
@@ -846,7 +853,11 @@ const AEDUpsell = ({
                     <Typography variant="h6" component="h3" gutterBottom>
                       {option.name}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      sx={{ mb: 1 }}
+                    >
                       {option.description}
                     </Typography>
                     <Box sx={{ mt: 1 }}>
@@ -863,7 +874,11 @@ const AEDUpsell = ({
                   </Box>
                   {option.price > 0 && (
                     <Box textAlign="right" ml={2}>
-                      <Typography variant="h6" color="primary" fontWeight="bold">
+                      <Typography
+                        variant="h6"
+                        color="primary"
+                        fontWeight="bold"
+                      >
                         +€{option.price}
                       </Typography>
                     </Box>
@@ -957,7 +972,7 @@ const StoreType = ({
                 fontWeight="bold"
                 sx={{ mt: "auto", pt: 2 }}
               >
-                £{basePrice.toLocaleString()}
+              includes €{basePrice.toLocaleString()}
               </Typography>
               <Typography variant="body2" color="success.main">
                 Standard API setup
@@ -982,10 +997,10 @@ const StoreType = ({
                 fontWeight="bold"
                 sx={{ mt: "auto", pt: 2 }}
               >
-                £{(basePrice + 1600).toLocaleString()}
+              includes €{(basePrice + 1600).toLocaleString()}
               </Typography>
               <Typography variant="body2" color="warning.main">
-                +£1,600 Square setup & training
+                includes €1,600 Square setup & training
               </Typography>
             </SelectableCard>
           </Grid>
@@ -1064,7 +1079,7 @@ const PlatformTier = ({
                 color="primary"
                 sx={{ my: 1 }}
               >
-                £{tier.minPrice} - £{tier.maxPrice}
+              includes €{tier.minPrice} -includes €{tier.maxPrice}
               </Typography>
               <List dense sx={{ mt: 2, p: 0 }}>
                 {tier.features.map((feature) => (
@@ -1301,7 +1316,7 @@ const FinalSummary = ({
                 >
                   <Typography variant="h6">Total Price:</Typography>
                   <Typography variant="h5" fontWeight="bold" sx={gradientText}>
-                    £{finalPrice.toLocaleString()}
+                   €{finalPrice.toLocaleString()}
                   </Typography>
                 </Box>
               </Box>
@@ -1318,6 +1333,28 @@ const FinalSummary = ({
                   }
                 >
                   {isProcessing ? "Processing..." : "Proceed to Checkout"}
+                </Button>
+                <Button
+                  variant="outlined"
+                  fullWidth
+                  disabled
+                  onClick={() =>
+                    window.open(
+                      "https://calendly.com/your-consultation-link",
+                      "_blank"
+                    )
+                  }
+                  sx={{
+                    borderColor: "primary.main",
+                    color: "primary.main",
+                    "&:hover": {
+                      borderColor: "primary.dark",
+                      backgroundColor: "primary.main",
+                      color: "white",
+                    },
+                  }}
+                >
+                  Book a Consultation
                 </Button>
                 <Button
                   variant="outlined"
@@ -1444,10 +1481,14 @@ const StepWizard = () => {
           total += 232;
           break;
         case "trinity-core":
-          total = ALL_TRINITY_OPTIONS.find(opt => opt.id === "trinity-core").betaPrice;
+          total = ALL_TRINITY_OPTIONS.find(
+            (opt) => opt.id === "trinity-core"
+          ).betaPrice;
           break;
         case "trinity-plus":
-          total = ALL_TRINITY_OPTIONS.find(opt => opt.id === "trinity-plus").betaPrice;
+          total = ALL_TRINITY_OPTIONS.find(
+            (opt) => opt.id === "trinity-plus"
+          ).betaPrice;
           break;
         case "skip":
           break;
@@ -1494,32 +1535,32 @@ const StepWizard = () => {
     return ["Solution Type"];
   }, [solutionType]);
 
-const nextStep = useCallback(() => {
-  const steps = getSteps();
-  if (currentStep < steps.length) {
-    let nextStepNum = currentStep + 1;
-    const needsStoreInfo =
-      trinitySelectionId === "trinity-plus" || trinitySelectionId === "garo";
-    if (solutionType === "trinity" && nextStepNum === 4 && !needsStoreInfo) {
-      nextStepNum++;
+  const nextStep = useCallback(() => {
+    const steps = getSteps();
+    if (currentStep < steps.length) {
+      let nextStepNum = currentStep + 1;
+      const needsStoreInfo =
+        trinitySelectionId === "trinity-plus" || trinitySelectionId === "garo";
+      if (solutionType === "trinity" && nextStepNum === 4 && !needsStoreInfo) {
+        nextStepNum++;
+      }
+      setCurrentStep(nextStepNum);
+      // Remove: window.scrollTo(0, 0);
     }
-    setCurrentStep(nextStepNum);
-    // Remove: window.scrollTo(0, 0);
-  }
-}, [currentStep, getSteps, solutionType, trinitySelectionId]);
+  }, [currentStep, getSteps, solutionType, trinitySelectionId]);
 
-const prevStep = useCallback(() => {
-  if (currentStep > 1) {
-    let prevStepNum = currentStep - 1;
-    const needsStoreInfo =
-      trinitySelectionId === "trinity-plus" || trinitySelectionId === "garo";
-    if (solutionType === "trinity" && prevStepNum === 4 && !needsStoreInfo) {
-      prevStepNum--;
+  const prevStep = useCallback(() => {
+    if (currentStep > 1) {
+      let prevStepNum = currentStep - 1;
+      const needsStoreInfo =
+        trinitySelectionId === "trinity-plus" || trinitySelectionId === "garo";
+      if (solutionType === "trinity" && prevStepNum === 4 && !needsStoreInfo) {
+        prevStepNum--;
+      }
+      setCurrentStep(prevStepNum);
+      // Remove: window.scrollTo(0, 0);
     }
-    setCurrentStep(prevStepNum);
-    // Remove: window.scrollTo(0, 0);
-  }
-}, [currentStep, solutionType, trinitySelectionId]);
+  }, [currentStep, solutionType, trinitySelectionId]);
 
   const resetSelections = useCallback(() => {
     setCurrentStep(1);
@@ -1561,7 +1602,7 @@ const prevStep = useCallback(() => {
       showToastMessage("Error: Please enter your name and email to proceed.");
       return;
     }
-    
+
     setIsProcessing(true);
 
     try {
@@ -1576,8 +1617,19 @@ const prevStep = useCallback(() => {
         serviceType: mapToApiServiceType(solutionType, trinitySelectionId),
         price: finalPrice,
         targetAudience: generateTargetAudience(selectedIndustry, selectedGoals),
-        campaignDuration: generateCampaignDuration(solutionType, trinitySelectionId),
-        notes: `${additionalNotes || ''} | Selected Systems: ${selectedSystems || 'None'} | Dashboards: ${selectedDashboards || 'None'} | Keywords: ${keywords || 'None'} | Solution: ${solutionType} | Trinity: ${trinitySelectionId || 'None'} | Tier: ${selectedTier || 'None'} | Physical Store: ${hasPhysicalStore ? 'Yes' : 'No'}`.trim()
+        campaignDuration: generateCampaignDuration(
+          solutionType,
+          trinitySelectionId
+        ),
+        notes: `${additionalNotes || ""} | Selected Systems: ${
+          selectedSystems || "None"
+        } | Dashboards: ${selectedDashboards || "None"} | Keywords: ${
+          keywords || "None"
+        } | Solution: ${solutionType} | Trinity: ${
+          trinitySelectionId || "None"
+        } | Tier: ${selectedTier || "None"} | Physical Store: ${
+          hasPhysicalStore ? "Yes" : "No"
+        }`.trim(),
       };
 
       // Create checkout session using the API function
@@ -1597,7 +1649,7 @@ const prevStep = useCallback(() => {
         throw new Error(error.message);
       }
     } catch (error) {
-      console.error('Checkout error:', error);
+      console.error("Checkout error:", error);
       showToastMessage(`Error: ${error.message || "Unknown error occurred"}`);
     } finally {
       setIsProcessing(false);
@@ -1674,18 +1726,18 @@ const prevStep = useCallback(() => {
                 }}
               />
             );
-          case 3: 
-          return (
-            <MemoizedAEDUpsell
-              {...{
-                aedUpsellChoice,
-                setAEDUpsellChoice,
-                trinitySelectionId,
-                nextStep,
-                prevStep,
-              }}
-            />
-          );
+          case 3:
+            return (
+              <MemoizedAEDUpsell
+                {...{
+                  aedUpsellChoice,
+                  setAEDUpsellChoice,
+                  trinitySelectionId,
+                  nextStep,
+                  prevStep,
+                }}
+              />
+            );
           case 4:
             return (
               <MemoizedStoreType
@@ -1808,7 +1860,10 @@ const prevStep = useCallback(() => {
           overflowX: "hidden",
         }}
       >
-        <Container maxWidth="lg" sx={{ py: { xs: 6, md: 8 }, pt: { xs: 20, md: 22 } }}>
+        <Container
+          maxWidth="lg"
+          sx={{ py: { xs: 6, md: 8 }, pt: { xs: 20, md: 22 } }}
+        >
           <Box textAlign="center" mb={{ xs: 6, md: 8 }}>
             <Typography variant="h1" component="h1" gutterBottom>
               Your Partner in Accelerating the{" "}

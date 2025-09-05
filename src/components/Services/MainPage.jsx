@@ -2,12 +2,11 @@ import { Box, Grid, Typography } from "@mui/material";
 import ImageTextService from "./ImageTextService";
 import TextImageService from "./TextImageService";
 import { useInView } from "react-intersection-observer";
-import styles from "../About/assets/about.module.css"
+import styles from "../About/assets/about.module.css";
 import ServiceSelector from "./ServiceSelector.jsx";
 import StepWizard from "../stepWizard/StepWizard.jsx";
 
 const MainPage = () => {
-  
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -88,10 +87,10 @@ const MainPage = () => {
         />
         <TextImageService
           imageUrl="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720088563/Search-Engine-Marketing_m1ebvn.avif"
-          alt="Search-Engine-Marketing"
-          textHeader={"Search Engine Marketing"}
-          text="Our “Search Engine Marketing” service offer tailored solutions to boost online visibility and engagement to support you throughout the dynamic digital realm."
-          url="/service/search-engine-marketing" //exe
+          alt="Trinity System"
+          textHeader={"Trinity System"}
+          text="The Trinity System integrates strategy, creativity, and technology into one powerful solution. We help your business achieve consistent growth by aligning marketing efforts, data insights, and digital tools into a unified system."
+          url="/trinity"
         />
         <ImageTextService
           imageUrl="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720088569/Website-Development_gxpjci.avif"
@@ -100,19 +99,19 @@ const MainPage = () => {
           text="Discover the power of bespoke web solutions with Prevail and elevate your brand to new heights in the digital landscape. Transform, engage, and succeed effortlessly."
           url="/service/website-development"
         />
-        <TextImageService
+        {/* <TextImageService
           imageUrl="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720088563/Custom-Website-Development_mvdf6w.avif"
           alt="Custom-Website-Development"
           textHeader={"Custom Website Development"}
           text="Desire ownership over your digital identity and wish to convey your brand's story authentically and vividly, then our “custom website development” is perfect for you."
           url="/service/custom-website-development"
-        />
+        /> */}
         <ImageTextService
           imageUrl="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720088563/Marketing-Price-Displacement_omscxs.avif"
-          alt="Marketing-Price-Displacement"
-          textHeader={"Marketing Price Displacement"}
-          text="Unlock your business’s potential with our “Marketing Price Displacement” API. Harness advanced pricing strategies and yield management to optimise marketing spend, automate adjustments, and boost ROI.  "
-          url="/service/marketing-pricing-displacement"
+          alt="Content Ad Campaign"
+          textHeader={"Content Ad Campaign"}
+          text="Drive customer engagement with tailored content-driven ad campaigns. We craft compelling stories and visuals that resonate with your audience, helping your brand stand out while maximizing ad performance and ROI."
+          url="/service/custom-ad-campaign"
         />
         <TextImageService
           imageUrl="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720088562/Digital-Accelerator_p0j4ty.avif"
@@ -121,13 +120,13 @@ const MainPage = () => {
           text="Our “Digital Accelerator” bundle integrate cutting-edge website design, bespoke brand identity, and strategic SEO services to boost visibility engage customers, and enhance your digital footprint."
           url="/service/digital-accelerator-bundle"
         />
-        <TextImageService
+        {/* <TextImageService
           imageUrl="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720088563/Search-Engine-Marketing_m1ebvn.avif"
           alt="CostCalculation"
           textHeader={"Cost Calculation"}
           text="Get a valued based website based on your budget"
           url="/service/cost-calculation"
-        />
+        /> */}
         {/* <ImageTextService
           imageUrl="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720088563/Branding_trrcgh.avif"
           alt="Branding"

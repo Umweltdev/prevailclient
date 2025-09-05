@@ -45,7 +45,7 @@ const servicesData = [
     text: "Digital Accelerator Bundle",
     link: "/service/digital-accelerator-bundle",
   },
-  { text: "Cost Calculation", link: "/service/cost-calculation" },
+  // { text: "Cost Calculation", link: "/service/cost-calculation" },
   // { text: "Step Wizard", link: "/service/stepWizardPage" },
   { text: "Custom Ad Campaign", link: "/service/custom-ad-campaign" },
 ];
