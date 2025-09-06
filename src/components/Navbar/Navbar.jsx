@@ -21,24 +21,20 @@ const Navbar = () => {
     };
   }, []);
 
-  // Conditionally apply fade-out logic based on screen size
-  const applyFadeOut = !window.matchMedia("(max-width: 768px)").matches; // Adjust breakpoint as needed
+  const applyFadeOut = !window.matchMedia("(max-width: 768px)").matches;
 
   const calculateOpacity = () => {
     if (scrollPosition > 50 && scrollPosition < 270) {
-      // Calculate opacity based on scroll position for larger screens
       return 1 - (scrollPosition - 50) / (270 - 50);
     } else if (scrollPosition >= 270) {
-      // Completely faded out for larger screens
       return 0;
     } else {
-      // Fully visible
       return 1;
     }
   };
 
   const navbarStyle = {
-    opacity: applyFadeOut ? calculateOpacity() : 1, // Always fully visible on mobile
+    opacity: applyFadeOut ? calculateOpacity() : 1,
   };
 
   return (
