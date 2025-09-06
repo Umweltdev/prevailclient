@@ -130,7 +130,6 @@ const MultiStepForm = () => {
       py: { xs: 2, sm: 4 }
     }}>
       <Container maxWidth="lg" sx={{pt: {xs: 16, md: 20}}}>
-        {/* Header Section */}
         <Paper 
           elevation={0}
           sx={{ 
@@ -170,8 +169,6 @@ const MultiStepForm = () => {
           >
             From custom enterprise platforms to ready-to-deploy templates
           </Typography>
-          
-          {/* Progress Bar */}
           <Box sx={{ mt: 3, mb: 2 }}>
             <Box sx={{ display: "flex", justifyContent: "space-between", mb: 1 }}>
               <Typography variant="body2" color="text.secondary">
@@ -196,8 +193,6 @@ const MultiStepForm = () => {
             />
           </Box>
         </Paper>
-
-        {/* Stepper Section */}
         <Paper 
           elevation={0}
           sx={{ 
@@ -314,8 +309,6 @@ const MultiStepForm = () => {
             })}
           </Stepper>
         </Paper>
-
-        {/* Content Section */}
         <Paper 
           elevation={0}
           sx={{ 
@@ -334,7 +327,6 @@ const MultiStepForm = () => {
               display: "flex",
               flexDirection: "column"
             }}>
-              {/* Step Title */}
               <Box sx={{ mb: 4, textAlign: "center" }}>
                 <Typography
                   variant={isMobile ? "h5" : "h4"}
@@ -355,15 +347,12 @@ const MultiStepForm = () => {
                 </Typography>
               </Box>
 
-              {/* Step Content */}
               <Box sx={{ flex: 1 }}>
                 {getStepContent(activeStep)}
               </Box>
             </Box>
           </Fade>
         </Paper>
-
-        {/* Footer Progress Indicator */}
         <Box sx={{ 
           mt: 4, 
           textAlign: "center",
