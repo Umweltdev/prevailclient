@@ -71,7 +71,6 @@ const CheckoutStep = ({ formData, handleBack }) => {
     setIsProcessing(false);
     setProcessingAction(null);
   };
-
   return (
     <Box>
       <StepHeader
