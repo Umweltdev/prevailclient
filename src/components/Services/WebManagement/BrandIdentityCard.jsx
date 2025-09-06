@@ -1,4 +1,3 @@
-import * as React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
@@ -27,8 +26,8 @@ export default function BrandIdentityCard() {
               flexDirection: "column",
               justifyContent: "space-between",
               height: "100%",
-              borderRadius: "1.5rem", // Increase border radius
-              boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", // Add box shadow
+              borderRadius: "1.5rem",
+              boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
               "@media (max-width: 600px)": {
                 width: "90vw",
               },
@@ -39,14 +38,14 @@ export default function BrandIdentityCard() {
                 gutterBottom
                 variant="h5"
                 component="div"
-                sx={{ fontFamily: `"Sarabun", sans-serif` }} // Set font family to Sarabun
+                sx={{ fontFamily: `"Sarabun", sans-serif` }}
               >
                 {data.header}
               </Typography>
               <Typography
                 variant="body2"
                 color="text.secondary"
-                sx={{ fontFamily: `"Sarabun", sans-serif` }} // Set font family to Sarabun
+                sx={{ fontFamily: `"Sarabun", sans-serif` }}
               >
                 {data.text}
               </Typography>
