@@ -19,7 +19,6 @@ import GetStartedStep from "./components/Services/CostCalculation/steps/GetStart
 import BookingPage from "./pages/Booking.jsx";
 import StepWizardPage from "./pages/StepWizardPage.jsx";
 
-// Lazy load pages and components
 const Landing = React.lazy(() => import("./pages/Landing"));
 const About = React.lazy(() => import("./pages/About"));
 const Portfolio = React.lazy(() => import("./pages/Portfolio"));
@@ -157,7 +156,6 @@ function App() {
                 element={<AdCampaign />}
               />
 
-              {/* New routes from WebdevStep branch */}
               <Route path="/quote-builder" element={<WebDevWizardPage />} />
               <Route
                 path="/explore/digital-ecosystem"

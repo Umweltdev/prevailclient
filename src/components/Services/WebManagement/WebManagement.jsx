@@ -1,13 +1,21 @@
+import React from "react";
 import { Helmet } from "react-helmet";
-import FooterNew from "../../Footer/FooterNew";
 import {
   Container,
   Grid,
   Typography,
   Stack,
   Box,
+  Button,
+  useTheme,
+  useMediaQuery,
+  IconButton,
   Fab,
 } from "@mui/material";
+import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
+import { FiberManualRecord as FiberManualRecordIcon } from "@mui/icons-material";
+import { useInView } from "react-intersection-observer";
+
 import Browse from "./assets/basket.svg?react";
 import Hospital from "./assets/hospital.svg?react";
 import House from "./assets/house.svg?react";
@@ -24,22 +32,270 @@ import Call from "./assets/call.svg?react";
 import Apartment_Small from "./assets/apartment_small.svg?react";
 import Storage from "./assets/storage.svg?react";
 import Speaker from "./assets/speaker.svg?react";
-
 import Color from "./assets/color-palette.svg?react";
 import Money from "./assets/increase-money.svg?react";
 import Tag from "./assets/tag.svg?react";
 import User from "./assets/users.svg?react";
 import Web from "./assets/web.svg?react";
-
 import Search from "../DigitalAccelerator/assets/search.svg?react";
-import HeroComponent from "../ReusedComponenets/HeroComponent";
+
+
+import FooterNew from "../../Footer/FooterNew";
 import AppBarNav from "../../Navbar/Appbar";
-import Slides from "./Slides";
-import Solution from "../Mpd/Solution";
 import styles from "../BrandIdentity/assets/animation.module.css";
-import { useInView } from "react-intersection-observer";
 import SmoothScrollUp from "../../utils/SmoothScrollUp";
 import WebDevWizard from "../../WebDevWizard/WebDevWizard.jsx";
+
+
+const carouselImages = [
+  {
+    title: "E-commerce Powerhouse",
+    text: "Transform your online store into a high-performance conversion machine with our custom MERN stack development, leveraging MongoDB, Express.js, React, and Node.js for unparalleled speed and scalability.",
+    imgPath:
+      "https://img.freepik.com/free-photo/showing-cart-trolley-shopping-online-sign-graphic_53876-133967.jpg",
+    sectionId: "#shopify",
+  },
+  {
+    title: "Real Estate Platform",
+    text: "Comprehensive service package for real estate, featuring SEO-optimised content, responsive design, and admin dashboards.",
+    imgPath:
+      "https://img.freepik.com/free-photo/real-estate-housing-brokerage-concept_53876-120663.jpg",
+    sectionId: "#real-estate",
+  },
+  {
+    title: "Hospitality Platform",
+    text: "We create digital experiences for the hospitality sector that are visually stunning and functionally superior.",
+    imgPath:
+      "https://img.freepik.com/premium-photo/waiter-serving-food-group-friends-restaurant_136401-2187.jpg",
+    sectionId: "#hospitality",
+  },
+];
+
+function EnhancedCarousel() {
+  const [activeStep, setActiveStep] = React.useState(0);
+  const [isHovered, setIsHovered] = React.useState(false);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const maxSteps = carouselImages.length;
+
+  const handleScrollToSection = (sectionId) => {
+    const section = document.querySelector(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  React.useEffect(() => {
+    carouselImages.forEach((image) => {
+      const img = new Image();
+      img.src = image.imgPath;
+    });
+  }, []);
+
+  const handleNext = React.useCallback(() => {
+    setActiveStep((prev) => (prev + 1) % maxSteps);
+  }, [maxSteps]);
+
+  const handleBack = React.useCallback(() => {
+    setActiveStep((prev) => (prev - 1 + maxSteps) % maxSteps);
+  }, [maxSteps]);
+
+  const handleDotClick = (step) => {
+    setActiveStep(step);
+  };
+
+  React.useEffect(() => {
+    let interval;
+    if (!isHovered) {
+      interval = setInterval(() => {
+        handleNext();
+      }, 5000);
+    }
+    return () => clearInterval(interval);
+  }, [activeStep, isHovered, handleNext]);
+
+  return (
+    <Box
+      sx={{
+        position: "relative",
+        height: isMobile ? "70vh" : "85vh",
+        width: "100%",
+        overflow: "hidden",
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {carouselImages.map((step, index) => (
+        <Box
+          key={step.title}
+          sx={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            height: "100%",
+            width: "100%",
+            backgroundImage: `url(${step.imgPath})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            opacity: index === activeStep ? 1 : 0,
+            transform: `scale(${index === activeStep ? 1 : 1.05})`,
+            transition: "opacity 1.2s ease-in-out, transform 1.2s ease-in-out",
+          }}
+        />
+      ))}
+      <Box
+        sx={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          height: "100%",
+          width: "100%",
+          background:
+            "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.7) 100%)",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          textAlign: "center",
+          color: "#fff",
+          px: { xs: 2, sm: 3, md: 5 },
+        }}
+      >
+        <Typography
+          variant={isMobile ? "h4" : "h2"}
+          fontWeight="bold"
+          gutterBottom
+          sx={{ textShadow: "2px 2px 8px rgba(0,0,0,0.8)" }}
+        >
+          {carouselImages[activeStep].title}
+        </Typography>
+        <Typography
+          variant="body1"
+          sx={{
+            maxWidth: "650px",
+            mb: 3,
+            fontSize: isMobile ? "1rem" : "1.25rem",
+            textShadow: "1px 1px 4px rgba(0,0,0,0.8)",
+            px: { xs: 1, sm: 0 },
+          }}
+        >
+          {carouselImages[activeStep].text}
+        </Typography>
+        <Stack direction="row" spacing={2}>
+          <Button
+            variant="contained"
+            color="primary"
+            size={isMobile ? "medium" : "large"}
+            onClick={() =>
+              handleScrollToSection(carouselImages[activeStep].sectionId)
+            }
+            sx={{
+              borderRadius: "50px",
+              px: 4,
+              py: 1.5,
+              fontSize: isMobile ? "0.8rem" : "1rem",
+              textTransform: "none",
+              boxShadow: "0 4px 15px rgba(0,0,0,0.3)",
+              transition: "transform 0.2s ease",
+              "&:hover": { transform: "scale(1.05)" },
+            }}
+          >
+            Learn More
+          </Button>
+          <Button
+            variant="outlined"
+            color="inherit"
+            size={isMobile ? "medium" : "large"}
+            onClick={() => handleScrollToSection("#web-dev-wizard")}
+            sx={{
+              borderRadius: "50px",
+              px: 4,
+              py: 1.5,
+              fontSize: isMobile ? "0.8rem" : "1rem",
+              textTransform: "none",
+              borderColor: "white",
+              color: "white",
+              transition: "transform 0.2s ease, background-color 0.2s ease",
+              "&:hover": {
+                transform: "scale(1.05)",
+                backgroundColor: "rgba(255, 255, 255, 0.1)",
+                borderColor: "white",
+              },
+            }}
+          >
+            Book Now
+          </Button>
+        </Stack>
+      </Box>
+      <IconButton
+        aria-label="previous slide"
+        onClick={handleBack}
+        sx={{
+          position: "absolute",
+          top: "50%",
+          left: theme.spacing(isMobile ? 1 : 2),
+          transform: "translateY(-50%)",
+          bgcolor: "rgba(0,0,0,0.4)",
+          color: "#fff",
+          "&:hover": { bgcolor: "rgba(0,0,0,0.6)" },
+          p: isMobile ? 1 : 1.5,
+        }}
+      >
+        <KeyboardArrowLeft fontSize={isMobile ? "medium" : "large"} />
+      </IconButton>
+      <IconButton
+        aria-label="next slide"
+        onClick={handleNext}
+        sx={{
+          position: "absolute",
+          top: "50%",
+          right: theme.spacing(isMobile ? 1 : 2),
+          transform: "translateY(-50%)",
+          bgcolor: "rgba(0,0,0,0.4)",
+          color: "#fff",
+          "&:hover": { bgcolor: "rgba(0,0,0,0.6)" },
+          p: isMobile ? 1 : 1.5,
+        }}
+      >
+        <KeyboardArrowRight fontSize={isMobile ? "medium" : "large"} />
+      </IconButton>
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: theme.spacing(isMobile ? 2 : 3),
+          left: "50%",
+          transform: "translateX(-50%)",
+          display: "flex",
+          gap: { xs: 0.5, sm: 1 },
+        }}
+      >
+        {carouselImages.map((_, index) => (
+          <IconButton
+            key={index}
+            aria-label={`go to slide ${index + 1}`}
+            onClick={() => handleDotClick(index)}
+            sx={{
+              p: 0.5,
+              color:
+                index === activeStep
+                  ? theme.palette.primary.main
+                  : "rgba(255,255,255,0.6)",
+              transition: "color 0.3s",
+            }}
+          >
+            <FiberManualRecordIcon
+              sx={{
+                fontSize: isMobile ? "12px" : "14px",
+                transform: index === activeStep ? "scale(1.3)" : "scale(1)",
+                transition: "transform 0.3s",
+              }}
+            />
+          </IconButton>
+        ))}
+      </Box>
+    </Box>
+  );
+}
 
 const WebManagement = () => {
   const { ref, inView } = useInView({
@@ -56,34 +312,24 @@ const WebManagement = () => {
           content="Tailored Website Solutions to Elevate Your Brand"
         />
       </Helmet>
-      <div style={{ width: "100%", overflow: "hidden" }}>
-        {/* <DrawerAppBarWhite /> */}
-        <AppBarNav color="#000" />
-        <HeroComponent title="Website Development" />
-        <Box display={{ xs: "none", md: "block" }}>
-          <Solution />
-        </Box>
-        <Box
-          className={inView ? styles.textSlideIn : ""}
-          display={{ xs: "block", md: "none" }}
-        >
-          <Slides />
-        </Box>
+
+      <Box sx={{ width: "100%", overflow: "hidden", position: "relative" }}>
+        <AppBarNav
+          sx={{ position: "absolute", top: 0, left: 0, right: 0, zIndex: 10 }}
+        />
+
+        <EnhancedCarousel />
+
         <Box>
           <Container maxWidth="lg">
             <Stack>
-              {/* first section */}
-              <Box ref={ref}>
+              <Box ref={ref} py={{ xs: 3, md: 8 }}>
                 <Stack
                   className={inView ? styles.textSlideIn : ""}
                   spacing={2}
                   textAlign={"center"}
                   width={{ xs: "100%", md: "75%" }}
-                  py={{ xs: 3, md: 8 }}
-                  sx={{
-                    // width: "65%",
-                    margin: "0 auto",
-                  }}
+                  sx={{ margin: "0 auto" }}
                 >
                   <Typography
                     sx={{
@@ -109,86 +355,12 @@ const WebManagement = () => {
                   </Typography>
                 </Stack>
               </Box>
-
-              <Grid
-                className={inView ? styles.imageFadeIn : ""}
-                container
-                justifyContent={"space-between"}
-                spacing={3}
-              >
-                <Grid item xs={12} md={7.3}>
-                  <Box
-                    sx={{
-                      width: "100%",
-                    }}
-                  >
-                    <img
-                      src="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720087060/Web-Development-Solutions_el6hcg.avif"
-                      alt="Web-Development-Solutions"
-                      style={{
-                        width: "100%",
-                        objectFit: "cover",
-                        borderRadius: "8px",
-                      }}
-                    />
-                  </Box>
-                </Grid>
-
-                <Grid
-                  className={inView ? styles.textSlideIn : ""}
-                  item
-                  xs={12}
-                  md={4.2}
-                >
-                  <Stack spacing={2.5}>
-                    <Stack spacing={1} pr={{ xs: 0, md: 10 }}>
-                      <Browse />
-                      <Typography sx={{ fontWeight: "600" }}>
-                        E-commerce Powerhouse
-                      </Typography>
-                      <Typography>
-                        Shopify Web Design Service Transform your online store
-                        into a conversion machine with our custom Shopify
-                        development.
-                      </Typography>
-                    </Stack>
-                    <Stack
-                      className={inView ? styles.textSlideIn : ""}
-                      spacing={1}
-                      pr={{ xs: 0, md: 10 }}
-                    >
-                      <House />
-                      <Typography sx={{ fontWeight: "600" }}>
-                        Real Estate Authority
-                      </Typography>
-                      <Typography>
-                        Tailored Web Development for Agencies Attract and
-                        convert clients with a website that exudes
-                        professionalism and trust.
-                      </Typography>
-                    </Stack>
-                    <Stack spacing={1} pr={{ xs: 0, md: 10 }}>
-                      <Hospital />
-                      <Typography sx={{ fontWeight: "600" }}>
-                        Hospitality Haven
-                      </Typography>
-                      <Typography>
-                        Hotel E-commerce Platform Development Turn your
-                        hotel&apos;s online presence into a powerful booking
-                        engine.
-                      </Typography>
-                    </Stack>
-                  </Stack>
-                </Grid>
-              </Grid>
             </Stack>
           </Container>
         </Box>
 
-        {/* secondSectio */}
-
         <div id="hospitality">
-          <Box py={10} sx={{ backgroundColor: "#F9FAFC", mt: 4 }}>
+          <Box py={10} sx={{ backgroundColor: "#F9FAFC" }}>
             <Container maxWidth="lg">
               <Typography
                 fontSize={{ xs: "26px", md: "32px" }}
@@ -207,14 +379,10 @@ const WebManagement = () => {
                   alignItems={"center"}
                 >
                   <Grid item xs={12} md={5.7}>
-                    <Box
-                      sx={{
-                        width: "100%",
-                      }}
-                    >
+                    <Box sx={{ width: "100%" }}>
                       <img
                         src="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720087059/Hotel-Platform-Development-_yodr5a.avif"
-                        alt="Hotel-Platform-Development-"
+                        alt="Hotel-Platform-Development"
                         style={{
                           width: "100%",
                           objectFit: "cover",
@@ -226,6 +394,7 @@ const WebManagement = () => {
                   <Grid item xs={12} md={5.7}>
                     <Stack>
                       <Stack spacing={1.5} mb={3}>
+                        <Hospital />
                         <Typography
                           sx={{ fontSize: "24px", fontWeight: "600" }}
                         >
@@ -269,19 +438,6 @@ const WebManagement = () => {
                             </Typography>
                           </Stack>
                         </Grid>
-                        {/*<Grid item xs={12} md={6}>
-                      <Stack spacing={1}>
-                        <Mobile />
-                        <Typography sx={{ fontWeight: "600" }}>
-                          Effortless Booking System
-                        </Typography>
-                        <Typography>
-                          Allow guests to book their stay with ease through a
-                          secure and user-friendly online platform, eliminating
-                          the need for third-party booking sites.
-                        </Typography>
-                      </Stack>
-                    </Grid>*/}
                         <Grid item xs={12} md={6}>
                           <Stack spacing={1}>
                             <Money />
@@ -345,7 +501,7 @@ const WebManagement = () => {
                     What&apos;s Included
                   </Typography>
                   <Grid container spacing={5}>
-                    <Grid item xs={12} md={4} sx={{}}>
+                    <Grid item xs={12} md={4}>
                       <Stack spacing={1}>
                         <Color />
                         <Typography sx={{ fontWeight: "600" }}>
@@ -358,7 +514,7 @@ const WebManagement = () => {
                         </Typography>
                       </Stack>
                     </Grid>
-                    <Grid item xs={12} md={4} sx={{}}>
+                    <Grid item xs={12} md={4}>
                       <Stack spacing={1}>
                         <Mobile />
                         <Typography sx={{ fontWeight: "600" }}>
@@ -371,7 +527,7 @@ const WebManagement = () => {
                         </Typography>
                       </Stack>
                     </Grid>{" "}
-                    <Grid item xs={12} md={4} sx={{}}>
+                    <Grid item xs={12} md={4}>
                       <Stack spacing={1}>
                         <Tag />
                         <Typography sx={{ fontWeight: "600" }}>
@@ -389,6 +545,7 @@ const WebManagement = () => {
             </Container>
           </Box>
         </div>
+
         <div id="real-estate">
           <Box
             py={10}
@@ -403,26 +560,10 @@ const WebManagement = () => {
                   container
                   justifyContent={"space-between"}
                   alignItems={"center"}
+                  direction={{ xs: "column-reverse", md: "row" }}
                 >
                   <Grid item xs={12} md={5.7}>
-                    <Box
-                      sx={{
-                        width: "100%",
-                      }}
-                    >
-                      <img
-                        src="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720087059/Real-Estate-Authority_akxsy5.avif"
-                        alt="Real-Estate-Authority"
-                        style={{
-                          width: "100%",
-                          objectFit: "cover",
-                          borderRadius: "8px",
-                        }}
-                      />
-                    </Box>
-                  </Grid>
-                  <Grid item xs={12} md={5.7}>
-                    <Stack className={inView ? styles.textSlideIn : ""}>
+                    <Stack>
                       <Stack spacing={1.5} mb={3}>
                         <Typography
                           sx={{ fontSize: "24px", fontWeight: "600" }}
@@ -465,7 +606,7 @@ const WebManagement = () => {
                               home.
                             </Typography>
                           </Stack>
-                        </Grid>{" "}
+                        </Grid>
                         <Grid item xs={12} md={6}>
                           <Stack spacing={1}>
                             <Bag />
@@ -481,6 +622,19 @@ const WebManagement = () => {
                       </Grid>
                     </Stack>
                   </Grid>
+                  <Grid item xs={12} md={5.7} mt={{ xs: 4, md: 0 }}>
+                    <Box sx={{ width: "100%" }}>
+                      <img
+                        src="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720087059/Real-Estate-Authority_akxsy5.avif"
+                        alt="Real-Estate-Authority"
+                        style={{
+                          width: "100%",
+                          objectFit: "cover",
+                          borderRadius: "8px",
+                        }}
+                      />
+                    </Box>
+                  </Grid>
                 </Grid>
 
                 <Stack>
@@ -494,7 +648,7 @@ const WebManagement = () => {
                     What&apos;s Included
                   </Typography>
                   <Grid container spacing={5}>
-                    <Grid item xs={12} md={4} sx={{}}>
+                    <Grid item xs={12} md={4}>
                       <Stack spacing={1}>
                         <Apartment_Small />
                         <Typography sx={{ fontWeight: "600" }}>
@@ -507,7 +661,7 @@ const WebManagement = () => {
                         </Typography>
                       </Stack>
                     </Grid>
-                    <Grid item xs={12} md={4} sx={{}}>
+                    <Grid item xs={12} md={4}>
                       <Stack spacing={1}>
                         <Magnifier />
                         <Typography sx={{ fontWeight: "600" }}>
@@ -519,7 +673,7 @@ const WebManagement = () => {
                           search features.
                         </Typography>
                       </Stack>
-                    </Grid>{" "}
+                    </Grid>
                     <Grid item xs={12} md={4}>
                       <Stack spacing={1}>
                         <Call />
@@ -532,7 +686,7 @@ const WebManagement = () => {
                         </Typography>
                       </Stack>
                     </Grid>
-                    <Grid item xs={12} md={4} sx={{}}>
+                    <Grid item xs={12} md={4}>
                       <Stack spacing={1}>
                         <Storage />
                         <Typography sx={{ fontWeight: "600" }}>
@@ -544,7 +698,7 @@ const WebManagement = () => {
                         </Typography>
                       </Stack>
                     </Grid>
-                    <Grid item xs={12} md={4} sx={{}}>
+                    <Grid item xs={12} md={4}>
                       <Stack spacing={1}>
                         <Speaker />
                         <Typography sx={{ fontWeight: "600" }}>
@@ -563,7 +717,6 @@ const WebManagement = () => {
           </Box>
         </div>
 
-        {/* Hospitality */}
         <div id="shopify">
           <Box
             py={10}
@@ -579,27 +732,26 @@ const WebManagement = () => {
                   justifyContent={"space-between"}
                   alignItems={"center"}
                 >
-                  <Grid
-                    className={inView ? styles.textSlideIn : ""}
-                    item
-                    xs={12}
-                    md={6}
-                  >
+                  <Grid item xs={12} md={6}>
                     <Stack>
                       <Stack spacing={1.5} mb={3}>
+                        <Browse />
                         <Typography
                           fontSize={{ xs: "20px", md: "24px" }}
                           sx={{ fontWeight: "600" }}
                         >
-                          E-commerce Powerhouse: Shopify Web Design Service
+                          E-commerce Powerhouse: MERN Stack Web Development
+                          Service
                         </Typography>
                         <Typography>
                           Are you an e-commerce business struggling with low
-                          conversions and a generic online store? Our “Shopify
-                          Web Design” Service offers a comprehensive solution.
-                          This service focuses on converting visitors into loyal
-                          customers through a captivating, user-friendly online
-                          store optimized for maximum engagement and sales.
+                          conversions, slow load times, or limited customization
+                          options? Our &quot;MERN Stack Web Development&quot;
+                          Service delivers a powerful, scalable solution built
+                          with cutting-edge JavaScript technologies. We create
+                          lightning-fast, fully customizable online stores that
+                          handle high traffic volumes while providing seamless
+                          user experiences across all devices.
                         </Typography>
                       </Stack>
                       <Grid container spacing={5}>
@@ -610,8 +762,12 @@ const WebManagement = () => {
                               Become an E-commerce Powerhouse
                             </Typography>
                             <Typography>
-                              Convert visitors into loyal customers with a
-                              captivating and user-friendly online store.
+                              Harness the power of React&apos;s dynamic UI
+                              components and Node.js&apos;s robust backend to
+                              create an online store that not only attracts
+                              visitors but converts them into repeat customers
+                              through exceptional performance and user
+                              experience.
                             </Typography>
                           </Stack>
                         </Grid>
@@ -622,21 +778,11 @@ const WebManagement = () => {
                               Effortlessly Guide Visitors
                             </Typography>
                             <Typography>
-                              Design a seamless buying journey that maximises
-                              your sales potential.
-                            </Typography>
-                          </Stack>
-                        </Grid>{" "}
-                        <Grid item xs={12} md={6}>
-                          <Stack spacing={1}>
-                            <Monitor />
-                            <Typography sx={{ fontWeight: "600" }}>
-                              Streamline Operations
-                            </Typography>
-                            <Typography>
-                              Integrate essential tools like CRM systems,
-                              payment gateways, and inventory management
-                              software for a smooth operation.
+                              Implement intelligent product recommendations,
+                              real-time search functionality, and streamlined
+                              checkout processes powered by MongoDB&apos;s
+                              flexible database structure and Express.js&apos;s
+                              efficient routing system.
                             </Typography>
                           </Stack>
                         </Grid>
@@ -645,13 +791,8 @@ const WebManagement = () => {
                   </Grid>
 
                   <Grid item xs={12} md={5} marginTop={{ xs: 4, md: 0 }}>
-                    <Box
-                      sx={{
-                        width: "100%",
-                      }}
-                    >
+                    <Box sx={{ width: "100%" }}>
                       <img
-                        className={inView ? styles.imageFadeIn : ""}
                         src="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720087060/Shopify-Web-Design_zfi35h.avif"
                         alt="Shopify-Web-Design"
                         style={{
@@ -675,32 +816,34 @@ const WebManagement = () => {
                     What&apos;s Included
                   </Typography>
                   <Grid container spacing={5}>
-                    <Grid item xs={12} md={4} sx={{}}>
+                    <Grid item xs={12} md={4}>
                       <Stack spacing={1}>
                         <Account />
                         <Typography sx={{ fontWeight: "600" }}>
                           Conversion-Focused Design
                         </Typography>
                         <Typography>
-                          We prioritise user experience, creating a website that
-                          guides visitors towards your products and increases
-                          conversion rates.
+                          We build interactive, responsive interfaces using
+                          React components that load instantly, reduce bounce
+                          rates, and create intuitive shopping experiences that
+                          guide customers naturally through your sales funnel.
                         </Typography>
                       </Stack>
                     </Grid>
-                    <Grid item xs={12} md={4} sx={{}}>
+                    <Grid item xs={12} md={4}>
                       <Stack spacing={1}>
                         <Mobile />
                         <Typography sx={{ fontWeight: "600" }}>
                           Mobile-First Development
                         </Typography>
                         <Typography>
-                          With mobile shopping booming, your store will be
-                          flawlessly optimised for any device, ensuring a
-                          seamless experience for all customers.
+                          Your MERN-powered store will feature progressive web
+                          app capabilities, offline functionality, and optimized
+                          performance that delivers native app-like experiences
+                          on any device or network condition.
                         </Typography>
                       </Stack>
-                    </Grid>{" "}
+                    </Grid>
                     <Grid item xs={12} md={4}>
                       <Stack spacing={1}>
                         <Comment />
@@ -708,35 +851,38 @@ const WebManagement = () => {
                           Ongoing Support
                         </Typography>
                         <Typography>
-                          Our dedication doesn&apos;t end at launch. We provide
-                          ongoing support to ensure your store continues to
-                          thrive.
+                          Beyond deployment, we provide continuous monitoring,
+                          performance optimization, security updates, and
+                          feature enhancements to keep your MERN stack
+                          application running at peak efficiency.
                         </Typography>
                       </Stack>
                     </Grid>
-                    <Grid item xs={12} md={4} sx={{}}>
+                    <Grid item xs={12} md={4}>
                       <Stack spacing={1}>
                         <Monitor />
                         <Typography sx={{ fontWeight: "600" }}>
                           Seamless Integration
                         </Typography>
                         <Typography>
-                          Integrate essential tools like CRM systems, payment
-                          gateways, and inventory management software for a
-                          smooth operation.
+                          Connect your store with any third-party service
+                          through RESTful APIs and webhooks, from payment
+                          processors and shipping providers to marketing
+                          automation tools and analytics platforms.
                         </Typography>
                       </Stack>
                     </Grid>
-                    <Grid item xs={12} md={4} sx={{}}>
+                    <Grid item xs={12} md={4}>
                       <Stack spacing={1}>
                         <Search />
                         <Typography sx={{ fontWeight: "600" }}>
                           SEO Optimization
                         </Typography>
                         <Typography>
-                          We optimise your store for search engines, helping
-                          potential customers find you organically and drive
-                          more traffic.
+                          We implement server-side rendering with Next.js,
+                          structured data markup, and optimized meta tags to
+                          ensure search engines can crawl, index, and rank your
+                          products effectively, driving organic traffic growth.
                         </Typography>
                       </Stack>
                     </Grid>
@@ -746,6 +892,11 @@ const WebManagement = () => {
             </Container>
           </Box>
         </div>
+
+        <div id="web-dev-wizard">
+          <WebDevWizard />
+        </div>
+
         <Box py={7}>
           <Box
             py={{ xs: 8, md: 11 }}
@@ -779,10 +930,10 @@ const WebManagement = () => {
             </Typography>
           </Box>
         </Box>
-        <WebDevWizard />
+
         <SmoothScrollUp />
         <FooterNew />
-      </div>
+      </Box>
     </>
   );
 };
