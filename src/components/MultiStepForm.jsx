@@ -7,20 +7,23 @@ import {
   Container,
   Typography,
 } from "@mui/material";
+
 import IndustryStep from "./steps/IndustryStep";
 import GoalsStep from "./steps/GoalsStep";
+import InvestmentStep from "./steps/InvestmentStep";
 import SpecializedStep from "./steps/SpecializedStep";
 import UniversalStep from "./steps/UniversalStep";
-import InvestmentStep from "./steps/InvestmentStep";
-import GetStartedStep from "./steps/GetStartedStep";
+import UserDetailsStep from "./steps/UserDetailsStep";
+import CheckoutStep from "./CheckoutStep";
 
 const steps = [
   "Industry",
   "Goals",
+  "Investment",
   "Specialized",
   "Universal",
-  "Investment",
-  "Get Started",
+  "Your Details",
+  "Checkout",
 ];
 
 const MultiStepForm = () => {
@@ -33,6 +36,8 @@ const MultiStepForm = () => {
     solutions: [],
     dashboards: [],
     platform: null,
+    name: "",
+    email: "",
   });
 
   const handleNext = () => setActiveStep((prev) => prev + 1);
@@ -106,7 +111,16 @@ const MultiStepForm = () => {
           />
         );
       case 5:
-        return <GetStartedStep formData={formData} handleBack={handleBack} />;
+        return (
+          <UserDetailsStep
+            handleDataChange={handleDataChange}
+            formData={formData}
+            handleBack={handleBack}
+            handleNext={handleNext}
+          />
+        );
+      case 6:
+        return <CheckoutStep formData={formData} handleBack={handleBack} />;
       default:
         return "Unknown step";
     }

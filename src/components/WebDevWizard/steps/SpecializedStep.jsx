@@ -50,7 +50,7 @@ const SpecializedStep = ({
   return (
     <Box>
       <StepHeader
-        step={3}
+        step={4}
         title="Industry-Specific Solutions"
         subtitle={`Specialized dashboards tailored for the ${selectedIndustry} sector`}
       />

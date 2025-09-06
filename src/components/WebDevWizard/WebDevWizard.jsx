@@ -7,21 +7,21 @@ import {
   Container,
   Typography,
 } from "@mui/material";
-import IndustryStep from "./steps/IndustryStep.jsx";
-import GoalsStep from "./steps/GoalsStep.jsx";
-import SpecializedStep from "./steps/SpecializedStep.jsx";
-import UniversalStep from "./steps/UniversalStep.jsx";
-import InvestmentStep from "./steps/InvestmentStep.jsx";
-import UserDetailsStep from "./steps/UserDetailsStep.jsx";
+
+import IndustryStep from "./steps/IndustryStep";
+import GoalsStep from "./steps/GoalsStep";
+import InvestmentStep from "./steps/InvestmentStep";
+import SpecializedStep from "./steps/SpecializedStep";
+import UniversalStep from "./steps/UniversalStep";
+import UserDetailsStep from "./steps/UserDetailsStep";
 import CheckoutStep from "./components/CheckoutStep.jsx";
-import { theme } from "../../theme.js";
 
 const steps = [
   "Industry",
   "Goals",
+  "Investment",
   "Specialized",
   "Universal",
-  "Investment",
   "Your Details",
   "Checkout",
 ];
@@ -30,7 +30,7 @@ const WebDevWizard = () => {
   const [activeStep, setActiveStep] = useState(0);
 
   const [formData, setFormData] = useState({
-    industry: null,
+    industry: "Restaurant & Food",
     goals: [],
     budget: 5000,
     solutions: [],
@@ -48,13 +48,12 @@ const WebDevWizard = () => {
   };
 
   const getStepContent = (step) => {
-    const discountRate = 0.2;
     const solutionsSpent = formData.solutions.reduce(
-      (acc, s) => acc + s.price * (1 - discountRate),
+      (acc, solution) => acc + solution.price,
       0
     );
     const dashboardsSpent = formData.dashboards.reduce(
-      (acc, d) => acc + d.price * (1 - discountRate),
+      (acc, dash) => acc + dash.price,
       0
     );
     const totalSpentSoFar = solutionsSpent + dashboardsSpent;
@@ -80,6 +79,17 @@ const WebDevWizard = () => {
         );
       case 2:
         return (
+          <InvestmentStep
+            onUpdate={handleDataChange}
+            budget={formData.budget}
+            totalSpentSoFar={totalSpentSoFar}
+            selectedPlatform={formData.platform}
+            handleBack={handleBack}
+            handleNext={handleNext}
+          />
+        );
+      case 3:
+        return (
           <SpecializedStep
             onUpdate={handleDataChange}
             selectedIndustry={formData.industry}
@@ -89,7 +99,7 @@ const WebDevWizard = () => {
             handleNext={handleNext}
           />
         );
-      case 3:
+      case 4:
         return (
           <UniversalStep
             onUpdate={handleDataChange}
@@ -100,56 +110,29 @@ const WebDevWizard = () => {
             handleNext={handleNext}
           />
         );
-      case 4:
-        return (
-          <InvestmentStep
-            onUpdate={handleDataChange}
-            budget={formData.budget}
-            totalSpentSoFar={totalSpentSoFar}
-            selectedPlatform={formData.platform}
-            handleBack={handleBack}
-            handleNext={handleNext}
-          />
-        );
-
       case 5:
         return (
           <UserDetailsStep
-            onUpdate={handleDataChange}
+            handleDataChange={handleDataChange}
             formData={formData}
             handleBack={handleBack}
             handleNext={handleNext}
           />
         );
-
       case 6:
         return <CheckoutStep formData={formData} handleBack={handleBack} />;
-
       default:
         return "Unknown step";
     }
   };
 
   return (
-    <Container maxWidth="lg" sx={{ py: 5 }}>
+    <Container maxWidth="md" sx={{ py: 4 }}>
       <Box sx={{ textAlign: "center", mb: 6 }}>
         <Typography
           variant="h3"
           component="h1"
-          sx={{
-            fontWeight: "bold",
-            lineHeight: 1.2,
-            mb: { xs: 2, md: 3 },
-            background: "linear-gradient(to right, #2c3e50, #8e44ad, #3498db)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            [theme.breakpoints.up("md")]: {
-              fontSize: "3.75rem",
-            },
-            [theme.breakpoints.up("lg")]: {
-              fontSize: "4.5rem",
-            },
-          }}
+          sx={{ fontWeight: "bold", color: "primary.main" }}
         >
           Transform Your Business with Intelligent Digital Solutions
         </Typography>
@@ -159,11 +142,21 @@ const WebDevWizard = () => {
       </Box>
 
       <Stepper activeStep={activeStep} alternativeLabel sx={{ mb: 5 }}>
-        {steps.map((label) => (
-          <Step key={label}>
-            <StepLabel>{label}</StepLabel>
-          </Step>
-        ))}
+        {steps.map((label, index) => {
+          const stepProps = {};
+          const labelProps = {};
+          if (activeStep > index) {
+            labelProps.sx = {
+              "& .MuiStepLabel-label": { color: "success.main" },
+              "& .MuiStepIcon-root": { color: "success.main" },
+            };
+          }
+          return (
+            <Step key={label} {...stepProps}>
+              <StepLabel {...labelProps}>{label}</StepLabel>
+            </Step>
+          );
+        })}
       </Stepper>
 
       <Box>{getStepContent(activeStep)}</Box>

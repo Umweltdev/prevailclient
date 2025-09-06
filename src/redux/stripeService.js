@@ -12,7 +12,7 @@ export const proceedToCheckout = async (checkoutData) => {
     console.log("Sending this data to backend:", checkoutData);
     
     const response = await fetch(
-      "https://prevail-services-e973123f8b1e.herokuapp.com/api/create-multiple-checkout-session",
+      "https://prevail-services-e973123f8b1e.herokuapp.com/api/create-checkout-session",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

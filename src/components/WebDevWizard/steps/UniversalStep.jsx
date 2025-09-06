@@ -37,7 +37,7 @@ const UniversalStep = ({
   return (
     <Box>
       <StepHeader
-        step={4}
+        step={5}
         title="Universal Business Dashboards"
         subtitle="Essential tools and analytics every business needs to thrive"
       />

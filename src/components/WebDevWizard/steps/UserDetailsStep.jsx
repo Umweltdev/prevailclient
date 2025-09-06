@@ -3,13 +3,20 @@ import { Box, Button, Paper, TextField, Grid } from "@mui/material";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 import StepHeader from "../components/StepHeader.jsx";
 
-const UserDetailsStep = ({ onUpdate, formData, handleBack, handleNext }) => {
+// Changed prop from 'onUpdate' to 'handleDataChange'
+const UserDetailsStep = ({
+  handleDataChange,
+  formData,
+  handleBack,
+  handleNext,
+}) => {
   const { name = "", email = "" } = formData;
   const isFormValid =
     name.trim() !== "" && email.trim() !== "" && /^\S+@\S+\.\S+$/.test(email);
 
   const handleChange = (e) => {
-    onUpdate(e.target.name, e.target.value);
+    // Used 'handleDataChange' here
+    handleDataChange(e.target.name, e.target.value);
   };
 
   return (
@@ -70,7 +77,7 @@ const UserDetailsStep = ({ onUpdate, formData, handleBack, handleNext }) => {
 };
 
 UserDetailsStep.propTypes = {
-  onUpdate: PropTypes.func.isRequired,
+  handleDataChange: PropTypes.func.isRequired,
   formData: PropTypes.object.isRequired,
   handleBack: PropTypes.func.isRequired,
   handleNext: PropTypes.func.isRequired,

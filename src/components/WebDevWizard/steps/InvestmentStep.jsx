@@ -25,7 +25,7 @@ const InvestmentStep = ({
   return (
     <Box>
       <StepHeader
-        step={5}
+        step={3}
         title="Choose Your Platform Foundation"
         subtitle="Select the platform tier that matches your overall needs and budget"
       />
