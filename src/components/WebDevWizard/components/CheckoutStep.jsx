@@ -24,10 +24,8 @@ const CheckoutStep = ({ formData, handleBack }) => {
   const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState(null);
   const [processingAction, setProcessingAction] = useState(null);
-  const [includeConsultation, setIncludeConsultation] = useState(false); // State for the toggle
+  const [includeConsultation, setIncludeConsultation] = useState(false);
 
-  // --- Price Calculations ---
-  // (No changes needed here)
   const discountRate = 0.2;
   const solutionsCost = formData.solutions.reduce(
     (acc, s) => acc + s.price * (1 - discountRate),
@@ -41,7 +39,6 @@ const CheckoutStep = ({ formData, handleBack }) => {
   const totalCost = solutionsCost + dashboardsCost + platformCost;
   const CONSULTATION_FEE = 99;
 
-  // --- Payment Handler ---
   const handlePayment = async (action) => {
     setIsProcessing(true);
     setProcessingAction(action);
@@ -71,7 +68,6 @@ const CheckoutStep = ({ formData, handleBack }) => {
     setIsProcessing(false);
     setProcessingAction(null);
   };
-
   return (
     <Box>
       <StepHeader
@@ -80,9 +76,7 @@ const CheckoutStep = ({ formData, handleBack }) => {
         subtitle="Review your configuration and choose your payment path."
       />
       <Grid container spacing={{ xs: 3, md: 5 }} alignItems="flex-start">
-        {/* --- Left Column: Configuration Summary --- */}
         <Grid item xs={12} md={5}>
-          {/* Using the refined summary card from before */}
           <Paper
             variant="outlined"
             sx={{ p: { xs: 3, md: 4 }, height: "100%", borderRadius: 4 }}
@@ -121,8 +115,6 @@ const CheckoutStep = ({ formData, handleBack }) => {
             </Stack>
           </Paper>
         </Grid>
-
-        {/* --- Right Column: Interactive Payment Card --- */}
         <Grid item xs={12} md={7}>
           <Paper
             elevation={0}
@@ -144,8 +136,6 @@ const CheckoutStep = ({ formData, handleBack }) => {
             >
               Confirm your total and add a complimentary consultation session.
             </Typography>
-
-            {/* --- DYNAMIC PRICE BREAKDOWN --- */}
             <Paper variant="outlined" sx={{ p: 3, borderRadius: 3, mb: 3 }}>
               <Stack spacing={1.5}>
                 <PriceRow
@@ -232,8 +222,6 @@ const CheckoutStep = ({ formData, handleBack }) => {
           </Paper>
         </Grid>
       </Grid>
-
-      {/* --- Back Button & Error Snackbar --- */}
       <Box sx={{ display: "flex", justifyContent: "flex-start", mt: 4 }}>
         <Button variant="text" onClick={handleBack} disabled={isProcessing}>
           Back
@@ -257,8 +245,6 @@ const CheckoutStep = ({ formData, handleBack }) => {
     </Box>
   );
 };
-
-// Helper Components for clean rendering
 const SummaryItem = ({ label, value }) => (
   <Box
     sx={{
@@ -310,8 +296,6 @@ const PriceRow = ({
     </Typography>
   </Box>
 );
-
-// Prop Types
 SummaryItem.propTypes = {
   label: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,

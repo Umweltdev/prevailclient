@@ -1,11 +1,10 @@
 import { Box, CardMedia, Typography } from "@mui/material";
-import React from "react";
 
 const Header = () => {
   return (
     <Box
       sx={{
-        background: "linear-gradient(135deg, #d1c4e9, #ffffff, #bbdefb)", // Updated background color
+        background: "linear-gradient(135deg, #d1c4e9, #ffffff, #bbdefb)",
         height: "110vh",
         color: "#fff",
         display: "flex",

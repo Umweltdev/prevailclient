@@ -58,6 +58,7 @@ const trinityData = [
   { text: "MCD", link: "/trinity/mcd" },
   { text: "RCD", link: "/trinity/rcd" },
   { text: "AED", link: "/trinity/aed" },
+  { text: "Universal Outreach", link: "/trinity/universal-outreach" },
 ];
 
 const exploreData = [

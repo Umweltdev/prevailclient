@@ -65,6 +65,9 @@ const Aed = React.lazy(() => import("./components/TrinityPlus/AED"));
 const StepWizard = React.lazy(() =>
   import("./components/TrinityPlus/StepWizardPage")
 );
+const UniversalOutreachPage = React.lazy(
+  () => import("./pages/UniversalOutreachPage")
+);
 const DigitalEcosystem = React.lazy(() =>
   import("./components/Explore/DigitalEcosystem/DigitalEcosystem")
 );
@@ -182,6 +185,7 @@ function App() {
               <Route path="/portfolio/:index" element={<CaseDetails />} />
               <Route path="/about/ourWhy" element={<AboutOurWhy />} />
               <Route path="/about/ourSolution" element={<AboutOurSolution />} />
+              <Route path ="/trinity/universal-outreach" element={<UniversalOutreachPage/>} />
 
               {/* Auth and user routes */}
               <Route path="/SignUp" element={<SignUpForm />} />
@@ -247,6 +251,10 @@ function App() {
               <Route
                 path="/Services/custom-ad-campaign"
                 element={<Navigate to="/service/custom-ad-campaign" />}
+              />
+              <Route
+                path="/trinity/universal-outreach"
+                element={<Navigate to="/trinity/universal-outreach" />}
               />
               <Route
                 path="/privacypolicy"

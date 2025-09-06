@@ -127,12 +127,12 @@ const WebDevWizard = () => {
   };
 
   return (
-    <Container maxWidth="md" sx={{ py: 4 }}>
+    <Container maxWidth="xl" sx={{ py: 4 }}>
       <Box sx={{ textAlign: "center", mb: 6 }}>
         <Typography
-          variant="h3"
+          variant="h1"
           component="h1"
-          sx={{ fontWeight: "bold", color: "primary.main" }}
+          sx={{ fontWeight: "bold", mb:2, color: "primary.main" }}
         >
           Transform Your Business with Intelligent Digital Solutions
         </Typography>
