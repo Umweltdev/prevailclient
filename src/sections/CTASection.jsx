@@ -15,10 +15,10 @@ export const CTASection = () => {
 
   return (
     <Box id="pricing" sx={{ py: { xs: 4, md: 8 } }}>
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <Paper
           sx={{
-            p: { xs: 6, md: 10, lg: 12 },
+            p: { xs: 4, md: 8 },
             background: "linear-gradient(135deg, #3B82F6 0%, #7C3AED 100%)",
             color: "white",
             textAlign: "center",
@@ -28,12 +28,11 @@ export const CTASection = () => {
           }}
         >
           <Box sx={{ position: "relative", zIndex: 1 }}>
-            {/* Heading */}
             <Typography
               variant="h2"
               fontWeight={900}
               mb={3}
-              sx={{ fontSize: { xs: "2rem", sm: "2.5rem", md: "4rem" } }}
+              sx={{ fontSize: { xs: "2rem", sm: "2.5rem" } }}
             >
               Transform Your Marketing Today
             </Typography>
@@ -43,7 +42,7 @@ export const CTASection = () => {
               fontWeight={300}
               mb={8}
               sx={{
-                fontSize: { xs: "1rem", sm: "1.25rem", md: "1.5rem" },
+                fontSize: { xs: "1rem", sm: "1.25rem" },
                 opacity: 0.9,
               }}
             >
@@ -62,13 +61,7 @@ export const CTASection = () => {
                 { value: "$0", label: "Monthly Fees" },
                 { value: "91%", label: "Cost Reduction" },
               ].map((stat, index) => (
-                <Grid
-                  item
-                  xs={10} // narrower on mobile
-                  sm={4} // equal split on tablet/desktop
-                  key={index}
-                  sx={{ mx: "auto" }} // centers on mobile
-                >
+                <Grid item sm={4} key={index} sx={{ mx: "auto" }}>
                   <Paper
                     sx={{
                       p: { xs: 3, md: 4 },
@@ -88,14 +81,14 @@ export const CTASection = () => {
                       variant="h2"
                       fontWeight={900}
                       sx={{
-                        fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
+                        fontSize: { xs: "2rem", sm: "2.5rem" },
                       }}
                     >
                       {stat.value}
                     </Typography>
                     <Typography
                       sx={{
-                        fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                        fontSize: { xs: "0.9rem", sm: "1rem" },
                       }}
                     >
                       {stat.label}
@@ -112,15 +105,16 @@ export const CTASection = () => {
             >
               <Button
                 variant="contained"
-                size="large"
                 startIcon={<span>🚀</span>}
                 sx={{
                   bgcolor: "white",
                   color: theme.palette.primary.main,
-                  px: { xs: 4, sm: 6 },
-                  py: { xs: 1.5, sm: 2 },
-                  fontSize: { xs: "1rem", sm: "1.25rem" },
+                  px: { xs: 2.5, sm: 3.5 },
+                  py: { xs: 1, sm: 1.25 },
+                  fontSize: { xs: "0.9rem", sm: "1rem" },
                   fontWeight: 700,
+                  borderRadius: 2,
+                  minWidth: { xs: 180, sm: 200 },
                   "&:hover": {
                     bgcolor: alpha("#FFFFFF", 0.9),
                     transform: "scale(1.05)",
@@ -131,35 +125,34 @@ export const CTASection = () => {
               </Button>
               <Button
                 variant="outlined"
-                size="large"
                 startIcon={<span>👥</span>}
                 sx={{
                   borderColor: "white",
                   color: "white",
-                  borderWidth: 2,
-                  px: { xs: 4, sm: 6 },
-                  py: { xs: 1.5, sm: 2 },
-                  fontSize: { xs: "1rem", sm: "1.25rem" },
+                  px: { xs: 2.5, sm: 3.5 },
+                  py: { xs: 1, sm: 1.25 },
+                  fontSize: { xs: "0.9rem", sm: "1rem" },
                   fontWeight: 700,
+                  borderRadius: 2,
+                  minWidth: { xs: 180, sm: 200 },
                   backdropFilter: "blur(10px)",
                   background: alpha("#FFFFFF", 0.1),
                   "&:hover": {
                     borderColor: "white",
                     background: alpha("#FFFFFF", 0.2),
-                    borderWidth: 2,
+                    transform: "scale(1.05)",
                   },
                 }}
               >
                 Book Demo
               </Button>
             </Stack>
-
-            {/* Footer note */}
             <Typography
               variant="body1"
               sx={{
                 mt: 4,
                 opacity: 0.9,
+                color: theme.palette.common.white,
                 fontSize: { xs: "0.85rem", sm: "1rem" },
               }}
             >

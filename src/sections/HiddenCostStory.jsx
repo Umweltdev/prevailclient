@@ -1,20 +1,11 @@
-import {
-  Box,
-  Container,
-  Typography,
-  Paper,
-  Stack,
-  useTheme,
-  alpha,
-} from "@mui/material";
+import { Box, Container, Typography, Paper, Stack, Grid } from "@mui/material";
 import { GlassCard } from "./components/common/GlassCard.jsx";
+import { gradients } from "../theme.js";
 
 export const HiddenCostStory = () => {
-  const theme = useTheme();
-
   return (
     <Box sx={{ py: { xs: 4, md: 8 } }}>
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <Stack
           spacing={2}
           alignItems="center"
@@ -32,7 +23,6 @@ export const HiddenCostStory = () => {
                 lg: "4rem",
               },
               lineHeight: 1.2,
-              textAlign: "center",
             }}
           >
             The Hidden Cost Revealer
@@ -44,7 +34,6 @@ export const HiddenCostStory = () => {
             sx={{
               fontSize: { xs: "0.95rem", sm: "1rem", md: "1.25rem" },
               maxWidth: 600,
-              textAlign: "center",
             }}
           >
             See the true cost of &quot;free&quot; marketing that&apos;s actually
@@ -52,123 +41,77 @@ export const HiddenCostStory = () => {
           </Typography>
         </Stack>
 
-        <GlassCard sx={{ p: { xs: 3, sm: 4, md: 6, lg: 8 } }}>
+        <GlassCard
+          sx={{
+            p: { xs: 3, sm: 4, md: 6, lg: 8 },
+            background: gradients.secondary,
+            color: "white",
+          }}
+        >
           <Typography
             variant="h3"
             fontWeight={800}
             mb={4}
             sx={{
               fontSize: { xs: "1.25rem", sm: "1.5rem", md: "2rem" },
-              textAlign: { xs: "center", md: "left" },
+              textAlign: "center",
             }}
           >
             The Shocking Truth About Your Time
           </Typography>
-          <Paper
+
+          <Typography
             sx={{
-              p: { xs: 2.5, sm: 4 },
               mb: 4,
-              textAlign: { xs: "center", md: "left" },
-              background:
-                "linear-gradient(135deg, rgba(239, 68, 68, 0.05), rgba(252, 165, 165, 0.05))",
-              border: `1px solid ${alpha(theme.palette.error.main, 0.2)}`,
+              color: "white",
+              textAlign: "center",
             }}
           >
-            <Typography
-              variant="h5"
-              fontWeight={700}
-              mb={3}
-              sx={{
-                fontSize: { xs: "1rem", sm: "1.25rem", md: "1.5rem" },
-                textAlign: { xs: "center", md: "left" },
-              }}
-            >
-              Example: &quot;Just Posting on Instagram&quot;
-            </Typography>
-
-            <Stack spacing={2}>
+            <Grid container spacing={3}>
               {[
                 { label: "Time spent creating content:", value: "2 hours" },
                 { label: "Your hourly value:", value: "$50/hour" },
+                { label: "True cost of 'free' post:", value: "$150" },
+                { label: "ACTUAL RESULT:", value: "-$120 LOSS!" },
               ].map((row, index) => (
-                <Box
-                  key={index}
-                  sx={{
-                    display: "flex",
-                    flexDirection: { xs: "column", sm: "row" },
-                    justifyContent: "space-between",
-                    alignItems: { xs: "center", sm: "flex-start" },
-                    pb: 2,
-                    borderBottom: `1px solid ${alpha(theme.palette.divider, 0.2)}`,
-                    gap: { xs: 0.5, sm: 0 },
-                  }}
-                >
-                  <Typography fontSize={{ xs: "0.9rem", sm: "1rem" }}>
-                    {row.label}
-                  </Typography>
-                  <Typography
-                    fontWeight={700}
-                    fontSize={{ xs: "0.95rem", sm: "1rem" }}
+                <Grid item xs={12} sm={6} md={3} key={index}>
+                  <Paper
+                    sx={{
+                      p: 3,
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "space-between",
+                      textAlign: "center",
+                      color: "white",
+                      borderRadius: "16px",
+                      background: "rgba(255, 255, 255, 0.13)",
+                      boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+                      backdropFilter: "blur(4.1px)",
+                      WebkitBackdropFilter: "blur(4.1px)",
+                      border: "1px solid rgba(255, 255, 255, 0.89)",
+                      transition: "all 0.3s ease",
+                      "&:hover": {
+                        transform: "translateY(-5px)",
+                        boxShadow: "0 8px 40px rgba(0, 0, 0, 0.15)",
+                      },
+                    }}
                   >
-                    {row.value}
-                  </Typography>
-                </Box>
+                    <Typography
+                      variant="subtitle1"
+                      fontWeight={700}
+                      sx={{ mb: 1 }}
+                    >
+                      {row.label}
+                    </Typography>
+                    <Typography variant="h6" fontWeight={900}>
+                      {row.value}
+                    </Typography>
+                  </Paper>
+                </Grid>
               ))}
-
-              {/* Highlight Row */}
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: { xs: "column", sm: "row" },
-                  justifyContent: "space-between",
-                  alignItems: { xs: "center", sm: "flex-start" },
-                  pb: 2,
-                  borderBottom: `1px solid ${alpha(theme.palette.divider, 0.2)}`,
-                  gap: { xs: 0.5, sm: 0 },
-                }}
-              >
-                <Typography
-                  fontWeight={700}
-                  fontSize={{ xs: "0.95rem", sm: "1rem" }}
-                >
-                  True cost of &quot;free&quot; post:
-                </Typography>
-                <Typography
-                  variant="h6"
-                  fontWeight={900}
-                  color="error"
-                  fontSize={{ xs: "1.1rem", sm: "1.25rem" }}
-                >
-                  $150
-                </Typography>
-              </Box>
-
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: { xs: "column", sm: "row" },
-                  justifyContent: "space-between",
-                  alignItems: { xs: "center", sm: "flex-start" },
-                  gap: { xs: 0.5, sm: 0 },
-                }}
-              >
-                <Typography
-                  fontWeight={900}
-                  fontSize={{ xs: "1rem", sm: "1.1rem" }}
-                >
-                  ACTUAL RESULT:
-                </Typography>
-                <Typography
-                  variant="h5"
-                  fontWeight={900}
-                  color="error"
-                  fontSize={{ xs: "1.25rem", sm: "1.5rem" }}
-                >
-                  -$120 LOSS!
-                </Typography>
-              </Box>
-            </Stack>
-          </Paper>
+            </Grid>
+          </Typography>
         </GlassCard>
       </Container>
     </Box>

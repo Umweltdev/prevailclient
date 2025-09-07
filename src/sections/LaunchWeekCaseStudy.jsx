@@ -3,7 +3,6 @@ import {
   Container,
   Typography,
   Grid,
-  Paper,
   useTheme,
   alpha,
 } from "@mui/material";
@@ -42,14 +41,15 @@ export const LaunchWeekCaseStudy = () => {
 
   return (
     <Box sx={{ py: { xs: 4, md: 8 } }}>
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <GlassCard
           sx={{
             p: { xs: 3, md: 6, lg: 8 },
             background:
-              "linear-gradient(135deg, rgba(124, 58, 237, 0.05), rgba(236, 72, 153, 0.05))",
+              "linear-gradient(135deg, rgba(124,58,237,0.07), rgba(236,72,153,0.07))",
           }}
         >
+          {/* Title */}
           <Typography
             variant="h2"
             fontWeight={900}
@@ -76,7 +76,7 @@ export const LaunchWeekCaseStudy = () => {
           >
             {weekData.map((item, index) => (
               <Grid item xs={12} sm={6} md={2.4} key={index}>
-                <Paper
+                <GlassCard
                   sx={{
                     p: { xs: 2, sm: 3 },
                     textAlign: "center",
@@ -85,13 +85,11 @@ export const LaunchWeekCaseStudy = () => {
                     flexDirection: "column",
                     justifyContent: "center",
                     alignItems: "center",
-                    background: alpha(theme.palette.background.paper, 0.7),
-                    backdropFilter: "blur(10px)",
+                    transition: "all 0.3s ease",
                     "&:hover": {
-                      transform: "translateY(-4px)",
+                      transform: "translateY(-5px)",
                       boxShadow: theme.shadows[8],
                     },
-                    transition: "all 0.3s",
                   }}
                 >
                   <Typography
@@ -121,16 +119,16 @@ export const LaunchWeekCaseStudy = () => {
                   >
                     {item.action}
                   </Typography>
-                </Paper>
+                </GlassCard>
               </Grid>
             ))}
           </Grid>
 
           {/* Analysis Section */}
-          <Paper
+          <GlassCard
             sx={{
               p: { xs: 3, md: 4 },
-              background: alpha(theme.palette.grey[900], 0.05),
+              background: alpha(theme.palette.background.paper, 0.05),
               textAlign: "center",
             }}
           >
@@ -142,72 +140,49 @@ export const LaunchWeekCaseStudy = () => {
             >
               LAUNCH WEEK COMPLETE ANALYSIS
             </Typography>
+
             <Grid container spacing={3} justifyContent="center">
-              <Grid item xs={12} sm={6} md={4}>
-                <Paper
-                  sx={{
-                    p: { xs: 2, md: 3 },
-                    textAlign: "center",
-                    background: alpha(theme.palette.success.main, 0.05),
-                    border: `1px solid ${alpha(theme.palette.success.main, 0.2)}`,
-                  }}
-                >
-                  <Typography variant="subtitle1" fontWeight={700} mb={1}>
-                    🤖 Automated Digital
-                  </Typography>
-                  <Typography
-                    variant="h5"
-                    fontWeight={900}
-                    sx={{ fontSize: { xs: "1.25rem", md: "1.5rem" } }}
+              {[
+                {
+                  label: "🤖 Automated Digital",
+                  result: "326 @ $9.20",
+                  color: theme.palette.success.main,
+                },
+                {
+                  label: "📰 Traditional",
+                  result: "23 @ $21",
+                  color: theme.palette.warning.main,
+                },
+                {
+                  label: "⏰ Your Time",
+                  result: "0 customers!",
+                  color: theme.palette.error.main,
+                },
+              ].map((stat, idx) => (
+                <Grid item xs={12} sm={6} md={4} key={idx}>
+                  <GlassCard
+                    sx={{
+                      p: { xs: 2, md: 3 },
+                      textAlign: "center",
+                      background: alpha(stat.color, 0.07),
+                      border: `1px solid ${alpha(stat.color, 0.25)}`,
+                    }}
                   >
-                    326 @ $9.20
-                  </Typography>
-                </Paper>
-              </Grid>
-              <Grid item xs={12} sm={6} md={4}>
-                <Paper
-                  sx={{
-                    p: { xs: 2, md: 3 },
-                    textAlign: "center",
-                    background: alpha(theme.palette.warning.main, 0.05),
-                    border: `1px solid ${alpha(theme.palette.warning.main, 0.2)}`,
-                  }}
-                >
-                  <Typography variant="subtitle1" fontWeight={700} mb={1}>
-                    📰 Traditional
-                  </Typography>
-                  <Typography
-                    variant="h5"
-                    fontWeight={900}
-                    sx={{ fontSize: { xs: "1.25rem", md: "1.5rem" } }}
-                  >
-                    23 @ $21
-                  </Typography>
-                </Paper>
-              </Grid>
-              <Grid item xs={12} sm={6} md={4}>
-                <Paper
-                  sx={{
-                    p: { xs: 2, md: 3 },
-                    textAlign: "center",
-                    background: alpha(theme.palette.error.main, 0.05),
-                    border: `1px solid ${alpha(theme.palette.error.main, 0.2)}`,
-                  }}
-                >
-                  <Typography variant="subtitle1" fontWeight={700} mb={1}>
-                    ⏰ Your Time
-                  </Typography>
-                  <Typography
-                    variant="h5"
-                    fontWeight={900}
-                    sx={{ fontSize: { xs: "1.25rem", md: "1.5rem" } }}
-                  >
-                    0 customers!
-                  </Typography>
-                </Paper>
-              </Grid>
+                    <Typography variant="subtitle1" fontWeight={700} mb={1}>
+                      {stat.label}
+                    </Typography>
+                    <Typography
+                      variant="h5"
+                      fontWeight={900}
+                      sx={{ fontSize: { xs: "1.25rem", md: "1.5rem" } }}
+                    >
+                      {stat.result}
+                    </Typography>
+                  </GlassCard>
+                </Grid>
+              ))}
             </Grid>
-          </Paper>
+          </GlassCard>
         </GlassCard>
       </Container>
     </Box>

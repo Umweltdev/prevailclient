@@ -69,8 +69,6 @@ export const CampaignTypes = () => {
         >
           5 Types of &quot;Set & Forget&quot; Campaigns
         </Typography>
-
-        {/* Campaign Cards */}
         <Grid container spacing={{ xs: 2, sm: 3, md: 4 }}>
           {campaignTypes.map((campaign, index) => (
             <Grid item xs={12} sm={6} md={4} lg={2.4} key={index}>
