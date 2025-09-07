@@ -1,60 +1,35 @@
 import {
   Box,
+  Grid,
   Container,
   Typography,
   Stack,
   Paper,
-  useTheme,
-  alpha,
+
 } from "@mui/material";
 import { GlassCard } from "./components/common/GlassCard";
-import { GradientText } from "./components/common/GradientText";
+import { gradients } from "../theme.js";
 
 export const RealTimeControlStory = () => {
-  const theme = useTheme();
 
   return (
     <Box
       sx={{
         py: { xs: 4, md: 8 },
-        background:
-          "linear-gradient(to bottom, white, rgba(249, 250, 251, 0.5))",
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <Stack spacing={2} alignItems="center" textAlign="center" mb={8}>
           <Typography
             variant="h2"
             fontWeight={900}
             sx={{
-              fontSize: {
-                xs: "1.5rem",
-                sm: "2rem",
-                md: "3.25rem",
-                lg: "4rem",
-              },
+              fontSize: { xs: "1.5rem", sm: "2rem", md: "3.25rem" },
               lineHeight: 1.25,
               textAlign: "center",
             }}
           >
-            What{" "}
-            <GradientText
-              gradient="primary"
-              variant="h2"
-              fontWeight={900}
-              sx={{
-                fontSize: {
-                  xs: "1.5rem",
-                  sm: "2rem",
-                  md: "3.25rem",
-                  lg: "4rem",
-                },
-                lineHeight: 1.25,
-              }}
-            >
-              Real-Time Control
-            </GradientText>{" "}
-            Actually Means
+            What Real-Time Control Actually Means
           </Typography>
           <Typography
             variant="h6"
@@ -71,14 +46,21 @@ export const RealTimeControlStory = () => {
           </Typography>
         </Stack>
 
-        <GlassCard sx={{ p: { xs: 2.5, sm: 4, md: 6, lg: 8 }, mb: 6 }}>
+        <GlassCard
+          sx={{
+            p: { xs: 2.5, sm: 4, md: 6 },
+            mb: 6,
+            background: gradients.primary,
+            color: "white",
+          }}
+        >
           <Typography
             variant="h3"
             fontWeight={800}
             mb={3}
             sx={{
               fontSize: { xs: "1.2rem", sm: "1.5rem", md: "2rem" },
-              textAlign: { xs: "center", md: "left" },
+              textAlign: "center",
             }}
           >
             Imagine You Own a Restaurant...
@@ -86,12 +68,12 @@ export const RealTimeControlStory = () => {
 
           <Typography
             variant="body1"
-            color="text.secondary"
+            color="white"
             paragraph
             sx={{
               fontSize: { xs: "0.9rem", sm: "1rem", md: "1.125rem" },
               lineHeight: 1.7,
-              textAlign: { xs: "center", md: "left" },
+              textAlign: "center",
             }}
           >
             You set aside $3,000/month for digital advertising. You connect your
@@ -99,14 +81,13 @@ export const RealTimeControlStory = () => {
             more than $100/day&quot; and &quot;Never pay more than $5 per
             customer.&quot; Then you walk away.
           </Typography>
-          <Paper
+
+          <Typography
             sx={{
               p: { xs: 2.5, sm: 4 },
               mb: 4,
-              textAlign: { xs: "center", md: "left" },
-              background:
-                "linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(124, 58, 237, 0.05))",
-              border: `1px solid ${alpha(theme.palette.primary.main, 0.1)}`,
+              textAlign: "center",
+              color: "white",
             }}
           >
             <Typography
@@ -115,12 +96,14 @@ export const RealTimeControlStory = () => {
               mb={3}
               sx={{
                 fontSize: { xs: "1rem", sm: "1.25rem", md: "1.5rem" },
-                textAlign: { xs: "center", md: "left" },
+                textAlign: "center",
+                color: "white",
               }}
             >
               Monday, 9:00 AM – The System Wakes Up
             </Typography>
-            <Stack spacing={2}>
+
+            <Grid container spacing={2} justifyContent="center">
               {[
                 {
                   icon: "🔍",
@@ -147,40 +130,50 @@ export const RealTimeControlStory = () => {
                     "Spent $15 yesterday, got 4 customers = $3.75 per customer 🌟",
                 },
               ].map((item, index) => (
-                <Box
-                  key={index}
-                  sx={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: 1.5,
-                    justifyContent: { xs: "center", md: "flex-start" },
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{ fontSize: { xs: "1.2rem", sm: "1.5rem" } }}
+                <Grid item xs={12} sm={6} md={3} key={index}>
+                  <Paper
+                    sx={{
+                      p: 3,
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "space-between",
+                      textAlign: "left",
+                      color: "white",
+                      borderRadius: "16px",
+                      background: "rgba(255, 255, 255, 0.13)",
+                      boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+                      backdropFilter: "blur(4.1px)",
+                      WebkitBackdropFilter: "blur(4.1px)",
+                      border: "1px solid rgba(255, 255, 255, 0.89)",
+                      transition: "all 0.3s ease",
+                      "&:hover": {
+                        transform: "translateY(-5px)",
+                        boxShadow: "0 8px 40px rgba(0, 0, 0, 0.15)",
+                      },
+                    }}
                   >
-                    {item.icon}
-                  </Typography>
-                  <Box>
+                    <Typography
+                      variant="h3"
+                      sx={{ mb: 1, textAlign: "center" }}
+                    >
+                      {item.icon}
+                    </Typography>
                     <Typography
                       variant="subtitle1"
                       fontWeight={700}
-                      sx={{ fontSize: { xs: "0.85rem", sm: "1rem" } }}
+                      sx={{ mb: 1, textAlign: "center" }}
                     >
                       {item.platform}
                     </Typography>
-                    <Typography
-                      color="text.secondary"
-                      sx={{ fontSize: { xs: "0.8rem", sm: "0.95rem" } }}
-                    >
+                    <Typography variant="body2" sx={{ textAlign: "center" }}>
                       {item.result}
                     </Typography>
-                  </Box>
-                </Box>
+                  </Paper>
+                </Grid>
               ))}
-            </Stack>
-          </Paper>
+            </Grid>
+          </Typography>
         </GlassCard>
       </Container>
     </Box>

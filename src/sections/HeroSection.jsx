@@ -116,22 +116,19 @@ export const HeroSection = () => {
               label="Automated Marketing Revolution"
             />
 
-            <Typography
+            <GradientText
               variant="h1"
               component="h1"
+              gradient="primary"
               sx={{
                 fontWeight: 900,
-                fontSize: { xs: "2.75rem", md: "4.5rem", lg: "6rem" },
+                fontSize: { xs: "2.75rem", md: "4.5rem" },
                 lineHeight: 1.05,
                 letterSpacing: "-0.015em",
-                maxWidth: "900px",
               }}
             >
-              Universal{" "}
-              <GradientText variant="h1" component="span" gradient="primary">
-                Outreach Hub
-              </GradientText>
-            </Typography>
+              Universal Outreach Hub
+            </GradientText>
             <Typography
               variant="h5"
               sx={{

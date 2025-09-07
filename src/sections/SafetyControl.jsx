@@ -3,162 +3,146 @@ import {
   Container,
   Typography,
   Grid,
-  Paper,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
   Stack,
   useTheme,
   alpha,
 } from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { GlassCard } from "./components/common/GlassCard.jsx";
+import { gradients } from "../theme.js";
 
 export const SafetyControl = () => {
   const theme = useTheme();
 
-  const safeguards = [
-    { title: "Daily Maximum", desc: "Never spend more than $100/day" },
-    { title: "Per-Customer Cap", desc: "Never pay more than $20 per customer" },
-    { title: "Platform Limits", desc: "Never give Facebook more than 30%" },
+  const sections = [
     {
-      title: "Emergency Brake",
-      desc: "Auto-pause if losing money 3 days straight",
+      title: "🛡️ Spending Safeguards",
+      color: "primary",
+      items: [
+        { title: "Daily Maximum", desc: "Never spend more than $100/day" },
+        {
+          title: "Per-Customer Cap",
+          desc: "Never pay more than $20 per customer",
+        },
+        { title: "Platform Limits", desc: "Never give Facebook more than 30%" },
+        {
+          title: "Emergency Brake",
+          desc: "Auto-pause if losing money 3 days straight",
+        },
+      ],
     },
-  ];
-
-  const overrides = [
-    { title: "Instant Pause", desc: "Hit pause button anytime" },
-    { title: "Manual Adjustments", desc: "Override any campaign instantly" },
     {
-      title: "Protected Campaigns",
-      desc: 'Set "do not touch" on specific ads',
+      title: "🎮 Manual Override",
+      color: "secondary",
+      items: [
+        { title: "Instant Pause", desc: "Hit pause button anytime" },
+        {
+          title: "Manual Adjustments",
+          desc: "Override any campaign instantly",
+        },
+        {
+          title: "Protected Campaigns",
+          desc: 'Set "do not touch" on specific ads',
+        },
+        {
+          title: "Full Control",
+          desc: "Take back control instantly when needed",
+        },
+      ],
     },
-    { title: "Full Control", desc: "Take back control instantly when needed" },
   ];
 
   return (
     <Box sx={{ py: { xs: 4, md: 8 } }}>
-      <Container maxWidth="lg">
-        <GlassCard sx={{ p: { xs: 2, md: 4, lg: 6 } }}>
-          {/* Heading */}
-          <Typography
-            variant="h2"
-            fontWeight={900}
-            textAlign="center"
-            mb={{ xs: 4, md: 8 }}
-            sx={{ fontSize: { xs: "1.75rem", sm: "2.25rem", md: "3rem" } }}
-          >
-            Complete Safety & Control
-          </Typography>
-
-          {/* Content */}
+      <Container maxWidth="xl">
+        <Typography
+          variant="h2"
+          fontWeight={900}
+          textAlign="center"
+          mb={{ xs: 4, md: 8 }}
+          sx={{ fontSize: { xs: "1.75rem", sm: "2.25rem", md: "3rem" } }}
+        >
+          Complete Safety & Control
+        </Typography>
+        <GlassCard
+          sx={{ p: { xs: 2, md: 4, lg: 6 }, background: gradients.primary }}
+        >
           <Grid container spacing={6} alignItems="stretch">
-            {/* Safeguards */}
-            <Grid item xs={12} md={6}>
-              <Typography
-                variant="h4"
-                fontWeight={800}
-                color="primary"
-                mb={4}
-                textAlign={{ xs: "center", md: "left" }}
-                sx={{ fontSize: { xs: "1.25rem", sm: "1.5rem", md: "2rem" } }}
-              >
-                🛡️ Spending Safeguards
-              </Typography>
-              <Stack spacing={2} alignItems={{ xs: "center", md: "stretch" }}>
-                {safeguards.map((item, index) => (
-                  <Paper
-                    key={index}
-                    sx={{
-                      p: { xs: 2, sm: 3 },
-                      bgcolor: alpha(theme.palette.grey[50], 0.5),
-                      maxWidth: { xs: 340, sm: "100%" }, // limit width on mobile
-                      textAlign: { xs: "center", md: "left" },
-                    }}
-                  >
-                    <Typography
-                      variant="subtitle1"
-                      fontWeight={700}
-                      mb={1}
-                      sx={{ fontSize: { xs: "0.95rem", md: "1rem" } }}
-                    >
-                      {item.title}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      color="text.secondary"
+            {sections.map((section, idx) => (
+              <Grid item xs={12} md={6} key={idx}>
+                <Typography
+                  variant="h4"
+                  fontWeight={800}
+                  color={section.color}
+                  mb={4}
+                  textAlign={{ xs: "center", md: "left" }}
+                  sx={{ fontSize: { xs: "1.25rem", sm: "1.5rem", md: "2rem" },color: "white" }}
+                >
+                  {section.title}
+                </Typography>
+                <Stack spacing={2}>
+                  {section.items.map((item, i) => (
+                    <Accordion
+                      key={i}
                       sx={{
-                        fontSize: { xs: "0.8rem", sm: "0.9rem", md: "0.95rem" },
+                        bgcolor: alpha(theme.palette.grey[50], 0.6),
+                        borderRadius: "12px !important",
+                        boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
+                        "&:before": { display: "none" },
                       }}
                     >
-                      {item.desc}
-                    </Typography>
-                  </Paper>
-                ))}
-              </Stack>
-            </Grid>
-
-            {/* Overrides */}
-            <Grid item xs={12} md={6}>
-              <Typography
-                variant="h4"
-                fontWeight={800}
-                color="secondary"
-                mb={4}
-                textAlign={{ xs: "center", md: "left" }}
-                sx={{ fontSize: { xs: "1.25rem", sm: "1.5rem", md: "2rem" } }}
-              >
-                🎮 Manual Override
-              </Typography>
-              <Stack spacing={2} alignItems={{ xs: "center", md: "stretch" }}>
-                {overrides.map((item, index) => (
-                  <Paper
-                    key={index}
-                    sx={{
-                      p: { xs: 2, sm: 3 },
-                      bgcolor: alpha(theme.palette.grey[50], 0.5),
-                      maxWidth: { xs: 340, sm: "100%" },
-                      textAlign: { xs: "center", md: "left" },
-                    }}
-                  >
-                    <Typography
-                      variant="subtitle1"
-                      fontWeight={700}
-                      mb={1}
-                      sx={{ fontSize: { xs: "0.95rem", md: "1rem" } }}
-                    >
-                      {item.title}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      color="text.secondary"
-                      sx={{
-                        fontSize: { xs: "0.8rem", sm: "0.9rem", md: "0.95rem" },
-                      }}
-                    >
-                      {item.desc}
-                    </Typography>
-                  </Paper>
-                ))}
-              </Stack>
-            </Grid>
+                      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                        <Typography
+                          variant="subtitle1"
+                          fontWeight={700}
+                          sx={{
+                            fontSize: { xs: "0.95rem", md: "1rem" },
+                          }}
+                        >
+                          {item.title}
+                        </Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <Typography
+                          variant="body2"
+                          color="text.secondary"
+                          sx={{
+                            fontSize: {
+                              xs: "0.8rem",
+                              sm: "0.9rem",
+                              md: "0.95rem",
+                            },
+                          }}
+                        >
+                          {item.desc}
+                        </Typography>
+                      </AccordionDetails>
+                    </Accordion>
+                  ))}
+                </Stack>
+              </Grid>
+            ))}
           </Grid>
-
-          {/* Footer Note */}
-          <Paper
-            sx={{
-              mt: { xs: 4, md: 6 },
-              p: { xs: 2, md: 4 },
-              background:
-                "linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(124, 58, 237, 0.05))",
-              textAlign: "center",
-            }}
+        </GlassCard>
+        <GlassCard
+          sx={{
+            mt: { xs: 4, md: 6 },
+            p: { xs: 2, md: 4 },
+            background: gradients.primary,
+            color: "white",
+            textAlign: "center",
+          }}
+        >
+          <Typography
+            variant="body2"
+            sx={{ fontSize: { xs: "0.85rem", sm: "0.95rem", md: "1rem" } }}
           >
-            <Typography
-              variant="body2"
-              sx={{ fontSize: { xs: "0.85rem", sm: "0.95rem", md: "1rem" } }}
-            >
-              <strong>Remember:</strong> The automation is your assistant, not
-              your master. You&apos;re always in complete control.
-            </Typography>
-          </Paper>
+            <strong>Remember:</strong> The automation is your assistant, not
+            your master. You&apos;re always in complete control.
+          </Typography>
         </GlassCard>
       </Container>
     </Box>

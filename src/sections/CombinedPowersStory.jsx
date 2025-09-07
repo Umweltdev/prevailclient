@@ -19,7 +19,7 @@ export const CombinedPowersStory = () => {
         bgcolor: alpha(theme.palette.grey[50], 0.5),
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <Stack
           spacing={2}
           alignItems="center"
@@ -56,78 +56,95 @@ export const CombinedPowersStory = () => {
           </Typography>
         </Stack>
 
-        <GlassCard sx={{ p: { xs: 3, sm: 4, md: 6, lg: 8 } }}>
+        <GlassCard
+          sx={{
+            p: { xs: 3, sm: 4, md: 6, lg: 8 },
+            background: theme.palette.primary.main,
+            color: "white",
+          }}
+        >
           <Typography
             variant="h3"
             fontWeight={800}
             mb={4}
             sx={{
               fontSize: { xs: "1.25rem", sm: "1.5rem", md: "2rem" },
-              textAlign: { xs: "center", md: "left" },
+              textAlign: "center",
+              color: "white",
             }}
           >
             Scenario: New Product Launch Week
           </Typography>
 
-          <Stack spacing={3}>
+          <Stack spacing={4}>
             <Paper
               sx={{
                 p: { xs: 2.5, sm: 4 },
-                textAlign: { xs: "center", md: "left" },
-                background:
-                  "linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(124, 58, 237, 0.05))",
+                borderRadius: 3,
+                background: "rgba(255, 255, 255, 0.12)",
+                boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+                backdropFilter: "blur(6px)",
+                WebkitBackdropFilter: "blur(6px)",
+                border: "1px solid rgba(255, 255, 255, 0.25)",
+                transition: "all 0.3s ease",
+                "&:hover": {
+                  transform: "translateY(-5px)",
+                  boxShadow: "0 8px 40px rgba(0, 0, 0, 0.25)",
+                },
               }}
             >
               <Typography
                 variant="h5"
                 fontWeight={700}
                 mb={2}
+                textAlign={"center"}
                 sx={{
                   fontSize: { xs: "1rem", sm: "1.25rem", md: "1.5rem" },
-                  textAlign: { xs: "center", md: "left" },
+                  color: "white",
                 }}
               >
-                Monday - You Set It Up
+                Monday — You Set It Up
               </Typography>
+
               <Typography
                 paragraph
                 sx={{
                   fontSize: { xs: "0.9rem", sm: "1rem", md: "1.125rem" },
-                  textAlign: { xs: "center", md: "left" },
+                  color: "white",
                 }}
+                textAlign={"center"}
               >
-                You tell the system: &quot;New product launch, $5,000 budget for
-                the week&quot;
+                You tell the system: “New product launch, $5,000 budget for the
+                week.”
               </Typography>
 
               <Box
                 sx={{
-                  p: { xs: 2, sm: 3 },
-                  bgcolor: alpha(theme.palette.background.paper, 0.7),
+                  p: { xs: 2, sm: 4 },
+                  textAlign: "center",
                   borderRadius: 2,
-                  textAlign: { xs: "center", md: "left" },
                 }}
               >
                 <Typography
                   fontWeight={700}
                   mb={1}
-                  sx={{ fontSize: { xs: "0.95rem", sm: "1rem" } }}
+                  sx={{
+                    fontSize: { xs: "0.95rem", sm: "1rem" },
+                    color: "white",
+                  }}
                 >
                   System immediately:
                 </Typography>
-                <Box
-                  component="ul"
-                  sx={{
-                    m: 0,
-                    pl: { xs: 2, sm: 3 },
-                    textAlign: { xs: "left", md: "left" },
-                    fontSize: { xs: "0.85rem", sm: "0.95rem", md: "1rem" },
-                  }}
-                >
-                  <li>Distributes budget across all digital platforms</li>
-                  <li>Starts testing different messages/audiences</li>
-                  <li>Begins real-time optimization</li>
-                </Box>
+
+                <Typography sx={{ color: "white", mb: 0.5 }}>
+                  Distributes budget across all digital platforms
+                </Typography>
+                <Typography sx={{ color: "white", mb: 0.5 }}>
+                  Starts testing different messages & audiences
+                </Typography>
+                <Typography sx={{ color: "white" }}>
+                  Begins real-time optimization
+                </Typography>
               </Box>
             </Paper>
           </Stack>

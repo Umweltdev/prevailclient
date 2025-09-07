@@ -1,17 +1,8 @@
-import {
-  Box,
-  Container,
-  Typography,
-  Grid,
-  Paper,
-  Stack,
-  useTheme,
-  alpha,
-} from "@mui/material";
+import { Box, Grid, Container, Typography, Stack } from "@mui/material";
+import { GlassCard } from "./components/common/GlassCard";
+import { gradients } from "../theme.js";
 
 export const CampaignTypes = () => {
-  const theme = useTheme();
-
   const campaignTypes = [
     {
       title: "Search Ads",
@@ -57,84 +48,126 @@ export const CampaignTypes = () => {
   ];
 
   return (
-    <Box id="features" sx={{ py: { xs: 6, md: 10 } }}>
-      <Container maxWidth="lg">
-        {/* Section Title */}
-        <Typography
-          variant="h2"
-          fontWeight={900}
-          textAlign="center"
-          mb={{ xs: 4, md: 8 }}
-          sx={{ fontSize: { xs: "1.75rem", sm: "2rem", md: "3rem" } }}
+    <Box
+      sx={{
+        py: { xs: 4, md: 8 },
+      }}
+    >
+      <Container maxWidth="xl">
+        <Stack spacing={2} alignItems="center" textAlign="center" mb={8}>
+          <Typography
+            variant="h2"
+            fontWeight={900}
+            sx={{
+              fontSize: { xs: "1.5rem", sm: "2rem", md: "3rem" },
+              lineHeight: 1.25,
+              textAlign: "center",
+            }}
+          >
+            5 Types of “Set & Forget” Campaigns
+          </Typography>
+          <Typography
+            variant="h6"
+            fontWeight={300}
+            sx={{
+              fontSize: { xs: "0.85rem", sm: "0.95rem", md: "1.2rem" },
+              textAlign: "center",
+              maxWidth: 650,
+            }}
+          >
+            Different ad types managed automatically with real-time optimization
+          </Typography>
+        </Stack>
+        <GlassCard
+          id="features"
+          sx={{
+            px: { xs: 2, sm: 4 },
+            py: { xs: 6, md: 10 },
+            background: gradients.primary,
+            color: "white",
+          }}
         >
-          5 Types of &quot;Set & Forget&quot; Campaigns
-        </Typography>
-
-        {/* Campaign Cards */}
-        <Grid container spacing={{ xs: 2, sm: 3, md: 4 }}>
-          {campaignTypes.map((campaign, index) => (
-            <Grid item xs={12} sm={6} md={4} lg={2.4} key={index}>
-              <Paper
-                sx={{
-                  p: { xs: 2.5, sm: 3, md: 4 },
-                  height: "100%",
-                  background: alpha(theme.palette.background.paper, 0.7),
-                  backdropFilter: "blur(10px)",
-                  border: `1px solid ${alpha(theme.palette.divider, 0.1)}`,
-                  "&:hover": {
-                    transform: "translateY(-4px)",
-                    boxShadow: theme.shadows[10],
-                    background: alpha(theme.palette.background.paper, 0.9),
-                  },
-                  transition: "all 0.3s",
-                }}
-              >
-                <Typography
-                  variant="h6"
-                  fontWeight={800}
-                  mb={1}
-                  sx={{ fontSize: { xs: "1rem", sm: "1.1rem", md: "1.25rem" } }}
-                >
-                  {campaign.title}
-                </Typography>
-                <Typography
-                  variant="caption"
-                  color="secondary"
-                  display="block"
-                  mb={2}
+          <Grid container spacing={{ xs: 2, sm: 3, md: 4 }}>
+            {campaignTypes.map((campaign, index) => (
+              <Grid item xs={12} sm={6} md={4} lg={2.4} key={index}>
+                <GlassCard
                   sx={{
-                    fontSize: { xs: "0.7rem", sm: "0.75rem", md: "0.8rem" },
+                    p: { xs: 3, sm: 4 },
+                    height: "100%",
+                    textAlign: { xs: "center", md: "left" },
+                    color: "white",
+                    background: "rgba(255,255,255,0.1)",
+                    borderRadius: "16px",
+                    boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+                    backdropFilter: "blur(6px)",
+                    WebkitBackdropFilter: "blur(6px)",
+                    border: "1px solid rgba(255, 255, 255, 0.2)",
+                    transition: "all 0.3s ease",
+                    "&:hover": {
+                      transform: "translateY(-6px)",
+                      boxShadow: "0 8px 40px rgba(0, 0, 0, 0.2)",
+                    },
                   }}
                 >
-                  {campaign.platforms}
-                </Typography>
-                <Stack spacing={0.75}>
-                  {campaign.features.map((feature, i) => (
-                    <Typography
-                      key={i}
-                      variant="caption"
-                      sx={{
-                        display: "flex",
-                        alignItems: "start",
-                        fontSize: { xs: "0.7rem", sm: "0.8rem", md: "0.85rem" },
-                      }}
-                    >
-                      <span
-                        style={{
-                          color: theme.palette.success.main,
-                          marginRight: 4,
+                  <Typography
+                    variant="h6"
+                    fontWeight={800}
+                    mb={1}
+                    sx={{
+                      fontSize: { xs: "1rem", sm: "1.1rem", md: "1.25rem" },
+                    }}
+                  >
+                    {campaign.title}
+                  </Typography>
+
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      display: "block",
+                      mb: 2,
+                      fontSize: { xs: "0.75rem", sm: "0.8rem", md: "0.85rem" },
+                      color: "rgba(255,255,255,0.7)",
+                    }}
+                  >
+                    {campaign.platforms}
+                  </Typography>
+
+                  <Stack
+                    spacing={1}
+                    alignItems={{ xs: "center", md: "flex-start" }}
+                  >
+                    {campaign.features.map((feature, i) => (
+                      <Typography
+                        key={i}
+                        variant="body2"
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          fontSize: {
+                            xs: "0.8rem",
+                            sm: "0.9rem",
+                            md: "1rem",
+                          },
                         }}
                       >
-                        •
-                      </span>
-                      {feature}
-                    </Typography>
-                  ))}
-                </Stack>
-              </Paper>
-            </Grid>
-          ))}
-        </Grid>
+                        <span
+                          style={{
+                            color: "#4ade80",
+                            marginRight: 6,
+                            fontSize: "1.5rem",
+                          }}
+                        >
+                          •
+                        </span>
+                        {feature}
+                      </Typography>
+                    ))}
+                  </Stack>
+                </GlassCard>
+              </Grid>
+            ))}
+          </Grid>
+        </GlassCard>
       </Container>
     </Box>
   );
