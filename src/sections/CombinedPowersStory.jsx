@@ -19,7 +19,7 @@ export const CombinedPowersStory = () => {
         bgcolor: alpha(theme.palette.grey[50], 0.5),
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <Stack
           spacing={2}
           alignItems="center"

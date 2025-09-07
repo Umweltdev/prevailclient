@@ -12,7 +12,6 @@ import { GradientText } from "./components/common/GradientText";
 import { gradients } from "../theme.js";
 
 export const RealTimeControlStory = () => {
-  // const theme = useTheme();
 
   return (
     <Box

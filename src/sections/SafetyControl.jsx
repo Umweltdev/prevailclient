@@ -35,9 +35,8 @@ export const SafetyControl = () => {
 
   return (
     <Box sx={{ py: { xs: 4, md: 8 } }}>
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <GlassCard sx={{ p: { xs: 2, md: 4, lg: 6 } }}>
-          {/* Heading */}
           <Typography
             variant="h2"
             fontWeight={900}
@@ -47,10 +46,7 @@ export const SafetyControl = () => {
           >
             Complete Safety & Control
           </Typography>
-
-          {/* Content */}
           <Grid container spacing={6} alignItems="stretch">
-            {/* Safeguards */}
             <Grid item xs={12} md={6}>
               <Typography
                 variant="h4"
@@ -69,7 +65,7 @@ export const SafetyControl = () => {
                     sx={{
                       p: { xs: 2, sm: 3 },
                       bgcolor: alpha(theme.palette.grey[50], 0.5),
-                      maxWidth: { xs: 340, sm: "100%" }, // limit width on mobile
+                      maxWidth: { xs: 340, sm: "100%" },
                       textAlign: { xs: "center", md: "left" },
                     }}
                   >
@@ -94,8 +90,6 @@ export const SafetyControl = () => {
                 ))}
               </Stack>
             </Grid>
-
-            {/* Overrides */}
             <Grid item xs={12} md={6}>
               <Typography
                 variant="h4"
@@ -140,8 +134,6 @@ export const SafetyControl = () => {
               </Stack>
             </Grid>
           </Grid>
-
-          {/* Footer Note */}
           <Paper
             sx={{
               mt: { xs: 4, md: 6 },
