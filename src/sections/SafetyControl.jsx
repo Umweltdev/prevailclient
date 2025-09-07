@@ -131,8 +131,8 @@ export const SafetyControl = () => {
           sx={{
             mt: { xs: 4, md: 6 },
             p: { xs: 2, md: 4 },
-            background:
-              "linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(124, 58, 237, 0.08))",
+            background: gradients.primary,
+            color: "white",
             textAlign: "center",
           }}
         >
