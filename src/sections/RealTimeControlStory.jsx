@@ -8,7 +8,6 @@ import {
 
 } from "@mui/material";
 import { GlassCard } from "./components/common/GlassCard";
-import { GradientText } from "./components/common/GradientText";
 import { gradients } from "../theme.js";
 
 export const RealTimeControlStory = () => {
@@ -30,19 +29,7 @@ export const RealTimeControlStory = () => {
               textAlign: "center",
             }}
           >
-            What{" "}
-            <GradientText
-              gradient="primary"
-              variant="h2"
-              fontWeight={900}
-              sx={{
-                fontSize: { xs: "1.5rem", sm: "2rem", md: "3.25rem" },
-                lineHeight: 1.25,
-              }}
-            >
-              Real-Time Control
-            </GradientText>{" "}
-            Actually Means
+            What Real-Time Control Actually Means
           </Typography>
           <Typography
             variant="h6"

@@ -16,6 +16,7 @@ import { TraditionalCampaigns } from "./components/dashboard/TraditionalCampaign
 import { TimeInvestment } from "./components/dashboard/TimeInvestment.jsx";
 import { Recommendations } from "./components/dashboard/Recommendations.jsx";
 import { DailyOptimizationReport } from "./components/dashboard/DailyOptimizationReport.jsx";
+import { gradients } from "../theme.js";
 
 const TABS_CONFIG = [
   { icon: "📊", title: "Digital Campaigns", component: DigitalCampaigns },
@@ -63,7 +64,6 @@ export const DashboardSection = () => {
       id="dashboard"
       sx={{
         py: { xs: 6, sm: 8 },
-        bgcolor: alpha(theme.palette.grey[50], 0.5),
       }}
     >
       <Container maxWidth="xl">
@@ -90,7 +90,6 @@ export const DashboardSection = () => {
                 xs: "0.95rem",
                 sm: "1.25rem",
                 md: "1.75rem",
-                lg: "2rem",
               },
               background: "linear-gradient(135deg, #3B82F6 0%, #7C3AED 100%)",
               WebkitBackgroundClip: "text",
@@ -191,7 +190,9 @@ export const DashboardSection = () => {
             ))}
           </Tabs>
         </Box>
-        <GlassCard sx={{ p: { xs: 2, sm: 3, md: 5 }, borderRadius: 6 }}>
+        <GlassCard
+          sx={{ p: { xs: 2, sm: 3, md: 5 }, background: gradients.success, color : "white" }}
+        >
           <Box sx={{ width: "100%" }}>
             {TABS_CONFIG.map((tab, index) => {
               const Component = tab.component;
@@ -200,7 +201,7 @@ export const DashboardSection = () => {
                   key={index}
                   value={activeTab}
                   index={index}
-                  sx={{ width: "100%"}}
+                  sx={{ width: "100%" }}
                 >
                   <Component />
                 </TabPanel>

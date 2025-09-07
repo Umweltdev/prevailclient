@@ -16,6 +16,7 @@ import {
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import PauseIcon from "@mui/icons-material/Pause";
 import { GlassCard } from "./components/common/GlassCard.jsx";
+import { gradients } from "../theme.js";
 
 export const LiveDemoSection = () => {
   const theme = useTheme();
@@ -120,8 +121,15 @@ export const LiveDemoSection = () => {
   };
 
   return (
-    <Box sx={{ py: { xs: 4, md: 8, lg: 12 } }}>
-      <Container maxWidth="lg">
+    <Box
+      sx={{
+        py: { xs: 4, md: 8 },
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+      }}
+    >
+      <Container maxWidth="xl">
         <Stack
           spacing={2}
           alignItems="center"
@@ -145,10 +153,21 @@ export const LiveDemoSection = () => {
           </Typography>
         </Stack>
 
-        <GlassCard sx={{ p: { xs: 3, sm: 4, md: 6 } }}>
-          <Grid container spacing={{ xs: 4, md: 6 }}>
-            {/* Left: Control Panel */}
-            <Grid item xs={12} lg={6}>
+        <GlassCard
+          sx={{
+            p: { xs: 3, sm: 4, md: 6 },
+            background: gradients.success,
+            color: "white",
+          }}
+        >
+          <Grid container spacing={{ xs: 4, md: 6 }} alignItems="stretch">
+            {/* Left side */}
+            <Grid
+              item
+              xs={12}
+              lg={6}
+              sx={{ display: "flex", flexDirection: "column" }}
+            >
               <Box
                 sx={{
                   display: "flex",
@@ -160,25 +179,39 @@ export const LiveDemoSection = () => {
                 <Typography
                   variant="h5"
                   fontWeight={800}
-                  sx={{ fontSize: { xs: "1.25rem", md: "1.75rem" } }}
+                  sx={{
+                    fontSize: { xs: "1.25rem", md: "1.75rem" },
+                    color: "white",
+                  }}
                 >
                   Platform Performance
                 </Typography>
                 <Button
                   variant="contained"
-                  size="medium"
+                  size="small"
                   onClick={() => setIsRunning(!isRunning)}
                   startIcon={isRunning ? <PauseIcon /> : <PlayArrowIcon />}
                   sx={{
                     background: isRunning
                       ? theme.palette.error.main
                       : "linear-gradient(135deg, #3B82F6 0%, #7C3AED 100%)",
-                    px: { xs: 2, md: 3 },
+                    p: { xs: 1, md: 1.5 },
                     fontSize: { xs: "0.75rem", md: "0.875rem" },
+                    borderRadius: "10px",
+                    border: isRunning
+                      ? `1.5px solid ${theme.palette.error.dark}`
+                      : "1.5px solid rgba(255,255,255,0.5)",
+                    boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
+                    color: "white",
                     "&:hover": {
                       background: isRunning
                         ? theme.palette.error.dark
                         : "linear-gradient(135deg, #2563EB 0%, #6D28D9 100%)",
+                      border: isRunning
+                        ? `1.5px solid ${theme.palette.error.main}`
+                        : "1.5px solid rgba(255,255,255,0.7)",
+                      transform: "translateY(-2px)",
+                      boxShadow: "0 6px 16px rgba(0,0,0,0.35)",
                     },
                   }}
                 >
@@ -186,17 +219,17 @@ export const LiveDemoSection = () => {
                 </Button>
               </Box>
 
-              {/* Performance Cards */}
-              <Stack spacing={2}>
+              <Stack spacing={2} flexGrow={1}>
                 {platforms.map((platform) => (
                   <Paper
                     key={platform.name}
                     elevation={0}
                     sx={{
                       p: { xs: 2, md: 3 },
-                      background: alpha(theme.palette.grey[50], 0.5),
+                      background: alpha(theme.palette.grey[50], 0.15),
                       backdropFilter: "blur(10px)",
-                      border: `1px solid ${alpha(theme.palette.divider, 0.1)}`,
+                      border: `1px solid ${alpha(theme.palette.divider, 0.2)}`,
+                      color: "white",
                     }}
                   >
                     <Box
@@ -206,10 +239,14 @@ export const LiveDemoSection = () => {
                         {platform.icon}
                       </Typography>
                       <Box sx={{ flexGrow: 1 }}>
-                        <Typography variant="subtitle1" fontWeight={700}>
+                        <Typography
+                          variant="subtitle1"
+                          fontWeight={700}
+                          color="white"
+                        >
                           {platform.name}
                         </Typography>
-                        <Typography variant="caption" color="text.secondary">
+                        <Typography variant="caption" sx={{ opacity: 0.8 }}>
                           CPC: {platform.cpc}
                         </Typography>
                       </Box>
@@ -217,11 +254,14 @@ export const LiveDemoSection = () => {
                         <Typography
                           variant="subtitle1"
                           fontWeight={800}
-                          sx={{ fontSize: { xs: "0.95rem", md: "1.2rem" } }}
+                          sx={{
+                            fontSize: { xs: "0.95rem", md: "1.2rem" },
+                            color: "white",
+                          }}
                         >
                           ${Math.round(platform.value)}/mo
                         </Typography>
-                        <Typography variant="caption" color="text.secondary">
+                        <Typography variant="caption" sx={{ opacity: 0.8 }}>
                           {platform.yesterday}
                         </Typography>
                       </Box>
@@ -232,7 +272,7 @@ export const LiveDemoSection = () => {
                       sx={{
                         height: 6,
                         borderRadius: 1,
-                        bgcolor: alpha(theme.palette.grey[300], 0.2),
+                        bgcolor: alpha(theme.palette.grey[300], 0.15),
                         "& .MuiLinearProgress-bar": {
                           borderRadius: 1,
                           background: platform.gradient,
@@ -243,14 +283,13 @@ export const LiveDemoSection = () => {
                 ))}
               </Stack>
 
-              {/* Status Messages */}
               {isRunning && (
                 <Stack spacing={2} sx={{ mt: 3 }}>
                   <Alert
                     severity="success"
                     sx={{
-                      bgcolor: alpha(theme.palette.success.main, 0.1),
-                      "& .MuiAlert-icon": { animation: "pulse 1.5s infinite" },
+                      bgcolor: alpha(theme.palette.success.main, 0.2),
+                      color: "white",
                     }}
                   >
                     <Typography fontWeight={700}>
@@ -262,45 +301,51 @@ export const LiveDemoSection = () => {
                   </Alert>
                   <Alert
                     severity="info"
-                    sx={{ bgcolor: alpha(theme.palette.info.main, 0.1) }}
+                    sx={{
+                      bgcolor: alpha(theme.palette.info.main, 0.2),
+                      color: "white",
+                    }}
                   >
                     <Typography variant="body2">
                       <strong>Queue Scheduling Active:</strong> Managing 15+
-                      platforms simultaneously for optimal pricing
+                      platforms simultaneously
                     </Typography>
                   </Alert>
                 </Stack>
               )}
             </Grid>
 
-            {/* Right: Real-Time Events */}
-            <Grid item xs={12} lg={6}>
+            {/* Right side */}
+            <Grid
+              item
+              xs={12}
+              lg={6}
+              sx={{ display: "flex", flexDirection: "column" }}
+            >
               <Typography
                 variant="h5"
                 fontWeight={800}
                 mb={{ xs: 2, md: 4 }}
-                sx={{ fontSize: { xs: "1.25rem", md: "1.75rem" } }}
+                sx={{
+                  fontSize: { xs: "1.25rem", md: "1.75rem" },
+                  color: "white",
+                  textAlign: "center",
+                }}
               >
                 What Happens Every Day
               </Typography>
 
-              <Stack
-                spacing={2}
-                sx={{
-                  maxHeight: { xs: 400, md: 600 },
-                  overflowY: "auto",
-                  pr: 1,
-                }}
-              >
+              <Stack spacing={2} flexGrow={1}>
                 {realTimeEvents.map((event, index) => (
                   <Paper
                     key={index}
                     elevation={0}
                     sx={{
                       p: { xs: 2, md: 3 },
-                      background: alpha(theme.palette.grey[50], 0.5),
+                      background: alpha(theme.palette.grey[50], 0.15),
                       backdropFilter: "blur(10px)",
                       borderLeft: `4px solid ${theme.palette.secondary.main}`,
+                      color: "white",
                     }}
                   >
                     <Box
@@ -314,8 +359,8 @@ export const LiveDemoSection = () => {
                     >
                       <Typography
                         variant="caption"
-                        color="secondary"
                         fontWeight={600}
+                        color="secondary.light"
                       >
                         {event.time}
                       </Typography>
@@ -324,11 +369,7 @@ export const LiveDemoSection = () => {
                       </Typography>
                     </Box>
 
-                    <Typography
-                      variant="body2"
-                      color="text.secondary"
-                      sx={{ mb: 1.5 }}
-                    >
+                    <Typography variant="body2" sx={{ mb: 1.5, opacity: 0.9 }}>
                       {event.action}
                     </Typography>
 
@@ -340,7 +381,7 @@ export const LiveDemoSection = () => {
                               sx={{
                                 p: 1.2,
                                 borderRadius: 1,
-                                bgcolor: alpha(getStatusColor(d.status), 0.15),
+                                bgcolor: alpha(getStatusColor(d.status), 0.25),
                                 display: "flex",
                                 justifyContent: "space-between",
                                 alignItems: "center",
@@ -401,7 +442,7 @@ export const LiveDemoSection = () => {
                     {event.response && (
                       <Typography
                         variant="body2"
-                        color="success.main"
+                        color="success.light"
                         sx={{ mt: 2 }}
                       >
                         → {event.response}

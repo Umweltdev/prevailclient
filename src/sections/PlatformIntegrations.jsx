@@ -24,8 +24,6 @@ export const PlatformIntegrations = () => {
     <Box
       sx={{
         py: { xs: 4, md: 8 },
-        background: gradients.primary,
-        color: "white",
       }}
     >
       <Container maxWidth="xl">
@@ -35,9 +33,9 @@ export const PlatformIntegrations = () => {
             fontWeight={900}
             sx={{
               fontSize: {
-                xs: "1.75rem",
+                xs: "1.5rem",
                 sm: "2rem",
-                md: "3.25rem",
+                md: "3rem",
               },
               lineHeight: 1.2,
             }}
@@ -51,7 +49,6 @@ export const PlatformIntegrations = () => {
             sx={{
               fontSize: { xs: "0.9rem", sm: "1rem", md: "1.25rem" },
               maxWidth: 600,
-              color: "white",
               opacity: 0.9,
             }}
           >
@@ -61,8 +58,9 @@ export const PlatformIntegrations = () => {
 
         <GlassCard
           sx={{
-            p: { xs: 3, sm: 4, md: 6 },
-            background: "rgba(255,255,255,0.05)",
+            py: { xs: 6, md: 10 },
+            px: { xs: 2, sm: 4 },
+            background: gradients.purpleToPink,
             color: "white",
           }}
         >
