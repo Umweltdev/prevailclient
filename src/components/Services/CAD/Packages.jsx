@@ -30,7 +30,7 @@ import { ChevronRight, ChevronLeft, Check, RefreshCw } from "lucide-react";
 import { createCheckoutSession } from "../../stepWizard/api.js";
 import { loadStripe } from "@stripe/stripe-js";
 
-const STRIPE_KEY = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY_2 || "";
+const STRIPE_KEY = import.meta.env.VITE_STRIPE_PUBLIC_KEY || "";
 let stripePromise = null;
 if (STRIPE_KEY) {
   stripePromise = loadStripe(STRIPE_KEY);

@@ -32,7 +32,7 @@ import { theme } from "../../stepWizard/theme.js";
 import { createCheckoutSession } from "../../stepWizard/api.js";
 import "./assets/style.css";
 
-const STRIPE_KEY = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY_3 || "";
+const STRIPE_KEY = import.meta.env.VITE_STRIPE_PUBLIC_KEY || "";
 let stripePromise = null;
 if (STRIPE_KEY) {
   stripePromise = loadStripe(STRIPE_KEY);

@@ -38,7 +38,7 @@ import {
 import { loadStripe } from "@stripe/stripe-js";
 import { theme } from "../../theme.js";
 
-const STRIPE_KEY = (import.meta as any).env?.VITE_STRIPE_PUBLISHABLE_KEY_4 || "";
+const STRIPE_KEY = (import.meta as any).env?.VITE_STRIPE_PUBLIC_KEY || "";
 let stripePromise = null;
 if (STRIPE_KEY) {
   stripePromise = loadStripe(STRIPE_KEY);

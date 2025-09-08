@@ -46,7 +46,7 @@ import {
   generateCampaignDuration,
 } from "./api";
 
-const STRIPE_KEY = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY_2 || "";
+const STRIPE_KEY = import.meta.env.VITE_STRIPE_PUBLIC_KEY || "";
 let stripePromise = null;
 if (STRIPE_KEY) {
   stripePromise = loadStripe(STRIPE_KEY);
