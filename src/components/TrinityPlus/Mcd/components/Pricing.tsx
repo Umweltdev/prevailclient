@@ -26,7 +26,7 @@ function Pricing({ visibleSections }) {
           {[
             {
               name: "Beta",
-              price: "€232",
+              price: "€696",
               features: [
                 "Up to $10K monthly revenue",
                 "3 marketing channels",
@@ -39,7 +39,7 @@ function Pricing({ visibleSections }) {
             },
             {
               name: "Early",
-              price: "€579",
+              price: "€1,737",
               features: [
                 "Unlimited revenue",
                 "Custom integration",
@@ -52,7 +52,7 @@ function Pricing({ visibleSections }) {
             },
             {
               name: "Standard",
-              price: "€1,739",
+              price: "€5,217",
               features: [
                 "Up to $100K monthly revenue",
                 "Unlimited channels",
