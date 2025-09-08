@@ -86,7 +86,12 @@ const platformTiers = [
 const extractNumericPrice = (priceStr) =>
   priceStr ? parseInt(priceStr.replace(/[^\d]/g, ""), 10) || 0 : 0;
 
-const PriceRow = ({ label, amount, isTotal = false }) => (
+const PriceRow = ({
+  label,
+  amount,
+  isTotal = false,
+  strikeThrough = false,
+}) => (
   <Box
     sx={{
       display: "flex",
@@ -104,7 +109,8 @@ const PriceRow = ({ label, amount, isTotal = false }) => (
       variant={isTotal ? "h6" : "body1"}
       sx={{
         fontWeight: isTotal ? "bold" : "medium",
-        color: "text.primary",
+        color: strikeThrough ? "error.main" : "text.primary",
+        textDecoration: strikeThrough ? "line-through" : "none",
       }}
     >
       {amount}
@@ -115,6 +121,7 @@ PriceRow.propTypes = {
   label: PropTypes.string.isRequired,
   amount: PropTypes.string.isRequired,
   isTotal: PropTypes.bool,
+  strikeThrough: PropTypes.bool,
 };
 
 const SelectableCard = ({ children, selected, sx, onClick }) => (
@@ -360,6 +367,20 @@ const FinalSummary = ({
                   label="Project Subtotal"
                   amount={`€${packagePrice.toLocaleString()}`}
                 />
+                <Fade in={includeConsultation} timeout={400}>
+                  <Stack spacing={1.5} sx={{ mt: 1.5 }}>
+                    <PriceRow
+                      label="Consultation Fee"
+                      amount={`+ €${CONSULTATION_FEE}`}
+                    />
+                    <PriceRow
+                      label="Instant Bonus"
+                      amount={`- €${CONSULTATION_FEE}`}
+                      strikeThrough={true}
+                    />
+                  </Stack>
+                </Fade>
+
                 <Divider sx={{ my: 1 }} />
                 <PriceRow
                   label="Total to Pay"
