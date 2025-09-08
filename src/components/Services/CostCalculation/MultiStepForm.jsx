@@ -1,11 +1,10 @@
 import React, {
   useState,
-  useEffect,
   useCallback,
-  useMemo,
   useRef,
 } from "react";
 import PropTypes from "prop-types";
+import { loadStripe } from "@stripe/stripe-js";
 import {
   ThemeProvider,
   createTheme,
@@ -32,13 +31,9 @@ import {
   Fade,
   CardActionArea,
   Paper,
-  Avatar,
-  Slide,
   Grow,
   Zoom,
   Stack,
-  Badge,
-  Skeleton,
 } from "@mui/material";
 import {
   ChevronRight,
@@ -48,19 +43,31 @@ import {
   Building,
   Globe,
   Rocket,
-  Zap,
   RefreshCw,
-  TrendingUp,
-  Target,
   Palette,
   Megaphone,
   Settings,
-  Star,
   LocateOff as LocalOffer,
   Bus as Business,
-  TrendingUp as Growth,
   Ruler as Schedule,
 } from "lucide-react";
+
+import {
+  createCheckoutSession,
+  mapToApiServiceType,
+  generateTargetAudience,
+  generateCampaignDuration,
+} from "./components/api.js";
+
+// Stripe setup with your test key
+const STRIPE_KEY = "pk_test_51OsCJ5P1A39VkufThp1PVDexesvf2XAY8faTyK0uucC1qRl9NW9QkpBdwXQDyjCAjzL166zjMWNn5Zr25ZkaQJVi00vurq61mj";
+let stripePromise = null;
+
+if (STRIPE_KEY) {
+  stripePromise = loadStripe(STRIPE_KEY);
+} else {
+  console.warn("Stripe key not found. Checkout will be disabled.");
+}
 
 // Enhanced theme configuration
 const theme = createTheme({
@@ -2016,7 +2023,7 @@ StoreTypeSelection.propTypes = {
   prevStep: PropTypes.func.isRequired,
 };
 
-// Enhanced Final Summary
+// Enhanced Final Summary with Stripe Integration
 const FinalSummary = ({
   selectedServices,
   selectedIndustry,
@@ -2460,7 +2467,7 @@ FinalSummary.propTypes = {
   calculateTotal: PropTypes.func.isRequired,
 };
 
-// Enhanced Main Wizard Component
+// Enhanced Main Wizard Component with Stripe Integration
 const MultiStepForm = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedServices, setSelectedServices] = useState([]);
@@ -2532,7 +2539,7 @@ const MultiStepForm = () => {
   }, [selectedServices, serviceSelections, hasPhysicalStore]);
 
   // Get dynamic steps
-  const getSteps = useCallback(() => {
+  const getSteps = React.useCallback(() => {
     const steps = ["Services"];
 
     if (selectedServices.length === 0) return steps;
@@ -2625,6 +2632,7 @@ const MultiStepForm = () => {
     showToastMessage("Configuration has been reset. Start fresh!");
   }, [showToastMessage]);
 
+  // Enhanced handleCheckout with Stripe Integration
   const handleCheckout = useCallback(async () => {
     if (!name || !email) {
       showToastMessage("Error: Please enter your name and email to proceed.");
@@ -2634,21 +2642,57 @@ const MultiStepForm = () => {
     setIsProcessing(true);
 
     try {
-      // Mock checkout process
-      await new Promise((resolve) => setTimeout(resolve, 2500));
-
       const total = calculateTotal();
-      showToastMessage(
-        `Success! Your order for €${total.toLocaleString()} has been processed. We'll be in touch soon!`
-      );
+
+      // Prepare checkout data for API
+      const checkoutData = {
+        name,
+        email,
+        serviceType: mapToApiServiceType(selectedServices, serviceSelections),
+        price: total,
+        targetAudience: generateTargetAudience(selectedIndustry, selectedServices),
+        campaignDuration: generateCampaignDuration(selectedServices, serviceSelections),
+        notes: `${additionalNotes || ""} | Systems: ${selectedSystems || "None"} | Dashboards: ${selectedDashboards || "None"} | Keywords: ${keywords || "None"} | Services: ${selectedServices.join(", ")} | Industry: ${selectedIndustry || "None"} | Physical Store: ${hasPhysicalStore ? "Yes" : "No"}`.trim(),
+      };
+
+      // Create checkout session
+      const session = await createCheckoutSession(checkoutData);
+      
+      // Redirect to Stripe Checkout
+      const stripe = await stripePromise;
+      if (!stripe) {
+        throw new Error("Stripe.js has not loaded yet.");
+      }
+
+      const { error } = await stripe.redirectToCheckout({
+        sessionId: session.id,
+      });
+
+      if (error) {
+        throw new Error(error.message);
+      }
     } catch (error) {
+      console.error("Checkout error:", error);
       showToastMessage(
         `Error: ${error.message || "Something went wrong. Please try again."}`
       );
     } finally {
       setIsProcessing(false);
     }
-  }, [name, email, calculateTotal, showToastMessage]);
+  }, [
+    name,
+    email,
+    calculateTotal,
+    selectedServices,
+    serviceSelections,
+    selectedIndustry,
+    hasPhysicalStore,
+    additionalNotes,
+    selectedSystems,
+    selectedDashboards,
+    keywords,
+    showToastMessage,
+  ]);
 
   // Helper function to update service selections
   const updateServiceSelection = (serviceId, key, value) => {
