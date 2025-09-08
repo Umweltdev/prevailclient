@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Tilt from "react-parallax-tilt";
 import CountUp from "react-countup";
 import { useNavigate } from "react-router-dom";
+import { Box, Typography } from "@mui/material";
 
 const HeroSection = () => {
   const navigate = useNavigate()
@@ -95,12 +96,35 @@ animate-gradient"
           </Tilt>
         </div>
 
-        <div className="relative inline-block mt-6 px-6 py-3 rounded-full bg-white/20 backdrop-blur-md border border-white/30 shadow-md animate-pulse">
-          <span className="text-gray-800 font-medium text-sm">
-            Lock in beta price by making a purchase during launch week • 3 days
-            before beta ends
-          </span>
-        </div>
+        <Box
+          sx={{
+            position: "relative",
+            display: "inline-block",
+            mt: 6,
+            px: 2,
+            py: 1,
+            borderRadius: "9999px",
+            bgcolor: "rgba(255, 255, 255, 0.2)",
+            backdropFilter: "blur(10px)",
+            border: "1px solid rgba(255, 255, 255, 0.3)",
+            boxShadow: 3,
+            animation: "pulse 2s infinite",
+            "@keyframes pulse": {
+              "0%, 100%": { opacity: 1 },
+              "50%": { opacity: 0.6 },
+            },
+          }}
+        >
+          {" "}
+          <Typography
+            variant="body2"
+            sx={{ color: "text.primary", fontWeight: 400 }}
+          >
+            {" "}
+            🎉 Lock in the beta price by booking a consultation during launch
+            week — 3 days before beta ends{" "}
+          </Typography>{" "}
+        </Box>
 
         {/* Animated Stats with CountUp and Tilt */}
         <div className="grid grid-cols-1 gap-6 mt-16 sm:grid-cols-3 sm:gap-8">

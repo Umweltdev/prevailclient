@@ -1,3 +1,4 @@
+import { Box, Typography } from "@mui/material";
 import Button from "./Button.js";
 import { FloatingBadge, VectorMap } from "./FloatingShapes.js";
 
@@ -18,32 +19,69 @@ export default function Hero() {
               </span>
             </h1>
             <div className="mb-8">
-                <h2 className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-gray-600 to-gray-400 bg-clip-text text-transparent">
-                    Returning Customer Discounts API 
-                </h2>
+              <h2 className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-gray-600 to-gray-400 bg-clip-text text-transparent">
+                Returning Customer Discounts API
+              </h2>
             </div>
-            
+            <Box
+              sx={{
+                position: "relative",
+                display: "inline-block",
+                mt: 0,
+                px: 2,
+                py: 1,
+                borderRadius: "9999px",
+                bgcolor: "rgba(255, 255, 255, 0.2)",
+                backdropFilter: "blur(10px)",
+                border: "1px solid rgba(255, 255, 255, 0.3)",
+                boxShadow: 3,
+                animation: "pulse 2s infinite",
+                "@keyframes pulse": {
+                  "0%, 100%": { opacity: 1 },
+                  "50%": { opacity: 0.6 },
+                },
+              }}
+            >
+              {" "}
+              <Typography
+                variant="body2"
+                sx={{ color: "text.primary", fontWeight: 400 }}
+              >
+                {" "}
+                🎉 Lock in the beta price by booking a consultation during
+                launch week — 3 days before beta ends{" "}
+              </Typography>{" "}
+            </Box>
             <p className="text-xl text-slate-600 text-center leading-relaxed max-w-2xl">
-              A mathematical system that positions each customer on a "loyalty map" based on spending and frequency, 
-              creating personalized 0-20% discounts customers can share with their entire network.
+              A mathematical system that positions each customer on a "loyalty
+              map" based on spending and frequency, creating personalized 0-20%
+              discounts customers can share with their entire network.
             </p>
 
             <div className="space-y-4">
               {[
                 "Vector-based positioning for precise discounts",
-                "50/50 point sharing between referrals", 
+                "50/50 point sharing between referrals",
                 "2.92x viral coefficient for exponential growth",
               ].map((t, i) => (
-                <div key={t} className="flex items-center gap-4 animate-slide-in" style={{ animationDelay: `${i * 200}ms` }}>
+                <div
+                  key={t}
+                  className="flex items-center gap-4 animate-slide-in"
+                  style={{ animationDelay: `${i * 200}ms` }}
+                >
                   <span className="text-2xl text-emerald-500">✓</span>
-                  <span className="text-slate-800 font-medium text-lg">{t}</span>
+                  <span className="text-slate-800 font-medium text-lg">
+                    {t}
+                  </span>
                 </div>
               ))}
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button size="lg">See Your Loyalty Map</Button>
-              <Button variant="secondary" size="lg">Calculate ROI</Button>
+              <Button variant="secondary" size="lg">
+                Calculate ROI
+              </Button>
             </div>
 
             <div className="flex flex-wrap gap-6 pt-4 w-full items-center justify-center">
@@ -61,7 +99,7 @@ export default function Hero() {
 
           <div className="col-span-2">
             <div className="animate-float">
-                <VectorMap />
+              <VectorMap />
             </div>
           </div>
         </div>

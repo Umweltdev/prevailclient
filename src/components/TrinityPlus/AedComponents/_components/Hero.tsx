@@ -13,6 +13,7 @@ import React from "react";
 import StatCard from "./StatCard";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Typography, Box } from "@mui/material";
 
 function Hero() {
   const navigate = useNavigate();
@@ -46,17 +47,6 @@ function Hero() {
 
       <div className="relative max-w-7xl mx-auto text-center">
         {/* Badge */}
-        <motion.div
-          custom={0.2}
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-          className="inline-flex items-center px-6 py-3 bg-white/70 backdrop-blur-lg text-blue-700 rounded-full text-sm font-medium mb-8 border border-white/30 shadow-lg"
-        >
-          <Zap className="w-4 h-4 mr-2 animate-pulse" />
-          AI-Powered Ad Optimization
-          <div className="ml-2 w-2 h-2 bg-green-500 rounded-full animate-ping"></div>
-        </motion.div>
 
         {/* Main Headline */}
         <motion.h1
@@ -121,6 +111,19 @@ function Hero() {
             <Play className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
             Watch Demo (2 min)
           </button>
+        </motion.div>
+
+        <motion.div
+          custom={0.2}
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
+          className="inline-flex items-center px-6 py-3 bg-white/70 backdrop-blur-lg text-blue-700 rounded-full text-sm font-medium mb-8 border border-white/30 shadow-lg"
+        >
+          <Zap className="w-4 h-4 mr-2 animate-pulse" />
+           Lock in the beta price by booking a consultation during launch week
+          — 3 days before beta ends{" "}
+          <div className="ml-2 w-2 h-2 bg-green-500 rounded-full animate-ping"></div>
         </motion.div>
 
         {/* Platform Logos */}

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Box, Typography } from "@mui/material";
 
 export default function HeroSection() {
   const navigate = useNavigate();
@@ -221,6 +222,34 @@ export default function HeroSection() {
             Explore Individual Systems
           </button>
         </div>
+
+        <Box
+          sx={{
+            position: "relative",
+            display: "inline-block",
+            mt: 5,
+            px: 2,
+            py: 1,
+            borderRadius: "9999px",
+            bgcolor: "rgba(255, 255, 255, 0.2)",
+            backdropFilter: "blur(10px)",
+            border: "1px solid rgba(255, 255, 255, 0.3)",
+            boxShadow: 3,
+            animation: "pulse 2s infinite",
+            "@keyframes pulse": {
+              "0%, 100%": { opacity: 1 },
+              "50%": { opacity: 0.6 },
+            },
+          }}
+        >
+          <Typography
+            variant="caption" // smaller text
+            sx={{ color: "text.primary", fontWeight: 400, fontSize: "0.7rem" }} // adjust as needed
+          >
+            🎉 Lock in the beta price by booking a consultation during launch
+            week — 3 days before beta ends
+          </Typography>
+        </Box>
       </div>
     </section>
   );
