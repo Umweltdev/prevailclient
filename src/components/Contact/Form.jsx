@@ -37,7 +37,6 @@ const useFormStyles = makeStyles((theme) => ({
       "0 20px 60px rgba(110, 62, 244, 0.1), 0 8px 20px rgba(0,0,0,0.06) !important",
     border: "1px solid rgba(110, 62, 244, 0.1)",
     position: "relative",
-    // ✅ FIX: Changed from 'hidden' to 'visible' to allow the dropdown to show
     overflow: "visible",
     "&::before": {
       content: '""',
@@ -195,7 +194,6 @@ const useFormStyles = makeStyles((theme) => ({
     },
   },
 }));
-
 
 const EnhancedInput = ({ name, label, icon: Icon, ...props }) => {
   const classes = useFormStyles();
@@ -402,7 +400,7 @@ const Form = () => {
 
 export default Form;
 
-EnhancedInput.protoTypes = {
+EnhancedInput.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   icon: PropTypes.elementType.isRequired,
