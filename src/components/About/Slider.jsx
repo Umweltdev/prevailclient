@@ -1,21 +1,36 @@
-import {
-  Card,
-  CardContent,
-  Typography,
+/* eslint-disable react/prop-types */
+import React from "react";
+import { 
+  Card, 
+  CardContent, 
+  Typography, 
   Box,
   Container,
   Chip,
   useTheme,
-  useMediaQuery,
-  Button,
+  useMediaQuery
 } from "@mui/material";
-import { styled } from "@mui/material/styles";
-import Slider from "react-slick";
+import { styled, keyframes } from "@mui/material/styles";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 import { sliderData } from "./assets/SliderData";
-import PropTypes from "prop-types";
 
+// Floating animation keyframes
+const float = keyframes`
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  66% {
+    transform: translateY(5px) rotate(-1deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+`;
 
 const pulse = keyframes`
   0% {
@@ -126,146 +141,174 @@ const IconContainer = styled(Box)(({ theme }) => ({
 }));
 
 const GradientOverlay = styled(Box)(({ gradientbg }) => ({
-  position: "absolute",
+  position: 'absolute',
   top: 0,
   left: 0,
   right: 0,
   bottom: 0,
-  background: gradientbg || "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+  background: gradientbg || 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
   opacity: 0.05,
-  borderRadius: 16,
-  zIndex: 0,
+  transition: 'opacity 0.3s ease',
+  borderRadius: '24px',
 }));
 
-const CategoryChip = styled(Chip)(() => ({
-  background: "rgba(255,255,255,0.15)",
-  color: "white",
+const StyledChip = styled(Chip)(() => ({
+  background: 'rgba(255, 255, 255, 0.2)',
+  color: 'white',
   fontWeight: 600,
-  fontSize: "0.7rem",
-  height: 22,
+  border: '1px solid rgba(255, 255, 255, 0.3)',
+  '&:hover': {
+    background: 'rgba(255, 255, 255, 0.3)',
+  },
 }));
 
-const CardFooter = styled(Box)(({ theme }) => ({
-  marginTop: "auto",
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-  pt: theme.spacing(1),
-}));
-
-const CustomCard = ({ icon, header, text, category, gradient }) => (
-  <CardWrapper gradientbg={gradient}>
-    <GradientOverlay gradientbg={gradient} />
-    <CardContent
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        height: "100%",
-        position: "relative",
+const CustomSliderCard = ({ icon, header, text, category, gradient }) => {
+  return (
+    <StyledCard gradientbg={gradient}>
+      <GradientOverlay className="gradient-overlay" gradientbg={gradient} />
+      <CardContent sx={{ 
+        display: 'flex', 
+        flexDirection: 'column', 
+        height: '100%',
+        position: 'relative',
         zIndex: 1,
-        p: 1.5,
-      }}
-    >
-      <Box sx={{ display: "flex", justifyContent: "space-between", mb: 1.5 }}>
-        <IconWrapper>{icon}</IconWrapper>
-        <CategoryChip label={category} size="small" />
-      </Box>
-
-      <Typography
-        variant="subtitle1"
-        sx={{ color: "white", fontWeight: 700, mb: 0.5, lineHeight: 1.2 }}
-      >
-        {header}
-      </Typography>
-
-      <Typography
-        variant="body2"
-        sx={{
-          color: "rgba(255,255,255,0.85)",
-          lineHeight: 1.4,
-          flexGrow: 1,
-          fontSize: "0.85rem",
-          mb: 1.5,
-        }}
-      >
-        {text}
-      </Typography>
-
-      <CardFooter>
-        <Box
-          sx={{
-            flexGrow: 1,
-            height: 3,
-            borderRadius: 2,
-            background: "rgba(255,255,255,0.25)",
-            mr: 1,
-          }}
-        />
-        <Button
-          size="small"
-          sx={{
-            color: "white",
-            fontWeight: 600,
-            textTransform: "none",
-            minWidth: 60,
-            fontSize: "0.75rem",
+        padding: 0
+      }}>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 2 }}>
+          <IconContainer className="icon-container">
+            {icon}
+          </IconContainer>
+          <StyledChip 
+            label={category} 
+            size="small"
+            sx={{ mt: 1 }}
+          />
+        </Box>
+        
+        <Typography 
+          variant="h4" 
+          sx={{ 
+            color: 'white',
+            fontWeight: 700,
+            mb: 2,
+            textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+            fontSize: { xs: '1.5rem', md: '2rem' }
           }}
         >
-          Explore
-        </Button>
-      </CardFooter>
-    </CardContent>
-  </CardWrapper>
-);
+          {header}
+        </Typography>
+        
+        <Typography 
+          variant="body1" 
+          className="content-text"
+          sx={{ 
+            color: 'rgba(255, 255, 255, 0.9)',
+            lineHeight: 1.6,
+            fontSize: '1.1rem',
+            flexGrow: 1,
+            transition: 'transform 0.3s ease',
+            textShadow: '0 1px 2px rgba(0,0,0,0.2)'
+          }}
+        >
+          {text}
+        </Typography>
+        
+        <Box 
+          sx={{ 
+            mt: 'auto', 
+            pt: 2,
+            display: 'flex',
+            alignItems: 'center',
+            gap: 1
+          }}
+        >
+          <Box 
+            sx={{ 
+              width: 40, 
+              height: 4, 
+              background: 'linear-gradient(90deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.2) 100%)',
+              borderRadius: 2,
+              flexGrow: 1
+            }} 
+          />
+          <Typography 
+            variant="caption" 
+            sx={{ 
+              color: 'rgba(255, 255, 255, 0.7)',
+              fontWeight: 500,
+              textTransform: 'uppercase',
+              letterSpacing: 1
+            }}
+          >
+            Explore More
+          </Typography>
+        </Box>
+      </CardContent>
+    </StyledCard>
+  );
+};
 
 const Sliders = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   const settings = {
     dots: true,
     infinite: true,
-    speed: 600,
+    speed: 800,
     slidesToShow: isMobile ? 1 : 2,
     slidesToScroll: 1,
-    arrows: false,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 5000,
+    arrows: false,
     pauseOnHover: true,
-    cssEase: "ease-in-out",
+    cssEase: "cubic-bezier(0.4, 0, 0.2, 1)",
+    dotsClass: "slick-dots custom-dots",
     responsive: [
       {
         breakpoint: 1024,
-        settings: { slidesToShow: 2, slidesToScroll: 1 },
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
       },
       {
         breakpoint: 600,
-        settings: { slidesToShow: 1, slidesToScroll: 1 },
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: true,
+        },
       },
     ],
-    appendDots: (dots) => (
-      <div style={{ bottom: "-35px" }}>
-        <ul style={{ margin: 0 }}>{dots}</ul>
-      </div>
-    ),
   };
 
   return (
-    <SliderSection>
+    <SliderContainer>
       <Container maxWidth="xl">
-        <Box sx={{ textAlign: "center", mb: 4 }}>
-          <Typography
-            variant="h1"
-            sx={{ color: "white", fontWeight: 800, mb: 1.5 }}
+        <Box sx={{ textAlign: 'center', mb: 6 }}>
+          <Typography 
+            variant="h2" 
+            sx={{ 
+              color: 'white',
+              fontWeight: 800,
+              mb: 2,
+              textShadow: '0 4px 8px rgba(0,0,0,0.3)',
+              fontSize: { xs: '2.5rem', md: '3.5rem' }
+            }}
           >
             Discover Excellence
           </Typography>
-          <Typography
-            variant="subtitle2"
-            sx={{ color: "rgba(255,255,255,0.8)", maxWidth: 500, mx: "auto" }}
+          <Typography 
+            variant="h6" 
+            sx={{ 
+              color: 'rgba(255, 255, 255, 0.8)',
+              maxWidth: 600,
+              mx: 'auto',
+              lineHeight: 1.6
+            }}
           >
-            Experience innovation at its finest with our carefully curated
-            solutions
+            Experience innovation at its finest with our carefully curated solutions
           </Typography>
         </Box>
 
@@ -298,8 +341,8 @@ const Sliders = () => {
         }}>
           <Slider {...settings}>
             {sliderData.map((data, i) => (
-              <Box key={i} sx={{ outline: "none" }}>
-                <CustomCard
+              <Box key={i} sx={{ outline: 'none' }}>
+                <CustomSliderCard
                   icon={data.icon}
                   text={data.text}
                   header={data.header}
@@ -311,16 +354,8 @@ const Sliders = () => {
           </Slider>
         </Box>
       </Container>
-    </SliderSection>
+    </SliderContainer>
   );
 };
 
 export default Sliders;
-
-CustomCard.propTypes = {
-  icon: PropTypes.node.isRequired,
-  header: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
-  gradient: PropTypes.string,
-};
