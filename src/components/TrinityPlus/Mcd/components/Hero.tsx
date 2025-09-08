@@ -53,7 +53,10 @@ function Hero() {
             See MCD in Action
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>
-          <button className="px-8 py-4 border-2 border-gray-300 rounded-full font-semibold text-lg hover:border-blue-500 hover:text-blue-600 hover:-translate-y-0.5 transition-all duration-300">
+          <button
+            onClick={() => navigate("/trinity/plus#wizard")}
+            className="px-8 py-4 border-2 border-gray-300 rounded-full font-semibold text-lg hover:border-blue-500 hover:text-blue-600 hover:-translate-y-0.5 transition-all duration-300"
+          >
             Schedule Demo
           </button>
         </div>

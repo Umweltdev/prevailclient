@@ -92,11 +92,17 @@ const Hero = () => {
             <div className="tier-price">€5,795</div>
             <div className="tier-label">Beta (10 days)</div>
           </div>
-          <div className="tier " onClick={() => handleScroll()}>
+          <div
+            className="tier "
+            onClick={() => navigate("/trinity/plus#wizard")}
+          >
             <div className="tier-price">€2,895</div>
             <div className="tier-label">Early (3 months)</div>
           </div>
-          <div className="tier" onClick={() => handleScroll()}>
+          <div
+            className="tier"
+            onClick={() => navigate("/trinity/plus#wizard")}
+          >
             <div className="tier-price">€8,695</div>
             <div className="tier-label">Standard</div>
           </div>
