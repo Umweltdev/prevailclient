@@ -1,8 +1,6 @@
-import React from 'react';
 import { Box, Typography, Button, Container } from '@mui/material';
 import { styled, keyframes } from '@mui/system';
 
-// Keyframes animations
 const float = keyframes`
   0% { transform: translate(0, 0); }
   100% { transform: translate(-60px, -60px); }
@@ -19,7 +17,6 @@ const fadeInUp = keyframes`
   }
 `;
 
-// Styled components
 const HeroSectionWrapper = styled(Box)(({ theme }) => ({
   position: 'relative',
   background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
@@ -87,7 +84,7 @@ const HeroSection = () => {
     <HeroSectionWrapper component="section">
       <HeroContent maxWidth="lg">
         <HeroTitle variant="h1" component="h1">
-          Transform Visibility into Opportunity with Prevail's Content Ad Campaigns
+          Transform Visibility into Opportunity with Prevail&apos;s Content Ad Campaigns
         </HeroTitle>
         <HeroSubtitle variant="h6" component="p">
           Customer insight + Market research + Google Ads creation = Your competitive edge

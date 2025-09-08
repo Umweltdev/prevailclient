@@ -27,27 +27,12 @@ const drawerWidth = 240;
 const servicesData = [
   { text: "Services", link: "/service-landing-page" },
   { text: "Brand Identity", link: "/service/brand-identity-package" },
-  // { text: "Trinity Plus", link: "/trinity/plus" },
-  // {
-  //   text: "Custom Website Development",
-  //   link: "/service/custom-website-development",
-  // },
   { text: "Website Development", link: "/service/website-development" },
-  // {
-  //   text: "Search Engine Marketing (SEM)",
-  //   link: "/service/search-engine-marketing",
-  // },
-  // {
-  //   text: "Marketing Price Displacement (MPD)",
-  //   link: "/service/marketing-pricing-displacement",
-  // },
   {
     text: "Digital Accelerator Bundle",
     link: "/service/digital-accelerator-bundle",
   },
-  // { text: "Cost Calculation", link: "/service/cost-calculation" },
-  // { text: "Step Wizard", link: "/service/stepWizardPage" },
-  { text: "Custom Ad Campaign", link: "/service/custom-ad-campaign" },
+  { text: "Content Ad Campaign", link: "/service/custom-ad-campaign" },
 ];
 
 const trinityData = [
