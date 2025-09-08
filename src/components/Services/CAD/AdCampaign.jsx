@@ -1,4 +1,3 @@
-import react from 'react';
 import HeroComponent from '../ReusedComponenets/HeroComponent';
 import AppBarNav from '../../Navbar/Appbar';
 import HeroSection from './HeroSection';
