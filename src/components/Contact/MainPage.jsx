@@ -1,5 +1,4 @@
 import { Box, Typography, Container, Chip } from "@mui/material";
-import React from "react";
 import { useInView } from "react-intersection-observer";
 import { makeStyles } from "@mui/styles";
 import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
