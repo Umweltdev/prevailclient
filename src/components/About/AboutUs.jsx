@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { CardMedia, Grid, Skeleton, Box } from "@mui/material";
-import React from "react";
 import { useInView } from "react-intersection-observer";
 import styles from "./assets/about.module.css";
-import { CheckCircle } from "@mui/icons-material"; // Import the CheckCircle icon from MUI
+import { CheckCircle } from "@mui/icons-material";
 
 const AboutUs = () => {
   const { ref, inView } = useInView({
@@ -35,7 +34,7 @@ const AboutUs = () => {
         className={`${styles.aboutUsText} ${inView ? styles.visible : ""}`}
         sx={{
           color: "#6E3EF4",
-          fontSize: "24px",
+          fontSize: "64px",
           fontWeight: "400",
           lineHeight: "110%",
           letterSpacing: "-0.24px",

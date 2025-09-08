@@ -1,8 +1,7 @@
 import { Box, CardMedia, Grid, Typography } from "@mui/material";
-import React from "react";
 import { useInView } from "react-intersection-observer";
 import AccordionUsage from "./Accordion";
-import styles from "./assets/about.module.css"; // Import the animation CSS
+import styles from "./assets/about.module.css";
 
 const FAQ = () => {
   const { ref: sectionRef, inView: sectionInView } = useInView({
