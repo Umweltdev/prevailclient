@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Box,
   Container,
@@ -23,7 +22,7 @@ export const RealTimeControlStory = () => {
             What <GradientText gradient="primary" variant="h2" fontWeight={900} sx={{ fontSize: { xs: '2.5rem', md: '3.5rem', lg: '4rem' } }}>Real-Time Control</GradientText> Actually Means
           </Typography>
           <Typography variant="h6" color="text.secondary" fontWeight={300}>
-            The system doesn't just give advice - it literally controls your ad accounts
+            The system doesn&apos;t just give advice - it literally controls your ad accounts
           </Typography>
         </Stack>
 
@@ -33,7 +32,7 @@ export const RealTimeControlStory = () => {
           </Typography>
           <Typography variant="body1" color="text.secondary" paragraph sx={{ fontSize: '1.125rem', lineHeight: 1.8 }}>
             You set aside $3,000/month for digital advertising. You connect your ad accounts to the system and set simple rules: 
-            "Never spend more than $100/day" and "Never pay more than $5 per customer." Then you walk away.
+            &quot;Never spend more than $100/day&quot; and &quot;Never pay more than $5 per customer.&quot; Then you walk away.
           </Typography>
 
           <Paper sx={{ 
@@ -87,7 +86,7 @@ export const RealTimeControlStory = () => {
               ))}
             </Stack>
             <Typography variant="h6" fontWeight={700} sx={{ mt: 3 }}>
-              You didn't click anything. You didn't make any decisions. It just happened.
+              You didn&apos;t click anything. You didn&apos;t make any decisions. It just happened.
             </Typography>
           </Paper>
 

@@ -18,7 +18,6 @@ function Problems() {
   useEffect(() => {
     setIsVisible(true);
 
-    // Intersection Observer for scroll animations
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -41,7 +40,6 @@ function Problems() {
       className="py-20 bg-gradient-to-br from-blue-50 to-indigo-50 relative overflow-hidden"
       id="how"
     >
-      {/* Animated background elements */}
       <div className="absolute top-0 left-0 w-full h-full opacity-10">
         <div className="absolute top-20 left-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl animate-pulse-slow"></div>
         <div className="absolute top-40 right-10 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl animate-pulse-medium"></div>
@@ -63,7 +61,6 @@ function Problems() {
           </p>
         </div>
 
-        {/* Enhanced Tab Switcher with animation */}
         <div className="flex justify-center mb-12 animate-on-scroll">
           <div className="bg-white/80 flex flex-col items-center justify-center backdrop-blur-sm rounded-full p-1 shadow-lg border border-gray-200/50">
             <button

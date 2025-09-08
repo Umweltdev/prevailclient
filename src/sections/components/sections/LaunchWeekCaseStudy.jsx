@@ -1,6 +1,4 @@
-import React from 'react';
 import { Box, Container, Typography, Grid, Paper, useTheme, alpha } from '@mui/material';
-// Removed Stack since it's not used
 import { GlassCard } from '../common/GlassCard';
 
 export const LaunchWeekCaseStudy = () => {

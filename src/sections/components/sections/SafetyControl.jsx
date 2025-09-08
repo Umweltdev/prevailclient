@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Container, Typography, Grid, Paper, Stack, useTheme, alpha } from '@mui/material';
 import { GlassCard } from '../common/GlassCard';
 
@@ -73,7 +72,7 @@ export const SafetyControl = () => {
           }}>
             <Typography variant="body1">
               <strong>Remember:</strong> The automation is your assistant, not your master. 
-              You're always in complete control.
+              You&apos;re always in complete control.
             </Typography>
           </Paper>
         </GlassCard>

@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Box,
   Grid,
@@ -85,7 +84,6 @@ const ServiceSelector = () => {
         background: "transparent",
       }}
     >
-      {/* Heading Section */}
       <Box
         sx={{
           textAlign: "center",
@@ -125,7 +123,6 @@ const ServiceSelector = () => {
         </Typography>
       </Box>
 
-      {/* Services Grid */}
       <Grid container spacing={4}>
         {services.map((service, index) => (
           <Grid item xs={12} md={6} key={service.id}>
@@ -215,7 +212,6 @@ const ServiceSelector = () => {
         ))}
       </Grid>
 
-      {/* Step Wizard Button */}
       <Box
         sx={{
           textAlign: "center",

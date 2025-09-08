@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Container, Typography, Paper, Stack, useTheme, alpha } from '@mui/material';
 import { GlassCard } from '../common/GlassCard';
 
@@ -25,7 +24,7 @@ export const CombinedPowersStory = () => {
           <Stack spacing={3}>
             <Paper sx={{ p: 4, background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(124, 58, 237, 0.05))' }}>
               <Typography variant="h5" fontWeight={700} mb={2}>Monday - You Set It Up</Typography>
-              <Typography paragraph>You tell the system: "New product launch, $5,000 budget for the week"</Typography>
+              <Typography paragraph>You tell the system: &quot;New product launch, $5,000 budget for the week&quot;</Typography>
               <Box sx={{ p: 3, bgcolor: alpha(theme.palette.background.paper, 0.7), borderRadius: 2 }}>
                 <Typography fontWeight={700} mb={1}>System immediately:</Typography>
                 <ul style={{ margin: 0, paddingLeft: 20 }}>

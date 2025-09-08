@@ -61,14 +61,6 @@ export const LaunchWeekCaseStudy = () => {
   return (
     <Box sx={{ py: { xs: 4, md: 8 } }}>
       <Container maxWidth="xl">
-        {/* <GlassCard
-          sx={{
-            p: { xs: 3, md: 6, lg: 8 },
-            background:
-              "linear-gradient(135deg, rgba(124,58,237,0.07), rgba(236,72,153,0.07))",
-          }}
-        > */}
-        {/* Title */}
         <Typography
           variant="h2"
           fontWeight={900}

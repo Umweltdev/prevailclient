@@ -161,7 +161,6 @@ export const LiveDemoSection = () => {
           }}
         >
           <Grid container spacing={{ xs: 4, md: 6 }} alignItems="stretch">
-            {/* Left side */}
             <Grid
               item
               xs={12}
@@ -314,8 +313,6 @@ export const LiveDemoSection = () => {
                 </Stack>
               )}
             </Grid>
-
-            {/* Right side */}
             <Grid
               item
               xs={12}

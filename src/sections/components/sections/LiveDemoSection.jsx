@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Box,
   Container,
@@ -95,7 +95,6 @@ export const LiveDemoSection = () => {
 
         <GlassCard sx={{ p: { xs: 3, sm: 4, md: 6, lg: 8 } }}>
           <Grid container spacing={{ xs: 3, md: 4, lg: 6 }}>
-            {/* Left: Control Panel */}
             <Grid item xs={12} lg={6}>
               <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
                 <Typography variant="h4" fontWeight={800} spacing={{ xs: 3, md: 4, lg: 6 }}>
@@ -123,8 +122,6 @@ export const LiveDemoSection = () => {
                   {isRunning ? 'Pause' : 'Start'} Automation
                 </Button>
               </Box>
-
-              {/* Platform Performance Cards */}
               <Stack spacing={2}>
                 {platforms.map((platform) => (
                   <Paper
@@ -172,8 +169,6 @@ export const LiveDemoSection = () => {
                   </Paper>
                 ))}
               </Stack>
-
-              {/* Status Messages */}
               {isRunning && (
                 <Stack spacing={2} sx={{ mt: 3 }}>
                   <Alert
@@ -204,8 +199,6 @@ export const LiveDemoSection = () => {
                 </Stack>
               )}
             </Grid>
-
-            {/* Right: Real-Time Events */}
             <Grid item xs={12} lg={6}>
               <Typography variant="h4" fontWeight={800} mb={4}>
                 What Happens Every Day

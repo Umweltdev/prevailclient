@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Container, Typography, Button, Grid, Paper, Stack, useTheme, alpha } from '@mui/material';
 
 export const CTASection = () => {

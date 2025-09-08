@@ -32,7 +32,6 @@ export const TimeInvestment = () => {
 
   return (
     <Box>
-      {/* Title */}
       <Typography
         variant="h4"
         fontWeight={800}
@@ -54,7 +53,7 @@ export const TimeInvestment = () => {
               sx={{
                 p: { xs: 3, md: 4 },
                 borderRadius: "16px",
-                flexGrow: 1, // makes all cards equal height
+                flexGrow: 1,
                 background: alpha(
                   item.negative
                     ? theme.palette.error.main

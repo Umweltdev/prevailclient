@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   Box,
   Container,
@@ -14,6 +14,7 @@ import { DigitalCampaigns } from '../dashboard/DigitalCampaigns';
 import { TraditionalCampaigns } from '../dashboard/TraditionalCampaigns';
 import { TimeInvestment } from '../dashboard/TimeInvestment';
 import { Recommendations } from '../dashboard/Recommendations';
+import PropTypes from 'prop-types';
 import { DailyOptimizationReport } from '../dashboard/DailyOptimizationReport';
 
 export const DashboardSection = () => {
@@ -33,6 +34,12 @@ export const DashboardSection = () => {
     </Box>
   );
 
+  TabPanel.propTypes = {
+    children: PropTypes.node,
+    index: PropTypes.number.isRequired,
+    value: PropTypes.number.isRequired,
+  };
+
   return (
     <Box id="dashboard" sx={{ py: { xs: 12, md: 16, lg: 20 }, bgcolor: alpha(theme.palette.grey[50], 0.5) }}>
       <Container maxWidth="xl">
@@ -50,7 +57,7 @@ export const DashboardSection = () => {
               fontWeight: 300,
             }}
           >
-            Sarah's Boutique Dashboard
+            Sarah&apos;s Boutique Dashboard
           </Typography>
         </Stack>
 

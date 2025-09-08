@@ -1,4 +1,3 @@
-import { Computer } from "@mui/icons-material";
 import { ServiceItem } from "./assets/PortfolioData";
 
 const SectionTwo = () => {
