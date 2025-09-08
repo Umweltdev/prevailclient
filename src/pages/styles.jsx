@@ -1,4 +1,3 @@
-// styles.js
 export const cookieConsentStyles = {
   background: "rgba(136, 78, 217, 0.9)",
   height: "35vh",

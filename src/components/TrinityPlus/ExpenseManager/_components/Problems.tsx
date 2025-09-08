@@ -18,8 +18,8 @@ function Problems() {
                 due to cash flow problems, not lack of profitability.
               </p>
               <p className="text-gray-600 mb-6">
-                You might have £50,000 coming next month, but if payroll is tomorrow and 
-                you&lsquo;re short £5,000, you&lsquo;re facing disaster. Traditional accounting shows you 
+                You might have €50,000 coming next month, but if payroll is tomorrow and 
+                you&lsquo;re short €5,000, you&lsquo;re facing disaster. Traditional accounting shows you 
                 the past. Bank balances show you today. Neither shows you tomorrow.
               </p>
               <div className="space-y-3">
@@ -45,19 +45,19 @@ function Problems() {
                 <div className="space-y-4">
                   <div className="bg-cyan-100/50 rounded-lg p-4">
                     <div className="text-sm text-gray-500">Monday</div>
-                    <div className="text-gray-900">Bank Balance: £8,000</div>
+                    <div className="text-gray-900">Bank Balance: €8,000</div>
                     <div className="text-green-600">Feeling good!</div>
                   </div>
                   <div className="bg-purple-100/50 rounded-lg p-4">
                     <div className="text-sm text-gray-500">Friday</div>
-                    <div className="text-gray-900">Payroll Due: £6,000</div>
+                    <div className="text-gray-900">Payroll Due: €6,000</div>
                     <div className="text-yellow-600">Getting nervous...</div>
                   </div>
                   <div className="bg-pink-100/50 rounded-lg p-4 animate-pulse-soft">
                     <div className="text-sm text-gray-500">Next Monday</div>
-                    <div className="text-gray-900">Rent + Supplier: £4,000</div>
+                    <div className="text-gray-900">Rent + Supplier: €4,000</div>
                     <div className="text-pink-600 font-semibold">
-                      CRISIS! Only £2,000 left!
+                      CRISIS! Only €2,000 left!
                     </div>
                   </div>
                 </div>
@@ -94,7 +94,7 @@ export default Problems
 //                   not lack of profitability.
 //                 </p>
 //                 <p className="text-gray-300 mb-6">
-//                   You might have £50,000 coming next month, but if payroll is tomorrow and you&lsquo;re short £5,000, 
+//                   You might have €50,000 coming next month, but if payroll is tomorrow and you&lsquo;re short €5,000, 
 //                   you&lsquo;re facing disaster. Traditional accounting shows you the past. 
 //                   Bank balances show you today. Neither shows you tomorrow.
 //                 </p>
@@ -119,18 +119,18 @@ export default Problems
 //                   <div className="space-y-4">
 //                     <div className="bg-red-500/10 rounded-lg p-4">
 //                       <div className="text-sm text-gray-400">Monday</div>
-//                       <div className="text-white">Bank Balance: £8,000</div>
+//                       <div className="text-white">Bank Balance: €8,000</div>
 //                       <div className="text-green-400">Feeling good!</div>
 //                     </div>
 //                     <div className="bg-red-500/20 rounded-lg p-4">
 //                       <div className="text-sm text-gray-400">Friday</div>
-//                       <div className="text-white">Payroll Due: £6,000</div>
+//                       <div className="text-white">Payroll Due: €6,000</div>
 //                       <div className="text-yellow-400">Getting nervous...</div>
 //                     </div>
 //                     <div className="bg-red-500/30 rounded-lg p-4">
 //                       <div className="text-sm text-gray-400">Next Monday</div>
-//                       <div className="text-white">Rent + Supplier: £4,000</div>
-//                       <div className="text-red-400">CRISIS! Only £2,000 left!</div>
+//                       <div className="text-white">Rent + Supplier: €4,000</div>
+//                       <div className="text-red-400">CRISIS! Only €2,000 left!</div>
 //                     </div>
 //                   </div>
 //                 </div>

@@ -35,7 +35,7 @@ const Testimonial: React.FC = () => {
       business: "Construction Company",
       quote:
         "Trinity saved my business. It caught a cash crunch 3 weeks early and gave me options. Without it, I'd have defaulted on a major supplier.",
-      metric: "£45,000 in avoided emergency loans",
+      metric: "€45,000 in avoided emergency loans",
       avatar: "MJ",
       rating: 5,
       industry: "Construction",

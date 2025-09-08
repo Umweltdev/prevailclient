@@ -1,4 +1,4 @@
-import * as React from "react";
+// import * as React from "react";
 import { Box, Typography, Grid, Divider } from "@mui/material";
 import { Build, AttachMoney, EventAvailable, Alarm } from "@mui/icons-material"; // Import icons
 
@@ -14,16 +14,12 @@ const AutomationSection = () => {
       }}
     >
       <Grid container spacing={3}>
-        {" "}
-        {/* Increased spacing */}
-        {/* First Item */}
+
         <Grid item xs={6} md={3}>
-          {" "}
-          {/* Adjusted xs prop */}
+  
           <Box sx={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-            {" "}
-            {/* Changed icon color */}
-            <Divider orientation="vertical" flexItem /> {/* Vertical divider */}
+          
+            <Divider orientation="vertical" flexItem />
             <Build fontSize="large" sx={{ color: "#884ED9" }} />
             <Typography variant="h5">Automate with webhooks</Typography>
           </Box>
@@ -32,14 +28,11 @@ const AutomationSection = () => {
             upgrades, payments, and cancellations.
           </Typography>
         </Grid>
-        {/* Second Item */}
         <Grid item xs={6} md={3}>
-          {" "}
-          {/* Adjusted xs prop */}
+   
           <Box sx={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-            {" "}
-            {/* Changed icon color */}
-            <Divider orientation="vertical" flexItem /> {/* Vertical divider */}
+         
+            <Divider orientation="vertical" flexItem />
             <AttachMoney fontSize="large" sx={{ color: "#884ED9" }} />
             <Typography variant="h5">Billing proration</Typography>
           </Box>
@@ -48,14 +41,9 @@ const AutomationSection = () => {
             Lorem ipsum dolor sit amet consectetur.
           </Typography>
         </Grid>
-        {/* Third Item */}
         <Grid item xs={6} md={3}>
-          {" "}
-          {/* Adjusted xs prop */}
           <Box sx={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-            {" "}
-            {/* Changed icon color */}
-            <Divider orientation="vertical" flexItem /> {/* Vertical divider */}
+            <Divider orientation="vertical" flexItem />
             <EventAvailable fontSize="large" sx={{ color: "#884ED9" }} />
             <Typography variant="h5">Schedule subscriptions</Typography>
           </Box>
@@ -64,14 +52,9 @@ const AutomationSection = () => {
             Lorem ipsum dolor sit amet consectetur.
           </Typography>
         </Grid>
-        {/* Fourth Item */}
         <Grid item xs={6} md={3}>
-          {" "}
-          {/* Adjusted xs prop */}
           <Box sx={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-            {" "}
-            {/* Changed icon color */}
-            <Divider orientation="vertical" flexItem /> {/* Vertical divider */}
+            <Divider orientation="vertical" flexItem />
             <Alarm fontSize="large" sx={{ color: "#884ED9" }} />
             <Typography variant="h5">Automatic reminders</Typography>
           </Box>

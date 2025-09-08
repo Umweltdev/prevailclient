@@ -25,12 +25,12 @@ const BudgetTracker = ({ budget, spent, spentLabel = "Spent" }) => {
       >
         <Box sx={{ flex: "1 1 30%", minWidth: 100 }}>
           <Typography variant="body1">
-            Budget: <strong>£{budget.toLocaleString()}</strong>
+            Budget: <strong>€{budget.toLocaleString()}</strong>
           </Typography>
         </Box>
         <Box sx={{ flex: "1 1 30%", minWidth: 100 }}>
           <Typography variant="body1" color="error">
-            {spentLabel}: <strong>£{spent.toLocaleString()}</strong>
+            {spentLabel}: <strong>€{spent.toLocaleString()}</strong>
           </Typography>
         </Box>
         <Box sx={{ flex: "1 1 30%", minWidth: 100 }}>
@@ -38,7 +38,7 @@ const BudgetTracker = ({ budget, spent, spentLabel = "Spent" }) => {
             variant="body1"
             color={isBudgetExceeded ? "error" : "success.main"}
           >
-            Remaining: <strong>£{remaining.toLocaleString()}</strong>
+            Remaining: <strong>€{remaining.toLocaleString()}</strong>
           </Typography>
         </Box>
       </Box>

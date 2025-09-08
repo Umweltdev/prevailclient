@@ -8,7 +8,7 @@ import StepHeader from "../ReusedComponents/StepHeader";
 const platformsData = [
   {
     title: "Foundation",
-    priceRange: "£600 - £1000",
+    priceRange: "€600 - €1000",
     price: 800,
     features: [
       "Professional Website",
@@ -20,7 +20,7 @@ const platformsData = [
   },
   {
     title: "Full System",
-    priceRange: "£1200 - £2000",
+    priceRange: "€1200 - €2000",
     price: 1600,
     features: [
       "Everything in Foundation",
@@ -32,7 +32,7 @@ const platformsData = [
   },
   {
     title: "Premium",
-    priceRange: "£1800 - £3000",
+    priceRange: "€1800 - €3000",
     price: 2400,
     features: [
       "Everything in Full System",

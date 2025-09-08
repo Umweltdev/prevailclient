@@ -1,14 +1,14 @@
+import PropTypes from "prop-types";
 import { Box, TextField } from "@mui/material";
 
-export const TextArea = ({ label, name }) => {
+export const TextArea = ({ label, name, rows = 5 }) => {
   return (
     <Box
-      name={name}
       sx={{
         "& .MuiTextField-root": {
           m: 1,
-          width: "620.204px",
-          "@media (max-width: 600px)": {
+          width: "620px",
+          "@media (max-width:600px)": {
             width: "85vw",
           },
         },
@@ -16,26 +16,31 @@ export const TextArea = ({ label, name }) => {
       noValidate
       autoComplete="off"
     >
-      <div>
-        <TextField
-          id="outlined-multiline-flexible"
-          label={label}
-          multiline
-          rows={5}
-          variant="outlined"
-          name={name}
-          InputProps={{
-            sx: {
-              backgroundColor: "white", // Set input background to white
-            },
-          }}
-          InputLabelProps={{
-            sx: {
-              color: "gray", // Optional: Customize label color if needed
-            },
-          }}
-        />
-      </div>
+      <TextField
+        id={`${name}-textarea`}
+        label={label}
+        multiline
+        rows={rows}
+        variant="outlined"
+        name={name}
+        InputProps={{
+          sx: {
+            backgroundColor: "white",
+          },
+        }}
+        InputLabelProps={{
+          sx: {
+            color: "gray",
+          },
+        }}
+        fullWidth
+      />
     </Box>
   );
+};
+
+TextArea.propTypes = {
+  label: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  rows: PropTypes.number,
 };

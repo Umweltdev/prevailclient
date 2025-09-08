@@ -102,7 +102,7 @@ const GoalsStep = ({
           variant="h4"
           sx={{ mt: 1, color: "primary.main", fontWeight: "bold" }}
         >
-          £{budget.toLocaleString()}
+          €{budget.toLocaleString()}
         </Typography>
         <Typography variant="body1" color="text.secondary">
           Estimated Investment

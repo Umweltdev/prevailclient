@@ -1,12 +1,7 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
-// import theme from "../../theme";
 
 export default function BasicCard() {
   return (
@@ -28,16 +23,15 @@ export default function BasicCard() {
         <Typography variant="body3" >
           Revolutionise your online presencewith our exclusivebundle. The{" "}
           <Link style={{ textDecoration: "none" }} to={`/digitalaccelerator`}>
-            {" "}
             <span className="span">
-              "Digital Accelarator Bundle package"
-            </span>{" "}
+              &quot;Digital Accelarator Bundle package&quot;
+            </span>
           </Link>
           This all-encompassing package seamlessly integrates three core
           services- [website Production & Management]. [Brand Identitiy
-          package], and [Search Engine Marketing(SEM)]. Prevail's
+          package], and [Search Engine Marketing(SEM)]. Prevail&apos;s
           <Link style={{ textDecoration: "none" }} to={`/digitalaccelerator`}>
-            <span className="span">"Digital Accelerator Bundle Package"</span>
+            <span className="span">&quot;Digital Accelerator Bundle Package&quot;</span>
           </Link>
           service is not just a bundle of services. it is your strategic gateway
           to cohesive, impactful, and cost effective digital presence. Elevate

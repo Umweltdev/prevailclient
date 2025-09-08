@@ -1,4 +1,3 @@
-import React from "react";
 import DrawerAppBarWhite from "../Navbar/Appbar";
 import { Grid, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
@@ -73,12 +72,10 @@ const AboutOurWhy = () => {
         <Typography
           sx={{
             padding: "10vh 0",
-            // margin: "0 auto",
             textAlign: "justify",
             width: "55vw",
             "@media (max-width: 600px)": {
               padding: "3vh 0",
-              // margin: "0 auto",
               textAlign: "justify",
               fontFamily: "Sarabun",
               textJustify: "distribute",
@@ -89,11 +86,11 @@ const AboutOurWhy = () => {
           Understanding the nuances of marketing budgets and effective
           strategies is essential to businesses. The costs associated with
           marketing can vary significantly, contingent on factors like a
-          company's marketing budget, specific goals, and the number of
+          company&apos;s marketing budget, specific goals, and the number of
           marketing channels they choose to employ. It is a well-established
           industry guideline that businesses should allocate between 15% and 20%
           of their sales towards marketing expenses. However, the ultimate
-          allocation hinges on a company's unique budget size, marketing
+          allocation hinges on a company&apos;s unique budget size, marketing
           strategy, ambition, and the manner in which it intends to utilise its
           marketing resources. <br />
           That is why understanding the nuances of our market share, budgets,

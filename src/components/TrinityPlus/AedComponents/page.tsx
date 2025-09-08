@@ -14,33 +14,20 @@ import FloatingBlobs from "./_components/FloatingBlob.js";
 import AppBarNav from "../../Navbar/Appbar.jsx";
 import FooterNew from "../../Footer/FooterNew.jsx";
 
-// Main Landing Page Component
 function AEDLandingPage() {
   return (
     <div className="min-h-screen relative bg-gradient-to-b from-gray-50 to-white">
-      {/* Header */}
-      <AppBarNav color="#000" />/{/* Hero Section */}
+      <AppBarNav color="#000" />/
       <Hero />
-      {/* Problem/Solution Section */}
       <Problems />
-      {/* Restaurant Analogy Section */}
       <Analogy />
-      {/* Features Section */}
       <Features />
-      {/* Real Results Section */}
       <Results />
-      {/* Scenarios Section */}
       <Scenario />
-      {/* FAQ Section */}
       <FAQPage />
-      {/* Pricing Section */}
       <Pricing />
-      {/* CTA Section */}
       <CTA />
-      {/* Footer */}
       <FooterNew />
-      {/* Floating Blob */}
-      {/* <FloatingBlobs /> */}
     </div>
   );
 }

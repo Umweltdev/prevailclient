@@ -45,7 +45,7 @@ const GetStartedStep = ({ formData, handleBack }) => {
         "Dedicated development team",
         "Milestone-based payments",
       ],
-      buttonText: "Book Consultation (£99)",
+      buttonText: "Book Consultation (€99)",
     },
     {
       title: "Hybrid Approach",
@@ -128,10 +128,10 @@ const GetStartedStep = ({ formData, handleBack }) => {
           }}
         >
           <Typography variant="h4" color="primary.main">
-            £{Math.round(option.price).toLocaleString()}
+            €{Math.round(option.price).toLocaleString()}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            £{Math.round(option.deposit).toLocaleString()} deposit
+            €{Math.round(option.deposit).toLocaleString()} deposit
           </Typography>
         </Paper>
         <Button fullWidth variant="contained" size="large">

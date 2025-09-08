@@ -1,4 +1,6 @@
 import { createTheme } from "@mui/material/styles";
+import { alpha } from '@mui/material/styles';
+
 
 export const theme = createTheme({
  
@@ -22,6 +24,28 @@ export const theme = createTheme({
     text: {
       primary: "#1D0D40",
       secondary: "#505660",
+    },
+    error: {
+      main: '#EF4444',
+      light: '#F87171',
+      dark: '#DC2626',
+    },
+    warning: {
+      main: '#F59E0B',
+      light: '#FBBF24',
+      dark: '#D97706',
+    },
+    grey: {
+      50: '#F9FAFB',
+      100: '#F3F4F6',
+      200: '#E5E7EB',
+      300: '#D1D5DB',
+      400: '#9CA3AF',
+      500: '#6B7280',
+      600: '#4B5563',
+      700: '#374151',
+      800: '#1F2937',
+      900: '#111827',
     },
   },
 
@@ -74,7 +98,6 @@ export const theme = createTheme({
     },
   },
 
-  // Using your exact breakpoint values for consistency across your app.
   breakpoints: {
     values: {
       xs: 0,
@@ -85,7 +108,6 @@ export const theme = createTheme({
     },
   },
 
-  // Adding specific styles for Buttons, Cards, etc., for the modern UI.
   components: {
     MuiButton: {
       styleOverrides: {
@@ -131,3 +153,21 @@ export const theme = createTheme({
     }
   },
 });
+
+
+export const glassmorphism = {
+  background: alpha('#FFFFFF', 0.7),
+  backdropFilter: 'blur(20px)',
+  WebkitBackdropFilter: 'blur(20px)',
+  border: `1px solid ${alpha('#E5E7EB', 0.2)}`,
+};
+
+export const gradients = {
+  primary: 'linear-gradient(135deg, #3B82F6 0%, #7C3AED 100%)',
+  secondary: 'linear-gradient(135deg, #7C3AED 0%, #EC4899 100%)',
+  success: 'linear-gradient(135deg, #10B981 0%, #34D399 100%)',
+  error: 'linear-gradient(135deg, #EF4444 0%, #F87171 100%)',
+  blueToPurple: 'linear-gradient(135deg, #3B82F6 0%, #7C3AED 100%)',
+  purpleToPink: 'linear-gradient(135deg, #A855F7 0%, #EC4899 100%)',
+  blueToCyan: 'linear-gradient(135deg, #3B82F6 0%, #06B6D4 100%)',
+};

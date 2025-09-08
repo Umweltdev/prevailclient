@@ -109,7 +109,7 @@ const UniversalStep = ({
                 >
                   <Typography variant="h6">{dashboard.title}</Typography>
                   <Typography variant="h6" color="primary">
-                    £{dashboard.price}
+                    €{dashboard.price}
                   </Typography>
                 </Box>
                 <Typography

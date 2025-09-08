@@ -1,4 +1,4 @@
-import { Box, CardMedia, Grid, Typography, Paper, Chip } from "@mui/material";
+import { Box, CardMedia, Typography, Paper, Chip } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import icon1 from "./assets/announcement.svg";
 import icon2 from "./assets/approve.svg";
@@ -132,7 +132,6 @@ const ContactInfo = () => {
     }}>
       <div className={classes.headerSection}>
         <Chip 
-          // icon={<StarIcon />}
           label="Why Choose Us" 
           className={classes.headerChip}
         />

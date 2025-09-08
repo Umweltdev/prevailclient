@@ -40,7 +40,7 @@ const GetStartedStep = ({ formData, handleBack }) => {
         "Dedicated development team",
         "Milestone-based payments",
       ],
-      buttonText: "Book Consultation (£99)",
+      buttonText: "Book Consultation (€99)",
     },
   };
 
@@ -87,10 +87,10 @@ const GetStartedStep = ({ formData, handleBack }) => {
         }}
       >
         <Typography variant="h4" color="primary.main">
-          £{Math.round(path.price).toLocaleString()}
+          €{Math.round(path.price).toLocaleString()}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          £{Math.round(path.deposit).toLocaleString()} deposit
+          €{Math.round(path.deposit).toLocaleString()} deposit
         </Typography>
       </Paper>
       <Button fullWidth variant="contained" size="large">
@@ -121,10 +121,10 @@ const GetStartedStep = ({ formData, handleBack }) => {
       <Paper variant="outlined" sx={{ p: 2, mb: 4, borderRadius: 2 }}>
         <Typography variant="h6">
           Your Configuration Total:
-          <strong>£{totalCost.toLocaleString()}</strong>
+          <strong>€{totalCost.toLocaleString()}</strong>
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Budget: £{formData.budget.toLocaleString()}
+          Budget: €{formData.budget.toLocaleString()}
         </Typography>
       </Paper>
 

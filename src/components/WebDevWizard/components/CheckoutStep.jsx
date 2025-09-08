@@ -24,10 +24,8 @@ const CheckoutStep = ({ formData, handleBack }) => {
   const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState(null);
   const [processingAction, setProcessingAction] = useState(null);
-  const [includeConsultation, setIncludeConsultation] = useState(false); // State for the toggle
+  const [includeConsultation, setIncludeConsultation] = useState(false);
 
-  // --- Price Calculations ---
-  // (No changes needed here)
   const discountRate = 0.2;
   const solutionsCost = formData.solutions.reduce(
     (acc, s) => acc + s.price * (1 - discountRate),
@@ -41,7 +39,6 @@ const CheckoutStep = ({ formData, handleBack }) => {
   const totalCost = solutionsCost + dashboardsCost + platformCost;
   const CONSULTATION_FEE = 99;
 
-  // --- Payment Handler ---
   const handlePayment = async (action) => {
     setIsProcessing(true);
     setProcessingAction(action);
@@ -55,12 +52,12 @@ const CheckoutStep = ({ formData, handleBack }) => {
       email: formData.email,
       industry: formData.industry,
       platform: formData.platform?.title || "Not Selected",
-      fullQuote: `£${totalCost.toLocaleString()}`,
+      fullQuote: `€${totalCost.toLocaleString()}`,
       price: priceToCharge,
       serviceType: isFullPayment ? "web_development_full" : "consultation_fee",
       notes: isFullPayment
         ? `Full package payment. ${includeConsultation ? "Free consultation included." : ""}`
-        : `Consultation booking. Full quote is £${totalCost}.`,
+        : `Consultation booking. Full quote is €${totalCost}.`,
     };
 
     const result = await proceedToCheckout(checkoutData);
@@ -79,9 +76,7 @@ const CheckoutStep = ({ formData, handleBack }) => {
         subtitle="Review your configuration and choose your payment path."
       />
       <Grid container spacing={{ xs: 3, md: 5 }} alignItems="flex-start">
-        {/* --- Left Column: Configuration Summary --- */}
         <Grid item xs={12} md={5}>
-          {/* Using the refined summary card from before */}
           <Paper
             variant="outlined"
             sx={{ p: { xs: 3, md: 4 }, height: "100%", borderRadius: 4 }}
@@ -114,14 +109,12 @@ const CheckoutStep = ({ formData, handleBack }) => {
                   color="primary.main"
                   sx={{ fontWeight: "bold" }}
                 >
-                  £{totalCost.toLocaleString()}
+                  €{totalCost.toLocaleString()}
                 </Typography>
               </Box>
             </Stack>
           </Paper>
         </Grid>
-
-        {/* --- Right Column: Interactive Payment Card --- */}
         <Grid item xs={12} md={7}>
           <Paper
             elevation={0}
@@ -143,19 +136,17 @@ const CheckoutStep = ({ formData, handleBack }) => {
             >
               Confirm your total and add a complimentary consultation session.
             </Typography>
-
-            {/* --- DYNAMIC PRICE BREAKDOWN --- */}
             <Paper variant="outlined" sx={{ p: 3, borderRadius: 3, mb: 3 }}>
               <Stack spacing={1.5}>
                 <PriceRow
                   label="Project Subtotal"
-                  amount={`£${totalCost.toLocaleString()}`}
+                  amount={`€${totalCost.toLocaleString()}`}
                 />
                 <Fade in={includeConsultation} timeout={400}>
                   <Box>
                     <PriceRow
                       label="Consultation Fee"
-                      amount={`+ £${CONSULTATION_FEE}`}
+                      amount={`+ €${CONSULTATION_FEE}`}
                     />
                   </Box>
                 </Fade>
@@ -163,7 +154,7 @@ const CheckoutStep = ({ formData, handleBack }) => {
                   <Box>
                     <PriceRow
                       label="Instant Bonus"
-                      amount={`- £${CONSULTATION_FEE}`}
+                      amount={`- €${CONSULTATION_FEE}`}
                       strikeThrough
                     />
                   </Box>
@@ -171,7 +162,7 @@ const CheckoutStep = ({ formData, handleBack }) => {
                 <Divider sx={{ my: 1 }} />
                 <PriceRow
                   label="Total to Pay"
-                  amount={`£${totalCost.toLocaleString()}`}
+                  amount={`€${totalCost.toLocaleString()}`}
                   isTotal
                 />
               </Stack>
@@ -226,13 +217,11 @@ const CheckoutStep = ({ formData, handleBack }) => {
                 )
               }
             >
-              Just Book a Consultation (£{CONSULTATION_FEE})
+              Just Book a Consultation (€{CONSULTATION_FEE})
             </Button>
           </Paper>
         </Grid>
       </Grid>
-
-      {/* --- Back Button & Error Snackbar --- */}
       <Box sx={{ display: "flex", justifyContent: "flex-start", mt: 4 }}>
         <Button variant="text" onClick={handleBack} disabled={isProcessing}>
           Back
@@ -256,8 +245,6 @@ const CheckoutStep = ({ formData, handleBack }) => {
     </Box>
   );
 };
-
-// Helper Components for clean rendering
 const SummaryItem = ({ label, value }) => (
   <Box
     sx={{
@@ -309,8 +296,6 @@ const PriceRow = ({
     </Typography>
   </Box>
 );
-
-// Prop Types
 SummaryItem.propTypes = {
   label: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,

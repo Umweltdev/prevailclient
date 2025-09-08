@@ -67,7 +67,7 @@ export default function Pricing() {
   const plans = [
     {
       name: "Beta",
-      price: "€232",
+      price: "€696",
       desc: "Test the Waters",
       features: [
         "Up to 1,000 customers",
@@ -79,7 +79,7 @@ export default function Pricing() {
     },
     {
       name: "Standard",
-      price: "€1,739",
+      price: "€5,217",
       desc: "Full Power",
       features: [
         "Up to 10,000 customers",
@@ -93,7 +93,7 @@ export default function Pricing() {
     },
     {
       name: "Early",
-      price: "€579",
+      price: "€1,737",
       desc: "Unlimited Scale",
       features: [
         "Unlimited customers",
