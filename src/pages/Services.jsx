@@ -34,5 +34,3 @@ const Services = (props) => {
 };
 
 export default Services;
-
-// integrative-frog-psyix4zu9vsuaxxqwsapar12.herokudns.com

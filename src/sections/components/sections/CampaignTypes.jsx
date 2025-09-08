@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Container, Typography, Grid, Paper, Stack, useTheme, alpha } from '@mui/material';
 
 export const CampaignTypes = () => {
@@ -36,7 +35,7 @@ export const CampaignTypes = () => {
     <Box id="features" sx={{ py: { xs: 12, md: 16, lg: 20 } }}>
       <Container maxWidth="lg">
         <Typography variant="h2" fontWeight={900} textAlign="center" mb={8}>
-          5 Types of "Set & Forget" Campaigns
+          5 Types of &quot;Set & Forget&quot; Campaigns
         </Typography>
         
         <Grid container spacing={3}>

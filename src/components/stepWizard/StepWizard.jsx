@@ -46,10 +46,16 @@ import {
   generateCampaignDuration,
 } from "./api";
 
-// STRIPE INITIALIZATION & CONSTANT DATA
-const stripePromise = loadStripe(
-  "pk_test_51OsCJ5P1A39VkufThp1PVDexesvf2XAY8faTyK0uucC1qRl9NW9QkpBdwXQDyjCAjzL166zjMWNn5Zr25ZkaQJVi00vurq61mj"
-);
+const STRIPE_KEY = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY_2 || "";
+let stripePromise = null;
+if (STRIPE_KEY) {
+  stripePromise = loadStripe(STRIPE_KEY);
+} else {
+  console.warn(
+    "VITE_STRIPE_PUBLISHABLE_KEY not set. Checkout will be disabled until configured."
+  );
+}
+
 const betaDaysRemaining = 10;
 const ALL_TRINITY_OPTIONS = [
   {
@@ -60,7 +66,6 @@ const ALL_TRINITY_OPTIONS = [
     description:
       "AI-powered financial planning that ensures you never run out of cash",
     betaPrice: 200,
-    earlyPrice: 500,
     standardPrice: 1500,
     features: [
       "Predictive cash flow",
@@ -77,7 +82,6 @@ const ALL_TRINITY_OPTIONS = [
     description:
       "Marketing Cost Displacement - automatically adjusts prices based on ad spend",
     betaPrice: 200,
-    earlyPrice: 500,
     standardPrice: 1500,
     features: [
       "Real-time price optimization",
@@ -94,7 +98,6 @@ const ALL_TRINITY_OPTIONS = [
     description:
       "Returning Customer Discounts - creates viral loyalty networks",
     betaPrice: 200,
-    earlyPrice: 500,
     standardPrice: 1500,
     features: [
       "Automatic loyalty tracking",
@@ -111,7 +114,6 @@ const ALL_TRINITY_OPTIONS = [
     description:
       "Genetic Algorithm Restocking Optimizer - evolves perfect inventory decisions",
     betaPrice: 200,
-    earlyPrice: 500,
     standardPrice: 1500,
     features: [
       "500+ generation evolution",
@@ -129,7 +131,6 @@ const ALL_TRINITY_OPTIONS = [
     description:
       "Advertising Efficiency Dashboard - unifies and optimizes all ad platforms",
     betaPrice: 200,
-    earlyPrice: 500,
     standardPrice: 1500,
     features: [
       "4+ platform integration",
@@ -145,10 +146,9 @@ const ALL_TRINITY_OPTIONS = [
     icon: "⚡",
     description: "Essential business intelligence: Expense Manager + MCD + RCD",
     betaPrice: 600,
-    earlyPrice: 1500,
     standardPrice: 4500,
     includes: ["💰 Expense Manager", "📈 MCD System", "🎯 RCD System"],
-    savings: "Saveincludes €3,900 vs standard pricing",
+    savings: 3900,
     baseRecommended: true,
   },
   {
@@ -158,7 +158,6 @@ const ALL_TRINITY_OPTIONS = [
     icon: "🌟",
     description: "Complete suite: All 5 systems working in perfect harmony",
     betaPrice: 1000,
-    earlyPrice: 2500,
     standardPrice: 7500,
     includes: [
       "💰 Expense Manager",
@@ -167,9 +166,9 @@ const ALL_TRINITY_OPTIONS = [
       "🧬 GARO System",
       "🚀 AED System",
     ],
-    savings: "Saveincludes €6,500 vs standard pricing",
+    savings: 6500,
     bestValue: true,
-    note: "GARO requires includes €1,600 for physical stores",
+    note: "GARO requires €1,600 for physical stores",
   },
 ];
 const solutionTypes = [
@@ -236,7 +235,7 @@ const goals = [
     name: "Eliminate Platform Fees",
     icon: "💰",
     description: "Stop paying 20-35% commission",
-    savings: "Saveincludes €1,000-5,000/month",
+    savings: "Save €1,000-5,000/month",
   },
   {
     id: "brand",
@@ -325,7 +324,6 @@ const gradientText = {
 
 const SelectableCard = ({ children, selected, ...props }) => (
   <Card
-    {...props}
     elevation={selected ? 8 : 2}
     sx={{
       cursor: "pointer",
@@ -341,6 +339,7 @@ const SelectableCard = ({ children, selected, ...props }) => (
       },
       ...props.sx,
     }}
+    {...props}
   >
     <CardContent
       sx={{ display: "flex", flexDirection: "column", height: "100%", p: 3 }}
@@ -683,14 +682,14 @@ const TrinityPackages = ({
                         color="#B42318"
                         fontWeight="bold"
                       >
-                      includes €{option.betaPrice.toLocaleString()}
+                        €{option.betaPrice.toLocaleString()}
                       </Typography>
                       <Typography
                         variant="body2"
                         sx={{ textDecoration: "line-through" }}
                         color="text.secondary"
                       >
-                      includes €{option.standardPrice.toLocaleString()}
+                        €{option.standardPrice.toLocaleString()}
                       </Typography>
                     </Box>
                   </Box>
@@ -711,9 +710,10 @@ const TrinityPackages = ({
                   )}
                   {option.includes && (
                     <Box mt={2}>
+                      {" "}
                       {option.includes.map((item) => (
                         <Chip key={item} label={item} sx={{ mr: 1, mb: 1 }} />
-                      ))}
+                      ))}{" "}
                       {option.savings && (
                         <Typography
                           variant="subtitle1"
@@ -721,9 +721,10 @@ const TrinityPackages = ({
                           fontWeight="bold"
                           sx={{ mt: 1 }}
                         >
-                          {option.savings}
+                          Save €{option.savings.toLocaleString()} vs standard
+                          pricing
                         </Typography>
-                      )}
+                      )}{" "}
                     </Box>
                   )}
                   {option.note && (
@@ -777,38 +778,58 @@ const AEDUpsell = ({
     (opt) => opt.id === trinitySelectionId
   );
 
-  const upsellOptions = [
-    {
-      id: "aed-only",
-      name: "AED System only",
-      price: 232,
-      description:
-        "Add just the Advertising Efficiency Dashboard to your current selection",
-      includes: ["AED System only"],
-    },
-    {
-      id: "trinity-core",
-      name: "Full Trinity Core",
-      price: 695,
-      description:
-        "Upgrade to complete core package (Expense + MCD + RCD + AED)",
-      includes: ["Expense Manager", "MCD System", "RCD System", "AED System"],
-    },
-    {
-      id: "trinity-plus",
-      name: "Full Trinity Plus",
-      price: 1159,
-      description: "Complete suite with all 5 systems including AED",
-      includes: ["All 5 Trinity Systems", "GARO Inventory", "AED Dashboard"],
-    },
-    {
-      id: "skip",
-      name: "Skip Trinity",
-      price: 0,
-      description: "Continue with your current selection",
-      includes: ["No additional systems"],
-    },
-  ];
+  const upsellOptions = useMemo(() => {
+    const allOptions = [
+      {
+        id: "aed-only",
+        name: "AED System only",
+        price: 232,
+        description:
+          "Add just the Advertising Efficiency Dashboard to your current selection.",
+        includes: ["AED System only"],
+      },
+      {
+        id: "trinity-core",
+        name: "Upgrade to Trinity Core",
+        price: 695,
+        description:
+          "Upgrade to complete core package (Expense + MCD + RCD + AED).",
+        includes: ["Expense Manager", "MCD System", "RCD System", "AED System"],
+      },
+      {
+        id: "trinity-plus",
+        name: "Upgrade to Trinity Plus",
+        price: 1159,
+        description: "Complete suite with all 5 systems including AED.",
+        includes: ["All 5 Trinity Systems", "GARO Inventory", "AED Dashboard"],
+      },
+      {
+        id: "skip",
+        name: "No, thank you",
+        price: 0,
+        description: "I'll continue with my current selection.",
+        includes: ["No additional systems"],
+      },
+    ];
+
+    if (currentSelection?.type === "package") {
+      return allOptions.filter((option) => {
+        if (
+          option.id === "trinity-core" &&
+          currentSelection.id === "trinity-core"
+        )
+          return false;
+        if (
+          option.id === "trinity-plus" &&
+          (currentSelection.id === "trinity-core" ||
+            currentSelection.id === "trinity-plus")
+        )
+          return false;
+        return true;
+      });
+    }
+    return allOptions;
+  }, [currentSelection]);
 
   return (
     <Fade in timeout={500}>
@@ -823,9 +844,9 @@ const AEDUpsell = ({
           Unify all ad platforms with Trinity AED?
         </Typography>
         <Typography variant="body1" sx={{ mb: 4 }}>
-          Maximize your advertising ROI with our AI-powered platform unification
+          Maximize your advertising ROI with our AI-powered platform
+          unification.
         </Typography>
-
         <Grid container spacing={3} sx={{ mb: 4 }}>
           {upsellOptions.map((option) => (
             <Grid item xs={12} md={6} key={option.id}>
@@ -879,7 +900,7 @@ const AEDUpsell = ({
                         color="primary"
                         fontWeight="bold"
                       >
-                        +€{option.price}
+                        +€{option.price.toLocaleString()}
                       </Typography>
                     </Box>
                   )}
@@ -888,7 +909,6 @@ const AEDUpsell = ({
             </Grid>
           ))}
         </Grid>
-
         <Box display="flex" gap={2}>
           <Button
             variant="outlined"
@@ -926,17 +946,11 @@ const StoreType = ({
   nextStep,
   prevStep,
 }) => {
-  const needsStoreInfo =
-    trinitySelectionId === "trinity-plus" || trinitySelectionId === "garo";
-  useEffect(() => {
-    if (!needsStoreInfo) nextStep();
-  }, [needsStoreInfo, nextStep]);
-  if (!needsStoreInfo) return null;
-
   const trinitySelection = ALL_TRINITY_OPTIONS.find(
     (opt) => opt.id === trinitySelectionId
   );
   const basePrice = trinitySelection ? trinitySelection.betaPrice : 0;
+  const setupCost = 1600;
 
   return (
     <Fade in timeout={500}>
@@ -972,7 +986,7 @@ const StoreType = ({
                 fontWeight="bold"
                 sx={{ mt: "auto", pt: 2 }}
               >
-              includes €{basePrice.toLocaleString()}
+                €{basePrice.toLocaleString()}
               </Typography>
               <Typography variant="body2" color="success.main">
                 Standard API setup
@@ -997,10 +1011,10 @@ const StoreType = ({
                 fontWeight="bold"
                 sx={{ mt: "auto", pt: 2 }}
               >
-              includes €{(basePrice + 1600).toLocaleString()}
+                €{(basePrice + setupCost).toLocaleString()}
               </Typography>
               <Typography variant="body2" color="warning.main">
-                includes €1,600 Square setup & training
+                Includes €{setupCost.toLocaleString()} Square setup & training
               </Typography>
             </SelectableCard>
           </Grid>
@@ -1079,7 +1093,8 @@ const PlatformTier = ({
                 color="primary"
                 sx={{ my: 1 }}
               >
-              includes €{tier.minPrice} -includes €{tier.maxPrice}
+                €{tier.minPrice.toLocaleString()} - €
+                {tier.maxPrice.toLocaleString()}
               </Typography>
               <List dense sx={{ mt: 2, p: 0 }}>
                 {tier.features.map((feature) => (
@@ -1316,7 +1331,7 @@ const FinalSummary = ({
                 >
                   <Typography variant="h6">Total Price:</Typography>
                   <Typography variant="h5" fontWeight="bold" sx={gradientText}>
-                   €{finalPrice.toLocaleString()}
+                    €{finalPrice.toLocaleString()}
                   </Typography>
                 </Box>
               </Box>
@@ -1398,8 +1413,6 @@ FinalSummary.propTypes = {
 };
 const MemoizedFinalSummary = React.memo(FinalSummary);
 
-// MAIN WIZARD COMPONENT
-
 const StepWizard = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [solutionType, setSolutionType] = useState(null);
@@ -1407,7 +1420,6 @@ const StepWizard = () => {
   const [selectedGoals, setSelectedGoals] = useState([]);
   const [trinitySelectionId, setTrinitySelectionId] = useState(null);
   const [selectedTier, setSelectedTier] = useState(null);
-  const [budget, setBudget] = useState(5000);
   const [hasPhysicalStore, setHasPhysicalStore] = useState(null);
   const [showToast, setShowToast] = useState(null);
   const [name, setName] = useState("");
@@ -1429,7 +1441,6 @@ const StepWizard = () => {
       setSelectedGoals(parsedState.selectedGoals || []);
       setTrinitySelectionId(parsedState.trinitySelectionId || null);
       setSelectedTier(parsedState.selectedTier || null);
-      setBudget(parsedState.budget || 5000);
       setHasPhysicalStore(parsedState.hasPhysicalStore || null);
       setAEDUpsellChoice(parsedState.aedUpsellChoice || null);
     }
@@ -1443,7 +1454,6 @@ const StepWizard = () => {
       selectedGoals,
       trinitySelectionId,
       selectedTier,
-      budget,
       hasPhysicalStore,
       aedUpsellChoice,
     };
@@ -1455,7 +1465,6 @@ const StepWizard = () => {
     selectedGoals,
     trinitySelectionId,
     selectedTier,
-    budget,
     hasPhysicalStore,
     aedUpsellChoice,
   ]);
@@ -1465,63 +1474,55 @@ const StepWizard = () => {
     const trinitySelection = ALL_TRINITY_OPTIONS.find(
       (opt) => opt.id === trinitySelectionId
     );
-    if (trinitySelection) {
-      total += trinitySelection.betaPrice;
-      if (
-        hasPhysicalStore &&
-        (trinitySelection.id === "trinity-plus" ||
-          trinitySelection.id === "garo")
-      ) {
-        total += 1600;
+    const tier = platformTiers.find((t) => t.id === selectedTier);
+
+    let baseTrinityPrice = trinitySelection ? trinitySelection.betaPrice : 0;
+
+    if (aedUpsellChoice && aedUpsellChoice !== "skip") {
+      const upsellPackage = ALL_TRINITY_OPTIONS.find(
+        (opt) => opt.id === aedUpsellChoice && opt.type === "package"
+      );
+      if (upsellPackage) {
+        baseTrinityPrice = upsellPackage.betaPrice;
+      } else if (aedUpsellChoice === "aed-only") {
+        const aedCost =
+          ALL_TRINITY_OPTIONS.find((opt) => opt.id === "aed")?.betaPrice || 0;
+        baseTrinityPrice += aedCost;
       }
     }
-    if (aedUpsellChoice) {
-      switch (aedUpsellChoice) {
-        case "aed-only":
-          total += 232;
-          break;
-        case "trinity-core":
-          total = ALL_TRINITY_OPTIONS.find(
-            (opt) => opt.id === "trinity-core"
-          ).betaPrice;
-          break;
-        case "trinity-plus":
-          total = ALL_TRINITY_OPTIONS.find(
-            (opt) => opt.id === "trinity-plus"
-          ).betaPrice;
-          break;
-        case "skip":
-          break;
-        default:
-          if (trinitySelection) {
-            total += trinitySelection.betaPrice;
-          }
-      }
-    } else if (trinitySelection) {
-      total += trinitySelection.betaPrice;
+
+    total += baseTrinityPrice;
+
+    if (tier) {
+      total += (tier.minPrice + tier.maxPrice) / 2;
     }
-    if (selectedTier) {
-      const tier = platformTiers.find((t) => t.id === selectedTier);
-      if (tier) {
-        total += (tier.minPrice + tier.maxPrice) / 2;
-      }
+
+    if (
+      hasPhysicalStore &&
+      (trinitySelectionId === "trinity-plus" || trinitySelectionId === "garo")
+    ) {
+      total += 1600;
     }
+
     return Math.round(total);
-  }, [trinitySelectionId, selectedTier, hasPhysicalStore]);
+  }, [aedUpsellChoice, selectedTier, trinitySelectionId, hasPhysicalStore]);
 
   const showToastMessage = useCallback((message) => {
     setShowToast(message);
   }, []);
 
   const getSteps = useCallback(() => {
-    if (solutionType === "trinity")
-      return [
-        "Solution Type",
-        "Trinity Package",
-        "AED Upsell",
-        "Store Type",
-        "Review & Purchase",
-      ];
+    if (solutionType === "trinity") {
+      const steps = ["Solution Type", "Trinity Package", "AED Upsell"];
+      if (
+        trinitySelectionId === "trinity-plus" ||
+        trinitySelectionId === "garo"
+      ) {
+        steps.push("Store Type");
+      }
+      steps.push("Review & Purchase");
+      return steps;
+    }
     if (solutionType === "website")
       return ["Solution Type", "Industry", "Goals", "Platform Tier", "Review"];
     if (solutionType === "both")
@@ -1533,34 +1534,20 @@ const StepWizard = () => {
         "Review",
       ];
     return ["Solution Type"];
-  }, [solutionType]);
+  }, [solutionType, trinitySelectionId]);
 
   const nextStep = useCallback(() => {
     const steps = getSteps();
     if (currentStep < steps.length) {
-      let nextStepNum = currentStep + 1;
-      const needsStoreInfo =
-        trinitySelectionId === "trinity-plus" || trinitySelectionId === "garo";
-      if (solutionType === "trinity" && nextStepNum === 4 && !needsStoreInfo) {
-        nextStepNum++;
-      }
-      setCurrentStep(nextStepNum);
-      // Remove: window.scrollTo(0, 0);
+      setCurrentStep(currentStep + 1);
     }
-  }, [currentStep, getSteps, solutionType, trinitySelectionId]);
+  }, [currentStep, getSteps]);
 
   const prevStep = useCallback(() => {
     if (currentStep > 1) {
-      let prevStepNum = currentStep - 1;
-      const needsStoreInfo =
-        trinitySelectionId === "trinity-plus" || trinitySelectionId === "garo";
-      if (solutionType === "trinity" && prevStepNum === 4 && !needsStoreInfo) {
-        prevStepNum--;
-      }
-      setCurrentStep(prevStepNum);
-      // Remove: window.scrollTo(0, 0);
+      setCurrentStep(currentStep - 1);
     }
-  }, [currentStep, solutionType, trinitySelectionId]);
+  }, [currentStep]);
 
   const resetSelections = useCallback(() => {
     setCurrentStep(1);
@@ -1569,7 +1556,6 @@ const StepWizard = () => {
     setSelectedGoals([]);
     setTrinitySelectionId(null);
     setSelectedTier(null);
-    setBudget(5000);
     setHasPhysicalStore(null);
     setName("");
     setEmail("");
@@ -1602,15 +1588,15 @@ const StepWizard = () => {
       showToastMessage("Error: Please enter your name and email to proceed.");
       return;
     }
-
     setIsProcessing(true);
-
     try {
       const total = calculateRunningTotal();
-      const isBundle = solutionType === "both";
+      const isBundle =
+        solutionType === "both" &&
+        ALL_TRINITY_OPTIONS.find((opt) => opt.id === trinitySelectionId) &&
+        platformTiers.find((t) => t.id === selectedTier);
       const finalPrice = isBundle ? Math.round(total * 0.9) : total;
 
-      // Prepare checkout data using the new API format
       const checkoutData = {
         name,
         email,
@@ -1621,33 +1607,17 @@ const StepWizard = () => {
           solutionType,
           trinitySelectionId
         ),
-        notes: `${additionalNotes || ""} | Selected Systems: ${
-          selectedSystems || "None"
-        } | Dashboards: ${selectedDashboards || "None"} | Keywords: ${
-          keywords || "None"
-        } | Solution: ${solutionType} | Trinity: ${
-          trinitySelectionId || "None"
-        } | Tier: ${selectedTier || "None"} | Physical Store: ${
-          hasPhysicalStore ? "Yes" : "No"
-        }`.trim(),
+        notes:
+          `${additionalNotes || ""} | Systems: ${selectedSystems || "None"} | Dashboards: ${selectedDashboards || "None"} | Keywords: ${keywords || "None"} | Solution: ${solutionType} | Trinity: ${trinitySelectionId || "None"} | Tier: ${selectedTier || "None"} | Physical Store: ${hasPhysicalStore ? "Yes" : "No"}`.trim(),
       };
 
-      // Create checkout session using the API function
       const session = await createCheckoutSession(checkoutData);
-
-      // Redirect to Stripe checkout
       const stripe = await stripePromise;
-      if (!stripe) {
-        throw new Error("Stripe.js has not loaded yet.");
-      }
-
+      if (!stripe) throw new Error("Stripe.js has not loaded yet.");
       const { error } = await stripe.redirectToCheckout({
         sessionId: session.id,
       });
-
-      if (error) {
-        throw new Error(error.message);
-      }
+      if (error) throw new Error(error.message);
     } catch (error) {
       console.error("Checkout error:", error);
       showToastMessage(`Error: ${error.message || "Unknown error occurred"}`);
@@ -1675,176 +1645,90 @@ const StepWizard = () => {
     const steps = getSteps();
     const isReviewStep = steps.length > 1 && steps.length === currentStep;
 
+    const stepProps = {
+      solutionType,
+      setSolutionType,
+      selectedIndustry,
+      setSelectedIndustry,
+      selectedGoals,
+      setSelectedGoals,
+      trinitySelectionId,
+      setTrinitySelectionId,
+      selectedTier,
+      setSelectedTier,
+      hasPhysicalStore,
+      setHasPhysicalStore,
+      aedUpsellChoice,
+      setAEDUpsellChoice,
+      recommendations,
+      name,
+      setName,
+      email,
+      setEmail,
+      additionalNotes,
+      setAdditionalNotes,
+      keywords,
+      setKeywords,
+      selectedSystems,
+      setSelectedSystems,
+      selectedDashboards,
+      setSelectedDashboards,
+      isProcessing,
+      handleCheckout,
+      calculateRunningTotal,
+      nextStep,
+      prevStep,
+    };
+
     if (isReviewStep && solutionType) {
-      return (
-        <MemoizedFinalSummary
-          {...{
-            selectedGoals,
-            trinitySelectionId,
-            selectedTier,
-            selectedIndustry,
-            solutionType,
-            hasPhysicalStore,
-            name,
-            setName,
-            email,
-            setEmail,
-            additionalNotes,
-            setAdditionalNotes,
-            keywords,
-            setKeywords,
-            selectedSystems,
-            setSelectedSystems,
-            selectedDashboards,
-            setSelectedDashboards,
-            prevStep,
-            handleCheckout,
-            isProcessing,
-            calculateRunningTotal,
-          }}
-        />
-      );
+      return <MemoizedFinalSummary {...stepProps} />;
     }
+
     switch (solutionType) {
       case "trinity":
         switch (currentStep) {
           case 1:
-            return (
-              <MemoizedSolutionChoice
-                {...{ solutionType, setSolutionType, nextStep }}
-              />
-            );
+            return <MemoizedSolutionChoice {...stepProps} />;
           case 2:
-            return (
-              <MemoizedTrinityPackages
-                {...{
-                  trinitySelectionId,
-                  setTrinitySelectionId,
-                  recommendations,
-                  nextStep,
-                  prevStep,
-                }}
-              />
-            );
+            return <MemoizedTrinityPackages {...stepProps} />;
           case 3:
-            return (
-              <MemoizedAEDUpsell
-                {...{
-                  aedUpsellChoice,
-                  setAEDUpsellChoice,
-                  trinitySelectionId,
-                  nextStep,
-                  prevStep,
-                }}
-              />
-            );
+            return <MemoizedAEDUpsell {...stepProps} />;
           case 4:
-            return (
-              <MemoizedStoreType
-                {...{
-                  trinitySelectionId,
-                  hasPhysicalStore,
-                  setHasPhysicalStore,
-                  nextStep,
-                  prevStep,
-                }}
-              />
-            );
+            return trinitySelectionId === "trinity-plus" ||
+              trinitySelectionId === "garo" ? (
+              <MemoizedStoreType {...stepProps} />
+            ) : null; // Conditional render
           default:
             return null;
         }
       case "website":
         switch (currentStep) {
           case 1:
-            return (
-              <MemoizedSolutionChoice
-                {...{ solutionType, setSolutionType, nextStep }}
-              />
-            );
+            return <MemoizedSolutionChoice {...stepProps} />;
           case 2:
-            return (
-              <MemoizedIndustryStep
-                {...{
-                  selectedIndustry,
-                  setSelectedIndustry,
-                  nextStep,
-                  prevStep,
-                }}
-              />
-            );
+            return <MemoizedIndustryStep {...stepProps} />;
           case 3:
-            return (
-              <MemoizedGoalsStep
-                {...{ selectedGoals, setSelectedGoals, nextStep, prevStep }}
-              />
-            );
+            return <MemoizedGoalsStep {...stepProps} />;
           case 4:
-            return (
-              <MemoizedPlatformTier
-                {...{
-                  selectedTier,
-                  setSelectedTier,
-                  recommendations,
-                  nextStep,
-                  prevStep,
-                }}
-              />
-            );
+            return <MemoizedPlatformTier {...stepProps} />;
           default:
             return null;
         }
       case "both":
         switch (currentStep) {
           case 1:
-            return (
-              <MemoizedSolutionChoice
-                {...{ solutionType, setSolutionType, nextStep }}
-              />
-            );
+            return <MemoizedSolutionChoice {...stepProps} />;
           case 2:
-            return (
-              <MemoizedIndustryStep
-                {...{
-                  selectedIndustry,
-                  setSelectedIndustry,
-                  nextStep,
-                  prevStep,
-                }}
-              />
-            );
+            return <MemoizedIndustryStep {...stepProps} />;
           case 3:
-            return (
-              <MemoizedTrinityPackages
-                {...{
-                  trinitySelectionId,
-                  setTrinitySelectionId,
-                  recommendations,
-                  nextStep,
-                  prevStep,
-                }}
-              />
-            );
+            return <MemoizedTrinityPackages {...stepProps} />;
           case 4:
-            return (
-              <MemoizedPlatformTier
-                {...{
-                  selectedTier,
-                  setSelectedTier,
-                  recommendations,
-                  nextStep,
-                  prevStep,
-                }}
-              />
-            );
+            return <MemoizedPlatformTier {...stepProps} />;
           default:
             return null;
         }
       default:
-        return (
-          <MemoizedSolutionChoice
-            {...{ solutionType, setSolutionType, nextStep }}
-          />
-        );
+        return <MemoizedSolutionChoice {...stepProps} />;
     }
   };
 

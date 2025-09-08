@@ -168,8 +168,6 @@ function App() {
                 path="/explore/customer-journey"
                 element={<CustomerJourney />}
               />
-
-              {/* Trinity routes */}
               <Route path="/trinity" element={<TrinityCore />} />
               <Route path="/trinity/plus" element={<TrinityPlus />} />
               <Route path="/trinity/core" element={<TrinityCore />} />
@@ -186,8 +184,6 @@ function App() {
               <Route path="/about/ourWhy" element={<AboutOurWhy />} />
               <Route path="/about/ourSolution" element={<AboutOurSolution />} />
               <Route path ="/trinity/universal-outreach" element={<UniversalOutreachPage/>} />
-
-              {/* Auth and user routes */}
               <Route path="/SignUp" element={<SignUpForm />} />
               <Route path="/Login" element={<LoginForm />} />
               <Route path="/Stepper" element={<Stepper />} />
@@ -203,8 +199,6 @@ function App() {
                   user ? <UserDashBoard socket={socket} /> : <Navigate to="/" />
                 }
               />
-
-              {/* Redirect old routes to the new routes */}
               <Route path="/About" element={<Navigate to="/about-us" />} />
               <Route path="/Portfolio" element={<Navigate to="/portfolio" />} />
               <Route path="/Blog" element={<Navigate to="/blog" />} />

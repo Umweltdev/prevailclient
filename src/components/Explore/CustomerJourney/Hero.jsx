@@ -1,7 +1,6 @@
-import React from "react";
 import { Container, Typography, Box } from "@mui/material";
 import { useInView } from "react-intersection-observer";
-import styles from "../assets/explore.module.css"; // Import the animation CSS
+import styles from "../assets/explore.module.css";
 
 const Hero = () => {
   const { ref: titleRef, inView: titleInView } = useInView({
@@ -76,7 +75,7 @@ const Hero = () => {
             moment they discover your business to the point where they become
             loyal advocates. The Customer Journey (CJ) strategy offers a
             powerful marketing tool that enables you to gain a deeper
-            understanding of your customers' experiences from the beginning
+            understanding of your customers&apos; experiences from the beginning
             until the end. When crafted with care, it can weave together a
             compelling story of your customer’s journey with your business and
             leave a lasting impact that resonates with them.

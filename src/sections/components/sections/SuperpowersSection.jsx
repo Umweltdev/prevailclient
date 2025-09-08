@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   Box,
   Container,
   Grid,
   Typography,
-  Stack, // THIS WAS MISSING!
+  Stack,
   Chip,
   Collapse,
   useTheme,

@@ -44,7 +44,6 @@ export const DigitalCampaigns = () => {
 
   return (
     <Box>
-      {/* Title */}
       <Typography
         variant="h4"
         fontWeight={800}

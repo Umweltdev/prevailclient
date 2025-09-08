@@ -1,4 +1,3 @@
-import React from 'react';
 import { 
   Box, 
   Container, 
@@ -6,7 +5,7 @@ import {
   Grid, 
   Paper, 
   Chip, 
-  Stack, // ADD THIS!
+  Stack,
   useTheme, 
   alpha 
 } from '@mui/material';

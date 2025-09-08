@@ -1,6 +1,5 @@
 import { Coffee, PieChart, Brain } from 'lucide-react'
-import React from 'react'
-import ProcessCard from './ProcessCard'
+import ProcessCard from './ProcessCard.js'
 
 function Analogy() {
   return (

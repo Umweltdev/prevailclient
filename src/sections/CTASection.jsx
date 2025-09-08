@@ -20,7 +20,6 @@ export const CTASection = () => {
       <Container maxWidth="xl">
         <Stack spacing={2} alignItems="center" textAlign="center" mb={8}>
           <Box sx={{ position: "relative", zIndex: 1, width: "100%" }}>
-            {/* Headline */}
             <Typography
               variant="h2"
               fontWeight={900}
@@ -42,7 +41,6 @@ export const CTASection = () => {
               Stop managing ads manually. Let automation do it better.
             </Typography>
 
-            {/* Full-width GlassCard */}
             <GlassCard
               id="features"
               sx={{
@@ -53,7 +51,6 @@ export const CTASection = () => {
                 color: "white",
               }}
             >
-              {/* Stats grid (centered and limited width for readability) */}
               <Grid
                 container
                 spacing={3}

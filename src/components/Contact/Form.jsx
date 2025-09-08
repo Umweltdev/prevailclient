@@ -234,7 +234,7 @@ const EnhancedInput = ({ name, label, icon: Icon, ...props }) => {
         <TextField
           name={name}
           fullWidth
-          placeholder={`Enter your ${label.toLowerCase()}`}
+          placeholder={`Enter your ${label ? String(label).toLowerCase() : ""}`}
           className={classes.inputField}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
@@ -262,7 +262,7 @@ const EnhancedLongInput = ({ name, label, icon: Icon, ...props }) => {
         <TextField
           name={name}
           fullWidth
-          placeholder={`Enter ${label.toLowerCase()}`}
+          placeholder={`Enter your ${label ? String(label).toLowerCase() : ""}`}
           className={classes.inputField}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}

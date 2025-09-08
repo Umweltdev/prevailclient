@@ -1,6 +1,4 @@
-import React from 'react';
 import { Box, Container, Typography, Paper, Stack, useTheme, alpha } from '@mui/material';
-// Removed Grid since it's not used
 import { GlassCard } from '../common/GlassCard';
 
 export const HiddenCostStory = () => {
@@ -14,7 +12,7 @@ export const HiddenCostStory = () => {
             The Hidden Cost Revealer
           </Typography>
           <Typography variant="h6" color="text.secondary" fontWeight={300}>
-            See the true cost of "free" marketing that's actually costing you thousands
+            See the true cost of &quot;free&quot; marketing that&apos;s actually costing you thousands
           </Typography>
         </Stack>
 
@@ -30,7 +28,7 @@ export const HiddenCostStory = () => {
             border: `1px solid ${alpha(theme.palette.error.main, 0.2)}`
           }}>
             <Typography variant="h5" fontWeight={700} mb={3}>
-              Example: "Just Posting on Instagram"
+              Example: &quot;Just Posting on Instagram&quot;
             </Typography>
             <Stack spacing={2}>
               <Box sx={{ display: 'flex', justifyContent: 'space-between', pb: 2, borderBottom: `1px solid ${alpha(theme.palette.divider, 0.2)}` }}>
@@ -42,7 +40,7 @@ export const HiddenCostStory = () => {
                 <Typography fontWeight={700}>$50/hour</Typography>
               </Box>
               <Box sx={{ display: 'flex', justifyContent: 'space-between', pb: 2, borderBottom: `1px solid ${alpha(theme.palette.divider, 0.2)}` }}>
-                <Typography fontWeight={700}>True cost of "free" post:</Typography>
+                <Typography fontWeight={700}>True cost of &quot;free&quot; post:</Typography>
                 <Typography variant="h6" fontWeight={900} color="error">$150</Typography>
               </Box>
               <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>

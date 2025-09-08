@@ -38,10 +38,15 @@ import {
 import { loadStripe } from "@stripe/stripe-js";
 import { theme } from "../../theme.js";
 
-// STRIPE INITIALIZATION & CONSTANT DATA
-const stripePromise = loadStripe(
-  "pk_test_51OsCJ5P1A39VkufThp1PVDexesvf2XAY8faTyK0uucC1qRl9NW9QkpBdwXQDyjCAjzL166zjMWNn5Zr25ZkaQJVi00vurq61mj"
-);
+const STRIPE_KEY = (import.meta as any).env?.VITE_STRIPE_PUBLISHABLE_KEY_4 || "";
+let stripePromise = null;
+if (STRIPE_KEY) {
+  stripePromise = loadStripe(STRIPE_KEY);
+} else {
+  console.warn(
+    "VITE_STRIPE_PUBLISHABLE_KEY not set. Checkout will be disabled until configured."
+  );
+}
 const betaDaysRemaining = 10;
 const ALL_TRINITY_OPTIONS = [
   {
@@ -274,15 +279,12 @@ const SolutionChoice = ({
     setSolutionType(solution.id);
 
     if (solution.id === "trinity") {
-      // For standalone modules, show individual packages
       setTrinitySelections([]);
       setCurrentStep(2);
     } else if (solution.id === "trinity-core") {
-      // For Trinity Core, select it and go directly to final summary
       setTrinitySelections(["trinity-core"]);
       setCurrentStep(4);
     } else if (solution.id === "trinity-plus") {
-      // For Trinity Plus, select it and go to store type selection
       setTrinitySelections(["trinity-plus"]);
       setCurrentStep(3);
     }
@@ -363,10 +365,8 @@ const TrinityPackages = ({
   const handleSelection = (optionId) => {
     setTrinitySelections((prev) => {
       if (prev.includes(optionId)) {
-        // Remove if already selected
         return prev.filter((id) => id !== optionId);
       } else {
-        // Add to selections
         return [...prev, optionId];
       }
     });
@@ -487,9 +487,9 @@ const TrinityPackages = ({
             variant="contained"
             onClick={() => {
               if (hasGaro) {
-                setCurrentStep(3); // Go to store type step
+                setCurrentStep(3);
               } else {
-                setCurrentStep(4); // Go directly to final summary
+                setCurrentStep(4);
               }
             }}
             disabled={trinitySelections.length === 0}
@@ -529,7 +529,6 @@ const StoreType = ({
 
   if (!needsStoreInfo) return null;
 
-  // Calculate base price for all selected items that might need store setup
   const basePrice = trinitySelections.reduce((total, id) => {
     const selection = ALL_TRINITY_OPTIONS.find((opt) => opt.id === id);
     return total + (selection ? selection.betaPrice : 0);
@@ -612,7 +611,7 @@ const StoreType = ({
           </Button>
           <Button
             variant="contained"
-            onClick={() => setCurrentStep(4)} // Go to final summary
+            onClick={() => setCurrentStep(4)}
             disabled={hasPhysicalStore === null}
             endIcon={<ChevronRight />}
           >
@@ -652,13 +651,12 @@ const FinalSummary = ({
   setSelectedDashboards,
   handleCheckout,
   handleConsultationCheckout,
-  isCheckoutProcessing, // Changed from isProcessing
-  isConsultationProcessing, // Added this prop
+  isCheckoutProcessing,
+  isConsultationProcessing,
   calculateRunningTotal,
   setCurrentStep,
   setHasPhysicalStore,
 }) => {
-  // Get all selected trinity options
   const selectedTrinityOptions = ALL_TRINITY_OPTIONS.filter((opt) =>
     trinitySelections.includes(opt.id)
   );
@@ -790,7 +788,6 @@ const FinalSummary = ({
                   </Box>
                 )}
 
-                {/* Display all selected products */}
                 {selectedTrinityOptions.map((option) => (
                   <Box
                     key={option.id}
@@ -862,7 +859,6 @@ const FinalSummary = ({
                     : "Proceed to Checkout"}
                 </Button>
 
-                {/* Add this new button */}
                 <Button
                   variant="outlined"
                   fullWidth
@@ -900,11 +896,11 @@ const FinalSummary = ({
                       trinitySelections.includes("trinity-plus")
                     ) {
                       setHasPhysicalStore(null);
-                      setCurrentStep(3); // Go back to StoreType
+                      setCurrentStep(3);
                     } else if (solutionType === "trinity") {
-                      setCurrentStep(2); // Go back to TrinityPackages
+                      setCurrentStep(2);
                     } else {
-                      setCurrentStep(1); // Go back to SolutionChoice
+                      setCurrentStep(1);
                     }
                   }}
                   startIcon={<ChevronLeft />}
@@ -926,8 +922,8 @@ FinalSummary.propTypes = {
   hasPhysicalStore: PropTypes.bool,
   name: PropTypes.string,
   handleConsultationCheckout: PropTypes.func.isRequired,
-  isCheckoutProcessing: PropTypes.bool, // Replace isProcessing
-  isConsultationProcessing: PropTypes.bool, // Add this
+  isCheckoutProcessing: PropTypes.bool,
+  isConsultationProcessing: PropTypes.bool,
   setName: PropTypes.func,
   email: PropTypes.string,
   setEmail: PropTypes.func,
@@ -946,8 +942,6 @@ FinalSummary.propTypes = {
   setHasPhysicalStore: PropTypes.func,
 };
 const MemoizedFinalSummary = React.memo(FinalSummary);
-
-// MAIN WIZARD COMPONENT
 
 const StepWizard = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -1003,13 +997,11 @@ const StepWizard = () => {
   const calculateRunningTotal = useCallback(() => {
     let total = 0;
 
-    // Add up all selected trinity options
     trinitySelections.forEach((id) => {
       const selection = ALL_TRINITY_OPTIONS.find((opt) => opt.id === id);
       if (selection) {
         total += selection.betaPrice;
 
-        // Add store setup fee if needed
         if (hasPhysicalStore && (id === "trinity-plus" || id === "garo")) {
           total += 1600;
         }
@@ -1085,13 +1077,11 @@ const StepWizard = () => {
 
     const selectedServices = [];
 
-    // Create a service for each selected product
     trinitySelections.forEach((id) => {
       const selection = ALL_TRINITY_OPTIONS.find((opt) => opt.id === id);
       if (selection) {
         let price = selection.betaPrice;
 
-        // Add store setup fee if needed
         if (hasPhysicalStore && (id === "trinity-plus" || id === "garo")) {
           price += 1600;
         }
@@ -1166,8 +1156,7 @@ const StepWizard = () => {
         name,
         email,
         consultation: true,
-        price: 83, // fixed consultation fee in EUR
-        // You might want to include other data that your backend expects
+        price: 83,
         selectedServices: [
           {
             serviceType: "consultation",
@@ -1266,9 +1255,9 @@ const StepWizard = () => {
             setSelectedDashboards={setSelectedDashboards}
             prevStep={prevStep}
             handleCheckout={handleCheckout}
-            handleConsultationCheckout={handleConsultationCheckout} // Add this line
-            isCheckoutProcessing={isCheckoutProcessing} // Replace isProcessing with isCheckoutProcessing
-            isConsultationProcessing={isConsultationProcessing} // Add this new prop
+            handleConsultationCheckout={handleConsultationCheckout}
+            isCheckoutProcessing={isCheckoutProcessing}
+            isConsultationProcessing={isConsultationProcessing}
             calculateRunningTotal={calculateRunningTotal}
             setCurrentStep={setCurrentStep}
             setHasPhysicalStore={setHasPhysicalStore}
