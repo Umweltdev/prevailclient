@@ -10,18 +10,18 @@ import FooterNew from '../../Footer/FooterNew.jsx';
 
 const AdCampaign = () => { 
     return (
-        <div style={{ width: "100%", overflow: "hidden" }}>
-            <HeroComponent title={"Content Ad Campaign Package"} />
-            <AppBarNav color="#000" />
-            <HeroSection />
-            <Packages />
-            <AddOns />
-            <TrustBuilders />
-            <HowItWorks />
-            <Modal />
-            <FooterNew />
-        </div>
-    )
+      <div style={{ width: "100%", overflow: "hidden" }}>
+        <HeroComponent title={"Content Ad Campaign Package"} />
+        <AppBarNav color="#000" />
+        <HeroSection />
+        <AddOns />
+        <TrustBuilders />
+        <HowItWorks />
+        <Modal />
+        <Packages />
+        <FooterNew />
+      </div>
+    );
 }
 
 export default AdCampaign;
