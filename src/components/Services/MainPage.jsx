@@ -97,13 +97,7 @@ const MainPage = () => {
           text="Discover the power of bespoke web solutions with Prevail and elevate your brand to new heights in the digital landscape. Transform, engage, and succeed effortlessly."
           url="/service/website-development"
         />
-        {/* <TextImageService
-          imageUrl="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720088563/Custom-Website-Development_mvdf6w.avif"
-          alt="Custom-Website-Development"
-          textHeader={"Custom Website Development"}
-          text="Desire ownership over your digital identity and wish to convey your brand's story authentically and vividly, then our “custom website development” is perfect for you."
-          url="/service/custom-website-development"
-        /> */}
+        
         <ImageTextService
           imageUrl="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720088563/Marketing-Price-Displacement_omscxs.avif"
           alt="Content Ad Campaign"
@@ -118,20 +112,6 @@ const MainPage = () => {
           text="Our “Digital Accelerator” bundle integrate cutting-edge website design, bespoke brand identity, and strategic SEO services to boost visibility engage customers, and enhance your digital footprint."
           url="/service/digital-accelerator-bundle"
         />
-        {/* <TextImageService
-          imageUrl="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720088563/Search-Engine-Marketing_m1ebvn.avif"
-          alt="CostCalculation"
-          textHeader={"Cost Calculation"}
-          text="Get a valued based website based on your budget"
-          url="/service/cost-calculation"
-        /> */}
-        {/* <ImageTextService
-          imageUrl="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720088563/Branding_trrcgh.avif"
-          alt="Branding"
-          textHeader={"Step Wizard"}
-          text="Our "
-          url="/service/stepWizardPage"
-        /> */}
         <StepWizard />
       </Box>
     </Grid>
