@@ -53,7 +53,7 @@ const PricingSection = () => {
               <div className="mb-8">
                 <div className="flex items-baseline justify-center mb-2">
                   <span className="text-5xl font-black bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] bg-clip-text text-transparent">
-                    €235
+                    €696
                   </span>
                 </div>
                 <p className="text-gray-700 text-center font-medium">
@@ -110,7 +110,7 @@ const PricingSection = () => {
               <div className="mb-8">
                 <div className="flex items-baseline justify-center mb-2">
                   <span className="text-5xl font-black bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] bg-clip-text text-transparent">
-                    €585
+                    €1,737
                   </span>
                 </div>
                 <p className="text-gray-700 text-center font-medium">
@@ -167,7 +167,7 @@ const PricingSection = () => {
               <div className="mb-8">
                 <div className="flex items-baseline justify-center mb-2">
                   <span className="text-5xl font-black bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] bg-clip-text text-transparent">
-                    €1, 745
+                    €5,217
                   </span>
                 </div>
                 <p className="text-gray-700 text-center font-medium">
@@ -232,7 +232,7 @@ const PricingSection = () => {
               <div className="mb-8">
                 <div className="flex items-baseline justify-center mb-2">
                   <span className="text-5xl font-black bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] bg-clip-text text-transparent">
-                    €2,089
+                    €1,160
                   </span>
                 </div>
                 <p className="text-gray-700 text-center font-medium">
@@ -296,7 +296,7 @@ const PricingSection = () => {
               <div className="mb-8">
                 <div className="flex items-baseline justify-center mb-2">
                   <span className="text-5xl font-black bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] bg-clip-text text-transparent">
-                    €2,439
+                    €2,895
                   </span>
                 </div>
                 <p className="text-gray-700 text-center font-medium">
@@ -353,7 +353,7 @@ const PricingSection = () => {
               <div className="mb-8">
                 <div className="flex items-baseline justify-center mb-2">
                   <span className="text-5xl font-black bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] bg-clip-text text-transparent">
-                    €3,599
+                    €8,695
                   </span>
                 </div>
                 <p className="text-gray-700 text-center font-medium">

@@ -14,6 +14,8 @@ import Grid from "@mui/material/Unstable_Grid2";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import TableContainer from "@mui/material/TableContainer";
+import { CardMedia } from "@mui/material";
+
 import axiosInstance from "../utils/axios";
 import { fDate } from "../utils/format-time";
 import logo from "./newlogo.svg";
@@ -22,10 +24,8 @@ import { useCalendlyEventListener, PopupButton } from "react-calendly";
 
 import Label from "./label";
 import Scrollbar from "./scrollbar";
-
 import InvoiceToolbar from "./invoice-toolbar";
-import { CardMedia } from "@mui/material";
-import axios from "axios";
+import PropTypes from "prop-types";
 
 export const INVOICE_STATUS_OPTIONS = [
   { value: "paid", label: "Paid" },
@@ -33,18 +33,14 @@ export const INVOICE_STATUS_OPTIONS = [
   { value: "overdue", label: "Overdue" },
   { value: "draft", label: "Draft" },
 ];
-// ----------------------------------------------------------------------
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   "& td": {
     textAlign: "right",
     borderBottom: "none",
     paddingTop: theme.spacing(1),
-    // paddingBottom: theme.spacing(1),
   },
 }));
-
-// ----------------------------------------------------------------------
 
 export default function InvoiceDetails({ invoice }) {
   const [currentStatus, setCurrentStatus] = useState("");
@@ -60,36 +56,46 @@ export default function InvoiceDetails({ invoice }) {
 
   const handleChangeStatus = useCallback(
     async (event) => {
-      if (event.target.value) {
+      const value = event.target.value;
+      if (!value) return;
+      try {
         await axiosInstance.put(`/api/invoice/${invoice?._id}`, {
-          status: event.target.value,
+          status: value,
         });
+        setCurrentStatus(value);
+      } catch (err) {
+        console.error("Failed to update status:", err);
       }
-      setCurrentStatus(event.target.value);
     },
     [invoice?._id]
   );
 
   useEffect(() => {
-    if (invoice?.status) {
-      setCurrentStatus(invoice?.status);
-    }
+    if (invoice?.status) setCurrentStatus(invoice.status);
   }, [invoice?.status]);
 
   const handleCheckout = async () => {
-    setLoading(true);
-    const res = await axiosInstance.post(`/api/payment/pay-stripe`, {
-      amount: invoice?.stages?.totalAmount,
-      invoiceId: invoice?._id,
-    });
-    setLoading(false);
+    if (!invoice) return;
+    if (!stripe) return console.error("Stripe not loaded");
 
-    await stripe.redirectToCheckout({
-      sessionId: res.data.id,
-    });
+    setLoading(true);
+    try {
+      const res = await axiosInstance.post(`/api/payment/pay-stripe`, {
+        amount: invoice?.stages?.totalAmount || 0,
+        invoiceId: invoice?._id,
+      });
+      if (res?.data?.id) {
+        await stripe.redirectToCheckout({ sessionId: res.data.id });
+      }
+    } catch (err) {
+      console.error("Checkout error:", err);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const tax = invoice?.fullAmount * 0.23;
+  const tax = (invoice?.fullAmount || 0) * 0.23;
+  const totalAmount = (invoice?.fullAmount || 0) + tax;
 
   const renderTotal = (
     <>
@@ -99,9 +105,10 @@ export default function InvoiceDetails({ invoice }) {
           BEFORE TAX
         </TableCell>
         <TableCell width={140} sx={{ typography: "subtitle1" }}>
-          {`€${(
+          €
+          {(
             (invoice?.fullAmount || 0) - (invoice?.taxes || 0)
-          ).toLocaleString()}`}
+          ).toLocaleString()}
         </TableCell>
       </StyledTableRow>
       <StyledTableRow>
@@ -110,7 +117,7 @@ export default function InvoiceDetails({ invoice }) {
           TAX AMOUNT
         </TableCell>
         <TableCell width={140} sx={{ typography: "subtitle1" }}>
-          {`€${(invoice?.fullAmount * 0.23 || 0).toLocaleString()}`}
+          €{tax.toLocaleString()}
         </TableCell>
       </StyledTableRow>
       <StyledTableRow>
@@ -119,49 +126,32 @@ export default function InvoiceDetails({ invoice }) {
           FULL AMOUNT
         </TableCell>
         <TableCell width={140} sx={{ typography: "subtitle1" }}>
-          {`€${(invoice?.fullAmount + tax || 0).toLocaleString()}`}
+          €{totalAmount.toLocaleString()}
         </TableCell>
       </StyledTableRow>
     </>
   );
 
   const paymentStages = (
-    <>
-      <Grid sx={{ display: "flex", justifyContent: "space-between", mb: 7 }}>
-        <Box sx={{ textAlign: "left" }}>
+    <Grid sx={{ display: "flex", justifyContent: "space-between", mb: 7 }}>
+      {[
+        { label: "PAYMENT STAGE", value: invoice?.stages?.header },
+        { label: "BEFORE TAX", value: invoice?.stages?.subAmount || 0 },
+        { label: "TAX AMOUNT", value: invoice?.stages?.taxes || 0 },
+        { label: "FULL AMOUNT", value: invoice?.stages?.totalAmount || 0 },
+      ].map((stage, i) => (
+        <Box key={i} sx={{ textAlign: i === 3 ? "right" : "center" }}>
           <Box sx={{ typography: "subtitle1", color: "#603799" }}>
-            PAYMENT STAGE
+            {stage.label}
           </Box>
           <Box width={140} sx={{ typography: "subtitle1", color: "#333" }}>
-            {invoice?.stages?.header}
+            {typeof stage.value === "number"
+              ? `€${stage.value.toLocaleString()}`
+              : stage.value || "-"}
           </Box>
         </Box>
-        <Box sx={{ textAlign: "center" }}>
-          <Box sx={{ typography: "subtitle1", color: "#603799" }}>
-            BEFORE TAX
-          </Box>
-          <Box width={140} sx={{ typography: "subtitle1", color: "#333" }}>
-            {`€${(invoice?.stages?.subAmount || 0).toLocaleString()}`}
-          </Box>
-        </Box>
-        <Box sx={{ textAlign: "center" }}>
-          <Box sx={{ typography: "subtitle1", color: "#603799" }}>
-            TAX AMOUNT
-          </Box>
-          <Box width={140} sx={{ typography: "subtitle1", color: "#333" }}>
-            {`€${invoice?.stages?.taxes.toLocaleString()}`}
-          </Box>
-        </Box>
-        <Box sx={{ textAlign: "right" }}>
-          <Box sx={{ typography: "subtitle1", color: "#603799" }}>
-            FULL AMOUNT
-          </Box>
-          <Box width={140} sx={{ typography: "subtitle1", color: "#333" }}>
-            {`€${invoice?.stages?.totalAmount.toLocaleString()}`}
-          </Box>
-        </Box>
-      </Grid>
-    </>
+      ))}
+    </Grid>
   );
 
   const dueStage = (
@@ -171,7 +161,6 @@ export default function InvoiceDetails({ invoice }) {
           PAYMENT GATEWAY
         </Box>
         <Box width={140} sx={{ typography: "subtitle1", color: "#333" }}>
-          {/* {`€${invoice?.totalAmount.toLocaleString()}`} */}
           Stripe | Prevail Website
         </Box>
       </Box>
@@ -181,11 +170,10 @@ export default function InvoiceDetails({ invoice }) {
           {fDate(invoice?.dueDate)}
         </Box>
       </Box>
-
       <Box sx={{ textAlign: "right" }}>
         <Box sx={{ typography: "subtitle1", color: "#603799" }}>DUE AMOUNT</Box>
         <Box width={140} sx={{ typography: "subtitle1", color: "#333" }}>
-          {`€${(invoice?.totalAmount + invoice?.taxes).toLocaleString()}`}
+          €{totalAmount.toLocaleString()}
         </Box>
       </Box>
     </Grid>
@@ -195,16 +183,13 @@ export default function InvoiceDetails({ invoice }) {
     <Grid container>
       <Grid xs={12} md={9} sx={{ py: 3 }}>
         <Typography variant="subtitle2">NOTES</Typography>
-
         <Typography variant="body2">
           We appreciate your business. Should you need us to add VAT or extra
           notes let us know!
         </Typography>
       </Grid>
-
       <Grid xs={12} md={3} sx={{ py: 3, textAlign: "right" }}>
         <Typography variant="subtitle2">Have a Question?</Typography>
-
         <Typography variant="body2">info@prevailagency.ie</Typography>
       </Grid>
       <Grid
@@ -214,7 +199,7 @@ export default function InvoiceDetails({ invoice }) {
         <PopupButton
           url="https://calendly.com/prevailagency"
           rootElement={document.getElementById("root")}
-          text={`Schedule a Meeting`}
+          text="Schedule a Meeting"
           styles={{
             color: "#804de9",
             backgroundColor: "inherit",
@@ -236,14 +221,12 @@ export default function InvoiceDetails({ invoice }) {
             lineHeight: 1.5,
             backgroundColor: "#804de9",
             color: "white",
-            "&:hover": {
-              backgroundColor: "#804de9",
-              color: "white",
-            },
+            "&:hover": { backgroundColor: "#804de9", color: "white" },
           }}
           onClick={handleCheckout}
+          disabled={loading || !stripe}
         >
-          {loading ? "Loading..." : "Pay with stripe"}
+          {loading ? "Loading..." : "Pay with Stripe"}
         </Button>
       </Grid>
     </Grid>
@@ -256,53 +239,45 @@ export default function InvoiceDetails({ invoice }) {
           <TableHead>
             <TableRow>
               <TableCell width={40}>#</TableCell>
-
               <TableCell sx={{ typography: "subtitle2" }}>
                 DESCRIPTION
               </TableCell>
-
               <TableCell>HOUR</TableCell>
-
               <TableCell align="right">PRICE</TableCell>
-
               <TableCell align="right">TOTAL</TableCell>
             </TableRow>
           </TableHead>
-
           <TableBody>
-            {invoice?.items.map((row, index) => (
+            {(invoice?.items || []).map((row, index) => (
               <TableRow key={index}>
                 <TableCell>{index + 1}</TableCell>
-
                 <TableCell>
                   <Box sx={{ maxWidth: 440 }}>
-                    <Typography variant="subtitle2">{row?.title}</Typography>
-
+                    <Typography variant="subtitle2">
+                      {row?.title || "-"}
+                    </Typography>
                     <Typography
                       variant="body2"
                       sx={{ color: "text.secondary" }}
-                      // noWrap
                     >
-                      {row?.description}
+                      {row?.description || "-"}
                     </Typography>
                   </Box>
                 </TableCell>
-
-                <TableCell>{row?.hour}</TableCell>
-
-                <TableCell align="right">{`€${row.price.toLocaleString()}`}</TableCell>
-
+                <TableCell>{row?.hour || "-"}</TableCell>
                 <TableCell align="right">
-                  {`€${row.total.toLocaleString()}`}
+                  €{(row?.price || 0).toLocaleString()}
+                </TableCell>
+                <TableCell align="right">
+                  €{(row?.total || 0).toLocaleString()}
                 </TableCell>
               </TableRow>
             ))}
-
             {renderTotal}
           </TableBody>
         </Table>
         <Box sx={{ mt: 5 }}>{paymentStages}</Box>
-        {/* {paymentStages} */}
+        <Box sx={{ mt: 2 }}>{dueStage}</Box>
       </Scrollbar>
     </TableContainer>
   );
@@ -315,60 +290,46 @@ export default function InvoiceDetails({ invoice }) {
         onChangeStatus={handleChangeStatus}
         statusOptions={INVOICE_STATUS_OPTIONS}
       />
-
       <Card sx={{ pt: 5, px: 5, color: "#603799" }}>
-        {/* <Box
-          rowGap={5}
-          display="grid"
-          alignItems="center"
-          gridTemplateColumns={{
-            // xs: "repeat(1, 1fr)",
-            sm: "repeat(2, 1fr)",
-          }}
-        > */}
+        {/* Header */}
         <Stack
           sx={{
             display: "flex",
             flexDirection: "row",
             justifyContent: "space-between",
             alignItems: "top",
-            // width: "100%"
           }}
         >
           <Box>
             <Label
               variant="soft"
               color={
-                (currentStatus === "paid" && "success") ||
-                (currentStatus === "pending" && "warning") ||
-                (currentStatus === "overdue" && "error") ||
-                "default"
+                currentStatus === "paid"
+                  ? "success"
+                  : currentStatus === "pending"
+                    ? "warning"
+                    : currentStatus === "overdue"
+                      ? "error"
+                      : "default"
               }
             >
-              {currentStatus}
+              {currentStatus || "N/A"}
             </Label>
             <Typography
               variant="h4"
               sx={{
                 mb: 2,
-                "@media (max-width: 600px)": {
-                  fontSize: 36,
-                },
+                "@media (max-width: 600px)": { fontSize: 36 },
               }}
             >
               Invoice
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "column", gap: 1.5 }}>
               <Typography
-                sx={{
-                  fontSize: 14,
-                  fontWeight: 600,
-                  letterSpacing: 2,
-                }}
+                sx={{ fontSize: 14, fontWeight: 600, letterSpacing: 2 }}
               >
                 DATE ISSUED:{" "}
                 <span style={{ color: "#333", fontWeight: 100 }}>
-                  {" "}
                   {fDate(invoice?.createDate)}
                 </span>
               </Typography>
@@ -376,10 +337,7 @@ export default function InvoiceDetails({ invoice }) {
                 sx={{ fontSize: 13, fontWeight: 600, letterSpacing: 2 }}
               >
                 INVOICE NUMBER:{" "}
-                <span
-                  style={{ color: "#333", fontWeight: 100 }}
-                >
-                  {" "}
+                <span style={{ color: "#333", fontWeight: 100 }}>
                   {invoice?.invoiceNumber}
                 </span>
               </Typography>
@@ -388,8 +346,7 @@ export default function InvoiceDetails({ invoice }) {
               >
                 PAYMENT STAGE:{" "}
                 <span style={{ color: "#333", fontWeight: 100 }}>
-                  {invoice?.stages?.header}
-                  {/* {invoice?.stages.length > 0 ? invoice?.stages.header : ""} */}
+                  {invoice?.stages?.header || "-"}
                 </span>
               </Typography>
             </Box>
@@ -401,166 +358,87 @@ export default function InvoiceDetails({ invoice }) {
             sx={{
               width: 100,
               objectFit: "contain",
-              "@media (max-width: 600px)": {
-                width: 70,
-              },
+              "@media (max-width: 600px)": { width: 70 },
             }}
           />
         </Stack>
 
+        {/* Agency & Client Info */}
         <Stack
           sx={{
             display: "flex",
-            flexDirection: "row",
+            flexDirection: { xs: "column", sm: "row" },
             justifyContent: "space-between",
-            width: "100%",
             mt: 5,
-            "@media (max-width: 600px)": {
-              flexDirection: "column",
-            },
           }}
         >
+          {/* Agency Info */}
           <Box>
             <Typography variant="h6" sx={{ mb: 2 }}>
               Agency Information
             </Typography>
-            <Typography
-              sx={{ fontSize: 13, fontWeight: 600, letterSpacing: 2 }}
-            >
-              NAME:{" "}
-              <span style={{ color: "#333", fontWeight: 100 }}>
-                Prevail Agency
-              </span>
-            </Typography>
-            <Typography
-              sx={{ fontSize: 13, fontWeight: 600, letterSpacing: 2 }}
-            >
-              ADDRESS:{" "}
-              <span style={{ color: "#333", fontWeight: 100 }}>
-                Meath, Ireland
-              </span>
-            </Typography>
-            <Typography
-              sx={{ fontSize: 13, fontWeight: 600, letterSpacing: 2 }}
-            >
-              TOWN, CITY:{" "}
-              <span style={{ color: "#333", fontWeight: 100 }}>Duleek</span>
-            </Typography>
-            <Typography
-              sx={{ fontSize: 13, fontWeight: 600, letterSpacing: 2 }}
-            >
-              EMAIL ADDRESS:{" "}
-              <span style={{ color: "#333", fontWeight: 100 }}>
-                info@prevailagency.ie
-              </span>
-            </Typography>
-            <Typography
-              sx={{ fontSize: 13, fontWeight: 600, letterSpacing: 2 }}
-            >
-              VAT NUMBER:{" "}
-              <span style={{ color: "#333", fontWeight: 100 }}>IE9484135G</span>
-            </Typography>
+            {[
+              ["NAME", "Prevail Agency"],
+              ["ADDRESS", "Meath, Ireland"],
+              ["TOWN, CITY", "Duleek"],
+              ["EMAIL ADDRESS", "info@prevailagency.ie"],
+              ["VAT NUMBER", "IE9484135G"],
+            ].map(([label, value], idx) => (
+              <Typography
+                key={idx}
+                sx={{ fontSize: 13, fontWeight: 600, letterSpacing: 2 }}
+              >
+                {label}:{" "}
+                <span style={{ color: "#333", fontWeight: 100 }}>{value}</span>
+              </Typography>
+            ))}
           </Box>
+
+          {/* Client Info */}
           <Box
             sx={{
               display: "flex",
               flexDirection: "column",
-              textAlign: "right",
-              justifyContent: "right",
-              alignItems: "right",
-
-              "@media (max-width: 600px)": {
-                textAlign: "left",
-                justifyContent: "left",
-                alignItems: "left",
-                mt: 5,
-              },
+              textAlign: { xs: "left", sm: "right" },
+              mt: { xs: 5, sm: 0 },
             }}
           >
             <Typography variant="h6" sx={{ mb: 2 }}>
               Client Information
             </Typography>
-            <Typography
-              sx={{
-                fontSize: 13,
-                fontWeight: 600,
-                letterSpacing: 2,
-              }}
-            >
-              NAME:{" "}
-              <span style={{ color: "#333", fontWeight: 100 }}>
-                {invoice?.invoiceTo?.name}
-              </span>
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: 13,
-                fontWeight: 600,
-                letterSpacing: 2,
-              }}
-            >
-              ADDRESS:{" "}
-              <span style={{ color: "#333", fontWeight: 100, width: "200px" }}>
-                {invoice?.invoiceTo.fullAddress || invoice?.invoiceTo.address}
-              </span>
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: 13,
-                fontWeight: 600,
-                letterSpacing: 2,
-              }}
-            >
-              Phone:{" "}
-              <span style={{ color: "#333", fontWeight: 100, width: "200px" }}>
-                {invoice?.invoiceTo?.phone || invoice?.phone}
-              </span>
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: 13,
-                fontWeight: 600,
-                letterSpacing: 2,
-              }}
-            >
-              TOWN, CITY:{" "}
-              <span style={{ color: "#333", fontWeight: 100 }}>
-                {invoice?.invoiceTo?.town}
-              </span>
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: 13,
-                fontWeight: 600,
-                letterSpacing: 2,
-              }}
-            >
-              EMAIL ADDRESS:{" "}
-              <span style={{ color: "#333", fontWeight: 100 }}>
-                {invoice?.invoiceTo.email}
-              </span>
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: 13,
-                fontWeight: 600,
-                letterSpacing: 2,
-              }}
-            >
-              VAT NUMBER:{" "}
-              <span style={{ color: "#333", fontWeight: 100 }}>
-                {invoice?.invoiceTo.vatNumber || invoice?.vatNumber}
-              </span>
-            </Typography>
+            {[
+              ["NAME", invoice?.invoiceTo?.name || "-"],
+              [
+                "ADDRESS",
+                invoice?.invoiceTo?.fullAddress ||
+                  invoice?.invoiceTo?.address ||
+                  "-",
+              ],
+              ["Phone", invoice?.invoiceTo?.phone || invoice?.phone || "-"],
+              ["TOWN, CITY", invoice?.invoiceTo?.town || "-"],
+              ["EMAIL ADDRESS", invoice?.invoiceTo?.email || "-"],
+              [
+                "VAT NUMBER",
+                invoice?.invoiceTo?.vatNumber || invoice?.vatNumber || "-",
+              ],
+            ].map(([label, value], idx) => (
+              <Typography
+                key={idx}
+                sx={{ fontSize: 13, fontWeight: 600, letterSpacing: 2 }}
+              >
+                {label}:{" "}
+                <span style={{ color: "#333", fontWeight: 100, width: 200 }}>
+                  {value}
+                </span>
+              </Typography>
+            ))}
           </Box>
         </Stack>
 
         {renderList}
-        {/* {paymentStages} */}
 
         <Divider
           sx={{
-            // mt: -20,
             borderStyle: "dashed",
             "@media (max-width: 600px)": { mt: "unset" },
           }}
@@ -571,3 +449,47 @@ export default function InvoiceDetails({ invoice }) {
     </>
   );
 }
+InvoiceDetails.propTypes = {
+  invoice: PropTypes.shape({
+    _id: PropTypes.string,
+    status: PropTypes.oneOf(["paid", "pending", "overdue", "draft"]),
+    createDate: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.instanceOf(Date),
+    ]),
+    invoiceNumber: PropTypes.string,
+    fullAmount: PropTypes.number,
+    taxes: PropTypes.number,
+    totalAmount: PropTypes.number,
+    dueDate: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.instanceOf(Date),
+    ]),
+    phone: PropTypes.string,
+    vatNumber: PropTypes.string,
+    stages: PropTypes.shape({
+      header: PropTypes.string,
+      subAmount: PropTypes.number,
+      taxes: PropTypes.number,
+      totalAmount: PropTypes.number,
+    }),
+    invoiceTo: PropTypes.shape({
+      name: PropTypes.string,
+      fullAddress: PropTypes.string,
+      address: PropTypes.string,
+      town: PropTypes.string,
+      phone: PropTypes.string,
+      email: PropTypes.string,
+      vatNumber: PropTypes.string,
+    }),
+    items: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string,
+        description: PropTypes.string,
+        hour: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        price: PropTypes.number,
+        total: PropTypes.number,
+      })
+    ),
+  }).isRequired,
+};

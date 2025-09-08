@@ -114,7 +114,7 @@ const UniversalStep = ({
                         isDisabled && !isSelected ? "line-through" : "none",
                     }}
                   >
-                    £{Math.round(discountedPrice)}
+                    €{Math.round(discountedPrice)}
                   </Typography>
                 </Box>
                 <Typography

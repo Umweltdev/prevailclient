@@ -1,10 +1,9 @@
-import { Close } from "@mui/icons-material";
-import { Card, Grid, Typography } from "@mui/material";
-import React from "react";
-import coke from "./assets/coke.png";
+import { Grid, Typography } from "@mui/material";
+// import React from "react";
+// import coke from "./assets/coke.png";
 import CardService from "./CardService";
 import CardPlatform from "./CardPlatform";
-import trigger from "./assets/trigger.png";
+// import trigger from "./assets/trigger.png";
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
@@ -167,7 +166,6 @@ const Platform = () => {
                 fontSize: "1.4vw",
                 color: "#636363",
                 margin: "1vh 0 0 0",
-                // textAlign: "justify",
                 width: "40vw",
                 "@media (max-width: 600px)": {
                   width: "95vw",
@@ -191,7 +189,6 @@ const Platform = () => {
                 fontSize: "1.4vw",
                 color: "#636363",
                 margin: "1vh 0 0 0",
-                // textAlign: "justify",
                 width: "40vw",
                 marginTop: "7vh",
                 "@media (max-width: 600px)": {

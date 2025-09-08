@@ -1,4 +1,3 @@
-import react from 'react';
 import HeroComponent from '../ReusedComponenets/HeroComponent';
 import AppBarNav from '../../Navbar/Appbar';
 import HeroSection from './HeroSection';
@@ -12,7 +11,7 @@ import FooterNew from '../../Footer/FooterNew.jsx';
 const AdCampaign = () => { 
     return (
         <div style={{ width: "100%", overflow: "hidden" }}>
-            <HeroComponent title={"Ad Campaign Package"} />
+            <HeroComponent title={"Content Ad Campaign Package"} />
             <AppBarNav color="#000" />
             <HeroSection />
             <Packages />

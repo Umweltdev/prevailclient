@@ -65,6 +65,9 @@ const Aed = React.lazy(() => import("./components/TrinityPlus/AED"));
 const StepWizard = React.lazy(() =>
   import("./components/TrinityPlus/StepWizardPage")
 );
+const UniversalOutreachPage = React.lazy(
+  () => import("./pages/UniversalOutreachPage")
+);
 const DigitalEcosystem = React.lazy(() =>
   import("./components/Explore/DigitalEcosystem/DigitalEcosystem")
 );
@@ -165,8 +168,6 @@ function App() {
                 path="/explore/customer-journey"
                 element={<CustomerJourney />}
               />
-
-              {/* Trinity routes */}
               <Route path="/trinity" element={<TrinityCore />} />
               <Route path="/trinity/plus" element={<TrinityPlus />} />
               <Route path="/trinity/core" element={<TrinityCore />} />
@@ -182,8 +183,7 @@ function App() {
               <Route path="/portfolio/:index" element={<CaseDetails />} />
               <Route path="/about/ourWhy" element={<AboutOurWhy />} />
               <Route path="/about/ourSolution" element={<AboutOurSolution />} />
-
-              {/* Auth and user routes */}
+              <Route path ="/trinity/universal-outreach" element={<UniversalOutreachPage/>} />
               <Route path="/SignUp" element={<SignUpForm />} />
               <Route path="/Login" element={<LoginForm />} />
               <Route path="/Stepper" element={<Stepper />} />
@@ -199,8 +199,6 @@ function App() {
                   user ? <UserDashBoard socket={socket} /> : <Navigate to="/" />
                 }
               />
-
-              {/* Redirect old routes to the new routes */}
               <Route path="/About" element={<Navigate to="/about-us" />} />
               <Route path="/Portfolio" element={<Navigate to="/portfolio" />} />
               <Route path="/Blog" element={<Navigate to="/blog" />} />
@@ -247,6 +245,10 @@ function App() {
               <Route
                 path="/Services/custom-ad-campaign"
                 element={<Navigate to="/service/custom-ad-campaign" />}
+              />
+              <Route
+                path="/trinity/universal-outreach"
+                element={<Navigate to="/trinity/universal-outreach" />}
               />
               <Route
                 path="/privacypolicy"

@@ -168,7 +168,7 @@ const SpecializedStep = ({
                       textDecoration: isDisabled ? "line-through" : "none",
                     }}
                   >
-                    £{Math.round(discountedPrice)}
+                    €{Math.round(discountedPrice)}
                   </Typography>
                 </Box>
                 <Typography

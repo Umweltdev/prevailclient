@@ -28,8 +28,8 @@ const BottomVillian = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-          <button className="relative px-8 py-4 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-xl text-lg font-semibold text-white hover:from-purple-600 hover:to-indigo-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl group overflow-hidden">
-            <span className="relative  flex items-center justify-center">
+          <button className="relative px-8 py-4 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-xl text-lg font-semibold text-white hover:text-white hover:from-purple-600 hover:to-indigo-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl group overflow-hidden">
+            <span className="relative z-10 flex items-center justify-center">
               Simulate My Strategy
               <svg
                 className="inline ml-2 w-5 h-5 group-hover:animate-bounce"
@@ -46,7 +46,7 @@ const BottomVillian = () => {
                 ></path>
               </svg>
             </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-indigo-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 z-0 bg-gradient-to-r from-purple-700 to-indigo-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </button>
 
           <button className="relative px-8 py-4 border-2 border-purple-500 rounded-xl text-lg font-semibold text-purple-700 hover:bg-purple-500/10 hover:text-purple-800 transition-all duration-300 group overflow-hidden">

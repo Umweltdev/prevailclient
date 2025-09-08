@@ -22,7 +22,7 @@ const goals = [
     icon: <AttachMoneyIcon sx={{ fontSize: 40, color: "#2E7D32" }} />,
     title: "Eliminate Platform Fees",
     desc1: "Stop paying 20-35% commission",
-    desc2: "Save £1,000-5,000/month",
+    desc2: "Save €1,000-5,000/month",
   },
   {
     icon: <PaletteIcon sx={{ fontSize: 40, color: "#6A1B9A" }} />,
@@ -137,7 +137,7 @@ const GoalsStep = ({
               variant="h4"
               sx={{ color: "#1976D2", fontWeight: 800, lineHeight: 1 }}
             >
-              £{Number(budget).toLocaleString()}
+              €{Number(budget).toLocaleString()}
             </Typography>
             <Typography variant="body2" color="text.secondary">
               Investment Range

@@ -50,7 +50,7 @@ const SliderContainer = styled(Box)(({ theme }) => ({
   minHeight: '100vh',
   display: 'flex',
   alignItems: 'center',
-  padding: theme.spacing(4, 0),
+  padding: theme.spacing(8, 0), // Increased top/bottom padding
   position: 'relative',
   overflow: 'hidden',
   '&::before': {
@@ -82,6 +82,8 @@ const StyledCard = styled(Card)(({ theme, gradientbg }) => ({
   overflow: 'hidden',
   transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
   cursor: 'pointer',
+  // Add margin to prevent cutoff
+  margin: theme.spacing(2, 0),
   '&:hover': {
     transform: 'translateY(-8px) scale(1.02)',
     boxShadow: '0 20px 40px rgba(0, 0, 0, 0.2)',
@@ -109,6 +111,7 @@ const StyledCard = styled(Card)(({ theme, gradientbg }) => ({
   [theme.breakpoints.down('md')]: {
     height: '350px',
     padding: theme.spacing(2),
+    margin: theme.spacing(1.5, 0), // Responsive margin
   },
 }));
 
@@ -310,8 +313,18 @@ const Sliders = () => {
         </Box>
 
         <Box sx={{ 
+          // Add padding to the slider container to prevent cutoff
+          py: 4,
           '& .slick-slide': {
             padding: { xs: '0 8px', md: '0 16px' }
+          },
+          '& .slick-list': {
+            // Ensure slider list has enough padding
+            padding: '0 0 20px 0 !important',
+          },
+          '& .slick-track': {
+            // Add margin to track for hover effects
+            margin: '20px 0',
           },
           '& .slick-dots': {
             bottom: '-60px',

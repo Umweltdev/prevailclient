@@ -3,7 +3,6 @@ import ImageTextService from "./ImageTextService";
 import TextImageService from "./TextImageService";
 import { useInView } from "react-intersection-observer";
 import styles from "../About/assets/about.module.css";
-import ServiceSelector from "./ServiceSelector.jsx";
 import StepWizard from "../stepWizard/StepWizard.jsx";
 
 const MainPage = () => {
@@ -18,7 +17,6 @@ const MainPage = () => {
       className={`${styles.aboutUsSection} ${inView ? styles.visible : ""}`}
       sx={{
         pt: "176px",
-        // background: "linear-gradient(135deg, #DDD4EF, #F9FAFC, white)", none
         background: "linear-gradient(135deg, #d1c4e9, #ffffff, #bbdefb)",
         "@media (max-width: 767px)": {
           pt: "168px",

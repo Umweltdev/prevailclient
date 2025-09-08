@@ -1,14 +1,10 @@
 import FooterNew from "../components/Footer/FooterNew";
-import { useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
 import MainPage from "../components/Services/MainPage";
 import AppBarNav from "../components/Navbar/Appbar";
 import { Helmet } from "react-helmet";
 import SmoothScrollUp from "../components/utils/SmoothScrollUp";
-//import Reduce from "../components/Services/Reduce";
 
-const Services = (props) => {
-  const { isLoggedIn } = useContext(AuthContext);
+const Services = () => {
   return (
     <>
       <Helmet>
@@ -34,5 +30,3 @@ const Services = (props) => {
 };
 
 export default Services;
-
-// integrative-frog-psyix4zu9vsuaxxqwsapar12.herokudns.com

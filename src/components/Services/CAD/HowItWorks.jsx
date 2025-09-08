@@ -1,8 +1,6 @@
-import React from 'react';
 import { Box, Typography, Container } from '@mui/material';
 import { styled, keyframes } from '@mui/system';
 
-// Keyframes animations
 const slideInLeft = keyframes`
   from {
     opacity: 0;

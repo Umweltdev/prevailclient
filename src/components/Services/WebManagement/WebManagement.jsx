@@ -321,7 +321,7 @@ const WebManagement = () => {
         <EnhancedCarousel />
 
         <Box>
-          <Container maxWidth="lg">
+          <Container maxWidth="xl">
             <Stack>
               <Box ref={ref} py={{ xs: 3, md: 8 }}>
                 <Stack
@@ -361,7 +361,7 @@ const WebManagement = () => {
 
         <div id="hospitality">
           <Box py={10} sx={{ backgroundColor: "#F9FAFC" }}>
-            <Container maxWidth="lg">
+            <Container maxWidth="xl">
               <Typography
                 fontSize={{ xs: "26px", md: "32px" }}
                 sx={{
@@ -538,7 +538,7 @@ const WebManagement = () => {
                           to attract different types of guests.
                         </Typography>
                       </Stack>
-                    </Grid>{" "}
+                    </Grid>
                   </Grid>
                 </Stack>
               </Stack>
@@ -554,7 +554,7 @@ const WebManagement = () => {
                 "linear-gradient(to bottom, #ffffff, rgba(110, 62, 244, 0.1))",
             }}
           >
-            <Container maxWidth="lg">
+            <Container maxWidth="xl">
               <Stack color="#1D0D40" spacing={4}>
                 <Grid
                   container
@@ -725,7 +725,7 @@ const WebManagement = () => {
                 "linear-gradient(to bottom, #ffffff, rgba(238,249,255, 0.2))",
             }}
           >
-            <Container maxWidth="lg">
+            <Container maxWidth="xl">
               <Stack color="#1D0D40" spacing={4}>
                 <Grid
                   container
@@ -892,11 +892,9 @@ const WebManagement = () => {
             </Container>
           </Box>
         </div>
-
         <div id="web-dev-wizard">
           <WebDevWizard />
         </div>
-
         <Box py={7}>
           <Box
             py={{ xs: 8, md: 11 }}

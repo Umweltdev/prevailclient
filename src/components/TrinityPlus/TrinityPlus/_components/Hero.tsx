@@ -89,7 +89,7 @@ const Hero = () => {
             className="tier active"
             onClick={() => navigate("/trinity/plus#wizard")}
           >
-            <div className="tier-price">€5,795</div>
+            <div className="tier-price">€1,160</div>
             <div className="tier-label">Beta (10 days)</div>
           </div>
           <div

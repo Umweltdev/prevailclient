@@ -1,8 +1,6 @@
-import React from 'react';
 import { Box, Typography, Container, Grid, Paper } from '@mui/material';
 import { styled } from '@mui/system';
 
-// Styled components
 const TrustWrapper = styled(Box)(({ theme }) => ({
   padding: theme.spacing(10, 2.5),
   background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',

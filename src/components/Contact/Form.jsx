@@ -1,5 +1,5 @@
 // Enhanced Form Component with Redesigned Input Fields
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import {
   Alert,
   Box,
@@ -25,6 +25,8 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import BusinessIcon from "@mui/icons-material/Business";
 import LinkIcon from "@mui/icons-material/Link";
 import SubjectIcon from "@mui/icons-material/Subject";
+import PropTypes from "prop-types";
+
 
 const useFormStyles = makeStyles((theme) => ({
   formContainer: {
@@ -35,7 +37,7 @@ const useFormStyles = makeStyles((theme) => ({
       "0 20px 60px rgba(110, 62, 244, 0.1), 0 8px 20px rgba(0,0,0,0.06) !important",
     border: "1px solid rgba(110, 62, 244, 0.1)",
     position: "relative",
-    overflow: "hidden",
+    overflow: "visible",
     "&::before": {
       content: '""',
       position: "absolute",
@@ -92,7 +94,6 @@ const useFormStyles = makeStyles((theme) => ({
       gap: "20px",
     },
   },
-  // Enhanced Input Field Styles
   inputContainer: {
     position: "relative",
     marginBottom: "8px",
@@ -129,10 +130,6 @@ const useFormStyles = makeStyles((theme) => ({
       "&:hover": {
         transform: "translateY(-1px)",
         boxShadow: "0 8px 25px rgba(110, 62, 244, 0.12)",
-        "&::before": {
-          background:
-            "linear-gradient(135deg, rgba(110, 62, 244, 0.2) 0%, rgba(156, 106, 255, 0.2) 100%)",
-        },
       },
       "&.Mui-focused": {
         transform: "translateY(-2px)",
@@ -146,10 +143,6 @@ const useFormStyles = makeStyles((theme) => ({
       },
       "& input": {
         padding: "16px 16px 16px 48px",
-        "&::placeholder": {
-          color: "#94A3B8",
-          opacity: 1,
-        },
       },
     },
     "& .MuiInputLabel-root": {
@@ -159,7 +152,6 @@ const useFormStyles = makeStyles((theme) => ({
       marginBottom: "8px",
       position: "static",
       transform: "none",
-      transition: "color 0.3s ease",
       "&.Mui-focused": {
         color: "#6E3EF4",
       },
@@ -177,9 +169,6 @@ const useFormStyles = makeStyles((theme) => ({
       color: "#6E3EF4",
     },
   },
-  fullWidthInput: {
-    gridColumn: "1 / -1",
-  },
   submitButton: {
     background: "linear-gradient(135deg, #6E3EF4 0%, #9C6AFF 100%)",
     borderRadius: "50px !important",
@@ -188,23 +177,12 @@ const useFormStyles = makeStyles((theme) => ({
     fontWeight: "600 !important",
     textTransform: "none !important",
     boxShadow: "0 8px 24px rgba(110, 62, 244, 0.4) !important",
-    border: "none",
     minHeight: "56px",
     transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important",
     color: "#ffffff !important",
     "&:hover": {
       transform: "translateY(-2px)",
       boxShadow: "0 12px 32px rgba(110, 62, 244, 0.5) !important",
-      background: "linear-gradient(135deg, #5A2FD6 0%, #8B57E8 100%)",
-      color: "#ffffff !important",
-    },
-    "&:disabled": {
-      background: "#E0E7FF",
-      color: "#ffffff !important",
-    },
-    [theme.breakpoints.down("sm")]: {
-      width: "100%",
-      padding: "16px 32px !important",
     },
   },
   successAlert: {
@@ -217,14 +195,13 @@ const useFormStyles = makeStyles((theme) => ({
   },
 }));
 
-// Enhanced Input Component
 const EnhancedInput = ({ name, label, icon: Icon, ...props }) => {
   const classes = useFormStyles();
   const [focused, setFocused] = useState(false);
 
   return (
     <FormControl fullWidth className={classes.inputContainer}>
-      <InputLabel shrink sx={{ position: "static", mb: 1 }}>
+      <InputLabel shrink sx={{ position: "static", mb: 1, fontWeight: 600 }}>
         {label}
       </InputLabel>
       <Box sx={{ position: "relative" }}>
@@ -234,35 +211,7 @@ const EnhancedInput = ({ name, label, icon: Icon, ...props }) => {
         <TextField
           name={name}
           fullWidth
-          placeholder={`Enter your ${label.toLowerCase()}`}
-          className={classes.inputField}
-          onFocus={() => setFocused(true)}
-          onBlur={() => setFocused(false)}
-          {...props}
-        />
-      </Box>
-    </FormControl>
-  );
-};
-
-// Enhanced Long Input Component (for full-width fields)
-const EnhancedLongInput = ({ name, label, icon: Icon, ...props }) => {
-  const classes = useFormStyles();
-  const [focused, setFocused] = useState(false);
-
-  return (
-    <FormControl fullWidth className={classes.inputContainer}>
-      <InputLabel shrink sx={{ position: "static", mb: 1 }}>
-        {label}
-      </InputLabel>
-      <Box sx={{ position: "relative" }}>
-        <Box className={`${classes.iconContainer} ${focused ? "focused" : ""}`}>
-          <Icon size={20} />
-        </Box>
-        <TextField
-          name={name}
-          fullWidth
-          placeholder={`Enter ${label.toLowerCase()}`}
+          placeholder={`Enter your ${label ? String(label).toLowerCase() : ""}`}
           className={classes.inputField}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
@@ -279,6 +228,14 @@ const Form = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [selectedServices, setSelectedServices] = useState([]);
+
+  const serviceOptions = [
+    { title: "Brand Identity & Comprehensive Logo Design" },
+    { title: "Website Development & Full-Stack Management" },
+    { title: "Digital Accelerator Bundle for Startups" },
+    { title: "Multi-Channel Campaign Strategy" },
+    { title: "Hyper-Targeted Advertising Strategy & Implementation" },
+  ];
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -300,7 +257,6 @@ const Form = () => {
       )
       .then(
         () => {
-          console.log("SUCCESS!");
           setLoading(false);
           setSuccess(true);
           form.current.reset();
@@ -334,14 +290,7 @@ const Form = () => {
           />
         </Box>
         <Typography className={classes.titleText}>Talk To Us</Typography>
-        <Typography
-          sx={{
-            color: "#64748B",
-            fontSize: "16px",
-            mt: 1,
-            lineHeight: 1.5,
-          }}
-        >
+        <Typography sx={{ color: "#64748B", fontSize: "16px", mt: 1 }}>
           Ready to transform your business? Let&apos;s start the conversation.
         </Typography>
 
@@ -351,8 +300,8 @@ const Form = () => {
             className={classes.successAlert}
             sx={{ mt: 3 }}
           >
-            <strong>Success!</strong> Your message has been sent successfully.
-            We&apos;ll get back to you soon!
+            <strong>Success!</strong> Your message has been sent. We&apos;ll get
+            back to you soon!
           </Alert>
         )}
       </div>
@@ -396,8 +345,8 @@ const Form = () => {
           />
         </div>
 
-        <Box sx={{ mb: 3 }} className={classes.fullWidthInput}>
-          <EnhancedLongInput
+        <Box sx={{ mb: 3 }}>
+          <EnhancedInput
             label="Website Link"
             name="weblink"
             icon={LinkIcon}
@@ -405,8 +354,8 @@ const Form = () => {
           />
         </Box>
 
-        <Box sx={{ mb: 3 }} className={classes.fullWidthInput}>
-          <EnhancedLongInput
+        <Box sx={{ mb: 3 }}>
+          <EnhancedInput
             label="Subject"
             name="subject"
             icon={SubjectIcon}
@@ -420,8 +369,11 @@ const Form = () => {
 
         <Box sx={{ mb: 4 }}>
           <MultiSelect
-            name="services"
-            setSelectedServices={setSelectedServices}
+            options={serviceOptions}
+            label="Which services are you interested in?"
+            placeholder="Select services you need..."
+            onChange={setSelectedServices}
+            value={selectedServices}
           />
         </Box>
 
@@ -447,3 +399,9 @@ const Form = () => {
 };
 
 export default Form;
+
+EnhancedInput.propTypes = {
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  icon: PropTypes.elementType.isRequired,
+};

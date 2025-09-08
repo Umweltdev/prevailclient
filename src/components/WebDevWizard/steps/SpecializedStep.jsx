@@ -134,7 +134,7 @@ const SpecializedStep = ({
                           isDisabled && !isSelected ? "line-through" : "none",
                       }}
                     >
-                      £{Math.round(discountedPrice)}
+                      €{Math.round(discountedPrice)}
                     </Typography>
                   }
                 />

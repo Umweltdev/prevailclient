@@ -15,7 +15,7 @@ function FAQ() {
         },
         {
         question: "How do penalties work?",
-        answer: "Think of penalties like a financial hangover - they reduce your daily capacity but fade over time. A £10/day penalty might drop to £5/day after 6 months."
+        answer: "Think of penalties like a financial hangover - they reduce your daily capacity but fade over time. A €10/day penalty might drop to €5/day after 6 months."
         },
         {
         question: "Can I override Trinity's suggestions?",

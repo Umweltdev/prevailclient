@@ -1,8 +1,9 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function CTA() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
   return (
     <section className="py-20">
       <div className="container mx-auto px-6">
@@ -11,14 +12,14 @@ function CTA() {
             Stop Losing Sleep Over Cash Flow
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Join thousands of businesses that never worry about running out of
-            money. 30-day free trial, no credit card required.
+            Join thousands of businesses that never worry about running out of money. 
+            30-day free trial, no credit card required.
           </p>
-          <div
-            onClick={() => navigate("trinity/plus#wizard")}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <button className="px-8 py-4 bg-white text-purple-600 rounded-lg font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              onClick={() => navigate("/trinity/plus#wizard")}
+              className="px-8 py-4 bg-white text-purple-600 rounded-lg font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"
+            >
               Start Your Free Trial
             </button>
             <button
@@ -37,4 +38,4 @@ function CTA() {
   );
 }
 
-export default CTA
+export default CTA;

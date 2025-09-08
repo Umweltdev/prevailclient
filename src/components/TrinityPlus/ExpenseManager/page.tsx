@@ -16,41 +16,25 @@ import FooterNew from "../../Footer/FooterNew.jsx";
 const ExpenseManagerPage = () => {
   return (
     <div className="min-h-screen">
-      {/* Navbar */}
       <AppBarNav color="#000" />
-      {/* Hero Section */}
       <Hero />
 
-      {/* Problem Statement */}
       <Problems />
 
-      {/* How It Works - The 7 Rules */}
       <HowItWorks />
 
-      {/* Interactive Demo */}
       <Demo />
 
-      {/* Benefits */}
       <Benefit />
 
-      {/* Testimonials */}
       <Testimonial />
 
-      {/* Pricing */}
       <Pricing />
 
-      {/* FAQ */}
       <FAQ />
 
-      {/* CTA and Footer */}
-      {/* <div className='bg-slate-900'> */}
-      {/* CTA */}
-      {/* <CTA /> */}
-
-      {/* Footer */}
       <FooterNew />
-      {/* </div> */}
-      {/* Floationg Blogs */}
+   
       <FloatingBlobs />
     </div>
   );

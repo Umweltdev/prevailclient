@@ -1,8 +1,6 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ChevronRight } from "lucide-react";
 import React, { ReactElement } from "react";
 
-// Component: Process Card
 interface Process {
     step: string,
     title: string,
