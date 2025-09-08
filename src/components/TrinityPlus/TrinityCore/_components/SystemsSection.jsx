@@ -164,31 +164,32 @@ export default function SystemSection() {
                   <span>Standard:</span>
                   <span>€{sys.price.standard}</span>
                 </div>
+                <div className="w-full flex items-center flex-col">
+                  {/* Add Learn More button */}
+                  <Link
+                    to={`/trinity/${
+                      sys.id === "expense" ? "expense-manager" : sys.id
+                    }`}
+                    className="btn btn-secondary"
+                    style={{
+                      width: "100%",
+                      marginTop: "0.75rem",
+                      textDecoration: "none",
+                      display: "inline-block",
+                    }}
+                    onClick={() => handleLearnMore(sys.id)}
+                  >
+                    Learn More
+                  </Link>
 
-                {/* Add Learn More button */}
-                <Link
-                  to={`/trinity/${
-                    sys.id === "expense" ? "expense-manager" : sys.id
-                  }`}
-                  className="btn btn-secondary"
-                  style={{
-                    width: "100%",
-                    marginTop: "0.75rem",
-                    textDecoration: "none",
-                    display: "inline-block",
-                  }}
-                  onClick={() => handleLearnMore(sys.id)}
-                >
-                  Learn More
-                </Link>
-
-                <button
-                  className="btn btn-primary"
-                  style={{ width: "100%", marginTop: "0.75rem" }}
-                  onClick={() => handleScroll()}
-                >
-                  Get {sys.title} - €{sys.price.beta}
-                </button>
+                  <button
+                    className="btn btn-primary"
+                    style={{ width: "100%", marginTop: "0.75rem" }}
+                    onClick={() => handleScroll()}
+                  >
+                    Get {sys.title} - €{sys.price.beta}
+                  </button>
+                </div>
               </div>
             </div>
           ))}
