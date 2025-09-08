@@ -52,12 +52,12 @@ const CheckoutStep = ({ formData, handleBack }) => {
       email: formData.email,
       industry: formData.industry,
       platform: formData.platform?.title || "Not Selected",
-      fullQuote: `£${totalCost.toLocaleString()}`,
+      fullQuote: `€${totalCost.toLocaleString()}`,
       price: priceToCharge,
       serviceType: isFullPayment ? "web_development_full" : "consultation_fee",
       notes: isFullPayment
         ? `Full package payment. ${includeConsultation ? "Free consultation included." : ""}`
-        : `Consultation booking. Full quote is £${totalCost}.`,
+        : `Consultation booking. Full quote is €${totalCost}.`,
     };
 
     const result = await proceedToCheckout(checkoutData);
@@ -109,7 +109,7 @@ const CheckoutStep = ({ formData, handleBack }) => {
                   color="primary.main"
                   sx={{ fontWeight: "bold" }}
                 >
-                  £{totalCost.toLocaleString()}
+                  €{totalCost.toLocaleString()}
                 </Typography>
               </Box>
             </Stack>
@@ -140,13 +140,13 @@ const CheckoutStep = ({ formData, handleBack }) => {
               <Stack spacing={1.5}>
                 <PriceRow
                   label="Project Subtotal"
-                  amount={`£${totalCost.toLocaleString()}`}
+                  amount={`€${totalCost.toLocaleString()}`}
                 />
                 <Fade in={includeConsultation} timeout={400}>
                   <Box>
                     <PriceRow
                       label="Consultation Fee"
-                      amount={`+ £${CONSULTATION_FEE}`}
+                      amount={`+ €${CONSULTATION_FEE}`}
                     />
                   </Box>
                 </Fade>
@@ -154,7 +154,7 @@ const CheckoutStep = ({ formData, handleBack }) => {
                   <Box>
                     <PriceRow
                       label="Instant Bonus"
-                      amount={`- £${CONSULTATION_FEE}`}
+                      amount={`- €${CONSULTATION_FEE}`}
                       strikeThrough
                     />
                   </Box>
@@ -162,7 +162,7 @@ const CheckoutStep = ({ formData, handleBack }) => {
                 <Divider sx={{ my: 1 }} />
                 <PriceRow
                   label="Total to Pay"
-                  amount={`£${totalCost.toLocaleString()}`}
+                  amount={`€${totalCost.toLocaleString()}`}
                   isTotal
                 />
               </Stack>
@@ -217,7 +217,7 @@ const CheckoutStep = ({ formData, handleBack }) => {
                 )
               }
             >
-              Just Book a Consultation (£{CONSULTATION_FEE})
+              Just Book a Consultation (€{CONSULTATION_FEE})
             </Button>
           </Paper>
         </Grid>

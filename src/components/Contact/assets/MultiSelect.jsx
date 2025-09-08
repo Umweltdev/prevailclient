@@ -1,4 +1,5 @@
 import * as React from "react";
+import { createPortal } from "react-dom";
 import PropTypes from "prop-types";
 import { useAutocomplete } from "@mui/base/useAutocomplete";
 import CheckIcon from "@mui/icons-material/Check";
@@ -183,8 +184,8 @@ const StyledTag = styled(Tag)(
 
 const Listbox = styled("ul")(
   () => `
+  margin: 0;
   width: 100%;
-  margin: 8px 0 0 0;
   padding: 8px;
   list-style: none;
   background: linear-gradient(145deg, #ffffff 0%, #fafbff 100%);
@@ -193,11 +194,8 @@ const Listbox = styled("ul")(
   border-radius: 16px;
   box-shadow: 0 20px 60px rgba(110, 62, 244, 0.15), 0 8px 20px rgba(0,0,0,0.08);
   border: 1px solid rgba(110, 62, 244, 0.1);
-  z-index: 1000;
+  z-index: 9999;
   position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
 
   & li {
     padding: 14px 16px;
@@ -271,7 +269,52 @@ const SelectContainer = styled("div")`
   width: 100%;
 `;
 
+const DropdownPortal = ({ children, anchorEl, focused }) => {
+  const [position, setPosition] = React.useState({ top: 0, left: 0, width: 0 });
+
+  React.useEffect(() => {
+    if (focused && anchorEl) {
+      const updatePosition = () => {
+        const rect = anchorEl.getBoundingClientRect();
+        
+        // Always position below the input with a small gap
+        setPosition({
+          top: rect.bottom + window.scrollY + 8,
+          left: rect.left + window.scrollX,
+          width: rect.width,
+        });
+      };
+
+      updatePosition();
+      window.addEventListener('scroll', updatePosition, true);
+      window.addEventListener('resize', updatePosition);
+
+      return () => {
+        window.removeEventListener('scroll', updatePosition, true);
+        window.removeEventListener('resize', updatePosition);
+      };
+    }
+  }, [focused, anchorEl]);
+
+  if (!focused) return null;
+
+  return createPortal(
+    <div style={{
+      position: 'absolute',
+      top: position.top,
+      left: position.left,
+      width: position.width,
+      zIndex: 9999,
+    }}>
+      {children}
+    </div>,
+    document.body
+  );
+};
+
 export default function MultiSelect({ setSelectedServices }) {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
   const {
     getRootProps,
     getInputLabelProps,
@@ -282,7 +325,6 @@ export default function MultiSelect({ setSelectedServices }) {
     groupedOptions,
     value,
     focused,
-    setAnchorEl,
   } = useAutocomplete({
     id: "enhanced-multiselect",
     defaultValue: [],
@@ -293,6 +335,10 @@ export default function MultiSelect({ setSelectedServices }) {
       setSelectedServices(newValue);
     },
   });
+
+  const handleSetAnchorEl = React.useCallback((element) => {
+    setAnchorEl(element);
+  }, []);
 
   return (
     <FormControl fullWidth>
@@ -306,7 +352,7 @@ export default function MultiSelect({ setSelectedServices }) {
             Which Services Are You Interested In
           </Label>
           <InputWrapper 
-            ref={setAnchorEl} 
+            ref={handleSetAnchorEl}
             className={focused ? "focused" : ""}
           >
             {value.map((option, index) => {
@@ -320,19 +366,21 @@ export default function MultiSelect({ setSelectedServices }) {
             <DropdownIcon focused={focused} />
           </InputWrapper>
           
-          {groupedOptions.length > 0 && (
-            <Listbox {...getListboxProps()}>
-              {groupedOptions.map((option, index) => {
-                const { key, ...optionProps } = getOptionProps({ option, index });
-                return (
-                  <li key={key} {...optionProps}>
-                    <span>{option.title}</span>
-                    <CheckIcon fontSize="small" />
-                  </li>
-                );
-              })}
-            </Listbox>
-          )}
+          <DropdownPortal anchorEl={anchorEl} focused={focused}>
+            {groupedOptions.length > 0 && (
+              <Listbox {...getListboxProps()}>
+                {groupedOptions.map((option, index) => {
+                  const { key, ...optionProps } = getOptionProps({ option, index });
+                  return (
+                    <li key={key} {...optionProps}>
+                      <span>{option.title}</span>
+                      <CheckIcon fontSize="small" />
+                    </li>
+                  );
+                })}
+              </Listbox>
+            )}
+          </DropdownPortal>
         </SelectContainer>
       </Root>
     </FormControl>

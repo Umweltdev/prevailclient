@@ -29,7 +29,7 @@ const HowItWorks: React.FC = () => {
         description:
           "Like a digital piggy bank, Trinity automatically reserves daily income for upcoming expenses.",
         example:
-          "£2,000 rent due in 20 days? Trinity blocks £100/day for 20 days. Simple.",
+          "€2,000 rent due in 20 days? Trinity blocks €100/day for 20 days. Simple.",
         color: "emerald",
         gradient: "from-emerald-500/20 to-green-600/20",
         iconBg: "from-emerald-500 to-green-600",
@@ -41,7 +41,7 @@ const HowItWorks: React.FC = () => {
         description:
           "Can't save in time? Trinity offers smart alternatives with clear trade-offs.",
         example:
-          "Need £3,000 in 5 days but can only save £500? Choose: savings withdrawal, loan, or reschedule.",
+          "Need €3,000 in 5 days but can only save €500? Choose: savings withdrawal, loan, or reschedule.",
         color: "blue",
         gradient: "from-blue-500/20 to-cyan-600/20",
         iconBg: "from-blue-500 to-cyan-600",
@@ -65,7 +65,7 @@ const HowItWorks: React.FC = () => {
         description:
           "For distant expenses, take small daily 'subscriptions' instead of blocking huge chunks.",
         example:
-          "£3,000 needed in 90 days? Allocate 15% daily for all 90 days instead of blocking 30 full days.",
+          "€3,000 needed in 90 days? Allocate 15% daily for all 90 days instead of blocking 30 full days.",
         color: "purple",
         gradient: "from-purple-500/20 to-violet-600/20",
         iconBg: "from-purple-500 to-violet-600",

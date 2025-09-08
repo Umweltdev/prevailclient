@@ -20,16 +20,16 @@ const BudgetTracker = ({ budget, spent, spentLabel = "Spent" }) => {
       }}
     >
       <Typography variant="body1">
-        Budget: <strong>£{budget.toLocaleString()}</strong>
+        Budget: <strong>€{budget.toLocaleString()}</strong>
       </Typography>
       <Typography variant="body1" color="text.secondary">
-        {spentLabel}: <strong>£{spent.toLocaleString()}</strong>
+        {spentLabel}: <strong>€{spent.toLocaleString()}</strong>
       </Typography>
       <Typography
         variant="body1"
         color={isBudgetExceeded ? "error.main" : "success.main"}
       >
-        Remaining: <strong>£{remaining.toLocaleString()}</strong>
+        Remaining: <strong>€{remaining.toLocaleString()}</strong>
       </Typography>
     </Paper>
   );

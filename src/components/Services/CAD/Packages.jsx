@@ -382,10 +382,31 @@ const FinalSummary = ({
                   {isProcessing
                     ? "Processing..."
                     : stripeConfigured
-                      ? "Proceed to Checkout"
-                      : "Checkout Unavailable"}
+                    ? "Proceed to Checkout"
+                    : "Checkout Unavailable"}
                 </Button>
-
+                <Button
+                  variant="outlined"
+                  fullWidth
+                  disabled
+                  onClick={() =>
+                    window.open(
+                      "https://calendly.com/your-consultation-link",
+                      "_blank"
+                    )
+                  }
+                  sx={{
+                    borderColor: "primary.main",
+                    color: "primary.main",
+                    "&:hover": {
+                      borderColor: "primary.dark",
+                      backgroundColor: "primary.main",
+                      color: "white",
+                    },
+                  }}
+                >
+                  Book a Consultation
+                </Button>
                 <Button
                   variant="outlined"
                   fullWidth
@@ -438,7 +459,6 @@ FinalSummary.defaultProps = {
 };
 
 const MemoizedFinalSummary = React.memo(FinalSummary);
-
 
 const Packages = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -552,10 +572,11 @@ const Packages = () => {
           email,
           price: priceValue,
           serviceType: tierSelection?.id || "unknown",
-          notes:
-            `${additionalNotes || ""} | Selected Systems: ${selectedSystems || "None"} | Dashboards: ${
-              selectedDashboards || "None"
-            } | Keywords: ${keywords || "None"}`.trim(),
+          notes: `${additionalNotes || ""} | Selected Systems: ${
+            selectedSystems || "None"
+          } | Dashboards: ${selectedDashboards || "None"} | Keywords: ${
+            keywords || "None"
+          }`.trim(),
         };
 
         const session = await createCheckoutSession(checkoutData);
@@ -576,7 +597,17 @@ const Packages = () => {
         setIsProcessing(false);
       }
     },
-    [name, email, selectedTier, stripeConfigured, showToastMessage, additionalNotes, selectedSystems, selectedDashboards, keywords]
+    [
+      name,
+      email,
+      selectedTier,
+      stripeConfigured,
+      showToastMessage,
+      additionalNotes,
+      selectedSystems,
+      selectedDashboards,
+      keywords,
+    ]
   );
 
   const renderStepContent = () => {
@@ -619,7 +650,7 @@ const Packages = () => {
         sx={{
           minHeight: "100vh",
           background: theme.palette.background.default,
-          color: "text.primary"
+          color: "text.primary",
         }}
       >
         <Container maxWidth="xl" sx={{ py: { xs: 6, md: 8 } }} ref={wizardRef}>

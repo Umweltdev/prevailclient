@@ -21,7 +21,7 @@ export const industries = [
 ];
 
 export const goals = [
-  { id: 'fees', icon: <AttachMoneyIcon sx={{ fontSize: 40 }} color="secondary" />, title: 'Eliminate Platform Fees', desc1: 'Stop paying 20-35% commission', desc2: 'Save £1,000-5,000/month' },
+  { id: 'fees', icon: <AttachMoneyIcon sx={{ fontSize: 40 }} color="secondary" />, title: 'Eliminate Platform Fees', desc1: 'Stop paying 20-35% commission', desc2: 'Save €1,000-5,000/month' },
   { id: 'brand', icon: <PaletteIcon sx={{ fontSize: 40 }} color="secondary" />, title: 'Build Brand Identity', desc1: 'Create unique digital presence', desc2: '73% better brand recall' },
   { id: 'automation', icon: <BoltIcon sx={{ fontSize: 40 }} color="secondary" />, title: 'Automate Operations', desc1: 'Streamline workflows', desc2: '15-20 hours/week saved' },
   { id: 'scale', icon: <TrendingUpIcon sx={{ fontSize: 40 }} color="secondary" />, title: 'Scale Your Business', desc1: 'Systems that grow with you', desc2: 'Multi-location ready' },
@@ -163,7 +163,7 @@ export const dashboardsData = [
 ];
 
 export const platformsData = [
-  { title: 'Foundation', priceRange: '£600 - £1000', price: 800, features: ['Professional Website', 'Mobile Responsive', 'Basic SEO', 'Contact Forms', 'Social Media Links'] },
-  { title: 'Full System', priceRange: '£1200 - £2000', price: 1600, features: ['Everything in Foundation', 'Complete Ordering System', 'Customer Database', 'Email Automation', 'Payment Processing'] },
-  { title: 'Premium', priceRange: '£1800 - £3000', price: 2400, features: ['Everything in Full System', 'Advanced Analytics', 'Multi-location Support', 'API Access', 'AI Predictions'] },
+  { title: 'Foundation', priceRange: '€600 - €1000', price: 800, features: ['Professional Website', 'Mobile Responsive', 'Basic SEO', 'Contact Forms', 'Social Media Links'] },
+  { title: 'Full System', priceRange: '€1200 - €2000', price: 1600, features: ['Everything in Foundation', 'Complete Ordering System', 'Customer Database', 'Email Automation', 'Payment Processing'] },
+  { title: 'Premium', priceRange: '€1800 - €3000', price: 2400, features: ['Everything in Full System', 'Advanced Analytics', 'Multi-location Support', 'API Access', 'AI Predictions'] },
 ];

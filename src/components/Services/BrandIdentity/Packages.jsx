@@ -174,7 +174,7 @@ const PlatformTier = ({ selectedTier, setSelectedTier, nextStep }) => (
                 color="primary"
                 sx={{ my: 1 }}
               >
-                £{tier.price}
+                €{tier.price}
               </Typography>
               <List dense sx={{ mt: 2, p: 0 }}>
                 {tier.features.map((feature) => (
@@ -353,7 +353,7 @@ const FinalSummary = ({
                 >
                   <Typography variant="h6">Total Price:</Typography>
                   <Typography variant="h5" fontWeight="bold" sx={gradientText}>
-                    £{tierSelection?.price}
+                    €{tierSelection?.price}
                   </Typography>
                 </Box>
               </Box>

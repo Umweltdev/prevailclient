@@ -442,7 +442,7 @@ const SystemsSection = () => {
                 {countdown.minutes}m {countdown.seconds}s
               </div>
               <ul className="features-list">
-                <li>✓ Up to £10k monthly expenses</li>
+                <li>✓ Up to €10k monthly expenses</li>
                 <li>✓ 30-day forecasting</li>
                 <li>✓ Email support</li>
               </ul>
@@ -470,7 +470,7 @@ const SystemsSection = () => {
               </div>
               <div className="offer-pill early">🚀 Next 3 months</div>
               <ul className="features-list">
-                <li>✓ Up to £100k monthly expenses</li>
+                <li>✓ Up to €100k monthly expenses</li>
                 <li>✓ 90-day forecasting</li>
                 <li>✓ Priority support</li>
                 <li>✓ API access</li>

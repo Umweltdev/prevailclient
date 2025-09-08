@@ -32,7 +32,7 @@ function Pricing() {
             <ul className="space-y-3 mb-8">
               <li className="flex items-center gap-2 text-gray-300">
                 <CheckCircle size={20} className="text-green-400" />
-                Up to £10k monthly expenses
+                Up to €10k monthly expenses
               </li>
               <li className="flex items-center gap-2 text-gray-300">
                 <CheckCircle size={20} className="text-green-400" />
@@ -60,7 +60,7 @@ function Pricing() {
             <ul className="space-y-3 mb-8">
               <li className="flex items-center gap-2 text-white">
                 <CheckCircle size={20} className="text-green-400" />
-                Up to £100k monthly expenses
+                Up to €100k monthly expenses
               </li>
               <li className="flex items-center gap-2 text-white">
                 <CheckCircle size={20} className="text-green-400" />

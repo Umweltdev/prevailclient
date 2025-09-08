@@ -25,7 +25,7 @@ export default function HeroSection() {
       const distance = betaEndDate.getTime() - now;
 
       if (distance < 0) {
-        setPricingMessage("EARLY ADOPTER PRICING NOW ACTIVE - £500 per system");
+        setPricingMessage("EARLY ADOPTER PRICING NOW ACTIVE - €500 per system");
         clearInterval(interval);
         return;
       }
@@ -56,48 +56,48 @@ export default function HeroSection() {
     switch (type) {
       case "expense":
         message =
-          "💰 Trinity Expense Manager - BETA PRICE: £200\n\n" +
+          "💰 Trinity Expense Manager - BETA PRICE: €200\n\n" +
           "You're getting:\n" +
           "• Complete expense management system\n" +
           "• 7 intelligent allocation rules\n" +
           "• Emergency fund protection\n" +
           "• Full source code\n\n" +
-          "Price after beta: £500 (early) → £1,500 (standard)\n" +
+          "Price after beta: €500 (early) → €1,500 (standard)\n" +
           "You save: €696 beta!";
         break;
       case "mcd":
         message =
-          "📈 MCD System - BETA PRICE: £200\n\n" +
+          "📈 MCD System - BETA PRICE: €200\n\n" +
           "Marketing Cost Displacement includes:\n" +
           "• Automatic price optimization\n" +
           "• Marketing cost coverage\n" +
           "• Profit protection algorithms\n" +
           "• Full source code\n\n" +
-          "Price after beta: £500 (early) → £1,500 (standard)\n" +
+          "Price after beta: €500 (early) → €1,500 (standard)\n" +
           "You save: €1,300!";
         break;
       case "rcd":
         message =
-          "🎯 RCD System - BETA PRICE: £200\n\n" +
+          "🎯 RCD System - BETA PRICE: €200\n\n" +
           "Returning Customer Discount includes:\n" +
           "• Automatic loyalty tracking\n" +
           "• Viral referral networks\n" +
           "• Customer lifetime optimization\n" +
           "• Full source code\n\n" +
-          "Price after beta: £500 (early) → £1,500 (standard)\n" +
+          "Price after beta: €500 (early) → €1,500 (standard)\n" +
           "You save: € 1,696!";
         break;
       case "bundle":
         message =
-          "🎯 COMPLETE TRINITY SYSTEM - BETA PRICE: £600\n\n" +
+          "🎯 COMPLETE TRINITY SYSTEM - BETA PRICE: €600\n\n" +
           "You're getting ALL THREE systems:\n\n" +
           "✓ Trinity Expense Manager\n" +
           "✓ MCD System\n" +
           "✓ RCD System\n" +
           "✓ Full integration support\n\n" +
-          "Beta price: £600 (next 10 days)\n" +
-          "Early adopter: £1,500 (next 3 months)\n" +
-          "Standard price: £4,500\n\n" +
+          "Beta price: €600 (next 10 days)\n" +
+          "Early adopter: €1,500 (next 3 months)\n" +
+          "Standard price: €4,500\n\n" +
           "YOU SAVE €3,900!";
         break;
       default:

@@ -23,7 +23,7 @@ function CTA() {
               </button>
             </div>
             <p className="mt-6 text-white/70">
-              Average user saves £12,000/year in avoided emergency loans
+              Average user saves €12,000/year in avoided emergency loans
             </p>
           </div>
         </div>
