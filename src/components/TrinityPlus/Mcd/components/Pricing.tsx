@@ -3,7 +3,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 function Pricing({ visibleSections }) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <section
       id="pricing"
@@ -34,7 +34,7 @@ function Pricing({ visibleSections }) {
                 "Email support",
                 "Basic analytics",
               ],
-              featured: false,
+              featured: true,
               clickable: true, // ✅ Only Beta is clickable
             },
             {
@@ -61,7 +61,7 @@ function Pricing({ visibleSections }) {
                 "Custom rules",
                 "Advanced analytics",
               ],
-              featured: true,
+              featured: false,
               clickable: false,
             },
           ].map((plan, idx) => (
@@ -95,7 +95,7 @@ function Pricing({ visibleSections }) {
               </ul>
 
               <button
-              onClick={()=> navigate('/trinity/plus#wizard')}
+                onClick={() => navigate("/trinity/plus#wizard")}
                 disabled={!plan.clickable} // ✅ Disable other plans
                 className={`w-full py-3 rounded-full font-semibold transition-all duration-300 ${
                   plan.clickable

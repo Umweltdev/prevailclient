@@ -26,7 +26,7 @@ function Pricing() {
               "Monthly reports",
             ]}
             cta="Book a Consultation"
-            popular={false}
+            popular={true}
             clickable={true}
           />
           <PricingCard
@@ -60,7 +60,7 @@ function Pricing() {
               "API access",
             ]}
             cta="Book a Consultation"
-            popular={true}
+            popular={false}
             clickable={false}
           />
         </div>

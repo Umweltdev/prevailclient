@@ -43,6 +43,13 @@ const PricingSection = () => {
                 </div>
               </div>
 
+              {/* Popular Badge */}
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <div className="bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
+                  Most Popular
+                </div>
+              </div>
+
               <div className="mb-8">
                 <div className="flex items-baseline justify-center mb-2">
                   <span className="text-5xl font-black bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] bg-clip-text text-transparent">
@@ -78,7 +85,10 @@ const PricingSection = () => {
                 ))}
               </div>
 
-              <button onClick={()=> navigate('/trinity/plus#wizard')} className="w-full py-4 bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] rounded-xl font-bold text-white hover:from-[#5B2CCF] hover:to-[#2D7BE5] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#6E3EF4]/25 hover:scale-[1.02] active:scale-[0.98] relative overflow-hidden group/btn">
+              <button
+                onClick={() => navigate("/trinity/plus#wizard")}
+                className="w-full py-4 bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] rounded-xl font-bold text-white hover:from-[#5B2CCF] hover:to-[#2D7BE5] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#6E3EF4]/25 hover:scale-[1.02] active:scale-[0.98] relative overflow-hidden group/btn"
+              >
                 <span className="relative ">Secure Your Spot</span>
                 <div className="absolute inset-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 group-hover/btn:left-full transition-all duration-500"></div>
               </button>
@@ -88,13 +98,6 @@ const PricingSection = () => {
           {/* Early Adopters Card - Most Popular */}
           <Tilt tiltMaxAngleX={8} tiltMaxAngleY={8}>
             <div className="group relative lg:scale-105 bg-white/80 backdrop-blur-md rounded-2xl p-8 border-2 border-[#6E3EF4]/50 hover:border-[#6E3EF4]/70 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-[#6E3EF4]/30 h-full flex flex-col">
-              {/* Popular Badge */}
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <div className="bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
-                  Most Popular
-                </div>
-              </div>
-
               <div className="flex items-center justify-between mb-6 mt-4">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 bg-[#409AFF] rounded-full animate-pulse"></div>
@@ -139,7 +142,10 @@ const PricingSection = () => {
                 ))}
               </div>
 
-              <button onClick={()=> navigate('/trinity/plus#wizard')} className="w-full py-4 bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] rounded-xl font-bold text-white hover:from-[#5B2CCF] hover:to-[#2D7BE5] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#6E3EF4]/25 hover:scale-[1.02] active:scale-[0.98] relative overflow-hidden group/btn">
+              <button
+                onClick={() => navigate("/trinity/plus#wizard")}
+                className="w-full py-4 bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] rounded-xl font-bold text-white hover:from-[#5B2CCF] hover:to-[#2D7BE5] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#6E3EF4]/25 hover:scale-[1.02] active:scale-[0.98] relative overflow-hidden group/btn"
+              >
                 <span className="relative ">Get Started Now</span>
                 <div className="absolute inset-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 group-hover/btn:left-full transition-all duration-500"></div>
               </button>
@@ -193,7 +199,10 @@ const PricingSection = () => {
                 ))}
               </div>
 
-              <button onClick={()=> navigate('/trinity/plus#wizard')}className="w-full py-4 bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] rounded-xl font-bold text-white hover:from-[#5B2CCF] hover:to-[#2D7BE5] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#6E3EF4]/25 hover:scale-[1.02] active:scale-[0.98] relative overflow-hidden group/btn">
+              <button
+                onClick={() => navigate("/trinity/plus#wizard")}
+                className="w-full py-4 bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] rounded-xl font-bold text-white hover:from-[#5B2CCF] hover:to-[#2D7BE5] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#6E3EF4]/25 hover:scale-[1.02] active:scale-[0.98] relative overflow-hidden group/btn"
+              >
                 <span className="relative ">Reserve Your License</span>
                 <div className="absolute inset-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 group-hover/btn:left-full transition-all duration-500"></div>
               </button>
@@ -255,7 +264,10 @@ const PricingSection = () => {
                 ))}
               </div>
 
-              <button onClick={()=> navigate('/trinity/plus#wizard')} className="w-full py-4 bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] rounded-xl font-bold text-white hover:from-[#5B2CCF] hover:to-[#2D7BE5] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#6E3EF4]/25 hover:scale-[1.02] active:scale-[0.98] relative overflow-hidden group/btn">
+              <button
+                onClick={() => navigate("/trinity/plus#wizard")}
+                className="w-full py-4 bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] rounded-xl font-bold text-white hover:from-[#5B2CCF] hover:to-[#2D7BE5] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#6E3EF4]/25 hover:scale-[1.02] active:scale-[0.98] relative overflow-hidden group/btn"
+              >
                 <span className="relative ">Secure Your Spot</span>
                 <div className="absolute inset-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 group-hover/btn:left-full transition-all duration-500"></div>
               </button>
@@ -316,7 +328,10 @@ const PricingSection = () => {
                 ))}
               </div>
 
-              <button onClick={()=> navigate('/trinity/plus#wizard')} className="w-full py-4 bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] rounded-xl font-bold text-white hover:from-[#5B2CCF] hover:to-[#2D7BE5] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#6E3EF4]/25 hover:scale-[1.02] active:scale-[0.98] relative overflow-hidden group/btn">
+              <button
+                onClick={() => navigate("/trinity/plus#wizard")}
+                className="w-full py-4 bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] rounded-xl font-bold text-white hover:from-[#5B2CCF] hover:to-[#2D7BE5] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#6E3EF4]/25 hover:scale-[1.02] active:scale-[0.98] relative overflow-hidden group/btn"
+              >
                 <span className="relative ">Get Started Now</span>
                 <div className="absolute inset-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 group-hover/btn:left-full transition-all duration-500"></div>
               </button>
@@ -370,14 +385,16 @@ const PricingSection = () => {
                 ))}
               </div>
 
-              <button onClick={()=> navigate('/trinity/plus#wizard')}className="w-full py-4 bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] rounded-xl font-bold text-white hover:from-[#5B2CCF] hover:to-[#2D7BE5] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#6E3EF4]/25 hover:scale-[1.02] active:scale-[0.98] relative overflow-hidden group/btn">
+              <button
+                onClick={() => navigate("/trinity/plus#wizard")}
+                className="w-full py-4 bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] rounded-xl font-bold text-white hover:from-[#5B2CCF] hover:to-[#2D7BE5] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#6E3EF4]/25 hover:scale-[1.02] active:scale-[0.98] relative overflow-hidden group/btn"
+              >
                 <span className="relative ">Reserve Your License</span>
                 <div className="absolute inset-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 group-hover/btn:left-full transition-all duration-500"></div>
               </button>
             </div>
           </Tilt>
         </div>
-        
 
         {/* Bottom CTA */}
         <div className="mt-16 text-center">
