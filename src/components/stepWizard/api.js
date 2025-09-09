@@ -30,6 +30,11 @@ export const createCheckoutSession = async (checkoutData) => {
 };
 
 export const mapToApiServiceType = (solutionType) => {
+  // Handle consultation specifically
+  if (solutionType === "consultation") {
+    return "consultation";
+  }
+
   if (solutionType === "website" || solutionType === "both") {
     return "brand_identity_package";
   }
@@ -53,11 +58,9 @@ export const generateTargetAudience = (selectedIndustry, selectedGoals) => {
   };
 
   const industry = industryMap[selectedIndustry] || "Business";
-  const goals = selectedGoals.join(", ");
+  const goals = selectedGoals ? selectedGoals.join(", ") : "growth and efficiency";
 
-  return `${industry} businesses focusing on ${
-    goals || "growth and efficiency"
-  }`;
+  return `${industry} businesses focusing on ${goals}`;
 };
 
 /**
@@ -67,6 +70,11 @@ export const generateTargetAudience = (selectedIndustry, selectedGoals) => {
  * @returns {string} Campaign duration
  */
 export const generateCampaignDuration = (solutionType, trinitySelectionId) => {
+  // Handle consultation specifically
+  if (solutionType === "consultation") {
+    return "1 hour session";
+  }
+
   if (solutionType === "both") return "4-6 months";
   if (solutionType === "trinity") {
     if (trinitySelectionId === "trinity-plus") return "3-4 months";

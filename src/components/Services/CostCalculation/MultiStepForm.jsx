@@ -1,8 +1,4 @@
-import React, {
-  useState,
-  useCallback,
-  useRef,
-} from "react";
+import React, { useState, useCallback, useRef } from "react";
 import PropTypes from "prop-types";
 import { loadStripe } from "@stripe/stripe-js";
 import {
@@ -63,7 +59,8 @@ import {
 } from "./components/api.js";
 
 // Stripe setup with your test key
-const STRIPE_KEY = "pk_test_51OsCJ5P1A39VkufThp1PVDexesvf2XAY8faTyK0uucC1qRl9NW9QkpBdwXQDyjCAjzL166zjMWNn5Zr25ZkaQJVi00vurq61mj";
+const STRIPE_KEY =
+  "pk_test_51OsCJ5P1A39VkufThp1PVDexesvf2XAY8faTyK0uucC1qRl9NW9QkpBdwXQDyjCAjzL166zjMWNn5Zr25ZkaQJVi00vurq61mj";
 let stripePromise = null;
 
 if (STRIPE_KEY) {
@@ -1372,27 +1369,27 @@ const TrinityPackageCard = ({ option, selected, onClick }) => {
     <SelectableCard
       selected={selected}
       onClick={onClick}
-      sx={{ 
+      sx={{
         height: "100%",
         // Better mobile responsiveness
-        '& .MuiCardContent-root': {
+        "& .MuiCardContent-root": {
           px: { xs: 2, sm: 3 },
-          py: { xs: 2, sm: 3 }
-        }
+          py: { xs: 2, sm: 3 },
+        },
       }}
     >
       <Stack spacing={2} height="100%">
         {/* Header with badges */}
-        <Stack 
-          direction="row" 
-          spacing={1} 
-          flexWrap="wrap" 
+        <Stack
+          direction="row"
+          spacing={1}
+          flexWrap="wrap"
           useFlexGap
           mb={1}
           sx={{
-            '& .MuiChip-root': {
-              fontSize: { xs: '0.7rem', sm: '0.75rem' }
-            }
+            "& .MuiChip-root": {
+              fontSize: { xs: "0.7rem", sm: "0.75rem" },
+            },
           }}
         >
           {option.baseRecommended && (
@@ -1427,19 +1424,19 @@ const TrinityPackageCard = ({ option, selected, onClick }) => {
         </Stack>
 
         {/* Main content */}
-        <Stack 
-          direction={{ xs: "column", sm: "row" }} 
+        <Stack
+          direction={{ xs: "column", sm: "row" }}
           spacing={2}
           alignItems={{ xs: "flex-start", sm: "flex-start" }}
         >
           {/* Icon */}
           <Box flexShrink={0}>
-            <Typography 
-              variant="h3" 
-              sx={{ 
+            <Typography
+              variant="h3"
+              sx={{
                 fontSize: { xs: "2rem", sm: "2.5rem" },
                 textAlign: { xs: "center", sm: "left" },
-                width: { xs: "100%", sm: "auto" }
+                width: { xs: "100%", sm: "auto" },
               }}
             >
               {option.icon}
@@ -1449,7 +1446,7 @@ const TrinityPackageCard = ({ option, selected, onClick }) => {
           {/* Content */}
           <Stack spacing={1} flex={1} minWidth={0}>
             {/* Title and Price row */}
-            <Stack 
+            <Stack
               direction={{ xs: "column", sm: "row" }}
               justifyContent="space-between"
               alignItems={{ xs: "flex-start", sm: "flex-start" }}
@@ -1462,18 +1459,18 @@ const TrinityPackageCard = ({ option, selected, onClick }) => {
                   fontWeight={700}
                   gutterBottom
                   sx={{
-                    fontSize: { xs: '1.1rem', sm: '1.25rem' },
+                    fontSize: { xs: "1.1rem", sm: "1.25rem" },
                     lineHeight: 1.2,
                     // Prevent text overflow
-                    wordBreak: 'break-word',
-                    hyphens: 'auto'
+                    wordBreak: "break-word",
+                    hyphens: "auto",
                   }}
                 >
                   {option.name}
                 </Typography>
               </Box>
-              <Box 
-                textAlign={{ xs: "left", sm: "right" }} 
+              <Box
+                textAlign={{ xs: "left", sm: "right" }}
                 flexShrink={0}
                 width={{ xs: "100%", sm: "auto" }}
               >
@@ -1483,7 +1480,7 @@ const TrinityPackageCard = ({ option, selected, onClick }) => {
                     color: "error.main",
                     fontWeight: 800,
                     mb: 0.5,
-                    fontSize: { xs: '1.5rem', sm: '1.875rem' }
+                    fontSize: { xs: "1.5rem", sm: "1.875rem" },
                   }}
                 >
                   €{option.betaPrice.toLocaleString()}
@@ -1505,12 +1502,12 @@ const TrinityPackageCard = ({ option, selected, onClick }) => {
             <Typography
               variant="body2"
               color="text.secondary"
-              sx={{ 
+              sx={{
                 lineHeight: 1.5,
                 mb: 1,
                 // Better text wrapping on mobile
-                wordBreak: 'break-word',
-                hyphens: 'auto'
+                wordBreak: "break-word",
+                hyphens: "auto",
               }}
             >
               {option.description}
@@ -1534,7 +1531,7 @@ const TrinityPackageCard = ({ option, selected, onClick }) => {
                       bgcolor: "primary.light",
                       color: "primary.contrastText",
                       fontSize: { xs: "0.65rem", sm: "0.75rem" },
-                      height: { xs: 20, sm: 24 }
+                      height: { xs: 20, sm: 24 },
                     }}
                   />
                 ))}
@@ -1548,28 +1545,25 @@ const TrinityPackageCard = ({ option, selected, onClick }) => {
                   variant="subtitle2"
                   gutterBottom
                   fontWeight={600}
-                  sx={{ fontSize: { xs: '0.8rem', sm: '0.875rem' } }}
+                  sx={{ fontSize: { xs: "0.8rem", sm: "0.875rem" } }}
                 >
                   Includes:
                 </Typography>
-                <Stack
-                  direction="row"
-                  spacing={0.5}
-                  flexWrap="wrap"
-                  useFlexGap
-                >
-                  {option.includes.slice(0, expanded ? option.includes.length : 3).map((item) => (
-                    <Chip
-                      key={item}
-                      label={item}
-                      size="small"
-                      sx={{
-                        bgcolor: "grey.100",
-                        fontSize: { xs: "0.65rem", sm: "0.75rem" },
-                        height: { xs: 20, sm: 24 }
-                      }}
-                    />
-                  ))}
+                <Stack direction="row" spacing={0.5} flexWrap="wrap" useFlexGap>
+                  {option.includes
+                    .slice(0, expanded ? option.includes.length : 3)
+                    .map((item) => (
+                      <Chip
+                        key={item}
+                        label={item}
+                        size="small"
+                        sx={{
+                          bgcolor: "grey.100",
+                          fontSize: { xs: "0.65rem", sm: "0.75rem" },
+                          height: { xs: 20, sm: 24 },
+                        }}
+                      />
+                    ))}
                   {option.includes.length > 3 && !expanded && (
                     <Button
                       size="small"
@@ -1577,10 +1571,10 @@ const TrinityPackageCard = ({ option, selected, onClick }) => {
                         e.stopPropagation();
                         setExpanded(true);
                       }}
-                      sx={{ 
-                        minWidth: "auto", 
+                      sx={{
+                        minWidth: "auto",
                         p: 0.5,
-                        fontSize: { xs: "0.65rem", sm: "0.75rem" }
+                        fontSize: { xs: "0.65rem", sm: "0.75rem" },
                       }}
                     >
                       +{option.includes.length - 3} more
@@ -1599,48 +1593,52 @@ const TrinityPackageCard = ({ option, selected, onClick }) => {
                     e.stopPropagation();
                     setExpanded(!expanded);
                   }}
-                  endIcon={expanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-                  sx={{ 
-                    mb: 1, 
-                    p: 0, 
+                  endIcon={
+                    expanded ? (
+                      <ChevronUp size={16} />
+                    ) : (
+                      <ChevronDown size={16} />
+                    )
+                  }
+                  sx={{
+                    mb: 1,
+                    p: 0,
                     justifyContent: "flex-start",
-                    fontSize: { xs: "0.75rem", sm: "0.875rem" }
+                    fontSize: { xs: "0.75rem", sm: "0.875rem" },
                   }}
                 >
-                  {expanded ? "Hide" : "Show"} Features ({option.features.length})
+                  {expanded ? "Hide" : "Show"} Features (
+                  {option.features.length})
                 </Button>
-                
+
                 <Collapse in={expanded}>
-                  <List 
-                    dense 
-                    sx={{ 
+                  <List
+                    dense
+                    sx={{
                       py: 0,
                       maxHeight: { xs: 200, sm: "none" },
-                      overflowY: { xs: "auto", sm: "visible" }
+                      overflowY: { xs: "auto", sm: "visible" },
                     }}
                   >
                     {option.features.map((feature, idx) => (
                       <ListItem
                         key={idx}
                         disableGutters
-                        sx={{ 
+                        sx={{
                           py: 0.25,
-                          px: 0
+                          px: 0,
                         }}
                       >
                         <ListItemIcon sx={{ minWidth: 20 }}>
-                          <Check
-                            size={12}
-                            color={theme.palette.success.main}
-                          />
+                          <Check size={12} color={theme.palette.success.main} />
                         </ListItemIcon>
                         <ListItemText
                           primary={feature}
                           primaryTypographyProps={{
                             variant: "body2",
-                            sx: { 
+                            sx: {
                               lineHeight: 1.4,
-                              fontSize: { xs: '0.75rem', sm: '0.875rem' }
+                              fontSize: { xs: "0.75rem", sm: "0.875rem" },
                             },
                           }}
                         />
@@ -1661,7 +1659,7 @@ const TrinityPackageCard = ({ option, selected, onClick }) => {
                   display: "flex",
                   alignItems: "center",
                   gap: 0.5,
-                  fontSize: { xs: '0.75rem', sm: '0.875rem' }
+                  fontSize: { xs: "0.75rem", sm: "0.875rem" },
                 }}
               >
                 <LocalOffer size={14} />
@@ -1677,9 +1675,9 @@ const TrinityPackageCard = ({ option, selected, onClick }) => {
                   mt: 1,
                   borderRadius: 2,
                   fontSize: { xs: "0.75rem", sm: "0.875rem" },
-                  '& .MuiAlert-message': {
-                    py: 0
-                  }
+                  "& .MuiAlert-message": {
+                    py: 0,
+                  },
                 }}
               >
                 {option.note}
@@ -1778,9 +1776,9 @@ const TrinityPackageSelection = ({
         ))}
       </Grid>
 
-      <Stack 
-        direction={{ xs: "column", sm: "row" }} 
-        spacing={2} 
+      <Stack
+        direction={{ xs: "column", sm: "row" }}
+        spacing={2}
         justifyContent="center"
         alignItems="center"
       >
@@ -1789,9 +1787,9 @@ const TrinityPackageSelection = ({
           size="large"
           onClick={prevStep}
           startIcon={<ChevronLeft size={20} />}
-          sx={{ 
+          sx={{
             minWidth: { xs: "100%", sm: 120 },
-            maxWidth: { xs: 300, sm: "none" }
+            maxWidth: { xs: 300, sm: "none" },
           }}
         >
           Back
@@ -1802,9 +1800,9 @@ const TrinityPackageSelection = ({
           onClick={nextStep}
           disabled={!selectedTrinity}
           endIcon={<ChevronRight size={20} />}
-          sx={{ 
+          sx={{
             minWidth: { xs: "100%", sm: 160 },
-            maxWidth: { xs: 300, sm: "none" }
+            maxWidth: { xs: 300, sm: "none" },
           }}
         >
           Continue
@@ -2184,6 +2182,7 @@ const FinalSummary = ({
   prevStep,
   handleCheckout,
   isProcessing,
+  isProcessingConsult,
   calculateTotal,
 }) => {
   const total = calculateTotal();
@@ -2528,7 +2527,7 @@ const FinalSummary = ({
                           "linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%)",
                         transform: "translateY(-1px)",
                         boxShadow: "0 8px 25px rgba(99, 102, 241, 0.4)",
-                        color: "#FFFFFF"
+                        color: "#FFFFFF",
                       },
                     }}
                   >
@@ -2538,28 +2537,26 @@ const FinalSummary = ({
                   <Button
                     variant="outlined"
                     fullWidth
-                    size="large"
-                    onClick={() =>
-                      window.open(
-                        "https://calendly.com/your-consultation-link",
-                        "_blank"
-                      )
-                    }
-                    startIcon={<Schedule size={20} />}
+                    onClick={handleConsultationCheckout}
+                    disabled={isProcessingConsult || !name || !email} // Correct - only checks its own state
                     sx={{
-                      py: 2,
                       borderColor: "primary.main",
                       color: "primary.main",
-                      fontWeight: 600,
                       "&:hover": {
                         borderColor: "primary.dark",
                         backgroundColor: "primary.main",
                         color: "white",
-                        transform: "translateY(-1px)",
                       },
                     }}
+                    startIcon={
+                      isProcessingConsult ? (
+                        <CircularProgress size={20} color="inherit" />
+                      ) : null
+                    }
                   >
-                    Book a Free Consultation
+                    {isProcessingConsult
+                      ? "Processing..."
+                      : "Book a Consultation (€83)"}
                   </Button>
 
                   <Button
@@ -2605,6 +2602,7 @@ FinalSummary.propTypes = {
   prevStep: PropTypes.func.isRequired,
   handleCheckout: PropTypes.func.isRequired,
   isProcessing: PropTypes.bool.isRequired,
+  isProcessingConsult: PropTypes.bool.isRequired,
   calculateTotal: PropTypes.func.isRequired,
 };
 
@@ -2623,6 +2621,7 @@ const MultiStepForm = () => {
   const [selectedSystems, setSelectedSystems] = useState("");
   const [selectedDashboards, setSelectedDashboards] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
+  const [isProcessingConsult, setIsProcessingConsult] = useState(false);
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
 
   const wizardRef = useRef(null);
@@ -2791,14 +2790,26 @@ const MultiStepForm = () => {
         email,
         serviceType: mapToApiServiceType(selectedServices, serviceSelections),
         price: total,
-        targetAudience: generateTargetAudience(selectedIndustry, selectedServices),
-        campaignDuration: generateCampaignDuration(selectedServices, serviceSelections),
-        notes: `${additionalNotes || ""} | Systems: ${selectedSystems || "None"} | Dashboards: ${selectedDashboards || "None"} | Keywords: ${keywords || "None"} | Services: ${selectedServices.join(", ")} | Industry: ${selectedIndustry || "None"} | Physical Store: ${hasPhysicalStore ? "Yes" : "No"}`.trim(),
+        targetAudience: generateTargetAudience(
+          selectedIndustry,
+          selectedServices
+        ),
+        campaignDuration: generateCampaignDuration(
+          selectedServices,
+          serviceSelections
+        ),
+        notes: `${additionalNotes || ""} | Systems: ${
+          selectedSystems || "None"
+        } | Dashboards: ${selectedDashboards || "None"} | Keywords: ${
+          keywords || "None"
+        } | Services: ${selectedServices.join(", ")} | Industry: ${
+          selectedIndustry || "None"
+        } | Physical Store: ${hasPhysicalStore ? "Yes" : "No"}`.trim(),
       };
 
       // Create checkout session
       const session = await createCheckoutSession(checkoutData);
-      
+
       // Redirect to Stripe Checkout
       const stripe = await stripePromise;
       if (!stripe) {
@@ -2985,6 +2996,7 @@ const MultiStepForm = () => {
           prevStep={prevStep}
           handleCheckout={handleCheckout}
           isProcessing={isProcessing}
+          isProcessingConsult={isProcessingConsult}
           calculateTotal={calculateTotal}
         />
       );

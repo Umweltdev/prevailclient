@@ -389,12 +389,7 @@ const FinalSummary = ({
                   variant="outlined"
                   fullWidth
                   disabled
-                  onClick={() =>
-                    window.open(
-                      "https://calendly.com/your-consultation-link",
-                      "_blank"
-                    )
-                  }
+                  onClick={() => window.open("/booking", "_blank")}
                   sx={{
                     borderColor: "primary.main",
                     color: "primary.main",

@@ -217,7 +217,7 @@ const CheckoutStep = ({ formData, handleBack }) => {
                 )
               }
             >
-              Just Book a Consultation (€{CONSULTATION_FEE})
+              Book a Consultation (€{CONSULTATION_FEE})
             </Button>
           </Paper>
         </Grid>

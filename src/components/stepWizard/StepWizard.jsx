@@ -37,24 +37,8 @@ import {
   TrendingUp,
   Target,
 } from "lucide-react";
-import { loadStripe } from "@stripe/stripe-js";
 import { theme } from "./theme.js";
-import {
-  createCheckoutSession,
-  mapToApiServiceType,
-  generateTargetAudience,
-  generateCampaignDuration,
-} from "./api";
-
-const STRIPE_KEY = import.meta.env.VITE_STRIPE_PUBLIC_KEY || "";
-let stripePromise = null;
-if (STRIPE_KEY) {
-  stripePromise = loadStripe(STRIPE_KEY);
-} else {
-  console.warn(
-    "VITE_STRIPE_PUBLISHABLE_KEY not set. Checkout will be disabled until configured."
-  );
-}
+import { processMainCheckout, processConsultationCheckout } from "./utils.js";
 
 const betaDaysRemaining = 10;
 const ALL_TRINITY_OPTIONS = [
@@ -1138,7 +1122,6 @@ PlatformTier.propTypes = {
   prevStep: PropTypes.func.isRequired,
 };
 const MemoizedPlatformTier = React.memo(PlatformTier);
-
 const FinalSummary = ({
   trinitySelectionId,
   selectedTier,
@@ -1158,8 +1141,10 @@ const FinalSummary = ({
   selectedDashboards,
   setSelectedDashboards,
   prevStep,
-  handleCheckout,
+  handleMainCheckout,
   isProcessing,
+  isProcessingConsult,
+  handleConsultationCheckout,
   calculateRunningTotal,
 }) => {
   const trinitySelection = ALL_TRINITY_OPTIONS.find(
@@ -1339,8 +1324,8 @@ const FinalSummary = ({
                 <Button
                   variant="contained"
                   fullWidth
-                  onClick={handleCheckout}
-                  disabled={isProcessing || !name || !email}
+                  onClick={handleMainCheckout}
+                  disabled={isProcessing || !name || !email} // Correct - only checks its own state
                   startIcon={
                     isProcessing ? (
                       <CircularProgress size={20} color="inherit" />
@@ -1352,13 +1337,8 @@ const FinalSummary = ({
                 <Button
                   variant="outlined"
                   fullWidth
-                  disabled
-                  onClick={() =>
-                    window.open(
-                      "https://calendly.com/your-consultation-link",
-                      "_blank"
-                    )
-                  }
+                  onClick={handleConsultationCheckout}
+                  disabled={isProcessingConsult || !name || !email} // Correct - only checks its own state
                   sx={{
                     borderColor: "primary.main",
                     color: "primary.main",
@@ -1368,8 +1348,15 @@ const FinalSummary = ({
                       color: "white",
                     },
                   }}
+                  startIcon={
+                    isProcessingConsult ? (
+                      <CircularProgress size={20} color="inherit" />
+                    ) : null
+                  }
                 >
-                  Book a Consultation
+                  {isProcessingConsult
+                    ? "Processing..."
+                    : "Book a Consultation (€83)"}
                 </Button>
                 <Button
                   variant="outlined"
@@ -1394,6 +1381,8 @@ FinalSummary.propTypes = {
   selectedIndustry: PropTypes.string,
   solutionType: PropTypes.string,
   hasPhysicalStore: PropTypes.bool,
+  handleMainCheckout: PropTypes.func.isRequired,
+  handleConsultationCheckout: PropTypes.func.isRequired,
   name: PropTypes.string,
   setName: PropTypes.func,
   email: PropTypes.string,
@@ -1407,8 +1396,8 @@ FinalSummary.propTypes = {
   selectedDashboards: PropTypes.string,
   setSelectedDashboards: PropTypes.func,
   prevStep: PropTypes.func,
-  handleCheckout: PropTypes.func,
   isProcessing: PropTypes.bool,
+  isProcessingConsult: PropTypes.bool,
   calculateRunningTotal: PropTypes.func,
 };
 const MemoizedFinalSummary = React.memo(FinalSummary);
@@ -1425,6 +1414,7 @@ const StepWizard = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
+  const [isProcessingConsult, setIsProcessingConsult] = useState(false);
   const [additionalNotes, setAdditionalNotes] = useState("");
   const [keywords, setKeywords] = useState("");
   const [selectedSystems, setSelectedSystems] = useState("");
@@ -1583,46 +1573,35 @@ const StepWizard = () => {
     return { trinityRec, tierRec };
   }, [selectedGoals, selectedIndustry]);
 
-  const handleCheckout = useCallback(async () => {
-    if (!name || !email) {
-      showToastMessage("Error: Please enter your name and email to proceed.");
-      return;
-    }
+  const handleMainCheckout = useCallback(async () => {
     setIsProcessing(true);
-    try {
-      const total = calculateRunningTotal();
-      const isBundle =
-        solutionType === "both" &&
-        ALL_TRINITY_OPTIONS.find((opt) => opt.id === trinitySelectionId) &&
-        platformTiers.find((t) => t.id === selectedTier);
-      const finalPrice = isBundle ? Math.round(total * 0.9) : total;
 
-      const checkoutData = {
+    try {
+      await processMainCheckout({
         name,
         email,
-        serviceType: mapToApiServiceType(solutionType, trinitySelectionId),
-        price: finalPrice,
-        targetAudience: generateTargetAudience(selectedIndustry, selectedGoals),
-        campaignDuration: generateCampaignDuration(
-          solutionType,
-          trinitySelectionId
-        ),
-        notes:
-          `${additionalNotes || ""} | Systems: ${selectedSystems || "None"} | Dashboards: ${selectedDashboards || "None"} | Keywords: ${keywords || "None"} | Solution: ${solutionType} | Trinity: ${trinitySelectionId || "None"} | Tier: ${selectedTier || "None"} | Physical Store: ${hasPhysicalStore ? "Yes" : "No"}`.trim(),
-      };
-
-      const session = await createCheckoutSession(checkoutData);
-      const stripe = await stripePromise;
-      if (!stripe) throw new Error("Stripe.js has not loaded yet.");
-      const { error } = await stripe.redirectToCheckout({
-        sessionId: session.id,
+        solutionType,
+        trinitySelectionId,
+        selectedTier,
+        selectedIndustry,
+        selectedGoals,
+        hasPhysicalStore,
+        additionalNotes,
+        keywords,
+        selectedSystems,
+        selectedDashboards,
+        calculateRunningTotal,
+        onError: (errorMsg) => {
+          showToastMessage(`Error: ${errorMsg}`);
+        },
+        onSuccess: () => {
+          // Optional: could show success message or clean up state
+        },
       });
-      if (error) throw new Error(error.message);
     } catch (error) {
-      console.error("Checkout error:", error);
-      showToastMessage(`Error: ${error.message || "Unknown error occurred"}`);
+      showToastMessage(`Error: ${error.message || "Checkout failed"}`);
     } finally {
-      setIsProcessing(false);
+      setIsProcessing(false); // Always reset the loading state
     }
   }, [
     name,
@@ -1640,6 +1619,29 @@ const StepWizard = () => {
     calculateRunningTotal,
     showToastMessage,
   ]);
+
+  const handleConsultationCheckout = useCallback(async () => {
+    setIsProcessingConsult(true);
+
+    try {
+      await processConsultationCheckout({
+        name,
+        email,
+        onError: (errorMsg) => {
+          showToastMessage(`Error: ${errorMsg}`);
+        },
+        onSuccess: () => {
+          showToastMessage("Redirecting to consultation checkout...");
+        },
+      });
+    } catch (error) {
+      showToastMessage(
+        `Error: ${error.message || "Consultation checkout failed"}`
+      );
+    } finally {
+      setIsProcessingConsult(false); // Always reset the loading state
+    }
+  }, [name, email, showToastMessage]);
 
   const renderStepContent = () => {
     const steps = getSteps();
@@ -1674,7 +1676,9 @@ const StepWizard = () => {
       selectedDashboards,
       setSelectedDashboards,
       isProcessing,
-      handleCheckout,
+      isProcessingConsult,
+      handleCheckout: handleMainCheckout,
+      handleConsultationCheckout,
       calculateRunningTotal,
       nextStep,
       prevStep,

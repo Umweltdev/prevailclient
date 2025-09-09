@@ -72,7 +72,7 @@ const platformTiers = [
       "Letterhead design or invoice design",
       "Questionnaire submission",
       "Style scope",
-      "Dos and don’ts",
+      "Dos and don'ts",
       "Up to X3 marketing material",
       "X2 revision",
     ],
@@ -89,7 +89,7 @@ const platformTiers = [
       "Letterhead design or invoice design",
       "Questionnaire submission",
       "Style scope",
-      "Dos and don’ts",
+      "Dos and don'ts",
       "Up to X5 marketing material",
       "X4 revision (up to proposals)",
       "Brand personality overview",
@@ -227,7 +227,9 @@ const FinalSummary = ({
   setSelectedDashboards,
   prevStep,
   handleCheckout,
+  handleConsultationCheckout,
   isProcessing,
+  isProcessingConsult,
 }) => {
   const tierSelection = platformTiers.find((t) => t.id === selectedTier);
 
@@ -375,22 +377,35 @@ const FinalSummary = ({
                   {isProcessing
                     ? "Processing..."
                     : stripeConfigured
-                      ? "Proceed to Checkout"
-                      : "Checkout Disabled"}
+                    ? "Proceed to Checkout"
+                    : "Checkout Disabled"}
                 </Button>
 
                 <Button
                   variant="outlined"
                   fullWidth
-                  disabled={!tierSelection}
-                  onClick={() =>
-                    window.open(
-                      "https://calendly.com/your-consultation-link",
-                      "_blank"
-                    )
+                  onClick={handleConsultationCheckout}
+                  disabled={isProcessingConsult || !name || !email || !stripeConfigured}
+                  sx={{
+                    borderColor: "primary.main",
+                    color: "primary.main",
+                    "&:hover": {
+                      borderColor: "primary.dark",
+                      backgroundColor: "primary.main",
+                      color: "white",
+                    },
+                  }}
+                  startIcon={
+                    isProcessingConsult ? (
+                      <CircularProgress size={20} color="inherit" />
+                    ) : null
                   }
                 >
-                  Book a Consultation
+                  {isProcessingConsult
+                    ? "Processing..."
+                    : stripeConfigured
+                    ? "Book a Consultation (€83)"
+                    : "Consultation Disabled"}
                 </Button>
 
                 <Button
@@ -426,7 +441,9 @@ FinalSummary.propTypes = {
   setSelectedDashboards: PropTypes.func.isRequired,
   prevStep: PropTypes.func.isRequired,
   handleCheckout: PropTypes.func.isRequired,
+  handleConsultationCheckout: PropTypes.func.isRequired,
   isProcessing: PropTypes.bool,
+  isProcessingConsult: PropTypes.bool,
 };
 
 const StepWizard = () => {
@@ -441,6 +458,7 @@ const StepWizard = () => {
   const [selectedTier, setSelectedTier] = useState(null);
   const [selectedDashboards, setSelectedDashboards] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
+  const [isProcessingConsult, setIsProcessingConsult] = useState(false);
 
   const wizardRef = useRef(null);
 
@@ -500,9 +518,13 @@ const StepWizard = () => {
         email,
         price: finalPrice,
         serviceType: tierSelection.id,
-        notes:
-          `${additionalNotes || ""} | Systems: ${selectedSystems || "None"} | Dashboards: ${selectedDashboards || "None"} | Keywords: ${keywords || "None"}`.trim(),
+        notes: `${additionalNotes || ""} | Systems: ${
+          selectedSystems || "None"
+        } | Dashboards: ${selectedDashboards || "None"} | Keywords: ${
+          keywords || "None"
+        }`.trim(),
       };
+      
 
       const session = await createCheckoutSession(checkoutData);
       const stripe = await stripePromise;
@@ -522,6 +544,55 @@ const StepWizard = () => {
     name,
     email,
     tierSelection,
+    additionalNotes,
+    keywords,
+    selectedSystems,
+    selectedDashboards,
+  ]);
+
+  const handleConsultationCheckout = useCallback(async () => {
+    if (!name || !email) {
+      showToastMessage("Error: Please enter your name and email to proceed.");
+      return;
+    }
+
+    if (!stripeConfigured) {
+      showToastMessage("Error: Stripe is not configured.");
+      return;
+    }
+
+    setIsProcessingConsult(true);
+    try {
+      const consultationPrice = 83;
+      const checkoutData = {
+        name,
+        email,
+        price: consultationPrice,
+        serviceType: "Consultation",
+        notes: `Consultation booking | ${additionalNotes || ""} | Systems: ${
+          selectedSystems || "None"
+        } | Dashboards: ${selectedDashboards || "None"} | Keywords: ${
+          keywords || "None"
+        }`.trim(),
+      };
+
+      const session = await createCheckoutSession(checkoutData);
+      const stripe = await stripePromise;
+      if (!stripe) throw new Error("Stripe.js has not loaded yet.");
+
+      const { error } = await stripe.redirectToCheckout({
+        sessionId: session.id,
+      });
+      if (error) throw new Error(error.message);
+    } catch (error) {
+      console.error("Consultation checkout error:", error);
+      showToastMessage(`Error: ${error.message || "Unknown error occurred"}`);
+    } finally {
+      setIsProcessingConsult(false);
+    }
+  }, [
+    name,
+    email,
     additionalNotes,
     keywords,
     selectedSystems,
@@ -548,7 +619,9 @@ const StepWizard = () => {
             setSelectedDashboards,
             prevStep,
             handleCheckout,
+            handleConsultationCheckout,
             isProcessing,
+            isProcessingConsult,
           }}
         />
       );
@@ -568,7 +641,7 @@ const StepWizard = () => {
         <Container maxWidth="xl" sx={{ py: { xs: 6, md: 8 } }} ref={wizardRef}>
           <Box textAlign="center" mb={{ xs: 6, md: 8 }}>
             <Typography variant="h1" gutterBottom>
-              Your Partner in Accelerating the 
+              Your Partner in Accelerating the
               <Box component="span" sx={gradientText}>
                 Digital Space
               </Box>
