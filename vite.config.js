@@ -4,7 +4,6 @@ import svgr from "vite-plugin-svgr";
 import pluginRewriteAll from "vite-plugin-rewrite-all";
 import tailwindcss from '@tailwindcss/vite'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), svgr(), pluginRewriteAll(), tailwindcss(),],
   resolve: {
@@ -16,7 +15,4 @@ export default defineConfig({
   optimizeDeps: {
     include: ["@mui/material/Tooltip", "@emotion/styled"],
   },
-  // server: {
-  //   host: '105.113.106.42'
-  // }
 });
