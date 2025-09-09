@@ -2,3 +2,6 @@
   from = "/*"
   to = "/"
   status = 200
+
+  [build.environment]
+SECRETS_SCAN_OMIT_KEYS = "VITE_API_BASE_URL,VITE_API_MEETING_SLOTS,VITE_API_BOOK_MEETING"
