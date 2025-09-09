@@ -1,8 +1,11 @@
 import { Box, Typography } from "@mui/material";
 import Button from "./Button.js";
 import { FloatingBadge, VectorMap } from "./FloatingShapes.js";
+import { useNavigate } from "react-router-dom";
 
 export default function Hero() {
+    const navigate = useNavigate();
+
   return (
     <section className="relative pt-40 pb-20 px-6">
       <div className="mx-auto max-w-7xl">
@@ -78,9 +81,20 @@ export default function Hero() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button size="lg">See Your Loyalty Map</Button>
-              <Button variant="secondary" size="lg">
-                Calculate ROI
+              <Button
+                onClick={() => navigate("/trinity/plus#wizard")}
+                size="lg"
+              >
+                {/* See Your Loyalty Map */}
+                Get Beta Bundle
+              </Button>
+              <Button
+                onClick={() => navigate("/trinity/plus#wizard")}
+                variant="secondary"
+                size="lg"
+              >
+                {/* Calculate ROI */}
+                Book a Consultation
               </Button>
             </div>
 

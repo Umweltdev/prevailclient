@@ -16,7 +16,7 @@ function Pricing() {
         <div className="grid md:grid-cols-3 gap-8">
           <PricingCard
             name="Beta"
-            price="€696"
+            price="€230"
             description="Perfect for small businesses"
             features={[
               "Up to $10,000 monthly ad spend",
@@ -31,7 +31,7 @@ function Pricing() {
           />
           <PricingCard
             name="Early"
-            price="€1,737"
+            price="€576"
             description="For large organizations"
             features={[
               "Unlimited ad spend",
@@ -48,7 +48,7 @@ function Pricing() {
           />
           <PricingCard
             name="Standard"
-            price="€5,217"
+            price="€1,729"
             description="For growing businesses"
             features={[
               "Up to $50,000 monthly ad spend",

@@ -31,7 +31,7 @@ function Pricing() {
             <h3 className="text-2xl font-bold text-white mb-2">Beta</h3>
             <p className="text-gray-400 mb-6">For small businesses</p>
             <div className="text-4xl font-bold text-white mb-6">
-              €696<span className="text-lg text-gray-400"></span>
+              €230<span className="text-lg text-gray-400"></span>
             </div>
             <ul className="space-y-3 mb-8">
               <li className="flex items-center gap-2 text-gray-300">
@@ -59,7 +59,7 @@ function Pricing() {
             <h3 className="text-2xl font-bold text-white mb-2">Standard</h3>
             <p className="text-gray-300 mb-6">For growing companies</p>
             <div className="text-4xl font-bold text-white mb-6">
-              €5,217<span className="text-lg text-gray-300"></span>
+              €576<span className="text-lg text-gray-300"></span>
             </div>
             <ul className="space-y-3 mb-8">
               <li className="flex items-center gap-2 text-white">
@@ -90,7 +90,7 @@ function Pricing() {
           <div className="bg-slate-900 rounded-2xl p-8 border border-gray-700">
             <h3 className="text-2xl font-bold text-white mb-2">Early</h3>
             <p className="text-gray-400 mb-6">Early</p>
-            <div className="text-4xl font-bold text-white mb-6">€1,737</div>
+            <div className="text-4xl font-bold text-white mb-6">€1,729 </div>
             <ul className="space-y-3 mb-8">
               <li className="flex items-center gap-2 text-gray-300">
                 <CheckCircle size={20} className="text-green-400" />

@@ -4,7 +4,7 @@ import { Check } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const PricingSection = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <section className="py-24 px-6 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-indigo-50">
       {/* Background Effects */}
@@ -53,7 +53,7 @@ const PricingSection = () => {
               <div className="mb-8">
                 <div className="flex items-baseline justify-center mb-2">
                   <span className="text-5xl font-black bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] bg-clip-text text-transparent">
-                    €696
+                    €230
                   </span>
                 </div>
                 <p className="text-gray-700 text-center font-medium">
@@ -110,7 +110,7 @@ const PricingSection = () => {
               <div className="mb-8">
                 <div className="flex items-baseline justify-center mb-2">
                   <span className="text-5xl font-black bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] bg-clip-text text-transparent">
-                    €1,737
+                    €576
                   </span>
                 </div>
                 <p className="text-gray-700 text-center font-medium">
@@ -167,7 +167,7 @@ const PricingSection = () => {
               <div className="mb-8">
                 <div className="flex items-baseline justify-center mb-2">
                   <span className="text-5xl font-black bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] bg-clip-text text-transparent">
-                    €5,217
+                    €1,729
                   </span>
                 </div>
                 <p className="text-gray-700 text-center font-medium">
@@ -213,7 +213,7 @@ const PricingSection = () => {
         {/* Pricing Cards store front*/}
         <div className="my-12">
           <h2 className="text-center text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-gray-600 to-gray-400 bg-clip-text text-transparent">
-            Store Front Option
+            Store Front Option + E-Commerce
           </h2>
         </div>
         <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -232,7 +232,7 @@ const PricingSection = () => {
               <div className="mb-8">
                 <div className="flex items-baseline justify-center mb-2">
                   <span className="text-5xl font-black bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] bg-clip-text text-transparent">
-                    €1,160
+                    €2,074
                   </span>
                 </div>
                 <p className="text-gray-700 text-center font-medium">
@@ -296,7 +296,7 @@ const PricingSection = () => {
               <div className="mb-8">
                 <div className="flex items-baseline justify-center mb-2">
                   <span className="text-5xl font-black bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] bg-clip-text text-transparent">
-                    €2,895
+                    €2,420
                   </span>
                 </div>
                 <p className="text-gray-700 text-center font-medium">
@@ -353,7 +353,7 @@ const PricingSection = () => {
               <div className="mb-8">
                 <div className="flex items-baseline justify-center mb-2">
                   <span className="text-5xl font-black bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] bg-clip-text text-transparent">
-                    €8,695
+                    €3,573
                   </span>
                 </div>
                 <p className="text-gray-700 text-center font-medium">
