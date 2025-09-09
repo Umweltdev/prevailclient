@@ -193,17 +193,23 @@ export default function HeroSection() {
             >
               <div className="tier-badge">ACTIVE NOW</div>
               <div className="tier-name">Beta Access</div>
-              <div className="tier-price"> €696</div>
+              <div className="tier-price"> €690</div>
               <div className="tier-duration">Per system • 10 days left</div>
             </div>
-            <div className="tier-card" onClick={() => handleScroll()}>
+            <div
+              className="tier-card"
+              style={{ cursor: "not-allowed", pointerEvents: "none" }}
+            >
               <div className="tier-name">Early Adopter</div>
-              <div className="tier-price"> €1737</div>
+              <div className="tier-price"> €1728</div>
               <div className="tier-duration">Per system • Next 3 months</div>
             </div>
-            <div className="tier-card" onClick={() => handleScroll()}>
+            <div
+              className="tier-card"
+              style={{ cursor: "not-allowed", pointerEvents: "none" }}
+            >
               <div className="tier-name">Standard</div>
-              <div className="tier-price">€5217</div>
+              <div className="tier-price">€5187</div>
               <div className="tier-duration">Per system • After 3 months</div>
             </div>
           </div>
@@ -216,7 +222,7 @@ export default function HeroSection() {
             onClick={() => navigate("/trinity/plus#wizard")}
             style={{ animation: "pulse 2s infinite" }}
           >
-            Get All 3 Trinity Core - €7,500 (Beta)
+            Get All 3 Trinity Core - €690 (Beta)
           </button>
           <button className="btn btn-secondary" onClick={() => handleScroll()}>
             Explore Individual Systems

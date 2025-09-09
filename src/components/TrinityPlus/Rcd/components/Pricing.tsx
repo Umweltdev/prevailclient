@@ -16,7 +16,7 @@ function PricingCard({
   features: string[];
   featured?: boolean;
 }) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <GlassCard
       className={`relative p-10 text-center ${
@@ -38,9 +38,7 @@ function PricingCard({
         <span className="text-6xl font-black bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
           {price}
         </span>
-        {price !== "Custom" && (
-          <span className="text-slate-500 text-lg">/mo</span>
-        )}
+        {price !== "Custom" && <span className="text-slate-500 text-lg"></span>}
       </div>
       <ul className="mb-10 space-y-4 text-left">
         {features.map((f, i) => (
@@ -51,13 +49,12 @@ function PricingCard({
         ))}
       </ul>
       <Button
-        disabled={name !== 'Beta'}
-        onClick={()=> navigate('/trinity/plus#wizard')}
+        onClick={() => navigate("/trinity/plus#wizard")}
         variant={featured ? "primary" : "secondary"}
         size="lg"
         className="w-full"
       >
-        Book a Consultation
+        {name === "Beta" ? "Get Bundle" : "Book a Consultation"}
       </Button>
     </GlassCard>
   );
@@ -67,7 +64,7 @@ export default function Pricing() {
   const plans = [
     {
       name: "Beta",
-      price: "€696",
+      price: "€230",
       desc: "Test the Waters",
       features: [
         "Up to 1,000 customers",
@@ -79,7 +76,7 @@ export default function Pricing() {
     },
     {
       name: "Standard",
-      price: "€5,217",
+      price: "€576",
       desc: "Full Power",
       features: [
         "Up to 10,000 customers",
@@ -93,7 +90,7 @@ export default function Pricing() {
     },
     {
       name: "Early",
-      price: "€1,737",
+      price: "€1,729",
       desc: "Unlimited Scale",
       features: [
         "Unlimited customers",

@@ -3,7 +3,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 function Cta({ visibleSections }) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <section className="py-20 px-6">
       <div
@@ -22,11 +22,17 @@ function Cta({ visibleSections }) {
             businesses already transforming marketing spend into profit margin.
           </p>
           <div className="flex flex-col md:flex-row gap-4 justify-center mb-8">
-            <button onClick={()=> navigate('/trinity/plus#wizard')} className="px-8 py-4 bg-white text-blue-600 rounded-full font-semibold text-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
+            <button
+              onClick={() => navigate("/trinity/plus#wizard")}
+              className="px-8 py-4 bg-white text-blue-600 rounded-full font-semibold text-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
+            >
               Get Beta Bundle
             </button>
-            <button className="px-8 py-4 border-2 border-white rounded-full font-semibold text-lg hover:bg-white hover:text-blue-600 transition-all duration-300">
-              Schedule a Demo
+            <button
+              onClick={() => navigate("/trinity/plus#wizard")}
+              className="px-8 py-4 border-2 border-white rounded-full font-semibold text-lg hover:bg-white hover:text-blue-600 transition-all duration-300"
+            >
+              Book Consolation
             </button>
           </div>
           <div className="flex flex-col md:flex-row gap-6 justify-center text-white/90">

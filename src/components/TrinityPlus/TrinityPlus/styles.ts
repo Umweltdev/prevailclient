@@ -1909,7 +1909,6 @@ h2 {
   /* margin-top: 3rem; */
   position: relative;
   /* z-index: 2; */
-  padding-bottom: 85px;
 }
 
 .stat-card {
