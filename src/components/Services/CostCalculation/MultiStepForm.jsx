@@ -34,6 +34,7 @@ import {
   Grow,
   Zoom,
   Stack,
+  Collapse,
 } from "@mui/material";
 import {
   ChevronRight,
@@ -50,6 +51,8 @@ import {
   LocateOff as LocalOffer,
   Bus as Business,
   Ruler as Schedule,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 
 import {
@@ -1361,7 +1364,341 @@ CampaignPackageSelection.propTypes = {
   totalServices: PropTypes.number,
 };
 
-// Enhanced Trinity Package Selection
+// Mobile-optimized Trinity Package Card Component
+const TrinityPackageCard = ({ option, selected, onClick }) => {
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <SelectableCard
+      selected={selected}
+      onClick={onClick}
+      sx={{ 
+        height: "100%",
+        // Better mobile responsiveness
+        '& .MuiCardContent-root': {
+          px: { xs: 2, sm: 3 },
+          py: { xs: 2, sm: 3 }
+        }
+      }}
+    >
+      <Stack spacing={2} height="100%">
+        {/* Header with badges */}
+        <Stack 
+          direction="row" 
+          spacing={1} 
+          flexWrap="wrap" 
+          useFlexGap
+          mb={1}
+          sx={{
+            '& .MuiChip-root': {
+              fontSize: { xs: '0.7rem', sm: '0.75rem' }
+            }
+          }}
+        >
+          {option.baseRecommended && (
+            <Chip
+              label="Recommended"
+              size="small"
+              sx={{
+                bgcolor: "info.main",
+                color: "white",
+                fontWeight: 600,
+              }}
+            />
+          )}
+          {option.bestValue && (
+            <Chip
+              label="Best Value"
+              size="small"
+              color="success"
+              variant="filled"
+              sx={{ fontWeight: 600 }}
+            />
+          )}
+          <Chip
+            label={`Save ${option.savings}%`}
+            size="small"
+            sx={{
+              bgcolor: "error.light",
+              color: "error.contrastText",
+              fontWeight: 600,
+            }}
+          />
+        </Stack>
+
+        {/* Main content */}
+        <Stack 
+          direction={{ xs: "column", sm: "row" }} 
+          spacing={2}
+          alignItems={{ xs: "flex-start", sm: "flex-start" }}
+        >
+          {/* Icon */}
+          <Box flexShrink={0}>
+            <Typography 
+              variant="h3" 
+              sx={{ 
+                fontSize: { xs: "2rem", sm: "2.5rem" },
+                textAlign: { xs: "center", sm: "left" },
+                width: { xs: "100%", sm: "auto" }
+              }}
+            >
+              {option.icon}
+            </Typography>
+          </Box>
+
+          {/* Content */}
+          <Stack spacing={1} flex={1} minWidth={0}>
+            {/* Title and Price row */}
+            <Stack 
+              direction={{ xs: "column", sm: "row" }}
+              justifyContent="space-between"
+              alignItems={{ xs: "flex-start", sm: "flex-start" }}
+              spacing={1}
+            >
+              <Box flex={1} minWidth={0}>
+                <Typography
+                  variant="h6"
+                  component="h3"
+                  fontWeight={700}
+                  gutterBottom
+                  sx={{
+                    fontSize: { xs: '1.1rem', sm: '1.25rem' },
+                    lineHeight: 1.2,
+                    // Prevent text overflow
+                    wordBreak: 'break-word',
+                    hyphens: 'auto'
+                  }}
+                >
+                  {option.name}
+                </Typography>
+              </Box>
+              <Box 
+                textAlign={{ xs: "left", sm: "right" }} 
+                flexShrink={0}
+                width={{ xs: "100%", sm: "auto" }}
+              >
+                <Typography
+                  variant="h5"
+                  sx={{
+                    color: "error.main",
+                    fontWeight: 800,
+                    mb: 0.5,
+                    fontSize: { xs: '1.5rem', sm: '1.875rem' }
+                  }}
+                >
+                  €{option.betaPrice.toLocaleString()}
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    textDecoration: "line-through",
+                    color: "text.disabled",
+                    fontWeight: 600,
+                  }}
+                >
+                  €{option.standardPrice.toLocaleString()}
+                </Typography>
+              </Box>
+            </Stack>
+
+            {/* Description */}
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              sx={{ 
+                lineHeight: 1.5,
+                mb: 1,
+                // Better text wrapping on mobile
+                wordBreak: 'break-word',
+                hyphens: 'auto'
+              }}
+            >
+              {option.description}
+            </Typography>
+
+            {/* Benefits chips - mobile optimized */}
+            {option.benefits && (
+              <Stack
+                direction="row"
+                spacing={0.5}
+                flexWrap="wrap"
+                useFlexGap
+                mb={1}
+              >
+                {option.benefits.map((benefit) => (
+                  <Chip
+                    key={benefit}
+                    label={benefit}
+                    size="small"
+                    sx={{
+                      bgcolor: "primary.light",
+                      color: "primary.contrastText",
+                      fontSize: { xs: "0.65rem", sm: "0.75rem" },
+                      height: { xs: 20, sm: 24 }
+                    }}
+                  />
+                ))}
+              </Stack>
+            )}
+
+            {/* Package includes - mobile optimized */}
+            {option.includes && (
+              <Box mb={1}>
+                <Typography
+                  variant="subtitle2"
+                  gutterBottom
+                  fontWeight={600}
+                  sx={{ fontSize: { xs: '0.8rem', sm: '0.875rem' } }}
+                >
+                  Includes:
+                </Typography>
+                <Stack
+                  direction="row"
+                  spacing={0.5}
+                  flexWrap="wrap"
+                  useFlexGap
+                >
+                  {option.includes.slice(0, expanded ? option.includes.length : 3).map((item) => (
+                    <Chip
+                      key={item}
+                      label={item}
+                      size="small"
+                      sx={{
+                        bgcolor: "grey.100",
+                        fontSize: { xs: "0.65rem", sm: "0.75rem" },
+                        height: { xs: 20, sm: 24 }
+                      }}
+                    />
+                  ))}
+                  {option.includes.length > 3 && !expanded && (
+                    <Button
+                      size="small"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setExpanded(true);
+                      }}
+                      sx={{ 
+                        minWidth: "auto", 
+                        p: 0.5,
+                        fontSize: { xs: "0.65rem", sm: "0.75rem" }
+                      }}
+                    >
+                      +{option.includes.length - 3} more
+                    </Button>
+                  )}
+                </Stack>
+              </Box>
+            )}
+
+            {/* Features list - collapsible on mobile */}
+            {option.features && (
+              <Box>
+                <Button
+                  size="small"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setExpanded(!expanded);
+                  }}
+                  endIcon={expanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                  sx={{ 
+                    mb: 1, 
+                    p: 0, 
+                    justifyContent: "flex-start",
+                    fontSize: { xs: "0.75rem", sm: "0.875rem" }
+                  }}
+                >
+                  {expanded ? "Hide" : "Show"} Features ({option.features.length})
+                </Button>
+                
+                <Collapse in={expanded}>
+                  <List 
+                    dense 
+                    sx={{ 
+                      py: 0,
+                      maxHeight: { xs: 200, sm: "none" },
+                      overflowY: { xs: "auto", sm: "visible" }
+                    }}
+                  >
+                    {option.features.map((feature, idx) => (
+                      <ListItem
+                        key={idx}
+                        disableGutters
+                        sx={{ 
+                          py: 0.25,
+                          px: 0
+                        }}
+                      >
+                        <ListItemIcon sx={{ minWidth: 20 }}>
+                          <Check
+                            size={12}
+                            color={theme.palette.success.main}
+                          />
+                        </ListItemIcon>
+                        <ListItemText
+                          primary={feature}
+                          primaryTypographyProps={{
+                            variant: "body2",
+                            sx: { 
+                              lineHeight: 1.4,
+                              fontSize: { xs: '0.75rem', sm: '0.875rem' }
+                            },
+                          }}
+                        />
+                      </ListItem>
+                    ))}
+                  </List>
+                </Collapse>
+              </Box>
+            )}
+
+            {/* Savings info */}
+            {option.savings && (
+              <Typography
+                variant="body2"
+                sx={{
+                  color: "success.main",
+                  fontWeight: 600,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 0.5,
+                  fontSize: { xs: '0.75rem', sm: '0.875rem' }
+                }}
+              >
+                <LocalOffer size={14} />
+                Save €{option.savings.toLocaleString()} vs individual
+              </Typography>
+            )}
+
+            {/* Warning note */}
+            {option.note && (
+              <Alert
+                severity="warning"
+                sx={{
+                  mt: 1,
+                  borderRadius: 2,
+                  fontSize: { xs: "0.75rem", sm: "0.875rem" },
+                  '& .MuiAlert-message': {
+                    py: 0
+                  }
+                }}
+              >
+                {option.note}
+              </Alert>
+            )}
+          </Stack>
+        </Stack>
+      </Stack>
+    </SelectableCard>
+  );
+};
+
+TrinityPackageCard.propTypes = {
+  option: PropTypes.object.isRequired,
+  selected: PropTypes.bool,
+  onClick: PropTypes.func,
+};
+
+// Enhanced Trinity Package Selection with mobile optimization
 const TrinityPackageSelection = ({
   selectedTrinity,
   setSelectedTrinity,
@@ -1372,7 +1709,7 @@ const TrinityPackageSelection = ({
   isPartOfPlatform = false,
 }) => (
   <Fade in timeout={500}>
-    <Box>
+    <Box sx={{ px: { xs: 1, sm: 0 } }}>
       <Stack spacing={3} alignItems="center" textAlign="center" mb={6}>
         <Chip
           label={
@@ -1420,242 +1757,42 @@ const TrinityPackageSelection = ({
         />
       </Stack>
 
-      <Grid container spacing={4} sx={{ mb: 6 }}>
+      <Grid container spacing={{ xs: 2, sm: 3, md: 4 }} sx={{ mb: 6 }}>
         {TRINITY_OPTIONS.map((option, index) => (
           <Grid
             item
             xs={12}
-            lg={option.type === "package" ? 12 : 6}
+            md={option.type === "package" ? 12 : 6}
             key={option.id}
           >
             <Grow in timeout={300 + index * 100}>
               <div>
-                <SelectableCard
+                <TrinityPackageCard
+                  option={option}
                   selected={selectedTrinity === option.id}
                   onClick={() => setSelectedTrinity(option.id)}
-                  sx={{ height: "100%" }}
-                >
-                  <Stack spacing={2} height="100%">
-                    {/* Header with badges */}
-                    <Box
-                      sx={{ display: "flex", gap: 1, flexWrap: "wrap", mb: 1 }}
-                    >
-                      {option.baseRecommended && (
-                        <Chip
-                          label="Recommended"
-                          size="small"
-                          sx={{
-                            bgcolor: "info.main",
-                            color: "white",
-                            fontWeight: 600,
-                          }}
-                        />
-                      )}
-                      {option.bestValue && (
-                        <Chip
-                          label="Best Value"
-                          size="small"
-                          color="success"
-                          variant="filled"
-                          sx={{ fontWeight: 600 }}
-                        />
-                      )}
-                      <Chip
-                        label={`Save ${option.savings}%`}
-                        size="small"
-                        sx={{
-                          bgcolor: "error.light",
-                          color: "error.contrastText",
-                          fontWeight: 600,
-                        }}
-                      />
-                    </Box>
-
-                    {/* Content */}
-                    <Grid container spacing={2}>
-                      <Grid item xs={2} sm={1}>
-                        <Typography variant="h3" sx={{ fontSize: "2.5rem" }}>
-                          {option.icon}
-                        </Typography>
-                      </Grid>
-                      <Grid item xs={10} sm={11}>
-                        <Box
-                          display="flex"
-                          justifyContent="space-between"
-                          alignItems="flex-start"
-                          flexWrap="wrap"
-                          mb={2}
-                        >
-                          <Box flexGrow={1} mr={2}>
-                            <Typography
-                              variant="h5"
-                              component="h3"
-                              fontWeight={700}
-                              gutterBottom
-                            >
-                              {option.name}
-                            </Typography>
-                            <Typography
-                              variant="body1"
-                              color="text.secondary"
-                              sx={{ lineHeight: 1.6, mb: 2 }}
-                            >
-                              {option.description}
-                            </Typography>
-                          </Box>
-                          <Box textAlign="right" minWidth={140}>
-                            <Typography
-                              variant="h4"
-                              sx={{
-                                color: "error.main",
-                                fontWeight: 800,
-                                mb: 0.5,
-                              }}
-                            >
-                              €{option.betaPrice.toLocaleString()}
-                            </Typography>
-                            <Typography
-                              variant="body2"
-                              sx={{
-                                textDecoration: "line-through",
-                                color: "text.disabled",
-                                fontWeight: 600,
-                              }}
-                            >
-                              €{option.standardPrice.toLocaleString()}
-                            </Typography>
-                          </Box>
-                        </Box>
-
-                        {/* Benefits chips */}
-                        {option.benefits && (
-                          <Stack
-                            direction="row"
-                            spacing={1}
-                            flexWrap="wrap"
-                            useFlexGap
-                            mb={2}
-                          >
-                            {option.benefits.map((benefit) => (
-                              <Chip
-                                key={benefit}
-                                label={benefit}
-                                size="small"
-                                sx={{
-                                  bgcolor: "primary.light",
-                                  color: "primary.contrastText",
-                                  fontSize: "0.75rem",
-                                }}
-                              />
-                            ))}
-                          </Stack>
-                        )}
-
-                        {/* Features list */}
-                        {option.features && (
-                          <List dense sx={{ py: 0, mb: 2 }}>
-                            {option.features.map((feature, idx) => (
-                              <ListItem
-                                key={idx}
-                                disableGutters
-                                sx={{ py: 0.25 }}
-                              >
-                                <ListItemIcon sx={{ minWidth: 24 }}>
-                                  <Check
-                                    size={14}
-                                    color={theme.palette.success.main}
-                                  />
-                                </ListItemIcon>
-                                <ListItemText
-                                  primary={feature}
-                                  primaryTypographyProps={{
-                                    variant: "body2",
-                                    sx: { lineHeight: 1.5 },
-                                  }}
-                                />
-                              </ListItem>
-                            ))}
-                          </List>
-                        )}
-
-                        {/* Package includes */}
-                        {option.includes && (
-                          <Box mb={2}>
-                            <Typography
-                              variant="subtitle2"
-                              gutterBottom
-                              fontWeight={600}
-                            >
-                              Includes:
-                            </Typography>
-                            <Stack
-                              direction="row"
-                              spacing={0.5}
-                              flexWrap="wrap"
-                              useFlexGap
-                              mb={2}
-                            >
-                              {option.includes.map((item) => (
-                                <Chip
-                                  key={item}
-                                  label={item}
-                                  size="small"
-                                  sx={{
-                                    bgcolor: "grey.100",
-                                    fontSize: "0.75rem",
-                                  }}
-                                />
-                              ))}
-                            </Stack>
-                            {option.savings && (
-                              <Typography
-                                variant="subtitle1"
-                                sx={{
-                                  color: "success.main",
-                                  fontWeight: 700,
-                                  display: "flex",
-                                  alignItems: "center",
-                                  gap: 1,
-                                }}
-                              >
-                                <LocalOffer size={16} />
-                                Save €{option.savings.toLocaleString()} vs
-                                individual pricing
-                              </Typography>
-                            )}
-                          </Box>
-                        )}
-
-                        {/* Warning note */}
-                        {option.note && (
-                          <Alert
-                            severity="warning"
-                            sx={{
-                              mt: 2,
-                              borderRadius: 2,
-                              fontSize: "0.875rem",
-                            }}
-                          >
-                            {option.note}
-                          </Alert>
-                        )}
-                      </Grid>
-                    </Grid>
-                  </Stack>
-                </SelectableCard>
+                />
               </div>
             </Grow>
           </Grid>
         ))}
       </Grid>
 
-      <Stack direction="row" spacing={2} justifyContent="center">
+      <Stack 
+        direction={{ xs: "column", sm: "row" }} 
+        spacing={2} 
+        justifyContent="center"
+        alignItems="center"
+      >
         <Button
           variant="outlined"
           size="large"
           onClick={prevStep}
           startIcon={<ChevronLeft size={20} />}
-          sx={{ minWidth: 120 }}
+          sx={{ 
+            minWidth: { xs: "100%", sm: 120 },
+            maxWidth: { xs: 300, sm: "none" }
+          }}
         >
           Back
         </Button>
@@ -1665,7 +1802,10 @@ const TrinityPackageSelection = ({
           onClick={nextStep}
           disabled={!selectedTrinity}
           endIcon={<ChevronRight size={20} />}
-          sx={{ minWidth: 160 }}
+          sx={{ 
+            minWidth: { xs: "100%", sm: 160 },
+            maxWidth: { xs: 300, sm: "none" }
+          }}
         >
           Continue
         </Button>
@@ -2388,6 +2528,7 @@ const FinalSummary = ({
                           "linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%)",
                         transform: "translateY(-1px)",
                         boxShadow: "0 8px 25px rgba(99, 102, 241, 0.4)",
+                        color: "#FFFFFF"
                       },
                     }}
                   >
