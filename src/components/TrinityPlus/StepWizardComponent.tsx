@@ -841,7 +841,15 @@ const FinalSummary = ({
               </Box>
               <Box mt={3} display="flex" flexDirection="column" gap={2}>
                 <Button
-                  variant="contained"
+                  sx={{
+                    borderColor: "#3B82F6",
+                    color: "#3B82F6",
+                    "&:hover": {
+                      borderColor: "#2563EB",
+                      backgroundColor: "rgba(59, 130, 246, 0.04)",
+                    },
+                  }}
+                  variant="outlined"
                   fullWidth
                   onClick={handleCheckout}
                   disabled={
@@ -862,7 +870,7 @@ const FinalSummary = ({
                 </Button>
 
                 <Button
-                  variant="outlined"
+                  variant="contained"
                   fullWidth
                   onClick={handleConsultationCheckout}
                   disabled={
@@ -876,14 +884,6 @@ const FinalSummary = ({
                       <CircularProgress size={20} color="inherit" />
                     ) : null
                   }
-                  sx={{
-                    borderColor: "#3B82F6",
-                    color: "#3B82F6",
-                    "&:hover": {
-                      borderColor: "#2563EB",
-                      backgroundColor: "rgba(59, 130, 246, 0.04)",
-                    },
-                  }}
                 >
                   {isConsultationProcessing
                     ? "Processing..."
