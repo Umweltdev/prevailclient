@@ -2181,6 +2181,7 @@ const FinalSummary = ({
   setSelectedDashboards,
   prevStep,
   handleCheckout,
+  handleConsultationCheckout,
   isProcessing,
   isProcessingConsult,
   calculateTotal,
@@ -2601,6 +2602,7 @@ FinalSummary.propTypes = {
   setSelectedDashboards: PropTypes.func.isRequired,
   prevStep: PropTypes.func.isRequired,
   handleCheckout: PropTypes.func.isRequired,
+  handleConsultationCheckout: PropTypes.func.isRequired,
   isProcessing: PropTypes.bool.isRequired,
   isProcessingConsult: PropTypes.bool.isRequired,
   calculateTotal: PropTypes.func.isRequired,
@@ -2846,6 +2848,74 @@ const MultiStepForm = () => {
     showToastMessage,
   ]);
 
+  const handleConsultationCheckout = useCallback(async () => {
+    if (!name || !email) {
+      showToastMessage("Error: Please enter your name and email to proceed.");
+      return;
+    }
+
+    setIsProcessingConsult(true);
+
+    try {
+      // Prepare consultation checkout data for API
+      const consultationData = {
+        name,
+        email,
+        serviceType: "consultation",
+        price: 83,
+        targetAudience: generateTargetAudience(
+          selectedIndustry,
+          selectedServices
+        ),
+        campaignDuration: "consultation",
+        notes: `CONSULTATION REQUEST | Services of Interest: ${
+          selectedServices.join(", ") || "None specified"
+        } | Industry: ${
+          selectedIndustry || "None specified"
+        } | Additional Notes: ${additionalNotes || "None"} | Systems: ${
+          selectedSystems || "None"
+        } | Dashboards: ${selectedDashboards || "None"} | Keywords: ${
+          keywords || "None"
+        } | Physical Store: ${hasPhysicalStore ? "Yes" : "No"}`.trim(),
+      };
+
+      // Create consultation checkout session
+      const session = await createCheckoutSession(consultationData);
+
+      // Redirect to Stripe Checkout
+      const stripe = await stripePromise;
+      if (!stripe) {
+        throw new Error("Stripe.js has not loaded yet.");
+      }
+
+      const { error } = await stripe.redirectToCheckout({
+        sessionId: session.id,
+      });
+
+      if (error) {
+        throw new Error(error.message);
+      }
+    } catch (error) {
+      console.error("Consultation checkout error:", error);
+      showToastMessage(
+        `Error: ${error.message || "Something went wrong. Please try again."}`
+      );
+    } finally {
+      setIsProcessingConsult(false);
+    }
+  }, [
+    name,
+    email,
+    selectedServices,
+    selectedIndustry,
+    hasPhysicalStore,
+    additionalNotes,
+    selectedSystems,
+    selectedDashboards,
+    keywords,
+    showToastMessage,
+  ]);
+
   // Helper function to update service selections
   const updateServiceSelection = (serviceId, key, value) => {
     setServiceSelections((prev) => ({
@@ -2995,6 +3065,7 @@ const MultiStepForm = () => {
           setSelectedDashboards={setSelectedDashboards}
           prevStep={prevStep}
           handleCheckout={handleCheckout}
+          handleConsultationCheckout={handleConsultationCheckout}
           isProcessing={isProcessing}
           isProcessingConsult={isProcessingConsult}
           calculateTotal={calculateTotal}
