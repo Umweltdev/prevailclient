@@ -1,5 +1,4 @@
-import React, { useState, useCallback, useEffect, useRef } from "react";
-import { theme } from "../../stepWizard/theme.js";
+import { useState, useCallback, useEffect, useRef } from "react";
 import {
   ThemeProvider,
   Box,
@@ -23,22 +22,21 @@ import {
   Divider,
   Fade,
   CircularProgress,
+  Paper,
+  Stack,
+  FormControlLabel,
+  Switch,
 } from "@mui/material";
-import "./assets/styles.css";
-import PropTypes from "prop-types";
-import { ChevronRight, ChevronLeft, Check, RefreshCw } from "lucide-react";
-import { createCheckoutSession } from "../../stepWizard/api.js";
+import { ChevronRight, ChevronLeft, Check, Refresh } from "@mui/icons-material";
+import AddTaskIcon from "@mui/icons-material/AddTask";
+import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import { loadStripe } from "@stripe/stripe-js";
+import PropTypes from "prop-types";
+import { createCheckoutSession } from "../../stepWizard/api.js";
+import { theme } from "../../../theme.js";
 
 const STRIPE_KEY = import.meta.env.VITE_STRIPE_PUBLIC_KEY || "";
-let stripePromise = null;
-if (STRIPE_KEY) {
-  stripePromise = loadStripe(STRIPE_KEY);
-} else {
-  console.warn(
-    "VITE_STRIPE_PUBLISHABLE_KEY not set. Checkout will be disabled until configured."
-  );
-}
+let stripePromise = STRIPE_KEY ? loadStripe(STRIPE_KEY) : null;
 
 const platformTiers = [
   {
@@ -47,8 +45,6 @@ const platformTiers = [
     price: "€350",
     description:
       "Best for small businesses starting digital campaigns with focused reach.",
-    featured: false,
-    type: "starter",
     features: [
       "Customer Insight: Basic segmentation (demographic + geographic overview)",
       "Market Research: Competitor scan + keyword research (10-15 keywords)",
@@ -63,8 +59,6 @@ const platformTiers = [
     price: "€500",
     description:
       "Best for SMEs seeking wider reach and continuous improvement.",
-    featured: true,
-    type: "growth",
     features: [
       "Customer Insight: Advanced segmentation (demographic + geographic + psychographic)",
       "Market Research: Competitor analysis + keyword research (20-30 keywords)",
@@ -79,8 +73,6 @@ const platformTiers = [
     price: "€750",
     description:
       "Best for businesses aiming for dominance in their market with data-driven scaling.",
-    featured: false,
-    type: "premium",
     features: [
       "Customer Insight: Deluxe segmentation (demographic, geographic, psychographic, behavioural + 2 buyer personas)",
       "Market Research: In-depth competitor benchmarking + keyword research (40+ keywords, trend analysis)",
@@ -91,18 +83,45 @@ const platformTiers = [
   },
 ];
 
-const gradientText = {
-  background: "linear-gradient(to right, #6E3EF4, #3B82F6)",
-  WebkitBackgroundClip: "text",
-  WebkitTextFillColor: "transparent",
-  display: "inline-block",
-};
+const extractNumericPrice = (priceStr) =>
+  priceStr ? parseInt(priceStr.replace(/[^\d]/g, ""), 10) || 0 : 0;
 
-const extractNumericPrice = (priceStr) => {
-  if (!priceStr) return 0;
-  const digits = priceStr.replace(/[^\d]/g, "");
-  const parsed = parseInt(digits, 10);
-  return Number.isFinite(parsed) ? parsed : 0;
+const PriceRow = ({
+  label,
+  amount,
+  isTotal = false,
+  strikeThrough = false,
+}) => (
+  <Box
+    sx={{
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+    }}
+  >
+    <Typography
+      variant={isTotal ? "h6" : "body1"}
+      sx={{ fontWeight: isTotal ? "bold" : "regular" }}
+    >
+      {label}
+    </Typography>
+    <Typography
+      variant={isTotal ? "h6" : "body1"}
+      sx={{
+        fontWeight: isTotal ? "bold" : "medium",
+        color: strikeThrough ? "error.main" : "text.primary",
+        textDecoration: strikeThrough ? "line-through" : "none",
+      }}
+    >
+      {amount}
+    </Typography>
+  </Box>
+);
+PriceRow.propTypes = {
+  label: PropTypes.string.isRequired,
+  amount: PropTypes.string.isRequired,
+  isTotal: PropTypes.bool,
+  strikeThrough: PropTypes.bool,
 };
 
 const SelectableCard = ({ children, selected, sx, onClick }) => (
@@ -138,89 +157,71 @@ SelectableCard.propTypes = {
   sx: PropTypes.object,
   onClick: PropTypes.func,
 };
-SelectableCard.defaultProps = {
-  selected: false,
-  sx: {},
-  onClick: undefined,
-};
-const MemoizedSelectableCard = React.memo(SelectableCard);
+SelectableCard.defaultProps = { selected: false, sx: {}, onClick: undefined };
 
-const PlatformTier = ({ selectedTier, setSelectedTier, nextStep }) => {
-  return (
-    <Fade in timeout={500}>
-      <Box>
-        <Chip
-          label="Package Type"
-          color="primary"
-          variant="outlined"
-          sx={{ mb: 2 }}
-        />
-        <Typography variant="h2" gutterBottom>
-          Choose Your Package
-        </Typography>
-        <Typography variant="body1" sx={{ mb: 4 }}>
-          Choose the functionality you need for your brand identity.
-        </Typography>
-
-        <Grid container spacing={3} sx={{ mb: 4 }}>
-          {platformTiers.map((tier) => (
-            <Grid item xs={12} md={4} key={tier.id}>
-              <MemoizedSelectableCard
-                selected={selectedTier === tier.id}
-                onClick={() => setSelectedTier(tier.id)}
-                sx={{ height: "100%" }}
-              >
-                <Typography variant="h6" component="h3">
-                  {tier.name}
-                </Typography>
-                <Typography
-                  variant="h5"
-                  component="p"
-                  color="primary"
-                  sx={{ my: 1 }}
-                >
-                  {tier.price}
-                </Typography>
-                <Typography variant="body2" sx={{ mb: 2 }}>
-                  {tier.description}
-                </Typography>
-
-                <List dense sx={{ mt: 2, p: 0 }}>
-                  {tier.features.map((feature, index) => (
-                    <ListItem key={index} disableGutters sx={{ p: 0 }}>
-                      <ListItemIcon sx={{ minWidth: 24 }}>
-                        <Check size={16} color={theme.palette.success.main} />
-                      </ListItemIcon>
-                      <ListItemText primary={feature} />
-                    </ListItem>
-                  ))}
-                </List>
-              </MemoizedSelectableCard>
-            </Grid>
-          ))}
-        </Grid>
-
-        <Box display="flex" gap={2}>
-          <Button
-            variant="contained"
-            onClick={nextStep}
-            disabled={!selectedTier}
-            endIcon={<ChevronRight />}
-          >
-            Continue
-          </Button>
-        </Box>
+const PlatformTier = ({ selectedTier, setSelectedTier, nextStep }) => (
+  <Fade in timeout={500}>
+    <Box>
+      <Chip
+        label="Package Type"
+        color="primary"
+        variant="outlined"
+        sx={{ mb: 2 }}
+      />
+      <Typography variant="h2" gutterBottom>
+        Choose Your Package
+      </Typography>
+      <Typography variant="body1" sx={{ mb: 4 }}>
+        Choose the functionality you need for your brand identity.
+      </Typography>
+      <Grid container spacing={3} sx={{ mb: 4 }}>
+        {platformTiers.map((tier) => (
+          <Grid item xs={12} md={4} key={tier.id}>
+            <SelectableCard
+              selected={selectedTier === tier.id}
+              onClick={() => setSelectedTier(tier.id)}
+              sx={{ height: "100%" }}
+            >
+              <Typography variant="h6">{tier.name}</Typography>
+              <Typography variant="h5" color="primary" sx={{ my: 1 }}>
+                {tier.price}
+              </Typography>
+              <Typography variant="body2" sx={{ mb: 2 }}>
+                {tier.description}
+              </Typography>
+              <List dense sx={{ mt: 2, p: 0 }}>
+                {tier.features.map((feature, index) => (
+                  <ListItem key={index} disableGutters sx={{ p: 0 }}>
+                    <ListItemIcon sx={{ minWidth: 24 }}>
+                      <Check sx={{ fontSize: 16, color: "success.main" }} />
+                    </ListItemIcon>
+                    <ListItemText primary={feature} />
+                  </ListItem>
+                ))}
+              </List>
+            </SelectableCard>
+          </Grid>
+        ))}
+      </Grid>
+      <Box display="flex" gap={2}>
+        <Button
+          variant="contained"
+          onClick={nextStep}
+          disabled={!selectedTier}
+          endIcon={<ChevronRight />}
+        >
+          Continue
+        </Button>
       </Box>
-    </Fade>
-  );
-};
+    </Box>
+  </Fade>
+);
 
 PlatformTier.propTypes = {
   selectedTier: PropTypes.string,
   setSelectedTier: PropTypes.func.isRequired,
   nextStep: PropTypes.func.isRequired,
 };
-const MemoizedPlatformTier = React.memo(PlatformTier);
 
 const FinalSummary = ({
   selectedTier,
@@ -236,18 +237,22 @@ const FinalSummary = ({
   setSelectedSystems,
   selectedDashboards,
   setSelectedDashboards,
+  includeConsultation,
+  setIncludeConsultation,
   prevStep,
-  handleCheckout,
+  handlePayment,
   isProcessing,
+  processingAction,
   stripeConfigured,
 }) => {
   const tierSelection = platformTiers.find((t) => t.id === selectedTier);
-  const priceDisplay = tierSelection?.price || "€0";
+  const packagePrice = extractNumericPrice(tierSelection?.price);
+  const CONSULTATION_FEE = 99;
 
   return (
     <Fade in timeout={500}>
-      <Grid container spacing={4}>
-        <Grid item xs={12} lg={8}>
+      <Grid container spacing={{ xs: 3, md: 5 }} alignItems="flex-start">
+        <Grid item xs={12} md={7}>
           <Chip
             label="Final Step: Review & Purchase"
             color="primary"
@@ -258,12 +263,12 @@ const FinalSummary = ({
             Confirm Your Configuration
           </Typography>
           <Typography variant="body1" sx={{ mb: 4 }}>
-            Review your selections and provide your details to proceed.
+            Review your selections, provide your details, and choose how to
+            proceed.
           </Typography>
-
-          <Card>
+          <Card sx={{ mb: 4 }}>
             <CardContent
-              sx={{ display: "flex", flexDirection: "column", gap: 4, p: 3 }}
+              sx={{ p: 3, display: "flex", flexDirection: "column", gap: 3 }}
             >
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
@@ -286,7 +291,6 @@ const FinalSummary = ({
                   />
                 </Grid>
               </Grid>
-
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                   <TextField
@@ -325,27 +329,92 @@ const FinalSummary = ({
               </Grid>
             </CardContent>
           </Card>
+          <Button
+            variant="outlined"
+            onClick={prevStep}
+            startIcon={<ChevronLeft />}
+            disabled={isProcessing}
+          >
+            Back to Package Selection
+          </Button>
         </Grid>
+        <Grid item xs={12} md={5}>
+          <Paper
+            elevation={0}
+            sx={{
+              p: { xs: 3, md: 4 },
+              borderRadius: 4,
+              background: (theme) =>
+                `linear-gradient(145deg, ${theme.palette.grey[100]} 0%, #ffffff 100%)`,
+              boxShadow: "0 8px 32px 0 rgba(0,0,0,0.05)",
+              position: "sticky",
+              top: "24px",
+            }}
+          >
+            <Typography variant="h5" sx={{ fontWeight: "bold" }}>
+              Complete Your Order
+            </Typography>
+            <Typography
+              variant="body1"
+              color="text.secondary"
+              sx={{ mt: 1, mb: 3 }}
+            >
+              Confirm your total and choose your next step.
+            </Typography>
+            <Paper variant="outlined" sx={{ p: 3, borderRadius: 3, mb: 3 }}>
+              <Stack spacing={1.5}>
+                <PriceRow
+                  label="Project Subtotal"
+                  amount={`€${packagePrice.toLocaleString()}`}
+                />
+                <Fade in={includeConsultation} timeout={400}>
+                  <Stack spacing={1.5} sx={{ mt: 1.5 }}>
+                    <PriceRow
+                      label="Consultation Fee"
+                      amount={`+ €${CONSULTATION_FEE}`}
+                    />
+                    <PriceRow
+                      label="Instant Bonus"
+                      amount={`- €${CONSULTATION_FEE}`}
+                      strikeThrough={true}
+                    />
+                  </Stack>
+                </Fade>
 
-        <Grid item xs={12} lg={4}>
-          <Card sx={{ position: "sticky", top: "24px" }}>
-            <CardContent sx={{ p: 3 }}>
-              <Typography variant="h6">Your Summary</Typography>
-              <Divider sx={{ my: 2 }} />
-
-              <Box display="flex" flexDirection="column" gap={1}>
-                {tierSelection ? (
-                  <Box
-                    display="flex"
-                    justifyContent="space-between"
-                    alignItems="center"
-                  >
-                    <Typography variant="subtitle2">Package Tier:</Typography>
-                    <Typography variant="subtitle1">
-                      {tierSelection.name}
-                    </Typography>
-                  </Box>
+                <Divider sx={{ my: 1 }} />
+                <PriceRow
+                  label="Total to Pay"
+                  amount={`€${packagePrice.toLocaleString()}`}
+                  isTotal
+                />
+              </Stack>
+            </Paper>
+            <FormControlLabel
+              control={
+                <Switch
+                  checked={includeConsultation}
+                  onChange={(e) => setIncludeConsultation(e.target.checked)}
+                  color="primary"
+                />
+              }
+              label={
+                <Typography variant="body1" sx={{ fontWeight: "medium" }}>
+                  Add FREE 1-on-1 Consultation
+                </Typography>
+              }
+              sx={{ mb: 3 }}
+            />
+            <Button
+              fullWidth
+              variant="contained"
+              size="large"
+              onClick={() => handlePayment("full")}
+              disabled={isProcessing || !name || !email || !stripeConfigured}
+              startIcon={
+                isProcessing && processingAction === "full" ? (
+                  <CircularProgress size={24} color="inherit" />
                 ) : (
+
                   <Typography variant="body2" color="text.secondary">
                     No package selected
                   </Typography>
@@ -411,15 +480,43 @@ const FinalSummary = ({
                   Back
                 </Button>
 
-                {!stripeConfigured && (
-                  <Typography variant="caption" color="error" sx={{ mt: 1 }}>
-                    Stripe publishable key not configured. Set
-                    VITE_STRIPE_PUBLISHABLE_KEY in your .env.
-                  </Typography>
-                )}
-              </Box>
-            </CardContent>
-          </Card>
+                  <AddTaskIcon />
+                )
+              }
+              sx={{ py: 1.5, textTransform: "none", fontSize: "1.1rem", mb: 2 }}
+            >
+              {isProcessing && processingAction === "full"
+                ? "Processing..."
+                : "Pay & Start Project"}
+            </Button>
+            <Divider sx={{ my: 2 }}>OR</Divider>
+
+
+            <Button
+              fullWidth
+              variant="text"
+              onClick={() => handlePayment("consultation")}
+              disabled={isProcessing || !name || !email || !stripeConfigured}
+              startIcon={
+                isProcessing && processingAction === "consultation" ? (
+                  <CircularProgress size={20} />
+                ) : (
+                  <EventAvailableIcon />
+                )
+              }
+            >
+              Just Book a Consultation (€{CONSULTATION_FEE})
+            </Button>
+            {!stripeConfigured && (
+              <Typography
+                variant="caption"
+                color="error"
+                sx={{ mt: 2, display: "block", textAlign: "center" }}
+              >
+                Payment processing is currently unavailable.
+              </Typography>
+            )}
+          </Paper>
         </Grid>
       </Grid>
     </Fade>
@@ -440,37 +537,32 @@ FinalSummary.propTypes = {
   setSelectedSystems: PropTypes.func.isRequired,
   selectedDashboards: PropTypes.string,
   setSelectedDashboards: PropTypes.func.isRequired,
+  includeConsultation: PropTypes.bool,
+  setIncludeConsultation: PropTypes.func.isRequired,
   prevStep: PropTypes.func.isRequired,
-  handleCheckout: PropTypes.func.isRequired,
+  handlePayment: PropTypes.func.isRequired,
   isProcessing: PropTypes.bool.isRequired,
+  processingAction: PropTypes.string,
   stripeConfigured: PropTypes.bool.isRequired,
 };
-FinalSummary.defaultProps = {
-  additionalNotes: "",
-  keywords: "",
-  selectedSystems: "",
-  selectedDashboards: "",
-  selectedTier: null,
-};
-
-const MemoizedFinalSummary = React.memo(FinalSummary);
 
 const Packages = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedTier, setSelectedTier] = useState(null);
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [additionalNotes, setAdditionalNotes] = useState("");
   const [keywords, setKeywords] = useState("");
   const [selectedSystems, setSelectedSystems] = useState("");
   const [selectedDashboards, setSelectedDashboards] = useState("");
-
-  const [showToast, setShowToast] = useState(null);
+  const [includeConsultation, setIncludeConsultation] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [processingAction, setProcessingAction] = useState(null);
+  const [showToast, setShowToast] = useState(null);
 
   const wizardRef = useRef(null);
   const stripeConfigured = Boolean(STRIPE_KEY && stripePromise);
+  const steps = ["Package Type", "Review & Pay"];
 
   useEffect(() => {
     try {
@@ -478,13 +570,14 @@ const Packages = () => {
         localStorage.getItem("quoteBuilderState") || "{}"
       );
       if (saved) {
-        if (saved.currentStep) setCurrentStep(saved.currentStep);
-        if (saved.selectedTier) setSelectedTier(saved.selectedTier);
-        if (saved.name) setName(saved.name);
-        if (saved.email) setEmail(saved.email);
+        setCurrentStep(saved.currentStep || 1);
+        setSelectedTier(saved.selectedTier || null);
+        setName(saved.name || "");
+        setEmail(saved.email || "");
+        setIncludeConsultation(saved.includeConsultation || false);
       }
-    } catch (e) {
-      /* ignore parse errors */
+    } catch (err) {
+      console.error("Failed to load saved quote state:", err);
     }
   }, []);
 
@@ -494,206 +587,177 @@ const Packages = () => {
       selectedTier,
       name,
       email,
+      includeConsultation,
     };
     try {
       localStorage.setItem("quoteBuilderState", JSON.stringify(stateToSave));
-    } catch (e) {
-      // ignore storage errors
+    } catch (err) {
+      console.error("Failed to save quote state:", err);
     }
-  }, [currentStep, selectedTier, name, email]);
+  }, [currentStep, selectedTier, name, email, includeConsultation]);
 
   const showToastMessage = useCallback((message) => {
     setShowToast(message);
-    window.setTimeout(() => setShowToast(null), 4000);
+    setTimeout(() => setShowToast(null), 4000);
   }, []);
 
-  const steps = ["Package Type", "Review"];
-  const nextStep = useCallback(() => {
-    setCurrentStep((s) => {
-      const next = Math.min(s + 1, steps.length);
-      setTimeout(
-        () => wizardRef.current?.scrollIntoView({ behavior: "smooth" }),
-        50
-      );
-      return next;
-    });
-  }, []);
-  const prevStep = useCallback(() => {
-    setCurrentStep((s) => {
-      const prev = Math.max(s - 1, 1);
-      setTimeout(
-        () => wizardRef.current?.scrollIntoView({ behavior: "smooth" }),
-        50
-      );
-      return prev;
-    });
-  }, []);
+  const nextStep = useCallback(
+    () => setCurrentStep((s) => Math.min(s + 1, steps.length)),
+    [steps.length]
+  );
+  const prevStep = useCallback(
+    () => setCurrentStep((s) => Math.max(s - 1, 1)),
+    []
+  );
 
-  const resetSelections = useCallback(() => {
-    setCurrentStep(1);
-    setSelectedTier(null);
-    setName("");
-    setEmail("");
-    setAdditionalNotes("");
-    setKeywords("");
-    setSelectedSystems("");
-    setSelectedDashboards("");
-    showToastMessage("Selections have been reset.");
-  }, [showToastMessage]);
-
-  const handleCheckout = useCallback(
-    async (ev) => {
-      ev?.preventDefault?.();
+  const handlePayment = useCallback(
+    async (action) => {
       if (!name || !email) {
-        showToastMessage("Error: Please enter your name and email to proceed.");
+        showToastMessage("Please enter your name and email.");
         return;
       }
-      if (!selectedTier) {
-        showToastMessage("Error: Please select a package tier.");
+      if (action === "full" && !selectedTier) {
+        showToastMessage("Please select a package tier.");
         return;
       }
       if (!stripeConfigured) {
-        showToastMessage("Error: Stripe is not configured.");
+        showToastMessage("Stripe is not configured.");
         return;
       }
 
-      const tierSelection = platformTiers.find((t) => t.id === selectedTier);
-      const priceValue = extractNumericPrice(tierSelection?.price);
-
       setIsProcessing(true);
+      setProcessingAction(action);
+
+      const tierSelection = platformTiers.find((t) => t.id === selectedTier);
+      const packagePrice = extractNumericPrice(tierSelection?.price);
+      const CONSULTATION_FEE = 99;
+
+      const isFullPayment = action === "full";
+
+      const priceToCharge = isFullPayment ? packagePrice : CONSULTATION_FEE;
+
       try {
         const checkoutData = {
           name,
           email,
-          price: priceValue,
-          serviceType: tierSelection?.id || "unknown",
-          notes: `${additionalNotes || ""} | Selected Systems: ${
-            selectedSystems || "None"
-          } | Dashboards: ${selectedDashboards || "None"} | Keywords: ${
-            keywords || "None"
-          }`.trim(),
+          price: priceToCharge,
+          serviceType: isFullPayment
+            ? `package_${tierSelection?.id}`
+            : "consultation_fee",
+          notes: isFullPayment
+            ? `Full package payment for ${tierSelection?.name}. ${includeConsultation ? "Free consultation included." : ""} | Keywords: ${keywords || "None"} | Systems: ${selectedSystems || "None"} | Dashboards: ${selectedDashboards || "None"} | Notes: ${additionalNotes || "None"}`
+            : `Consultation booking. Related package interest: ${tierSelection?.name || "N/A"}.`,
         };
 
         const session = await createCheckoutSession(checkoutData);
-        if (!session || !session.id)
-          throw new Error("Invalid checkout session response");
+        if (!session?.id) throw new Error("Invalid checkout session");
 
         const stripe = await stripePromise;
-        if (!stripe) throw new Error("Stripe.js failed to load");
-
         const { error } = await stripe.redirectToCheckout({
           sessionId: session.id,
         });
         if (error) throw new Error(error.message || "Stripe redirect error");
       } catch (err) {
-        console.error("Checkout error:", err);
-        showToastMessage(`Error: ${err.message || "Unknown error occurred"}`);
+        console.error(err);
+        showToastMessage(err.message || "Unknown error occurred");
       } finally {
         setIsProcessing(false);
+        setProcessingAction(null);
       }
     },
     [
       name,
       email,
       selectedTier,
-      stripeConfigured,
-      showToastMessage,
+      includeConsultation,
       additionalNotes,
       selectedSystems,
       selectedDashboards,
       keywords,
+      stripeConfigured,
+      showToastMessage,
     ]
   );
 
-  const renderStepContent = () => {
-    if (currentStep === steps.length) {
-      return (
-        <MemoizedFinalSummary
-          selectedTier={selectedTier}
-          name={name}
-          setName={setName}
-          email={email}
-          setEmail={setEmail}
-          additionalNotes={additionalNotes}
-          setAdditionalNotes={setAdditionalNotes}
-          keywords={keywords}
-          setKeywords={setKeywords}
-          selectedSystems={selectedSystems}
-          setSelectedSystems={setSelectedSystems}
-          selectedDashboards={selectedDashboards}
-          setSelectedDashboards={setSelectedDashboards}
-          prevStep={prevStep}
-          handleCheckout={handleCheckout}
-          isProcessing={isProcessing}
-          stripeConfigured={stripeConfigured}
-        />
-      );
-    }
-
-    return (
-      <MemoizedPlatformTier
+  const renderStepContent = () =>
+    currentStep === 1 ? (
+      <PlatformTier
         selectedTier={selectedTier}
         setSelectedTier={setSelectedTier}
         nextStep={nextStep}
       />
+    ) : (
+      <FinalSummary
+        selectedTier={selectedTier}
+        name={name}
+        setName={setName}
+        email={email}
+        setEmail={setEmail}
+        additionalNotes={additionalNotes}
+        setAdditionalNotes={setAdditionalNotes}
+        keywords={keywords}
+        setKeywords={setKeywords}
+        selectedSystems={selectedSystems}
+        setSelectedSystems={setSelectedSystems}
+        selectedDashboards={selectedDashboards}
+        setSelectedDashboards={setSelectedDashboards}
+        includeConsultation={includeConsultation}
+        setIncludeConsultation={setIncludeConsultation}
+        prevStep={prevStep}
+        handlePayment={handlePayment}
+        isProcessing={isProcessing}
+        processingAction={processingAction}
+        stripeConfigured={stripeConfigured}
+      />
     );
-  };
 
   return (
     <ThemeProvider theme={theme}>
       <Box
         sx={{
-          minHeight: "100vh",
           background: theme.palette.background.default,
           color: "text.primary",
         }}
       >
-        <Container maxWidth="xl" sx={{ py: { xs: 6, md: 8 } }} ref={wizardRef}>
+        <Container maxWidth="lg" sx={{ py: { xs: 6, md: 8 } }} ref={wizardRef}>
           <Box textAlign="center" mb={{ xs: 6, md: 8 }}>
             <Typography variant="h1" gutterBottom>
               Select Your Campaign Package
             </Typography>
-
             <Button
-              onClick={resetSelections}
-              startIcon={<RefreshCw size={16} />}
+              onClick={() => {
+                setCurrentStep(1);
+                setSelectedTier(null);
+                setName("");
+                setEmail("");
+                setIncludeConsultation(false);
+              }}
+              startIcon={<Refresh />}
               sx={{ mt: 3, color: "text.secondary" }}
             >
               Start Over
             </Button>
           </Box>
-
           <Stepper
             activeStep={currentStep - 1}
             alternativeLabel
             sx={{ mb: { xs: 5, md: 7 } }}
           >
-            {steps.map((label) => (
-              <Step key={label}>
+            {steps.map((label, index) => (
+              <Step key={index}>
                 <StepLabel>{label}</StepLabel>
               </Step>
             ))}
           </Stepper>
-
-          <div className="my-container">{renderStepContent()}</div>
+          {renderStepContent()}
         </Container>
-
         <Snackbar
-          open={!!showToast}
-          autoHideDuration={6000}
+          open={Boolean(showToast)}
+          autoHideDuration={4000}
           onClose={() => setShowToast(null)}
-          anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+          anchorOrigin={{ vertical: "top", horizontal: "center" }}
         >
-          <Alert
-            onClose={() => setShowToast(null)}
-            severity={
-              showToast && showToast.toLowerCase().includes("error")
-                ? "error"
-                : "success"
-            }
-            sx={{ width: "100%" }}
-            variant="filled"
-          >
+          <Alert severity="warning" variant="filled" sx={{ width: "100%" }}>
             {showToast}
           </Alert>
         </Snackbar>
