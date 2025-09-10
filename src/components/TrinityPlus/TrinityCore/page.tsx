@@ -12,9 +12,9 @@ import AppBarNav from "../../Navbar/Appbar.jsx";
 import HeroSection from "./_components/HeroSection.jsx";
 import SystemsSection from "./_components/SystemsSection.jsx";
 import CtaSection from "./_components/CTASection.jsx";
-import TrinityStepWizard from "../StepWizardPage.js";
 import StepWizard from "../StepWizardComponent.js";
-
+import FooterNew from "../../Footer/FooterNew.jsx";
+import { Box } from "@mui/material";
 
 const TrinityCore = () => {
   const [activeTab, setActiveTab] = useState("restaurants");
@@ -133,10 +133,7 @@ const TrinityCore = () => {
   ];
 
   return (
-    <div
-      className="min-h-screen text-gray-900 relative w-full"
-  
-    >
+    <div className="min-h-screen text-gray-900 relative w-full">
       <style>{`
         @keyframes gradientShift {
           0% {
@@ -160,6 +157,8 @@ const TrinityCore = () => {
         <HeroSection />
         <SystemsSection />
         <StepWizard />
+
+        <FooterNew />
 
         {/* Page Sections */}
         {/* <Hero />

@@ -118,7 +118,7 @@ const SystemsSection = () => {
                 <div className="tier-dot beta"></div>
                 <h4>BETA USERS</h4>
               </div>
-              <div className="price">€2,089</div>
+              <div className="price">€2,074</div>
               <div className="access-text">
                 One-time payment • Lifetime access
               </div>
@@ -154,7 +154,7 @@ const SystemsSection = () => {
                 <div className="tier-dot early"></div>
                 <h4>EARLY ADOPTERS</h4>
               </div>
-              <div className="price">€2,439</div>
+              <div className="price">€2,420</div>
               <div className="access-text">
                 One-time payment • Lifetime access
               </div>
@@ -187,7 +187,7 @@ const SystemsSection = () => {
                 <div className="tier-dot post"></div>
                 <h4>STANDARD</h4>
               </div>
-              <div className="price">€3,599</div>
+              <div className="price">€3,573</div>
               <div className="access-text">
                 One-time payment • Lifetime access
               </div>
@@ -232,7 +232,7 @@ const SystemsSection = () => {
                 <div className="tier-dot beta"></div>
                 <h4>BETA USERS</h4>
               </div>
-              <div className="price">€696</div>
+              <div className="price">€230</div>
               <div className="access-text">
                 One-time payment • Lifetime access
               </div>
@@ -265,7 +265,7 @@ const SystemsSection = () => {
                 <div className="tier-dot early"></div>
                 <h4>EARLY ADOPTERS</h4>
               </div>
-              <div className="price">€1,737</div>
+              <div className="price">€576</div>
               <div className="access-text">
                 One-time payment • Lifetime access
               </div>
@@ -296,7 +296,7 @@ const SystemsSection = () => {
                 <div className="tier-dot post"></div>
                 <h4>STANDARD</h4>
               </div>
-              <div className="price">€5,217</div>
+              <div className="price">€1,729</div>
               <div className="access-text">
                 One-time payment • Lifetime access
               </div>
@@ -333,7 +333,7 @@ const SystemsSection = () => {
                 <div className="tier-dot beta"></div>
                 <h4>BETA USERS</h4>
               </div>
-              <div className="price">€696</div>
+              <div className="price">€230</div>
               <div className="access-text">
                 One-time payment • Lifetime access
               </div>
@@ -366,7 +366,7 @@ const SystemsSection = () => {
                 <div className="tier-dot early"></div>
                 <h4>EARLY ADOPTERS</h4>
               </div>
-              <div className="price">€1,737</div>
+              <div className="price">€576</div>
               <div className="access-text">
                 One-time payment • Lifetime access
               </div>
@@ -396,7 +396,7 @@ const SystemsSection = () => {
                 <div className="tier-dot post"></div>
                 <h4>STANDARD</h4>
               </div>
-              <div className="price">€5,217</div>
+              <div className="price">€1,729</div>
               <div className="access-text">
                 One-time payment • Lifetime access
               </div>
@@ -433,7 +433,7 @@ const SystemsSection = () => {
                 <div className="tier-dot beta"></div>
                 <h4>BETA USERS</h4>
               </div>
-              <div className="price">€696</div>
+              <div className="price">€230</div>
               <div className="access-text">
                 One-time payment • Lifetime access
               </div>
@@ -464,7 +464,7 @@ const SystemsSection = () => {
                 <div className="tier-dot early"></div>
                 <h4>STANDARD</h4>
               </div>
-              <div className="price">€5,217</div>
+              <div className="price">€576</div>
               <div className="access-text">
                 One-time payment • Lifetime access
               </div>
@@ -493,7 +493,7 @@ const SystemsSection = () => {
                 <div className="tier-dot post"></div>
                 <h4>EARLY ADOPTERS</h4>
               </div>
-              <div className="price">€1,737</div>
+              <div className="price">€1,729</div>
               <div className="access-text">
                 One-time payment • Lifetime access
               </div>
@@ -531,7 +531,7 @@ const SystemsSection = () => {
                 <div className="tier-dot beta"></div>
                 <h4>BETA USERS</h4>
               </div>
-              <div className="price">€696</div>
+              <div className="price">€230</div>
               <div className="access-text">
                 One-time payment • Lifetime access
               </div>
@@ -563,7 +563,7 @@ const SystemsSection = () => {
                 <div className="tier-dot early"></div>
                 <h4>EARLY ADOPTERS</h4>
               </div>
-              <div className="price">€1,737</div>
+              <div className="price">€576</div>
               <div className="access-text">
                 One-time payment • Lifetime access
               </div>
@@ -593,7 +593,7 @@ const SystemsSection = () => {
                 <div className="tier-dot post"></div>
                 <h4>STANDARD</h4>
               </div>
-              <div className="price">€5,217</div>
+              <div className="price">€1,729</div>
               <div className="access-text">
                 One-time payment • Lifetime access
               </div>
@@ -632,7 +632,7 @@ const SystemsSection = () => {
                 <div className="tier-dot beta"></div>
                 <h4>BETA USERS</h4>
               </div>
-              <div className="price">€696</div>
+              <div className="price">€230</div>
               <div className="access-text">
                 One-time payment • Lifetime access
               </div>
@@ -665,7 +665,7 @@ const SystemsSection = () => {
                 <div className="tier-dot early"></div>
                 <h4>EARLY ADOPTERS</h4>
               </div>
-              <div className="price">€1,737</div>
+              <div className="price">€576</div>
               <div className="access-text">
                 One-time payment • Lifetime access
               </div>
@@ -695,7 +695,7 @@ const SystemsSection = () => {
                 <div className="tier-dot post"></div>
                 <h4>STANDARD</h4>
               </div>
-              <div className="price">€5,217</div>
+              <div className="price">€1,729</div>
               <div className="access-text">
                 One-time payment • Lifetime access
               </div>
@@ -750,7 +750,7 @@ const SystemsSection = () => {
                   <div className="tier-dot beta"></div>
                   <h4>BETA USERS</h4>
                 </div>
-                <div className="price">€1,159</div>
+                <div className="price">€1,150 </div>
                 <div className="access-text">
                   One-time payment • Lifetime access
                 </div>
@@ -784,7 +784,7 @@ const SystemsSection = () => {
                   <div className="tier-dot early"></div>
                   <h4>EARLY ADOPTERS</h4>
                 </div>
-                <div className="price">€2,899</div>
+                <div className="price">€2,880</div>
                 <div className="access-text">
                   One-time payment • Lifetime access
                 </div>
@@ -815,7 +815,7 @@ const SystemsSection = () => {
                   <div className="tier-dot post"></div>
                   <h4>STANDARD</h4>
                 </div>
-                <div className="price">€8,699</div>
+                <div className="price">€8,645</div>
                 <div className="access-text">
                   One-time payment • Lifetime access
                 </div>
@@ -857,7 +857,7 @@ const SystemsSection = () => {
                   <div className="tier-dot beta"></div>
                   <h4>BETA USERS</h4>
                 </div>
-                <div className="price">€3,019</div>
+                <div className="price">€2,994</div>
                 <div className="access-text">
                   One-time payment • Lifetime access
                 </div>
@@ -891,7 +891,7 @@ const SystemsSection = () => {
                   <div className="tier-dot early"></div>
                   <h4>EARLY ADOPTERS</h4>
                 </div>
-                <div className="price">€4,759</div>
+                <div className="price">€4,724</div>
                 <div className="access-text">
                   One-time payment • Lifetime access
                 </div>
@@ -922,7 +922,7 @@ const SystemsSection = () => {
                   <div className="tier-dot post"></div>
                   <h4>STANDARD</h4>
                 </div>
-                <div className="price">€10,559</div>
+                <div className="price">€10,489</div>
                 <div className="access-text">
                   One-time payment • Lifetime access
                 </div>
@@ -950,7 +950,7 @@ const SystemsSection = () => {
             </div>
           </div>
           <div className="bundle-savings">
-            Save up to €7,499 with Beta pricing!
+            Save up to €7,495 with Beta pricing!
           </div>
         </div>
 

@@ -411,7 +411,7 @@ const FinalSummary = ({
                   {isProcessing
                     ? "Processing..."
                     : stripeConfigured
-                      ? "Proceed to Checkout"
+                      ? "Proceed to Check out"
                       : "Checkout Disabled"}
                 </Button>
 

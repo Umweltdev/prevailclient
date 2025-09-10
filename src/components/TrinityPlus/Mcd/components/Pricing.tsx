@@ -3,7 +3,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 function Pricing({ visibleSections }) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <section
       id="pricing"
@@ -26,7 +26,7 @@ function Pricing({ visibleSections }) {
           {[
             {
               name: "Beta",
-              price: "€696",
+              price: "€230",
               features: [
                 "Up to $10K monthly revenue",
                 "3 marketing channels",
@@ -34,12 +34,12 @@ function Pricing({ visibleSections }) {
                 "Email support",
                 "Basic analytics",
               ],
-              featured: false,
+              featured: true,
               clickable: true, // ✅ Only Beta is clickable
             },
             {
               name: "Early",
-              price: "€1,737",
+              price: "€576",
               features: [
                 "Unlimited revenue",
                 "Custom integration",
@@ -52,7 +52,7 @@ function Pricing({ visibleSections }) {
             },
             {
               name: "Standard",
-              price: "€5,217",
+              price: "€1,729",
               features: [
                 "Up to $100K monthly revenue",
                 "Unlimited channels",
@@ -61,7 +61,7 @@ function Pricing({ visibleSections }) {
                 "Custom rules",
                 "Advanced analytics",
               ],
-              featured: true,
+              featured: false,
               clickable: false,
             },
           ].map((plan, idx) => (
@@ -95,7 +95,7 @@ function Pricing({ visibleSections }) {
               </ul>
 
               <button
-              onClick={()=> navigate('/trinity/plus#wizard')}
+                onClick={() => navigate("/trinity/plus#wizard")}
                 disabled={!plan.clickable} // ✅ Disable other plans
                 className={`w-full py-3 rounded-full font-semibold transition-all duration-300 ${
                   plan.clickable

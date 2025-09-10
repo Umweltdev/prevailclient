@@ -32,6 +32,8 @@ import Hero from "./_components/Hero.js";
 import FloatingElements from "./_components/FloatingElements.js";
 import TrinityStepWizard from "../StepWizardPage.js";
 import { useLocation } from "react-router-dom";
+import StepWizard from "../StepWizardComponent.js";
+import FooterNew from "../../Footer/FooterNew.jsx";
 // import "./globals.css";
 
 const TrinityPlusPage = () => {
@@ -150,7 +152,7 @@ const TrinityPlusPage = () => {
     },
   ];
 
-   const location = useLocation();
+  const location = useLocation();
 
   useEffect(() => {
     if (location.hash) {
@@ -197,7 +199,11 @@ const TrinityPlusPage = () => {
         <SystemsSection />
         <StatsSection />
         <CTASection />
-        <TrinityStepWizard/>
+        <div id="wizard">
+          <StepWizard />
+        </div>
+
+        <FooterNew />
         {/* <FeatureSection />
 
         <IndustrySection />

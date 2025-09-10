@@ -14,7 +14,7 @@ const systemsData = [
       "Emergency fund protection",
       "Automatic priority reshuffling",
     ],
-    price: { beta: 696, early: 1737, standard: 5217 },
+    price: { beta: 230, early: 576, standard: 1729 },
     color: "#3b82f6",
     colorDark: "#2563eb",
     route: "expense-manager", // Add this property
@@ -31,7 +31,7 @@ const systemsData = [
       "Automatic profit protection",
       "Platform cost tracking",
     ],
-    price: { beta: 696, early: 1737, standard: 5217 },
+    price: { beta: 230, early: 576, standard: 1729 },
     color: "#8b5cf6",
     colorDark: "#7c3aed",
     route: "mcd", // Add this property
@@ -48,7 +48,7 @@ const systemsData = [
       "Personalized discount vectors",
       "Lifetime value optimization",
     ],
-    price: { beta: 696, early: 1737, standard: 5217 },
+    price: { beta: 230, early: 576, standard: 1729 },
     color: "#ec4899",
     colorDark: "#db2777",
     route: "rcd", // Add this property
@@ -164,31 +164,32 @@ export default function SystemSection() {
                   <span>Standard:</span>
                   <span>€{sys.price.standard}</span>
                 </div>
+                <div className="w-full flex items-center flex-col">
+                  {/* Add Learn More button */}
+                  <Link
+                    to={`/trinity/${
+                      sys.id === "expense" ? "expense-manager" : sys.id
+                    }`}
+                    className="btn btn-secondary"
+                    style={{
+                      width: "100%",
+                      marginTop: "0.75rem",
+                      textDecoration: "none",
+                      display: "inline-block",
+                    }}
+                    onClick={() => handleLearnMore(sys.id)}
+                  >
+                    Learn More
+                  </Link>
 
-                {/* Add Learn More button */}
-                <Link
-                  to={`/trinity/${
-                    sys.id === "expense" ? "expense-manager" : sys.id
-                  }`}
-                  className="btn btn-secondary"
-                  style={{
-                    width: "100%",
-                    marginTop: "0.75rem",
-                    textDecoration: "none",
-                    display: "inline-block",
-                  }}
-                  onClick={() => handleLearnMore(sys.id)}
-                >
-                  Learn More
-                </Link>
-
-                <button
-                  className="btn btn-primary"
-                  style={{ width: "100%", marginTop: "0.75rem" }}
-                  onClick={() => handleScroll()}
-                >
-                  Get {sys.title} - €{sys.price.beta}
-                </button>
+                  <button
+                    className="btn btn-primary"
+                    style={{ width: "100%", marginTop: "0.75rem" }}
+                    onClick={() => handleScroll()}
+                  >
+                    Get {sys.title} - €{sys.price.beta}
+                  </button>
+                </div>
               </div>
             </div>
           ))}

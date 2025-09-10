@@ -107,9 +107,13 @@ function Hero() {
             </span>
           </button>
 
-          <button className="group px-10 py-4 bg-white/70 backdrop-blur-lg text-gray-700 rounded-full text-lg font-semibold border-2 border-white/30 hover:border-blue-600/50 transition-all duration-300 flex items-center shadow-lg hover:shadow-xl hover:bg-white/80">
+          <button
+            onClick={() => navigate("/trinity/plus#wizard")}
+            className="group px-10 py-4 bg-white/70 backdrop-blur-lg text-gray-700 rounded-full text-lg font-semibold border-2 border-white/30 hover:border-blue-600/50 transition-all duration-300 flex items-center shadow-lg hover:shadow-xl hover:bg-white/80"
+          >
             <Play className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-            Watch Demo (2 min)
+            {/* Watch Demo (2 min) */}
+            Book a Consultation
           </button>
         </motion.div>
 
@@ -121,8 +125,8 @@ function Hero() {
           className="inline-flex items-center px-6 py-3 bg-white/70 backdrop-blur-lg text-blue-700 rounded-full text-sm font-medium mb-8 border border-white/30 shadow-lg"
         >
           <Zap className="w-4 h-4 mr-2 animate-pulse" />
-           Lock in the beta price by booking a consultation during launch week
-          — 3 days before beta ends{" "}
+          Lock in the beta price by booking a consultation during launch week —
+          3 days before beta ends{" "}
           <div className="ml-2 w-2 h-2 bg-green-500 rounded-full animate-ping"></div>
         </motion.div>
 

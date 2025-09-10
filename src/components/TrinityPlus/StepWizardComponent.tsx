@@ -56,9 +56,9 @@ const ALL_TRINITY_OPTIONS = [
     icon: "💰",
     description:
       "AI-powered financial planning that ensures you never run out of cash",
-    betaPrice: 232,
-    earlyPrice: 500,
-    standardPrice: 1500,
+    betaPrice: 230,
+    earlyPrice: 576,
+    standardPrice: 1729,
     features: [
       "Predictive cash flow",
       "7 allocation rules",
@@ -73,9 +73,9 @@ const ALL_TRINITY_OPTIONS = [
     icon: "📈",
     description:
       "Marketing Cost Displacement - automatically adjusts prices based on ad spend",
-    betaPrice: 232,
-    earlyPrice: 500,
-    standardPrice: 1500,
+    betaPrice: 230,
+    earlyPrice: 576,
+    standardPrice: 1729,
     features: [
       "Real-time price optimization",
       "Marketing spend integration",
@@ -90,9 +90,9 @@ const ALL_TRINITY_OPTIONS = [
     icon: "🎯",
     description:
       "Returning Customer Discounts - creates viral loyalty networks",
-    betaPrice: 232,
-    earlyPrice: 500,
-    standardPrice: 1500,
+    betaPrice: 230,
+    earlyPrice: 576,
+    standardPrice: 1729,
     features: [
       "Automatic loyalty tracking",
       "Viral referral networks",
@@ -107,16 +107,16 @@ const ALL_TRINITY_OPTIONS = [
     icon: "🧬",
     description:
       "Genetic Algorithm Restocking Optimizer - evolves perfect inventory decisions",
-    betaPrice: 2089,
-    earlyPrice: 500,
-    standardPrice: 1500,
+    betaPrice: 230,
+    earlyPrice: 576,
+    standardPrice: 1729,
     features: [
       "500+ generation evolution",
       "Multi-objective fitness scoring",
       "70% stockout reduction",
       "Predictive demand modeling",
     ],
-    note: "Physical stores: includes €1,600 for Square setup & training",
+    note: "Physical stores: includes €1,844 for Square setup & training",
   },
   {
     id: "aed",
@@ -125,7 +125,7 @@ const ALL_TRINITY_OPTIONS = [
     icon: "🚀",
     description:
       "Advertising Efficiency Dashboard - unifies and optimizes all ad platforms",
-    betaPrice: 232,
+    betaPrice: 230,
     earlyPrice: 500,
     standardPrice: 1500,
     features: [
@@ -141,9 +141,9 @@ const ALL_TRINITY_OPTIONS = [
     name: "Trinity Core Package",
     icon: "⚡",
     description: "Essential business intelligence: Expense Manager + MCD + RCD",
-    betaPrice: 696,
-    earlyPrice: 1500,
-    standardPrice: 4500,
+    betaPrice: 690,
+    earlyPrice: 1728,
+    standardPrice: 5187,
     includes: ["💰 Expense Manager", "📈 MCD System", "🎯 RCD System"],
     savings: "Save €3,900 vs standard pricing",
     baseRecommended: true,
@@ -154,9 +154,9 @@ const ALL_TRINITY_OPTIONS = [
     name: "Trinity Plus Package",
     icon: "🌟",
     description: "Complete suite: All 5 systems working in perfect harmony",
-    betaPrice: 1159,
-    earlyPrice: 2500,
-    standardPrice: 7500,
+    betaPrice: 1150,
+    earlyPrice: 2880,
+    standardPrice: 8645,
     includes: [
       "💰 Expense Manager",
       "📈 MCD System",
@@ -180,13 +180,13 @@ const solutionTypes = [
     id: "trinity-core",
     name: "Trinity Core",
     icon: Zap,
-    description: "AI-powered business intelligence",
+    description: "business intelligence tool",
   },
   {
     id: "trinity-plus",
     name: "Trinity Plus",
     icon: Rocket,
-    description: "Complete suite with all systems",
+    description: "Complete business intelligence solution",
   },
 ];
 const industries = [
@@ -534,6 +534,8 @@ const StoreType = ({
     return total + (selection ? selection.betaPrice : 0);
   }, 0);
 
+  const STORE_SETUP_FEE = 1844;
+
   return (
     <Fade in timeout={500}>
       <Box>
@@ -593,10 +595,10 @@ const StoreType = ({
                 fontWeight="bold"
                 sx={{ mt: "auto", pt: 2 }}
               >
-                €{(basePrice + 1600).toLocaleString()}
+                €{(basePrice + STORE_SETUP_FEE).toLocaleString()}
               </Typography>
               <Typography variant="body2" color="warning.main">
-                includes €1,600 Square setup & training
+                includes €1844 Square setup & training
               </Typography>
             </SelectableCard>
           </Grid>
@@ -839,7 +841,15 @@ const FinalSummary = ({
               </Box>
               <Box mt={3} display="flex" flexDirection="column" gap={2}>
                 <Button
-                  variant="contained"
+                  sx={{
+                    borderColor: "#3B82F6",
+                    color: "#3B82F6",
+                    "&:hover": {
+                      borderColor: "#2563EB",
+                      backgroundColor: "rgba(59, 130, 246, 0.04)",
+                    },
+                  }}
+                  variant="outlined"
                   fullWidth
                   onClick={handleCheckout}
                   disabled={
@@ -860,7 +870,7 @@ const FinalSummary = ({
                 </Button>
 
                 <Button
-                  variant="outlined"
+                  variant="contained"
                   fullWidth
                   onClick={handleConsultationCheckout}
                   disabled={
@@ -874,14 +884,6 @@ const FinalSummary = ({
                       <CircularProgress size={20} color="inherit" />
                     ) : null
                   }
-                  sx={{
-                    borderColor: "#3B82F6",
-                    color: "#3B82F6",
-                    "&:hover": {
-                      borderColor: "#2563EB",
-                      backgroundColor: "rgba(59, 130, 246, 0.04)",
-                    },
-                  }}
                 >
                   {isConsultationProcessing
                     ? "Processing..."
@@ -961,6 +963,8 @@ const StepWizard = () => {
   const [isConsultationProcessing, setIsConsultationProcessing] =
     useState(false);
 
+  const STORE_SETUP_FEE = 1844;
+
   const validateEmail = (value) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(value);
@@ -1003,7 +1007,7 @@ const StepWizard = () => {
         total += selection.betaPrice;
 
         if (hasPhysicalStore && (id === "trinity-plus" || id === "garo")) {
-          total += 1600;
+          total += STORE_SETUP_FEE;
         }
       }
     });
@@ -1083,7 +1087,7 @@ const StepWizard = () => {
         let price = selection.betaPrice;
 
         if (hasPhysicalStore && (id === "trinity-plus" || id === "garo")) {
-          price += 1600;
+          price += STORE_SETUP_FEE;
         }
 
         selectedServices.push({
@@ -1201,7 +1205,6 @@ const StepWizard = () => {
       setIsConsultationProcessing(false);
     }
   }, [name, email, additionalNotes, showToastMessage]);
-  
 
   const renderStepContent = () => {
     switch (currentStep) {
