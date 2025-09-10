@@ -2,7 +2,7 @@ export const createCheckoutSession = async (checkoutData) => {
   const baseUrl = import.meta.env.VITE_APP_BASE_URL;
 
   try {
-    const response = await fetch("https://prevail-services-e973123f8b1e.herokuapp.com/api/create-checkout-session", {
+    const response = await fetch( `${import.meta.env.VITE_API_CHECKOUT_SESSION}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -24,7 +24,6 @@ export const createCheckoutSession = async (checkoutData) => {
     const session = await response.json();
     return session;
   } catch (error) {
-    // Re-throw with more context
     throw new Error(`Failed to create checkout session: ${error.message}`);
   }
 };

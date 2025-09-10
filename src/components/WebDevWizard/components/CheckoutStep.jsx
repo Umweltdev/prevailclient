@@ -19,6 +19,8 @@ import AddTaskIcon from "@mui/icons-material/AddTask";
 import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import StepHeader from "./StepHeader.jsx";
 import { proceedToCheckout } from "../../../redux/stripeService.js";
+import { applyDiscount } from "../../user-dashboard/utils.js";
+
 
 const CheckoutStep = ({ formData, handleBack }) => {
   const [isProcessing, setIsProcessing] = useState(false);
@@ -45,7 +47,7 @@ const CheckoutStep = ({ formData, handleBack }) => {
     setError(null);
 
     const isFullPayment = action === "full";
-    const priceToCharge = isFullPayment ? totalCost : CONSULTATION_FEE;
+    const priceToCharge = isFullPayment ? applyDiscount(totalCost) : CONSULTATION_FEE;
 
     const checkoutData = {
       name: formData.name,

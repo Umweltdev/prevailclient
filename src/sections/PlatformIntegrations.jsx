@@ -64,13 +64,19 @@ export const PlatformIntegrations = () => {
             color: "white",
           }}
         >
-          <Grid container spacing={3}>
+          <Grid container spacing={3} alignItems="stretch">
             {platforms.map((platform, index) => (
-              <Grid item xs={6} sm={4} md={2} key={index}>
+              <Grid item xs={6} sm={4} md={2} key={index} display="flex">
                 <Paper
                   sx={{
-                    p: 4,
+                    p: { xs: 3, md: 4 },
+                    flex: 1,
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
                     textAlign: "center",
+                    minHeight: { xs: 140, sm: 160, md: 180 },
                     borderRadius: "16px",
                     background: "rgba(255, 255, 255, 0.13)",
                     boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
@@ -86,10 +92,19 @@ export const PlatformIntegrations = () => {
                     },
                   }}
                 >
-                  <Typography variant="h2" mb={2}>
+                  <Typography
+                    variant="h2"
+                    mb={2}
+                    sx={{ fontSize: { xs: "1.8rem", sm: "2.2rem" } }}
+                  >
                     {platform.icon}
                   </Typography>
-                  <Typography variant="subtitle2" fontWeight={700} mb={2}>
+                  <Typography
+                    variant="subtitle2"
+                    fontWeight={700}
+                    mb={2}
+                    sx={{ fontSize: { xs: "0.85rem", sm: "0.95rem" } }}
+                  >
                     {platform.name}
                   </Typography>
                   <Chip

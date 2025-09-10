@@ -23,7 +23,6 @@ const About = () => {
       </Helmet>
       <div
         style={{
-          // width: "100%",
           overflow: "hidden",
           background:
             "linear-gradient(135deg, #DDD4EF 0%, #F9FAFC 50%, white 100%);",
@@ -33,13 +32,9 @@ const About = () => {
         <AboutUs />
         <SectionTwo />
         <SectionFour />
-        {/* <hr /> */}
         <WhyItMatters />
         <Sliders />
         <FAQ />
-        {/* <SectionFive /> */}
-        {/* <hr /> */}
-        {/* <SectionThree /> */}
         <JoinOurCustomer />
         <SmoothScrollUp />
         <FooterNew />

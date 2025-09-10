@@ -1,532 +1,121 @@
-import React, {
-  useState,
-  useMemo,
-  useCallback,
-  useRef,
-  useEffect,
-} from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
-import {
-  ChevronLeft,
-  ChevronRight,
-  Check,
-  Calendar,
-  Clock,
-  ArrowRight,
-  Video,
-  LoaderCircle,
-  User,
-  Mail,
-} from "lucide-react";
-import {
-  ThemeProvider,
-  Paper,
-  Box,
-  Typography,
-  Button,
-  IconButton,
-  Grid,
-  TextField,
-  InputAdornment,
-  CircularProgress, 
-} from "@mui/material";
+import { Check } from "lucide-react";
+import { ThemeProvider, Paper, Box, Typography } from "@mui/material";
 import { theme } from "../../theme.js";
+import TimeSlotComponent from "./components/Timeslot.jsx";
+import ConfirmationComponent from "./components/confirmation.jsx";
+import CalendarComponent from "./components/calender.jsx";
 
-
-const mockBookedSlots = {
-  "2025-09-15": ["09:00 AM", "11:30 AM", "02:00 PM"],
-  "2025-09-20": "all",
-  "2025-10-01": ["10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM"],
-};
-
-const timeSlots = [
-  "09:00 AM",
-  "09:30 AM",
-  "10:00 AM",
-  "10:30 AM",
-  "11:00 AM",
-  "11:30 AM",
-  "01:00 PM",
-  "01:30 PM",
-  "02:00 PM",
-  "02:30 PM",
-  "03:00 PM",
-  "03:30 PM",
-  "04:00 PM",
-  "04:30 PM",
-];
-const timeZone = "Africa/Lagos (WAT)";
-const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
-const getDaysInMonth = (year, month) => new Date(year, month + 1, 0).getDate();
-const getFirstDayOfMonth = (year, month) => new Date(year, month, 1).getDay();
 const formatDateToYMD = (date) => date.toISOString().split("T")[0];
 
-const CalendarComponent = ({
-  selectedDate,
-  setSelectedDate,
-  currentDate,
-  setCurrentDate,
-  availability,
-  isLoading,
-}) => {
-  const year = currentDate.getFullYear();
-  const month = currentDate.getMonth();
-
-  const today = useMemo(() => {
-    const d = new Date();
-    d.setHours(0, 0, 0, 0);
-    return d;
-  }, []);
-
-  const handlePrevMonth = useCallback(
-    () => setCurrentDate(new Date(year, month - 1, 1)),
-    [year, month, setCurrentDate]
-  );
-  const handleNextMonth = useCallback(
-    () => setCurrentDate(new Date(year, month + 1, 1)),
-    [year, month, setCurrentDate]
-  );
-
-  const handleDateClick = useCallback(
-    (day) => {
-      const newDate = new Date(year, month, day);
-      if (newDate >= today) setSelectedDate(newDate);
-    },
-    [year, month, today, setSelectedDate]
-  );
-
-  const calendarDays = useMemo(() => {
-    const days = Array.from(
-      { length: getFirstDayOfMonth(year, month) },
-      (_, i) => <Grid item xs={1} key={`empty-${i}`} />
-    );
-
-    for (let day = 1; day <= getDaysInMonth(year, month); day++) {
-      const date = new Date(year, month, day);
-      const dateString = formatDateToYMD(date);
-      const isSelected =
-        selectedDate && date.toDateString() === selectedDate.toDateString();
-      const isPast = date < today;
-      const isToday = date.toDateString() === today.toDateString();
-      const isUnavailable = availability && availability[dateString] === "all";
-
-      days.push(
-        <Grid
-          item
-          xs={1}
-          key={day}
-          sx={{ display: "flex", justifyContent: "center" }}
-        >
-          <IconButton
-            onClick={() => handleDateClick(day)}
-            disabled={isPast || isUnavailable}
-            sx={{
-              width: 42,
-              height: 42,
-              borderRadius: "50%",
-              fontSize: "0.9rem",
-              fontWeight: isToday || isSelected ? "bold" : "normal",
-              color: isSelected
-                ? "white"
-                : isPast || isUnavailable
-                  ? "text.disabled"
-                  : isToday
-                    ? "primary.main"
-                    : "text.primary",
-              backgroundColor: isSelected
-                ? "primary.main"
-                : isToday
-                  ? "grey.200"
-                  : "transparent",
-              textDecoration: isUnavailable ? "line-through" : "none",
-              opacity: isUnavailable ? 0.6 : 1,
-              boxShadow: isSelected ? 2 : 0,
-              "&:hover": {
-                backgroundColor: isSelected ? "primary.dark" : "action.hover",
-              },
-              transition: "all 0.2s ease-in-out",
-            }}
-          >
-            {day}
-          </IconButton>
-        </Grid>
-      );
-    }
-    return days;
-  }, [year, month, selectedDate, today, handleDateClick, availability]);
-
-  return (
-    <Paper
-      elevation={4}
-      sx={{
-        p: 3,
-        width: "100%",
-        maxWidth: 380,
-        borderRadius: "16px",
-        border: "1px solid",
-        borderColor: "divider",
-        position: "relative",
-        opacity: isLoading ? 0.7 : 1,
-        transition: "opacity 0.3s",
-      }}
-    >
-      {isLoading && (
-        <Box
-          sx={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            backgroundColor: "rgba(255, 255, 255, 0.5)",
-            zIndex: 1,
-            borderRadius: "16px",
-          }}
-        >
-          <CircularProgress />
-        </Box>
-      )}
-      <Box
-        display="flex"
-        alignItems="center"
-        justifyContent="space-between"
-        mb={3}
-      >
-        <IconButton
-          onClick={handlePrevMonth}
-          aria-label="Previous month"
-          disabled={isLoading}
-        >
-          <ChevronLeft />
-        </IconButton>
-        <Typography variant="h6" fontWeight="bold">
-          {currentDate.toLocaleString("default", {
-            month: "long",
-            year: "numeric",
-          })}
-        </Typography>
-        <IconButton
-          onClick={handleNextMonth}
-          aria-label="Next month"
-          disabled={isLoading}
-        >
-          <ChevronRight />
-        </IconButton>
-      </Box>
-      <Grid container columns={7} spacing={1.5} textAlign="center">
-        {dayNames.map((day) => (
-          <Grid item xs={1} key={day}>
-            <Typography
-              variant="caption"
-              color="text.secondary"
-              sx={{ fontWeight: "bold" }}
-            >
-              {day}
-            </Typography>
-          </Grid>
-        ))}
-        {calendarDays}
-      </Grid>
-    </Paper>
-  );
-};
-CalendarComponent.propTypes = {
-  selectedDate: PropTypes.instanceOf(Date),
-  setSelectedDate: PropTypes.func.isRequired,
-  currentDate: PropTypes.instanceOf(Date).isRequired,
-  setCurrentDate: PropTypes.func.isRequired,
-  availability: PropTypes.object,
-  isLoading: PropTypes.bool,
+const isoToLocalDisplay = (iso) => {
+  try {
+    const dt = new Date(iso);
+    return dt.toLocaleTimeString("en-US", {
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
+      timeZone: "Africa/Lagos",
+    });
+  } catch {
+    return iso;
+  }
 };
 
-const TimeSlotComponent = ({
-  selectedTime,
-  setSelectedTime,
-  onNextStep,
-  timeSlotRef,
-  selectedDate,
-  availability,
-}) => {
-  const bookedTimes = useMemo(() => {
-    if (!selectedDate || !availability) return [];
-    const dateString = formatDateToYMD(selectedDate);
-    const slots = availability[dateString];
-    return Array.isArray(slots) ? slots : [];
-  }, [selectedDate, availability]);
-
-  return (
-    <Paper
-      ref={timeSlotRef}
-      elevation={3}
-      sx={{
-        p: 2,
-        width: "100%",
-        maxWidth: 360,
-        mt: { xs: 2, md: 0 },
-        borderRadius: "12px",
-      }}
-    >
-      <Typography variant="h6" mb={1}>
-        Select a Time
-      </Typography>
-      <Typography variant="body2" color="text.secondary" mb={2}>
-        Timezone: {timeZone}
-      </Typography>
-      <Box sx={{ maxHeight: 280, overflowY: "auto", pr: 1 }}>
-        <Grid container spacing={1}>
-          {timeSlots.map((time) => {
-            const isBooked = bookedTimes.includes(time);
-            return (
-              <Grid item xs={6} key={time}>
-                <Button
-                  variant={selectedTime === time ? "contained" : "outlined"}
-                  fullWidth
-                  disabled={isBooked}
-                  onClick={() => setSelectedTime(time)}
-                  sx={{
-                    borderRadius: "8px",
-                    textTransform: "none",
-                    padding: "10px 0",
-                  }}
-                >
-                  {time}
-                </Button>
-              </Grid>
-            );
-          })}
-        </Grid>
-      </Box>
-      <Button
-        onClick={onNextStep}
-        disabled={!selectedTime}
-        variant="contained"
-        fullWidth
-        endIcon={<ArrowRight />}
-        sx={{ mt: 2, borderRadius: "8px" }}
-      >
-        Next Step
-      </Button>
-    </Paper>
-  );
-};
-TimeSlotComponent.propTypes = {
-  selectedTime: PropTypes.string,
-  setSelectedTime: PropTypes.func.isRequired,
-  onNextStep: PropTypes.func.isRequired,
-  timeSlotRef: PropTypes.object,
-  selectedDate: PropTypes.instanceOf(Date),
-  availability: PropTypes.object,
-};
-
-const ConfirmationComponent = ({
-  selectedDate,
-  selectedTime,
-  onConfirm,
-  onPrevStep,
-  isBooking,
-  name,
-  setName,
-  email,
-  setEmail,
-}) => {
-  const formattedDate = selectedDate
-    ? selectedDate.toLocaleDateString("en-US", {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      })
-    : "";
-  const isEmailValid = useMemo(
-    () => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email),
-    [email]
-  );
-  const canConfirm = name.trim() !== "" && isEmailValid && !isBooking;
-
-  return (
-    <Paper
-      elevation={3}
-      sx={{ p: 3, width: "100%", maxWidth: 400, borderRadius: "12px" }}
-    >
-      <Typography variant="h5" align="center" gutterBottom>
-        Confirm Your Booking
-      </Typography>
-
-      <Box sx={{ my: 3, display: "flex", flexDirection: "column", gap: 2 }}>
-        <TextField
-          label="Full Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-          fullWidth
-          disabled={isBooking}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <User size={20} />
-              </InputAdornment>
-            ),
-          }}
-        />
-        <TextField
-          label="Email Address"
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          fullWidth
-          disabled={isBooking}
-          error={email.length > 0 && !isEmailValid}
-          helperText={
-            email.length > 0 && !isEmailValid
-              ? "Please enter a valid email."
-              : ""
-          }
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <Mail size={20} />
-              </InputAdornment>
-            ),
-          }}
-        />
-      </Box>
-
-      <Typography
-        variant="subtitle2"
-        color="text.secondary"
-        sx={{ mb: 2, textAlign: "center" }}
-      >
-        You are booking the following slot:
-      </Typography>
-
-      <Box sx={{ my: 2, display: "flex", flexDirection: "column", gap: 2 }}>
-        <Paper
-          variant="outlined"
-          sx={{
-            p: 2,
-            display: "flex",
-            alignItems: "center",
-            gap: 2,
-            bgcolor: "background.paper",
-            borderRadius: "8px",
-          }}
-        >
-          <Calendar color="primary" />
-          <Box>
-            <Typography variant="subtitle1" fontWeight="medium">
-              Date
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              {formattedDate}
-            </Typography>
-          </Box>
-        </Paper>
-        <Paper
-          variant="outlined"
-          sx={{
-            p: 2,
-            display: "flex",
-            alignItems: "center",
-            gap: 2,
-            bgcolor: "background.paper",
-            borderRadius: "8px",
-          }}
-        >
-          <Clock color="primary" />
-          <Box>
-            <Typography variant="subtitle1" fontWeight="medium">
-              Time
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              {selectedTime} ({timeZone})
-            </Typography>
-          </Box>
-        </Paper>
-        <Paper
-          variant="outlined"
-          sx={{
-            p: 2,
-            display: "flex",
-            alignItems: "center",
-            gap: 2,
-            bgcolor: "background.paper",
-            borderRadius: "8px",
-          }}
-        >
-          <Video color="primary" />
-          <Box>
-            <Typography variant="subtitle1" fontWeight="medium">
-              Meeting Method
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Google Meet (Link sent via email)
-            </Typography>
-          </Box>
-        </Paper>
-      </Box>
-
-      <Box sx={{ display: "flex", flexDirection: "column", gap: 1.5, mt: 3 }}>
-        <Button
-          onClick={onConfirm}
-          disabled={!canConfirm}
-          variant="contained"
-          color="success"
-          size="large"
-          startIcon={
-            isBooking ? <LoaderCircle className="animate-spin" /> : <Check />
-          }
-        >
-          {isBooking ? "Booking..." : "Confirm Booking"}
-        </Button>
-        <Button onClick={onPrevStep} disabled={isBooking} variant="text">
-          Go Back
-        </Button>
-      </Box>
-    </Paper>
-  );
-};
-ConfirmationComponent.propTypes = {
-  selectedDate: PropTypes.instanceOf(Date),
-  selectedTime: PropTypes.string,
-  onConfirm: PropTypes.func.isRequired,
-  onPrevStep: PropTypes.func.isRequired,
-  isBooking: PropTypes.bool.isRequired,
-  name: PropTypes.string.isRequired,
-  setName: PropTypes.func.isRequired,
-  email: PropTypes.string.isRequired,
-  setEmail: PropTypes.func.isRequired,
+const combineDateAndTimeToISO = (dateObj, timeStr) => {
+  if (!dateObj || !timeStr) return null;
+  const match = timeStr.match(/(\d+):(\d+)\s*(AM|PM)/i);
+  if (!match) return null;
+  let h = parseInt(match[1], 10);
+  const m = parseInt(match[2], 10);
+  const period = match[3].toUpperCase();
+  if (period === "PM" && h !== 12) h += 12;
+  if (period === "AM" && h === 12) h = 0;
+  const d = new Date(dateObj);
+  d.setHours(h, m, 0, 0);
+  return d.toISOString();
 };
 
 const Booking = ({ onBookingConfirmed = () => {} }) => {
   const [step, setStep] = useState(1);
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(null);
-  const [selectedTime, setSelectedTime] = useState(null);
+  const [selectedTimeIso, setSelectedTimeIso] = useState(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [availability, setAvailability] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [availability, setAvailability] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
   const [isConfirmed, setIsConfirmed] = useState(false);
   const [isBooking, setIsBooking] = useState(false);
   const timeSlotRef = useRef(null);
 
   useEffect(() => {
-    setIsLoading(true);
-    // Simulate fetching availability data from an API
-    setTimeout(() => {
-      setAvailability(mockBookedSlots);
-      setIsLoading(false);
-    }, 1500);
-  }, []);
+    const fetchAvailability = async () => {
+      if (!selectedDate) return;
+      const dateKey = formatDateToYMD(selectedDate);
+      try {
+        setIsLoading(true);
+        const url = `${import.meta.env.VITE_API_BASE_URL}/meeting/available-slots?date=${dateKey}`;
+        const res = await fetch(url);
+        if (!res.ok) throw new Error("Failed to fetch availability");
 
-  // When date changes, reset time selection
+        const data = await res.json();
+
+        let rawSlots = [];
+        if (Array.isArray(data)) rawSlots = data;
+        else if (Array.isArray(data?.slots)) rawSlots = data.slots;
+        else if (Array.isArray(data?.availableSlots))
+          rawSlots = data.availableSlots;
+
+        const normalized = rawSlots
+          .map((s) => {
+            if (typeof s === "string" && s.includes("T")) {
+              return { iso: s, time: isoToLocalDisplay(s), available: true };
+            }
+            if (typeof s === "object") {
+              const iso = s.iso || s.date || s.datetime || null;
+              if (iso) {
+                return {
+                  iso,
+                  time: isoToLocalDisplay(iso),
+                  available: s.available !== false,
+                };
+              }
+              if (s.time) {
+                const isoFromTime = combineDateAndTimeToISO(
+                  selectedDate,
+                  s.time
+                );
+                return {
+                  iso: isoFromTime,
+                  time: s.time,
+                  available: s.available !== false,
+                };
+              }
+            }
+            if (typeof s === "string") {
+              const isoFromTime = combineDateAndTimeToISO(selectedDate, s);
+              return { iso: isoFromTime, time: s, available: true };
+            }
+            return null;
+          })
+          .filter(Boolean);
+
+        setAvailability((prev) => ({ ...prev, [dateKey]: normalized }));
+      } catch (err) {
+        console.error("Error fetching availability:", err);
+        setAvailability((prev) => ({ ...prev, [dateKey]: [] }));
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchAvailability();
+  }, [selectedDate]);
+
   useEffect(() => {
-    setSelectedTime(null);
+    setSelectedTimeIso(null);
   }, [selectedDate]);
 
   useEffect(() => {
@@ -541,27 +130,52 @@ const Booking = ({ onBookingConfirmed = () => {} }) => {
   const handleNextStep = useCallback(() => setStep((s) => s + 1), []);
   const handlePrevStep = useCallback(() => setStep((s) => s - 1), []);
 
-  const handleBookingConfirmation = useCallback(() => {
+  const handleBookingConfirmation = useCallback(async () => {
+    if (!selectedDate || !selectedTimeIso) {
+      console.error("Missing date or time");
+      return;
+    }
+
     setIsBooking(true);
-    const bookingDetails = {
-      date: formatDateToYMD(selectedDate),
-      time: selectedTime,
-      name,
-      email,
-    };
+    try {
+      const bookingDetails = {
+        name,
+        email,
+        date: new Date(selectedTimeIso).toISOString(),
+        duration: 30,
+      };
 
-    console.log("Booking Payload:", bookingDetails);
+      const res = await fetch(
+        `${import.meta.env.VITE_API_BASE_URL}/meeting/book-meeting`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(bookingDetails),
+        }
+      );
 
-    setTimeout(() => {
+      if (!res.ok) {
+        const errData = await res.json().catch(() => ({}));
+        throw new Error(errData.message || "Booking failed");
+      }
+
+      const result = await res.json();
+      console.log("Booking Response:", result);
+
       setIsConfirmed(true);
-      setIsBooking(false);
-      onBookingConfirmed(bookingDetails);
-    }, 2000);
-  }, [selectedDate, selectedTime, name, email, onBookingConfirmed]);
+      onBookingConfirmed(result);
 
-  const MemoizedCalendar = React.memo(CalendarComponent);
-  const MemoizedTimeSlots = React.memo(TimeSlotComponent);
-  const MemoizedConfirmation = React.memo(ConfirmationComponent);
+      setTimeout(() => setSelectedDate(new Date(selectedDate)), 200);
+    } catch (err) {
+      console.error("Error confirming booking:", err);
+    } finally {
+      setIsBooking(false);
+    }
+  }, [selectedDate, selectedTimeIso, name, email, onBookingConfirmed]);
+
+  const MemoizedCalendar = CalendarComponent;
+  const MemoizedTimeSlots = TimeSlotComponent;
+  const MemoizedConfirmation = ConfirmationComponent;
 
   if (isConfirmed) {
     return (
@@ -577,19 +191,19 @@ const Booking = ({ onBookingConfirmed = () => {} }) => {
           }}
         >
           <Paper
-            elevation={4}
+            elevation={10}
             sx={{
-              p: 4,
+              p: { xs: 3, sm: 4 },
               width: "100%",
-              maxWidth: 420,
+              maxWidth: 500,
               textAlign: "center",
               borderRadius: "12px",
             }}
           >
             <Box
               sx={{
-                width: 64,
-                height: 64,
+                width: 56,
+                height: 56,
                 bgcolor: "success.light",
                 borderRadius: "50%",
                 display: "flex",
@@ -600,28 +214,35 @@ const Booking = ({ onBookingConfirmed = () => {} }) => {
               }}
             >
               <Check
-                style={{ fontSize: 32, color: theme.palette.success.main }}
+                style={{ fontSize: 28, color: theme.palette.success.main }}
               />
             </Box>
-            <Typography variant="h5" gutterBottom>
+            <Typography variant="h6" gutterBottom>
               Booking Confirmed!
             </Typography>
-            <Typography color="text.secondary">
+            <Typography
+              color="text.secondary"
+              fontSize={{ xs: "0.9rem", sm: "1rem" }}
+            >
               Your consultation for{" "}
               <Typography component="span" fontWeight="bold">
                 {name}
               </Typography>{" "}
               is scheduled for{" "}
               <Typography component="span" fontWeight="bold">
-                {selectedDate.toLocaleDateString()}
+                {selectedDate?.toLocaleDateString()}
               </Typography>{" "}
               at{" "}
               <Typography component="span" fontWeight="bold">
-                {selectedTime}
+                {selectedTimeIso ? isoToLocalDisplay(selectedTimeIso) : ""}
               </Typography>
               .
             </Typography>
-            <Typography color="text.secondary" mt={1}>
+            <Typography
+              color="text.secondary"
+              mt={1}
+              fontSize={{ xs: "0.85rem", sm: "1rem" }}
+            >
               A Google Meet invitation has been sent to{" "}
               <Typography component="span" fontWeight="bold">
                 {email}
@@ -642,17 +263,18 @@ const Booking = ({ onBookingConfirmed = () => {} }) => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          p: 2,
+          p: { xs: 2, sm: 3, md: 5 },
           background: theme.palette.background.default,
         }}
       >
         <Box sx={{ width: "100%", maxWidth: "lg" }}>
           <Typography
-            variant="h3"
+            variant="h4"
             component="h1"
             align="center"
             fontWeight="bold"
             gutterBottom
+            fontSize={{ xs: "1.5rem", sm: "2rem", md: "2.5rem" }}
           >
             Schedule Your Consultation
           </Typography>
@@ -660,7 +282,8 @@ const Booking = ({ onBookingConfirmed = () => {} }) => {
             variant="body1"
             align="center"
             color="text.secondary"
-            mb={5}
+            mb={4}
+            fontSize={{ xs: "0.9rem", sm: "1rem" }}
           >
             Select a date and time that works for you.
           </Typography>
@@ -668,9 +291,9 @@ const Booking = ({ onBookingConfirmed = () => {} }) => {
             sx={{
               display: "flex",
               flexDirection: { xs: "column", md: "row" },
-              gap: 3,
+              gap: { xs: 2.5, md: 4 },
               justifyContent: "center",
-              alignItems: "flex-start",
+              alignItems: { xs: "stretch", md: "flex-start" },
             }}
           >
             {step === 1 && (
@@ -688,8 +311,8 @@ const Booking = ({ onBookingConfirmed = () => {} }) => {
                 {selectedDate && (
                   <MemoizedTimeSlots
                     {...{
-                      selectedTime,
-                      setSelectedTime,
+                      selectedTimeIso,
+                      setSelectedTimeIso,
                       onNextStep: handleNextStep,
                       timeSlotRef,
                       selectedDate,
@@ -703,7 +326,7 @@ const Booking = ({ onBookingConfirmed = () => {} }) => {
               <MemoizedConfirmation
                 {...{
                   selectedDate,
-                  selectedTime,
+                  selectedTimeIso,
                   onConfirm: handleBookingConfirmation,
                   onPrevStep: handlePrevStep,
                   isBooking,
