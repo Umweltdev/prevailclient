@@ -21,6 +21,9 @@ import { AuthContext } from "../../context/AuthContext";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Container from "@mui/material/Container";
 import PropTypes from "prop-types";
+import Collapse from "@mui/material/Collapse";
+import ExpandLess from "@mui/icons-material/ExpandLess";
+import ExpandMore from "@mui/icons-material/ExpandMore";
 
 const drawerWidth = 240;
 
@@ -32,8 +35,11 @@ const servicesData = [
     text: "Digital Accelerator Bundle",
     link: "/service/digital-accelerator-bundle",
   },
+  {
+    text: "Cost Calculation",
+    link: "/service/cost-calculation",
+  },
   { text: "Content Ad Campaign", link: "/service/custom-ad-campaign" },
-  //  { text: "Content Ad Campaign 2", link: "/service/custom-ad-campaign-2" },
 ];
 
 const trinityData = [
@@ -57,6 +63,11 @@ function AppBarNav({ color }) {
   const [anchorElExplore, setAnchorElExplore] = React.useState(null);
   const [anchorElServices, setAnchorElServices] = React.useState(null);
   const [anchorElTrinity, setAnchorElTrinity] = React.useState(null);
+  
+  const [mobileExploreOpen, setMobileExploreOpen] = React.useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = React.useState(false);
+  const [mobileTrinityOpen, setMobileTrinityOpen] = React.useState(false);
+  
   const { isLoggedIn, isAdmin, dispatch } = React.useContext(AuthContext);
   const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = React.useState(false);
@@ -89,6 +100,27 @@ function AppBarNav({ color }) {
     setAnchorElTrinity(null);
   };
 
+  // Mobile dropdown handlers - don't close the drawer
+  const handleMobileExploreClick = (e) => {
+    e.stopPropagation();
+    setMobileExploreOpen(!mobileExploreOpen);
+  };
+
+  const handleMobileServicesClick = (e) => {
+    e.stopPropagation();
+    setMobileServicesOpen(!mobileServicesOpen);
+  };
+
+  const handleMobileTrinityClick = (e) => {
+    e.stopPropagation();
+    setMobileTrinityOpen(!mobileTrinityOpen);
+  };
+
+  // Handle mobile menu item clicks - close drawer after navigation
+  const handleMobileMenuItemClick = () => {
+    setMobileOpen(false);
+  };
+
   const navItems = React.useMemo(
     () =>
       isLoggedIn
@@ -109,53 +141,133 @@ function AppBarNav({ color }) {
     [isLoggedIn]
   );
 
-  const DrawerNavItems = React.useMemo(
-    () =>
-      isLoggedIn
-        ? [
-            { label: "Explore", onClick: handleExploreClick },
-            { label: "Services", onClick: handleServicesClick },
-            { label: "Trinity Plus", onClick: handleTrinityClick },
-            { label: "About Us", link: "/about-us" },
-            { label: "Contact Us", link: "/contact-us" },
-            ...(isAdmin
-              ? [{ label: "Admin Panel", onClick: handleAdminPanel }]
-              : []),
-            { label: "Dashboard", link: "/user/profile" },
-            { label: "Logout", onClick: handleLogout },
-          ]
-        : [
-            { label: "Explore", onClick: handleExploreClick },
-            { label: "Services", onClick: handleServicesClick },
-            { label: "Trinity Plus", onClick: handleTrinityClick },
-            { label: "About Us", link: "/about-us" },
-            { label: "Contact Us", link: "/contact-us" },
-            { label: "Login", link: "/login" },
-            { label: "Sign Up", link: "/signup" },
-          ],
-    [isLoggedIn, isAdmin, handleLogout]
-  );
-
   const drawer = (
-    <Box onClick={handleDrawerToggle}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        <Link to="/">
+    <Box>
+      <Typography variant="h6" sx={{ my: 3, mx: 2 }}>
+        <Link to="/" onClick={handleMobileMenuItemClick}>
           <img style={{ height: "40px" }} src={logo} alt="logo" />
         </Link>
       </Typography>
       <Divider />
       <List>
-        {DrawerNavItems.map((item, index) => (
-          <ListItem key={index} disablePadding>
-            <ListItemButton
-              component={item.link ? Link : "div"}
-              to={item.link || undefined}
-              onClick={item.onClick || undefined}
-            >
-              <ListItemText primary={item.label} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        <ListItem disablePadding>
+          <ListItemButton onClick={handleMobileExploreClick}>
+            <ListItemText primary="Explore" />
+            {mobileExploreOpen ? <ExpandLess /> : <ExpandMore />}
+          </ListItemButton>
+        </ListItem>
+        <Collapse in={mobileExploreOpen} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            {exploreData.map((item, index) => (
+              <ListItem key={index} disablePadding>
+                <ListItemButton
+                  component={Link}
+                  to={item.link}
+                  onClick={handleMobileMenuItemClick}
+                  sx={{ pl: 4 }}
+                >
+                  <ListItemText primary={item.text} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+        </Collapse>
+
+        {/* Services dropdown */}
+        <ListItem disablePadding>
+          <ListItemButton onClick={handleMobileServicesClick}>
+            <ListItemText primary="Services" />
+            {mobileServicesOpen ? <ExpandLess /> : <ExpandMore />}
+          </ListItemButton>
+        </ListItem>
+        <Collapse in={mobileServicesOpen} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            {servicesData.map((item, index) => (
+              <ListItem key={index} disablePadding>
+                <ListItemButton
+                  component={Link}
+                  to={item.link}
+                  onClick={handleMobileMenuItemClick}
+                  sx={{ pl: 4 }}
+                >
+                  <ListItemText primary={item.text} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+        </Collapse>
+
+        {/* Trinity dropdown */}
+        <ListItem disablePadding>
+          <ListItemButton onClick={handleMobileTrinityClick}>
+            <ListItemText primary="Trinity" />
+            {mobileTrinityOpen ? <ExpandLess /> : <ExpandMore />}
+          </ListItemButton>
+        </ListItem>
+        <Collapse in={mobileTrinityOpen} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            {trinityData.map((item, index) => (
+              <ListItem key={index} disablePadding>
+                <ListItemButton
+                  component={Link}
+                  to={item.link}
+                  onClick={handleMobileMenuItemClick}
+                  sx={{ pl: 4 }}
+                >
+                  <ListItemText primary={item.text} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+        </Collapse>
+
+        {/* Other navigation items */}
+        <ListItem disablePadding>
+          <ListItemButton component={Link} to="/about-us" onClick={handleMobileMenuItemClick}>
+            <ListItemText primary="About Us" />
+          </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding>
+          <ListItemButton component={Link} to="/contact-us" onClick={handleMobileMenuItemClick}>
+            <ListItemText primary="Contact Us" />
+          </ListItemButton>
+        </ListItem>
+
+        {/* Auth-related items */}
+        {isLoggedIn ? (
+          <>
+            {isAdmin && (
+              <ListItem disablePadding>
+                <ListItemButton onClick={() => { handleAdminPanel(); handleMobileMenuItemClick(); }}>
+                  <ListItemText primary="Admin Panel" />
+                </ListItemButton>
+              </ListItem>
+            )}
+            <ListItem disablePadding>
+              <ListItemButton component={Link} to="/user/profile" onClick={handleMobileMenuItemClick}>
+                <ListItemText primary="Dashboard" />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+              <ListItemButton onClick={() => { handleLogout(); handleMobileMenuItemClick(); }}>
+                <ListItemText primary="Logout" />
+              </ListItemButton>
+            </ListItem>
+          </>
+        ) : (
+          <>
+            <ListItem disablePadding>
+              <ListItemButton component={Link} to="/login" onClick={handleMobileMenuItemClick}>
+                <ListItemText primary="Login" />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+              <ListItemButton component={Link} to="/signup" onClick={handleMobileMenuItemClick}>
+                <ListItemText primary="Sign Up" />
+              </ListItemButton>
+            </ListItem>
+          </>
+        )}
       </List>
     </Box>
   );
@@ -278,17 +390,28 @@ function AppBarNav({ color }) {
           ModalProps={{ keepMounted: true }}
           sx={{
             display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": { width: drawerWidth },
+            "& .MuiDrawer-paper": { 
+              width: drawerWidth,
+              backgroundColor: "#fff", // Ensure white background
+              color: "#000" // Ensure text is visible
+            },
           }}
         >
           {drawer}
         </Drawer>
       </Box>
 
+      {/* Desktop dropdown menus with proper background */}
       <Menu
         anchorEl={anchorElServices}
         open={Boolean(anchorElServices)}
         onClose={handleClose}
+        PaperProps={{
+          sx: {
+            backgroundColor: "#fff",
+            boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
+          }
+        }}
       >
         {servicesData.map((data, i) => (
           <MenuItem
@@ -306,6 +429,12 @@ function AppBarNav({ color }) {
         anchorEl={anchorElTrinity}
         open={Boolean(anchorElTrinity)}
         onClose={handleClose}
+        PaperProps={{
+          sx: {
+            backgroundColor: "#fff",
+            boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
+          }
+        }}
       >
         {trinityData.map((data, i) => (
           <Link
@@ -322,6 +451,12 @@ function AppBarNav({ color }) {
         anchorEl={anchorElExplore}
         open={Boolean(anchorElExplore)}
         onClose={handleClose}
+        PaperProps={{
+          sx: {
+            backgroundColor: "#fff",
+            boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
+          }
+        }}
       >
         {exploreData.map((data, i) => (
           <MenuItem

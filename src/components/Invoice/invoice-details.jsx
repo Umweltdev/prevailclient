@@ -10,7 +10,7 @@ import TableRow from "@mui/material/TableRow";
 import TableHead from "@mui/material/TableHead";
 import TableCell from "@mui/material/TableCell";
 import TableBody from "@mui/material/TableBody";
-import Grid from "@mui/material/Unstable_Grid2";
+import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import TableContainer from "@mui/material/TableContainer";
@@ -291,7 +291,6 @@ export default function InvoiceDetails({ invoice }) {
         statusOptions={INVOICE_STATUS_OPTIONS}
       />
       <Card sx={{ pt: 5, px: 5, color: "#603799" }}>
-        {/* Header */}
         <Stack
           sx={{
             display: "flex",
@@ -362,8 +361,6 @@ export default function InvoiceDetails({ invoice }) {
             }}
           />
         </Stack>
-
-        {/* Agency & Client Info */}
         <Stack
           sx={{
             display: "flex",
@@ -372,7 +369,6 @@ export default function InvoiceDetails({ invoice }) {
             mt: 5,
           }}
         >
-          {/* Agency Info */}
           <Box>
             <Typography variant="h6" sx={{ mb: 2 }}>
               Agency Information
@@ -393,8 +389,6 @@ export default function InvoiceDetails({ invoice }) {
               </Typography>
             ))}
           </Box>
-
-          {/* Client Info */}
           <Box
             sx={{
               display: "flex",
