@@ -43,9 +43,8 @@ import {
   PackageCheck,
   CalendarCheck,
 } from "lucide-react";
+import { loadStripe } from "@stripe/stripe-js";
 import { theme } from "./theme.js";
-import { processMainCheckout, processConsultationCheckout } from "./utils.js";
-
 import {
   createCheckoutSession,
   mapToApiServiceType,
@@ -1183,8 +1182,8 @@ PlatformTierStep.propTypes = {
   nextStep: PropTypes.func.isRequired,
   prevStep: PropTypes.func.isRequired,
 };
-const MemoizedPlatformTier = React.memo(PlatformTier);
 const MemoizedPlatformTierStep = React.memo(PlatformTierStep);
+
 const FinalSummary = ({
   trinitySelectionId,
   selectedTier,
@@ -1204,10 +1203,7 @@ const FinalSummary = ({
   selectedDashboards,
   setSelectedDashboards,
   prevStep,
-  handleMainCheckout,
   isProcessing,
-  isProcessingConsult,
-  handleConsultationCheckout,
   calculateRunningTotal,
   handlePayment,
   processingAction,
@@ -1222,7 +1218,8 @@ const FinalSummary = ({
 
   const total = calculateRunningTotal();
   const isBundle = solutionType === "both" && trinitySelection && tierSelection;
-  const finalPrice = isBundle ? Math.round(total * 0.9) : total;
+  const preDiscountPrice = isBundle ? Math.round(total * 0.9) : total;
+  const finalPrice = applyDiscount(preDiscountPrice);
   const CONSULTATION_FEE = 99;
   const stripeConfigured = Boolean(STRIPE_KEY && stripePromise);
 
@@ -1298,7 +1295,9 @@ const FinalSummary = ({
                       fullWidth
                       label="Dashboards (e.g. Sales)"
                       value={selectedDashboards}
-                      onChange={(e) => setSelectedDashboards(e.target.value)}
+                      onChange={(e) =>
+                        setSelectedDashboards(e.target.value)
+                      }
                     />
                   </Grid>
                   <Grid item xs={12}>
@@ -1334,7 +1333,6 @@ const FinalSummary = ({
               Your Summary
             </Typography>
             <Divider sx={{ my: 2 }} />
-
             <Stack spacing={1} sx={{ mb: 2 }}>
               {industrySelection && (
                 <Box display="flex" justifyContent="space-between">
@@ -1383,63 +1381,13 @@ const FinalSummary = ({
                     -10%
                   </Typography>
                 </Box>
-              </Box>
-              <Box mt={3} display="flex" flexDirection="column" gap={2}>
-                <Button
-                  variant="contained"
-                  fullWidth
-                  onClick={handleMainCheckout}
-                  disabled={isProcessing || !name || !email} // Correct - only checks its own state
-                  startIcon={
-                    isProcessing ? (
-                      <CircularProgress size={20} color="inherit" />
-                    ) : null
-                  }
-                >
-                  {isProcessing ? "Processing..." : "Proceed to Checkout"}
-                </Button>
-                <Button
-                  variant="outlined"
-                  fullWidth
-                  onClick={handleConsultationCheckout}
-                  disabled={isProcessingConsult || !name || !email} // Correct - only checks its own state
-                  sx={{
-                    borderColor: "primary.main",
-                    color: "primary.main",
-                    "&:hover": {
-                      borderColor: "primary.dark",
-                      backgroundColor: "primary.main",
-                      color: "white",
-                    },
-                  }}
-                  startIcon={
-                    isProcessingConsult ? (
-                      <CircularProgress size={20} color="inherit" />
-                    ) : null
-                  }
-                >
-                  {isProcessingConsult
-                    ? "Processing..."
-                    : "Book a Consultation (€83)"}
-                </Button>
-                <Button
-                  variant="outlined"
-                  fullWidth
-                  onClick={prevStep}
-                  startIcon={<ChevronLeft />}
-                >
-                  Back
-                </Button>
-              </Box>
-            </CardContent>
-          </Card>
               )}
             </Stack>
             <Paper variant="outlined" sx={{ p: 2, borderRadius: 2, mb: 3 }}>
               <Stack spacing={1.5}>
                 <PriceRow
                   label="Project Subtotal"
-                  amount={`€${finalPrice.toLocaleString()}`}
+                  amount={`€${preDiscountPrice.toLocaleString()}`}
                 />
                 <Fade in={includeConsultation} timeout={400}>
                   <Stack spacing={1.5} sx={{ mt: 1.5 }}>
@@ -1462,13 +1410,13 @@ const FinalSummary = ({
                 />
               </Stack>
             </Paper>
-
-            {/* Actions */}
             <FormControlLabel
               control={
                 <Switch
                   checked={includeConsultation}
-                  onChange={(e) => setIncludeConsultation(e.target.checked)}
+                  onChange={(e) =>
+                    setIncludeConsultation(e.target.checked)
+                  }
                   color="primary"
                 />
               }
@@ -1479,7 +1427,6 @@ const FinalSummary = ({
               }
               sx={{ mb: 3 }}
             />
-
             <Button
               fullWidth
               variant="contained"
@@ -1493,15 +1440,18 @@ const FinalSummary = ({
                   <PackageCheck size={20} />
                 )
               }
-              sx={{ py: 1.5, textTransform: "none", fontSize: "1.1rem", mb: 2 }}
+              sx={{
+                py: 1.5,
+                textTransform: "none",
+                fontSize: "1.1rem",
+                mb: 2,
+              }}
             >
               {isProcessing && processingAction === "full"
                 ? "Processing..."
                 : "Pay & Start Project"}
             </Button>
-
             <Divider sx={{ my: 2 }}>OR</Divider>
-
             <Button
               fullWidth
               variant="text"
@@ -1526,37 +1476,32 @@ const FinalSummary = ({
           >
             Back
           </Button>
-
         </Grid>
       </Grid>
     </Fade>
   );
 };
-
 FinalSummary.propTypes = {
   trinitySelectionId: PropTypes.string,
   selectedTier: PropTypes.string,
   selectedIndustry: PropTypes.string,
   solutionType: PropTypes.string,
   hasPhysicalStore: PropTypes.bool,
-  handleMainCheckout: PropTypes.func.isRequired,
-  handleConsultationCheckout: PropTypes.func.isRequired,
-  name: PropTypes.string,
-  setName: PropTypes.func,
-  email: PropTypes.string,
-  setEmail: PropTypes.func,
-  additionalNotes: PropTypes.string,
-  setAdditionalNotes: PropTypes.func,
-  keywords: PropTypes.string,
-  setKeywords: PropTypes.func,
-  selectedSystems: PropTypes.string,
-  setSelectedSystems: PropTypes.func,
-  selectedDashboards: PropTypes.string,
-  setSelectedDashboards: PropTypes.func,
-  prevStep: PropTypes.func,
-  isProcessing: PropTypes.bool,
-  isProcessingConsult: PropTypes.bool,
-  calculateRunningTotal: PropTypes.func,
+  name: PropTypes.string.isRequired,
+  setName: PropTypes.func.isRequired,
+  email: PropTypes.string.isRequired,
+  setEmail: PropTypes.func.isRequired,
+  additionalNotes: PropTypes.string.isRequired,
+  setAdditionalNotes: PropTypes.func.isRequired,
+  keywords: PropTypes.string.isRequired,
+  setKeywords: PropTypes.func.isRequired,
+  selectedSystems: PropTypes.string.isRequired,
+  setSelectedSystems: PropTypes.func.isRequired,
+  selectedDashboards: PropTypes.string.isRequired,
+  setSelectedDashboards: PropTypes.func.isRequired,
+  prevStep: PropTypes.func.isRequired,
+  isProcessing: PropTypes.bool.isRequired,
+  calculateRunningTotal: PropTypes.func.isRequired,
   handlePayment: PropTypes.func.isRequired,
   processingAction: PropTypes.string,
   includeConsultation: PropTypes.bool.isRequired,
@@ -1576,7 +1521,6 @@ const StepWizard = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
-  const [isProcessingConsult, setIsProcessingConsult] = useState(false);
   const [additionalNotes, setAdditionalNotes] = useState("");
   const [keywords, setKeywords] = useState("");
   const [selectedSystems, setSelectedSystems] = useState("");
@@ -1741,52 +1685,6 @@ const StepWizard = () => {
     return { trinityRec, tierRec };
   }, [selectedGoals, selectedIndustry]);
 
-  const handleMainCheckout = useCallback(async () => {
-    setIsProcessing(true);
-
-    try {
-      await processMainCheckout({
-        name,
-        email,
-        solutionType,
-        trinitySelectionId,
-        selectedTier,
-        selectedIndustry,
-        selectedGoals,
-        hasPhysicalStore,
-        additionalNotes,
-        keywords,
-        selectedSystems,
-        selectedDashboards,
-        calculateRunningTotal,
-        onError: (errorMsg) => {
-          showToastMessage(`Error: ${errorMsg}`);
-        },
-        onSuccess: () => {
-          // Optional: could show success message or clean up state
-        },
-      });
-    } catch (error) {
-      showToastMessage(`Error: ${error.message || "Checkout failed"}`);
-    } finally {
-      setIsProcessing(false);
-    }
-  }, [
-    name,
-    email,
-    solutionType,
-    trinitySelectionId,
-    selectedTier,
-    selectedIndustry,
-    selectedGoals,
-    hasPhysicalStore,
-    additionalNotes,
-    keywords,
-    selectedSystems,
-    selectedDashboards,
-    calculateRunningTotal,
-    showToastMessage,
-  ]);
   const handlePayment = useCallback(
     async (action) => {
       if (!name || !email) {
@@ -1813,9 +1711,9 @@ const StepWizard = () => {
           solutionType === "both" &&
           ALL_TRINITY_OPTIONS.find((opt) => opt.id === trinitySelectionId) &&
           platformTiers.find((t) => t.id === selectedTier);
-        const basePrice = isBundle ? Math.round(total * 0.9) : total; 
+        const preDiscountPrice = isBundle ? Math.round(total * 0.9) : total;
 
-        priceToCharge = applyDiscount(basePrice);
+        priceToCharge = applyDiscount(preDiscountPrice);
 
         serviceDescription = mapToApiServiceType(
           solutionType,
@@ -1842,8 +1740,24 @@ const StepWizard = () => {
           ),
           notes:
             action === "full"
-              ? `Full purchase. ${includeConsultation ? "Free consultation included." : ""} | Notes: ${additionalNotes || ""} | Systems: ${selectedSystems || "None"} | Dashboards: ${selectedDashboards || "None"} | Keywords: ${keywords || "None"} | Solution: ${solutionType} | Trinity: ${trinitySelectionId || "None"} | Tier: ${selectedTier || "None"} | Physical Store: ${hasPhysicalStore ? "Yes" : "No"}`.trim()
-              : `Consultation booking. Customer interested in ${solutionType || "general services"}.`,
+              ? `Full purchase. ${
+                  includeConsultation ? "Free consultation included." : ""
+                } | Notes: ${additionalNotes || ""} | Systems: ${
+                  selectedSystems || "None"
+                } | Dashboards: ${
+                  selectedDashboards || "None"
+                } | Keywords: ${keywords || "None"} | Solution: ${
+                  solutionType
+                } | Trinity: ${
+                  trinitySelectionId || "None"
+                } | Tier: ${
+                  selectedTier || "None"
+                } | Physical Store: ${
+                  hasPhysicalStore ? "Yes" : "No"
+                }`.trim()
+              : `Consultation booking. Customer interested in ${
+                  solutionType || "general services"
+                }.`,
         };
 
         const session = await createCheckoutSession(checkoutData);
@@ -1880,30 +1794,6 @@ const StepWizard = () => {
     ]
   );
 
-
-  const handleConsultationCheckout = useCallback(async () => {
-    setIsProcessingConsult(true);
-
-    try {
-      await processConsultationCheckout({
-        name,
-        email,
-        onError: (errorMsg) => {
-          showToastMessage(`Error: ${errorMsg}`);
-        },
-        onSuccess: () => {
-          showToastMessage("Redirecting to consultation checkout...");
-        },
-      });
-    } catch (error) {
-      showToastMessage(
-        `Error: ${error.message || "Consultation checkout failed"}`
-      );
-    } finally {
-      setIsProcessingConsult(false); // Always reset the loading state
-    }
-  }, [name, email, showToastMessage]);
-
   const renderStepContent = () => {
     const steps = getSteps();
     const isReviewStep = steps.length > 1 && steps.length === currentStep;
@@ -1930,7 +1820,6 @@ const StepWizard = () => {
       setEmail,
       additionalNotes,
       setAdditionalNotes,
-
       keywords,
       setKeywords,
       selectedSystems,
@@ -1938,11 +1827,6 @@ const StepWizard = () => {
       selectedDashboards,
       setSelectedDashboards,
       isProcessing,
-
-      isProcessingConsult,
-      handleCheckout: handleMainCheckout,
-      handleConsultationCheckout,
-
       calculateRunningTotal,
       nextStep,
       prevStep,

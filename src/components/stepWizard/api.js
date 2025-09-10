@@ -29,7 +29,6 @@ export const createCheckoutSession = async (checkoutData) => {
 };
 
 export const mapToApiServiceType = (solutionType) => {
-  // Handle consultation specifically
   if (solutionType === "consultation") {
     return "consultation";
   }
