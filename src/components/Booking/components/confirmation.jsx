@@ -10,12 +10,12 @@ import {
 } from "@mui/material";
 import { useMemo } from "react";
 
-const timeZone = "Africa/Lagos (WAT)";
+const timeZone = "Europe/Dublin";
 
 const isoToLocalDisplay = (iso) => {
   try {
     const dt = new Date(iso);
-    return dt.toLocaleTimeString("en-US", {
+    return dt.toLocaleTimeString("en-IE", {
       hour: "numeric",
       minute: "2-digit",
       hour12: true,
@@ -38,13 +38,14 @@ const ConfirmationComponent = ({
   setEmail,
 }) => {
   const formattedDate = selectedDate
-    ? selectedDate.toLocaleDateString("en-US", {
+    ? selectedDate.toLocaleDateString("en-IE", {
         weekday: "long",
         year: "numeric",
         month: "long",
         day: "numeric",
       })
     : "";
+
   const isEmailValid = useMemo(
     () => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email),
     [email]

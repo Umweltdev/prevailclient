@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { ArrowRight } from "lucide-react";
 import { Box, Grid, Paper, Typography, Button } from "@mui/material";
 
-const timeZone = "Africa/Lagos (WAT)";
+const timeZone = "Europe/Dublin";
 const formatDateToYMD = (date) => date.toISOString().split("T")[0];
 
 const TimeSlotComponent = ({
@@ -21,7 +21,7 @@ const TimeSlotComponent = ({
       if (typeof s === "string" && s.includes("T")) {
         const iso = s;
         const dt = new Date(iso);
-        const time = dt.toLocaleTimeString("en-US", {
+        const time = dt.toLocaleTimeString("en-IE", {
           hour: "numeric",
           minute: "2-digit",
           hour12: true,
@@ -35,7 +35,7 @@ const TimeSlotComponent = ({
           time:
             s.time ||
             (s.iso
-              ? new Date(s.iso).toLocaleTimeString("en-US", {
+              ? new Date(s.iso).toLocaleTimeString("en-IE", {
                   hour: "numeric",
                   minute: "2-digit",
                   hour12: true,

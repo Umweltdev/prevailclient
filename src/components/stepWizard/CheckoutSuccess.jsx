@@ -1,36 +1,40 @@
-import React from 'react';
+import React from "react";
 import {
   ThemeProvider,
   Box,
   Container,
   Typography,
   Button,
-  Card,
-  CardContent,
-  Alert,
-  Divider,
-} from '@mui/material';
-import { Check, Home, Mail, Calendar } from 'lucide-react';
-import { theme } from '../theme.js';
-import { useNavigate } from 'react-router-dom';
+  Paper,
+  Stack,
+  Link,
+} from "@mui/material";
+import {
+  CheckCircle,
+  Home,
+  MailOutline,
+  CalendarToday,
+} from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
+import { theme } from "../../theme.js";
 
 const gradientText = {
   background: "linear-gradient(to right, #6E3EF4, #3B82F6)",
   WebkitBackgroundClip: "text",
   WebkitTextFillColor: "transparent",
   display: "inline-block",
+  fontWeight: 700,
 };
 
 const CheckoutSuccess = () => {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    // Clear the wizard state on successful payment
     localStorage.removeItem("quoteBuilderState");
   }, []);
 
   const handleBackToHome = () => {
-    navigate('/');
+    navigate("/booking");
   };
 
   return (
@@ -38,83 +42,91 @@ const CheckoutSuccess = () => {
       <Box
         sx={{
           minHeight: "100vh",
-          background: theme.palette.background.default,
-          color: "text.primary",
           display: "flex",
           alignItems: "center",
+          justifyContent: "center",
+          p: { xs: 2, sm: 3 },
+          background: "linear-gradient(170deg, #f8fafc 0%, #eef2f9 100%)",
         }}
       >
-        <Container maxWidth="md">
-          <Card elevation={8} sx={{ textAlign: "center" }}>
-            <CardContent sx={{ p: { xs: 4, md: 6 } }}>
-              <Box
-                sx={{
-                  width: 80,
-                  height: 80,
-                  borderRadius: "50%",
-                  background: "linear-gradient(135deg, #10B981, #059669)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  mx: "auto",
-                  mb: 3,
-                }}
+        <Container maxWidth="sm">
+          <Paper
+            elevation={0}
+            sx={{
+              p: { xs: 3, sm: 5 },
+              borderRadius: 4,
+              textAlign: "center",
+              border: "1px solid rgba(0, 0, 0, 0.08)",
+              boxShadow: "0px 16px 40px -12px rgba(0,0,0,0.05)",
+            }}
+          >
+            <Stack spacing={3} alignItems="center">
+              <CheckCircle sx={{ fontSize: 60, color: "success.main" }} />
+
+              <Typography
+                variant="h3"
+                component="h1"
+                sx={{ fontSize: { xs: "2.2rem", sm: "3rem" } }}
               >
-                <Check size={40} color="white" />
-              </Box>
-              
-              <Typography variant="h3" component="h1" gutterBottom>
                 Payment{" "}
                 <Box component="span" sx={gradientText}>
                   Successful!
                 </Box>
               </Typography>
-              
+
               <Typography
                 variant="h6"
                 color="text.secondary"
-                sx={{ mb: 4, maxWidth: "600px", mx: "auto" }}
+                sx={{ fontWeight: 400, maxWidth: "500px" }}
               >
-                Thank you for choosing us for your digital transformation journey. 
-                Your payment has been processed successfully.
+                Thank you for choosing us for your digital transformation
+                journey. Your payment has been processed successfully.
               </Typography>
 
-              <Alert 
-                severity="success" 
-                sx={{ 
-                  mb: 4, 
+              <Paper
+                variant="outlined"
+                sx={{
+                  p: 3,
+                  width: "100%",
                   textAlign: "left",
-                  "& .MuiAlert-message": { 
-                    width: "100%" 
-                  }
+                  backgroundColor: "rgba(46, 212, 122, 0.05)",
+                  borderColor: "rgba(46, 212, 122, 0.2)",
+                  borderRadius: 3,
                 }}
               >
-                <Typography variant="h6" gutterBottom>
+                <Typography
+                  variant="h6"
+                  component="p"
+                  sx={{ fontWeight: "bold", mb: 2 }}
+                >
                   What happens next?
                 </Typography>
-                <Box sx={{ display: "flex", flexDirection: "column", gap: 2, mt: 2 }}>
-                  <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                    <Mail size={20} color={theme.palette.success.main} />
+                <Stack spacing={2}>
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
+                    <MailOutline sx={{ color: "success.dark" }} />
                     <Typography variant="body1">
-                      You&apos;ll receive a confirmation email with your order details within the next few minutes.
+                      You&apos;ll receive a confirmation email with your order
+                      details within the next few minutes.
                     </Typography>
                   </Box>
-                  <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                    <Calendar size={20} color={theme.palette.success.main} />
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
+                    <CalendarToday sx={{ color: "success.dark" }} />
                     <Typography variant="body1">
-                      Our team will contact you within 24-48 hours to begin your project.
+                      Our team will contact you within 24-48 hours to begin your
+                      project.
                     </Typography>
                   </Box>
-                </Box>
-              </Alert>
+                </Stack>
+              </Paper>
 
-              <Divider sx={{ my: 4 }} />
-
-              <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
+              <Typography variant="body1" color="text.secondary" sx={{ pt: 2 }}>
                 Need immediate assistance? Contact our support team at{" "}
-                <Box component="span" sx={{ color: "primary.main", fontWeight: "bold" }}>
-                  support@yourcompany.com
-                </Box>
+                <Link
+                  href="mailto:prevailclient@gmail.com"
+                  sx={{ fontWeight: "bold", color: "primary.main" }}
+                >
+                  Prevailandumweltdevmailer@gmail.com
+                </Link>
               </Typography>
 
               <Button
@@ -122,18 +134,24 @@ const CheckoutSuccess = () => {
                 onClick={handleBackToHome}
                 startIcon={<Home />}
                 size="large"
-                sx={{ 
-                  minWidth: 200,
+                sx={{
+                  minWidth: 220,
+                  py: 1.5,
+                  fontSize: "1rem",
+                  borderRadius: "12px",
+                  textTransform: "none",
                   background: "linear-gradient(135deg, #6E3EF4, #3B82F6)",
+                  transition: "transform 0.2s ease",
                   "&:hover": {
+                    transform: "scale(1.03)",
                     background: "linear-gradient(135deg, #5B2EF0, #2563EB)",
-                  }
+                  },
                 }}
               >
-                Back to Home
+                Book Consultation
               </Button>
-            </CardContent>
-          </Card>
+            </Stack>
+          </Paper>
         </Container>
       </Box>
     </ThemeProvider>

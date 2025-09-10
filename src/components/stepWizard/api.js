@@ -1,18 +1,21 @@
 export const createCheckoutSession = async (checkoutData) => {
-  const baseUrl = import.meta.env.VITE_APP_BASE_URL;
+  const backendBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
   try {
-    const response = await fetch( `${import.meta.env.VITE_API_CHECKOUT_SESSION}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        ...checkoutData,
-        success_url: `${baseUrl}/checkout-success`,
-        cancel_url: `${baseUrl}/checkout-cancel`,
-      }),
-    });
+    const response = await fetch(
+      `${backendBaseUrl}${import.meta.env.VITE_API_CHECKOUT_SESSION}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...checkoutData,
+          success_url: `${window.location.origin}/checkout-success`,
+          cancel_url: `${window.location.origin}/checkout-cancel`,
+        }),
+      }
+    );
 
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
@@ -28,16 +31,14 @@ export const createCheckoutSession = async (checkoutData) => {
   }
 };
 
+
 export const mapToApiServiceType = (solutionType) => {
   if (solutionType === "website" || solutionType === "both") {
     return "brand_identity_package";
   }
-
   if (solutionType === "trinity") {
     return "trinity_system";
   }
-
-  // Default fallback
   return "web_development";
 };
 
@@ -54,17 +55,9 @@ export const generateTargetAudience = (selectedIndustry, selectedGoals) => {
   const industry = industryMap[selectedIndustry] || "Business";
   const goals = selectedGoals.join(", ");
 
-  return `${industry} businesses focusing on ${
-    goals || "growth and efficiency"
-  }`;
+  return `${industry} businesses focusing on ${goals || "growth and efficiency"}`;
 };
 
-/**
- * Generates campaign duration based on service complexity
- * @param {string} solutionType - Solution type
- * @param {string} trinitySelectionId - Trinity selection
- * @returns {string} Campaign duration
- */
 export const generateCampaignDuration = (solutionType, trinitySelectionId) => {
   if (solutionType === "both") return "4-6 months";
   if (solutionType === "trinity") {
