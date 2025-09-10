@@ -143,6 +143,11 @@ const CheckoutStep = ({ formData, handleBack }) => {
                 <PriceRow
                   label="Project Subtotal"
                   amount={`€${totalCost.toLocaleString()}`}
+                  strikeThrough
+                />
+                <PriceRow
+                  label="Discounted Price"
+                  amount={`€${applyDiscount(totalCost).toLocaleString()}`}
                 />
                 <Fade in={includeConsultation} timeout={400}>
                   <Box>
@@ -164,9 +169,21 @@ const CheckoutStep = ({ formData, handleBack }) => {
                 <Divider sx={{ my: 1 }} />
                 <PriceRow
                   label="Total to Pay"
-                  amount={`€${totalCost.toLocaleString()}`}
+                  amount={`€${applyDiscount(totalCost).toLocaleString()}`}
                   isTotal
                 />
+
+                <Typography
+                  variant="caption"
+                  color="success.main"
+                  display="block"
+                  textAlign="right"
+                  mt={1}
+                >
+                  {totalCost < 1000
+                    ? "20% discount applied"
+                    : "50% discount applied"}
+                </Typography>
               </Stack>
             </Paper>
 
