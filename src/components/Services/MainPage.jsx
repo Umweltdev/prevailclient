@@ -40,7 +40,7 @@ const MainPage = () => {
       >
         <Typography
           className={`${styles.aboutUsSection} ${inView ? styles.visible : ""}`}
-          sx={{ color: "#6E3EF4", fontSize: "24px", fontWeight: "400;" }}
+          sx={{ color: "#6E3EF4", fontSize: "48px", fontWeight: "400;" }}
         >
           Services
         </Typography>

@@ -1,4 +1,3 @@
-import React from 'react'
 import ImageTextComponent from "../ReusedComponenets/ImageTextComponent"
 
 const MainPage = () => {

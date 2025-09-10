@@ -1,14 +1,13 @@
 import { CardMedia, Grid, Typography, Box, Card, } from "@mui/material";
-import React from "react";
 import { TailoredApproachData } from "../assets/serviceData";
-import mugs from "../assets/mug.png";
+// import mugs from "../assets/mug.png";
 import styles from "../BrandIdentity/assets/animation.module.css"
 import { useInView } from "react-intersection-observer";
-import {
+// import {
  
-  Rocket,
+//   Rocket,
   
-} from '@mui/icons-material';
+// } from '@mui/icons-material';
 const TailoredApproach = () => {
   const { ref, inView, entry } = useInView({
     triggerOnce: true, 
@@ -72,7 +71,7 @@ const TailoredApproach = () => {
             },
           }}
         >
-          Our Tailored Approach to Your Brand Needs 
+          Our Tailored Approach to Your Brand Needs
         </Typography>
         <Typography
           sx={{
@@ -96,7 +95,7 @@ const TailoredApproach = () => {
           <br />
           Imagine the pride and confidence you will feel seeing your brand
           identity not only look cohesive but also strongly resonate with your
-          target audience.  
+          target audience.
         </Typography>
         <Box
           sx={{

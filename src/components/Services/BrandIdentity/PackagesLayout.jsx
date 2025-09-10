@@ -94,11 +94,7 @@ const PackagesLayout = ({ packages, amount, info, handleClick, onBoxClick }) => 
           onClick={handleClick}
         >
           Book now
-        </Button>
-       
-        
-
-        {/* Render the StarterBrandIdentity items */}
+        </Button>   
         <Grid
           sx={{
             display: "flex",

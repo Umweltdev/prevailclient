@@ -1,5 +1,4 @@
 import { Grid, Typography } from "@mui/material";
-import React from "react";
 import BrandIdentityCard from "./CardLayout";
 import { makeStyles } from "@mui/styles";
 
@@ -101,12 +100,12 @@ const ServiceDetails3 = () => {
             },
           }}
         >
-          Here's where our "Brand Identity Package" service comes into play,
+          Here&apos;s where our &quot;Brand Identity Package&quot; service comes into play,
           addressing your pain point with precision. Our collaborative process
           is the heartbeat of our success. We work closely with you, the
           heartbeat of your business, to weave your unique vision and values
           into every aspect of your brand identity. Imagine the pride and
-          confidence you'll feel when your brand identity is not just cohesive
+          confidence you&apos;ll feel when your brand identity is not just cohesive
           but also deeply resonates with your target audience.
         </Typography>
         <img
