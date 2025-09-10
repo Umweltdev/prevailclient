@@ -5,3 +5,11 @@ export const dateConverter = (date) => {
     year: "numeric",
   });
 };
+
+
+export const applyDiscount = (price) => {
+  if (price < 1000) {
+    return price * 0.8; 
+  }
+  return price * 0.5;  
+}

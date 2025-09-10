@@ -51,6 +51,7 @@ import {
   generateTargetAudience,
   generateCampaignDuration,
 } from "./api";
+import { applyDiscount } from "../user-dashboard/utils.js";
 
 const STRIPE_KEY = import.meta.env.VITE_STRIPE_PUBLIC_KEY || "";
 let stripePromise = null;
@@ -1707,7 +1708,10 @@ const StepWizard = () => {
           solutionType === "both" &&
           ALL_TRINITY_OPTIONS.find((opt) => opt.id === trinitySelectionId) &&
           platformTiers.find((t) => t.id === selectedTier);
-        priceToCharge = isBundle ? Math.round(total * 0.9) : total;
+        const basePrice = isBundle ? Math.round(total * 0.9) : total; 
+
+        priceToCharge = applyDiscount(basePrice);
+
         serviceDescription = mapToApiServiceType(
           solutionType,
           trinitySelectionId
