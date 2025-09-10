@@ -1,6 +1,4 @@
-import React from "react";
-//import { EliteBrandIdentity, PremiumBrandIdentity } from "../";
-import { EliteBrandIdentity, PremiumBrandIdentity } from "../assets/serviceData";
+import { EliteBrandIdentity, } from "../assets/serviceData";
 import {
   Box,
   Button,
@@ -75,9 +73,6 @@ const ElitePackageLayout = ({ packages, amount, info, handleClick }) => {
           >
             Contact Us
           </Typography>
-          {/* <Typography sx={{ width: "88px", fontSize: "14px" }}>
-            One Off Payment
-          </Typography> */}
         </Box>
         
 
@@ -99,7 +94,6 @@ const ElitePackageLayout = ({ packages, amount, info, handleClick }) => {
           Book now
         </Button>
       
-        {/* Render the StarterBrandIdentity items */}
         <Grid
           sx={{
             display: "flex",

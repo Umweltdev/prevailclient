@@ -151,6 +151,8 @@ const GetStartedStep = ({ formData, handleBack }) => {
       buttonText: PropTypes.string.isRequired,
     }).isRequired,
     isRecommended: PropTypes.bool.isRequired,
+    setSelectedPath: PropTypes.func.isRequired,
+    selectedPath: PropTypes.string,
   };
 
   return (
@@ -160,20 +162,17 @@ const GetStartedStep = ({ formData, handleBack }) => {
         title="Choose Your Path"
         subtitle="Based on your selections and budget"
       />
-
       <BudgetTracker budget={budget} spent={totalSpent} />
-
       <Grid container spacing={3} sx={{ mt: 2 }}>
-        {options.map((option, index) => (
-          <Grid item xs={12} md={6} key={option.title}>
+        {options.map(({ title, ...rest }, index) => (
+          <Grid item xs={12} md={6} key={`option-${title}-${index}`}>
             <ChoiceCard
-              option={option}
+              option={{ title, ...rest }}
               isRecommended={index === recommendedIndex}
             />
           </Grid>
         ))}
       </Grid>
-
       <Box sx={{ display: "flex", justifyContent: "flex-start", mt: 4 }}>
         <Button variant="outlined" onClick={handleBack}>
           Back

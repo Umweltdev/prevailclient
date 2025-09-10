@@ -3,7 +3,7 @@ import ImageTextService from "./ImageTextService";
 import TextImageService from "./TextImageService";
 import { useInView } from "react-intersection-observer";
 import styles from "../About/assets/about.module.css";
-import StepWizard from "../stepWizard/StepWizard.jsx";
+import CostCalculation from "./CostCalculation/CostCalculation.jsx";
 
 const MainPage = () => {
   const { ref, inView } = useInView({
@@ -112,7 +112,7 @@ const MainPage = () => {
           text="Our “Digital Accelerator” bundle integrate cutting-edge website design, bespoke brand identity, and strategic SEO services to boost visibility engage customers, and enhance your digital footprint."
           url="/service/digital-accelerator-bundle"
         />
-        <StepWizard />
+        <CostCalculation/>
       </Box>
     </Grid>
   );

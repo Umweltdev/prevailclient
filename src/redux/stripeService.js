@@ -4,6 +4,8 @@ console.log("Stripe Key Loaded:", import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
+const backendBaseUrl = import.meta.env.VITE_API_BASE_URL;
+
 export const proceedToCheckout = async (checkoutData) => {
   try {
     const stripe = await stripePromise;
@@ -12,7 +14,7 @@ export const proceedToCheckout = async (checkoutData) => {
     console.log("Sending this data to backend:", checkoutData);
     
     const response = await fetch(
-      "https://prevail-services-e973123f8b1e.herokuapp.com/api/create-checkout-session",
+      `${backendBaseUrl}${import.meta.env.VITE_API_CHECKOUT_SESSION}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
