@@ -1,10 +1,8 @@
-import React from 'react'
 import { PremiumBrandIdentity } from '../assets/serviceData';
 import { Box, Button, Card, CardContent, Grid, Typography } from '@mui/material';
 import { Check } from '@mui/icons-material';
 import { AuthContext } from "../../../context/AuthContext";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
 
 const PremiumPackageLayout = ({
   packages,

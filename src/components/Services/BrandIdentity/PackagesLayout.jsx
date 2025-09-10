@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Card,
   CardContent,
@@ -11,7 +10,6 @@ import { Check } from "@mui/icons-material";
 import { StarterBrandIdentity } from "../assets/serviceData";
 import { AuthContext } from "../../../context/AuthContext";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
 
 
 const PackagesLayout = ({ packages, amount, info, handleClick, onBoxClick }) => {
