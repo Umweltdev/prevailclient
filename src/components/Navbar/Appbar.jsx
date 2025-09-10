@@ -40,6 +40,7 @@ const servicesData = [
     link: "/service/cost-calculation",
   },
   { text: "Content Ad Campaign", link: "/service/custom-ad-campaign" },
+  //  { text: "Content Ad Campaign 2", link: "/service/custom-ad-campaign-2" },
 ];
 
 const trinityData = [
