@@ -34,6 +34,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import PropTypes from "prop-types";
 import { createCheckoutSession } from "../../stepWizard/api.js";
 import { theme } from "../../../theme.js";
+import { applyDiscount } from "../../user-dashboard/utils.js";
 
 const STRIPE_KEY = import.meta.env.VITE_STRIPE_PUBLIC_KEY || "";
 let stripePromise = STRIPE_KEY ? loadStripe(STRIPE_KEY) : null;
@@ -366,7 +367,14 @@ const FinalSummary = ({
                 <PriceRow
                   label="Project Subtotal"
                   amount={`€${packagePrice.toLocaleString()}`}
+                  strikeThrough // 👈 show original price with strikethrough
                 />
+
+                <PriceRow
+                  label="Discounted Price"
+                  amount={`€${applyDiscount(packagePrice).toLocaleString()}`}
+                />
+
                 <Fade in={includeConsultation} timeout={400}>
                   <Stack spacing={1.5} sx={{ mt: 1.5 }}>
                     <PriceRow
@@ -384,11 +392,23 @@ const FinalSummary = ({
                 <Divider sx={{ my: 1 }} />
                 <PriceRow
                   label="Total to Pay"
-                  amount={`€${packagePrice.toLocaleString()}`}
+                  amount={`€${applyDiscount(packagePrice).toLocaleString()}`}
                   isTotal
                 />
               </Stack>
+              <Typography
+                variant="caption"
+                color="success.main"
+                display="block"
+                textAlign="right"
+                mt={1}
+              >
+                {packagePrice < 1000
+                  ? "20% discount applied"
+                  : "50% discount applied"}
+              </Typography>
             </Paper>
+
             <FormControlLabel
               control={
                 <Switch
@@ -566,8 +586,8 @@ const Packages = () => {
       const CONSULTATION_FEE = 99;
 
       const isFullPayment = action === "full";
+      const priceToCharge = isFullPayment ? applyDiscount(packagePrice) : CONSULTATION_FEE;
 
-      const priceToCharge = isFullPayment ? packagePrice : CONSULTATION_FEE;
 
       try {
         const checkoutData = {

@@ -31,6 +31,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { theme } from "../../stepWizard/theme.js";
 import { createCheckoutSession } from "../../stepWizard/api.js";
 import "./assets/style.css";
+import { applyDiscount } from "../../user-dashboard/utils.js";
 
 const STRIPE_KEY = import.meta.env.VITE_STRIPE_PUBLIC_KEY || "";
 let stripePromise = null;
@@ -346,16 +347,51 @@ const FinalSummary = ({
               )}
 
               <Box mt={3} pt={2} borderTop={1} borderColor="divider">
-                <Box
-                  display="flex"
-                  justifyContent="space-between"
-                  alignItems="baseline"
-                >
-                  <Typography variant="h6">Total Price:</Typography>
-                  <Typography variant="h5" fontWeight="bold" sx={gradientText}>
-                    €{tierSelection?.price}
-                  </Typography>
-                </Box>
+                {tierSelection && (
+                  <>
+                   
+                    <Box
+                      display="flex"
+                      justifyContent="space-between"
+                      alignItems="baseline"
+                    >
+                      <Typography variant="subtitle2" color="text.secondary">
+                        Original Price:
+                      </Typography>
+                      <Typography
+                        variant="body1"
+                        sx={{ textDecoration: "line-through", opacity: 0.7 }}
+                      >
+                        €{tierSelection.price}
+                      </Typography>
+                    </Box>
+
+                   
+                    <Box
+                      display="flex"
+                      justifyContent="space-between"
+                      alignItems="baseline"
+                      mt={1}
+                    >
+                      <Typography variant="h6">Discounted Price:</Typography>
+                      <Typography variant="h5" fontWeight="bold" sx={gradientText}>
+                        €{applyDiscount(tierSelection.price)}
+                      </Typography>
+                    </Box>
+
+                    <Typography
+                      variant="caption"
+                      color="success.main"
+                      display="block"
+                      textAlign="right"
+                      mt={1}
+                    >
+                      {tierSelection.price < 1000
+                        ? "20% discount applied"
+                        : "50% discount applied"}
+                    </Typography>
+                  </>
+                )}
               </Box>
 
               <Box mt={3} display="flex" flexDirection="column" gap={2}>
@@ -498,7 +534,7 @@ const StepWizard = () => {
       const checkoutData = {
         name,
         email,
-        price: finalPrice,
+        price: applyDiscount(finalPrice),
         serviceType: tierSelection.id,
         notes:
           `${additionalNotes || ""} | Systems: ${selectedSystems || "None"} | Dashboards: ${selectedDashboards || "None"} | Keywords: ${keywords || "None"}`.trim(),
@@ -568,7 +604,7 @@ const StepWizard = () => {
         <Container maxWidth="xl" sx={{ py: { xs: 6, md: 8 } }} ref={wizardRef}>
           <Box textAlign="center" mb={{ xs: 6, md: 8 }}>
             <Typography variant="h1" gutterBottom>
-              Your Partner in Accelerating the 
+              Your Partner in Accelerating the
               <Box component="span" sx={gradientText}>
                 Digital Space
               </Box>
