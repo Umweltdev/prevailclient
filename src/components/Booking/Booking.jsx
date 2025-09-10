@@ -7,10 +7,8 @@ import TimeSlotComponent from "./components/Timeslot.jsx";
 import ConfirmationComponent from "./components/confirmation.jsx";
 import CalendarComponent from "./components/calender.jsx";
 
-// Format date to YYYY-MM-DD for API keys
 const formatDateToYMD = (date) => date.toISOString().split("T")[0];
 
-// Convert ISO string to Ireland local time display
 const isoToLocalDisplay = (iso) => {
   try {
     const dt = new Date(iso);
@@ -25,7 +23,6 @@ const isoToLocalDisplay = (iso) => {
   }
 };
 
-// Combine date object + time string into ISO string in Dublin time
 const combineDateAndTimeToISO = (dateObj, timeStr) => {
   if (!dateObj || !timeStr) return null;
   const match = timeStr.match(/(\d+):(\d+)\s*(AM|PM)/i);
@@ -59,7 +56,6 @@ const Booking = ({ onBookingConfirmed = () => {} }) => {
   const [isBooking, setIsBooking] = useState(false);
   const timeSlotRef = useRef(null);
 
-  // Fetch availability for selected date
   useEffect(() => {
     const fetchAvailability = async () => {
       if (!selectedDate) return;
