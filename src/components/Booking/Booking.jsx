@@ -7,34 +7,43 @@ import TimeSlotComponent from "./components/Timeslot.jsx";
 import ConfirmationComponent from "./components/confirmation.jsx";
 import CalendarComponent from "./components/calender.jsx";
 
+// Format date to YYYY-MM-DD for API keys
 const formatDateToYMD = (date) => date.toISOString().split("T")[0];
 
+// Convert ISO string to Ireland local time display
 const isoToLocalDisplay = (iso) => {
   try {
     const dt = new Date(iso);
-    return dt.toLocaleTimeString("en-US", {
+    return dt.toLocaleTimeString("en-IE", {
       hour: "numeric",
       minute: "2-digit",
       hour12: true,
-      timeZone: "Africa/Lagos",
+      timeZone: "Europe/Dublin",
     });
   } catch {
     return iso;
   }
 };
 
+// Combine date object + time string into ISO string in Dublin time
 const combineDateAndTimeToISO = (dateObj, timeStr) => {
   if (!dateObj || !timeStr) return null;
   const match = timeStr.match(/(\d+):(\d+)\s*(AM|PM)/i);
   if (!match) return null;
+
   let h = parseInt(match[1], 10);
   const m = parseInt(match[2], 10);
   const period = match[3].toUpperCase();
   if (period === "PM" && h !== 12) h += 12;
   if (period === "AM" && h === 12) h = 0;
+
   const d = new Date(dateObj);
   d.setHours(h, m, 0, 0);
-  return d.toISOString();
+
+  // Convert to ISO using Dublin timezone
+  const options = { timeZone: "Europe/Dublin" };
+  const isoString = d.toLocaleString("sv-SE", options).replace(" ", "T") + "Z";
+  return new Date(isoString).toISOString();
 };
 
 const Booking = ({ onBookingConfirmed = () => {} }) => {
@@ -50,6 +59,7 @@ const Booking = ({ onBookingConfirmed = () => {} }) => {
   const [isBooking, setIsBooking] = useState(false);
   const timeSlotRef = useRef(null);
 
+  // Fetch availability for selected date
   useEffect(() => {
     const fetchAvailability = async () => {
       if (!selectedDate) return;
@@ -114,9 +124,7 @@ const Booking = ({ onBookingConfirmed = () => {} }) => {
     fetchAvailability();
   }, [selectedDate]);
 
-  useEffect(() => {
-    setSelectedTimeIso(null);
-  }, [selectedDate]);
+  useEffect(() => setSelectedTimeIso(null), [selectedDate]);
 
   useEffect(() => {
     if (selectedDate && timeSlotRef.current && window.innerWidth < 768) {
@@ -131,10 +139,7 @@ const Booking = ({ onBookingConfirmed = () => {} }) => {
   const handlePrevStep = useCallback(() => setStep((s) => s - 1), []);
 
   const handleBookingConfirmation = useCallback(async () => {
-    if (!selectedDate || !selectedTimeIso) {
-      console.error("Missing date or time");
-      return;
-    }
+    if (!selectedDate || !selectedTimeIso) return;
 
     setIsBooking(true);
     try {
@@ -160,8 +165,6 @@ const Booking = ({ onBookingConfirmed = () => {} }) => {
       }
 
       const result = await res.json();
-      console.log("Booking Response:", result);
-
       setIsConfirmed(true);
       onBookingConfirmed(result);
 
@@ -230,7 +233,7 @@ const Booking = ({ onBookingConfirmed = () => {} }) => {
               </Typography>{" "}
               is scheduled for{" "}
               <Typography component="span" fontWeight="bold">
-                {selectedDate?.toLocaleDateString()}
+                {selectedDate?.toLocaleDateString("en-IE")}
               </Typography>{" "}
               at{" "}
               <Typography component="span" fontWeight="bold">
@@ -299,42 +302,36 @@ const Booking = ({ onBookingConfirmed = () => {} }) => {
             {step === 1 && (
               <>
                 <MemoizedCalendar
-                  {...{
-                    selectedDate,
-                    setSelectedDate,
-                    currentDate,
-                    setCurrentDate,
-                    availability,
-                    isLoading,
-                  }}
+                  selectedDate={selectedDate}
+                  setSelectedDate={setSelectedDate}
+                  currentDate={currentDate}
+                  setCurrentDate={setCurrentDate}
+                  availability={availability}
+                  isLoading={isLoading}
                 />
                 {selectedDate && (
                   <MemoizedTimeSlots
-                    {...{
-                      selectedTimeIso,
-                      setSelectedTimeIso,
-                      onNextStep: handleNextStep,
-                      timeSlotRef,
-                      selectedDate,
-                      availability,
-                    }}
+                    selectedTimeIso={selectedTimeIso}
+                    setSelectedTimeIso={setSelectedTimeIso}
+                    onNextStep={handleNextStep}
+                    timeSlotRef={timeSlotRef}
+                    selectedDate={selectedDate}
+                    availability={availability}
                   />
                 )}
               </>
             )}
             {step === 2 && (
               <MemoizedConfirmation
-                {...{
-                  selectedDate,
-                  selectedTimeIso,
-                  onConfirm: handleBookingConfirmation,
-                  onPrevStep: handlePrevStep,
-                  isBooking,
-                  name,
-                  setName,
-                  email,
-                  setEmail,
-                }}
+                selectedDate={selectedDate}
+                selectedTimeIso={selectedTimeIso}
+                onConfirm={handleBookingConfirmation}
+                onPrevStep={handlePrevStep}
+                isBooking={isBooking}
+                name={name}
+                setName={setName}
+                email={email}
+                setEmail={setEmail}
               />
             )}
           </Box>

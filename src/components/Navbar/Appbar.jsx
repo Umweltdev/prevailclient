@@ -33,6 +33,7 @@ const servicesData = [
     link: "/service/digital-accelerator-bundle",
   },
   { text: "Content Ad Campaign", link: "/service/custom-ad-campaign" },
+  //  { text: "Content Ad Campaign 2", link: "/service/custom-ad-campaign-2" },
 ];
 
 const trinityData = [

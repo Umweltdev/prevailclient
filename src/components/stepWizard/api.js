@@ -1,6 +1,5 @@
 export const createCheckoutSession = async (checkoutData) => {
   const backendBaseUrl = import.meta.env.VITE_API_BASE_URL;
-  const frontendBaseUrl = import.meta.env.VITE_APP_BASE_URL;
 
   try {
     const response = await fetch(
@@ -12,8 +11,8 @@ export const createCheckoutSession = async (checkoutData) => {
         },
         body: JSON.stringify({
           ...checkoutData,
-          success_url: `${frontendBaseUrl}/checkout-success`,
-          cancel_url: `${frontendBaseUrl}/checkout-cancel`,
+          success_url: `${window.location.origin}/checkout-success`,
+          cancel_url: `${window.location.origin}/checkout-cancel`,
         }),
       }
     );
@@ -31,6 +30,7 @@ export const createCheckoutSession = async (checkoutData) => {
     throw new Error(`Failed to create checkout session: ${error.message}`);
   }
 };
+
 
 export const mapToApiServiceType = (solutionType) => {
   if (solutionType === "website" || solutionType === "both") {

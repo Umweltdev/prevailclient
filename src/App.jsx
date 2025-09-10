@@ -32,6 +32,15 @@ const BrandIdentity = React.lazy(() =>
 const AdCampaign = React.lazy(() =>
   import("./components/Services/CAD/AdCampaign")
 );
+const CheckoutSuccess = React.lazy(() =>
+  import("./components/stepWizard/CheckoutSuccess")
+);
+const CheckoutCancel = React.lazy(
+  () => import("./components/stepWizard/CheckoutCancel")
+);
+const AdCampaign2 = React.lazy(() =>
+  import("./components/Services/CADcopy/AdCampaign2")
+);
 const VisualBrandIdentity = React.lazy(() =>
   import("./components/Services/BrandIdentity/VisualBrandIdentity")
 );
@@ -117,6 +126,8 @@ function App() {
               <Route path="/step5" element={<UniversalStep />} />
               <Route path="/step6" element={<GetStartedStep />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/checkout-success" element={<CheckoutSuccess />} />
+              <Route path="/checkout-cancel" element={<CheckoutCancel />} />
 
               <Route
                 path="/service/brand-identity-package"
@@ -158,6 +169,10 @@ function App() {
                 path="/service/custom-ad-campaign"
                 element={<AdCampaign />}
               />
+              <Route
+                path="/service/custom-ad-campaign-2"
+                element={<AdCampaign2 />}
+              />
 
               <Route path="/quote-builder" element={<WebDevWizardPage />} />
               <Route
@@ -183,7 +198,10 @@ function App() {
               <Route path="/portfolio/:index" element={<CaseDetails />} />
               <Route path="/about/ourWhy" element={<AboutOurWhy />} />
               <Route path="/about/ourSolution" element={<AboutOurSolution />} />
-              <Route path ="/trinity/universal-outreach" element={<UniversalOutreachPage/>} />
+              <Route
+                path="/trinity/universal-outreach"
+                element={<UniversalOutreachPage />}
+              />
               <Route path="/SignUp" element={<SignUpForm />} />
               <Route path="/Login" element={<LoginForm />} />
               <Route path="/Stepper" element={<Stepper />} />
