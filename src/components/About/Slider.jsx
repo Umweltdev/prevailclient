@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from "react";
 import { 
   Card, 
@@ -16,7 +15,6 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { sliderData } from "./assets/SliderData";
 
-// Floating animation keyframes
 const float = keyframes`
   0% {
     transform: translateY(0px) rotate(0deg);
@@ -44,13 +42,12 @@ const pulse = keyframes`
   }
 `;
 
-// Styled components
 const SliderContainer = styled(Box)(({ theme }) => ({
   background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
   minHeight: '100vh',
   display: 'flex',
   alignItems: 'center',
-  padding: theme.spacing(8, 0), // Increased top/bottom padding
+  padding: theme.spacing(8, 0),
   position: 'relative',
   overflow: 'hidden',
   '&::before': {
@@ -82,7 +79,6 @@ const StyledCard = styled(Card)(({ theme, gradientbg }) => ({
   overflow: 'hidden',
   transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
   cursor: 'pointer',
-  // Add margin to prevent cutoff
   margin: theme.spacing(2, 0),
   '&:hover': {
     transform: 'translateY(-8px) scale(1.02)',

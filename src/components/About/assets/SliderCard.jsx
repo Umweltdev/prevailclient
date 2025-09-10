@@ -1,101 +1,93 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Star } from "@mui/icons-material";
-import { CardMedia, Grid } from "@mui/material";
-import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
-
-const bull = <Star sx={{ color: "#FFBE4E", fontSize: "16px" }} />;
+import PropTypes from "prop-types";
 
 export default function SliderCard({ text, header, author, icon }) {
   return (
     <Card
       sx={{
-        width: "546.899px",
-        height: "373px",
+        width: { xs: "90vw", sm: 540 },
+        minHeight: { xs: 320, sm: 370 },
         background: "#F9F9F9",
         boxShadow: 3,
-        margin: "10px auto 137px auto",
+        margin: { xs: "10px auto 20px auto", sm: "10px auto 60px auto" },
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        borderRadius: "12px",
-        "@media (max-width: 600px)": {
-          width: "90vw",
-          height: "350",
-          margin: "1px auto 17px auto",
-          borderRadius: "24px",
-        },
+        borderRadius: { xs: "16px", sm: "12px" },
       }}
     >
       <CardContent
         sx={{
           display: "flex",
-          gap: "31px",
           flexDirection: "column",
-          "@media (max-width: 600px)": {
-            gap: "20px",
-            width: "80vw",
-            height: "35vh",
-            pt: "15px",
-          },
+          gap: { xs: 2, sm: 3 },
+          width: "100%",
+          px: { xs: 2, sm: 3 },
+          py: { xs: 2, sm: 3 },
         }}
       >
+        {/* Icon */}
         <Typography
+          component="div"
           sx={{
-            fontSize: "64px",
+            fontSize: { xs: "2rem", sm: "3rem" },
             fontWeight: 500,
-            lineHeight: "110%" /* 28px */,
-            letterSpacing: "-0.24px",
-            width: "466px",
             color: "#000",
-            "@media (max-width: 600px)": {
-              fontSize: "16px",
-              width: "75vw",
-            },
           }}
         >
-          {icon}
+          {icon || <Star sx={{ color: "#FFBE4E", fontSize: "inherit" }} />}
         </Typography>
 
+        {/* Header */}
         <Typography
+          variant="h6"
           sx={{
-            fontSize: "24px",
-            fontWeight: 500,
-            lineHeight: "110%" /* 28px */,
-            letterSpacing: "-0.24px",
-            width: "466px",
+            fontSize: { xs: "1rem", sm: "1.25rem" },
+            fontWeight: 600,
             color: "#000",
-            "@media (max-width: 600px)": {
-              fontSize: "16px",
-              width: "75vw",
-            },
           }}
         >
           {header}
         </Typography>
+
+        {/* Body text */}
         <Typography
+          variant="body2"
           sx={{
-            fontSize: "20px",
+            fontSize: { xs: "0.9rem", sm: "1rem" },
             fontWeight: 400,
-            lineHeight: "140%" /* 28px */,
-            letterSpacing: "-0.2px",
-            width: "466px",
+            lineHeight: 1.5,
             color: "#505660",
-            "@media (max-width: 600px)": {
-              fontSize: "16px",
-              width: "65vw",
-            },
           }}
         >
           {text}
         </Typography>
+
+        {/* Optional Author */}
+        {author && (
+          <Typography
+            variant="caption"
+            sx={{
+              fontSize: { xs: "0.8rem", sm: "0.9rem" },
+              color: "text.secondary",
+              mt: 1,
+            }}
+          >
+            — {author}
+          </Typography>
+        )}
       </CardContent>
     </Card>
   );
 }
+
+SliderCard.propTypes = {
+  text: PropTypes.string.isRequired,
+  header: PropTypes.string.isRequired,
+  author: PropTypes.string,
+  icon: PropTypes.node,
+};

@@ -7,6 +7,7 @@ import TimeSlotComponent from "./components/Timeslot.jsx";
 import ConfirmationComponent from "./components/confirmation.jsx";
 import CalendarComponent from "./components/calender.jsx";
 
+
 const formatDateToYMD = (date) => date.toISOString().split("T")[0];
 
 const isoToLocalDisplay = (iso) => {
@@ -22,6 +23,7 @@ const isoToLocalDisplay = (iso) => {
     return iso;
   }
 };
+
 
 const combineDateAndTimeToISO = (dateObj, timeStr) => {
   if (!dateObj || !timeStr) return null;
@@ -56,6 +58,7 @@ const Booking = ({ onBookingConfirmed = () => {} }) => {
   const [isBooking, setIsBooking] = useState(false);
   const timeSlotRef = useRef(null);
 
+  // Fetch availability for selected date
   useEffect(() => {
     const fetchAvailability = async () => {
       if (!selectedDate) return;
