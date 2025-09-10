@@ -43,8 +43,9 @@ import {
   PackageCheck,
   CalendarCheck,
 } from "lucide-react";
-import { loadStripe } from "@stripe/stripe-js";
 import { theme } from "./theme.js";
+import { processMainCheckout, processConsultationCheckout } from "./utils.js";
+
 import {
   createCheckoutSession,
   mapToApiServiceType,
@@ -1182,8 +1183,8 @@ PlatformTierStep.propTypes = {
   nextStep: PropTypes.func.isRequired,
   prevStep: PropTypes.func.isRequired,
 };
+const MemoizedPlatformTier = React.memo(PlatformTier);
 const MemoizedPlatformTierStep = React.memo(PlatformTierStep);
-
 const FinalSummary = ({
   trinitySelectionId,
   selectedTier,
@@ -1203,7 +1204,10 @@ const FinalSummary = ({
   selectedDashboards,
   setSelectedDashboards,
   prevStep,
+  handleMainCheckout,
   isProcessing,
+  isProcessingConsult,
+  handleConsultationCheckout,
   calculateRunningTotal,
   handlePayment,
   processingAction,
@@ -1379,6 +1383,56 @@ const FinalSummary = ({
                     -10%
                   </Typography>
                 </Box>
+              </Box>
+              <Box mt={3} display="flex" flexDirection="column" gap={2}>
+                <Button
+                  variant="contained"
+                  fullWidth
+                  onClick={handleMainCheckout}
+                  disabled={isProcessing || !name || !email} // Correct - only checks its own state
+                  startIcon={
+                    isProcessing ? (
+                      <CircularProgress size={20} color="inherit" />
+                    ) : null
+                  }
+                >
+                  {isProcessing ? "Processing..." : "Proceed to Checkout"}
+                </Button>
+                <Button
+                  variant="outlined"
+                  fullWidth
+                  onClick={handleConsultationCheckout}
+                  disabled={isProcessingConsult || !name || !email} // Correct - only checks its own state
+                  sx={{
+                    borderColor: "primary.main",
+                    color: "primary.main",
+                    "&:hover": {
+                      borderColor: "primary.dark",
+                      backgroundColor: "primary.main",
+                      color: "white",
+                    },
+                  }}
+                  startIcon={
+                    isProcessingConsult ? (
+                      <CircularProgress size={20} color="inherit" />
+                    ) : null
+                  }
+                >
+                  {isProcessingConsult
+                    ? "Processing..."
+                    : "Book a Consultation (€83)"}
+                </Button>
+                <Button
+                  variant="outlined"
+                  fullWidth
+                  onClick={prevStep}
+                  startIcon={<ChevronLeft />}
+                >
+                  Back
+                </Button>
+              </Box>
+            </CardContent>
+          </Card>
               )}
             </Stack>
             <Paper variant="outlined" sx={{ p: 2, borderRadius: 2, mb: 3 }}>
@@ -1472,6 +1526,7 @@ const FinalSummary = ({
           >
             Back
           </Button>
+
         </Grid>
       </Grid>
     </Fade>
@@ -1484,6 +1539,8 @@ FinalSummary.propTypes = {
   selectedIndustry: PropTypes.string,
   solutionType: PropTypes.string,
   hasPhysicalStore: PropTypes.bool,
+  handleMainCheckout: PropTypes.func.isRequired,
+  handleConsultationCheckout: PropTypes.func.isRequired,
   name: PropTypes.string,
   setName: PropTypes.func,
   email: PropTypes.string,
@@ -1498,6 +1555,7 @@ FinalSummary.propTypes = {
   setSelectedDashboards: PropTypes.func,
   prevStep: PropTypes.func,
   isProcessing: PropTypes.bool,
+  isProcessingConsult: PropTypes.bool,
   calculateRunningTotal: PropTypes.func,
   handlePayment: PropTypes.func.isRequired,
   processingAction: PropTypes.string,
@@ -1518,6 +1576,7 @@ const StepWizard = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
+  const [isProcessingConsult, setIsProcessingConsult] = useState(false);
   const [additionalNotes, setAdditionalNotes] = useState("");
   const [keywords, setKeywords] = useState("");
   const [selectedSystems, setSelectedSystems] = useState("");
@@ -1682,6 +1741,52 @@ const StepWizard = () => {
     return { trinityRec, tierRec };
   }, [selectedGoals, selectedIndustry]);
 
+  const handleMainCheckout = useCallback(async () => {
+    setIsProcessing(true);
+
+    try {
+      await processMainCheckout({
+        name,
+        email,
+        solutionType,
+        trinitySelectionId,
+        selectedTier,
+        selectedIndustry,
+        selectedGoals,
+        hasPhysicalStore,
+        additionalNotes,
+        keywords,
+        selectedSystems,
+        selectedDashboards,
+        calculateRunningTotal,
+        onError: (errorMsg) => {
+          showToastMessage(`Error: ${errorMsg}`);
+        },
+        onSuccess: () => {
+          // Optional: could show success message or clean up state
+        },
+      });
+    } catch (error) {
+      showToastMessage(`Error: ${error.message || "Checkout failed"}`);
+    } finally {
+      setIsProcessing(false);
+    }
+  }, [
+    name,
+    email,
+    solutionType,
+    trinitySelectionId,
+    selectedTier,
+    selectedIndustry,
+    selectedGoals,
+    hasPhysicalStore,
+    additionalNotes,
+    keywords,
+    selectedSystems,
+    selectedDashboards,
+    calculateRunningTotal,
+    showToastMessage,
+  ]);
   const handlePayment = useCallback(
     async (action) => {
       if (!name || !email) {
@@ -1775,6 +1880,30 @@ const StepWizard = () => {
     ]
   );
 
+
+  const handleConsultationCheckout = useCallback(async () => {
+    setIsProcessingConsult(true);
+
+    try {
+      await processConsultationCheckout({
+        name,
+        email,
+        onError: (errorMsg) => {
+          showToastMessage(`Error: ${errorMsg}`);
+        },
+        onSuccess: () => {
+          showToastMessage("Redirecting to consultation checkout...");
+        },
+      });
+    } catch (error) {
+      showToastMessage(
+        `Error: ${error.message || "Consultation checkout failed"}`
+      );
+    } finally {
+      setIsProcessingConsult(false); // Always reset the loading state
+    }
+  }, [name, email, showToastMessage]);
+
   const renderStepContent = () => {
     const steps = getSteps();
     const isReviewStep = steps.length > 1 && steps.length === currentStep;
@@ -1809,6 +1938,11 @@ const StepWizard = () => {
       selectedDashboards,
       setSelectedDashboards,
       isProcessing,
+
+      isProcessingConsult,
+      handleCheckout: handleMainCheckout,
+      handleConsultationCheckout,
+
       calculateRunningTotal,
       nextStep,
       prevStep,

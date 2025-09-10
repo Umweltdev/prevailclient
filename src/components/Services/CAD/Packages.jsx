@@ -434,6 +434,72 @@ const FinalSummary = ({
                 isProcessing && processingAction === "full" ? (
                   <CircularProgress size={24} color="inherit" />
                 ) : (
+
+                  <Typography variant="body2" color="text.secondary">
+                    No package selected
+                  </Typography>
+                )}
+              </Box>
+
+              <Box mt={3} pt={2} borderTop={1} borderColor="divider">
+                <Box
+                  display="flex"
+                  justifyContent="space-between"
+                  alignItems="baseline"
+                >
+                  <Typography variant="h6">Total Price:</Typography>
+                  <Typography variant="h5" fontWeight="bold" sx={gradientText}>
+                    {priceDisplay}
+                  </Typography>
+                </Box>
+              </Box>
+
+              <Box mt={3} display="flex" flexDirection="column" gap={2}>
+                <Button
+                  variant="contained"
+                  fullWidth
+                  onClick={handleCheckout}
+                  disabled={
+                    isProcessing || !name || !email || !stripeConfigured
+                  }
+                  startIcon={
+                    isProcessing ? (
+                      <CircularProgress size={20} color="inherit" />
+                    ) : null
+                  }
+                >
+                  {isProcessing
+                    ? "Processing..."
+                    : stripeConfigured
+                    ? "Proceed to Checkout"
+                    : "Checkout Unavailable"}
+                </Button>
+                <Button
+                  variant="outlined"
+                  fullWidth
+                  disabled
+                  onClick={() => window.open("/booking", "_blank")}
+                  sx={{
+                    borderColor: "primary.main",
+                    color: "primary.main",
+                    "&:hover": {
+                      borderColor: "primary.dark",
+                      backgroundColor: "primary.main",
+                      color: "white",
+                    },
+                  }}
+                >
+                  Book a Consultation
+                </Button>
+                <Button
+                  variant="outlined"
+                  fullWidth
+                  onClick={prevStep}
+                  startIcon={<ChevronLeft />}
+                >
+                  Back
+                </Button>
+
                   <AddTaskIcon />
                 )
               }
@@ -444,6 +510,7 @@ const FinalSummary = ({
                 : "Pay & Start Project"}
             </Button>
             <Divider sx={{ my: 2 }}>OR</Divider>
+
 
             <Button
               fullWidth
