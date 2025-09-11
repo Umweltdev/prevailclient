@@ -41,6 +41,9 @@ if (STRIPE_KEY) {
   );
 }
 
+// eslint-disable-next-line no-unused-vars
+const stripeConfigured = Boolean(STRIPE_KEY && stripePromise);
+
 const platformTiers = [
   {
     id: "starter",
@@ -238,12 +241,20 @@ const FinalSummary = ({
   selectedDashboards,
   setSelectedDashboards,
   prevStep,
-  handleCheckout,
-  isProcessing,
+  handlePackageCheckout,
+  handleConsultationCheckout,
+  isPackageProcessing,
+  isConsultationProcessing,
   stripeConfigured,
 }) => {
   const tierSelection = platformTiers.find((t) => t.id === selectedTier);
   const priceDisplay = tierSelection?.price || "€0";
+  const numericPrice = extractNumericPrice(priceDisplay);
+  const depositPrice = applyDiscount(numericPrice);
+  const CONSULTATION_FEE = 83;
+
+  const isAnyProcessing = isPackageProcessing || isConsultationProcessing;
+  const areDetailsMissing = !name || !email;
 
   return (
     <Fade in timeout={500}>
@@ -363,7 +374,6 @@ const FinalSummary = ({
                   <Typography variant="h5" fontWeight="bold" sx={gradientText}>
                     {priceDisplay}
                   </Typography>
-               
                 </Box>
                 <Box
                   display="flex"
@@ -371,38 +381,59 @@ const FinalSummary = ({
                   alignItems="baseline"
                 >
                   <Typography variant="h6">Deposit Price:</Typography>
-                  
+
                   <Typography variant="h5" fontWeight="bold" sx={gradientText}>
-                  {applyDiscount(Number(priceDisplay.replace(/[^\d.]/g, '')))}
+                    €{depositPrice}
                   </Typography>
-                
                 </Box>
-                <Typography variant="caption" color="success.main" display="block" textAlign="right" mt={1}>
-                    {(Number(priceDisplay.replace(/[^\d.]/g, ''))) < 1000
-                      ? "50% deposit applied"
-                      : "20% deposit applied"}
-                  </Typography>
+                <Typography
+                  variant="caption"
+                  color="success.main"
+                  display="block"
+                  textAlign="right"
+                  mt={1}
+                >
+                  {numericPrice < 1000
+                    ? "50% deposit applied"
+                    : "20% deposit applied"}
+                </Typography>
               </Box>
 
               <Box mt={3} display="flex" flexDirection="column" gap={2}>
                 <Button
                   variant="contained"
                   fullWidth
-                  onClick={handleCheckout}
+                  onClick={handlePackageCheckout}
                   disabled={
-                    isProcessing || !name || !email || !stripeConfigured
+                    isAnyProcessing || areDetailsMissing || !stripeConfigured
                   }
                   startIcon={
-                    isProcessing ? (
+                    isPackageProcessing ? (
                       <CircularProgress size={20} color="inherit" />
                     ) : null
                   }
                 >
-                  {isProcessing
+                  {isPackageProcessing
                     ? "Processing..."
-                    : stripeConfigured
-                      ? "Proceed to Checkout"
-                      : "Checkout Unavailable"}
+                    : "Pay Package Deposit"}
+                </Button>
+
+                <Button
+                  variant="outlined"
+                  fullWidth
+                  onClick={handleConsultationCheckout}
+                  disabled={
+                    isAnyProcessing || areDetailsMissing || !stripeConfigured
+                  }
+                  startIcon={
+                    isConsultationProcessing ? (
+                      <CircularProgress size={20} color="inherit" />
+                    ) : null
+                  }
+                >
+                  {isConsultationProcessing
+                    ? "Processing..."
+                    : `Book a Consultation (€${CONSULTATION_FEE})`}
                 </Button>
 
                 <Button
@@ -413,13 +444,6 @@ const FinalSummary = ({
                 >
                   Back
                 </Button>
-
-                {!stripeConfigured && (
-                  <Typography variant="caption" color="error" sx={{ mt: 1 }}>
-                    Stripe publishable key not configured. Set
-                    VITE_STRIPE_PUBLISHABLE_KEY in your .env.
-                  </Typography>
-                )}
               </Box>
             </CardContent>
           </Card>
@@ -444,16 +468,11 @@ FinalSummary.propTypes = {
   selectedDashboards: PropTypes.string,
   setSelectedDashboards: PropTypes.func.isRequired,
   prevStep: PropTypes.func.isRequired,
-  handleCheckout: PropTypes.func.isRequired,
-  isProcessing: PropTypes.bool.isRequired,
+  handlePackageCheckout: PropTypes.func.isRequired,
+  handleConsultationCheckout: PropTypes.func.isRequired,
+  isPackageProcessing: PropTypes.bool.isRequired,
+  isConsultationProcessing: PropTypes.bool.isRequired,
   stripeConfigured: PropTypes.bool.isRequired,
-};
-FinalSummary.defaultProps = {
-  additionalNotes: "",
-  keywords: "",
-  selectedSystems: "",
-  selectedDashboards: "",
-  selectedTier: null,
 };
 
 const MemoizedFinalSummary = React.memo(FinalSummary);
@@ -461,19 +480,21 @@ const MemoizedFinalSummary = React.memo(FinalSummary);
 const Packages = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedTier, setSelectedTier] = useState(null);
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [additionalNotes, setAdditionalNotes] = useState("");
   const [keywords, setKeywords] = useState("");
   const [selectedSystems, setSelectedSystems] = useState("");
   const [selectedDashboards, setSelectedDashboards] = useState("");
-
   const [showToast, setShowToast] = useState(null);
-  const [isProcessing, setIsProcessing] = useState(false);
+
+  const [isPackageProcessing, setIsPackageProcessing] = useState(false);
+  const [isConsultationProcessing, setIsConsultationProcessing] =
+    useState(false);
 
   const wizardRef = useRef(null);
   const stripeConfigured = Boolean(STRIPE_KEY && stripePromise);
+  const CONSULTATION_FEE = 83;
 
   useEffect(() => {
     try {
@@ -492,16 +513,11 @@ const Packages = () => {
   }, []);
 
   useEffect(() => {
-    const stateToSave = {
-      currentStep,
-      selectedTier,
-      name,
-      email,
-    };
+    const stateToSave = { currentStep, selectedTier, name, email };
     try {
       localStorage.setItem("quoteBuilderState", JSON.stringify(stateToSave));
     } catch (e) {
-      // ignore storage errors
+      /* ignore storage errors */
     }
   }, [currentStep, selectedTier, name, email]);
 
@@ -511,6 +527,7 @@ const Packages = () => {
   }, []);
 
   const steps = ["Package Type", "Review"];
+
   const nextStep = useCallback(() => {
     setCurrentStep((s) => {
       const next = Math.min(s + 1, steps.length);
@@ -520,7 +537,8 @@ const Packages = () => {
       );
       return next;
     });
-  }, []);
+  }, [steps.length]);
+
   const prevStep = useCallback(() => {
     setCurrentStep((s) => {
       const prev = Math.max(s - 1, 1);
@@ -544,15 +562,11 @@ const Packages = () => {
     showToastMessage("Selections have been reset.");
   }, [showToastMessage]);
 
-  const handleCheckout = useCallback(
+  const handlePackageCheckout = useCallback(
     async (ev) => {
       ev?.preventDefault?.();
-      if (!name || !email) {
-        showToastMessage("Error: Please enter your name and email to proceed.");
-        return;
-      }
-      if (!selectedTier) {
-        showToastMessage("Error: Please select a package tier.");
+      if (!name || !email || !selectedTier) {
+        showToastMessage("Error: Please complete all required fields.");
         return;
       }
       if (!stripeConfigured) {
@@ -563,17 +577,15 @@ const Packages = () => {
       const tierSelection = platformTiers.find((t) => t.id === selectedTier);
       const priceValue = extractNumericPrice(tierSelection?.price);
 
-      setIsProcessing(true);
+      setIsPackageProcessing(true);
       try {
         const checkoutData = {
           name,
           email,
           price: applyDiscount(priceValue),
-          serviceType: tierSelection?.id || "unknown",
+          serviceType: `campaign_${tierSelection?.id || "unknown"}`,
           notes:
-            `${additionalNotes || ""} | Selected Systems: ${selectedSystems || "None"} | Dashboards: ${
-              selectedDashboards || "None"
-            } | Keywords: ${keywords || "None"}`.trim(),
+            `Additional Notes: ${additionalNotes || "None"} | Systems: ${selectedSystems || "None"} | Dashboards: ${selectedDashboards || "None"} | Keywords: ${keywords || "None"}`.trim(),
         };
 
         const session = await createCheckoutSession(checkoutData);
@@ -591,7 +603,7 @@ const Packages = () => {
         console.error("Checkout error:", err);
         showToastMessage(`Error: ${err.message || "Unknown error occurred"}`);
       } finally {
-        setIsProcessing(false);
+        setIsPackageProcessing(false);
       }
     },
     [
@@ -606,6 +618,45 @@ const Packages = () => {
       keywords,
     ]
   );
+
+  const handleConsultationCheckout = useCallback(async () => {
+    if (!name || !email) {
+      showToastMessage("Error: Please enter your name and email.");
+      return;
+    }
+    if (!stripeConfigured) {
+      showToastMessage("Error: Stripe is not configured.");
+      return;
+    }
+
+    setIsConsultationProcessing(true);
+    try {
+      const checkoutData = {
+        name,
+        email,
+        price: CONSULTATION_FEE,
+        serviceType: "consultation",
+        notes: "1-hour consultation booking.",
+      };
+
+      const session = await createCheckoutSession(checkoutData);
+      if (!session || !session.id)
+        throw new Error("Invalid checkout session response");
+
+      const stripe = await stripePromise;
+      if (!stripe) throw new Error("Stripe.js failed to load");
+
+      const { error } = await stripe.redirectToCheckout({
+        sessionId: session.id,
+      });
+      if (error) throw new Error(error.message || "Stripe redirect error");
+    } catch (error) {
+      console.error("Consultation checkout error:", error);
+      showToastMessage(`Error: ${error.message || "Unknown error occurred"}`);
+    } finally {
+      setIsConsultationProcessing(false);
+    }
+  }, [name, email, stripeConfigured, showToastMessage]);
 
   const renderStepContent = () => {
     if (currentStep === steps.length) {
@@ -625,9 +676,11 @@ const Packages = () => {
           selectedDashboards={selectedDashboards}
           setSelectedDashboards={setSelectedDashboards}
           prevStep={prevStep}
-          handleCheckout={handleCheckout}
-          isProcessing={isProcessing}
           stripeConfigured={stripeConfigured}
+          handlePackageCheckout={handlePackageCheckout}
+          handleConsultationCheckout={handleConsultationCheckout}
+          isPackageProcessing={isPackageProcessing}
+          isConsultationProcessing={isConsultationProcessing}
         />
       );
     }
@@ -654,7 +707,6 @@ const Packages = () => {
             <Typography variant="h1" gutterBottom>
               Select Your Campaign Package
             </Typography>
-
             <Button
               onClick={resetSelections}
               startIcon={<RefreshCw size={16} />}

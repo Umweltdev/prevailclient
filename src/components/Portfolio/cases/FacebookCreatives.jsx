@@ -1,4 +1,3 @@
-import * as React from "react";
 import Box from "@mui/material/Box";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
@@ -10,7 +9,6 @@ export default function FacebookCreatives() {
       <Typography
         sx={{
           textAlign: "center",
-          // margin: "3vh 0 1vh 0",
           fontSize: "3vw",
           fontWeight: "bold",
         }}

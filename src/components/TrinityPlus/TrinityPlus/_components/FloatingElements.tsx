@@ -1,5 +1,3 @@
-import React from "react";
-
 const FloatingElements = () => {
   return (
     <div id="floating-elements">

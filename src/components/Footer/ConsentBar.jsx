@@ -40,13 +40,12 @@ const ConsentBar = () => {
   const [openModal, setOpenModal] = useState(null);
 
   useEffect(() => {
-    // Load stored consent choices from localStorage
     const storedConsent = localStorage.getItem("user_consent");
     if (storedConsent) {
       setConsentChoices(JSON.parse(storedConsent));
-      setConsentVisible(false); // don’t show again after first acceptance/rejection
+      setConsentVisible(false);
     } else {
-      setConsentVisible(true); // only show first time
+      setConsentVisible(true);
     }
   }, []);
 
@@ -134,7 +133,6 @@ const ConsentBar = () => {
         zIndex: 9999,
       }}
     >
-      {/* Heading */}
       <Typography
         variant="h6"
         fontSize={{ xs: "16px", sm: "18px", md: "20px" }}
@@ -142,8 +140,6 @@ const ConsentBar = () => {
       >
         Welcome to Prevail Consent Management
       </Typography>
-
-      {/* Description */}
       <Typography
         variant="body2"
         color="grey"
@@ -153,8 +149,6 @@ const ConsentBar = () => {
         At Prevail, your privacy and control over your data are our top
         priorities...
       </Typography>
-
-      {/* Buttons */}
       <Box
         sx={{
           display: "flex",
@@ -186,8 +180,6 @@ const ConsentBar = () => {
           Accept All
         </Button>
       </Box>
-
-      {/* Consent Options */}
       <Card
         sx={{
           display: "flex",
@@ -242,8 +234,6 @@ const ConsentBar = () => {
           </Box>
         ))}
       </Card>
-
-      {/* Save Settings */}
       <Button
         onClick={handleSaveSettings}
         variant="contained"
@@ -256,8 +246,6 @@ const ConsentBar = () => {
       >
         Save Settings
       </Button>
-
-      {/* Modal */}
       <Modal open={!!openModal} onClose={handleCloseModal}>
         <Box
           sx={{

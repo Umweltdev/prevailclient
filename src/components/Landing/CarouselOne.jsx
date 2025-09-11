@@ -1,13 +1,8 @@
 import * as React from "react";
-import { useTheme } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import { Button, Grid } from "@mui/material";
 import { Link } from "react-router-dom";
-import payment from "./assets/payment.png";
-import conn from "./assets/conn.png";
-import { AdsClick, Devices, Label, Schedule } from "@mui/icons-material";
+import { AdsClick, Devices, Schedule } from "@mui/icons-material";
 import "./assets/landing.css";
 import { makeStyles } from "@mui/styles";
 
@@ -52,11 +47,11 @@ const useStyles = makeStyles({
 });
 
 function CarouselOne() {
-  const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
-  const [isOverlayVisible, setIsOverlayVisible] = React.useState(false);
+  const [ setIsOverlayVisible] = React.useState(false);
   const classes = useStyles();
 
+  // eslint-disable-next-line no-unused-vars
   const handleStepChange = (step) => {
     setActiveStep(step);
     setIsOverlayVisible(true);
@@ -83,8 +78,7 @@ function CarouselOne() {
             fontSize: "1.5vw",
             mb: "3vh",
             letterSpacing: "1px",
-            // height: "10vh",
-            // color: "#333",
+
             fontWeight: "900",
             color: "#884ed9",
             "@media (max-width: 600px)": {
@@ -121,7 +115,7 @@ function CarouselOne() {
             },
           }}
         >
-          Revolutionise your online presencewith our exclusivebundle. The{" "}
+          Revolutionise your online presencewith our exclusivebundle. The
           <Link
             style={{
               textDecoration: "none",
@@ -130,12 +124,11 @@ function CarouselOne() {
             }}
             to={`/digitalaccelerator`}
           >
-            {" "}
-            "Digital Accelarator Bundle package"{" "}
+            &quot;Digital Accelarator Bundle package&quot;
           </Link>
           This all-encompassing package seamlessly integrates three core
           services- [website Production & Management]. [Brand Identitiy
-          package], and [Search Engine Marketing(SEM)]. Prevail's
+          package], and [Search Engine Marketing(SEM)]. Prevail&apos;s
           <Link
             style={{
               textDecoration: "none",
@@ -144,7 +137,7 @@ function CarouselOne() {
             }}
             to={`/digitalaccelerator`}
           >
-            "Digital Accelerator Bundle Package"
+            &quot;Digital Accelerator Bundle Package&quot;
           </Link>
           service is not just a bundle of services. it is your strategic gateway
           to cohesive, impactful, and cost effective digital presence. Elevate
@@ -198,7 +191,7 @@ function CarouselOne() {
           }}
         >
           {images.map((data, index) => (
-            <Grid>
+            <Grid key={data.title || index}>
               <Typography
                 sx={{
                   color: "#333",
@@ -217,7 +210,6 @@ function CarouselOne() {
                   fontSize: "1vw",
                   "@media (max-width: 600px)": {
                     fontSize: "4vw",
-                   
                   },
                 }}
               >

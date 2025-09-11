@@ -218,7 +218,6 @@ export default function CustomizedHook() {
   );
 }
 
-// Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
 const top100Films = [
   { title: "Brand & Identity Design", year: 1994 },
   { title: "Design Services", year: 1972 },

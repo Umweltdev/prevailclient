@@ -1,4 +1,3 @@
-import React from "react";
 import TextImageService from "../TextImageService";
 import ImageTextService from "../ImageTextService";
 import { Grid, Typography } from "@mui/material";

@@ -1,10 +1,7 @@
 import { Typography } from "@mui/material";
-import ComponentOne from "../ReusedComponents/ComponentOne";
 import TextImageComponent from "../ReusedComponents/TextImageComponent";
 import "./assets/services.css";
 import ImageTextComponent from "../ReusedComponents/ImageTextComponent";
-
-const gradient = "linear-gradient(45deg, #A16AD9 30%, #70A1E3 90%)";
 
 const SectionThree = () => {
   return (

@@ -17,14 +17,12 @@ function Hero() {
           <h1 className="text-5xl md:text-8xl font-bold bg-gradient-to-r from-purple-400 to-cyan-600 bg-clip-text text-transparent mb-6">
             Never Run Out of
             <Box
-              sx={{ pb: 1.5 }} // padding-bottom using MUI
+              sx={{ pb: 1.5 }}
               className="bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent"
             >
               Cash Again
             </Box>
           </h1>
-
-          {/* Added Expense Manager subtitle */}
           <div className="mb-8">
             <h2 className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-gray-600 to-gray-400 bg-clip-text text-transparent">
               Expense Manager
@@ -42,13 +40,7 @@ function Hero() {
             >
               Start Beta
             </button>
-            {/* <button onClick={()=> navigate('/trinity/plus#wizard')} className="px-8 py-4 bg-black/60 backdrop-blur text-white rounded-lg font-semibold text-lg border border-white/20 hover:bg-black transition-all duration-300">
-              Watch 2-Min Demo
-            </button> */}
           </div>
-          {/* <GlassButton className='text-black animate-pulse'>
-              No credit card required • 30-day free trial • Cancel anytime
-            </GlassButton> */}
           <Box
             sx={{
               position: "relative",
@@ -73,14 +65,10 @@ function Hero() {
               variant="body2"
               sx={{ color: "text.primary", fontWeight: 400 }}
             >
-              {" "}
               🎉 Lock in the beta price by booking a consultation during launch
               week — 3 days before beta ends{" "}
             </Typography>{" "}
           </Box>
-          {/* <p className="mt-6 text-gray-400">
-              No credit card required • 30-day free trial • Cancel anytime
-            </p> */}
         </div>
       </div>
     </section>

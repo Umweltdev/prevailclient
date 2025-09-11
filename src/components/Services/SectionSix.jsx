@@ -1,6 +1,3 @@
-import React from "react";
-import logo from "./assets/romaxx.png";
-
 const SectionSix = () => {
   const slideImages = [
     "https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png",

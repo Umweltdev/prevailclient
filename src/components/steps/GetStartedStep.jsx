@@ -40,7 +40,7 @@ const GetStartedStep = ({ formData, handleBack }) => {
         "Dedicated development team",
         "Milestone-based payments",
       ],
-      buttonText: "Book Consultation (€99)",
+      buttonText: "Book Consultation (€83)",
     },
   };
 

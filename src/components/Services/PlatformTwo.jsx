@@ -1,6 +1,5 @@
 import { Grid, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import React from "react";
 
 const useStyles = makeStyles({
   imagePlaform: {
@@ -24,8 +23,7 @@ const useStyles = makeStyles({
     borderRadius: "10vw",
   },
 });
-{
-}
+
 
 const PlatformTwo = () => {
   const classes = useStyles();
@@ -85,13 +83,9 @@ const PlatformTwo = () => {
               sx={{
                 fontSize: "1.4vw",
                 color: "#636363",
-
-                // marginBottom: "1vh",
-                // textAlign: "justify",
                 "@media (max-width: 600px)": {
                   fontSize: "4vw",
                   color: "#636363",
-                  // marginBottom: "1vh",
                   textAlign: "justify",
                 },
               }}
@@ -226,11 +220,9 @@ const PlatformTwo = () => {
         </Grid>
       </Grid>
 
-      {/* <spline-viewer url="https://prod.spline.design/kqWnRSHfs03RcYiO/scene.splinecode"></spline-viewer> */}
     </Grid>
   );
 };
 
 export default PlatformTwo;
 
-// box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;

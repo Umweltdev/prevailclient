@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Tilt from "react-parallax-tilt";
 import CountUp from "react-countup";
 import { useNavigate } from "react-router-dom";
@@ -13,7 +13,6 @@ const HeroSection = () => {
   });
 
   useEffect(() => {
-    // Animate stats after component mounts
     setAnimatedStats({
       waste: 42,
       cost: 28,
@@ -23,13 +22,7 @@ const HeroSection = () => {
 
   return (
     <section className="relative flex items-center min-h-screen px-4 pt-40 pb-16 overflow-hidden md:pt-20 sm:px-6 0">
-      {/* Animated background blobs with parallax */}
-
       <div className="relative  mx-auto text-center max-w-7xl pt-20">
-        {/* Decorative gradient line with subtle animation */}
-        {/* <div className="absolute - -top-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] rounded-full opacity-40 animate-pulse"></div> */}
-
-        {/* Headline with text reveal animation */}
         <h1
           className="text-4xl sm:text-6xl md:text-7xl font-extrabold mb-8 
 bg-gradient-to-r from-violet-600 via-indigo-500 to-blue-500 
@@ -53,8 +46,6 @@ animate-gradient"
           Integration — the intelligent evolution engine that transforms your
           inventory management
         </p>
-
-        {/* CTA Buttons with shine effect and tilt */}
         <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-y-0 sm:space-x-6">
           <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10}>
             <button
@@ -126,17 +117,11 @@ animate-gradient"
           </Typography>{" "}
         </Box>
 
-        {/* Animated Stats with CountUp and Tilt */}
         <div className="grid grid-cols-1 gap-6 mt-16 sm:grid-cols-3 sm:gap-8">
           <Tilt tiltMaxAngleX={8} tiltMaxAngleY={8}>
             <div className="bg-white/50 backdrop-blur-md rounded-2xl p-6 border border-[#6E3EF4]/20 hover:border-[#6E3EF4] transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
               <div className="text-4xl font-bold text-[#6E3EF4]">
-                <CountUp
-                  start={0}
-                  end={animatedStats.waste}
-                  duration={2.5}
-                  suffix="%"
-                />
+                {animatedStats.waste}%
               </div>
               <div className="mt-2 text-gray-700">Waste Reduction</div>
             </div>
@@ -144,12 +129,7 @@ animate-gradient"
           <Tilt tiltMaxAngleX={8} tiltMaxAngleY={8}>
             <div className="bg-white/50 backdrop-blur-md rounded-2xl p-6 border border-[#409AFF]/20 hover:border-[#409AFF] transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
               <div className="text-4xl font-bold text-[#409AFF]">
-                <CountUp
-                  start={0}
-                  end={animatedStats.cost}
-                  duration={2.5}
-                  suffix="%"
-                />
+                {animatedStats.cost}%
               </div>
               <div className="mt-2 text-gray-700">Lower Supplier Cost</div>
             </div>
@@ -157,12 +137,7 @@ animate-gradient"
           <Tilt tiltMaxAngleX={8} tiltMaxAngleY={8}>
             <div className="bg-white/50 backdrop-blur-md rounded-2xl p-6 border border-[#6E3EF4]/20 hover:border-[#6E3EF4] transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
               <div className="text-4xl font-bold text-[#6E3EF4]">
-                <CountUp
-                  start={0}
-                  end={animatedStats.stockouts}
-                  duration={2.5}
-                  suffix="%"
-                />
+                {animatedStats.stockouts}%
               </div>
               <div className="mt-2 text-gray-700">Fewer Stockouts</div>
             </div>

@@ -2,7 +2,6 @@ import {
   Devices,
   DisplaySettings,
   ImportantDevices,
-  Phonelink,
   SettingsBrightness,
 } from "@mui/icons-material";
 
@@ -171,21 +170,6 @@ export const cusExecItem = [
   "Newsletter sign-up",
   "2 revisions",
 ];
-
-// export const cusExecItem = [
-//   `Everything in the “Custom Website Complete package”`,
-//   "Tag description optimisations",
-//   "Dynamic UI & React",
-//   "Up to 20 pages",
-//   "Product comparison",
-//   "Privacy policy & terms and conditions page",
-//   "Advance analysis & performance report",
-//   "Order invoice",
-//   "Online booking system",
-//   "Calendar booking system",
-//   "Newsletter sign-up",
-//   "2 revisions",
-// ];
 
 export const EstateSilver = [
   "SSL certificate",
