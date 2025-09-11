@@ -1269,35 +1269,51 @@ const StepWizard = () => {
 
     const selectedServices = [];
 
+    // Step 1: Add all the user's chosen services with their original prices
     trinitySelections.forEach((id) => {
       const selection = ALL_TRINITY_OPTIONS.find((opt) => opt.id === id);
       if (selection) {
-        let price = selection.betaPrice;
-
         selectedServices.push({
           serviceType: id,
-          price: price,
+          price: selection.betaPrice,
           keywords: parseToArray(keywords),
           ...commonData,
         });
       }
     });
 
-     if (
-       hasPhysicalStore &&
-       (trinitySelections.includes("trinity-plus") ||
-         trinitySelections.includes("garo"))
-     ) {
-       selectedServices.push({
-         serviceType: "store_setup",
-         price: STORE_SETUP_FEE,
-         description: "Square setup & training for physical stores",
-       });
-     }
+    // Step 2: Add the store setup fee as a separate item if applicable
+    if (
+      hasPhysicalStore &&
+      (trinitySelections.includes("trinity-plus") ||
+        trinitySelections.includes("garo"))
+    ) {
+      selectedServices.push({
+        serviceType: "store_setup",
+        price: STORE_SETUP_FEE,
+        description: "Square setup & training for physical stores",
+      });
+    }
 
-    const total = calculateRunningTotal();
-    const finalPrice = applyDiscount(total);
-    const payload = { name, email, totalPrice: finalPrice, selectedServices };
+    const originalTotal = calculateRunningTotal();
+    const discountedTotal = applyDiscount(originalTotal);
+    const discountAmount = originalTotal - discountedTotal;
+
+    if (discountAmount > 0) {
+      selectedServices.push({
+        serviceType: "deposit_discount",
+        price: -discountAmount,
+        description:
+          originalTotal < 1000 ? "50% deposit applied" : "20% deposit applied",
+      });
+    }
+
+    const payload = {
+      name,
+      email,
+      totalPrice: discountedTotal,
+      selectedServices,
+    };
 
     try {
       const response = await fetch(
