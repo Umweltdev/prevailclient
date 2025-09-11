@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { styled } from "@mui/material/styles";
 import { Box, Button, Card, Typography, Switch, Modal } from "@mui/material";
 import PersonalizationModal from "./consentDetails/Personalization";
@@ -7,13 +7,13 @@ import OptimizationModal from "./consentDetails/Optimization";
 import EnhancementModal from "./consentDetails/Enhancement";
 
 const BoldSwitch = styled(Switch)(({ theme }) => ({
-  width: 60,
-  height: 32,
+  width: 50,
+  height: 28,
   padding: 0,
   "& .MuiSwitch-switchBase": {
     padding: 2,
     "&.Mui-checked": {
-      transform: "translateX(28px)",
+      transform: "translateX(22px)",
       color: "#fff",
       "& + .MuiSwitch-track": {
         backgroundColor: theme.palette.primary.main,
@@ -21,7 +21,7 @@ const BoldSwitch = styled(Switch)(({ theme }) => ({
       },
     },
   },
-  "& .MuiSwitch-thumb": { width: 28, height: 28 },
+  "& .MuiSwitch-thumb": { width: 24, height: 24 },
   "& .MuiSwitch-track": {
     borderRadius: 17,
     backgroundColor: "#E9E9EA",
@@ -30,47 +30,30 @@ const BoldSwitch = styled(Switch)(({ theme }) => ({
 }));
 
 const ConsentBar = () => {
-  const [consentChoices, setConsentChoices] = React.useState({
+  const [consentChoices, setConsentChoices] = useState({
     Personalization: false,
     Analytics: false,
     Optimization: false,
     Enhancement: false,
   });
-  const [consentVisible, setConsentVisible] = useState(true);
+  const [consentVisible, setConsentVisible] = useState(false);
   const [openModal, setOpenModal] = useState(null);
 
   useEffect(() => {
-    // Declare gtag at the top of the function body
-    function gtag() {
-      window.dataLayer.push(arguments);
-    }
-
-    // Initialize gtag and set default consent
-    if (!window.gtag) {
-      window.dataLayer = window.dataLayer || [];
-      window.gtag = gtag;
-
-      gtag("js", new Date());
-
-      // Set consent defaults explicitly
-      gtag("consent", "default", {
-        ad_personalization: "denied",
-        ad_analytics: "denied",
-        ad_optimization: "denied",
-        ad_enhancement: "denied",
-      });
-
-      // Now initialize GTM configuration after setting consent defaults
-      gtag("config", "GT-5DH4FZDB");
-    }
-
     // Load stored consent choices from localStorage
-    const storedConsent = JSON.parse(localStorage.getItem("user_consent"));
-    if (storedConsent) setConsentChoices(storedConsent);
+    const storedConsent = localStorage.getItem("user_consent");
+    if (storedConsent) {
+      setConsentChoices(JSON.parse(storedConsent));
+      setConsentVisible(false); // don’t show again after first acceptance/rejection
+    } else {
+      setConsentVisible(true); // only show first time
+    }
   }, []);
 
   const updateGtagConsent = (type, value) => {
-    window.gtag("consent", "update", { [type]: value });
+    if (typeof window.gtag === "function") {
+      window.gtag("consent", "update", { [type]: value });
+    }
   };
 
   const consentMap = {
@@ -124,13 +107,8 @@ const ConsentBar = () => {
     setConsentVisible(false);
   };
 
-  const handleShowMore = (id) => {
-    setOpenModal(id);
-  };
-
-  const handleCloseModal = () => {
-    setOpenModal(null);
-  };
+  const handleShowMore = (id) => setOpenModal(id);
+  const handleCloseModal = () => setOpenModal(null);
 
   if (!consentVisible) return null;
 
@@ -148,38 +126,68 @@ const ConsentBar = () => {
         bottom: 0,
         color: "black",
         backgroundColor: "#fff",
-        width: { xs: "90vw", md: "50vw" },
+        width: { xs: "95vw", md: "50vw" },
         p: { xs: 2, md: 4 },
-        borderRadius: 5,
+        borderRadius: 3,
         mb: 2,
         opacity: 0.98,
-        zIndex: 9999, // High z-index to ensure it appears above other elements
+        zIndex: 9999,
       }}
     >
-      <Typography variant="h5">
+      {/* Heading */}
+      <Typography
+        variant="h6"
+        fontSize={{ xs: "16px", sm: "18px", md: "20px" }}
+        fontWeight="600"
+      >
         Welcome to Prevail Consent Management
       </Typography>
-      <Typography variant="subtitle2" color="grey" my={2}>
+
+      {/* Description */}
+      <Typography
+        variant="body2"
+        color="grey"
+        my={2}
+        fontSize={{ xs: "13px", sm: "14px", md: "16px" }}
+      >
         At Prevail, your privacy and control over your data are our top
         priorities...
       </Typography>
-      <Box sx={{ display: "flex", gap: 1, mt: 1 }}>
+
+      {/* Buttons */}
+      <Box
+        sx={{
+          display: "flex",
+          gap: { xs: 1, md: 2 },
+          flexDirection: { xs: "column", sm: "row" },
+        }}
+      >
         <Button
           onClick={handleRejectAll}
           variant="outlined"
-          sx={{ borderRadius: 10, textTransform: "capitalize" }}
+          sx={{
+            borderRadius: 10,
+            textTransform: "capitalize",
+            fontSize: { xs: "13px", md: "15px" },
+          }}
         >
           Reject All
         </Button>
         <Button
           onClick={handleAcceptAll}
           variant="contained"
-          sx={{ borderRadius: 10, boxShadow: 0, textTransform: "capitalize" }}
+          sx={{
+            borderRadius: 10,
+            boxShadow: 0,
+            textTransform: "capitalize",
+            fontSize: { xs: "13px", md: "15px" },
+          }}
         >
           Accept All
         </Button>
       </Box>
 
+      {/* Consent Options */}
       <Card
         sx={{
           display: "flex",
@@ -190,7 +198,8 @@ const ConsentBar = () => {
           borderRadius: 3,
           gap: 1,
           mt: 3,
-          p: 3,
+          p: { xs: 2, md: 3 },
+          flexWrap: "wrap",
           "@media (max-width: 767px)": {
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
@@ -206,12 +215,14 @@ const ConsentBar = () => {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              "@media (max-width: 767px)": {
-                minWidth: "auto",
-              },
             }}
           >
-            <Typography variant="body1" mb={2}>
+            <Typography
+              variant="body2"
+              mb={1}
+              fontSize={{ xs: "13px", md: "15px" }}
+              fontWeight="500"
+            >
               {id}
             </Typography>
             <BoldSwitch
@@ -220,7 +231,11 @@ const ConsentBar = () => {
             />
             <Button
               onClick={() => handleShowMore(id)}
-              sx={{ textTransform: "capitalize", fontSize: "14px" }}
+              sx={{
+                textTransform: "capitalize",
+                fontSize: { xs: "12px", md: "14px" },
+                mt: 1,
+              }}
             >
               Show More...
             </Button>
@@ -228,14 +243,21 @@ const ConsentBar = () => {
         ))}
       </Card>
 
+      {/* Save Settings */}
       <Button
         onClick={handleSaveSettings}
         variant="contained"
-        sx={{ borderRadius: 10, mt: 2, textTransform: "capitalize" }}
+        sx={{
+          borderRadius: 10,
+          mt: 2,
+          textTransform: "capitalize",
+          fontSize: { xs: "13px", md: "15px" },
+        }}
       >
         Save Settings
       </Button>
 
+      {/* Modal */}
       <Modal open={!!openModal} onClose={handleCloseModal}>
         <Box
           sx={{
@@ -244,11 +266,10 @@ const ConsentBar = () => {
             left: "50%",
             transform: "translate(-50%, -50%)",
             bgcolor: "background.paper",
-            p: 4,
+            p: { xs: 2, md: 4 },
             borderRadius: 2,
             boxShadow: 24,
             width: { xs: "90vw", md: "50vw" },
-            zIndex: 10000, // Even higher z-index for the modal
             "@media (max-width: 767px)": {
               overflowY: "scroll",
               maxHeight: "90vh",
@@ -258,7 +279,7 @@ const ConsentBar = () => {
           <Typography variant="h6" mb={2}>
             {openModal}
           </Typography>
-          <Typography variant="body1" mb={2}>
+          <Typography variant="body2" mb={2}>
             {modalMessages[openModal]}
           </Typography>
           <Button onClick={handleCloseModal} variant="contained">

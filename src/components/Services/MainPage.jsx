@@ -103,7 +103,7 @@ const MainPage = () => {
           alt="Content Ad Campaign"
           textHeader={"Content Ad Campaign"}
           text="Drive customer engagement with tailored content-driven ad campaigns. We craft compelling stories and visuals that resonate with your audience, helping your brand stand out while maximizing ad performance and ROI."
-          url="/service/custom-ad-campaign"
+          url="/service/content-ad-campaign"
         />
         <TextImageService
           imageUrl="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720088562/Digital-Accelerator_p0j4ty.avif"

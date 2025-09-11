@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   Box,
   Container,
@@ -42,7 +42,7 @@ const services = [
   description:
     "Drive engagement with content-driven ad campaigns tailored to your audience. We blend storytelling, creativity, and data insights to deliver campaigns that boost visibility, strengthen brand identity, and maximize ROI.",
   icon: <SearchIcon />,
-  link: "/service/custom-ad-campaign",
+  link: "/service/content-ad-campaign",
   color: "#FF8A65",
   gradient: "linear-gradient(135deg, #FF8A65 0%, #FFB199 100%)",
   category: "Marketing",
@@ -60,7 +60,7 @@ const services = [
 
 ];
 
-const ServiceCard = styled("div")(({ theme, serviceColor, serviceGradient }) => ({
+const ServiceCard = styled("div")(({  serviceColor, serviceGradient }) => ({
   backgroundColor: "#ffffff",
   borderRadius: "24px",
   boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
@@ -186,7 +186,7 @@ const HeroSection = styled(Box)({
 });
 
 const OurCore = () => {
-  const [hoveredCard, setHoveredCard] = useState(null);
+  const [ setHoveredCard] = useState(null);
 
   return (
     <Box
