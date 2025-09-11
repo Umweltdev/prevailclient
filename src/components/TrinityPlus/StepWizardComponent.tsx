@@ -38,6 +38,19 @@ import {
 import { loadStripe } from "@stripe/stripe-js";
 import { theme } from "../../theme.js";
 
+interface ImportMetaEnv {
+  readonly VITE_STRIPE_PUBLIC_KEY: string;
+  readonly VITE_API_BASE_URL: string;
+  readonly VITE_API_MEETING_SLOTS: string;
+  readonly VITE_API_BOOK_MEETING: string;
+  readonly VITE_API_CHECKOUT_SESSION: string;
+  readonly VITE_API_MULTIPLE_CHECKOUT_SESSION: string;
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
+}
+
 const STRIPE_KEY = (import.meta as any).env?.VITE_STRIPE_PUBLIC_KEY || "";
 let stripePromise = null;
 if (STRIPE_KEY) {
@@ -1105,13 +1118,14 @@ const StepWizard = () => {
 
     try {
       const response = await fetch(
-        "https://prevail-services-e973123f8b1e.herokuapp.com/api/create-multiple-checkout-session",
+        `${(import.meta as any).env.VITE_API_BASE_URL}${(import.meta as any).env.VITE_API_MULTIPLE_CHECKOUT_SESSION}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
         }
       );
+
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(
