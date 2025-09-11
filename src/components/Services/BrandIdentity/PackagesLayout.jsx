@@ -10,6 +10,7 @@ import { Check } from "@mui/icons-material";
 import { StarterBrandIdentity } from "../assets/serviceData";
 import { AuthContext } from "../../../context/AuthContext";
 import { useContext } from "react";
+import PropTypes from "prop-types";
 
 
 const PackagesLayout = ({ packages, amount, info, handleClick, onBoxClick }) => {
@@ -131,3 +132,10 @@ const PackagesLayout = ({ packages, amount, info, handleClick, onBoxClick }) => 
 };
 
 export default PackagesLayout;
+PackagesLayout.propTypes = {
+  packages: PropTypes.string.isRequired,
+  amount: PropTypes.number.isRequired,
+  info: PropTypes.string.isRequired,
+  handleClick: PropTypes.func.isRequired,
+  onBoxClick: PropTypes.func.isRequired,
+};

@@ -1,15 +1,10 @@
 import { CardMedia, Grid, Typography, Box, Card, } from "@mui/material";
 import { TailoredApproachData } from "../assets/serviceData";
-// import mugs from "../assets/mug.png";
 import styles from "../BrandIdentity/assets/animation.module.css"
 import { useInView } from "react-intersection-observer";
-// import {
- 
-//   Rocket,
-  
-// } from '@mui/icons-material';
+
 const TailoredApproach = () => {
-  const { ref, inView, entry } = useInView({
+  const { ref, inView } = useInView({
     triggerOnce: true, 
     threshold: 0.1,
   });
@@ -197,7 +192,7 @@ const TailoredApproach = () => {
               identity and are dedicated to transforming your business vision
               into a visual reality that captivates and engages your ideal
               customers. Join us, and let’s build a brand that stands the test
-              of time. 
+              of time.
             </Typography>
             
           </Card>
