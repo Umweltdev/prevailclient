@@ -147,12 +147,7 @@ const ALL_TRINITY_OPTIONS = [
     includes: ["💰 Expense Manager", "📈 MCD System", "🎯 RCD System"],
     savings: "Save €5,187 vs standard pricing",
     baseRecommended: true,
-    features: [
-      "4+ platform integration",
-      "Real-time budget reallocation",
-      "Machine learning optimization",
-      "30% cost reduction average",
-    ],
+
   },
   {
     id: "trinity-plus",
