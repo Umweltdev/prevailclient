@@ -1187,18 +1187,18 @@ const StepWizard = () => {
   ]);
 
   const calculateRunningTotal = useCallback(() => {
-    let total = 0;
-
-    trinitySelections.forEach((id) => {
+    let total = trinitySelections.reduce((sum, id) => {
       const selection = ALL_TRINITY_OPTIONS.find((opt) => opt.id === id);
-      if (selection) {
-        total += selection.betaPrice;
+      return sum + (selection ? selection.betaPrice : 0);
+    }, 0);
 
-        if (hasPhysicalStore && (id === "trinity-plus" || id === "garo")) {
-          total += STORE_SETUP_FEE;
-        }
-      }
-    });
+    if (
+      hasPhysicalStore &&
+      (trinitySelections.includes("trinity-plus") ||
+        trinitySelections.includes("garo"))
+    ) {
+      total += STORE_SETUP_FEE;
+    }
 
     return Math.round(total);
   }, [trinitySelections, hasPhysicalStore]);
@@ -1245,6 +1245,7 @@ const StepWizard = () => {
     showToastMessage("Selections have been reset.");
   }, [showToastMessage]);
 
+
   const handleCheckout = useCallback(async () => {
     if (!name || !email) {
       showToastMessage("Error: Please enter your name and email to proceed.");
@@ -1269,7 +1270,6 @@ const StepWizard = () => {
 
     const selectedServices = [];
 
-    // Step 1: Add all the user's chosen services with their original prices
     trinitySelections.forEach((id) => {
       const selection = ALL_TRINITY_OPTIONS.find((opt) => opt.id === id);
       if (selection) {
@@ -1282,7 +1282,6 @@ const StepWizard = () => {
       }
     });
 
-    // Step 2: Add the store setup fee as a separate item if applicable
     if (
       hasPhysicalStore &&
       (trinitySelections.includes("trinity-plus") ||
@@ -1295,23 +1294,13 @@ const StepWizard = () => {
       });
     }
 
+    
     const originalTotal = calculateRunningTotal();
-    const discountedTotal = applyDiscount(originalTotal);
-    const discountAmount = originalTotal - discountedTotal;
-
-    if (discountAmount > 0) {
-      selectedServices.push({
-        serviceType: "deposit_discount",
-        price: -discountAmount,
-        description:
-          originalTotal < 1000 ? "50% deposit applied" : "20% deposit applied",
-      });
-    }
 
     const payload = {
       name,
       email,
-      totalPrice: discountedTotal,
+      totalPrice: originalTotal,
       selectedServices,
     };
 
