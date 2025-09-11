@@ -371,7 +371,7 @@ const FinalSummary = ({
                 />
 
                 <PriceRow
-                  label="Discounted Price"
+                  label="Deposit Price"
                   amount={`€${applyDiscount(packagePrice).toLocaleString()}`}
                 />
 
@@ -404,8 +404,8 @@ const FinalSummary = ({
                 mt={1}
               >
                 {packagePrice < 1000
-                  ? "20% discount applied"
-                  : "50% discount applied"}
+                  ? "50% deposit applied"
+                  : "20% deposit applied"}
               </Typography>
             </Paper>
 

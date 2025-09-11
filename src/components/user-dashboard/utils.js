@@ -9,7 +9,7 @@ export const dateConverter = (date) => {
 
 export const applyDiscount = (price) => {
   if (price < 1000) {
-    return price * 0.8; 
+    return price * 0.5; 
   }
-  return price * 0.5;  
+  return price * 0.2;  
 }

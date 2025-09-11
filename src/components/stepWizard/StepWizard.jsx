@@ -1386,6 +1386,11 @@ const FinalSummary = ({
                 <PriceRow
                   label="Project Subtotal"
                   amount={`€${finalPrice.toLocaleString()}`}
+                  strikeThrough={true}
+                />
+                <PriceRow
+                  label="Deposit Price"
+                  amount={`€${applyDiscount(finalPrice).toLocaleString()}`}
                 />
                 <Fade in={includeConsultation} timeout={400}>
                   <Stack spacing={1.5} sx={{ mt: 1.5 }}>
@@ -1403,10 +1408,21 @@ const FinalSummary = ({
                 <Divider sx={{ my: 1 }} />
                 <PriceRow
                   label="Total to Pay"
-                  amount={`€${finalPrice.toLocaleString()}`}
+                  amount={`€${applyDiscount(finalPrice).toLocaleString()}`}
                   isTotal
                 />
               </Stack>
+              <Typography
+                      variant="caption"
+                      color="success.main"
+                      display="block"
+                      textAlign="right"
+                      mt={1}
+                    >
+                      {finalPrice < 1000
+                        ? "50% deposit applied"
+                        : "20% deposit applied"}
+                    </Typography>
             </Paper>
 
             {/* Actions */}
