@@ -1245,6 +1245,7 @@ const StepWizard = () => {
     showToastMessage("Selections have been reset.");
   }, [showToastMessage]);
 
+  // Inside the StepWizard component...
 
   const handleCheckout = useCallback(async () => {
     if (!name || !email) {
@@ -1294,7 +1295,6 @@ const StepWizard = () => {
       });
     }
 
-    
     const originalTotal = calculateRunningTotal();
 
     const payload = {
