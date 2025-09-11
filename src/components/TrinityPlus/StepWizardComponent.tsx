@@ -39,6 +39,8 @@ import { loadStripe } from "@stripe/stripe-js";
 import { theme } from "../../theme.js";
 
 const STRIPE_KEY = (import.meta as any).env?.VITE_STRIPE_PUBLIC_KEY || "";
+const CREATE_CHECKOUT_URL =
+  (import.meta as any).env?.VITE_CREATE_CHECKOUT || "";
 let stripePromise = null;
 if (STRIPE_KEY) {
   stripePromise = loadStripe(STRIPE_KEY);
@@ -147,7 +149,6 @@ const ALL_TRINITY_OPTIONS = [
     includes: ["💰 Expense Manager", "📈 MCD System", "🎯 RCD System"],
     savings: "Save €5,187 vs standard pricing",
     baseRecommended: true,
-
   },
   {
     id: "trinity-plus",
@@ -1268,7 +1269,9 @@ const StepWizard = () => {
 
     try {
       const response = await fetch(
-        "https://prevail-services-e973123f8b1e.herokuapp.com/api/create-multiple-checkout-session",
+        `${import.meta.env.VITE_API_BASE_URL}${
+          import.meta.env.VITE_API_MULTIPLE_CHECKOUT_SESSION
+        }`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
