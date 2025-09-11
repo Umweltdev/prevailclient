@@ -29,7 +29,6 @@ const Landing = () => {
         <ExternalLinks />
         <SectionTwo />
         <CoreValues />
-        
         <SectionSeven />
         <SectionFour />
         <JoinCustomers />

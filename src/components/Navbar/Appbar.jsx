@@ -35,10 +35,6 @@ const servicesData = [
     text: "Digital Accelerator Bundle",
     link: "/service/digital-accelerator-bundle",
   },
-  // {
-  //   text: "Cost Calculation",
-  //   link: "/service/cost-calculation",
-  // },
   { text: "Content Ad Campaign", link: "/service/content-ad-campaign" },
 ];
 
@@ -100,7 +96,6 @@ function AppBarNav({ color }) {
     setAnchorElTrinity(null);
   };
 
-  // Mobile dropdown handlers - don't close the drawer
   const handleMobileExploreClick = (e) => {
     e.stopPropagation();
     setMobileExploreOpen(!mobileExploreOpen);
@@ -116,7 +111,6 @@ function AppBarNav({ color }) {
     setMobileTrinityOpen(!mobileTrinityOpen);
   };
 
-  // Handle mobile menu item clicks - close drawer after navigation
   const handleMobileMenuItemClick = () => {
     setMobileOpen(false);
   };
@@ -173,7 +167,6 @@ function AppBarNav({ color }) {
           </List>
         </Collapse>
 
-        {/* Services dropdown */}
         <ListItem disablePadding>
           <ListItemButton onClick={handleMobileServicesClick}>
             <ListItemText primary="Services" />
@@ -197,7 +190,6 @@ function AppBarNav({ color }) {
           </List>
         </Collapse>
 
-        {/* Trinity dropdown */}
         <ListItem disablePadding>
           <ListItemButton onClick={handleMobileTrinityClick}>
             <ListItemText primary="Trinity" />
@@ -221,7 +213,6 @@ function AppBarNav({ color }) {
           </List>
         </Collapse>
 
-        {/* Other navigation items */}
         <ListItem disablePadding>
           <ListItemButton component={Link} to="/about-us" onClick={handleMobileMenuItemClick}>
             <ListItemText primary="About Us" />
@@ -233,7 +224,6 @@ function AppBarNav({ color }) {
           </ListItemButton>
         </ListItem>
 
-        {/* Auth-related items */}
         {isLoggedIn ? (
           <>
             {isAdmin && (
@@ -392,16 +382,14 @@ function AppBarNav({ color }) {
             display: { xs: "block", sm: "none" },
             "& .MuiDrawer-paper": { 
               width: drawerWidth,
-              backgroundColor: "#fff", // Ensure white background
-              color: "#000" // Ensure text is visible
+              backgroundColor: "#fff",
+              color: "#000"
             },
           }}
         >
           {drawer}
         </Drawer>
       </Box>
-
-      {/* Desktop dropdown menus with proper background */}
       <Menu
         anchorEl={anchorElServices}
         open={Boolean(anchorElServices)}

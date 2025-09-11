@@ -7,10 +7,9 @@ import {
   Card,
   CardContent,
 } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { styled, keyframes } from "@mui/material/styles";
 
-// Animations
 const fadeInUp = keyframes`
   from {
     opacity: 0;
@@ -33,8 +32,7 @@ const pulse = keyframes`
   100% { transform: scale(1); }
 `;
 
-// Styled components
-const HeroSection = styled(Box)(({ theme }) => ({
+const HeroSection = styled(Box)({
   minHeight: "100vh",
   background: `
     linear-gradient(135deg, 
@@ -51,27 +49,24 @@ const HeroSection = styled(Box)(({ theme }) => ({
   alignItems: "center",
   position: "relative",
   overflow: "hidden",
-  "&::before": {
+  "&::before, &::after": {
     content: '""',
     position: "absolute",
     top: 0,
     left: 0,
     right: 0,
     bottom: 0,
+    pointerEvents: "none",
+  },
+  "&::before": {
     background:
       "radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%)",
   },
   "&::after": {
-    content: '""',
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
     background:
       "radial-gradient(circle at 80% 20%, rgba(255, 193, 7, 0.2) 0%, transparent 50%)",
   },
-}));
+});
 
 const AnimatedBox = styled(Box)`
   animation: ${fadeInUp} 1s ease-out forwards;
@@ -81,7 +76,7 @@ const FloatingLogo = styled(Box)`
   animation: ${float} 3s ease-in-out infinite;
 `;
 
-const GlowingButton = styled(Button)(({ theme }) => ({
+const GlowingButton = styled(Button)({
   background: "linear-gradient(45deg, #667eea 0%, #764ba2 100%)",
   borderRadius: "50px",
   padding: "16px 48px",
@@ -99,9 +94,9 @@ const GlowingButton = styled(Button)(({ theme }) => ({
   "&:active": {
     transform: "translateY(0px)",
   },
-}));
+});
 
-const FeatureCard = styled(Card)(({ theme }) => ({
+const FeatureCard = styled(Card)({
   background: "rgba(255, 255, 255, 0.1)",
   backdropFilter: "blur(20px)",
   border: "1px solid rgba(255, 255, 255, 0.2)",
@@ -112,7 +107,7 @@ const FeatureCard = styled(Card)(({ theme }) => ({
     boxShadow: "0 20px 40px rgba(0, 0, 0, 0.3)",
     background: "rgba(255, 255, 255, 0.15)",
   },
-}));
+});
 
 const ExternalLinks = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -142,9 +137,11 @@ const ExternalLinks = () => {
 
   return (
     <HeroSection>
-      <Container maxWidth="xl" sx={{ position: "relative" }}>
+      <Container
+        maxWidth="xl"
+        sx={{ position: "relative", zIndex: 2, px: 4, py: 16 }}
+      >
         <Grid container spacing={6} alignItems="center">
-          {/* Left Content */}
           <Grid item xs={12} lg={7}>
             <AnimatedBox sx={{ opacity: isVisible ? 1 : 0 }}>
               <Box
@@ -230,12 +227,23 @@ const ExternalLinks = () => {
                 build stronger guest relationships.
               </Typography>
 
-              {/* Feature Grid */}
               <Grid container spacing={2} sx={{ mb: 5 }}>
                 {features.map((feature, index) => (
-                  <Grid item xs={6} md={3} key={index}>
-                    <FeatureCard elevation={0}>
-                      <CardContent sx={{ p: 2, textAlign: "center" }}>
+                  <Grid item xs={6} md={3} key={index} sx={{ display: "flex" }}>
+                    <FeatureCard
+                      elevation={0}
+                      sx={{ flex: 1, display: "flex", flexDirection: "column" }}
+                    >
+                      <CardContent
+                        sx={{
+                          p: 2,
+                          textAlign: "center",
+                          flexGrow: 1,
+                          display: "flex",
+                          flexDirection: "column",
+                          justifyContent: "center",
+                        }}
+                      >
                         <Typography
                           variant="subtitle2"
                           sx={{ color: "white", fontWeight: 600, mb: 1 }}
@@ -253,38 +261,28 @@ const ExternalLinks = () => {
                   </Grid>
                 ))}
               </Grid>
-
-              <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
-                <a
+              <Box
+                sx={{
+                  display: "flex",
+                  gap: 2,
+                  flexWrap: "wrap",
+                  justifyContent: "center",
+                  position: "relative", // ensure stacking is correct
+                  zIndex: 20,
+                }}
+              >
+                <GlowingButton
+                  size="large"
+                  component="a"
                   href="https://crownstone.netlify.app"
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ textDecoration: "none" }}
                 >
-                  <GlowingButton size="large">Explore Platform</GlowingButton>
-                </a>
-                <Button
-                  variant="outlined"
-                  size="large"
-                  sx={{
-                    borderColor: "rgba(255, 255, 255, 0.3)",
-                    color: "white",
-                    borderRadius: "50px",
-                    px: 4,
-                    borderWidth: 2,
-                    "&:hover": {
-                      borderColor: "rgba(255, 255, 255, 0.6)",
-                      background: "rgba(255, 255, 255, 0.1)",
-                    },
-                  }}
-                >
-                  Learn More
-                </Button>
+                  Explore Platform
+                </GlowingButton>
               </Box>
             </AnimatedBox>
           </Grid>
-
-          {/* Right Visual Element */}
           <Grid item xs={12} lg={5}>
             <Box
               sx={{
@@ -341,8 +339,6 @@ const ExternalLinks = () => {
           </Grid>
         </Grid>
       </Container>
-
-      {/* Decorative elements */}
       <Box
         sx={{
           position: "absolute",
