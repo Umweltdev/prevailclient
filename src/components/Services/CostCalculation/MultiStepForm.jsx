@@ -382,7 +382,6 @@ const CAMPAIGN_PACKAGES = [
   },
 ];
 
-// Enhanced Trinity Options
 const TRINITY_OPTIONS = [
   {
     id: "expense",
@@ -527,7 +526,6 @@ const TRINITY_OPTIONS = [
   },
 ];
 
-// Enhanced Platform tiers
 const PLATFORM_TIERS = [
   {
     id: "foundation",
@@ -637,7 +635,6 @@ const gradientText = {
   backgroundClip: "text",
 };
 
-// Enhanced SelectableCard component
 const SelectableCard = ({ children, selected, onClick, sx, hover = true }) => (
   <Grow in timeout={500}>
     <Card
@@ -735,7 +732,6 @@ SelectableCard.propTypes = {
   hover: PropTypes.bool,
 };
 
-// Enhanced Service Selection Component
 const ServiceSelection = ({
   selectedServices,
   setSelectedServices,
@@ -902,7 +898,6 @@ ServiceSelection.propTypes = {
   nextStep: PropTypes.func.isRequired,
 };
 
-// Enhanced Industry Selection
 const IndustrySelection = ({
   selectedIndustry,
   setSelectedIndustry,
@@ -1018,7 +1013,6 @@ IndustrySelection.propTypes = {
   prevStep: PropTypes.func.isRequired,
 };
 
-// Enhanced Brand Package Selection
 const BrandPackageSelection = ({
   selectedPackage,
   setSelectedPackage,
@@ -1187,7 +1181,6 @@ BrandPackageSelection.propTypes = {
   totalServices: PropTypes.number,
 };
 
-// Enhanced Campaign Package Selection
 const CampaignPackageSelection = ({
   selectedCampaign,
   setSelectedCampaign,
@@ -1356,7 +1349,6 @@ CampaignPackageSelection.propTypes = {
   totalServices: PropTypes.number,
 };
 
-// Mobile-optimized Trinity Package Card Component
 const TrinityPackageCard = ({ option, selected, onClick }) => {
   const [expanded, setExpanded] = useState(false);
 
@@ -1366,7 +1358,6 @@ const TrinityPackageCard = ({ option, selected, onClick }) => {
       onClick={onClick}
       sx={{
         height: "100%",
-        // Better mobile responsiveness
         "& .MuiCardContent-root": {
           px: { xs: 2, sm: 3 },
           py: { xs: 2, sm: 3 },
@@ -1374,7 +1365,6 @@ const TrinityPackageCard = ({ option, selected, onClick }) => {
       }}
     >
       <Stack spacing={2} height="100%">
-        {/* Header with badges */}
         <Stack
           direction="row"
           spacing={1}
@@ -1417,14 +1407,11 @@ const TrinityPackageCard = ({ option, selected, onClick }) => {
             }}
           />
         </Stack>
-
-        {/* Main content */}
         <Stack
           direction={{ xs: "column", sm: "row" }}
           spacing={2}
           alignItems={{ xs: "flex-start", sm: "flex-start" }}
         >
-          {/* Icon */}
           <Box flexShrink={0}>
             <Typography
               variant="h3"
@@ -1437,10 +1424,7 @@ const TrinityPackageCard = ({ option, selected, onClick }) => {
               {option.icon}
             </Typography>
           </Box>
-
-          {/* Content */}
           <Stack spacing={1} flex={1} minWidth={0}>
-            {/* Title and Price row */}
             <Stack
               direction={{ xs: "column", sm: "row" }}
               justifyContent="space-between"
@@ -1456,7 +1440,6 @@ const TrinityPackageCard = ({ option, selected, onClick }) => {
                   sx={{
                     fontSize: { xs: "1.1rem", sm: "1.25rem" },
                     lineHeight: 1.2,
-                    // Prevent text overflow
                     wordBreak: "break-word",
                     hyphens: "auto",
                   }}
@@ -1492,23 +1475,18 @@ const TrinityPackageCard = ({ option, selected, onClick }) => {
                 </Typography>
               </Box>
             </Stack>
-
-            {/* Description */}
             <Typography
               variant="body2"
               color="text.secondary"
               sx={{
                 lineHeight: 1.5,
                 mb: 1,
-                // Better text wrapping on mobile
                 wordBreak: "break-word",
                 hyphens: "auto",
               }}
             >
               {option.description}
             </Typography>
-
-            {/* Benefits chips - mobile optimized */}
             {option.benefits && (
               <Stack
                 direction="row"
@@ -1532,8 +1510,6 @@ const TrinityPackageCard = ({ option, selected, onClick }) => {
                 ))}
               </Stack>
             )}
-
-            {/* Package includes - mobile optimized */}
             {option.includes && (
               <Box mb={1}>
                 <Typography
@@ -1578,8 +1554,6 @@ const TrinityPackageCard = ({ option, selected, onClick }) => {
                 </Stack>
               </Box>
             )}
-
-            {/* Features list - collapsible on mobile */}
             {option.features && (
               <Box>
                 <Button
@@ -1643,8 +1617,6 @@ const TrinityPackageCard = ({ option, selected, onClick }) => {
                 </Collapse>
               </Box>
             )}
-
-            {/* Savings info */}
             {option.savings && (
               <Typography
                 variant="body2"
@@ -1661,8 +1633,6 @@ const TrinityPackageCard = ({ option, selected, onClick }) => {
                 Save €{option.savings.toLocaleString()} vs individual
               </Typography>
             )}
-
-            {/* Warning note */}
             {option.note && (
               <Alert
                 severity="warning"
@@ -1690,8 +1660,6 @@ TrinityPackageCard.propTypes = {
   selected: PropTypes.bool,
   onClick: PropTypes.func,
 };
-
-// Enhanced Trinity Package Selection with mobile optimization
 const TrinityPackageSelection = ({
   selectedTrinity,
   setSelectedTrinity,
@@ -1816,8 +1784,6 @@ TrinityPackageSelection.propTypes = {
   totalServices: PropTypes.number,
   isPartOfPlatform: PropTypes.bool,
 };
-
-// Enhanced Platform Tier Selection
 const PlatformTierSelection = ({
   selectedTier,
   setSelectedTier,
@@ -1989,8 +1955,6 @@ PlatformTierSelection.propTypes = {
   currentServiceIndex: PropTypes.number,
   totalServices: PropTypes.number,
 };
-
-// Enhanced Store Type Selection
 const StoreTypeSelection = ({
   hasPhysicalStore,
   setHasPhysicalStore,
@@ -2156,7 +2120,16 @@ StoreTypeSelection.propTypes = {
   prevStep: PropTypes.func.isRequired,
 };
 
-// Enhanced Final Summary with Stripe Integration
+const applyDiscount = (price) => {
+  if (price >= 1000) {
+    return price * 0.8;
+  }
+  if (price > 0) {
+    return price * 0.5;
+  }
+  return 0;
+};
+
 const FinalSummary = ({
   selectedServices,
   selectedIndustry,
@@ -2534,7 +2507,7 @@ const FinalSummary = ({
                     variant="outlined"
                     fullWidth
                     onClick={handleConsultationCheckout}
-                    disabled={isProcessingConsult || !name || !email} // Correct - only checks its own state
+                    disabled={isProcessingConsult || !name || !email}
                     sx={{
                       borderColor: "primary.main",
                       color: "primary.main",
@@ -2621,7 +2594,6 @@ const MultiStepForm = () => {
 
   const wizardRef = useRef(null);
 
-  // Calculate total price
   const calculateTotal = useCallback(() => {
     let total = 0;
 
@@ -2658,7 +2630,6 @@ const MultiStepForm = () => {
       }
     });
 
-    // Add physical store setup fee for GARO
     if (hasPhysicalStore) {
       selectedServices.forEach((serviceId) => {
         const selection = serviceSelections[serviceId];
@@ -2673,13 +2644,11 @@ const MultiStepForm = () => {
     return Math.round(total);
   }, [selectedServices, serviceSelections, hasPhysicalStore]);
 
-  // Get dynamic steps
   const getSteps = React.useCallback(() => {
     const steps = ["Services"];
 
     if (selectedServices.length === 0) return steps;
 
-    // Add industry step
     if (
       selectedServices.some((s) =>
         ["brand-identity", "ad-campaigns", "complete-platform"].includes(s)
@@ -2688,7 +2657,6 @@ const MultiStepForm = () => {
       steps.push("Industry");
     }
 
-    // Add service-specific steps
     selectedServices.forEach((serviceId) => {
       const service = SERVICES.find((s) => s.id === serviceId);
       switch (serviceId) {
@@ -2708,7 +2676,6 @@ const MultiStepForm = () => {
       }
     });
 
-    // Add store type step if needed
     const needsStoreType = selectedServices.some((serviceId) => {
       const selection = serviceSelections[serviceId];
       return (
@@ -2763,7 +2730,6 @@ const MultiStepForm = () => {
     setKeywords("");
     setSelectedSystems("");
     setSelectedDashboards("");
-    // setCurrentServiceIndex(0);
     showToastMessage("Configuration has been reset. Start fresh!");
   }, [showToastMessage]);
 
@@ -2777,12 +2743,14 @@ const MultiStepForm = () => {
 
     try {
       const total = calculateTotal();
+      
+      const depositPrice = applyDiscount(total);
 
       const checkoutData = {
         name,
         email,
         serviceType: mapToApiServiceType(selectedServices, serviceSelections),
-        price: total,
+        price: depositPrice,
         targetAudience: generateTargetAudience(
           selectedIndustry,
           selectedServices
@@ -2800,10 +2768,8 @@ const MultiStepForm = () => {
         } | Physical Store: ${hasPhysicalStore ? "Yes" : "No"}`.trim(),
       };
 
-      // Create checkout session
       const session = await createCheckoutSession(checkoutData);
 
-      // Redirect to Stripe Checkout
       const stripe = await stripePromise;
       if (!stripe) {
         throw new Error("Stripe.js has not loaded yet.");
@@ -2847,8 +2813,7 @@ const MultiStepForm = () => {
 
     setIsProcessingConsult(true);
 
-    try {
-      // Prepare consultation checkout data for API
+    try {      
       const consultationData = {
         name,
         email,
@@ -2870,10 +2835,8 @@ const MultiStepForm = () => {
         } | Physical Store: ${hasPhysicalStore ? "Yes" : "No"}`.trim(),
       };
 
-      // Create consultation checkout session
       const session = await createCheckoutSession(consultationData);
 
-      // Redirect to Stripe Checkout
       const stripe = await stripePromise;
       if (!stripe) {
         throw new Error("Stripe.js has not loaded yet.");
@@ -2907,7 +2870,6 @@ const MultiStepForm = () => {
     showToastMessage,
   ]);
 
-  // Helper function to update service selections
   const updateServiceSelection = (serviceId, key, value) => {
     setServiceSelections((prev) => ({
       ...prev,
@@ -2918,7 +2880,6 @@ const MultiStepForm = () => {
     }));
   };
 
-  // Render step content
   const renderStepContent = () => {
     const stepName = steps[currentStep - 1];
 
@@ -3080,7 +3041,6 @@ const MultiStepForm = () => {
           sx={{ py: { xs: 18, md: 20 } }}
           ref={wizardRef}
         >
-          {/* Hero Section */}
           <Fade in timeout={1000}>
             <Box textAlign="center" mb={{ xs: 6, md: 10 }}>
               <Typography variant="h1" gutterBottom>
@@ -3131,7 +3091,6 @@ const MultiStepForm = () => {
             </Box>
           </Fade>
 
-          {/* Progress Stepper */}
           <Fade in timeout={1200}>
             <Box mb={{ xs: 6, md: 8 }}>
               <Stepper
@@ -3187,12 +3146,8 @@ const MultiStepForm = () => {
               </Stepper>
             </Box>
           </Fade>
-
-          {/* Step Content */}
           {renderStepContent()}
         </Container>
-
-        {/* Enhanced Toast Notifications */}
         <Snackbar
           open={!!showToast}
           autoHideDuration={6000}

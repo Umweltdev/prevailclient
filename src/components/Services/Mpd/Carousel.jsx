@@ -81,7 +81,6 @@ function Carousel() {
                 sx={{
                   height: 255,
                   display: "block",
-                  //   maxWidth: 400,
                   overflow: "hidden",
                   width: "40vw",
                   objectFit: "over",

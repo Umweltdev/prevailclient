@@ -312,6 +312,12 @@ const DropdownPortal = ({ children, anchorEl, focused }) => {
   );
 };
 
+DropdownPortal.propTypes = {
+  children: PropTypes.node.isRequired,
+  anchorEl: PropTypes.instanceOf(Element),
+  focused: PropTypes.bool.isRequired,
+};
+
 export default function MultiSelect({ setSelectedServices }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -386,6 +392,10 @@ export default function MultiSelect({ setSelectedServices }) {
     </FormControl>
   );
 }
+
+MultiSelect.propTypes = {
+  setSelectedServices: PropTypes.func.isRequired,
+};
 
 const services = [
   { title: "Brand Identity" },

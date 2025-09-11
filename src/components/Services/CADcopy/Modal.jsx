@@ -88,7 +88,6 @@ const CheckboxContainer = styled(Box)(({ theme }) => ({
   gap: theme.spacing(1),
 }));
 
-// Custom Alert Component
 const CustomAlert = styled(Dialog)(({ theme }) => ({
   "& .MuiBackdrop-root": {
     backgroundColor: "rgba(0, 0, 0, 0.6)",
@@ -148,7 +147,6 @@ const AlertButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-// Package prices mapping
 const packagesData = {
   starter: { title: "Starter Campaign", price: 350 },
   growth: { title: "Growth Campaign", price: 500 },

@@ -49,7 +49,6 @@ const SystemsSection = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Purchase Handler
   const purchase = (type) => {
     let message = "";
 
@@ -102,7 +101,6 @@ const SystemsSection = () => {
           </p>
         </div>
 
-        {/* GARO System Pricing */}
         <div className="pricing-section-wrapper">
           <h3 className="system-title">
             GARO System Pricing (Store Front Option)
@@ -111,7 +109,6 @@ const SystemsSection = () => {
             Genetic Algorithm Restocking Optimizer
           </p>
           <div className="pricing-cards">
-            {/* Beta (Most Popular) */}
             <div className="pricing-card popular">
               <div className="popular-badge">Most Popular</div>
               <div className="card-header">
@@ -133,8 +130,6 @@ const SystemsSection = () => {
                 <li>✓ Complete Onboarding & Support</li>
                 <li>✓ Comprehensive Training Program</li>
               </ul>
-
-              {/* Add Learn More button */}
               <button
                 className="btn btn-secondary"
                 style={{ width: "100%", marginBottom: "0.75rem" }}
@@ -147,8 +142,6 @@ const SystemsSection = () => {
                 Secure Your Spot
               </button>
             </div>
-
-            {/* Early Adopters */}
             <div className="pricing-card">
               <div className="card-header">
                 <div className="tier-dot early"></div>
@@ -166,8 +159,6 @@ const SystemsSection = () => {
                 <li>✓ Complete Onboarding & Support</li>
                 <li>✓ Comprehensive Training Program</li>
               </ul>
-
-              {/* Add Learn More button */}
               <button
                 className="btn btn-secondary"
                 style={{ width: "100%", marginBottom: "0.75rem" }}
@@ -180,8 +171,6 @@ const SystemsSection = () => {
                 Coming Soon
               </button>
             </div>
-
-            {/* Standard */}
             <div className="pricing-card">
               <div className="card-header">
                 <div className="tier-dot post"></div>
@@ -199,8 +188,6 @@ const SystemsSection = () => {
                 <li>✓ Complete Onboarding & Support</li>
                 <li>✓ Comprehensive Training Program</li>
               </ul>
-
-              {/* Add Learn More button */}
               <button
                 className="btn btn-secondary"
                 style={{ width: "100%", marginBottom: "0.75rem" }}
@@ -215,8 +202,6 @@ const SystemsSection = () => {
             </div>
           </div>
         </div>
-
-        {/* GARO System Pricing Store front */}
         <div className="pricing-section-wrapper">
           <h3 className="system-title">
             GARO System Pricing (E-commerce Only)
@@ -225,7 +210,6 @@ const SystemsSection = () => {
             Genetic Algorithm Restocking Optimizer
           </p>
           <div className="pricing-cards">
-            {/* Beta (Most Popular) */}
             <div className="pricing-card popular">
               <div className="popular-badge">Most Popular</div>
               <div className="card-header">
@@ -258,8 +242,6 @@ const SystemsSection = () => {
                 Secure Your Spot
               </button>
             </div>
-
-            {/* Early Adopters */}
             <div className="pricing-card">
               <div className="card-header">
                 <div className="tier-dot early"></div>
@@ -289,8 +271,6 @@ const SystemsSection = () => {
                 Coming Soon
               </button>
             </div>
-
-            {/* Standard */}
             <div className="pricing-card">
               <div className="card-header">
                 <div className="tier-dot post"></div>
@@ -326,7 +306,6 @@ const SystemsSection = () => {
           <h3 className="system-title">AED System Pricing</h3>
           <p className="system-subtitle">Advertising Efficiency Dashboard</p>
           <div className="pricing-cards">
-            {/* Beta (Most Popular) */}
             <div className="pricing-card popular">
               <div className="popular-badge">Most Popular</div>
               <div className="card-header">
@@ -359,8 +338,6 @@ const SystemsSection = () => {
                 Secure Your Spot
               </button>
             </div>
-
-            {/* Early Adopters */}
             <div className="pricing-card">
               <div className="card-header">
                 <div className="tier-dot early"></div>
@@ -389,8 +366,6 @@ const SystemsSection = () => {
                 Coming Soon
               </button>
             </div>
-
-            {/* Standard */}
             <div className="pricing-card">
               <div className="card-header">
                 <div className="tier-dot post"></div>
@@ -426,7 +401,6 @@ const SystemsSection = () => {
           <h3 className="system-title">Expense Management System Pricing</h3>
           <p className="system-subtitle">Expense Manager Dashboard</p>
           <div className="pricing-cards">
-            {/* Beta (Most Popular) */}
             <div className="pricing-card popular">
               <div className="popular-badge">Most Popular</div>
               <div className="card-header">
@@ -457,8 +431,6 @@ const SystemsSection = () => {
                 Secure Your Spot
               </button>
             </div>
-
-            {/* Early Adopters */}
             <div className="pricing-card">
               <div className="card-header">
                 <div className="tier-dot early"></div>
@@ -486,8 +458,6 @@ const SystemsSection = () => {
                 Coming Soon
               </button>
             </div>
-
-            {/* Standard */}
             <div className="pricing-card">
               <div className="card-header">
                 <div className="tier-dot post"></div>
@@ -524,7 +494,6 @@ const SystemsSection = () => {
             Returning Customer Discounts Dashboard
           </p>
           <div className="pricing-cards">
-            {/* Beta (Most Popular) */}
             <div className="pricing-card popular">
               <div className="popular-badge">Most Popular</div>
               <div className="card-header">
@@ -556,8 +525,6 @@ const SystemsSection = () => {
                 Secure Your Spot
               </button>
             </div>
-
-            {/* Early Adopters */}
             <div className="pricing-card">
               <div className="card-header">
                 <div className="tier-dot early"></div>
@@ -586,8 +553,6 @@ const SystemsSection = () => {
                 Coming Soon
               </button>
             </div>
-
-            {/* Standard */}
             <div className="pricing-card">
               <div className="card-header">
                 <div className="tier-dot post"></div>
@@ -619,13 +584,10 @@ const SystemsSection = () => {
             </div>
           </div>
         </div>
-
-        {/* AED System Pricing */}
         <div className="pricing-section-wrapper">
           <h3 className="system-title">MCD System Pricing</h3>
           <p className="system-subtitle">Market Cost Displacement API</p>
           <div className="pricing-cards">
-            {/* Beta (Most Popular) */}
             <div className="pricing-card popular">
               <div className="popular-badge">Most Popular</div>
               <div className="card-header">
@@ -658,8 +620,6 @@ const SystemsSection = () => {
                 Secure Your Spot
               </button>
             </div>
-
-            {/* Early Adopters */}
             <div className="pricing-card">
               <div className="card-header">
                 <div className="tier-dot early"></div>
@@ -688,8 +648,6 @@ const SystemsSection = () => {
                 Coming Soon
               </button>
             </div>
-
-            {/* Standard */}
             <div className="pricing-card">
               <div className="card-header">
                 <div className="tier-dot post"></div>
@@ -722,7 +680,6 @@ const SystemsSection = () => {
           </div>
         </div>
 
-        {/* Trinity Plus Bundle */}
         <div className="bundle-highlight" id="bundle">
           <h3 className="system-title">Complete Trinity Plus Bundle</h3>
           <p className="system-subtitle">
@@ -737,7 +694,6 @@ const SystemsSection = () => {
             <div className="bundle-system-item">🚀 AED System</div>
           </div>
 
-          {/* E-commerce Bundle */}
           <div className="pricing-section-wrapper">
             <h3 className="system-title">E-commerce Bundle</h3>
             <p className="system-subtitle">
@@ -795,7 +751,7 @@ const SystemsSection = () => {
                   <li>✓ Full Analytics Dashboard</li>
                   <li>✓ Priority Support & Training</li>
                   <li>✓ Early Access Features</li>
-                </ul>{" "}
+                </ul>
                 <button
                   className="btn btn-secondary"
                   style={{ width: "100%", marginBottom: "0.75rem" }}
@@ -842,8 +798,6 @@ const SystemsSection = () => {
               </div>
             </div>
           </div>
-
-          {/* Storefront Bundle */}
           <div className="pricing-section-wrapper">
             <h3 className="system-title">Storefront Bundle (with Square)</h3>
             <p className="system-subtitle">
@@ -953,19 +907,6 @@ const SystemsSection = () => {
             Save up to €7,495 with Beta pricing!
           </div>
         </div>
-
-        {/* Trinity Core Link */}
-        {/* <div className="trinity-core-banner">
-          <h3 style={{ marginBottom: "1rem" }}>Looking for Core Systems?</h3>
-          <p style={{ marginBottom: "1.5rem" }}>
-            Trinity Core includes Expense Manager, MCD, and RCD systems.
-            <br />
-            Start with the essentials and upgrade to Plus anytime.
-          </p>
-          <a href="#" className="btn btn-primary" onClick={goToTrinityCore}>
-            Explore Trinity Core Systems →
-          </a>
-        </div> */}
       </div>
     </section>
   );

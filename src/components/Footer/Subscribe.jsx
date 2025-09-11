@@ -1,4 +1,3 @@
-import { Visibility } from "@mui/icons-material";
 import {
   Button,
   FormControl,
@@ -9,7 +8,7 @@ import {
   OutlinedInput,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import { useState } from "react";
 import axiosInstance from "../utils/axios";
 import makeToast from "../../makeToast";
 import * as yup from "yup";
@@ -163,20 +162,16 @@ const Subscribe = () => {
                 "& .MuiOutlinedInput-input": {
                   color: "#656565",
                   borderRadius: "30px",
-                  // width: "90vw",
                 },
                 "& .MuiOutlinedInput-notchedOutline": {
                   borderRadius: "30px",
                   borderColor: "#656565",
-                  // width: "90vw",
                 },
                 "&:hover .MuiOutlinedInput-notchedOutline": {
                   borderColor: "#656565",
-                  // width: "90vw",
                 },
                 "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
                   borderColor: "#656565",
-                  // width: "90vw",
                 },
               }}
             />

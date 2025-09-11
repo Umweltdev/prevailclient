@@ -1,11 +1,11 @@
 import { makeStyles } from "@mui/styles";
-import Footer from "../Footer/Footer";
-import FooterNew from "../Footer/FooterNew";
-import Navbar from "../Navbar/Navbar";
+// import Footer from "../Footer/Footer";
+// import FooterNew from "../Footer/FooterNew";
+// import Navbar from "../Navbar/Navbar";
 import BlogCard from "../ReusedComponents/BlogCard";
 import FreeSolo from "../ReusedComponents/SearchInput";
 import "./assets/blog.css";
-import { BlogCategory, blogBlurbs } from "./assets/blogData";
+import { blogBlurbs } from "./assets/blogData";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Grid } from "@mui/material";
@@ -19,12 +19,10 @@ const useStyles = makeStyles({
     alignItems: "center",
     margin: "5vh auto",
     width: "88vw",
-    // width: "819px",
     borderRadius: "3vw",
     background: "white",
     boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
     color: "grey",
-    // flexWrap: "wrap",
     "@media (max-width: 600px)": {
       padding: "2vh 0",
       gap: "1vw",
@@ -35,16 +33,13 @@ const useStyles = makeStyles({
   sTwoAboutList: {
     textDecoration: "none",
     listStyle: "none",
-    // background: "#ba8bd9",
     color: "grey",
     padding: "1vw 0",
     borderRadius: "3vw",
-    // fontWeight: "bold",
     fontSize: "1.3vw",
     cursor: "pointer",
     fontFamily: `"Sarabun","sans-serif"`,
     transition: "0.5s ease-in-out",
-    // margin: "10vh 0 0 0",
     textAlign: "center",
     width: "18vw",
     "&:hover": {
@@ -59,7 +54,6 @@ const useStyles = makeStyles({
       color: "white",
       padding: "1vw 2vw",
       borderRadius: "25px",
-      // fontWeight: "bold",
       fontSize: "4vw",
       cursor: "pointer",
       width: "unset",

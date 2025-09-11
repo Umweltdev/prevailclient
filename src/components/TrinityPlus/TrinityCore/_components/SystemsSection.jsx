@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom"; // Add thi
+import { Link, useNavigate } from "react-router-dom";
 
 const systemsData = [
   {
@@ -17,7 +17,7 @@ const systemsData = [
     price: { beta: 696, early: 1728, standard: 5187 },
     color: "#3b82f6",
     colorDark: "#2563eb",
-    route: "expense-manager", // Add this property
+    route: "expense-manager",
   },
   {
     id: "mcd",
@@ -34,7 +34,7 @@ const systemsData = [
     price: { beta: 696, early: 1728, standard: 5187 },
     color: "#8b5cf6",
     colorDark: "#7c3aed",
-    route: "mcd", // Add this property
+    route: "mcd",
   },
   {
     id: "rcd",
@@ -51,14 +51,14 @@ const systemsData = [
     price: { beta: 696, early: 1728, standard: 5187 },
     color: "#ec4899",
     colorDark: "#db2777",
-    route: "rcd", // Add this property
+    route: "rcd",
   },
 ];
 
 export default function SystemSection() {
-  const navigate = useNavigate(); // Add this hook
+  const navigate = useNavigate();
 
-  const [countdown, setCountdown] = useState({
+  const [ setCountdown] = useState({
     days: "10",
     hours: "00",
     minutes: "00",
@@ -100,15 +100,8 @@ export default function SystemSection() {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [setCountdown]);
 
-  // const handlePurchase = (type) => {
-  //   alert(`Purchase triggered for ${type}`);
-  // };
-
-  // const handleTrinityPlus = () => {
-  //   alert("Redirect to Trinity Plus page");
-  // };
 
   const handleScroll = () => {
     const target = document.querySelector("#wizard");
@@ -165,7 +158,6 @@ export default function SystemSection() {
                   <span>€{sys.price.standard}</span>
                 </div>
                 <div className="w-full flex items-center flex-col">
-                  {/* Add Learn More button */}
                   <Link
                     to={`/trinity/${
                       sys.id === "expense" ? "expense-manager" : sys.id

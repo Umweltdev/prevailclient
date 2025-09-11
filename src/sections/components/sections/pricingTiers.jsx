@@ -147,7 +147,7 @@ const PricingTiers = ({ onBetaAccessClick }) => {
                 )}
 
                 <CardContent
-                  sx={{ flexGrow: 1, textAlign: "center", py: 6, px: 4 }}
+                  sx={{ flexGrow: 1, textAlign: "center", py: 2, px: 4 }}
                 >
                   <Typography
                     variant="h5"

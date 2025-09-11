@@ -52,8 +52,6 @@ const Hero = () => {
           optimizer and AED advertising automation. Transform your business with
           AI that evolves.
         </p>
-
-        {/* Countdown Timer */}
         <div className="countdown">
           <div className="countdown-header">🔥 BETA PRICING ENDS IN</div>
           <div className="countdown-grid">
@@ -83,8 +81,6 @@ const Hero = () => {
             </div>
           </div>
         </div>
-
-        {/* Pricing Tiers - Trinity Plus Ecommerce */}
         <Typography
           variant="h5"
           align="center"
@@ -126,8 +122,6 @@ const Hero = () => {
             <div className="tier-label">Standard</div>
           </div>
         </div>
-
-        {/* Pricing Tiers - Trinity Plus Ecommerce + Storefront */}
         <Typography
           variant="h5"
           align="center"
@@ -169,8 +163,6 @@ const Hero = () => {
             <div className="tier-label">Standard</div>
           </div>
         </div>
-
-        {/* Action Buttons */}
         <Box
           sx={{
             display: "flex",
@@ -191,10 +183,10 @@ const Hero = () => {
               borderRadius: "8px",
               transition: "transform 0.2s, box-shadow 0.2s",
               boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
-              "&:hover": {
-                transform: "scale(1.05)",
-                boxShadow: "0 6px 16px rgba(0, 0, 0, 0.3)",
-              },
+              // "&:hover": {
+              //   transform: "scale(1.05)",
+              //   boxShadow: "0 6px 16px rgba(0, 0, 0, 0.3)",
+              // },
             }}
           >
             Get Complete Trinity Plus Bundle
@@ -209,10 +201,10 @@ const Hero = () => {
               borderRadius: "8px",
               transition: "transform 0.2s, box-shadow 0.2s",
               boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
-              "&:hover": {
-                transform: "scale(1.05)",
-                boxShadow: "0 6px 16px rgba(0, 0, 0, 0.3)",
-              },
+              // "&:hover": {
+              //   transform: "scale(1.05)",
+              //   boxShadow: "0 6px 16px rgba(0, 0, 0, 0.3)",
+              // },
             }}
           >
             Explore Individual Systems

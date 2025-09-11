@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Typography, Paper, Container, Chip } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";

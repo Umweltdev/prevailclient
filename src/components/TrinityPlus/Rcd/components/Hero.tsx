@@ -85,7 +85,6 @@ export default function Hero() {
                 onClick={() => navigate("/trinity/plus#wizard")}
                 size="lg"
               >
-                {/* See Your Loyalty Map */}
                 Get Beta Bundle
               </Button>
               <Button
@@ -93,7 +92,6 @@ export default function Hero() {
                 variant="secondary"
                 size="lg"
               >
-                {/* Calculate ROI */}
                 Book a Consultation
               </Button>
             </div>

@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet";
 import FooterNew from "../../Footer/FooterNew";
-//import AppBarOne from "../../Navbar/AppbarOne";
 import ElevateYourPresence from "./ElevateYourPresence";
 import Addressing from "./Addressing";
 import TailoredApproach from "./TailoredApproach";
@@ -11,7 +10,6 @@ import SmoothScrollUp from "../../utils/SmoothScrollUp";
 
 import StepWizard from "./Packages";
 
-//import MainPage from "./MainPage";
 
 const BrandIdentity = () => {
   return (
@@ -31,9 +29,7 @@ const BrandIdentity = () => {
         <PdfSection />
         <Addressing />
         <TailoredApproach />
-        
-         
-            <StepWizard/>
+        <StepWizard/>
         <SmoothScrollUp />
         <FooterNew />
       </div>

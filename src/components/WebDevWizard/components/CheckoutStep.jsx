@@ -39,7 +39,7 @@ const CheckoutStep = ({ formData, handleBack }) => {
   );
   const platformCost = formData.platform ? formData.platform.price : 0;
   const totalCost = solutionsCost + dashboardsCost + platformCost;
-  const CONSULTATION_FEE = 99;
+  const CONSULTATION_FEE = 83;
 
   const handlePayment = async (action) => {
     setIsProcessing(true);
