@@ -373,7 +373,7 @@ const FinalSummary = ({
                       alignItems="baseline"
                       mt={1}
                     >
-                      <Typography variant="h6">Discounted Price:</Typography>
+                      <Typography variant="h6">Deposit Price:</Typography>
                       <Typography variant="h5" fontWeight="bold" sx={gradientText}>
                         €{applyDiscount(tierSelection.price)}
                       </Typography>
@@ -387,8 +387,8 @@ const FinalSummary = ({
                       mt={1}
                     >
                       {tierSelection.price < 1000
-                        ? "20% discount applied"
-                        : "50% discount applied"}
+                        ? "50% deposit applied"
+                        : "20% deposit applied"}
                     </Typography>
                   </>
                 )}

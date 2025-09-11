@@ -29,6 +29,7 @@ import PropTypes from "prop-types";
 import { ChevronRight, ChevronLeft, Check, RefreshCw } from "lucide-react";
 import { createCheckoutSession } from "../../stepWizard/api.js";
 import { loadStripe } from "@stripe/stripe-js";
+import { applyDiscount } from "../../user-dashboard/utils.js";
 
 const STRIPE_KEY = import.meta.env.VITE_STRIPE_PUBLIC_KEY || "";
 let stripePromise = null;
@@ -362,7 +363,25 @@ const FinalSummary = ({
                   <Typography variant="h5" fontWeight="bold" sx={gradientText}>
                     {priceDisplay}
                   </Typography>
+               
                 </Box>
+                <Box
+                  display="flex"
+                  justifyContent="space-between"
+                  alignItems="baseline"
+                >
+                  <Typography variant="h6">Deposit Price:</Typography>
+                  
+                  <Typography variant="h5" fontWeight="bold" sx={gradientText}>
+                  {applyDiscount(Number(priceDisplay.replace(/[^\d.]/g, '')))}
+                  </Typography>
+                
+                </Box>
+                <Typography variant="caption" color="success.main" display="block" textAlign="right" mt={1}>
+                    {(Number(priceDisplay.replace(/[^\d.]/g, ''))) < 1000
+                      ? "50% deposit applied"
+                      : "20% deposit applied"}
+                  </Typography>
               </Box>
 
               <Box mt={3} display="flex" flexDirection="column" gap={2}>
@@ -549,7 +568,7 @@ const Packages = () => {
         const checkoutData = {
           name,
           email,
-          price: priceValue,
+          price: applyDiscount(priceValue),
           serviceType: tierSelection?.id || "unknown",
           notes:
             `${additionalNotes || ""} | Selected Systems: ${selectedSystems || "None"} | Dashboards: ${
