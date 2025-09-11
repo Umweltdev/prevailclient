@@ -10,6 +10,7 @@ import {
   styled,
 } from "@mui/material";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { GradientText } from "./components/common/GradientText";
 import PricingTiers from "./components/sections/pricingTiers.jsx";
 
@@ -62,12 +63,7 @@ export const HeroSection = () => {
   const theme = useTheme();
 
   return (
-    <Box
-      sx={{
-        mt: 14,
-        textAlign: "center",
-      }}
-    >
+    <Box sx={{ mt: 14, textAlign: "center" }}>
       <GradientBackground>
         <Box
           className="orb"
@@ -130,6 +126,7 @@ export const HeroSection = () => {
             >
               Universal Outreach Hub
             </GradientText>
+
             <Typography
               variant="h5"
               sx={{
@@ -143,6 +140,7 @@ export const HeroSection = () => {
               The all-in-one marketing command center to elevate your outreach,
               automate campaigns, and maximize conversions.
             </Typography>
+
             <PricingTiers />
 
             <Stack
@@ -151,6 +149,8 @@ export const HeroSection = () => {
               sx={{ mt: { xs: 3, md: 5 } }}
             >
               <Button
+                component={Link}
+                to="/contact"
                 variant="contained"
                 size="large"
                 startIcon={<span>🚀</span>}
@@ -175,6 +175,8 @@ export const HeroSection = () => {
               </Button>
 
               <Button
+                component={Link}
+                to="/contact"
                 variant="outlined"
                 size="large"
                 startIcon={<span>👥</span>}
