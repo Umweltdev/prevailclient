@@ -32,7 +32,7 @@ const platformsData = [
   },
   {
     title: "Premium",
-    priceRange: "€1800 - €3000",
+    priceRange: "€2200 - €3000",
     price: 2400,
     features: [
       "Everything in Full System",

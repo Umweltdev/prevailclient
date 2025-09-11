@@ -14,7 +14,7 @@ const systemsData = [
       "Emergency fund protection",
       "Automatic priority reshuffling",
     ],
-    price: { beta: 230, early: 576, standard: 1729 },
+    price: { beta: 696, early: 1728, standard: 5187 },
     color: "#3b82f6",
     colorDark: "#2563eb",
     route: "expense-manager", // Add this property
@@ -31,7 +31,7 @@ const systemsData = [
       "Automatic profit protection",
       "Platform cost tracking",
     ],
-    price: { beta: 230, early: 576, standard: 1729 },
+    price: { beta: 696, early: 1728, standard: 5187 },
     color: "#8b5cf6",
     colorDark: "#7c3aed",
     route: "mcd", // Add this property
@@ -48,7 +48,7 @@ const systemsData = [
       "Personalized discount vectors",
       "Lifetime value optimization",
     ],
-    price: { beta: 230, early: 576, standard: 1729 },
+    price: { beta: 696, early: 1728, standard: 5187 },
     color: "#ec4899",
     colorDark: "#db2777",
     route: "rcd", // Add this property

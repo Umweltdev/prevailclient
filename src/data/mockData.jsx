@@ -165,5 +165,5 @@ export const dashboardsData = [
 export const platformsData = [
   { title: 'Foundation', priceRange: '€600 - €1000', price: 800, features: ['Professional Website', 'Mobile Responsive', 'Basic SEO', 'Contact Forms', 'Social Media Links'] },
   { title: 'Full System', priceRange: '€1200 - €2000', price: 1600, features: ['Everything in Foundation', 'Complete Ordering System', 'Customer Database', 'Email Automation', 'Payment Processing'] },
-  { title: 'Premium', priceRange: '€1800 - €3000', price: 2400, features: ['Everything in Full System', 'Advanced Analytics', 'Multi-location Support', 'API Access', 'AI Predictions'] },
+  { title: 'Premium', priceRange: '€2200 - €3000', price: 2400, features: ['Everything in Full System', 'Advanced Analytics', 'Multi-location Support', 'API Access', 'AI Predictions'] },
 ];
