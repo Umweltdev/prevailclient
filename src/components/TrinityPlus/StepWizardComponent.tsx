@@ -37,6 +37,7 @@ import {
 } from "lucide-react";
 import { loadStripe } from "@stripe/stripe-js";
 import { theme } from "../../theme.js";
+import { applyDiscount } from "../user-dashboard/utils.js";
 
 
 interface ImportMetaEnv {
@@ -1011,7 +1012,18 @@ const FinalSummary = ({
                 >
                   <Typography variant="h6">Total Price:</Typography>
                   <Typography variant="h5" fontWeight="bold" sx={gradientText}>
-                    €{finalPrice.toLocaleString()}
+                    €{applyDiscount(finalPrice).toLocaleString()}
+                  </Typography>
+                  <Typography
+                    variant="caption"
+                    color="success.main"
+                    display="block"
+                    textAlign="right"
+                    mt={1}
+                  >
+                    {finalPrice < 1000
+                      ? "50% deposit applied"
+                      : "20% deposit applied"}
                   </Typography>
                 </Box>
               </Box>
@@ -1276,7 +1288,7 @@ const StepWizard = () => {
     });
 
     const total = calculateRunningTotal();
-    const finalPrice = total;
+    const finalPrice = applyDiscount(total);
     const payload = { name, email, totalPrice: finalPrice, selectedServices };
 
     try {
@@ -1522,3 +1534,5 @@ const StepWizard = () => {
 };
 
 export default StepWizard;
+
+

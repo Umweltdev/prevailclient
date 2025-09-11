@@ -45,6 +45,7 @@ import {
   generateTargetAudience,
   generateCampaignDuration,
 } from "./api";
+import { applyDiscount } from "../user-dashboard/utils.js";
 
 const STRIPE_KEY = import.meta.env.VITE_STRIPE_PUBLIC_KEY || "";
 let stripePromise = null;
@@ -1601,7 +1602,7 @@ const StepWizard = () => {
         name,
         email,
         serviceType: mapToApiServiceType(solutionType, trinitySelectionId),
-        price: finalPrice,
+        price: applyDiscount(finalPrice),
         targetAudience: generateTargetAudience(selectedIndustry, selectedGoals),
         campaignDuration: generateCampaignDuration(
           solutionType,
@@ -1809,3 +1810,5 @@ const StepWizard = () => {
 };
 
 export default StepWizard;
+
+
