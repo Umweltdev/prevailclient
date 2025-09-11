@@ -23,10 +23,6 @@ import {
   ListItemText,
   Divider,
   Fade,
-  Paper,
-  Stack,
-  FormControlLabel,
-  Switch,
 } from "@mui/material";
 import {
   ChevronRight,
@@ -40,8 +36,6 @@ import {
   RefreshCw,
   TrendingUp,
   Target,
-  PackageCheck,
-  CalendarCheck,
 } from "lucide-react";
 import { loadStripe } from "@stripe/stripe-js";
 import { theme } from "./theme.js";
@@ -51,7 +45,6 @@ import {
   generateTargetAudience,
   generateCampaignDuration,
 } from "./api";
-import { applyDiscount } from "../user-dashboard/utils.js";
 
 const STRIPE_KEY = import.meta.env.VITE_STRIPE_PUBLIC_KEY || "";
 let stripePromise = null;
@@ -327,44 +320,6 @@ const gradientText = {
   WebkitBackgroundClip: "text",
   WebkitTextFillColor: "transparent",
   display: "inline-block",
-};
-
-const PriceRow = ({
-  label,
-  amount,
-  isTotal = false,
-  strikeThrough = false,
-}) => (
-  <Box
-    sx={{
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-    }}
-  >
-    <Typography
-      variant={isTotal ? "h6" : "body1"}
-      sx={{ fontWeight: isTotal ? "bold" : "regular" }}
-    >
-      {label}
-    </Typography>
-    <Typography
-      variant={isTotal ? "h6" : "body1"}
-      sx={{
-        fontWeight: isTotal ? "bold" : "medium",
-        color: strikeThrough ? "error.main" : "text.primary",
-        textDecoration: strikeThrough ? "line-through" : "none",
-      }}
-    >
-      {amount}
-    </Typography>
-  </Box>
-);
-PriceRow.propTypes = {
-  label: PropTypes.string.isRequired,
-  amount: PropTypes.string.isRequired,
-  isTotal: PropTypes.bool,
-  strikeThrough: PropTypes.bool,
 };
 
 const SelectableCard = ({ children, selected, ...props }) => (
@@ -1094,7 +1049,7 @@ StoreType.propTypes = {
 };
 const MemoizedStoreType = React.memo(StoreType);
 
-const PlatformTierStep = ({
+const PlatformTier = ({
   selectedTier,
   setSelectedTier,
   recommendations,
@@ -1175,14 +1130,14 @@ const PlatformTierStep = ({
     </Box>
   </Fade>
 );
-PlatformTierStep.propTypes = {
+PlatformTier.propTypes = {
   selectedTier: PropTypes.string,
   setSelectedTier: PropTypes.func.isRequired,
   recommendations: PropTypes.object.isRequired,
   nextStep: PropTypes.func.isRequired,
   prevStep: PropTypes.func.isRequired,
 };
-const MemoizedPlatformTierStep = React.memo(PlatformTierStep);
+const MemoizedPlatformTier = React.memo(PlatformTier);
 
 const FinalSummary = ({
   trinitySelectionId,
@@ -1203,12 +1158,9 @@ const FinalSummary = ({
   selectedDashboards,
   setSelectedDashboards,
   prevStep,
+  handleCheckout,
   isProcessing,
   calculateRunningTotal,
-  handlePayment,
-  processingAction,
-  includeConsultation,
-  setIncludeConsultation,
 }) => {
   const trinitySelection = ALL_TRINITY_OPTIONS.find(
     (opt) => opt.id === trinitySelectionId
@@ -1219,13 +1171,11 @@ const FinalSummary = ({
   const total = calculateRunningTotal();
   const isBundle = solutionType === "both" && trinitySelection && tierSelection;
   const finalPrice = isBundle ? Math.round(total * 0.9) : total;
-  const CONSULTATION_FEE = 99;
-  const stripeConfigured = Boolean(STRIPE_KEY && stripePromise);
 
   return (
     <Fade in timeout={500}>
-      <Grid container spacing={4} alignItems="flex-start">
-        <Grid item xs={12} lg={7}>
+      <Grid container spacing={4}>
+        <Grid item xs={12} lg={8}>
           <Chip
             label="Final Step: Review & Purchase"
             color="primary"
@@ -1312,173 +1262,133 @@ const FinalSummary = ({
             </CardContent>
           </Card>
         </Grid>
-
-        <Grid item xs={12} lg={5}>
-          <Paper
-            elevation={0}
-            sx={{
-              p: { xs: 3, md: 4 },
-              borderRadius: 3,
-              background: (theme) =>
-                `linear-gradient(145deg, ${theme.palette.grey[100]} 0%, #ffffff 100%)`,
-              boxShadow: "0 8px 32px 0 rgba(0,0,0,0.05)",
-              position: "sticky",
-              top: "24px",
-            }}
-          >
-            <Typography variant="h6" component="h3" gutterBottom>
-              Your Summary
-            </Typography>
-            <Divider sx={{ my: 2 }} />
-
-            <Stack spacing={1} sx={{ mb: 2 }}>
-              {industrySelection && (
-                <Box display="flex" justifyContent="space-between">
-                  <Typography variant="body2">Industry:</Typography>
-                  <Typography variant="body2" fontWeight="medium">
-                    {industrySelection.name}
-                  </Typography>
-                </Box>
-              )}
-              {trinitySelection && (
-                <Box display="flex" justifyContent="space-between">
-                  <Typography variant="body2">Trinity System:</Typography>
-                  <Typography variant="body2" fontWeight="medium">
-                    {trinitySelection.name}
-                  </Typography>
-                </Box>
-              )}
-              {tierSelection && (
-                <Box display="flex" justifyContent="space-between">
-                  <Typography variant="body2">Platform Tier:</Typography>
-                  <Typography variant="body2" fontWeight="medium">
-                    {tierSelection.name}
-                  </Typography>
-                </Box>
-              )}
-              {hasPhysicalStore &&
-                (trinitySelectionId === "trinity-plus" ||
-                  trinitySelectionId === "garo") && (
+        <Grid item xs={12} lg={4}>
+          <Card sx={{ position: "sticky", top: "24px" }}>
+            <CardContent sx={{ p: 3 }}>
+              <Typography variant="h6" component="h3" gutterBottom>
+                Your Summary
+              </Typography>
+              <Divider sx={{ my: 2 }} />
+              <Box display="flex" flexDirection="column" gap={1}>
+                {solutionType && (
                   <Box display="flex" justifyContent="space-between">
-                    <Typography variant="body2">Add-on:</Typography>
-                    <Typography variant="body2" fontWeight="medium">
-                      Physical Store Setup
+                    <Typography variant="subtitle2">Solution:</Typography>
+                    <Typography variant="subtitle1" textTransform="capitalize">
+                      {solutionType}
                     </Typography>
                   </Box>
                 )}
-              {isBundle && (
-                <Box display="flex" justifyContent="space-between">
-                  <Typography variant="body2" color="success.main">
-                    Bundle Discount:
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    fontWeight="medium"
-                    color="success.main"
-                  >
-                    -10%
+                {industrySelection && (
+                  <Box display="flex" justifyContent="space-between">
+                    <Typography variant="subtitle2">Industry:</Typography>
+                    <Typography variant="subtitle1">
+                      {industrySelection.name}
+                    </Typography>
+                  </Box>
+                )}
+                {trinitySelection && (
+                  <Box display="flex" justifyContent="space-between">
+                    <Typography variant="subtitle2">Trinity System:</Typography>
+                    <Typography variant="subtitle1">
+                      {trinitySelection.name}
+                    </Typography>
+                  </Box>
+                )}
+                {tierSelection && (
+                  <Box display="flex" justifyContent="space-between">
+                    <Typography variant="subtitle2">Platform Tier:</Typography>
+                    <Typography variant="subtitle1">
+                      {tierSelection.name}
+                    </Typography>
+                  </Box>
+                )}
+                {hasPhysicalStore &&
+                  (trinitySelectionId === "trinity-plus" ||
+                    trinitySelectionId === "garo") && (
+                    <Box display="flex" justifyContent="space-between">
+                      <Typography variant="subtitle2">Add-on:</Typography>
+                      <Typography variant="subtitle1">
+                        Physical Store Setup
+                      </Typography>
+                    </Box>
+                  )}
+                {isBundle && (
+                  <Box display="flex" justifyContent="space-between">
+                    <Typography variant="subtitle2" color="success.main">
+                      Bundle Discount:
+                    </Typography>
+                    <Typography variant="subtitle1" color="success.main">
+                      -10%
+                    </Typography>
+                  </Box>
+                )}
+              </Box>
+              <Box mt={3} pt={2} borderTop={1} borderColor="divider">
+                <Box
+                  display="flex"
+                  justifyContent="space-between"
+                  alignItems="baseline"
+                >
+                  <Typography variant="h6">Total Price:</Typography>
+                  <Typography variant="h5" fontWeight="bold" sx={gradientText}>
+                    €{finalPrice.toLocaleString()}
                   </Typography>
                 </Box>
-              )}
-            </Stack>
-            <Paper variant="outlined" sx={{ p: 2, borderRadius: 2, mb: 3 }}>
-              <Stack spacing={1.5}>
-                <PriceRow
-                  label="Project Subtotal"
-                  amount={`€${finalPrice.toLocaleString()}`}
-                />
-                <Fade in={includeConsultation} timeout={400}>
-                  <Stack spacing={1.5} sx={{ mt: 1.5 }}>
-                    <PriceRow
-                      label="Consultation Fee"
-                      amount={`+ €${CONSULTATION_FEE}`}
-                    />
-                    <PriceRow
-                      label="Instant Bonus"
-                      amount={`- €${CONSULTATION_FEE}`}
-                      strikeThrough={true}
-                    />
-                  </Stack>
-                </Fade>
-                <Divider sx={{ my: 1 }} />
-                <PriceRow
-                  label="Total to Pay"
-                  amount={`€${finalPrice.toLocaleString()}`}
-                  isTotal
-                />
-              </Stack>
-            </Paper>
-
-            {/* Actions */}
-            <FormControlLabel
-              control={
-                <Switch
-                  checked={includeConsultation}
-                  onChange={(e) => setIncludeConsultation(e.target.checked)}
-                  color="primary"
-                />
-              }
-              label={
-                <Typography variant="body1" sx={{ fontWeight: "medium" }}>
-                  Add FREE 1-on-1 Consultation
-                </Typography>
-              }
-              sx={{ mb: 3 }}
-            />
-
-            <Button
-              fullWidth
-              variant="contained"
-              size="large"
-              onClick={() => handlePayment("full")}
-              disabled={isProcessing || !name || !email || !stripeConfigured}
-              startIcon={
-                isProcessing && processingAction === "full" ? (
-                  <CircularProgress size={20} color="inherit" />
-                ) : (
-                  <PackageCheck size={20} />
-                )
-              }
-              sx={{ py: 1.5, textTransform: "none", fontSize: "1.1rem", mb: 2 }}
-            >
-              {isProcessing && processingAction === "full"
-                ? "Processing..."
-                : "Pay & Start Project"}
-            </Button>
-
-            <Divider sx={{ my: 2 }}>OR</Divider>
-
-            <Button
-              fullWidth
-              variant="text"
-              onClick={() => handlePayment("consultation")}
-              disabled={isProcessing || !name || !email || !stripeConfigured}
-              startIcon={
-                isProcessing && processingAction === "consultation" ? (
-                  <CircularProgress size={20} />
-                ) : (
-                  <CalendarCheck size={20} />
-                )
-              }
-            >
-              Just Book a Consultation (€{CONSULTATION_FEE})
-            </Button>
-          </Paper>
-          <Button
-            variant="outlined"
-            onClick={prevStep}
-            startIcon={<ChevronLeft />}
-            sx={{ mt: 2, width: "100%" }}
-          >
-            Back
-          </Button>
+              </Box>
+              <Box mt={3} display="flex" flexDirection="column" gap={2}>
+                <Button
+                  variant="contained"
+                  fullWidth
+                  onClick={handleCheckout}
+                  disabled={isProcessing || !name || !email}
+                  startIcon={
+                    isProcessing ? (
+                      <CircularProgress size={20} color="inherit" />
+                    ) : null
+                  }
+                >
+                  {isProcessing ? "Processing..." : "Proceed to Checkout"}
+                </Button>
+                <Button
+                  variant="outlined"
+                  fullWidth
+                  disabled
+                  onClick={() =>
+                    window.open(
+                      "https://calendly.com/your-consultation-link",
+                      "_blank"
+                    )
+                  }
+                  sx={{
+                    borderColor: "primary.main",
+                    color: "primary.main",
+                    "&:hover": {
+                      borderColor: "primary.dark",
+                      backgroundColor: "primary.main",
+                      color: "white",
+                    },
+                  }}
+                >
+                  Book a Consultation
+                </Button>
+                <Button
+                  variant="outlined"
+                  fullWidth
+                  onClick={prevStep}
+                  startIcon={<ChevronLeft />}
+                >
+                  Back
+                </Button>
+              </Box>
+            </CardContent>
+          </Card>
         </Grid>
       </Grid>
     </Fade>
   );
 };
-
 FinalSummary.propTypes = {
+  selectedGoals: PropTypes.array,
   trinitySelectionId: PropTypes.string,
   selectedTier: PropTypes.string,
   selectedIndustry: PropTypes.string,
@@ -1497,12 +1407,9 @@ FinalSummary.propTypes = {
   selectedDashboards: PropTypes.string,
   setSelectedDashboards: PropTypes.func,
   prevStep: PropTypes.func,
+  handleCheckout: PropTypes.func,
   isProcessing: PropTypes.bool,
   calculateRunningTotal: PropTypes.func,
-  handlePayment: PropTypes.func.isRequired,
-  processingAction: PropTypes.string,
-  includeConsultation: PropTypes.bool.isRequired,
-  setIncludeConsultation: PropTypes.func.isRequired,
 };
 const MemoizedFinalSummary = React.memo(FinalSummary);
 
@@ -1523,8 +1430,6 @@ const StepWizard = () => {
   const [selectedSystems, setSelectedSystems] = useState("");
   const [selectedDashboards, setSelectedDashboards] = useState("");
   const [aedUpsellChoice, setAEDUpsellChoice] = useState(null);
-  const [includeConsultation, setIncludeConsultation] = useState(false);
-  const [processingAction, setProcessingAction] = useState(null);
 
   useEffect(() => {
     const savedState = localStorage.getItem("quoteBuilderState");
@@ -1538,7 +1443,6 @@ const StepWizard = () => {
       setSelectedTier(parsedState.selectedTier || null);
       setHasPhysicalStore(parsedState.hasPhysicalStore || null);
       setAEDUpsellChoice(parsedState.aedUpsellChoice || null);
-      setIncludeConsultation(parsedState.includeConsultation || false);
     }
   }, []);
 
@@ -1552,7 +1456,6 @@ const StepWizard = () => {
       selectedTier,
       hasPhysicalStore,
       aedUpsellChoice,
-      includeConsultation,
     };
     localStorage.setItem("quoteBuilderState", JSON.stringify(stateToSave));
   }, [
@@ -1564,7 +1467,6 @@ const StepWizard = () => {
     selectedTier,
     hasPhysicalStore,
     aedUpsellChoice,
-    includeConsultation,
   ]);
 
   const calculateRunningTotal = useCallback(() => {
@@ -1662,7 +1564,6 @@ const StepWizard = () => {
     setSelectedSystems("");
     setSelectedDashboards("");
     setAEDUpsellChoice(null);
-    setIncludeConsultation(false);
     localStorage.removeItem("quoteBuilderState");
     showToastMessage("Selections have been reset.");
   }, [showToastMessage]);
@@ -1682,98 +1583,63 @@ const StepWizard = () => {
     return { trinityRec, tierRec };
   }, [selectedGoals, selectedIndustry]);
 
-  const handlePayment = useCallback(
-    async (action) => {
-      if (!name || !email) {
-        showToastMessage("Error: Please enter your name and email to proceed.");
-        return;
-      }
+  const handleCheckout = useCallback(async () => {
+    if (!name || !email) {
+      showToastMessage("Error: Please enter your name and email to proceed.");
+      return;
+    }
+    setIsProcessing(true);
+    try {
+      const total = calculateRunningTotal();
+      const isBundle =
+        solutionType === "both" &&
+        ALL_TRINITY_OPTIONS.find((opt) => opt.id === trinitySelectionId) &&
+        platformTiers.find((t) => t.id === selectedTier);
+      const finalPrice = isBundle ? Math.round(total * 0.9) : total;
 
-      const stripeConfigured = Boolean(STRIPE_KEY && stripePromise);
-      if (!stripeConfigured) {
-        showToastMessage("Error: Payment processing is not configured.");
-        return;
-      }
-
-      setIsProcessing(true);
-      setProcessingAction(action);
-
-      const CONSULTATION_FEE = 99;
-      let priceToCharge;
-      let serviceDescription;
-
-      if (action === "full") {
-        const total = calculateRunningTotal();
-        const isBundle =
-          solutionType === "both" &&
-          ALL_TRINITY_OPTIONS.find((opt) => opt.id === trinitySelectionId) &&
-          platformTiers.find((t) => t.id === selectedTier);
-        const basePrice = isBundle ? Math.round(total * 0.9) : total; 
-
-        priceToCharge = applyDiscount(basePrice);
-
-        serviceDescription = mapToApiServiceType(
+      const checkoutData = {
+        name,
+        email,
+        serviceType: mapToApiServiceType(solutionType, trinitySelectionId),
+        price: finalPrice,
+        targetAudience: generateTargetAudience(selectedIndustry, selectedGoals),
+        campaignDuration: generateCampaignDuration(
           solutionType,
           trinitySelectionId
-        );
-      } else {
-        priceToCharge = CONSULTATION_FEE;
-        serviceDescription = "consultation_booking";
-      }
+        ),
+        notes:
+          `${additionalNotes || ""} | Systems: ${selectedSystems || "None"} | Dashboards: ${selectedDashboards || "None"} | Keywords: ${keywords || "None"} | Solution: ${solutionType} | Trinity: ${trinitySelectionId || "None"} | Tier: ${selectedTier || "None"} | Physical Store: ${hasPhysicalStore ? "Yes" : "No"}`.trim(),
+      };
 
-      try {
-        const checkoutData = {
-          name,
-          email,
-          price: priceToCharge,
-          serviceType: serviceDescription,
-          targetAudience: generateTargetAudience(
-            selectedIndustry,
-            selectedGoals
-          ),
-          campaignDuration: generateCampaignDuration(
-            solutionType,
-            trinitySelectionId
-          ),
-          notes:
-            action === "full"
-              ? `Full purchase. ${includeConsultation ? "Free consultation included." : ""} | Notes: ${additionalNotes || ""} | Systems: ${selectedSystems || "None"} | Dashboards: ${selectedDashboards || "None"} | Keywords: ${keywords || "None"} | Solution: ${solutionType} | Trinity: ${trinitySelectionId || "None"} | Tier: ${selectedTier || "None"} | Physical Store: ${hasPhysicalStore ? "Yes" : "No"}`.trim()
-              : `Consultation booking. Customer interested in ${solutionType || "general services"}.`,
-        };
-
-        const session = await createCheckoutSession(checkoutData);
-        const stripe = await stripePromise;
-        if (!stripe) throw new Error("Stripe.js has not loaded yet.");
-        const { error } = await stripe.redirectToCheckout({
-          sessionId: session.id,
-        });
-        if (error) throw new Error(error.message);
-      } catch (error) {
-        console.error("Checkout error:", error);
-        showToastMessage(`Error: ${error.message || "Unknown error occurred"}`);
-      } finally {
-        setIsProcessing(false);
-        setProcessingAction(null);
-      }
-    },
-    [
-      name,
-      email,
-      solutionType,
-      trinitySelectionId,
-      selectedTier,
-      selectedIndustry,
-      selectedGoals,
-      hasPhysicalStore,
-      additionalNotes,
-      keywords,
-      selectedSystems,
-      selectedDashboards,
-      calculateRunningTotal,
-      showToastMessage,
-      includeConsultation,
-    ]
-  );
+      const session = await createCheckoutSession(checkoutData);
+      const stripe = await stripePromise;
+      if (!stripe) throw new Error("Stripe.js has not loaded yet.");
+      const { error } = await stripe.redirectToCheckout({
+        sessionId: session.id,
+      });
+      if (error) throw new Error(error.message);
+    } catch (error) {
+      console.error("Checkout error:", error);
+      showToastMessage(`Error: ${error.message || "Unknown error occurred"}`);
+    } finally {
+      setIsProcessing(false);
+    }
+  }, [
+    name,
+    email,
+    solutionType,
+    trinitySelectionId,
+    selectedTier,
+    selectedIndustry,
+    selectedGoals,
+    hasPhysicalStore,
+    additionalNotes,
+    keywords,
+    selectedSystems,
+    selectedDashboards,
+    calculateRunningTotal,
+    showToastMessage,
+  ]);
 
   const renderStepContent = () => {
     const steps = getSteps();
@@ -1801,7 +1667,6 @@ const StepWizard = () => {
       setEmail,
       additionalNotes,
       setAdditionalNotes,
-
       keywords,
       setKeywords,
       selectedSystems,
@@ -1809,13 +1674,10 @@ const StepWizard = () => {
       selectedDashboards,
       setSelectedDashboards,
       isProcessing,
+      handleCheckout,
       calculateRunningTotal,
       nextStep,
       prevStep,
-      handlePayment,
-      processingAction,
-      includeConsultation,
-      setIncludeConsultation,
     };
 
     if (isReviewStep && solutionType) {
@@ -1835,7 +1697,7 @@ const StepWizard = () => {
             return trinitySelectionId === "trinity-plus" ||
               trinitySelectionId === "garo" ? (
               <MemoizedStoreType {...stepProps} />
-            ) : null;
+            ) : null; // Conditional render
           default:
             return null;
         }
@@ -1848,7 +1710,7 @@ const StepWizard = () => {
           case 3:
             return <MemoizedGoalsStep {...stepProps} />;
           case 4:
-            return <MemoizedPlatformTierStep {...stepProps} />;
+            return <MemoizedPlatformTier {...stepProps} />;
           default:
             return null;
         }
@@ -1861,7 +1723,7 @@ const StepWizard = () => {
           case 3:
             return <MemoizedTrinityPackages {...stepProps} />;
           case 4:
-            return <MemoizedPlatformTierStep {...stepProps} />;
+            return <MemoizedPlatformTier {...stepProps} />;
           default:
             return null;
         }
@@ -1883,7 +1745,7 @@ const StepWizard = () => {
         }}
       >
         <Container
-          maxWidth="xl"
+          maxWidth="lg"
           sx={{ py: { xs: 6, md: 8 }, pt: { xs: 20, md: 22 } }}
         >
           <Box textAlign="center" mb={{ xs: 6, md: 8 }}>

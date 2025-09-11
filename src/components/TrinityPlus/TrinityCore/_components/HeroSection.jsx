@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
 
 export default function HeroSection() {
   const navigate = useNavigate();
-  // Countdown state
+
   const [timeLeft, setTimeLeft] = useState({
     days: 10,
     hours: 0,
@@ -14,18 +14,32 @@ export default function HeroSection() {
     seconds: 0,
   });
   const [pricingMessage, setPricingMessage] = useState(null);
+  const [countdownActive, setCountdownActive] = useState(false);
 
-  // Set beta end date
-  const betaEndDate = new Date();
-  betaEndDate.setDate(betaEndDate.getDate() + 10);
+  const countdownStart = useMemo(() => {
+    return new Date(Date.UTC(2025, 8, 11, 11, 0, 0));
+  }, []);
 
-  // Countdown logic
+  const countdownEnd = useMemo(() => {
+    const end = new Date(countdownStart);
+    end.setUTCDate(end.getUTCDate() + 10);
+    return end;
+  }, [countdownStart]);
+
   useEffect(() => {
     const interval = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = betaEndDate.getTime() - now;
+      const now = new Date();
 
-      if (distance < 0) {
+      if (now < countdownStart) {
+        setCountdownActive(false);
+        return;
+      }
+
+      setCountdownActive(true);
+
+      const distance = countdownEnd.getTime() - now.getTime();
+
+      if (distance <= 0) {
         setPricingMessage("EARLY ADOPTER PRICING NOW ACTIVE - €500 per system");
         clearInterval(interval);
         return;
@@ -42,71 +56,7 @@ export default function HeroSection() {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
-
-  // Smooth scroll
-  // const scrollToSection = (sectionId) => {
-  //   const section = document.getElementById(sectionId);
-  //   if (section) section.scrollIntoView({ behavior: "smooth", block: "start" });
-  // };
-
-  // Purchase handler
-  const purchase = (type) => {
-    let message = "";
-
-    switch (type) {
-      case "expense":
-        message =
-          "💰 Trinity Expense Manager - BETA PRICE: €200\n\n" +
-          "You're getting:\n" +
-          "• Complete expense management system\n" +
-          "• 7 intelligent allocation rules\n" +
-          "• Emergency fund protection\n" +
-          "• Full source code\n\n" +
-          "Price after beta: €500 (early) → €1,500 (standard)\n" +
-          "You save: €696 beta!";
-        break;
-      case "mcd":
-        message =
-          "📈 MCD System - BETA PRICE: €200\n\n" +
-          "Marketing Cost Displacement includes:\n" +
-          "• Automatic price optimization\n" +
-          "• Marketing cost coverage\n" +
-          "• Profit protection algorithms\n" +
-          "• Full source code\n\n" +
-          "Price after beta: €500 (early) → €1,500 (standard)\n" +
-          "You save: €1,300!";
-        break;
-      case "rcd":
-        message =
-          "🎯 RCD System - BETA PRICE: €200\n\n" +
-          "Returning Customer Discount includes:\n" +
-          "• Automatic loyalty tracking\n" +
-          "• Viral referral networks\n" +
-          "• Customer lifetime optimization\n" +
-          "• Full source code\n\n" +
-          "Price after beta: €500 (early) → €1,500 (standard)\n" +
-          "You save: € 1,696!";
-        break;
-      case "bundle":
-        message =
-          "🎯 COMPLETE TRINITY SYSTEM - BETA PRICE: €600\n\n" +
-          "You're getting ALL THREE systems:\n\n" +
-          "✓ Trinity Expense Manager\n" +
-          "✓ MCD System\n" +
-          "✓ RCD System\n" +
-          "✓ Full integration support\n\n" +
-          "Beta price: €600 (next 10 days)\n" +
-          "Early adopter: €1,500 (next 3 months)\n" +
-          "Standard price: €4,500\n\n" +
-          "YOU SAVE €3,900!";
-        break;
-      default:
-        message = "System not found!";
-    }
-
-    alert(message + "\n\n[Checkout process would begin here]");
-  };
+  }, [countdownStart, countdownEnd]);
 
   const handleScroll = () => {
     const target = document.querySelector("#wizard");
@@ -117,19 +67,18 @@ export default function HeroSection() {
 
   return (
     <section
-      style={{
-        background: "transparent",
-        border: "none",
-        boxShadow: "none",
-      }}
-      className="hero section-alt  "
+      style={{ background: "transparent", border: "none", boxShadow: "none" }}
+      className="hero section-alt"
     >
       <div className="hero-content container">
-        {/* Pricing Alert */}
         <div className="pricing-alert">
           {pricingMessage ? (
             <div style={{ color: "#f59e0b", fontWeight: 600 }}>
               {pricingMessage}
+            </div>
+          ) : !countdownActive ? (
+            <div style={{ color: "#3b82f6", fontWeight: 600 }}>
+              ⏳ Countdown begins Sept 11, 2025 @ 12:00 PM (Ireland time)
             </div>
           ) : (
             <>
@@ -183,18 +132,40 @@ export default function HeroSection() {
           Each powerful alone. Exponentially stronger together.
         </p>
 
-        {/* Pricing Tiers */}
         <div className="pricing-tiers" id="pricing">
           <h3 style={{ marginBottom: "1rem" }}>Time-Limited Pricing</h3>
           <div className="tier-grid">
             <div
-              className="tier-card active cursor-pointer"
-              onClick={() => navigate("/trinity/plus#wizard")}
+              className={`tier-card ${
+                countdownActive && !pricingMessage
+                  ? "active cursor-pointer"
+                  : ""
+              }`}
+              onClick={() =>
+                countdownActive && !pricingMessage
+                  ? navigate("/trinity/plus#wizard")
+                  : undefined
+              }
+              style={{
+                cursor:
+                  countdownActive && !pricingMessage
+                    ? "pointer"
+                    : "not-allowed",
+                pointerEvents:
+                  countdownActive && !pricingMessage ? "auto" : "none",
+              }}
             >
-              <div className="tier-badge">ACTIVE NOW</div>
+              <div className="tier-badge">
+                {countdownActive && !pricingMessage
+                  ? "ACTIVE NOW"
+                  : "COMING SOON"}
+              </div>
               <div className="tier-name">Beta Access</div>
               <div className="tier-price"> €690</div>
-              <div className="tier-duration">Per system • 10 days left</div>
+              <div className="tier-duration">
+                Per system •{" "}
+                {countdownActive ? "10 days left" : "Starts Sept 11"}
+              </div>
             </div>
             <div
               className="tier-card"
@@ -215,16 +186,21 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Buttons */}
         <div className="hero-buttons">
           <button
             className="btn btn-warning"
             onClick={() => navigate("/trinity/plus#wizard")}
-            style={{ animation: "pulse 2s infinite" }}
+            style={{
+              animation: "pulse 2s infinite",
+              cursor:
+                countdownActive && !pricingMessage ? "pointer" : "not-allowed",
+              pointerEvents:
+                countdownActive && !pricingMessage ? "auto" : "none",
+            }}
           >
             Get All 3 Trinity Core - €690 (Beta)
           </button>
-          <button className="btn btn-secondary" onClick={() => handleScroll()}>
+          <button className="btn btn-secondary" onClick={handleScroll}>
             Explore Individual Systems
           </button>
         </div>
@@ -249,11 +225,11 @@ export default function HeroSection() {
           }}
         >
           <Typography
-            variant="caption" // smaller text
-            sx={{ color: "text.primary", fontWeight: 400, fontSize: "0.7rem" }} // adjust as needed
+            variant="caption"
+            sx={{ color: "text.primary", fontWeight: 400, fontSize: "0.7rem" }}
           >
             🎉 Lock in the beta price by booking a consultation during launch
-            week — 3 days before beta ends
+            week 3 days before beta ends
           </Typography>
         </Box>
       </div>
