@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import { motion } from "framer-motion";
 import { GradientText } from "./components/common/GradientText";
+import PricingTiers from "./components/sections/pricingTiers.jsx";
 
 const MotionBox = motion(Box);
 
@@ -142,6 +143,7 @@ export const HeroSection = () => {
               The all-in-one marketing command center to elevate your outreach,
               automate campaigns, and maximize conversions.
             </Typography>
+            <PricingTiers />
 
             <Stack
               direction={{ xs: "column", sm: "row" }}
