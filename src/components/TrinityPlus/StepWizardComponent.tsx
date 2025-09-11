@@ -1274,10 +1274,6 @@ const StepWizard = () => {
       if (selection) {
         let price = selection.betaPrice;
 
-        if (hasPhysicalStore && (id === "trinity-plus" || id === "garo")) {
-          price += STORE_SETUP_FEE;
-        }
-
         selectedServices.push({
           serviceType: id,
           price: price,
@@ -1286,6 +1282,18 @@ const StepWizard = () => {
         });
       }
     });
+
+     if (
+       hasPhysicalStore &&
+       (trinitySelections.includes("trinity-plus") ||
+         trinitySelections.includes("garo"))
+     ) {
+       selectedServices.push({
+         serviceType: "store_setup",
+         price: STORE_SETUP_FEE,
+         description: "Square setup & training for physical stores",
+       });
+     }
 
     const total = calculateRunningTotal();
     const finalPrice = applyDiscount(total);
