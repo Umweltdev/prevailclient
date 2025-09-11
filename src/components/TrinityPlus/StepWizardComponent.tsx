@@ -145,8 +145,14 @@ const ALL_TRINITY_OPTIONS = [
     earlyPrice: 1728,
     standardPrice: 5187,
     includes: ["💰 Expense Manager", "📈 MCD System", "🎯 RCD System"],
-    savings: "Save €3,900 vs standard pricing",
+    savings: "Save €5,187 vs standard pricing",
     baseRecommended: true,
+    features: [
+      "4+ platform integration",
+      "Real-time budget reallocation",
+      "Machine learning optimization",
+      "30% cost reduction average",
+    ],
   },
   {
     id: "trinity-plus",
@@ -282,8 +288,9 @@ const SolutionChoice = ({
       setTrinitySelections([]);
       setCurrentStep(2);
     } else if (solution.id === "trinity-core") {
+      // For Trinity Core, pre-select it and go to the packages step
       setTrinitySelections(["trinity-core"]);
-      setCurrentStep(4);
+      setCurrentStep(2);
     } else if (solution.id === "trinity-plus") {
       setTrinitySelections(["trinity-plus"]);
       setCurrentStep(3);
@@ -357,9 +364,14 @@ const TrinityPackages = ({
   setTrinitySelections,
   prevStep,
   setCurrentStep,
+  solutionType,
 }) => {
   const individualOptions = ALL_TRINITY_OPTIONS.filter(
     (opt) => opt.type === "individual"
+  );
+
+  const packageOptions = ALL_TRINITY_OPTIONS.filter(
+    (opt) => opt.type === "package"
   );
 
   const handleSelection = (optionId) => {
@@ -367,12 +379,29 @@ const TrinityPackages = ({
       if (prev.includes(optionId)) {
         return prev.filter((id) => id !== optionId);
       } else {
-        return [...prev, optionId];
+        // For packages, clear other selections and only select this package
+        if (
+          ALL_TRINITY_OPTIONS.find((opt) => opt.id === optionId)?.type ===
+          "package"
+        ) {
+          return [optionId];
+        } else {
+          // For individual options, clear any package selections
+          const filtered = prev.filter(
+            (id) =>
+              ALL_TRINITY_OPTIONS.find((opt) => opt.id === id)?.type !==
+              "package"
+          );
+          return [...filtered, optionId];
+        }
       }
     });
   };
 
   const hasGaro = trinitySelections.includes("garo");
+  const hasPackage = trinitySelections.some(
+    (id) => ALL_TRINITY_OPTIONS.find((opt) => opt.id === id)?.type === "package"
+  );
 
   return (
     <Fade in timeout={500}>
@@ -390,91 +419,225 @@ const TrinityPackages = ({
           </Box>
         </Typography>
         <Typography variant="body1" sx={{ mb: 2 }}>
-          Select individual systems. Beta pricing ends in {betaDaysRemaining}{" "}
-          days!
+          {solutionType === "trinity"
+            ? "Select individual systems. Beta pricing ends in " +
+              betaDaysRemaining +
+              " days!"
+            : "Select a package. Beta pricing ends in " +
+              betaDaysRemaining +
+              " days!"}
         </Typography>
         <Chip
           label={`🔥 BETA PRICING: ${betaDaysRemaining} Days Remaining`}
           color="error"
           sx={{ mb: 4, color: "white", bgcolor: "#D92D20" }}
         />
-        <Grid container spacing={3} sx={{ mb: 4 }}>
-          {individualOptions.map((option) => (
-            <Grid item xs={12} lg={6} key={option.id}>
-              <SelectableCard
-                selected={trinitySelections.includes(option.id)}
-                onClick={() => handleSelection(option.id)}
-              >
-                <Box
-                  sx={{ display: "flex", justifyContent: "flex-end", mb: 1 }}
-                >
-                  {trinitySelections.includes(option.id) && (
-                    <Check size={20} color={theme.palette.success.main} />
-                  )}
-                </Box>
 
-                <Grid container spacing={2}>
-                  <Grid item xs={2} sm={1}>
-                    <Typography variant="h4">{option.icon}</Typography>
-                  </Grid>
-                  <Grid item xs={10} sm={11}>
-                    <Box
-                      display="flex"
-                      justifyContent="space-between"
-                      alignItems="flex-start"
-                      flexWrap="wrap"
+        {/* Show Package Options only for Trinity Core and Trinity Plus */}
+        {(solutionType === "trinity-core" ||
+          solutionType === "trinity-plus") && (
+          <>
+            <Typography variant="h4" sx={{ mb: 3 }}>
+              Package Deals
+            </Typography>
+            <Grid container spacing={3} sx={{ mb: 4 }}>
+              {packageOptions
+                .filter(
+                  (option) =>
+                    (solutionType === "trinity-core" &&
+                      option.id === "trinity-core") ||
+                    (solutionType === "trinity-plus" &&
+                      option.id === "trinity-plus")
+                )
+                .map((option) => (
+                  <Grid item xs={12} key={option.id}>
+                    <SelectableCard
+                      selected={trinitySelections.includes(option.id)}
+                      onClick={() => handleSelection(option.id)}
                     >
-                      <Box>
-                        <Typography variant="h6" component="h3">
-                          {option.name}
-                        </Typography>
-                        <Typography variant="body1" sx={{ mt: 1 }}>
-                          {option.description}
-                        </Typography>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          justifyContent: "flex-end",
+                          mb: 1,
+                        }}
+                      >
+                        {trinitySelections.includes(option.id) && (
+                          <Check size={20} color={theme.palette.success.main} />
+                        )}
                       </Box>
-                      <Box textAlign="right" ml={2} mt={{ xs: 1, sm: 0 }}>
-                        <Typography
-                          variant="h5"
-                          color="#B42318"
-                          fontWeight="bold"
-                        >
-                          €{option.betaPrice.toLocaleString()}
-                        </Typography>
-                        <Typography
-                          variant="body2"
-                          sx={{ textDecoration: "line-through" }}
-                          color="text.secondary"
-                        >
-                          €{option.standardPrice.toLocaleString()}
-                        </Typography>
-                      </Box>
-                    </Box>
-                    {option.features && (
-                      <List dense sx={{ mt: 2 }}>
-                        {option.features.map((feature) => (
-                          <ListItem key={feature} disableGutters>
-                            <ListItemIcon sx={{ minWidth: 24 }}>
-                              <Check
-                                size={16}
-                                color={theme.palette.success.main}
-                              />
-                            </ListItemIcon>
-                            <ListItemText primary={feature} />
-                          </ListItem>
-                        ))}
-                      </List>
-                    )}
-                    {option.note && (
-                      <Alert severity="warning" sx={{ mt: 2 }}>
-                        {option.note}
-                      </Alert>
-                    )}
+
+                      <Grid container spacing={2}>
+                        <Grid item xs={2} sm={1}>
+                          <Typography variant="h4">{option.icon}</Typography>
+                        </Grid>
+                        <Grid item xs={10} sm={11}>
+                          <Box
+                            display="flex"
+                            justifyContent="space-between"
+                            alignItems="flex-start"
+                            flexWrap="wrap"
+                          >
+                            <Box>
+                              <Typography variant="h6" component="h3">
+                                {option.name}
+                              </Typography>
+                              <Typography variant="body1" sx={{ mt: 1 }}>
+                                {option.description}
+                              </Typography>
+                              {option.includes && (
+                                <Typography
+                                  variant="body2"
+                                  sx={{ mt: 1, color: "text.secondary" }}
+                                >
+                                  Includes: {option.includes.join(", ")}
+                                </Typography>
+                              )}
+                              {option.savings && (
+                                <Chip
+                                  label={option.savings}
+                                  color="success"
+                                  size="small"
+                                  sx={{ mt: 1 }}
+                                />
+                              )}
+                            </Box>
+                            <Box textAlign="right" ml={2} mt={{ xs: 1, sm: 0 }}>
+                              <Typography
+                                variant="h5"
+                                color="#B42318"
+                                fontWeight="bold"
+                              >
+                                €{option.betaPrice.toLocaleString()}
+                              </Typography>
+                              <Typography
+                                variant="body2"
+                                sx={{ textDecoration: "line-through" }}
+                                color="text.secondary"
+                              >
+                                €{option.standardPrice.toLocaleString()}
+                              </Typography>
+                            </Box>
+                          </Box>
+                          {option.features && (
+                            <List dense sx={{ mt: 2 }}>
+                              {option.features.map((feature) => (
+                                <ListItem key={feature} disableGutters>
+                                  <ListItemIcon sx={{ minWidth: 24 }}>
+                                    <Check
+                                      size={16}
+                                      color={theme.palette.success.main}
+                                    />
+                                  </ListItemIcon>
+                                  <ListItemText primary={feature} />
+                                </ListItem>
+                              ))}
+                            </List>
+                          )}
+                          {option.note && (
+                            <Alert severity="warning" sx={{ mt: 2 }}>
+                              {option.note}
+                            </Alert>
+                          )}
+                        </Grid>
+                      </Grid>
+                    </SelectableCard>
                   </Grid>
-                </Grid>
-              </SelectableCard>
+                ))}
             </Grid>
-          ))}
-        </Grid>
+          </>
+        )}
+
+        {/* Show Individual Options only for Trinity Standalone Modules */}
+        {solutionType === "trinity" && (
+          <>
+            <Typography variant="h4" sx={{ mb: 3 }}>
+              Individual Systems
+            </Typography>
+            <Grid container spacing={3} sx={{ mb: 4 }}>
+              {individualOptions.map((option) => (
+                <Grid item xs={12} lg={6} key={option.id}>
+                  <SelectableCard
+                    selected={trinitySelections.includes(option.id)}
+                    onClick={() => handleSelection(option.id)}
+                  >
+                    <Box
+                      sx={{
+                        display: "flex",
+                        justifyContent: "flex-end",
+                        mb: 1,
+                      }}
+                    >
+                      {trinitySelections.includes(option.id) && (
+                        <Check size={20} color={theme.palette.success.main} />
+                      )}
+                    </Box>
+
+                    <Grid container spacing={2}>
+                      <Grid item xs={2} sm={1}>
+                        <Typography variant="h4">{option.icon}</Typography>
+                      </Grid>
+                      <Grid item xs={10} sm={11}>
+                        <Box
+                          display="flex"
+                          justifyContent="space-between"
+                          alignItems="flex-start"
+                          flexWrap="wrap"
+                        >
+                          <Box>
+                            <Typography variant="h6" component="h3">
+                              {option.name}
+                            </Typography>
+                            <Typography variant="body1" sx={{ mt: 1 }}>
+                              {option.description}
+                            </Typography>
+                          </Box>
+                          <Box textAlign="right" ml={2} mt={{ xs: 1, sm: 0 }}>
+                            <Typography
+                              variant="h5"
+                              color="#B42318"
+                              fontWeight="bold"
+                            >
+                              €{option.betaPrice.toLocaleString()}
+                            </Typography>
+                            <Typography
+                              variant="body2"
+                              sx={{ textDecoration: "line-through" }}
+                              color="text.secondary"
+                            >
+                              €{option.standardPrice.toLocaleString()}
+                            </Typography>
+                          </Box>
+                        </Box>
+                        {option.features && (
+                          <List dense sx={{ mt: 2 }}>
+                            {option.features.map((feature) => (
+                              <ListItem key={feature} disableGutters>
+                                <ListItemIcon sx={{ minWidth: 24 }}>
+                                  <Check
+                                    size={16}
+                                    color={theme.palette.success.main}
+                                  />
+                                </ListItemIcon>
+                                <ListItemText primary={feature} />
+                              </ListItem>
+                            ))}
+                          </List>
+                        )}
+                        {option.note && (
+                          <Alert severity="warning" sx={{ mt: 2 }}>
+                            {option.note}
+                          </Alert>
+                        )}
+                      </Grid>
+                    </Grid>
+                  </SelectableCard>
+                </Grid>
+              ))}
+            </Grid>
+          </>
+        )}
+
         <Box display="flex" gap={2}>
           <Button
             variant="outlined"
@@ -486,7 +649,10 @@ const TrinityPackages = ({
           <Button
             variant="contained"
             onClick={() => {
-              if (hasGaro) {
+              if (
+                trinitySelections.includes("garo") ||
+                trinitySelections.includes("trinity-plus")
+              ) {
                 setCurrentStep(3);
               } else {
                 setCurrentStep(4);
@@ -502,12 +668,14 @@ const TrinityPackages = ({
     </Fade>
   );
 };
+
 TrinityPackages.propTypes = {
   trinitySelections: PropTypes.array.isRequired,
   setTrinitySelections: PropTypes.func.isRequired,
   nextStep: PropTypes.func.isRequired,
   prevStep: PropTypes.func.isRequired,
   setCurrentStep: PropTypes.func.isRequired,
+  solutionType: PropTypes.string, // Add this line
 };
 const MemoizedTrinityPackages = React.memo(TrinityPackages);
 
@@ -1224,6 +1392,7 @@ const StepWizard = () => {
             nextStep={nextStep}
             prevStep={prevStep}
             setCurrentStep={setCurrentStep}
+            solutionType={solutionType} // Add this line
           />
         );
       case 3:
