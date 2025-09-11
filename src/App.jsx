@@ -166,11 +166,11 @@ function App() {
                 element={<EmpowerYourBussiness />}
               />
               <Route
-                path="/service/custom-ad-campaign"
+                path="/service/content-ad-campaign"
                 element={<AdCampaign />}
               />
               <Route
-                path="/service/custom-ad-campaign-2"
+                path="/service/content-ad-campaign-2"
                 element={<AdCampaign2 />}
               />
 
@@ -261,8 +261,8 @@ function App() {
                 }
               />
               <Route
-                path="/Services/custom-ad-campaign"
-                element={<Navigate to="/service/custom-ad-campaign" />}
+                path="/Services/content-ad-campaign"
+                element={<Navigate to="/service/content-ad-campaign" />}
               />
               <Route
                 path="/trinity/universal-outreach"
