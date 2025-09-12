@@ -39,7 +39,6 @@ const combineDateAndTimeToISO = (dateObj, timeStr) => {
   const d = new Date(dateObj);
   d.setHours(h, m, 0, 0);
 
-  // Convert to ISO using Dublin timezone
   const options = { timeZone: "Europe/Dublin" };
   const isoString = d.toLocaleString("sv-SE", options).replace(" ", "T") + "Z";
   return new Date(isoString).toISOString();
@@ -58,7 +57,6 @@ const Booking = ({ onBookingConfirmed = () => {} }) => {
   const [isBooking, setIsBooking] = useState(false);
   const timeSlotRef = useRef(null);
 
-  // Fetch availability for selected date
   useEffect(() => {
     const fetchAvailability = async () => {
       if (!selectedDate) return;
@@ -184,11 +182,12 @@ const Booking = ({ onBookingConfirmed = () => {} }) => {
       <ThemeProvider theme={theme}>
         <Box
           sx={{
-            minHeight: "100vh",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            p: 2,
+            px: 2,
+            py: 6,
+            mt:6,
             background: theme.palette.background.default,
           }}
         >
@@ -226,15 +225,15 @@ const Booking = ({ onBookingConfirmed = () => {} }) => {
               color="text.secondary"
               fontSize={{ xs: "0.9rem", sm: "1rem" }}
             >
-              Your consultation for{" "}
+              Your consultation for
               <Typography component="span" fontWeight="bold">
                 {name}
-              </Typography>{" "}
-              is scheduled for{" "}
+              </Typography>
+              is scheduled for
               <Typography component="span" fontWeight="bold">
                 {selectedDate?.toLocaleDateString("en-IE")}
-              </Typography>{" "}
-              at{" "}
+              </Typography>
+              at
               <Typography component="span" fontWeight="bold">
                 {selectedTimeIso ? isoToLocalDisplay(selectedTimeIso) : ""}
               </Typography>
@@ -245,7 +244,7 @@ const Booking = ({ onBookingConfirmed = () => {} }) => {
               mt={1}
               fontSize={{ xs: "0.85rem", sm: "1rem" }}
             >
-              A Google Meet invitation has been sent to{" "}
+              A Google Meet invitation has been sent to
               <Typography component="span" fontWeight="bold">
                 {email}
               </Typography>
@@ -265,7 +264,9 @@ const Booking = ({ onBookingConfirmed = () => {} }) => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          p: { xs: 2, sm: 3, md: 5 },
+          px: { xs: 2, sm: 3 },
+          py: 6,
+          mt:8,
           background: theme.palette.background.default,
         }}
       >
@@ -276,7 +277,7 @@ const Booking = ({ onBookingConfirmed = () => {} }) => {
             align="center"
             fontWeight="bold"
             gutterBottom
-            fontSize={{ xs: "1.5rem", sm: "2rem", md: "2.5rem" }}
+            fontSize={{ xs: "2rem", sm: "2.5rem", md: "3rem" }}
           >
             Schedule Your Consultation
           </Typography>

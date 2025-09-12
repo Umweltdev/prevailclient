@@ -120,7 +120,7 @@ const CalendarComponent = ({
 
   return (
     <Paper
-      elevation={4}
+      elevation={10}
       sx={{
         p: 3,
         width: "100%",
