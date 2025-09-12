@@ -2451,10 +2451,40 @@ const FinalSummary = ({
                   direction="row"
                   justifyContent="space-between"
                   alignItems="center"
-                  mb={3}
+                  mb={2}
+                >
+                  <Typography variant="body1" fontWeight={700}>
+                    Total Price:
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    fontWeight={800}
+                    strikeThrough
+                    // sx={{
+                    //   background:
+                    //     "linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #EC4899 100%)",
+                    //   WebkitBackgroundClip: "text",
+                    //   WebkitTextFillColor: "transparent",
+                    //   backgroundClip: "text",
+            
+                    // }}
+                    sx={{
+                      color: "primary.main",
+                      textDecoration: "line-through",
+                    }}
+                    
+                  >
+                    €{total.toLocaleString()}
+                  </Typography>
+                </Stack>
+                <Stack
+                  direction="row"
+                  justifyContent="space-between"
+                  alignItems="center"
+                  mb={2}
                 >
                   <Typography variant="h5" fontWeight={700}>
-                    Total Price:
+                    Deposit Price:
                   </Typography>
                   <Typography
                     variant="h4"
@@ -2467,10 +2497,20 @@ const FinalSummary = ({
                       backgroundClip: "text",
                     }}
                   >
-                    €{total.toLocaleString()}
+                    €{applyDiscount(total).toLocaleString()}
                   </Typography>
                 </Stack>
-
+                <Typography
+                  variant="caption"
+                  color="success.main"
+                  display="block"
+                  textAlign="right"
+                  mb={2}
+                >
+                  {total < 1000
+                    ? "50% deposit applied"
+                    : "20% deposit applied"}
+                </Typography>
                 <Stack spacing={2}>
                   <Button
                     variant="contained"
@@ -2743,8 +2783,10 @@ const MultiStepForm = () => {
 
     try {
       const total = calculateTotal();
-      
+      console.log("total", total);
       const depositPrice = applyDiscount(total);
+
+      console.log("depositPrice", depositPrice);
 
       const checkoutData = {
         name,
