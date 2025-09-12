@@ -57,6 +57,7 @@ import {
   generateTargetAudience,
   generateCampaignDuration,
 } from "./components/api.js";
+import { applyDiscount } from "../../user-dashboard/utils.js";
 
 const STRIPE_KEY = import.meta.env.VITE_STRIPE_PUBLIC_KEY || "";
 let stripePromise = null;
@@ -2119,17 +2120,6 @@ StoreTypeSelection.propTypes = {
   nextStep: PropTypes.func.isRequired,
   prevStep: PropTypes.func.isRequired,
 };
-
-const applyDiscount = (price) => {
-  if (price >= 1000) {
-    return price * 0.8;
-  }
-  if (price > 0) {
-    return price * 0.5;
-  }
-  return 0;
-};
-
 const FinalSummary = ({
   selectedServices,
   selectedIndustry,
@@ -2194,7 +2184,7 @@ const FinalSummary = ({
         price += trinity.betaPrice;
       }
     }
-
+ 
     if (serviceId === "complete-platform" && selection?.tier) {
       const tier = PLATFORM_TIERS.find((t) => t.id === selection.tier);
       if (tier) {
