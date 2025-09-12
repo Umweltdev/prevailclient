@@ -57,6 +57,7 @@ import {
   generateTargetAudience,
   generateCampaignDuration,
 } from "./components/api.js";
+import { applyDiscount } from "../../user-dashboard/utils.js";
 
 const STRIPE_KEY = import.meta.env.VITE_STRIPE_PUBLIC_KEY || "";
 let stripePromise = null;
@@ -2118,16 +2119,6 @@ StoreTypeSelection.propTypes = {
   setHasPhysicalStore: PropTypes.func.isRequired,
   nextStep: PropTypes.func.isRequired,
   prevStep: PropTypes.func.isRequired,
-};
-
-const applyDiscount = (price) => {
-  if (price >= 1000) {
-    return price * 0.8;
-  }
-  if (price > 0) {
-    return price * 0.5;
-  }
-  return 0;
 };
 
 const FinalSummary = ({
