@@ -64,7 +64,10 @@ const TimeSlotComponent = ({
       <Typography
         variant="h6"
         mb={1}
-        fontSize={{ xs: "1.1rem", sm: "1.25rem" }}
+        fontSize={{
+          xs: "1.1rem",
+          sm: "1.25rem"
+        }}
       >
         Select a Time
       </Typography>
@@ -72,7 +75,10 @@ const TimeSlotComponent = ({
         variant="body2"
         color="text.secondary"
         mb={2}
-        fontSize={{ xs: "0.85rem", sm: "0.95rem" }}
+        fontSize={{
+          xs: "0.85rem",
+          sm: "0.95rem"
+        }}
       >
         Timezone: {timeZone}
       </Typography>
@@ -90,7 +96,13 @@ const TimeSlotComponent = ({
           No available slots for this date.
         </Typography>
       ) : (
-        <Box sx={{ maxHeight: { xs: 300, sm: 450 }, overflowY: "auto", pr: 1 }}>
+          <Box sx={{
+            maxHeight: {
+              xs: 300,
+              sm: 450
+            },
+            overflowY: "auto", pr: 1
+          }}>
           <Grid container spacing={1.2}>
             {slotsNormalized.map((slot) => (
               <Grid item xs={12} sm={6} key={slot.iso || slot.time}>
@@ -105,7 +117,10 @@ const TimeSlotComponent = ({
                     borderRadius: "8px",
                     textTransform: "none",
                     py: { xs: 1.5, sm: 1 },
-                    fontSize: { xs: "0.95rem", sm: "0.9rem" },
+                    fontSize: {
+                      xs: "0.95rem",
+                      sm: "0.9rem"
+                    },
                   }}
                 >
                   {slot.time}
@@ -126,7 +141,10 @@ const TimeSlotComponent = ({
           mt: 2,
           borderRadius: "8px",
           py: { xs: 1.4, sm: 1.1 },
-          fontSize: { xs: "1rem", sm: "0.95rem" },
+          fontSize: {
+            xs: "1rem",
+            sm: "0.95rem"
+          },
         }}
       >
         Next Step

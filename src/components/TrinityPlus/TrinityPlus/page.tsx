@@ -21,7 +21,7 @@ import {
 import { Star } from "lucide-react";
 import { gsap } from "gsap";
 import CountUp from "react-countup";
-import Tilt from "react-parallax-tilt"; // For 3D tilt effect
+import Tilt from "react-parallax-tilt";
 
 import { NavBar } from "./components/ui/nav-bar.js";
 import AppBarNav from "../../Navbar/Appbar.jsx";
@@ -34,7 +34,6 @@ import TrinityStepWizard from "../StepWizardPage.js";
 import { useLocation } from "react-router-dom";
 import StepWizard from "../StepWizardComponent.js";
 import FooterNew from "../../Footer/FooterNew.jsx";
-// import "./globals.css";
 
 const TrinityPlusPage = () => {
   const [activeTab, setActiveTab] = useState("restaurants");
@@ -52,7 +51,6 @@ const TrinityPlusPage = () => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
 
-    // Animate stats
     const interval = setInterval(() => {
       setAnimatedStats((prev) => ({
         waste: Math.min(prev.waste + 1, 30),
@@ -186,42 +184,17 @@ const TrinityPlusPage = () => {
           }
         }
       `}</style>
-      {/* Navigation */}
       <AppBarNav color="#000" />
-      {/* <NavBar /> */}
-
       <div className="relative bg-gradient-to-b from-gray-50 to-indigo-10">
-        {/* Blobs behind hero */}
-        {/* <FloatingElements /> */}
-
-        {/* Page Sections */}
         <Hero />
         <SystemsSection />
         <StatsSection />
         <CTASection />
         <div id="wizard">
-          <StepWizard />
+        <StepWizard />
         </div>
-
         <FooterNew />
-        {/* <FeatureSection />
-
-        <IndustrySection />
-
-        <HowGaroWorksSection />
-
-        <PricingSection /> */}
       </div>
-
-      {/* Industry Solutions */}
-
-      {/* Features Grid */}
-
-      {/* Pricing Section - NEW (AFTER) */}
-
-      {/* FAQ Section */}
-
-      {/* Final CTA */}
     </div>
   );
 };
