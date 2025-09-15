@@ -30,7 +30,6 @@ const MainPage = () => {
           flexDirection: "column",
           gap: "24px",
           textAlign: "center",
-          width: "600px",
           margin: "0 auto",
           "@media (max-width: 767px)": {
             width: "90vw",
@@ -40,7 +39,8 @@ const MainPage = () => {
       >
         <Typography
           className={`${styles.aboutUsSection} ${inView ? styles.visible : ""}`}
-          sx={{ color: "#6E3EF4", fontSize: "24px", fontWeight: "400;" }}
+
+          sx={{ color: "#6E3EF4", fontSize: "48px", fontWeight: "400" }}
         >
           Services
         </Typography>
@@ -51,7 +51,7 @@ const MainPage = () => {
         </Typography>
         <Typography
           sx={{
-            fontSize: "18px;",
+            fontSize: "18px",
             fontWeight: "400",
             color: "505660",
             gap: "44px",
