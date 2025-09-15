@@ -98,7 +98,7 @@ const platformTiers = [
       "Brand personality overview",
       "Printing guide",
       "Digital asset guide",
-      "1-hour consultation meeting", // This is the removable item
+      "1-hour consultation meeting",
     ],
   },
 ];
