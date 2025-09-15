@@ -3,7 +3,7 @@ import ImageTextService from "./ImageTextService";
 import TextImageService from "./TextImageService";
 import { useInView } from "react-intersection-observer";
 import styles from "../About/assets/about.module.css";
-import CostCalculation from "./CostCalculation/CostCalculation.jsx";
+import StepWizard from "../stepWizard/StepWizard.jsx";
 
 const MainPage = () => {
   const { ref, inView } = useInView({
@@ -39,6 +39,7 @@ const MainPage = () => {
       >
         <Typography
           className={`${styles.aboutUsSection} ${inView ? styles.visible : ""}`}
+
           sx={{ color: "#6E3EF4", fontSize: "48px", fontWeight: "400" }}
         >
           Services
@@ -96,13 +97,13 @@ const MainPage = () => {
           text="Discover the power of bespoke web solutions with Prevail and elevate your brand to new heights in the digital landscape. Transform, engage, and succeed effortlessly."
           url="/service/website-development"
         />
-        
+
         <ImageTextService
           imageUrl="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720088563/Marketing-Price-Displacement_omscxs.avif"
           alt="Content Ad Campaign"
           textHeader={"Content Ad Campaign"}
           text="Drive customer engagement with tailored content-driven ad campaigns. We craft compelling stories and visuals that resonate with your audience, helping your brand stand out while maximizing ad performance and ROI."
-          url="/service/content-ad-campaign"
+          url="/service/custom-ad-campaign"
         />
         <TextImageService
           imageUrl="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720088562/Digital-Accelerator_p0j4ty.avif"
@@ -111,7 +112,7 @@ const MainPage = () => {
           text="Our “Digital Accelerator” bundle integrate cutting-edge website design, bespoke brand identity, and strategic SEO services to boost visibility engage customers, and enhance your digital footprint."
           url="/service/digital-accelerator-bundle"
         />
-        <CostCalculation/>
+        <StepWizard />
       </Box>
     </Grid>
   );
