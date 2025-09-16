@@ -8,7 +8,7 @@ import CostCalculation from "./CostCalculation/CostCalculation/CostCalculation";
 const MainPage = () => {
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0,
   });
 
   return (
@@ -19,7 +19,7 @@ const MainPage = () => {
         pt: "176px",
         background: "linear-gradient(135deg, #d1c4e9, #ffffff, #bbdefb)",
         "@media (max-width: 767px)": {
-          pt: "168px",
+          pt: "130px",
         },
       }}
     >
@@ -33,7 +33,7 @@ const MainPage = () => {
           margin: "0 auto",
           "@media (max-width: 767px)": {
             width: "100vw",
-            height: "unset",
+            // height: "unset",
           },
         }}
       >
@@ -44,7 +44,12 @@ const MainPage = () => {
           Services
         </Typography>
         <Typography
-          sx={{ color: "#1D0D40", fontSize: "38px", fontWeight: 500 }}
+          sx={{
+            color: "#1D0D40",
+            fontSize: "38px",
+            fontWeight: 500,
+            padding: 4,
+          }}
         >
           The Ultimate products we serve
         </Typography>
@@ -64,14 +69,14 @@ const MainPage = () => {
         </Typography>
       </Box>
       <Box
-      sx={{
-        padding: "80px 0",
-        display: "flex",
-        flexDirection: "column",
-        "@media (max-width: 600px)": {
-          padding: "131px 0",
-        },
-      }}
+        sx={{
+          padding: "80px 0",
+          display: "flex",
+          flexDirection: "column",
+          "@media (max-width: 600px)": {
+            padding: "50px 0",
+          },
+        }}
       >
         <ImageTextService
           imageUrl="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720088563/Branding_trrcgh.avif"
