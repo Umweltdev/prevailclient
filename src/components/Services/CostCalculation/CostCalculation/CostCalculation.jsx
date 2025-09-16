@@ -2,9 +2,6 @@ import { Helmet } from "react-helmet";
 import AppBarNav from "../../../Navbar/Appbar.jsx";
 import MultiStepForm from "./MultiStepForm.jsx";
 import SmoothScrollUp from "../../../utils/SmoothScrollUp.jsx";
-import FooterNew from "../../../Footer/FooterNew.jsx";
-
-
 
 const CostCalculation = () => {
   return (
@@ -20,7 +17,6 @@ const CostCalculation = () => {
         <AppBarNav color="#000" />
         <MultiStepForm/>
         <SmoothScrollUp />
-        <FooterNew />
       </div>
     </div>
   );
