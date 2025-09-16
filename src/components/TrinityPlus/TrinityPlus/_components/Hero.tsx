@@ -1,21 +1,55 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
 
 const Hero = () => {
   const navigate = useNavigate();
-  const scrollToSection = (id) => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+
+  // Function to calculate the time left
+  const calculateTimeLeft = () => {
+    const countDownDate = new Date("2025-09-22T12:00:00+01:00").getTime();
+    const now = new Date().getTime();
+    const difference = countDownDate - now;
+
+    // --- FIX IS HERE ---
+    // If the countdown is still active, return the calculated time.
+    if (difference > 0) {
+      return {
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / 1000 / 60) % 60),
+        seconds: Math.floor((difference / 1000) % 60),
+      };
     }
+
+    // Otherwise, return an object with all values set to 0.
+    // This ensures the object always has the same "shape".
+    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
   };
+
+  // State to store the time left
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
+  useEffect(() => {
+    // Set up a timer to update the countdown every second
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+
+    // Clean up the timer when the component is unmounted
+    return () => clearInterval(timer);
+  }, []);
 
   const handleScroll = () => {
     const target = document.querySelector("#wizard");
     if (target) {
       target.scrollIntoView({ behavior: "smooth", block: "start" });
     }
+  };
+
+  // Helper function to add a leading zero if the number is less than 10
+  const formatTime = (time) => {
+    return time < 10 ? `0${time}` : time;
   };
 
   return (
@@ -57,25 +91,25 @@ const Hero = () => {
           <div className="countdown-grid">
             <div className="countdown-item">
               <div className="countdown-value" id="days">
-                10
+                {formatTime(timeLeft.days)}
               </div>
               <div className="countdown-label">Days</div>
             </div>
             <div className="countdown-item">
               <div className="countdown-value" id="hours">
-                00
+                {formatTime(timeLeft.hours)}
               </div>
               <div className="countdown-label">Hours</div>
             </div>
             <div className="countdown-item">
               <div className="countdown-value" id="minutes">
-                00
+                {formatTime(timeLeft.minutes)}
               </div>
               <div className="countdown-label">Minutes</div>
             </div>
             <div className="countdown-item">
               <div className="countdown-value" id="seconds">
-                00
+                {formatTime(timeLeft.seconds)}
               </div>
               <div className="countdown-label">Seconds</div>
             </div>
@@ -105,7 +139,11 @@ const Hero = () => {
             onClick={() => navigate("/trinity/plus#wizard")}
           >
             <div className="tier-price">€1,150</div>
-            <div className="tier-label">Beta (10 days)</div>
+            <div className="tier-label">
+              Beta (
+              {timeLeft.days > 0 ? `${timeLeft.days} days left` : "Ending Soon"}
+              )
+            </div>
           </div>
           <div
             className="tier"
@@ -146,7 +184,11 @@ const Hero = () => {
             onClick={() => navigate("/trinity/plus#wizard")}
           >
             <div className="tier-price">€2,994</div>
-            <div className="tier-label">Beta (10 days)</div>
+            <div className="tier-label">
+              Beta (
+              {timeLeft.days > 0 ? `${timeLeft.days} days left` : "Ending Soon"}
+              )
+            </div>
           </div>
           <div
             className="tier"
@@ -183,10 +225,6 @@ const Hero = () => {
               borderRadius: "8px",
               transition: "transform 0.2s, box-shadow 0.2s",
               boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
-              // "&:hover": {
-              //   transform: "scale(1.05)",
-              //   boxShadow: "0 6px 16px rgba(0, 0, 0, 0.3)",
-              // },
             }}
           >
             Get Complete Trinity Plus Bundle
@@ -201,10 +239,6 @@ const Hero = () => {
               borderRadius: "8px",
               transition: "transform 0.2s, box-shadow 0.2s",
               boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
-              // "&:hover": {
-              //   transform: "scale(1.05)",
-              //   boxShadow: "0 6px 16px rgba(0, 0, 0, 0.3)",
-              // },
             }}
           >
             Explore Individual Systems

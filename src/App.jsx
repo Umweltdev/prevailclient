@@ -10,7 +10,6 @@ import NotFoundPage from "./components/utils/NotFoundPage";
 import { Box } from "@mui/material";
 import ConsentBar from "./components/Footer/ConsentBar";
 import CostCalculation from "./components/Services/CostCalculation/CostCalculation";
-import IndustryStep from "./components/Services/CostCalculation/steps/IndustryStep";
 import GoalsStep from "./components/Services/CostCalculation/steps/GoalsStep";
 import InvestmentStep from "./components/Services/CostCalculation/steps/InvestmentStep";
 import SpecializedStep from "./components/Services/CostCalculation/steps/SpecializedStep";
@@ -18,6 +17,7 @@ import UniversalStep from "./components/Services/CostCalculation/steps/Universal
 import GetStartedStep from "./components/Services/CostCalculation/steps/GetStartedStep";
 import BookingPage from "./pages/Booking.jsx";
 import StepWizardPage from "./pages/StepWizardPage.jsx";
+import { IndustrySelection } from "./components/Services/CostCalculation/steps/IndustrySelection.jsx";
 
 const Landing = React.lazy(() => import("./pages/Landing"));
 const About = React.lazy(() => import("./pages/About"));
@@ -119,7 +119,7 @@ function App() {
               <Route path="/contact-us" element={<Contact />} />
               <Route path="/blog/:index" element={<BlogDetails />} />
               <Route path="/service-landing-page" element={<Services />} />
-              <Route path="/step1" element={<IndustryStep />} />
+              <Route path="/step1" element={<IndustrySelection />} />
               <Route path="/step2" element={<GoalsStep />} />
               <Route path="/step3" element={<InvestmentStep />} />
               <Route path="/step4" element={<SpecializedStep />} />
