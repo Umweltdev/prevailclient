@@ -18,10 +18,10 @@ const CostCalculation = () => {
         <AppBarNav color="#000" />
         <MultiStepForm />
         <SmoothScrollUp />
-        <FooterNew />
       </div>
     </div>
   );
 };
 
 export default CostCalculation;
+
