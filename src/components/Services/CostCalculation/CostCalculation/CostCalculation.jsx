@@ -1,8 +1,9 @@
 import { Helmet } from "react-helmet";
-import AppBarNav from "../../Navbar/Appbar";
-import FooterNew from "../../Footer/FooterNew";
-import SmoothScrollUp from "../../utils/SmoothScrollUp";
-import MultiStepForm from "./MultiStepForm";
+import AppBarNav from "../../../Navbar/Appbar.jsx";
+import MultiStepForm from "./MultiStepForm.jsx";
+import SmoothScrollUp from "../../../utils/SmoothScrollUp.jsx";
+import FooterNew from "../../../Footer/FooterNew.jsx";
+
 
 
 const CostCalculation = () => {

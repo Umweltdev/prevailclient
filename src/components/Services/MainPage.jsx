@@ -3,7 +3,7 @@ import ImageTextService from "./ImageTextService";
 import TextImageService from "./TextImageService";
 import { useInView } from "react-intersection-observer";
 import styles from "../About/assets/about.module.css";
-import StepWizard from "../stepWizard/StepWizard.jsx";
+import CostCalculation from "./CostCalculation/CostCalculation/CostCalculation";
 
 const MainPage = () => {
   const { ref, inView } = useInView({
@@ -32,14 +32,13 @@ const MainPage = () => {
           textAlign: "center",
           margin: "0 auto",
           "@media (max-width: 767px)": {
-            width: "90vw",
+            width: "100vw",
             height: "unset",
           },
         }}
       >
         <Typography
           className={`${styles.aboutUsSection} ${inView ? styles.visible : ""}`}
-
           sx={{ color: "#6E3EF4", fontSize: "48px", fontWeight: "400" }}
         >
           Services
@@ -56,7 +55,7 @@ const MainPage = () => {
             color: "505660",
             gap: "44px",
             "@media (max-width: 600px)": {
-              width: "90vw",
+              width: "100vw",
             },
           }}
         >
@@ -65,16 +64,14 @@ const MainPage = () => {
         </Typography>
       </Box>
       <Box
-        sx={{
-          padding: "80px 0",
-          display: "flex",
-          flexDirection: "column",
-          gap: "44px",
-          "@media (max-width: 600px)": {
-            padding: "131px 0",
-            gap: "7vh",
-          },
-        }}
+      sx={{
+        padding: "80px 0",
+        display: "flex",
+        flexDirection: "column",
+        "@media (max-width: 600px)": {
+          padding: "131px 0",
+        },
+      }}
       >
         <ImageTextService
           imageUrl="https://res.cloudinary.com/dtzuqacg3/image/upload/v1720088563/Branding_trrcgh.avif"
@@ -112,8 +109,8 @@ const MainPage = () => {
           text="Our “Digital Accelerator” bundle integrate cutting-edge website design, bespoke brand identity, and strategic SEO services to boost visibility engage customers, and enhance your digital footprint."
           url="/service/digital-accelerator-bundle"
         />
-        <StepWizard />
       </Box>
+      <CostCalculation />
     </Grid>
   );
 };
